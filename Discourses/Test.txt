@@ -1,0 +1,9 @@
+> So, Cosmo.
+>> Where are you and your witch from?
+[ Salem, up north. (0, -60)[4, 8] | Zzyzx, to the west. (-90, -10)[9, 12] | Cottonwood, to the east. (70, -10)[13, 17]
+> They don't reall ylike witches and demons up there.
+> Our house almost got burned down.
+> Three times.
+> It's nice and cool, though.
+> There are lots of trees. It's really pretty.
+> TEST
