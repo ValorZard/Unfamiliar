@@ -1,11 +1,15 @@
 extends Polygon2D
 
+signal clicked
+
 const ColorsBlack := PoolColorArray([Color("#0c1323"), Color("#0c1323"), Color("#0c1323"), Color("#0c1323")])
 const ColorsWhite := PoolColorArray([Color("#2b4580"), Color("#2b4580"), Color("#2b4580"), Color("#2b4580")])
 const ColorsTransparent := PoolColorArray([Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 0)])
 const OutlineWidth: float = 1.5
 const Variance: int = 5
 const MoveLeniency = 30
+
+var index: int
 
 var target_line_start: int = -1
 var target_line_end: int = -1
@@ -15,6 +19,8 @@ var poly := PoolVector2Array()
 var poly_initial := PoolVector2Array()
 var active := false
 var hover := false
+
+var controller = null
 
 export(float) var hover_offset = 0
 export(float) var hover_alpha = 0
@@ -39,6 +45,13 @@ func _ready():
 	
 func _process(delta):
 	set_position((get_position() if not active else pos_start) + Vector2(idle_x, idle_y))
+	
+	if Input.is_action_just_pressed("sys_select") and active and hover:
+		#print("TEST")
+		controller.click_choice(index)
+		#$AnimationPlayer.play("Disappear2")
+		emit_signal("clicked")
+	
 	update()
 
 
@@ -50,16 +63,54 @@ func _draw():
 
 # =====================================================================
 
+func set_controller(controller):
+	self.controller = controller
+
+
 func setup_animation(end_pos: Vector2):
 	pos_start = end_pos
 	$AnimationPlayer.get_animation("Appear").track_insert_key(1, 0, Vector2(160, 90), 0.52)
 	$AnimationPlayer.get_animation("Appear").track_insert_key(1, 1, end_pos)
+	$AnimationPlayer.get_animation("Disappear").track_insert_key(1, 0, end_pos, 1.52)
+	$AnimationPlayer.get_animation("Disappear").track_insert_key(1, 1, Vector2(160, 90))
+	#$$AnimationPlayer.get_animation("Disappear").track_set_key_value(1, 0, end_pos);
+	#$AnimationPlayer.get_animation("Disappear").track_set_key_value(1, 1, Vector2(160, 90))
+	$AnimationPlayer.get_animation("Select").track_insert_key(1, 0, end_pos, 0.52)
+	$AnimationPlayer.get_animation("Select").track_insert_key(1, 1, Vector2(320, 180))
+	#$AnimationPlayer.get_animation("Select").track_set_key_value(1, 0, $Label.get_margin(MARGIN_LEFT))
+	#$AnimationPlayer.get_animation("Select").track_set_key_value(2, 0, $Label.get_margin(MARGIN_TOP))
 	$AnimationPlayer.add_animation("Appear2", $AnimationPlayer.get_animation("Appear").duplicate())
+	$AnimationPlayer.add_animation("Disappear2", $AnimationPlayer.get_animation("Disappear").duplicate())
+	$AnimationPlayer.add_animation("Select2", $AnimationPlayer.get_animation("Select").duplicate())
 	$AnimationPlayer.play("Appear2")
+	
+	
+func anim_selected():
+	$AnimationPlayer.play("Select2")
+	
+
+func anim_not_selected():
+	$AnimationPlayer.play("Disappear2")
+	
+	
+func get_index() -> int:
+	return index
+	
+
+func set_index(value: int):
+	index = value
 	
 
 func set_button_text(text: String):
 	$Label.set_text(text)
+	
+	
+func get_target_line_start() -> int:
+	return target_line_start
+	
+
+func get_target_line_end() -> int:
+	return target_line_end
 	
 	
 func set_target_lines(start: int, end: int):

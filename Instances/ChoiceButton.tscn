@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/ChoicePolygon.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=2]
@@ -30,24 +30,61 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Hover"
-length = 0.5
-step = 0.05
+[sub_resource type="Animation" id=5]
+resource_name = "Disappear"
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.15, 0.35, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.51572, 1 ),
 "update": 0,
-"values": [ 0.0, 25.0, -10.0, 0.0 ]
+"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.51572, 1 ),
+"update": 0,
+"values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=6]
+resource_name = "Select"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=2]
 resource_name = "Idle"
 length = 2.0
 loop = true
@@ -76,7 +113,7 @@ tracks/1/keys = {
 "values": [ -1.0, 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "Hover"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:hover_alpha")
@@ -103,7 +140,7 @@ tracks/1/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 55, 15 )
 
 [node name="ChoiceButton" type="Polygon2D"]
@@ -134,19 +171,20 @@ align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Appear = SubResource( 1 )
-anims/Hover = SubResource( 2 )
+anims/Disappear = SubResource( 5 )
+anims/Select = SubResource( 6 )
 
 [node name="AnimationPlayerIdle" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-anims/Idle = SubResource( 3 )
+anims/Idle = SubResource( 2 )
 
 [node name="AnimationPlayerHover" type="AnimationPlayer" parent="."]
-anims/Hover = SubResource( 4 )
+anims/Hover = SubResource( 3 )
 
 [node name="AreaHover" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaHover"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="mouse_entered" from="AreaHover" to="." method="_on_AreaHover_mouse_entered"]
 [connection signal="mouse_exited" from="AreaHover" to="." method="_on_AreaHover_mouse_exited"]
