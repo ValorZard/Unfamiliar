@@ -1,0 +1,64 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/Discourse.gd" type="Script" id=1]
+[ext_resource path="res://Instances/TextDisplay.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Audio/Music/419802__sirkoto51__anime-encounter-loop-3.wav" type="AudioStream" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Fadein"
+tracks/0/type = "value"
+tracks/0/path = NodePath("FadeBase/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Movein"
+
+[sub_resource type="Animation" id=3]
+resource_name = "Movein"
+length = 1.25
+
+[node name="Discourse" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+color = Color( 0.0470588, 0.0745098, 0.137255, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TextDisplay" parent="." instance=ExtResource( 2 )]
+
+[node name="FadeBase" type="Node2D" parent="."]
+z_index = 1500
+
+[node name="Fade" type="ColorRect" parent="FadeBase"]
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+color = Color( 1, 1, 1, 0 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Fadein"
+anims/Fadein = SubResource( 1 )
+
+[node name="AnimationPlayerLeftChar" type="AnimationPlayer" parent="."]
+anims/Movein = SubResource( 2 )
+
+[node name="AnimationPlayerRightChar" type="AnimationPlayer" parent="."]
+anims/Movein = SubResource( 3 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+autoplay = true

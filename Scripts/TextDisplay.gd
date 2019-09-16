@@ -22,12 +22,16 @@ var buffer := false
 var t: float = 0
 var pause := false
 
+var box_visible := true
+
 enum Modifier {Normal, Red, Green, Blue, Yellow, Shake, Wave}
 
 # =====================================================================
 
 func _ready():
-	pass
+	$Box.hide()
+	$Namebox.hide()
+	box_visible = false
 	
 	
 func _process(delta):
@@ -76,36 +80,55 @@ func _draw():
 			
 					i += 1
 				_:
-					match mod:
-						Modifier.Normal:
-							char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line)), text[i], "", Color(1, 1, 1, 1))
-						Modifier.Red:
-							char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line)), text[i], "", Color(1, 0, 0, 1))
-						Modifier.Blue:
-							char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line)), text[i], "", Color(0, 1, 1, 1))
-						Modifier.Green:
-							char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line)), text[i], "", Color(0.5, 1, 0, 1))
-						Modifier.Yellow:
-							char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line)), text[i], "", Color(1, 0.8, 0, 1))
-						Modifier.Shake:
-							char_spacing += draw_char(font, Vector2(XStart + char_spacing + rand_range(-1, 1), YStart + (LineSpacing * line) + rand_range(-1, 1)), text[i], "", Color(1, 1, 1, 1))
-						Modifier.Wave:
-							var s: float = 2.0 * t + i * 3.0;
-							var shift: float = sin(s * PI * (1.0 / 60.0)) * 3.0
-							char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line) + shift), text[i], "", Color(1, 1, 1, 1))
-						_:
-							char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line)), text[i], "", Color(1, 1, 1, 1))
+					if box_visible:
+						match mod:
+							Modifier.Normal:
+								char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line)), text[i], "", Color(1, 1, 1, 1))
+							Modifier.Red:
+								char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line)), text[i], "", Color(1, 0, 0, 1))
+							Modifier.Blue:
+								char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line)), text[i], "", Color(0, 1, 1, 1))
+							Modifier.Green:
+								char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line)), text[i], "", Color(0.5, 1, 0, 1))
+							Modifier.Yellow:
+								char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line)), text[i], "", Color(1, 0.8, 0, 1))
+							Modifier.Shake:
+								char_spacing += draw_char(font, Vector2(XStart + char_spacing + rand_range(-1, 1), YStart + (LineSpacing * line) + rand_range(-1, 1)), text[i], "", Color(1, 1, 1, 1))
+							Modifier.Wave:
+								var s: float = 2.0 * t + i * 3.0;
+								var shift: float = sin(s * PI * (1.0 / 60.0)) * 3.0
+								char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line) + shift), text[i], "", Color(1, 1, 1, 1))
+							_:
+								char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line)), text[i], "", Color(1, 1, 1, 1))
 							
 			i += 1
 			
 # =====================================================================
 
 func show_box():
-	pass
+	$Box.show()
+	$Namebox.show()
+	box_visible = true
 	
 
 func hide_box():
-	pass
+	$Box.hide()
+	$Namebox.hide()
+	box_visible = false
+	
+	
+func set_name_text(text: String):
+	$Namebox/NameText.set_text(text)
+	$Namebox.margin_right = $Namebox.margin_left + font.get_string_size(text).x + 7
+	
+	
+#func set_name_side(right: bool):
+	#if right:
+	#	$Namebox/NameText.set_align(Label.ALIGN_RIGHT)
+	#	$Namebox/NameText.margin_left = 244
+	#else:
+	#	$Namebox/NameText.set_align(Label.ALIGN_LEFT)
+	#	$Namebox/NameText.margin_left = 4
 	
 
 func display_text(text: String):
@@ -113,6 +136,7 @@ func display_text(text: String):
 	self.text = text
 	$TimerRollText.start()
 	roll = true
+	
 	
 func set_header_text(text: String):
 	$Header/HeaderText.set_text(text)

@@ -1,15 +1,115 @@
-> So, Cosmo.
+> All right! I'll show you how we#strike up a conversation back home!
+< Why are we doing this, again?
+> Because you're a $wdemon! $0How cool is#that?
+> I've never talked to a demon before,#and I want to learn more about you!
+@< whatnow
+< ...
+@< idle
+> Tell me a bit about yourself.
 >> Where are you and your witch from?
-[ 14 Salem, up north. (0, -60)[4, 9] | Zzyzx, to the west. (-90, -10)[10, 11] | Cottonwood, to the east. (70, -10)[12, 13]
-> Salem, up north.
-> They don't really like witches and demons up there.
-> Our house almost got burned down.
-# This line should be ignored
-> Three times.
-> It's nice and cool, though.
-> There are lots of trees. It's really pretty.
-> TEST
-> TEST 2
-> TEST 3
-> TEST 4
-> Back to main branch
+[ 30 Salem, up north. (0, -60)[4, 12] | Zzyzx, to the west. (-90, -10)[13, 24] | Cottonwood, to the east. (70, -10)[25, 29]
+< Salem, up north.
+< They don't really like witches and#demons up there.
+< Our house almost got burned down.
+< Three times.
+< It's nice and cool, though.
+< There are lots of trees. It's really#pretty.
+> Have you ever considered moving?
+< Not really. My witch has lived there#her whole life. It means too much to#her.
+> I see...
+< Zzyzx, to the west.
+> What a strange name!
+< Heh. Yeah.
+< It's a small town in the middle of the#desert.
+< The people there are pretty nice.
+< Although... $wweird $0people and#creatures pass through town#sometimes.
+< And it's $shot. $0In the 90s all the time.
+> What?!
+< Farenheit.
+> Oh. Right.
+> Don't demons like it to be hot, or#something?
+< I could take it or leave it.
+< Cottonwood, to the east.
+> Oh, that's pretty close!
+< Yeah. We actually visit Los Muertos#a lot.
+< Cottonwood is just so boring.
+< At least, I think so. I don't know if#my witch cares.
+<< Hey, Rhona...
+[ 63 Where are you from? (-20, -60)[32, 39] | Why are you visiting Los Muertos? (20, -10)[40, 50] | Where are your parents? (0, 40)[51, 62]
+< Where are you from?
+> I'm from Phoenix.
+< Wow, really? That's a big city.
+> Yep! I'm not sure how much I like it,#though.
+> People aren't too nice in that city.#Everyone's always irritated about#something.
+> I mean, it's pretty beautiful, but...#it also just $wfeels $0crummy.#I'm not sure why.
+> I think Los Muertos is a lot more fun.
+< I can see why!
+< Why are you visiting Los Muertos?
+> I come here every few months to visit#my grandpa.
+> He works here as a fletcher.#Ainsley's Fletching.
+< Oh, that place?
+< My witch and I always walk past it.
+< It's not like she buys arrows or#anything, but...
+< I always look through the windows.
+> Yeah. My grandpa is a wizard.
+< Really?
+> A wizard at interior decorating.
+< Ha!
+< Where are your parents?
+> They're not here. I usually come to#Los Muertos by myself.
+> My dad passed away a few years ago.
+< Oh...
+> And my mom...
+> She really doesn't like to see my#grandpa.
+> They disagree on a lot of things.
+< That must be hard...
+> Yeah.
+> She also just doesn't like Los#Muertos.
+> She says it's too... $wesoteric $0for her.
+< I guess that's understandable.
+> Hey, Cosmo.
+> You said you were a familiar, right?
+< Yeah.
+> What does that mean, exactly?
+@< whatnow
+< Well, uh...
+@< idle
+< My witch just... $wcreated $0me, because#she wanted a personal assistant.
+> I thought all demons were from the...#underworld, or something?
+< Not exactly. It's really complicated.
+> Oh. All right.
+>> So, what does your witch $wdo, $0exactly?
+[ 106 She teaches people magic. (-20, -60)[74, 85] | She makes and sells potions. (20, -10)[86, 95] | She writes books of hexes. (0, 40)[96, 105]
+< She teaches people magic.
+> Wait... you can just $wteach $0people#magic?
+> I thought you had to be born a witch,#or something.
+< Surprisingly noot. Anyone can#become a witch with enough#training.
+< Anyone human, that is.
+> Does she teach at a school?
+< Nope. She homeschools kids in our#town who want to learn magic.
+> And what about you? Has she taught#you magic?
+< Oh, there's no need for that.#I already know magic.
+> $wWOOW! $0That was cool!
+> Maybe I should become a witch.
+< Uh... might want to think about that#for a while.
+< She makes and sells potions.
+< Healing potions, enhancement#potions...
+> $wLove $0potions?
+< No. Those are only in movies.
+> Oh.
+> What does she make them with?
+< Uh... lots of weird ingredients I#don't know anything about.
+< I don't even know if she gets all her#ingredients legally.
+< ...Don't tell her I told you that.
+> My lips are sealed!
+< She writes books of hexes.
+< You can't cast a spell without#knowing how, after all.
+> So... books of magic words?
+< Not exactly. They're more like#pentagrams. Patterns you have to#know.
+> Do you... $wdraw $0them somewhere?
+< You can.
+< Or you can think about them $wreally#$0hard. It takes practice to do that,#though.
+> Interesting!
+> Is she a good writer?
+< Yeah. She has a real way with words.
+< TEST

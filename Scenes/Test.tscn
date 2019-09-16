@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scripts/Test.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/Discourse.gd" type="Script" id=1]
 [ext_resource path="res://Instances/DiscourseCharacter.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Fonts/ModernDOS9x16.ttf" type="DynamicFontData" id=3]
 
@@ -34,7 +34,6 @@ mouse_filter = 2
 color = Color( 0.0470588, 0.0745098, 0.137255, 1 )
 
 [node name="DiscourseCharacter" parent="." instance=ExtResource( 2 )]
-position = Vector2( 40, 181 )
 
 [node name="FlavorText" type="Label" parent="."]
 margin_left = 3.0

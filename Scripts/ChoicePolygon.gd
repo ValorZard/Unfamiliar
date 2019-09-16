@@ -19,8 +19,11 @@ var poly := PoolVector2Array()
 var poly_initial := PoolVector2Array()
 var active := false
 var hover := false
+var click := false
 
 var controller = null
+
+var text_controller = null
 
 export(float) var hover_offset = 0
 export(float) var hover_alpha = 0
@@ -44,12 +47,14 @@ func _ready():
 	
 	
 func _process(delta):
-	set_position((get_position() if not active else pos_start) + Vector2(idle_x, idle_y))
+	set_position((get_position() if not active and not click else pos_start) + Vector2(idle_x, idle_y))
 	
 	if Input.is_action_just_pressed("sys_select") and active and hover:
 		#print("TEST")
 		controller.click_choice(index)
+		text_controller.fade_screen(false)
 		#$AnimationPlayer.play("Disappear2")
+		click = true
 		emit_signal("clicked")
 	
 	update()
@@ -63,6 +68,10 @@ func _draw():
 
 # =====================================================================
 
+func set_text_controller(value):
+	self.text_controller = value
+
+
 func set_controller(controller):
 	self.controller = controller
 
@@ -75,8 +84,8 @@ func setup_animation(end_pos: Vector2):
 	$AnimationPlayer.get_animation("Disappear").track_insert_key(1, 1, Vector2(160, 90))
 	#$$AnimationPlayer.get_animation("Disappear").track_set_key_value(1, 0, end_pos);
 	#$AnimationPlayer.get_animation("Disappear").track_set_key_value(1, 1, Vector2(160, 90))
-	$AnimationPlayer.get_animation("Select").track_insert_key(1, 0, end_pos, 0.52)
-	$AnimationPlayer.get_animation("Select").track_insert_key(1, 1, Vector2(320, 180))
+	#$AnimationPlayer.get_animation("Select").track_insert_key(1, 0, end_pos, 0.52)
+	#$AnimationPlayer.get_animation("Select").track_insert_key(1, 1, Vector2(320, 180))
 	#$AnimationPlayer.get_animation("Select").track_set_key_value(1, 0, $Label.get_margin(MARGIN_LEFT))
 	#$AnimationPlayer.get_animation("Select").track_set_key_value(2, 0, $Label.get_margin(MARGIN_TOP))
 	$AnimationPlayer.add_animation("Appear2", $AnimationPlayer.get_animation("Appear").duplicate())
@@ -86,10 +95,12 @@ func setup_animation(end_pos: Vector2):
 	
 	
 func anim_selected():
+	active = false
 	$AnimationPlayer.play("Select2")
 	
 
 func anim_not_selected():
+	active = false
 	$AnimationPlayer.play("Disappear2")
 	
 	
@@ -122,9 +133,13 @@ func set_target_lines(start: int, end: int):
 func _on_AnimationPlayer_animation_finished(anim_name: String):
 	if anim_name == "Appear2":
 		active = true
+	
+	if anim_name == "Select2" or anim_name == "Disappear2":
+		queue_free()
 
 
 func _on_AreaHover_mouse_entered():
+	#print("ACTIVE IS" + str(active))
 	if active:
 		$AnimationPlayerHover.play("Hover")
 		hover = true

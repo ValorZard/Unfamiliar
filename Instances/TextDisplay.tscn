@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/TextDisplay.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Sprites/UI/Box.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/BoxNinePatch.png" type="Texture" id=4]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fadein"
@@ -77,16 +78,34 @@ position = Vector2( 160, 143 )
 z_index = -50
 texture = ExtResource( 3 )
 
-[node name="TimerRollText" type="Timer" parent="."]
-wait_time = 0.02
+[node name="Namebox" type="NinePatchRect" parent="."]
+margin_left = 36.0
+margin_top = 100.0
+margin_right = 110.0
+margin_bottom = 120.0
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 6, 6 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
 
-[node name="TimerSound" type="Timer" parent="."]
+[node name="NameText" type="Label" parent="Namebox"]
+margin_left = 4.0
+margin_top = 3.0
+margin_right = 35.0
+margin_bottom = 17.0
+custom_fonts/font = ExtResource( 2 )
+text = "Name"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Header" type="Node2D" parent="."]
 position = Vector2( 160, 20 )
@@ -112,4 +131,9 @@ anims/Fadeout = SubResource( 2 )
 [node name="AnimationPlayerHeader" type="AnimationPlayer" parent="."]
 anims/Fadein = SubResource( 3 )
 anims/Fadeout = SubResource( 4 )
+
+[node name="TimerRollText" type="Timer" parent="."]
+wait_time = 0.02
+
+[node name="TimerSound" type="Timer" parent="."]
 [connection signal="timeout" from="TimerRollText" to="." method="_on_TimerRollText_timeout"]
