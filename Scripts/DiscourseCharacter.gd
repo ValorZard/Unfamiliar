@@ -3,7 +3,7 @@ extends AnimatedSprite
 class_name DiscourseCharacter
 
 func _ready():
-	pass
+	$AnimationPlayer.seek(rand_range(0, 2.5))
 
 # =====================================================================
 

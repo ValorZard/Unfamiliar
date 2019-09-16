@@ -172,70 +172,77 @@ func load_file(path: String):
 
 
 func parse_discourse_command(command: String):
-	var text = line_regex.search(command).get_string(2)
-	match line_regex.search(command).get_string(1):
-		"<":
-			text_controller.set_name_text(name_left)
-			text_controller.set_name_side(false)
-			text_controller.show_box()
-			speaker_right = false
-			co_target = text_controller
-			co_signal = "text_ended_button"
-			text_controller.display_text(text)
-		">":
-			text_controller.set_name_text(name_right)
-			text_controller.set_name_side(true)
-			text_controller.show_box()
-			speaker_right = true
-			co_target = text_controller
-			co_signal = "text_ended_button"
-			text_controller.display_text(text)
-		"<<":
-			text_controller.set_name_text(name_left)
-			text_controller.set_name_side(false)
-			text_controller.show_box()
-			speaker_right = false
-			co_target = text_controller
-			co_signal = "text_ended"
-			text_controller.set_header_text(text)
-			text_controller.display_text(text)
-		">>":
-			text_controller.set_name_text(name_right)
-			text_controller.set_name_side(true)
-			text_controller.show_box()
-			speaker_right = true
-			co_target = text_controller
-			co_signal = "text_ended"
-			text_controller.set_header_text(text)
-			text_controller.display_text(text)
-		"|":
-			text_controller.hide_box()
-			co_target = get_tree().create_timer(float(text))
-			co_signal = "timeout"
-		"@<":
-			co_target = self
-			co_signal = "ignore_line"
-			character_left.set_sprite(text)
-			yield(get_tree().create_timer(0.02), "timeout")
-			emit_signal("ignore_line")
-		"@>":
-			co_target = self
-			co_signal = "ignore_line"
-			character_right.set_sprite(text)
-			yield(get_tree().create_timer(0.02), "timeout")
-			emit_signal("ignore_line")
-		"[":
-			co_target = self
-			co_signal = "choice_clicked"
-			response_end_total = int(choices_regex.search(text).get_string(1)) - 1
-			var buttons: PoolStringArray = choices_regex.search(text).get_string(2).split("|")
-			text_controller.fade_screen(true)
-			var i: int = 0
-			for but in buttons:
-				create_button(buttons_regex.search(but).get_string(1), Vector2(160 + int(buttons_regex.search(but).get_string(2)), 90 + int(buttons_regex.search(but).get_string(3))), i, int(buttons_regex.search(but).get_string(4)), int(buttons_regex.search(but).get_string(5)))
-				i += 1
-		_:
-			co_target = self
-			co_signal = "ignore_line"
-			yield(get_tree().create_timer(0.02), "timeout")
-			emit_signal("ignore_line")
+	var result = line_regex.search(command)
+	if result != null:
+		var text = result.get_string(2)
+		match line_regex.search(command).get_string(1):
+			"<":
+				text_controller.set_name_text(name_left)
+				#text_controller.set_name_side(false)
+				text_controller.show_box()
+				speaker_right = false
+				co_target = text_controller
+				co_signal = "text_ended_button"
+				text_controller.display_text(text)
+			">":
+				text_controller.set_name_text(name_right)
+				#text_controller.set_name_side(true)
+				text_controller.show_box()
+				speaker_right = true
+				co_target = text_controller
+				co_signal = "text_ended_button"
+				text_controller.display_text(text)
+			"<<":
+				text_controller.set_name_text(name_left)
+				#text_controller.set_name_side(false)
+				text_controller.show_box()
+				speaker_right = false
+				co_target = text_controller
+				co_signal = "text_ended"
+				text_controller.set_header_text(text)
+				text_controller.display_text(text)
+			">>":
+				text_controller.set_name_text(name_right)
+				#text_controller.set_name_side(true)
+				text_controller.show_box()
+				speaker_right = true
+				co_target = text_controller
+				co_signal = "text_ended"
+				text_controller.set_header_text(text)
+				text_controller.display_text(text)
+			"|":
+				text_controller.hide_box()
+				co_target = get_tree().create_timer(float(text))
+				co_signal = "timeout"
+			"@<":
+				co_target = self
+				co_signal = "ignore_line"
+				character_left.set_sprite(text)
+				yield(get_tree().create_timer(0.02), "timeout")
+				emit_signal("ignore_line")
+			"@>":
+				co_target = self
+				co_signal = "ignore_line"
+				character_right.set_sprite(text)
+				yield(get_tree().create_timer(0.02), "timeout")
+				emit_signal("ignore_line")
+			"[":
+				co_target = self
+				co_signal = "choice_clicked"
+				response_end_total = int(choices_regex.search(text).get_string(1)) - 1
+				var buttons: PoolStringArray = choices_regex.search(text).get_string(2).split("|")
+				text_controller.fade_screen(true)
+				var i: int = 0
+				for but in buttons:
+					create_button(buttons_regex.search(but).get_string(1), Vector2(160 + int(buttons_regex.search(but).get_string(2)), 90 + int(buttons_regex.search(but).get_string(3))), i, int(buttons_regex.search(but).get_string(4)), int(buttons_regex.search(but).get_string(5)))
+					i += 1
+			_:
+				co_target = self
+				co_signal = "ignore_line"
+				yield(get_tree().create_timer(0.02), "timeout")
+				emit_signal("ignore_line")
+	else:
+		co_target = self
+		co_signal = "ignore_line"
+		yield(get_tree().create_timer(0.02), "timeout")
+		emit_signal("ignore_line")

@@ -1,27 +1,36 @@
 > All right! I'll show you how we#strike up a conversation back home!
+@< glare
 < Why are we doing this, again?
 > Because you're a $wdemon! $0How cool is#that?
+@< idle
 > I've never talked to a demon before,#and I want to learn more about you!
 @< whatnow
 < ...
 @< idle
 > Tell me a bit about yourself.
+========================
 >> Where are you and your witch from?
-[ 30 Salem, up north. (0, -60)[4, 12] | Zzyzx, to the west. (-90, -10)[13, 24] | Cottonwood, to the east. (70, -10)[25, 29]
+[ 50 Salem, up north. (0, -60)[15, 25] | Zzyzx, to the west. (-90, -10)[27, 40] | Cottonwood, to the east. (70, -10)[42, 48]
+------------------------
 < Salem, up north.
 < They don't really like witches and#demons up there.
 < Our house almost got burned down.
+@< sad
 < Three times.
+@< idle
 < It's nice and cool, though.
 < There are lots of trees. It's really#pretty.
 > Have you ever considered moving?
 < Not really. My witch has lived there#her whole life. It means too much to#her.
 > I see...
+------------------------
 < Zzyzx, to the west.
 > What a strange name!
+@< smile
 < Heh. Yeah.
 < It's a small town in the middle of the#desert.
 < The people there are pretty nice.
+@< idle
 < Although... $wweird $0people and#creatures pass through town#sometimes.
 < And it's $shot. $0In the 90s all the time.
 > What?!
@@ -29,13 +38,18 @@
 > Oh. Right.
 > Don't demons like it to be hot, or#something?
 < I could take it or leave it.
+------------------------
 < Cottonwood, to the east.
 > Oh, that's pretty close!
+@< smile
 < Yeah. We actually visit Los Muertos#a lot.
+@< idle
 < Cottonwood is just so boring.
 < At least, I think so. I don't know if#my witch cares.
+========================
 << Hey, Rhona...
-[ 63 Where are you from? (-20, -60)[32, 39] | Why are you visiting Los Muertos? (20, -10)[40, 50] | Where are your parents? (0, 40)[51, 62]
+[ 87 Where are you from? (-20, -60)[53, 60] | Why are you visiting Los Muertos? (20, -10)[62, 72] | Where are your parents? (0, 40)[74, 85]
+------------------------
 < Where are you from?
 > I'm from Phoenix.
 < Wow, really? That's a big city.
@@ -44,6 +58,7 @@
 > I mean, it's pretty beautiful, but...#it also just $wfeels $0crummy.#I'm not sure why.
 > I think Los Muertos is a lot more fun.
 < I can see why!
+------------------------
 < Why are you visiting Los Muertos?
 > I come here every few months to visit#my grandpa.
 > He works here as a fletcher.#Ainsley's Fletching.
@@ -55,6 +70,7 @@
 < Really?
 > A wizard at interior decorating.
 < Ha!
+------------------------
 < Where are your parents?
 > They're not here. I usually come to#Los Muertos by myself.
 > My dad passed away a few years ago.
@@ -67,6 +83,7 @@
 > She also just doesn't like Los#Muertos.
 > She says it's too... $wesoteric $0for her.
 < I guess that's understandable.
+========================
 > Hey, Cosmo.
 > You said you were a familiar, right?
 < Yeah.
@@ -79,11 +96,12 @@
 < Not exactly. It's really complicated.
 > Oh. All right.
 >> So, what does your witch $wdo, $0exactly?
-[ 106 She teaches people magic. (-20, -60)[74, 85] | She makes and sells potions. (20, -10)[86, 95] | She writes books of hexes. (0, 40)[96, 105]
+[ 136 She teaches people magic. (-20, -60)[101, 112] | She makes and sells potions. (20, -10)[114, 123] | She writes books of hexes. (0, 40)[125, 134]
+------------------------
 < She teaches people magic.
 > Wait... you can just $wteach $0people#magic?
 > I thought you had to be born a witch,#or something.
-< Surprisingly noot. Anyone can#become a witch with enough#training.
+< Surprisingly not. Anyone can#become a witch with enough#training.
 < Anyone human, that is.
 > Does she teach at a school?
 < Nope. She homeschools kids in our#town who want to learn magic.
@@ -92,6 +110,7 @@
 > $wWOOW! $0That was cool!
 > Maybe I should become a witch.
 < Uh... might want to think about that#for a while.
+------------------------
 < She makes and sells potions.
 < Healing potions, enhancement#potions...
 > $wLove $0potions?
@@ -102,6 +121,7 @@
 < I don't even know if she gets all her#ingredients legally.
 < ...Don't tell her I told you that.
 > My lips are sealed!
+------------------------
 < She writes books of hexes.
 < You can't cast a spell without#knowing how, after all.
 > So... books of magic words?
@@ -112,4 +132,38 @@
 > Interesting!
 > Is she a good writer?
 < Yeah. She has a real way with words.
-< TEST
+========================
+<< What about you, Rhona?
+[ 169 What do you like to do? (-20, -60)[139, 153] | What kind of job do you want to have? (20, 60)[155, 167]
+------------------------
+< What do you like to do?
+> I'm really into computers.
+@< smile
+< Really?
+> Yeah! My dad was a programmer for#a big company.
+> He always let me play around on his#computer.
+> It's super loud and beepy! And the#keyboard is even louder!#Like... $sCLACK CLACK CLACK!!
+> Ever since he's been gone, I've been#trying to program my own stuff.
+> He had a bunch of old reference#guides that I've been reading.
+< Have you made anything yet?
+> A few small things. I want to try#making a video game sometime.
+< That would be amazing!
+> Are you into video games?
+< Uh... sometimes we stop by arcades.
+< My witch is really good at that#game where you try to jump on all#the cubes.
+------------------------
+< What kind of job do you want to have?
+> I'm not entirely sure.
+> My grandpa always tries to get me#to join the fletching business with#him.
+< Are you interested in that?
+> Not really.
+> My grandpa has taught me a bunch,#and he says I'm really good with my#hands.
+> He thinks I would make a great#fletcher, or any other kind of#craftsperson.
+> But... come on! Fletching?#Making small trinkets?
+> That sounds like the most boring#job in the world.
+> I mean, look at you! You get to help#a witch do magical stuff!
+> Why can't I have a job as interesting#as that?
+< Uh...
+< $wYeah.
+========================
+> TEST
