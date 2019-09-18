@@ -13,7 +13,7 @@ func _ready():
 	
 func _process(delta):
 	if Input.is_action_just_pressed("debug_1"):
-		start_discourse("res://Discourses/Test.txt", "Rhona", CosmoSprite2)
+		start_discourse("res://Discourses/d_1_rhona.txt", "Rhona", CosmoSprite2)
 
 # =====================================================================
 

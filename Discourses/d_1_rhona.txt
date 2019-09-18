@@ -10,7 +10,7 @@
 > Tell me a bit about yourself.
 ========================
 >> Where are you and your witch from?
-[ 50 Salem, up north. (0, -60)[15, 25] | Zzyzx, to the west. (-90, -10)[27, 40] | Cottonwood, to the east. (70, -10)[42, 48]
+[ 55 Salem, up north. (0, -60)[15, 25] | Zzyzx, to the west. (-90, -10)[27, 40] | Cottonwood, to the east. (70, -10)[42, 53]
 ------------------------
 < Salem, up north.
 < They don't really like witches and#demons up there.
@@ -46,55 +46,74 @@
 @< idle
 < Cottonwood is just so boring.
 < At least, I think so. I don't know if#my witch cares.
+> Isn't Cottonwood the town with the#world's largest ball of paperclips?
+< Yes.
+@< heh
+< It gets a lot less interesting after#the first time you look at it.
+> Okay, that's fair.
 ========================
+@< idle
 << Hey, Rhona...
-[ 87 Where are you from? (-20, -60)[53, 60] | Why are you visiting Los Muertos? (20, -10)[62, 72] | Where are your parents? (0, 40)[74, 85]
+[ 104 Where are you from? (-20, -60)[59, 69] | Why are you visiting Los Muertos? (20, -10)[71, 85] | Where are your parents? (0, 40)[87, 102]
 ------------------------
 < Where are you from?
 > I'm from Phoenix.
+@< smile
 < Wow, really? That's a big city.
 > Yep! I'm not sure how much I like it,#though.
+@< idle
 > People aren't too nice in that city.#Everyone's always irritated about#something.
 > I mean, it's pretty beautiful, but...#it also just $wfeels $0crummy.#I'm not sure why.
 > I think Los Muertos is a lot more fun.
+@< smile
 < I can see why!
 ------------------------
 < Why are you visiting Los Muertos?
 > I come here every few months to visit#my grandpa.
 > He works here as a fletcher.#Ainsley's Fletching.
+@< smile
 < Oh, that place?
-< My witch and I always walk past it.
-< It's not like she buys arrows or#anything, but...
+@< explain2
+< My witch and I usually walk past it.
 < I always look through the windows.
 > Yeah. My grandpa is a wizard.
+@< smile
 < Really?
 > A wizard at interior decorating.
+@< laugh
 < Ha!
+@< smile
 ------------------------
 < Where are your parents?
 > They're not here. I usually come to#Los Muertos by myself.
 > My dad passed away a few years ago.
+@< sad
 < Oh...
 > And my mom...
+@< idle
 > She really doesn't like to see my#grandpa.
 > They disagree on a lot of things.
-< That must be hard...
+@< sad
+< That must be hard.
 > Yeah.
 > She also just doesn't like Los#Muertos.
+@< idle
 > She says it's too... $wesoteric $0for her.
 < I guess that's understandable.
 ========================
 > Hey, Cosmo.
 > You said you were a familiar, right?
+@< idle
 < Yeah.
 > What does that mean, exactly?
 @< whatnow
 < Well, uh...
-@< idle
+@< explain
 < My witch just... $wcreated $0me, because#she wanted a personal assistant.
 > I thought all demons were from the...#underworld, or something?
 < Not exactly. It's really complicated.
 > Oh. All right.
+@< idle
 >> So, what does your witch $wdo, $0exactly?
 [ 136 She teaches people magic. (-20, -60)[101, 112] | She makes and sells potions. (20, -10)[114, 123] | She writes books of hexes. (0, 40)[125, 134]
 ------------------------
@@ -102,33 +121,46 @@
 > Wait... you can just $wteach $0people#magic?
 > I thought you had to be born a witch,#or something.
 < Surprisingly not. Anyone can#become a witch with enough#training.
+@< heh
 < Anyone human, that is.
 > Does she teach at a school?
+@< smile
 < Nope. She homeschools kids in our#town who want to learn magic.
 > And what about you? Has she taught#you magic?
+@< satisfied
 < Oh, there's no need for that.#I already know magic.
+@< smile
 > $wWOOW! $0That was cool!
 > Maybe I should become a witch.
+@< heh
 < Uh... might want to think about that#for a while.
 ------------------------
 < She makes and sells potions.
+@< explain2
 < Healing potions, enhancement#potions...
 > $wLove $0potions?
+@< smile
 < No. Those are only in movies.
 > Oh.
 > What does she make them with?
+@< think
 < Uh... lots of weird ingredients I#don't know anything about.
 < I don't even know if she gets all her#ingredients legally.
+@< heh
 < ...Don't tell her I told you that.
 > My lips are sealed!
 ------------------------
 < She writes books of hexes.
+@< explain2
 < You can't cast a spell without#knowing how, after all.
 > So... books of magic words?
 < Not exactly. They're more like#pentagrams. Patterns you have to#know.
 > Do you... $wdraw $0them somewhere?
+@< explain
 < You can.
+@< think
 < Or you can think about them $wreally#$0hard. It takes practice to do that,#though.
+@< idle
 > Interesting!
 > Is she a good writer?
 < Yeah. She has a real way with words.
@@ -147,9 +179,12 @@
 > He had a bunch of old reference#guides that I've been reading.
 < Have you made anything yet?
 > A few small things. I want to try#making a video game sometime.
+@< explain2
 < That would be amazing!
 > Are you into video games?
+@< think
 < Uh... sometimes we stop by arcades.
+@< smile
 < My witch is really good at that#game where you try to jump on all#the cubes.
 ------------------------
 < What kind of job do you want to have?

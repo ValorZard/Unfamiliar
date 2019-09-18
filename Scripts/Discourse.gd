@@ -47,28 +47,6 @@ func _ready():
 	line_regex.compile(line_regex_p)
 	buttons_regex.compile(buttons_regex_p)
 	choices_regex.compile(choices_regex_p)
-	
-	#character_left = $DiscourseCharacter
-	
-	#yield(get_tree().create_timer(0.5), "timeout")
-	#load_file("res://Discourses/Test.txt")
-
-	#list_index = 0
-	#while list_index < len(script_list):
-	#	parse_discourse_command(script_list[list_index])
-	#	yield(co_target, co_signal)
-	#	
-	#	if response and list_index == response_end:
-	#		list_index = response_end_total
-	#		response = false
-	#	else:
-	#		list_index += 1
-	
-	
-#func _process(delta):
-	#pass
-	#if Input.is_action_just_pressed("ui_accept"):
-	#	text_controller.display_text("THIS IS A TEST of how long we can make#this gosh darned text before it#starts to wrap automatically like magic")
 
 # =====================================================================
 
