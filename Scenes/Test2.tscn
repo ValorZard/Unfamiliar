@@ -1,3 +1,132 @@
-[gd_scene format=2]
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=1]
+[ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/UI/BoxNinePatch.png" type="Texture" id=4]
+[ext_resource path="res://Fonts/pixelFJ8pt1__.TTF" type="DynamicFontData" id=5]
+[ext_resource path="res://Scripts/NPC.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo_ow_down.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/UI/Interact.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=1]
+size = 8
+font_data = ExtResource( 5 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 6, 12 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 3, 4 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Interact"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Interact:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Interact:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0, -14 ), Vector2( 0, -16 ), Vector2( 0, -14 ) ]
+}
 
 [node name="Test2" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 80, 18 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 0, 0, 327681, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 327688, 0, 0, 327689, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 160, 60 )
+
+[node name="Overlay" parent="." instance=ExtResource( 3 )]
+is_preview = true
+
+[node name="Dialogue" type="Node2D" parent="."]
+position = Vector2( 86, 116 )
+
+[node name="Box" type="NinePatchRect" parent="Dialogue"]
+margin_right = 148.0
+margin_bottom = 40.0
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 6, 6 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Text" type="Label" parent="Dialogue"]
+margin_left = 6.0
+margin_top = 5.0
+margin_right = 142.0
+margin_bottom = 38.0
+custom_fonts/font = SubResource( 1 )
+custom_constants/line_spacing = 2
+text = "Hello there, Cosmo! How are you doing on this fine summer afternoon?"
+autowrap = true
+
+[node name="NPC" type="KinematicBody2D" parent="."]
+position = Vector2( 112, 68 )
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="NPC"]
+frames = SubResource( 2 )
+animation = "down"
+
+[node name="Interact" type="Sprite" parent="NPC"]
+position = Vector2( 0, -14 )
+texture = ExtResource( 8 )
+hframes = 4
+
+[node name="InteractArea" type="Area2D" parent="NPC"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/InteractArea"]
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
+position = Vector2( 0, 8 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NPC"]
+autoplay = "Interact"
+playback_speed = 0.8
+anims/Interact = SubResource( 4 )
+[connection signal="area_entered" from="NPC/InteractArea" to="NPC" method="_on_InteractArea_area_entered"]
+[connection signal="area_exited" from="NPC/InteractArea" to="NPC" method="_on_InteractArea_area_exited"]

@@ -115,7 +115,7 @@
 > Oh. All right.
 @< idle
 >> So, what does your witch $wdo, $0exactly?
-[ 136 She teaches people magic. (-20, -60)[101, 112] | She makes and sells potions. (20, -10)[114, 123] | She writes books of hexes. (0, 40)[125, 134]
+[ 168 She teaches people magic. (-20, -60)[120, 136] | She makes and sells potions. (20, -10)[138, 151] | She writes books of hexes. (0, 40)[153, 166]
 ------------------------
 < She teaches people magic.
 > Wait... you can just $wteach $0people#magic?

@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo_ow_up.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo_ow_down.png" type="Texture" id=3]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 3, 4 )
+
+[node name="Player" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "down"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 8 )
+shape = SubResource( 2 )
+
+[node name="Sight" type="Area2D" parent="." groups=[
+"PlayerSight",
+]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sight"]
+polygon = PoolVector2Array( 0, 4, -8, 23, 7, 23 )
