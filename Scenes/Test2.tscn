@@ -1,27 +1,27 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=1]
-[ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripts/NPC.gd" type="Script" id=4]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo_ow_down.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/UI/Interact.png" type="Texture" id=6]
+[ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/NPC.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo_ow_down.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/Interact.png" type="Texture" id=5]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 6, 12 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 3, 4 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Interact:frame")
@@ -48,6 +48,9 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -14 ), Vector2( 0, -16 ), Vector2( 0, -14 ) ]
 }
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 8, 72 )
+
 [node name="Scene" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -60,41 +63,51 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 160, 60 )
-
-[node name="Overlay" parent="." instance=ExtResource( 3 )]
+[node name="Overlay" parent="." instance=ExtResource( 2 )]
 is_preview = true
 
 [node name="NPC" type="KinematicBody2D" parent="."]
 position = Vector2( 112, 68 )
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_group_": true
 }
 dialogue_file = "res://Dialogue/dl_1_test.txt"
 
 [node name="Sprite" type="AnimatedSprite" parent="NPC"]
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "down"
 
 [node name="Interact" type="Sprite" parent="NPC"]
 position = Vector2( 0, -14 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 hframes = 4
 
 [node name="InteractArea" type="Area2D" parent="NPC"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/InteractArea"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
 position = Vector2( 0, 8 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NPC"]
 autoplay = "Interact"
 playback_speed = 0.8
-anims/Interact = SubResource( 5 )
+anims/Interact = SubResource( 4 )
+
+[node name="Transitions" type="CanvasLayer" parent="."]
+layer = 6
+
+[node name="Transition" parent="Transitions" instance=ExtResource( 6 )]
+position = Vector2( 72, 90 )
+target_scene = "res://Scenes/Test3.tscn"
+target_direction = 2
+
+[node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
+shape = SubResource( 5 )
 [connection signal="area_entered" from="NPC/InteractArea" to="NPC" method="_on_InteractArea_area_entered"]
 [connection signal="area_exited" from="NPC/InteractArea" to="NPC" method="_on_InteractArea_area_exited"]
+
+[editable path="Transitions/Transition"]

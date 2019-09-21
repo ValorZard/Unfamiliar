@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-class_name Player
+class_name PlayerClass
 
 const Speed := 65
 
@@ -44,6 +44,10 @@ func get_state() -> int:
 
 func set_state(value: int):
 	state = value
+	
+
+func set_direction(value: int):
+	face = value
 
 # =====================================================================
 

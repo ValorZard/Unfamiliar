@@ -16,6 +16,7 @@ enum PlayerState { Move, NoInput }
 var player_state: int = PlayerState.Move
 
 onready var money_text: Label = $Overlay/Money
+onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 # =====================================================================
 
@@ -29,6 +30,40 @@ func _process(delta):
 	money_text.text = str(money_disp)
 
 # =====================================================================
+
+func goto_scene(path: String, pos: Vector2, direction: int, relative_coords: bool = true):
+	Player.set_state(Player.PlayerState.NoInput)
+	var current_scene := get_tree().get_root().get_node("Scene")
+	var scn: PackedScene = load(path)
+	var scn_i := scn.instance()
+	
+	var target: Vector2
+	match direction:
+		Player.Direction.Up:
+			target = Vector2(0, -144)
+		Player.Direction.Down:
+			target = Vector2(0, 144)
+		Player.Direction.Left:
+			target = Vector2(-160, 0)
+		Player.Direction.Right:
+			target = Vector2(160, 0)
+	scn_i.set_position(target)
+	get_tree().get_root().add_child(scn_i)
+	
+	anim_player.get_animation("CameraScroll").track_set_key_value(0, 1, target)
+	anim_player.play("CameraScroll")
+	yield(anim_player, "animation_finished")
+	
+	current_scene.set_name("__temp")
+	scn_i.set_name("Scene")
+	current_scene.queue_free()
+	
+	Player.position -= target
+	scn_i.set_position(Vector2.ZERO)
+	$MainCamera.set_offset(Vector2.ZERO)
+	
+	Player.set_state(Player.PlayerState.Move)
+
 
 func get_player_state() -> int:
 	return get_tree().get_root().get_node("Scene").get_node("Player").get_state()
@@ -67,3 +102,11 @@ func start_discourse(file: String, right_name: String, right_sprite: SpriteFrame
 func draw_overlay(draw: bool):
 	$Overlay/Sprite.set_visible(draw)
 	$Overlay/Money.set_visible(draw)
+
+# =====================================================================
+
+func goto_scene_post(pos: Vector2, direction: int):
+	yield(get_tree(), "idle_frame")
+	var p := Player
+	p.set_position(pos)
+	p.set_direction(direction)
