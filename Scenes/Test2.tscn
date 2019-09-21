@@ -1,34 +1,27 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/UI/BoxNinePatch.png" type="Texture" id=4]
-[ext_resource path="res://Fonts/pixelFJ8pt1__.TTF" type="DynamicFontData" id=5]
-[ext_resource path="res://Scripts/NPC.gd" type="Script" id=6]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo_ow_down.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/UI/Interact.png" type="Texture" id=8]
-
-[sub_resource type="DynamicFont" id=1]
-size = 8
-font_data = ExtResource( 5 )
+[ext_resource path="res://Scripts/NPC.gd" type="Script" id=4]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo_ow_down.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/Interact.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 6, 12 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 3, 4 )
 
-[sub_resource type="Animation" id=4]
-resource_name = "Interact"
+[sub_resource type="Animation" id=5]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("Interact:frame")
@@ -55,7 +48,7 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -14 ), Vector2( 0, -16 ), Vector2( 0, -14 ) ]
 }
 
-[node name="Test2" type="Node2D"]
+[node name="Scene" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 80, 18 )
@@ -73,38 +66,13 @@ position = Vector2( 160, 60 )
 [node name="Overlay" parent="." instance=ExtResource( 3 )]
 is_preview = true
 
-[node name="Dialogue" type="Node2D" parent="."]
-position = Vector2( 86, 116 )
-
-[node name="Box" type="NinePatchRect" parent="Dialogue"]
-margin_right = 148.0
-margin_bottom = 40.0
-texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 6, 6 )
-patch_margin_left = 2
-patch_margin_top = 2
-patch_margin_right = 2
-patch_margin_bottom = 2
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="Text" type="Label" parent="Dialogue"]
-margin_left = 6.0
-margin_top = 5.0
-margin_right = 142.0
-margin_bottom = 38.0
-custom_fonts/font = SubResource( 1 )
-custom_constants/line_spacing = 2
-text = "Hello there, Cosmo! How are you doing on this fine summer afternoon?"
-autowrap = true
-
 [node name="NPC" type="KinematicBody2D" parent="."]
 position = Vector2( 112, 68 )
-script = ExtResource( 6 )
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_group_": true
 }
+dialogue_file = "res://Dialogue/dl_1_test.txt"
 
 [node name="Sprite" type="AnimatedSprite" parent="NPC"]
 frames = SubResource( 2 )
@@ -112,21 +80,21 @@ animation = "down"
 
 [node name="Interact" type="Sprite" parent="NPC"]
 position = Vector2( 0, -14 )
-texture = ExtResource( 8 )
+texture = ExtResource( 6 )
 hframes = 4
 
 [node name="InteractArea" type="Area2D" parent="NPC"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/InteractArea"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NPC"]
 position = Vector2( 0, 8 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="NPC"]
 autoplay = "Interact"
 playback_speed = 0.8
-anims/Interact = SubResource( 4 )
+anims/Interact = SubResource( 5 )
 [connection signal="area_entered" from="NPC/InteractArea" to="NPC" method="_on_InteractArea_area_entered"]
 [connection signal="area_exited" from="NPC/InteractArea" to="NPC" method="_on_InteractArea_area_exited"]

@@ -1,5 +1,6 @@
 extends Node
 
+const DialogueRef := preload("res://Instances/Dialogue.tscn")
 const DiscourseStartRef := preload("res://Scenes/DiscourseStart.tscn")
 const CosmoSprite := preload("res://Resources/Sprite Frames/SpriteFrames_Cosmo.tres")
 const CosmoSprite2 := preload("res://Resources/Sprite Frames/SpriteFrames_Cosmo2.tres")
@@ -29,6 +30,10 @@ func _process(delta):
 
 # =====================================================================
 
+func get_player_state() -> int:
+	return get_tree().get_root().get_node("Scene").get_node("Player").get_state()
+
+
 func set_player_state(value: int):
 	get_tree().get_root().get_node("Scene").get_node("Player").set_state(value)
 	
@@ -39,6 +44,13 @@ func get_money() -> int:
 	
 func add_money(amount: int):
 	money += amount
+	
+	
+func dialogue(file: String) -> Dialogue:
+	var dlg: Dialogue = DialogueRef.instance() as Dialogue
+	dlg.start(file)
+	get_tree().get_root().add_child(dlg)
+	return dlg
 
 
 func start_discourse(file: String, right_name: String, right_sprite: SpriteFrames, left_name: String = "Cosmo", left_sprite: SpriteFrames = CosmoSprite):

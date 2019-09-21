@@ -1,6 +1,6 @@
 extends Node2D
 
-class_name Dialogue
+class_name TextDisplay
 
 signal text_ended
 signal text_ended_button
@@ -24,7 +24,7 @@ var pause := false
 
 var box_visible := true
 
-enum Modifier {Normal, Red, Green, Blue, Yellow, Shake, Wave}
+enum Modifier { Normal, Red, Green, Blue, Yellow, Shake, Wave }
 
 # =====================================================================
 
@@ -37,7 +37,7 @@ func _ready():
 func _process(delta):
 	t += 60.0 * delta
 	
-	if Input.is_action_just_pressed("ui_accept") and allow_advance:
+	if Input.is_action_just_pressed("sys_select") and allow_advance:
 		emit_signal("text_ended_button")
 	
 	update()
