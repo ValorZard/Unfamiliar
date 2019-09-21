@@ -1,0 +1,96 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/NPC.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo_ow_right.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo_ow_left.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo_ow_up.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo_ow_down.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/Interact.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 6, 12 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 3, 4 )
+
+[sub_resource type="Animation" id=4]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Interact:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Interact:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0, -14 ), Vector2( 0, -16 ), Vector2( 0, -14 ) ]
+}
+
+[node name="NPC" type="KinematicBody2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+dialogue_file = "res://Dialogue/dl_1_test.txt"
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "down"
+
+[node name="Interact" type="Sprite" parent="."]
+position = Vector2( 0, -14 )
+texture = ExtResource( 6 )
+hframes = 4
+
+[node name="InteractArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 8 )
+shape = SubResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Interact"
+playback_speed = 0.8
+anims/Interact = SubResource( 4 )
+[connection signal="area_entered" from="InteractArea" to="." method="_on_InteractArea_area_entered"]
+[connection signal="area_exited" from="InteractArea" to="." method="_on_InteractArea_area_exited"]

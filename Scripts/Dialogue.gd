@@ -32,7 +32,7 @@ func _process(delta):
 				buffer = true
 				$TimerBuffer.start()
 			else:
-				Controller.set_player_state(Controller.PlayerState.Move)
+				Player.set_state(Player.PlayerState.Move)
 				emit_signal("dialogue_ended")
 				queue_free()
 		else:
@@ -43,7 +43,8 @@ func _process(delta):
 # =====================================================================
 
 func start(file: String):
-	Controller.set_player_state(Controller.PlayerState.NoInput)
+	Player.set_state(Player.PlayerState.NoInput)
+	Player.stop_moving()
 	load_text_from_file(file)
 	$TimerRollText.start()
 	

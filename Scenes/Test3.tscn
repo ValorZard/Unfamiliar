@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
@@ -6,6 +6,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 72 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 80, 8 )
 
 [node name="Scene" type="Node2D"]
 
@@ -25,12 +28,21 @@ is_preview = true
 [node name="Transitions" type="CanvasLayer" parent="."]
 
 [node name="Transition" parent="Transitions" instance=ExtResource( 3 )]
-position = Vector2( 288, 90 )
+position = Vector2( 248, 90 )
 target_scene = "res://Scenes/Test2.tscn"
 target_direction = 3
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
 shape = SubResource( 1 )
-disabled = true
+
+[node name="Transition2" parent="Transitions" instance=ExtResource( 3 )]
+position = Vector2( 160, 170 )
+target_scene = "res://Scenes/Test3.tscn"
+target_direction = 1
+
+[node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
+shape = SubResource( 2 )
 
 [editable path="Transitions/Transition"]
+
+[editable path="Transitions/Transition2"]
