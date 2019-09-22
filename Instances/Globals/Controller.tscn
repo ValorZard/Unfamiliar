@@ -34,10 +34,12 @@ current = true
 [node name="Overlay" type="CanvasLayer" parent="."]
 
 [node name="Sprite" type="Sprite" parent="Overlay"]
+visible = false
 texture = ExtResource( 2 )
 centered = false
 
 [node name="Money" type="Label" parent="Overlay"]
+visible = false
 margin_left = 256.0
 margin_top = 125.0
 margin_right = 296.0

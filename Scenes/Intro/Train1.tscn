@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Resources/Tilesets/Tileset_Train.tres" type="TileSet" id=1]
+[ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Props/Train_rail.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3, 28 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 40, 11 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 24, 11 )
+
+[node name="Scene" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 80, 18 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 8, 0, 1, 8, 0, 2, 8, 0, 3, 8, 0, 4, 8, 0, 5, 8, 0, 6, 8, 0, 7, 8, 0, 8, 8, 0, 9, 8, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 536870929, 0, 327681, 536870929, 0, 327682, 536870929, 0, 327683, 536870929, 0, 327684, 536870929, 0, 327685, 536870929, 0, 327686, 536870929, 0, 327687, 536870929, 0, 327688, 536870929, 0, 327689, 536870929, 0, 458751, 1, 0, 393216, 536870930, 0, 393217, 536870930, 0, 393218, 536870930, 0, 393219, 536870930, 0, 393220, 536870930, 0, 393221, 536870930, 0, 393222, 536870930, 0, 393223, 536870930, 0, 393224, 536870930, 0, 393225, 536870930, 0, 458752, 1073741841, 0, 458753, 1073741841, 0, 458754, 1073741841, 0, 458755, 1073741841, 0, 458756, 1073741841, 0, 458757, 1073741841, 0, 458758, 1073741841, 0, 458759, 1073741841, 0, 458760, 1073741841, 0, 458761, 1073741841, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap3" type="TileMap" parent="."]
+position = Vector2( 80, 26 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65537, 11, 0, 65538, 12, 0, 65539, 13, 0, 65543, 11, 0, 65544, 12, 0, 65545, 12, 0, 131073, 14, 0, 131074, 15, 0, 131075, 16, 0, 131079, 14, 0, 131080, 15, 0, 131081, 15, 0, 196608, 536870918, 0, 196609, 4, 0, 196610, 4, 0, 196611, 4, 0, 196612, 2, 0, 196615, 536870914, 0, 196616, 536870916, 0, 196617, 536870916, 0, 262144, 5, 0, 262145, 5, 0, 262146, 5, 0, 262147, 5, 0, 262148, 3, 0, 262151, 536870915, 0, 262152, 536870917, 0, 262153, 536870917, 0, 524288, 1073741850, 0, 524289, 1073741850, 0, 524290, 1073741850, 0, 524291, 1073741850, 0, 524292, 1073741850, 0, 524293, 1073741850, 0, 524294, 1073741850, 0, 524295, 1073741850, 0, 524296, 1073741850, 0, 524297, 1073741850, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap2" type="TileMap" parent="."]
+position = Vector2( 80, 18 )
+z_index = 500
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 9, 0, 1, 9, 0, 2, 9, 0, 3, 9, 0, 4, 9, 0, 5, 9, 0, 6, 9, 0, 7, 9, 0, 8, 9, 0, 9, 9, 0, 65536, 10, 0, 65537, 10, 0, 65538, 10, 0, 65539, 10, 0, 65540, 10, 0, 65541, 10, 0, 65542, 10, 0, 65543, 10, 0, 65544, 10, 0, 65545, 10, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Overlay" parent="." instance=ExtResource( 2 )]
+is_preview = true
+
+[node name="Prop" type="StaticBody2D" parent="."]
+position = Vector2( 187, 36 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Prop"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Prop"]
+position = Vector2( 3, 31 )
+shape = SubResource( 1 )
+
+[node name="Prop2" type="StaticBody2D" parent="."]
+position = Vector2( 160, 36 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Prop2"]
+texture = ExtResource( 3 )
+centered = false
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Prop2"]
+position = Vector2( 2, 31 )
+shape = SubResource( 1 )
+
+[node name="SeatCollision" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SeatCollision"]
+position = Vector2( 120, 84 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="SeatCollision"]
+position = Vector2( 216, 84 )
+shape = SubResource( 3 )

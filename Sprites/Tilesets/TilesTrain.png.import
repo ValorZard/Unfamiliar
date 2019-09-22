@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cosmo_ow_down.png-fc943d4166c41be3e18b572eb5d69ce0.stex"
+path="res://.import/TilesTrain.png-27a886afea6ca144587f84b25153b41e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters (Overworld)/Cosmo_ow_down.png"
-dest_files=[ "res://.import/Cosmo_ow_down.png-fc943d4166c41be3e18b572eb5d69ce0.stex" ]
+source_file="res://Sprites/Tilesets/TilesTrain.png"
+dest_files=[ "res://.import/TilesTrain.png-27a886afea6ca144587f84b25153b41e.stex" ]
 
 [params]
 

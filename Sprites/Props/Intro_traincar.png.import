@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cosmo_ow_walkleft1.png-95fffa13f31d942288e3ca159a62efc6.stex"
+path="res://.import/Intro_traincar.png-00673b9f2a96d708f39027a9d00364b7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters (Overworld)/Cosmo_ow_walkleft1.png"
-dest_files=[ "res://.import/Cosmo_ow_walkleft1.png-95fffa13f31d942288e3ca159a62efc6.stex" ]
+source_file="res://Sprites/Props/Intro_traincar.png"
+dest_files=[ "res://.import/Intro_traincar.png-00673b9f2a96d708f39027a9d00364b7.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

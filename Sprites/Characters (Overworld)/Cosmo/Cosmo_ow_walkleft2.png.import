@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cosmo_ow_walkup1.png-107ff6eaf15a689e8d8f082532c3f6eb.stex"
+path="res://.import/Cosmo_ow_walkleft2.png-5c0b04e50d8769964bdefc1e2a91f7d8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters (Overworld)/Cosmo_ow_walkup1.png"
-dest_files=[ "res://.import/Cosmo_ow_walkup1.png-107ff6eaf15a689e8d8f082532c3f6eb.stex" ]
+source_file="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_walkleft2.png"
+dest_files=[ "res://.import/Cosmo_ow_walkleft2.png-5c0b04e50d8769964bdefc1e2a91f7d8.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cosmo_ow_right.png-5399732e978bef59144a6629c91705b3.stex"
+path="res://.import/Intro_bg.png-924a0c802b0b2e5c6542b6817134bf6e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters (Overworld)/Cosmo_ow_right.png"
-dest_files=[ "res://.import/Cosmo_ow_right.png-5399732e978bef59144a6629c91705b3.stex" ]
+source_file="res://Sprites/Props/Intro_bg.png"
+dest_files=[ "res://.import/Intro_bg.png-924a0c802b0b2e5c6542b6817134bf6e.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=0
+flags/repeat=1
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false

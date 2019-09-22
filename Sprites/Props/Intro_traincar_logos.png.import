@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cosmo_ow_walkdown2.png-3bca7f30c680a4ffa9f92c64f328b409.stex"
+path="res://.import/Intro_traincar_logos.png-1590445b8eef370194039a7432e6c12e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters (Overworld)/Cosmo_ow_walkdown2.png"
-dest_files=[ "res://.import/Cosmo_ow_walkdown2.png-3bca7f30c680a4ffa9f92c64f328b409.stex" ]
+source_file="res://Sprites/Props/Intro_traincar_logos.png"
+dest_files=[ "res://.import/Intro_traincar_logos.png-1590445b8eef370194039a7432e6c12e.stex" ]
 
 [params]
 

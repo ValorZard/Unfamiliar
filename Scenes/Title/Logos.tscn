@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Props/Intro_traincar.png" type="Texture" id=2]
+[ext_resource path="res://Audio/Intro train 2.ogg" type="AudioStream" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "TrainFlyby"
+length = 14.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RigidBody2D:linear_velocity")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.6, 1.8, 2.3, 4.45, 6.4, 7.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( -1800, 0 ), Vector2( -1800, 0 ), Vector2( -10, 0 ), Vector2( -10, 0 ), Vector2( -1800, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RigidBody2D2:linear_velocity")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.1, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -20, 0 ), Vector2( -20, 0 ), Vector2( -500, 0 ) ]
+}
+tracks/2/type = "audio"
+tracks/2/path = NodePath("SoundTrain")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0.5 )
+}
+
+[node name="Scene" type="Node2D"]
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+gravity_scale = 0.0
+linear_velocity = Vector2( -20, 0 )
+
+[node name="Intro_bg" type="Sprite" parent="RigidBody2D2"]
+texture = ExtResource( 1 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 10000, 180 )
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2( 1104, 0 )
+gravity_scale = 0.0
+
+[node name="Intro_traincar" type="Sprite" parent="RigidBody2D"]
+texture = ExtResource( 2 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 5120, 180 )
+
+[node name="Polygon2D" type="Polygon2D" parent="RigidBody2D"]
+position = Vector2( -1936, 0 )
+color = Color( 1, 0, 0, 1 )
+polygon = PoolVector2Array( 3944, 104, 3944, 128, 4080, 128, 4080, 104 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "TrainFlyby"
+anims/TrainFlyby = SubResource( 1 )
+
+[node name="SoundTrain" type="AudioStreamPlayer" parent="."]

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cosmo_ow_walkleft2.png-9182b2bacea391c8f725e471738576b7.stex"
+path="res://.import/Rhona_ow_down.png-ee7c333bf0fffa5cc65d2bc233d43343.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters (Overworld)/Cosmo_ow_walkleft2.png"
-dest_files=[ "res://.import/Cosmo_ow_walkleft2.png-9182b2bacea391c8f725e471738576b7.stex" ]
+source_file="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_down.png"
+dest_files=[ "res://.import/Rhona_ow_down.png-ee7c333bf0fffa5cc65d2bc233d43343.stex" ]
 
 [params]
 
