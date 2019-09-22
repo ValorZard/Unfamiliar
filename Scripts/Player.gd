@@ -20,7 +20,7 @@ onready var anim_player: AnimationPlayer = $AnimationPlayer
 # =====================================================================
 
 func _ready():
-	set_position(Vector2(80 + 80, 18 + 40))
+	set_position(Vector2(80 + 80, 18 + 80))
 
 
 func _physics_process(delta):

@@ -202,4 +202,104 @@
 < Uh...
 < $wYeah.
 ========================
-> TEST
+> So, Cosmo...
+> You and your witch are always, uh... $wtogether, $0right?
+@< idle
+< Yep. We got put on different trains, but we normally wouldn't split up.
+< She doesn't trust me to be on my own.
+>  Oh.
+> So... what is...
+>> What is your witch... like?
+[ 123 She's actually really nice. (-20, -60)[139, 153] | She's all right. (-20, -60)[139, 153] | She isn't very nice. (-20, -60)[139, 153]
+------------------------
+@< smile
+< She's actually really nice.
+< She doesn't usually treat me like an assistant or a familiar.
+< She treats me more like a friend.
+> Really?
+< Yeah. I help her with her work, but we also do things together.
+< We make things for each other's birthdays.#Sometimes we go on walks and talk about life.
+< And she really likes to travel, so we go a lot of neat places.
+> Aw... that's so sweet. It's almost like you're her son.
+@< idle
+< Uh... no. That's not how it works.
+> Why not? You two are like a family.
+< ...I guess.
+------------------------
+< She's all right.
+< We don't talk too much. She just asks me to do stuff for her, and I do it.
+< Not much more than that.
+< I'm just a familiar, after all.
+> Is she nice, though?
+@< sad
+< Well, yeah, but...
+< It doesn't seem like she cares about me too much.
+< It's not like I'm family to her or anything.
+> That's so sad...
+@< smile
+< We still do stuff together, though!
+@< idle
+< Just not very often.
+------------------------
+@< sad
+< She isn't very nice.
+> What?!
+< Yeah. She yells at me a lot, especially when I do things wrong.
+< She calls me an "idiot" a lot of the time.
+> How does she think she can do that?!
+< I mean... I'm just her familiar. Her assistant.#Nothing more than that.
+> Yeah, but...!
+> Ugh.
+> That makes me so mad...
+@< heh
+< $sS-$0she's not all bad, though!
+@< smile
+< She still does nice things sometimes.
+< We always make something for each other's birthdays. And getting to travel a lot is fun.
+@< idle
+< That's about it, though.
+@< sad
+> ...
+> You poor thing...
+========================
+@< idle
+| 2.5
+> Hey, Cosmo?
+< Yeah?
+> Don't let other people tell you who you are.
+> You may be a demon, but...
+> You're still smart, handsome, and charming.
+< Stop it.
+> Huh?
+< Stop calling me things I'm not.
+< Demons are demons, okay? My witch said it to my face.
+@< explain
+< "You're a demon. You're an abomination."
+@< idle
+> $wOh, $0she doesn't know what she's talking about.
+< She's been a witch for over $wthirty years! $0She's one of the most well-respected witches in the community! Of course she knows what she's talking about!
+< If she says I'm an abomination, I'm an abomination.
+> ...
+> Well, even if you're an abomination, I'll still talk with you.
+@< sad
+< ...
+@< smile
+< Thanks, Rhona.
+< And thanks for talking with me. I feel a lot better now.
+> I'm glad you had a good time.
+@< heh
+> ($wI just had a conversation with a $bDEMON$0! How awesome is that?! $0)
+@< smile
+< Well... I should probably go find my witch.
+@< idle
+< She's probably waiting for me right now.
+> Yeah.
+> We're probably also going to get thrown off this train if we stand here any longer.
+@< heh
+< That's also true.
+@< smile
+> Say hi to your witch for me, all right?
+< Sure thing!
+@< explain2
+< See you around, Rhona!
+> Later, Cosmo!

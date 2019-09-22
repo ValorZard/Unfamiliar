@@ -3,22 +3,22 @@
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=1]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_right.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_left.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_left.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_right.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_up.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_down.png" type="Texture" id=7]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=8]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
@@ -32,7 +32,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 72 )
 
 [node name="Scene" type="Node2D"]
@@ -54,7 +54,7 @@ is_preview = true
 position = Vector2( 121, 58 )
 
 [node name="Sprite" parent="NPC" index="0"]
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
@@ -65,7 +65,7 @@ target_scene = "res://Scenes/Test3.tscn"
 target_direction = 2
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [editable path="NPC"]
 

@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Props/Intro_traincar.png" type="Texture" id=2]
-[ext_resource path="res://Audio/Intro train 2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sprites/LogoSF.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/LogoG.png" type="Texture" id=4]
+[ext_resource path="res://Audio/Intro train 2.ogg" type="AudioStream" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "TrainFlyby"
@@ -29,7 +31,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1.1, 1.8 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector2( -20, 0 ), Vector2( -20, 0 ), Vector2( -500, 0 ) ]
+"values": [ Vector2( -20, 0 ), Vector2( -20, 0 ), Vector2( -600, 0 ) ]
 }
 tracks/2/type = "audio"
 tracks/2/path = NodePath("SoundTrain")
@@ -41,7 +43,7 @@ tracks/2/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 3 )
+"stream": ExtResource( 5 )
 } ],
 "times": PoolRealArray( 0.5 )
 }
@@ -68,10 +70,13 @@ centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 5120, 180 )
 
-[node name="Polygon2D" type="Polygon2D" parent="RigidBody2D"]
-position = Vector2( -1936, 0 )
-color = Color( 1, 0, 0, 1 )
-polygon = PoolVector2Array( 3944, 104, 3944, 128, 4080, 128, 4080, 104 )
+[node name="LogoSF" type="Sprite" parent="RigidBody2D"]
+position = Vector2( 2020, 118 )
+texture = ExtResource( 3 )
+
+[node name="LogoG" type="Sprite" parent="RigidBody2D"]
+position = Vector2( 2172, 118 )
+texture = ExtResource( 4 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "TrainFlyby"
