@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Tilesets/TilesTrain.png" type="Texture" id=2]
@@ -39,7 +39,10 @@ extents = Vector2( 40, 6 )
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8, 30 )
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 8, 30 )
+
+[sub_resource type="SpriteFrames" id=10]
 animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
@@ -62,7 +65,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
@@ -278,6 +281,9 @@ position = Vector2( 72, 120 )
 target_scene = "res://Scenes/Intro/Train3.tscn"
 target_direction = 2
 
+[node name="CollisionShape2D" parent="CanvasLayer/Transition2" index="0"]
+shape = SubResource( 9 )
+
 [node name="NPCRudeman" parent="." instance=ExtResource( 9 )]
 position = Vector2( 192, 82 )
 dialogue_file = "res://Dialogue/dl_train_rudeman.txt"
@@ -285,7 +291,7 @@ auto_advance_set = true
 set_limit = 1
 
 [node name="Sprite" parent="NPCRudeman" index="0"]
-frames = SubResource( 9 )
+frames = SubResource( 10 )
 
 [node name="NPCUnsurewoman" parent="." instance=ExtResource( 9 )]
 position = Vector2( 120, 89 )
@@ -294,9 +300,11 @@ auto_advance_set = true
 set_limit = 1
 
 [node name="Sprite" parent="NPCUnsurewoman" index="0"]
-frames = SubResource( 10 )
+frames = SubResource( 11 )
 
 [editable path="CanvasLayer/Transition"]
+
+[editable path="CanvasLayer/Transition2"]
 
 [editable path="NPCRudeman"]
 

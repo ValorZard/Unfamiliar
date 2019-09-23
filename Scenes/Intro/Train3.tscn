@@ -16,10 +16,10 @@ extents = Vector2( 3, 28 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 40, 4 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 46, 4 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 30, 4 )
 
 [sub_resource type="RectangleShape2D" id=5]
@@ -28,13 +28,13 @@ extents = Vector2( 38, 4 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 2, 6 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 32, 6 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8, 30 )
 
-[sub_resource type="SpriteFrames" id=12]
+[sub_resource type="SpriteFrames" id=9]
 animations = [ {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
@@ -193,11 +193,11 @@ shape = SubResource( 2 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 207, 84 )
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 210, 150 )
-shape = SubResource( 9 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 86, 150 )
@@ -213,7 +213,7 @@ shape = SubResource( 6 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 136, 76 )
-shape = SubResource( 11 )
+shape = SubResource( 7 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 6
@@ -231,7 +231,7 @@ position = Vector2( 136, 82 )
 dialogue_file = "res://Dialogue/dl_train_rhona.txt"
 
 [node name="Sprite" parent="NPCRhona" index="0"]
-frames = SubResource( 12 )
+frames = SubResource( 9 )
 
 [editable path="CanvasLayer/Transition"]
 

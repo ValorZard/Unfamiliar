@@ -63,7 +63,7 @@ extents = Vector2( 38, 4 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 2, 6 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 2, 43 )
 
 [sub_resource type="Animation" id=9]
@@ -405,7 +405,7 @@ shape = SubResource( 7 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 242, 119 )
-shape = SubResource( 11 )
+shape = SubResource( 8 )
 
 [node name="PlayerStart" type="Sprite" parent="."]
 position = Vector2( 200, 69 )

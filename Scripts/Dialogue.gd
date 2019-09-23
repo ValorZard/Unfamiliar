@@ -24,7 +24,7 @@ func _process(delta):
 	label.set_text(text[page])
 	label.set_visible_characters(disp)
 	
-	if Input.is_action_just_pressed("sys_select") and not buffer:
+	if Input.is_action_just_pressed("sys_action") and not buffer:
 		if allow_advance:
 			if page < len(text) - 1:
 				disp = 0

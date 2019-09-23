@@ -1,15 +1,15 @@
 0
-Rhona: Oh, it's a demon! Hi, demon!
+Commuter: Oh, it's a demon! Hi, demon!
 Cosmo: Um... hi.
-Rhona: Are you a familiar?
+Commuter: Are you a familiar?
 Cosmo: Yes.
 I'm not sure where my witch is. She was on a different train.
-Rhona: Oh... do you need help finding her?
+Commuter: Oh... do you need help finding her?
 Cosmo: No. I can probably find her myself.
-Rhona: ...
+Commuter: ...
 Well, before you leave, we should talk a bit!
 Cosmo: What?
-Rhona: I'm Rhona. What's your name?
+Commuter: I'm Rhona. What's your name?
 Cosmo: My name's... Cosmo.
 Rhona: Nice to meet you, Cosmo!
 Cosmo: Why do you want to talk to me?

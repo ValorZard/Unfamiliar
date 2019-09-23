@@ -27,7 +27,7 @@ func _process(delta):
 	
 	_sprite_management()
 	
-	if Input.is_action_just_pressed("sys_select") and in_range and Player.get_state() == Player.PlayerState.Move:
+	if Input.is_action_just_pressed("sys_action") and in_range and Player.get_state() == Player.PlayerState.Move:
 		interact.hide()
 		_face_player()
 		yield(Controller.dialogue(dialogue_file, dialogue_set), "dialogue_ended")
