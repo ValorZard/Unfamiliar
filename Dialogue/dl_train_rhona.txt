@@ -1,3 +1,4 @@
+0
 Rhona: Oh, it's a demon! Hi, demon!
 Cosmo: Um... hi.
 Rhona: Are you a familiar?
@@ -18,3 +19,4 @@ Rhona: Well... I still want to learn more about you!
 Cosmo: I'm not very good at talking.
 Rhona: Oh, don't worry.
 I'll show you how it's done!
+-

@@ -1,8 +1,8 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/NPC.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_left.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_right.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_right.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_left.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_up.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_down.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/UI/Interact.png" type="Texture" id=6]
@@ -11,12 +11,12 @@
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],

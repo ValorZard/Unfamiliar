@@ -4,10 +4,14 @@ enum NPCDirection { Up, Down, Left, Right }
 
 export(String, FILE, "*.txt") var dialogue_file
 export(NPCDirection) var start_direction = NPCDirection.Down
+export(bool) var auto_advance_set = false
+export(int) var set_limit = 0
 
 var face: int = NPCDirection.Down
 
 var in_range := false
+
+var dialogue_set: int = 0
 
 onready var spr: AnimatedSprite = $Sprite
 onready var interact: Sprite = $Interact
@@ -26,7 +30,9 @@ func _process(delta):
 	if Input.is_action_just_pressed("sys_select") and in_range and Player.get_state() == Player.PlayerState.Move:
 		interact.hide()
 		_face_player()
-		yield(Controller.dialogue(dialogue_file), "dialogue_ended")
+		yield(Controller.dialogue(dialogue_file, dialogue_set), "dialogue_ended")
+		if auto_advance_set and dialogue_set < set_limit:
+			dialogue_set += 1
 		interact.show()
 		
 # =====================================================================

@@ -5,8 +5,12 @@ const DiscourseStartRef := preload("res://Scenes/DiscourseStart.tscn")
 const CosmoSprite := preload("res://Resources/Sprite Frames/SpriteFrames_Cosmo.tres")
 const CosmoSprite2 := preload("res://Resources/Sprite Frames/SpriteFrames_Cosmo2.tres")
 const DiscourseScene := "res://Scenes/Discourse.tscn"
+const SoundOneShotRef := preload("res://Instances/SoundOneShot.tscn")
 
 var inventory := {}
+var flags := {
+	"intro": 0,
+}
 
 var money: int = 20
 var money_disp: int = 20
@@ -26,6 +30,14 @@ func _process(delta):
 	money_text.text = str(money_disp)
 
 # =====================================================================
+
+func flag(key: String) -> int:
+	return flags[key]
+	
+
+func set_flag(key: String, value: int):
+	flags[key] = value
+
 
 func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, relative_coords: bool = true):
 	if transition:
@@ -83,10 +95,28 @@ func get_money() -> int:
 func add_money(amount: int):
 	money += amount
 	
+
+func play_sound_oneshot(sound: AudioStream, pitch: float = 1.0, volume: float = 0.0):
+	var i := SoundOneShotRef.instance() as AudioStreamPlayer
+	i.set_stream(sound)
+	i.set_pitch_scale(pitch)
+	i.set_volume_db(volume)
+	i.play()
+	get_tree().get_root().add_child(i)
 	
-func dialogue(file: String) -> Dialogue:
+
+func play_sound_oneshot_from_path(sound: String, pitch: float = 1.0, volume: float = 0.0):
+	var i := SoundOneShotRef.instance() as AudioStreamPlayer
+	i.set_stream(load(sound) as AudioStream)
+	i.set_pitch_scale(pitch)
+	i.set_volume_db(volume)
+	i.play()
+	get_tree().get_root().add_child(i)
+	
+	
+func dialogue(file: String, set: int, reset_state: bool = true) -> Dialogue:
 	var dlg: Dialogue = DialogueRef.instance() as Dialogue
-	dlg.start(file)
+	dlg.start(file, set, reset_state)
 	get_tree().get_root().add_child(dlg)
 	return dlg
 

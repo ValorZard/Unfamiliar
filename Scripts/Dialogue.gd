@@ -14,6 +14,8 @@ var roll := false
 var allow_advance := false
 var buffer := false
 
+var reset_state := true
+
 onready var label: Label = $Text
 
 # =====================================================================
@@ -32,7 +34,8 @@ func _process(delta):
 				buffer = true
 				$TimerBuffer.start()
 			else:
-				Player.set_state(Player.PlayerState.Move)
+				if reset_state:
+					Player.set_state(Player.PlayerState.Move)
 				emit_signal("dialogue_ended")
 				queue_free()
 		else:
@@ -42,19 +45,30 @@ func _process(delta):
 
 # =====================================================================
 
-func start(file: String):
+func start(file: String, set: int, reset_state_: bool):
 	Player.set_state(Player.PlayerState.NoInput)
+	reset_state = reset_state_
 	Player.stop_moving()
-	load_text_from_file(file)
+	load_text_from_file(file, set)
 	$TimerRollText.start()
 	
 # =====================================================================
 
-func load_text_from_file(file: String):
+func load_text_from_file(file: String, set: int):
 	var f := File.new()
 	f.open(file, File.READ)
+	
+	var read := false
+	
 	while not f.eof_reached():
-		text.push_back(f.get_line())
+		var line := f.get_line()
+		if len(line) > 0 and line[0] == "-" and read:
+			read = false
+			break
+		if read:
+			text.push_back(line)
+		if len(line) > 0 and int(line[0]) == set:
+			read = true
 	if f.is_open():
 		f.close()
 

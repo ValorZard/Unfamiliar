@@ -1,44 +1,286 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=26 format=2]
 
-[ext_resource path="res://Resources/Tilesets/Tileset_Train.tres" type="TileSet" id=1]
-[ext_resource path="res://Sprites/Props/Train_rail.png" type="Texture" id=2]
-[ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Scenes/Scene_Train1.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Tilesets/Tileset_Train.tres" type="TileSet" id=3]
+[ext_resource path="res://Sprites/Props/Train_rail.png" type="Texture" id=4]
+[ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/Props/Train_light.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_sit.png" type="Texture" id=7]
+[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_stand1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_stand2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_down.png" type="Texture" id=11]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=13]
+[ext_resource path="res://Audio/Train loop.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Audio/Train stop.ogg" type="AudioStream" id=15]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 3, 28 )
+[sub_resource type="Animation" id=1]
+resource_name = "New Anim"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -46 ), Vector2( -320, -46 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, -46 ), Vector2( 0, -46 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 40, 11 )
+extents = Vector2( 3, 28 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 24, 11 )
+extents = Vector2( 40, 4 )
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 22, 4 )
+extents = Vector2( 24, 4 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 38, 4 )
+extents = Vector2( 22, 4 )
 
 [sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 2, 6 )
+extents = Vector2( 38, 4 )
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 8, 72 )
+extents = Vector2( 2, 6 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 2, 43 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "Event"
+length = 38.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 20, 22, 38, 38.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "_event_show_player"
+}, {
+"args": [ "res://Audio/Bing bong.ogg" ],
+"method": "_event_play_sound"
+}, {
+"args": [ "res://Dialogue/dl_train_intro1.txt", 0 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "intro", 1 ],
+"method": "_event_set_flag"
+}, {
+"args": [ NodePath("../PlayerStart") ],
+"method": "_event_intro_replace_player"
+} ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../CanvasLayer/Fade:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 15, 22 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("../BGSTrain:volume_db")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 8, 25, 36.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ -80.0, -6.0, -6.0, -80.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../AnimationPlayer:playback_speed")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 24.3, 36.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -2.0, -2.0, 0.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("../SoundTrainStop:volume_db")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 25, 33 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -80.0, -80.0, -10.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("../SoundTrainStop:playing")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 25 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../PlayerStart:texture")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 38, 38.1, 38.2 ),
+"transitions": PoolRealArray( 1, 8.87655, 1, 1.1487 ),
+"update": 1,
+"values": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../PlayerStart:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 38, 38.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 200, 69 ), Vector2( 200, 70 ), Vector2( 200, 72 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../CanvasLayer/Text1:self_modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2.5, 4, 11, 12.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("../CanvasLayer/Text2:self_modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 4.5, 5.9, 11, 12.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("../CanvasLayer/Text3:self_modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 7.5, 9, 11, 12.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("../CanvasLayer/Text4:self_modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 14, 16, 18, 19 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 8, 30 )
 
 [node name="Scene" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 90.0 ],
+"_edit_vertical_guides_": [ 160.0 ]
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -46 )
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 320, -46 )
+texture = ExtResource( 2 )
+centered = false
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "New Anim"
+playback_speed = -2.0
+"anims/New Anim" = SubResource( 1 )
+
+[node name="TileMap4" type="TileMap" parent="."]
+position = Vector2( 80, 26 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 1, 1, 0, 2, 1, 0, 3, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2( 80, 18 )
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, 26, 0, 1, 26, 0, 2, 26, 0, 3, 26, 0, 4, 26, 0, 5, 26, 0, 6, 26, 0, 7, 26, 0, 8, 26, 0, 9, 26, 0, 65536, 1, 0, 65537, 1, 0, 65538, 1, 0, 65539, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 65543, 1, 0, 65544, 1, 0, 65545, 1, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 196608, 30, 0, 196609, 30, 0, 196610, 30, 0, 196611, 30, 0, 196612, 30, 0, 196613, 30, 0, 196614, 30, 0, 196615, 30, 0, 196616, 30, 0, 196617, 30, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 536870929, 0, 327681, 536870929, 0, 327682, 536870929, 0, 327683, 536870929, 0, 327684, 536870929, 0, 327685, 536870929, 0, 327686, 536870929, 0, 327687, 536870929, 0, 327688, 536870929, 0, 327689, 536870929, 0, 393216, 536870930, 0, 393217, 536870930, 0, 393218, 536870930, 0, 393219, 536870930, 0, 393220, 536870930, 0, 393221, 536870930, 0, 393222, 536870930, 0, 393223, 536870930, 0, 393224, 536870930, 0, 393225, 536870930, 0, 458752, 1073741841, 0, 458753, 1073741841, 0, 458754, 1073741841, 0, 458755, 1073741841, 0, 458756, 1073741841, 0, 458757, 1073741841, 0, 458758, 1073741841, 0, 458759, 1073741841, 0, 458760, 1073741841, 0, 458761, 1073741841, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0 )
+tile_data = PoolIntArray( 0, 26, 0, 1, 26, 0, 2, 26, 0, 3, 26, 0, 4, 26, 0, 5, 26, 0, 6, 26, 0, 7, 26, 0, 8, 26, 0, 9, 26, 0, 65536, 1, 0, 65540, 1, 0, 65541, 1, 0, 65542, 1, 0, 131072, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 196608, 30, 0, 196612, 30, 0, 196613, 30, 0, 196614, 30, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 327680, 536870929, 0, 327681, 536870929, 0, 327682, 536870929, 0, 327683, 536870929, 0, 327684, 536870929, 0, 327685, 536870929, 0, 327686, 536870929, 0, 327687, 536870929, 0, 327688, 536870929, 0, 327689, 536870929, 0, 393216, 536870930, 0, 393217, 536870930, 0, 393218, 536870930, 0, 393219, 536870930, 0, 393220, 536870930, 0, 393221, 536870930, 0, 393222, 536870930, 0, 393223, 536870930, 0, 393224, 536870930, 0, 393225, 536870930, 0, 458752, 1073741841, 0, 458753, 1073741841, 0, 458754, 1073741841, 0, 458755, 1073741841, 0, 458756, 1073741841, 0, 458757, 1073741841, 0, 458758, 1073741841, 0, 458759, 1073741841, 0, 458760, 1073741841, 0, 458761, 1073741841, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Prop3" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 192, 207 )
 rotation = -3.14159
 __meta__ = {
@@ -46,15 +288,16 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Prop3"]
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 centered = false
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Prop3"]
 position = Vector2( 2, 31 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Prop4" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 160, 207 )
 rotation = -3.14159
 scale = Vector2( -1, 1 )
@@ -63,20 +306,20 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Prop4"]
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 centered = false
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Prop4"]
 position = Vector2( 2, 31 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="TileMap3" type="TileMap" parent="."]
 position = Vector2( 80, 26 )
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 65537, 11, 0, 65538, 12, 0, 65539, 13, 0, 65543, 11, 0, 65544, 12, 0, 65545, 12, 0, 131073, 14, 0, 131074, 15, 0, 131075, 16, 0, 131079, 14, 0, 131080, 15, 0, 131081, 15, 0, 196608, 536870918, 0, 196609, 4, 0, 196610, 4, 0, 196611, 4, 0, 196612, 2, 0, 196615, 536870914, 0, 196616, 536870916, 0, 196617, 536870916, 0, 262144, 5, 0, 262145, 5, 0, 262146, 5, 0, 262147, 5, 0, 262148, 3, 0, 262151, 536870915, 0, 262152, 536870917, 0, 262153, 536870917, 0, 458752, 28, 0, 458753, 28, 0, 458754, 28, 0, 458755, 28, 0, 458756, 29, 0, 458759, 536870941, 0, 458760, 28, 0, 458761, 28, 0, 524288, 20, 0, 524289, 20, 0, 524290, 20, 0, 524291, 20, 0, 524292, 20, 0, 524293, 20, 0, 524294, 20, 0, 524295, 20, 0, 524296, 20, 0, 524297, 20, 0 )
+tile_data = PoolIntArray( 65537, 31, 0, 65538, 32, 0, 65539, 33, 0, 65543, 31, 0, 65544, 32, 0, 65545, 32, 0, 131073, 34, 0, 131074, 35, 0, 131075, 36, 0, 131079, 34, 0, 131080, 35, 0, 131081, 35, 0, 196608, 536870918, 0, 196609, 4, 0, 196610, 4, 0, 196611, 4, 0, 196612, 2, 0, 196615, 536870914, 0, 196616, 536870916, 0, 196617, 536870916, 0, 262144, 5, 0, 262145, 5, 0, 262146, 5, 0, 262147, 5, 0, 262148, 3, 0, 262151, 536870915, 0, 262152, 536870917, 0, 262153, 536870917, 0, 458752, 28, 0, 458753, 28, 0, 458754, 28, 0, 458755, 28, 0, 458756, 29, 0, 458759, 536870941, 0, 458760, 28, 0, 458761, 28, 0, 524288, 20, 0, 524289, 20, 0, 524290, 20, 0, 524291, 20, 0, 524292, 20, 0, 524293, 20, 0, 524294, 20, 0, 524295, 20, 0, 524296, 20, 0, 524297, 20, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -84,7 +327,7 @@ __meta__ = {
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2( 80, 18 )
 z_index = 500
-tile_set = ExtResource( 1 )
+tile_set = ExtResource( 3 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 0, 9, 0, 1, 9, 0, 2, 9, 0, 3, 9, 0, 4, 9, 0, 5, 9, 0, 6, 9, 0, 7, 9, 0, 8, 9, 0, 9, 9, 0, 65536, 10, 0, 65537, 10, 0, 65538, 10, 0, 65539, 10, 0, 65540, 10, 0, 65541, 10, 0, 65542, 10, 0, 65543, 10, 0, 65544, 10, 0, 65545, 10, 0 )
@@ -92,76 +335,163 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Overlay" parent="." instance=ExtResource( 3 )]
+[node name="Overlay" parent="." instance=ExtResource( 5 )]
 is_preview = true
 
 [node name="Prop" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 187, 36 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Prop"]
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Prop"]
 position = Vector2( 3, 31 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Prop2" type="StaticBody2D" parent="."]
+editor/display_folded = true
 position = Vector2( 160, 36 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Prop2"]
-texture = ExtResource( 2 )
+texture = ExtResource( 4 )
 centered = false
 flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Prop2"]
 position = Vector2( 2, 31 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
+
+[node name="Prop5" type="Sprite" parent="."]
+position = Vector2( 176, 58 )
+texture = ExtResource( 6 )
 
 [node name="SeatCollision" type="StaticBody2D" parent="."]
 __meta__ = {
-"_edit_group_": true
+"_edit_group_": true,
+"_edit_lock_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 120, 84 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 216, 84 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 218, 150 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 118, 150 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 158, 149 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 194, 149 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="SeatCollision"]
+position = Vector2( 242, 119 )
+shape = SubResource( 11 )
+
+[node name="PlayerStart" type="Sprite" parent="."]
+position = Vector2( 200, 69 )
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Event" parent="." instance=ExtResource( 8 )]
+position = Vector2( 176, 98 )
+destroy = true
+destroy_flag = "intro"
+
+[node name="AnimationPlayer" parent="Event" index="0"]
+anims/Event = SubResource( 9 )
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="Transitions" instance=ExtResource( 4 )]
-position = Vector2( 72, 90 )
+[node name="Transition" parent="Transitions" instance=ExtResource( 12 )]
+position = Vector2( 72, 117 )
 target_scene = "res://Scenes/Intro/Train2.tscn"
 target_direction = 2
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 10 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 8
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Text1" type="Label" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 113.0
+margin_top = 61.0
+margin_right = 207.0
+margin_bottom = 75.0
+custom_fonts/font = ExtResource( 13 )
+text = "Duncan Sparks"
+align = 1
+
+[node name="Text2" type="Label" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 110.0
+margin_top = 73.0
+margin_right = 210.0
+margin_bottom = 87.0
+custom_fonts/font = ExtResource( 13 )
+text = "Studio Fractal"
+align = 1
+
+[node name="Text3" type="Label" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 110.0
+margin_top = 103.0
+margin_right = 210.0
+margin_bottom = 117.0
+custom_fonts/font = ExtResource( 13 )
+text = "Presents"
+align = 1
+
+[node name="Text4" type="Label" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 110.0
+margin_top = 83.0
+margin_right = 210.0
+margin_bottom = 97.0
+custom_fonts/font = ExtResource( 13 )
+text = "Unfamiliar"
+align = 1
+
+[node name="BGSTrain" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 14 )
+volume_db = -80.0
+autoplay = true
+
+[node name="SoundTrainStop" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -80.0
+
+[editable path="Event"]
 
 [editable path="Transitions/Transition"]
