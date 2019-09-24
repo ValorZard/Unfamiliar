@@ -6,6 +6,7 @@ const CosmoSprite := preload("res://Resources/Sprite Frames/SpriteFrames_Cosmo.t
 const CosmoSprite2 := preload("res://Resources/Sprite Frames/SpriteFrames_Cosmo2.tres")
 const DiscourseScene := "res://Scenes/Discourse.tscn"
 const SoundOneShotRef := preload("res://Instances/SoundOneShot.tscn")
+const MenuRef := preload("res://Instances/System/Menu.tscn")
 
 var inventory := {}
 var flags := {
@@ -14,6 +15,8 @@ var flags := {
 
 var money: int = 20
 var money_disp: int = 20
+
+var menu_open := false
 
 onready var money_text: Label = $Overlay/Money
 onready var anim_player: AnimationPlayer = $AnimationPlayer
@@ -28,6 +31,12 @@ func _process(delta):
 		money_disp = lerp(money_disp, money, 0.15)
 	
 	money_text.text = str(money_disp)
+	
+	if Input.is_action_just_pressed("sys_menu") and not menu_open:
+		menu_open = true
+		Player.set_state(Player.PlayerState.NoInput)
+		var menu := MenuRef.instance()
+		get_tree().get_root().add_child(menu)
 
 # =====================================================================
 
@@ -37,6 +46,10 @@ func flag(key: String) -> int:
 
 func set_flag(key: String, value: int):
 	flags[key] = value
+	
+	
+func set_menu_open(value: bool):
+	menu_open = value
 
 
 func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, relative_coords: bool = true):
@@ -51,16 +64,16 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		match direction:
 			Player.Direction.Up:
 				target = Vector2(0, -144)
-				player_offset = Vector2(0, -6)
+				player_offset = Vector2(0, -8)
 			Player.Direction.Down:
 				target = Vector2(0, 144)
-				player_offset = Vector2(0, 6)
+				player_offset = Vector2(0, 8)
 			Player.Direction.Left:
 				target = Vector2(-160, 0)
-				player_offset = Vector2(-6, 0)
+				player_offset = Vector2(-8, 0)
 			Player.Direction.Right:
 				target = Vector2(160, 0)
-				player_offset = Vector2(6, 0)
+				player_offset = Vector2(8, 0)
 		scn_i.set_position(target)
 		get_tree().get_root().add_child(scn_i)
 		
