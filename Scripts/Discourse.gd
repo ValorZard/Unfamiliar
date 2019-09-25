@@ -59,7 +59,7 @@ func run_discourse(file: String, right_name: String, right_sprite: SpriteFrames,
 	var cr = DiscourseCharacterRef.instance()
 	cr.set_spriteframes(right_sprite)
 	get_tree().get_root().add_child(cr)
-	cr.position.x += 165
+	cr.position.x += 152
 	character_right = cr
 	
 	name_left = left_name

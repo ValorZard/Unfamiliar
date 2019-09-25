@@ -3,7 +3,7 @@ extends Node
 const DialogueRef := preload("res://Instances/Dialogue.tscn")
 const DiscourseStartRef := preload("res://Scenes/DiscourseStart.tscn")
 const CosmoSprite := preload("res://Resources/Sprite Frames/SpriteFrames_Cosmo.tres")
-const CosmoSprite2 := preload("res://Resources/Sprite Frames/SpriteFrames_Cosmo2.tres")
+const RhonaSprite := preload("res://Resources/Sprite Frames/SpriteFrames_Rhona.tres")
 const DiscourseScene := "res://Scenes/Discourse.tscn"
 const SoundOneShotRef := preload("res://Instances/SoundOneShot.tscn")
 const MenuRef := preload("res://Instances/System/Menu.tscn")
@@ -25,7 +25,7 @@ onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 func _process(delta):
 	if Input.is_action_just_pressed("debug_1"):
-		start_discourse("res://Discourses/d_1_rhona.txt", "Rhona", CosmoSprite2)
+		start_discourse("res://Discourses/d_1_rhona.txt", "Rhona", RhonaSprite)
 		
 	if money_disp != money:
 		money_disp = lerp(money_disp, money, 0.15)

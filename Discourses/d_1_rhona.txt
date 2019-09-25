@@ -31,7 +31,7 @@
 ------------------------
 < Zzyzx, to the west.
 @> happy
-> What a strange name!
+> Z... $wZzyzx? $0That's a strange name.
 @< smile
 < Heh. Yeah.
 @> idle
@@ -55,7 +55,7 @@
 @> happy
 > Oh, that's pretty close!
 @< smile
-@> smile
+@> idle
 < Yeah. We actually visit Los Muertos#a lot.
 @< idle
 < Cottonwood is just so boring.
@@ -144,15 +144,14 @@
 @> serious
 @< explain
 < My witch just... $wcreated $0me, because#she wanted a personal assistant.
-@> huh
+@> annoyed
 > I thought all demons were from the...#underworld, or something?
-< Not exactly. It's really complicated.
 @> serious
+< Not exactly. It's really complicated.
 > Oh. All right.
 @< idle
-@> huh
 >> So, what does your witch $wdo, $0exactly?
-[ 221 She teaches people magic. (-20, -60)[157, 179] | She makes and sells potions. (20, -10)[181, 198] | She writes books of hexes. (0, 40)[200, 219]
+[ 220 She teaches people magic. (-20, -60)[156, 178] | She makes and sells potions. (20, -10)[180, 197] | She writes books of hexes. (0, 40)[199, 218]
 ------------------------
 < She teaches people magic.
 @> shock
@@ -221,7 +220,7 @@
 @< smile
 @> idle
 << What about you, Rhona?
-[ 272 What do you like to do? (-20, -60)[226, 251] | What kind of job do you want to have? (20, 60)[253, 270]
+[ 271 What do you like to do? (-20, -60)[225, 250] | What kind of job do you want to have? (20, 60)[252, 269]
 ------------------------
 < What do you like to do?
 @> happy
@@ -281,7 +280,7 @@
 @> serious
 > So... what is...
 >> What is your witch... like?
-[ 352 She's actually really nice. (-20, -60)[286, 303] | She's all right. (20, -10)[305, 321] | She isn't very nice. (0, 40)[323, 350]
+[ 351 She's actually really nice. (-20, -60)[285, 302] | She's all right. (20, -10)[304, 320] | She isn't very nice. (0, 40)[322, 349]
 ------------------------
 @< smile
 < She's actually really nice.
