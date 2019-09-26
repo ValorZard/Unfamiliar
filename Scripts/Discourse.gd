@@ -107,6 +107,9 @@ func run_discourse(file: String, right_name: String, right_sprite: SpriteFrames,
 		else:
 			list_index += 1
 			
+	text_controller.hide()
+	$AnimationPlayer.play("Fadeout")
+			
 
 func click_choice(index: int):
 	var i: int = 0
@@ -156,7 +159,7 @@ func parse_discourse_command(command: String):
 		match line_regex.search(command).get_string(1):
 			"<":
 				text_controller.set_name_text(name_left)
-				#text_controller.set_name_side(false)
+				text_controller.set_name_side(false)
 				text_controller.show_box()
 				speaker_right = false
 				co_target = text_controller
@@ -164,7 +167,7 @@ func parse_discourse_command(command: String):
 				text_controller.display_text(text)
 			">":
 				text_controller.set_name_text(name_right)
-				#text_controller.set_name_side(true)
+				text_controller.set_name_side(true)
 				text_controller.show_box()
 				speaker_right = true
 				co_target = text_controller
@@ -172,7 +175,7 @@ func parse_discourse_command(command: String):
 				text_controller.display_text(text)
 			"<<":
 				text_controller.set_name_text(name_left)
-				#text_controller.set_name_side(false)
+				text_controller.set_name_side(false)
 				text_controller.show_box()
 				speaker_right = false
 				co_target = text_controller
@@ -181,7 +184,7 @@ func parse_discourse_command(command: String):
 				text_controller.display_text(text)
 			">>":
 				text_controller.set_name_text(name_right)
-				#text_controller.set_name_side(true)
+				text_controller.set_name_side(true)
 				text_controller.show_box()
 				speaker_right = true
 				co_target = text_controller

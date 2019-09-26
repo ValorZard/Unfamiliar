@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/charlotte-nights (TEMP).ogg-1bb74b0dc52d2a67f4733843765a1d90.oggstr"
+
+[deps]
+
+source_file="res://Audio/Music/charlotte-nights (TEMP).ogg"
+dest_files=[ "res://.import/charlotte-nights (TEMP).ogg-1bb74b0dc52d2a67f4733843765a1d90.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

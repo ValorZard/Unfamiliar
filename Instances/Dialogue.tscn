@@ -1,33 +1,32 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scripts/Dialogue.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/UI/BoxNinePatch.png" type="Texture" id=2]
-[ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=3]
+[ext_resource path="res://Audio/Dialogue type.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Sprites/UI/BoxNinePatch.png" type="Texture" id=3]
+[ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=4]
 
 [node name="Dialogue" type="Node2D"]
 position = Vector2( 86, 116 )
 z_index = 3200
 script = ExtResource( 1 )
+sound_type = ExtResource( 2 )
 
 [node name="Box" type="NinePatchRect" parent="."]
 margin_right = 148.0
 margin_bottom = 40.0
-texture = ExtResource( 2 )
+texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 6, 6 )
 patch_margin_left = 2
 patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="Text" type="Label" parent="."]
 margin_left = 6.0
 margin_top = 5.0
 margin_right = 142.0
 margin_bottom = 38.0
-custom_fonts/font = ExtResource( 3 )
+custom_fonts/font = ExtResource( 4 )
 custom_constants/line_spacing = 2
 text = "Hello there, Cosmo! How are you doing on this fine summer afternoon?"
 autowrap = true

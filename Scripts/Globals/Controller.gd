@@ -24,8 +24,9 @@ onready var anim_player: AnimationPlayer = $AnimationPlayer
 # =====================================================================
 
 func _process(delta):
-	if Input.is_action_just_pressed("debug_1"):
-		start_discourse("res://Discourses/d_1_rhona.txt", "Rhona", RhonaSprite)
+	pass
+	#if Input.is_action_just_pressed("debug_1"):
+		#start_discourse("res://Discourses/d_1_rhona.txt", "Rhona", RhonaSprite)
 		
 	if money_disp != money:
 		money_disp = lerp(money_disp, money, 0.15)

@@ -1,9 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/TextDisplay.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=2]
-[ext_resource path="res://Sprites/UI/Box.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/UI/BoxNinePatch.png" type="Texture" id=4]
+[ext_resource path="res://Audio/Dialogue type.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sprites/UI/Box.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/BoxNinePatch.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/UI/Box tail.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fadein"
@@ -72,18 +74,19 @@ __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
 font = ExtResource( 2 )
+sound_type = ExtResource( 3 )
 
 [node name="Box" type="Sprite" parent="."]
 position = Vector2( 160, 143 )
 z_index = -50
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Namebox" type="NinePatchRect" parent="."]
 margin_left = 36.0
 margin_top = 100.0
 margin_right = 110.0
 margin_bottom = 120.0
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 6, 6 )
 patch_margin_left = 2
 patch_margin_top = 2
@@ -124,6 +127,13 @@ text = "Wow, this is a very long line of text! How convenient!"
 align = 1
 valign = 1
 
+[node name="Tail" type="Sprite" parent="."]
+visible = false
+position = Vector2( 249, 110 )
+z_index = -50
+texture = ExtResource( 6 )
+centered = false
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Fadein = SubResource( 1 )
 anims/Fadeout = SubResource( 2 )
@@ -135,5 +145,8 @@ anims/Fadeout = SubResource( 4 )
 [node name="TimerRollText" type="Timer" parent="."]
 wait_time = 0.02
 
-[node name="TimerSound" type="Timer" parent="."]
+[node name="TimerBuffer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
 [connection signal="timeout" from="TimerRollText" to="." method="_on_TimerRollText_timeout"]
+[connection signal="timeout" from="TimerBuffer" to="." method="_on_TimerBuffer_timeout"]

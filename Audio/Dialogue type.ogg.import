@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Dialogue type.ogg-49ce7726284ea63a09113ba4c4714660.oggstr"
+
+[deps]
+
+source_file="res://Audio/Dialogue type.ogg"
+dest_files=[ "res://.import/Dialogue type.ogg-49ce7726284ea63a09113ba4c4714660.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

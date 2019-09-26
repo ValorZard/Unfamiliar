@@ -1,5 +1,7 @@
 extends Node2D
 
+export(AudioStream) var sound_type
+
 class_name Dialogue
 
 signal dialogue_ended
@@ -8,6 +10,7 @@ const Interval := 0.02
 
 var text: PoolStringArray = []
 var page: int = 0
+var page_length: int = 0
 var disp: int = 0
 var roll := false
 
@@ -29,6 +32,7 @@ func _process(delta):
 			if page < len(text) - 1:
 				disp = 0
 				page += 1
+				page_length = len(text[page].replace(" ", ""))
 				allow_advance = false
 				$TimerRollText.start()
 				buffer = true
@@ -50,6 +54,7 @@ func start(file: String, set: int, reset_state_: bool):
 	reset_state = reset_state_
 	Player.stop_moving()
 	load_text_from_file(file, set)
+	page_length = len(text[0].replace(" ", ""))
 	$TimerRollText.start()
 	
 # =====================================================================
@@ -76,6 +81,8 @@ func load_text_from_file(file: String, set: int):
 
 func _on_TimerRollText_timeout():
 	disp += 1
+	if disp < page_length:
+		Controller.play_sound_oneshot(sound_type, rand_range(0.9, 1.1), -10)
 	if disp >= len(text[page]):
 		roll = false
 		$TimerRollText.stop()

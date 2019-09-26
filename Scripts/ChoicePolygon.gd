@@ -9,6 +9,9 @@ const OutlineWidth: float = 1.5
 const Variance: int = 5
 const MoveLeniency = 30
 
+const SoundHover := preload("res://Audio/Hover.ogg")
+const SoundClick := preload("res://Audio/Click.ogg")
+
 var index: int
 
 var target_line_start: int = -1
@@ -51,6 +54,7 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("sys_select") and active and hover:
 		#print("TEST")
+		Controller.play_sound_oneshot(SoundClick, rand_range(0.95, 1.05), 12)
 		controller.click_choice(index)
 		text_controller.fade_screen(false)
 		#$AnimationPlayer.play("Disappear2")
@@ -139,8 +143,8 @@ func _on_AnimationPlayer_animation_finished(anim_name: String):
 
 
 func _on_AreaHover_mouse_entered():
-	#print("ACTIVE IS" + str(active))
 	if active:
+		Controller.play_sound_oneshot(SoundHover, rand_range(0.95, 1.05))
 		$AnimationPlayerHover.play("Hover")
 		hover = true
 

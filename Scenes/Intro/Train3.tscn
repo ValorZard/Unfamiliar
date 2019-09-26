@@ -226,6 +226,11 @@ target_direction = 3
 [node name="CollisionShape2D" parent="CanvasLayer/Transition" index="0"]
 shape = SubResource( 8 )
 
+[node name="Transition2" parent="CanvasLayer" instance=ExtResource( 7 )]
+position = Vector2( 72, 120 )
+target_scene = "res://Scenes/Intro/Train4.tscn"
+target_direction = 2
+
 [node name="NPCRhona" parent="." instance=ExtResource( 8 )]
 position = Vector2( 136, 82 )
 dialogue_file = "res://Dialogue/dl_train_rhona.txt"

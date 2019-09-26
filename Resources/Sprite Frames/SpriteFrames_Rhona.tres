@@ -1,14 +1,23 @@
-[gd_resource type="SpriteFrames" load_steps=10 format=2]
+[gd_resource type="SpriteFrames" load_steps=19 format=2]
 
 [ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Idle2.png" type="Texture" id=1]
-[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Explain2.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Explain.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Serious.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Think.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Heh.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Happy.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Sad.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Wonder.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Sad.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Serious.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Think.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Wonder.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Laugh.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Angry.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Happy.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Explain.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Explain2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Heh.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Outrage.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Aw.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Angry2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Worry.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Evil.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Ohyes.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters (Discourse)/Rhona/Rhona_Shock.png" type="Texture" id=18]
 
 [resource]
 animations = [ {
@@ -19,41 +28,86 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "explain2",
+"name": "sad",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "explain",
+"name": "serious",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "serious",
+"name": "think",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "think",
+"name": "annoyed",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "heh",
+"name": "laugh",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "happy",
+"name": "angry",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "sad",
+"name": "happy",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "annoyed",
+"name": "explain",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "explain2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "heh",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "outrage",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "aw",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "angry2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "worry",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "evil",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "ohyes",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "shock",
 "speed": 5.0
 } ]

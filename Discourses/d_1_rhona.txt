@@ -72,7 +72,7 @@
 @> idle
 ========================
 << Hey, Rhona...
-[ 135 Where are you from? (-20, -60)[77, 91] | Why are you visiting Los Muertos? (20, -10)[93, 112] | Where are your parents? (0, 40)[114, 133]
+[ 137 Where are you from? (-20, -60)[77, 91] | Why are you visiting Los Muertos? (20, -10)[93, 112] | Where are your parents? (0, 40)[114, 135]
 ------------------------
 < Where are you from?
 @> idle
@@ -100,7 +100,7 @@
 < Oh, that place?
 @< explain2
 < My witch and I usually walk past it.
-< I always look through the windows.
+< I always look through the windows.#It looks really neat in there.
 @> explain2
 > Yeah. My grandpa is a wizard.
 @< smile
@@ -111,7 +111,9 @@
 < Ha!
 @< smile
 ------------------------
+@< idle
 < Where are your parents?
+@> serious
 > They're not here. I usually come to#Los Muertos by myself.
 @> sad
 > My dad passed away a few years ago.
@@ -144,14 +146,14 @@
 @> serious
 @< explain
 < My witch just... $wcreated $0me, because#she wanted a personal assistant.
-@> annoyed
+@> think
 > I thought all demons were from the...#underworld, or something?
 @> serious
 < Not exactly. It's really complicated.
 > Oh. All right.
 @< idle
 >> So, what does your witch $wdo, $0exactly?
-[ 220 She teaches people magic. (-20, -60)[156, 178] | She makes and sells potions. (20, -10)[180, 197] | She writes books of hexes. (0, 40)[199, 218]
+[ 222 She teaches people magic. (-20, -60)[158, 180] | She makes and sells potions. (20, -10)[182, 199] | She writes books of hexes. (0, 40)[201, 220]
 ------------------------
 < She teaches people magic.
 @> shock
@@ -170,12 +172,12 @@
 @< satisfied
 < Oh, there's no need for that.#I already know magic.
 @< smile
-@> wow
-> $wWOOW! $0That was cool!
-> Maybe I should become a witch.
+@> happy
+> Really?! Can you show me?
 @< heh
+< Uh... that might not be a great idea#in public.
 @> idle
-< Uh... might want to think about that#for a while.
+> Er... yeah. You're probably right.
 ------------------------
 < She makes and sells potions.
 @< explain2
@@ -191,7 +193,7 @@
 < Uh... lots of weird ingredients I#don't know anything about.
 < I don't even know if she gets all her#ingredients legally.
 @< heh
-@> oh
+@> heh
 < ...Don't tell her I told you that.
 @> happy
 > My lips are sealed!
@@ -202,7 +204,7 @@
 @> explain2
 > So... books of magic words?
 < Not exactly. They're more like#pentagrams. Patterns you have to#know.
-@> huh
+@> explain
 > Do you... $wdraw $0them somewhere?
 @< explain
 < You can.
@@ -220,7 +222,7 @@
 @< smile
 @> idle
 << What about you, Rhona?
-[ 271 What do you like to do? (-20, -60)[225, 250] | What kind of job do you want to have? (20, 60)[252, 269]
+[ 274 What do you like to do? (-20, -55)[227, 252] | What kind of job do you want to have? (20, -5)[254, 272]
 ------------------------
 < What do you like to do?
 @> happy
@@ -242,8 +244,8 @@
 @< explain2
 @> idle
 < That would be amazing!
-> Are you into video games?
 @> happy
+> Are you into video games?
 @< think
 < Uh... sometimes we stop by arcades.
 @< smile
@@ -259,9 +261,10 @@
 @> explain
 > My grandpa has taught me a bunch,#and he says I'm really good with my#hands.
 > He thinks I would make a great#fletcher, or any other kind of#craftsperson.
-@> comeon
+@> annoyed
 > But... come on! Fletching?#Making small trinkets?
 > That sounds like the most boring#job in the world.
+@> explain
 > I mean, look at you! You get to help#a witch do magical stuff!
 > Why can't I have a job as interesting#as that?
 @> serious
@@ -280,7 +283,7 @@
 @> serious
 > So... what is...
 >> What is your witch... like?
-[ 351 She's actually really nice. (-20, -60)[285, 302] | She's all right. (20, -10)[304, 320] | She isn't very nice. (0, 40)[322, 349]
+[ 354 She's actually really nice. (-20, -60)[288, 305] | She's all right. (20, -10)[307, 323] | She isn't very nice. (0, 40)[325, 352]
 ------------------------
 @< smile
 < She's actually really nice.
@@ -348,7 +351,8 @@
 @> sad
 > You poor thing...
 ========================
-| 2.5
+| 1.5
+@> serious
 > Hey, Cosmo?
 @< idle
 < Yeah?
@@ -368,6 +372,7 @@
 @> annoyed
 > $wOh, $0she doesn't know what she's#talking about.
 @< angry
+@> serious
 < She's been a witch for over#$wthirty years!
 < She's one of the most well-respected#witches in the community!
 < Of course she knows what she's#talking about!
@@ -403,5 +408,5 @@
 < Sure thing!
 @< explain2
 < See you around, Rhona!
-@> wave
+@> explain2
 > Later, Cosmo!

@@ -6,6 +6,7 @@ signal text_ended
 signal text_ended_button
 
 export(DynamicFont) var font
+export(AudioStream) var sound_type
 
 const Interval := 0.02
 const XStart := 41
@@ -13,7 +14,8 @@ const YStart := 132
 const LineSpacing := 14
 
 var text: String = ""
-#var page: int = 0
+var text_length: int = 0
+
 var disp: int = -1
 var roll := false
 
@@ -21,6 +23,8 @@ var allow_advance := false
 var buffer := false
 var t: float = 0
 var pause := false
+
+var finished := false
 
 var box_visible := true
 
@@ -37,8 +41,16 @@ func _ready():
 func _process(delta):
 	t += 60.0 * delta
 	
-	if Input.is_action_just_pressed("sys_select") and allow_advance:
-		emit_signal("text_ended_button")
+	if Input.is_action_just_pressed("sys_select") and not buffer:
+		if allow_advance:
+			allow_advance = false
+			emit_signal("text_ended_button")
+		elif not finished:
+			disp = len(text) - 2
+			#allow_advance = true
+			finished = true
+			buffer = true
+			$TimerBuffer.start()
 	
 	update()
 	
@@ -108,12 +120,14 @@ func _draw():
 func show_box():
 	$Box.show()
 	$Namebox.show()
+	#$Tail.show()
 	box_visible = true
 	
 
 func hide_box():
 	$Box.hide()
 	$Namebox.hide()
+	#$Tail.hide()
 	box_visible = false
 	
 	
@@ -122,18 +136,22 @@ func set_name_text(text: String):
 	$Namebox.margin_right = $Namebox.margin_left + font.get_string_size(text).x + 7
 	
 	
-#func set_name_side(right: bool):
-	#if right:
-	#	$Namebox/NameText.set_align(Label.ALIGN_RIGHT)
-	#	$Namebox/NameText.margin_left = 244
-	#else:
-	#	$Namebox/NameText.set_align(Label.ALIGN_LEFT)
-	#	$Namebox/NameText.margin_left = 4
+func set_name_side(right: bool):
+	if right:
+		$Tail.set_position(Vector2(262, 110))
+		#$Namebox/NameText.set_align(Label.ALIGN_RIGHT)
+		#$Namebox/NameText.margin_left = 244
+	else:
+		$Tail.set_position(Vector2(42, 110))
+		#$Namebox/NameText.set_align(Label.ALIGN_LEFT)
+		#$Namebox/NameText.margin_left = 4
 	
 
 func display_text(text: String):
 	disp = -1
+	finished = false
 	self.text = text
+	text_length = len(text.replace(" ", ""))
 	$TimerRollText.start()
 	roll = true
 	
@@ -149,9 +167,15 @@ func fade_screen(out: bool):
 
 func _on_TimerRollText_timeout():
 	disp += 1
+	#if disp < text_length:
+	Controller.play_sound_oneshot(sound_type, rand_range(0.9, 1.1), -10)
 	if disp >= len(text) - 1:
 		roll = false
+		finished = true
 		$TimerRollText.stop()
-		$TimerSound.stop()
 		emit_signal("text_ended")
 		allow_advance = true
+
+
+func _on_TimerBuffer_timeout():
+	buffer = false

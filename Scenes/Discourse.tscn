@@ -1,11 +1,42 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Discourse.gd" type="Script" id=1]
-[ext_resource path="res://Instances/TextDisplay.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Audio/Music/419802__sirkoto51__anime-encounter-loop-3.wav" type="AudioStream" id=3]
+[ext_resource path="res://Sprites/Particles/DiscourseBg.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/UI/BG1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/BG2.png" type="Texture" id=4]
+[ext_resource path="res://Instances/TextDisplay.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Audio/Music/charlotte-nights (TEMP).ogg" type="AudioStream" id=6]
+[ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=7]
 
-[sub_resource type="Animation" id=1]
-resource_name = "Fadein"
+[sub_resource type="CanvasItemMaterial" id=1]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id=2]
+offsets = PoolRealArray( 0, 0.19403, 0.783582, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.784314, 1, 1, 1, 0.784314, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=3]
+gradient = SubResource( 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 160, 90, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 15.0
+initial_velocity_random = 0.5
+angular_velocity = 1.05
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 3 )
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("FadeBase/Fade:color")
 tracks/0/interp = 1
@@ -19,15 +50,256 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Movein"
+[sub_resource type="Animation" id=6]
+resource_name = "Fadeout"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("FadeBase/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Music:volume_db")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 3.0, -80.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Credits:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4, 6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
-[sub_resource type="Animation" id=3]
-resource_name = "Movein"
+[sub_resource type="Animation" id=7]
+
+[sub_resource type="Animation" id=8]
 length = 1.25
+
+[sub_resource type="Animation" id=9]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Word:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 250 ), Vector2( 0, -10 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Word2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 380 ), Vector2( 0, 120 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Word3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 120 ), Vector2( 0, -140 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Word4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 510 ), Vector2( 0, 250 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Word5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -10 ), Vector2( 0, -270 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Word6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, -10 ), Vector2( 320, 250 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Word7:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, 120 ), Vector2( 320, 380 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Word8:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, -140 ), Vector2( 320, 120 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Word9:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, 250 ), Vector2( 320, 510 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Word10:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 320, -270 ), Vector2( 320, -10 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 8.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -100, 120 ), Vector2( 460, 120 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 460, 120 ), Vector2( -130, 120 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -150, 120 ), Vector2( 510, 120 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite4:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 510, 120 ), Vector2( -180, 120 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite5:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( -200, 120 ), Vector2( 560, 120 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Sprite6:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 560, 120 ), Vector2( -230, 120 ) ]
+}
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_vertical_guides_": [ 160.768 ]
+}
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 320.0
@@ -38,7 +310,39 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="TextDisplay" parent="." instance=ExtResource( 2 )]
+[node name="PartsBg" type="Particles2D" parent="."]
+material = SubResource( 1 )
+position = Vector2( 160, 90 )
+amount = 12
+lifetime = 3.0
+process_material = SubResource( 4 )
+texture = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -100, 120 )
+texture = ExtResource( 3 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( -150, 120 )
+texture = ExtResource( 3 )
+
+[node name="Sprite5" type="Sprite" parent="."]
+position = Vector2( -200, 120 )
+texture = ExtResource( 3 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 460, 120 )
+texture = ExtResource( 4 )
+
+[node name="Sprite4" type="Sprite" parent="."]
+position = Vector2( 510, 120 )
+texture = ExtResource( 4 )
+
+[node name="Sprite6" type="Sprite" parent="."]
+position = Vector2( 560, 120 )
+texture = ExtResource( 4 )
+
+[node name="TextDisplay" parent="." instance=ExtResource( 5 )]
 
 [node name="FadeBase" type="Node2D" parent="."]
 z_index = 1500
@@ -50,14 +354,139 @@ mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Fadein"
-anims/Fadein = SubResource( 1 )
+anims/Fadein = SubResource( 5 )
+anims/Fadeout = SubResource( 6 )
 
 [node name="AnimationPlayerLeftChar" type="AnimationPlayer" parent="."]
-anims/Movein = SubResource( 2 )
+anims/Movein = SubResource( 7 )
 
 [node name="AnimationPlayerRightChar" type="AnimationPlayer" parent="."]
-anims/Movein = SubResource( 3 )
+anims/Movein = SubResource( 8 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 3 )
+stream = ExtResource( 6 )
+volume_db = 3.0
 autoplay = true
+
+[node name="Word" type="Node2D" parent="."]
+position = Vector2( 0, 250 )
+
+[node name="Label" type="Label" parent="Word"]
+rect_rotation = 270.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
+text = "CONVERSATION TIME "
+
+[node name="Word2" type="Node2D" parent="."]
+position = Vector2( 0, 380 )
+
+[node name="Label" type="Label" parent="Word2"]
+rect_rotation = 270.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
+text = "CONVERSATION TIME "
+
+[node name="Word3" type="Node2D" parent="."]
+position = Vector2( 0, 120 )
+
+[node name="Label" type="Label" parent="Word3"]
+rect_rotation = 270.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
+text = "CONVERSATION TIME "
+
+[node name="Word4" type="Node2D" parent="."]
+position = Vector2( 0, 510 )
+
+[node name="Label" type="Label" parent="Word4"]
+rect_rotation = 270.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
+text = "CONVERSATION TIME "
+
+[node name="Word5" type="Node2D" parent="."]
+position = Vector2( 0, -10 )
+
+[node name="Label" type="Label" parent="Word5"]
+rect_rotation = 270.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
+text = "CONVERSATION TIME "
+
+[node name="Word6" type="Node2D" parent="."]
+position = Vector2( 320, -10 )
+rotation = 3.14159
+
+[node name="Label" type="Label" parent="Word6"]
+rect_rotation = 270.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
+text = "CONVERSATION TIME "
+
+[node name="Word7" type="Node2D" parent="."]
+position = Vector2( 320, 120 )
+rotation = 3.14159
+
+[node name="Label" type="Label" parent="Word7"]
+rect_rotation = 270.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
+text = "CONVERSATION TIME "
+
+[node name="Word8" type="Node2D" parent="."]
+position = Vector2( 320, -140 )
+rotation = 3.14159
+
+[node name="Label" type="Label" parent="Word8"]
+rect_rotation = 270.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
+text = "CONVERSATION TIME "
+
+[node name="Word9" type="Node2D" parent="."]
+position = Vector2( 320, 250 )
+rotation = 3.14159
+
+[node name="Label" type="Label" parent="Word9"]
+rect_rotation = 270.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
+text = "CONVERSATION TIME "
+
+[node name="Word10" type="Node2D" parent="."]
+position = Vector2( 320, -270 )
+rotation = 3.14159
+
+[node name="Label" type="Label" parent="Word10"]
+rect_rotation = 270.0
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
+text = "CONVERSATION TIME "
+
+[node name="AnimationPlayerWords" type="AnimationPlayer" parent="."]
+autoplay = "Words"
+playback_speed = 0.15
+anims/Words = SubResource( 9 )
+
+[node name="AnimationPlayerBg" type="AnimationPlayer" parent="."]
+autoplay = "Bg"
+anims/Bg = SubResource( 10 )
+
+[node name="Credits" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+z_index = 2000
+
+[node name="Label" type="Label" parent="Credits"]
+margin_left = 61.5502
+margin_top = 33.1596
+margin_right = 260.55
+margin_bottom = 132.16
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Unfamiliar
+Coming soon!
+
+Made by Duncan Sparks
+Additional art by Rami Shreim
+Music by Dorian Cromartie"
+align = 1
