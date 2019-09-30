@@ -94,12 +94,12 @@
 @> idle
 > I come here every few months to visit#my grandpa.
 @> explain2
-> He works here as a fletcher.#Ainsley's Fletching.
+> He works here at Ainsley's#Knack and Craft. He repairs small trinkets.
 @< smile
 @> idle
 < Oh, that place?
 @< explain2
-< My witch and I usually walk past it.
+< We've walked past it a few times on#our previous visits.
 < I always look through the windows.#It looks really neat in there.
 @> explain2
 > Yeah. My grandpa is a wizard.
@@ -254,15 +254,15 @@
 < What kind of job do you want to have?
 @> serious
 > I'm not entirely sure.
-> My grandpa always tries to get me#to join the fletching business with#him.
+> My grandpa always tries to get me#to join the repair business with him.
 < Are you interested in that?
 @< idle
 > Not really.
 @> explain
 > My grandpa has taught me a bunch,#and he says I'm really good with my#hands.
-> He thinks I would make a great#fletcher, or any other kind of#craftsperson.
+> He thinks I would make a great#craftsperson.
 @> annoyed
-> But... come on! Fletching?#Making small trinkets?
+> But... come on! Gluing,#hammering, and screwing stuff together?
 > That sounds like the most boring#job in the world.
 @> explain
 > I mean, look at you! You get to help#a witch do magical stuff!
@@ -361,27 +361,10 @@
 > You may be a demon, but...
 @> idle
 > You're still smart, handsome, and#charming.
-< Stop it.
-@> serious
-> Huh?
-< Stop calling me things I'm not.
-< Demons are demons, okay? My witch#said it to my face.
-@< explain
-< "You're a demon.#You're an abomination."
-@< idle
 @> annoyed
-> $wOh, $0she doesn't know what she's#talking about.
-@< angry
-@> serious
-< She's been a witch for over#$wthirty years!
-< She's one of the most well-respected#witches in the community!
-< Of course she knows what she's#talking about!
-< If she says I'm an abomination,#I'm an abomination.
-@< idle
-@> serious
-> ...
+> Everyone calls demons "edritch#abominations," but...
 @> idle
-> Well, even if you're an abomination,#I'll still talk with you.
+> Even if you're an abomination,#I'll still talk with you.
 @< sad
 < ...
 @< smile

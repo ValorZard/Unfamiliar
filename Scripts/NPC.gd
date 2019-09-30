@@ -33,7 +33,8 @@ func _process(delta):
 		interact.hide()
 		_face_player()
 		var d := Controller.dialogue(dialogue_file, dialogue_set)
-		d.connect("dialogue_ended", get_node(end_call_node), end_call_method)
+		if end_call_node != null and end_call_method != "":
+			d.connect("dialogue_ended", get_node(end_call_node), end_call_method)
 		yield(d, "dialogue_ended")
 		if auto_advance_set and dialogue_set < set_limit:
 			dialogue_set += 1

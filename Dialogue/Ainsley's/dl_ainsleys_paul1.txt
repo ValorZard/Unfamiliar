@@ -1,0 +1,84 @@
+0
+Man: Hello, and welcome!
+Rhona: Oh, hey! It's Cosmo!
+-
+
+1
+Cosmo: Hey, Rhona!
+Rhona: Good to see you again!
+Man: You know this demon, Rhona?
+Rhona: Yeah, Grandpa! He and I met on the train here.
+Rhona's Grandpa: Really?
+-
+
+2
+Rhona's Grandpa: What was your name?
+Cosmo: Cosmo.
+Rhona's Grandpa: I'm Paul, Rhona's grandfather. Nice to meet you.
+-
+
+3
+Rhona's Grandpa: What was your name?
+Cosmo: Cosmo.
+Rhona's Grandpa: I'm Paul, Rhona's grandfather. Nice to meet you.
+Cosmo: Rhona told me a bit about you.
+She told me you were an amazing interior decorator.
+Paul: Ha! Did she?
+Well... I do try my best to make this place look presentable.
+-
+
+4
+Rhona: So, what are you doing here, Cosmo?
+Cosmo: I don't know. I can't find my witch, and I'm not sure where to go.
+Paul: Oh, you're a familiar?
+Cosmo: Yeah. And my witch is...
+...She's not going to be happy if I take too long to find her.
+Paul: She'll definitely turn up. She's probably looking for you, too.
+Cosmo: Ugh...
+-
+
+5
+Rhona: You're stressing out too much.
+You should take a break. Do something to take your mind off it.
+Cosmo: ...Like what?
+Rhona: Help us fix some stuff!
+Cosmo: What?
+Rhona: My grandpa repairs small trinkets.
+I always help him with some of them when I come and visit, to make some money.
+But... six hands are always better than four!
+Cosmo: I, uh...
+I'd probably be pretty hopeless at that.
+-
+
+6
+Rhona: You're stressing out too much.
+You should take a break. Do something to take your mind off it.
+Cosmo: ...Like what?
+Rhona: Help us fix some stuff!
+Cosmo: What?
+Rhona: I told you my grandpa repairs small trinkets, right?
+I always help him with some of them when I come and visit, to make some money.
+But... six hands are always better than four!
+Cosmo: I, uh...
+I'd probably be pretty hopeless at that.
+-
+
+7
+Rhona: Don't worry! We can teach you!
+Cosmo: ...
+Well... I do know a bit of magic...
+Rhona: Oh, really?! That's even better!
+And I'm sure if you helped out, Grandpa would give you some money, too!
+Paul: I sure will!
+Cosmo: Hm...
+Rhona: Think about it, okay? Let us know if you want to give it a try!
+-
+
+8
+Rhona: Don't worry! We can teach you!
+Besides, you know magic, right? That'll be helpful!
+Cosmo: ...
+Paul: If you're willing to help, there'll be some money in it for you!
+Cosmo: Hm...
+Rhona: Think about it, okay? Let us know if you want to give it a try!
+-

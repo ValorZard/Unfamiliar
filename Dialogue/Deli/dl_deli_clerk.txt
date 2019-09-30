@@ -1,0 +1,13 @@
+0
+Deli Clerk: Hello! Welcome to Dell's. How can I help you?
+Cosmo: Oh, I'm just looking around.
+Did you see a witch in a yellow coat come in here, by any chance?
+Deli Clerk: Not that I can remember.
+Cosmo: Okay. Thanks.
+-
+
+1
+Deli Clerk: Let me know if you want to order something!
+We have the best sandwiches in town!
+...Maybe.
+-

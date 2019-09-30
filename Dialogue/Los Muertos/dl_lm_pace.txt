@@ -1,0 +1,24 @@
+0
+Merchant: Hey, kid. How's a fellow demon doing?
+Cosmo: Not terrible.
+I'm looking for my witch, though.
+Have you seen her? She's wearing a yellow coat.
+Merchant: Nope. I'll keep an eye out, though.
+What's your name, kid?
+Cosmo: Cosmo.
+Merchant: Pace.
+Cosmo: Are you new here?
+I don't remember you from the last time my witch and I visited.
+Pace: Oh, I travel all over the place.
+I always bring this table with me. I sell all kinds of bits and bobs.
+You interested in anything?
+Cosmo: Maybe. I'll have a look.
+-
+
+1
+Pace: Thanks. Later.
+-
+
+2
+Pace: Oh, hi again, Cosmo. Want to buy more stuff?
+-

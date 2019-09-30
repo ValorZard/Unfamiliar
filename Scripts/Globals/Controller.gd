@@ -11,6 +11,10 @@ const MenuRef := preload("res://Instances/System/Menu.tscn")
 var inventory := {}
 var flags := {
 	"intro": 0,
+	"choice_hometown": 0, # 0 = Salem, 1 = Zzyzx, 2 = Cottonwood
+	"choice_know_rhona's_grandpa": 0, # 0 = No, 1 = Yes
+	"choice_witch_profession": 0, # 0 = Teacher, 1 = Potions, 2 = Books
+	"choice_witch_personality": 0, # 0 = Good, 1 = Okay, 2 = Bad
 }
 
 var money: int = 20
@@ -20,14 +24,11 @@ var menu_open := false
 
 onready var money_text: Label = $Overlay/Money
 onready var anim_player: AnimationPlayer = $AnimationPlayer
+onready var anim_player_fade: AnimationPlayer = $AnimationPlayerFade
 
 # =====================================================================
 
 func _process(delta):
-	pass
-	#if Input.is_action_just_pressed("debug_1"):
-		#start_discourse("res://Discourses/d_1_rhona.txt", "Rhona", RhonaSprite)
-		
 	if money_disp != money:
 		money_disp = lerp(money_disp, money, 0.15)
 	
@@ -51,6 +52,19 @@ func set_flag(key: String, value: int):
 	
 func set_menu_open(value: bool):
 	menu_open = value
+	
+	
+func fade(time: float, fadeout: bool, color: Color = Color(0, 0, 0)):
+	var anim: Animation = anim_player_fade.get_animation("Fadeout" if fadeout else "Fadein")
+	if fadeout:
+		anim.track_set_key_value(0, 0, Color(color.r, color.g, color.b, 0.0))
+		anim.track_set_key_value(0, 1, Color(color.r, color.g, color.b, 1.0))
+	else:
+		anim.track_set_key_value(0, 0, Color(color.r, color.g, color.b, 1.0))
+		anim.track_set_key_value(0, 1, Color(color.r, color.g, color.b, 0.0))
+	
+	anim_player_fade.set_speed_scale(1.0 / time)
+	anim_player_fade.play("Fadeout" if fadeout else "Fadein")
 
 
 func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, relative_coords: bool = true):

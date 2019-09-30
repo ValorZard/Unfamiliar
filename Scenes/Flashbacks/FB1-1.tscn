@@ -4,10 +4,10 @@
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=3]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 72 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 80, 8 )
 
 [sub_resource type="OpenSimplexNoise" id=3]
@@ -20,7 +20,7 @@ width = 56
 height = 35
 noise = SubResource( 3 )
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=5]
 code = "shader_type canvas_item;
 
 uniform vec4 mix_color : hint_color;
@@ -33,12 +33,11 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
 shader_param/mix_color = Color( 1, 0, 0, 1 )
 
-[sub_resource type="Animation" id=5]
-resource_name = "Noise"
+[sub_resource type="Animation" id=7]
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/TextureRect:texture:noise:seed")
@@ -74,15 +73,15 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 72, 90 )
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 248, 90 )
-shape = SubResource( 6 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 160, 170 )
-shape = SubResource( 7 )
+shape = SubResource( 2 )
 
 [node name="Overlay" parent="." instance=ExtResource( 2 )]
 is_preview = true
@@ -100,7 +99,7 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-material = SubResource( 2 )
+material = SubResource( 6 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
@@ -110,7 +109,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Noise"
-anims/Noise = SubResource( 5 )
+anims/Noise = SubResource( 7 )
 
 [node name="Transition" parent="." instance=ExtResource( 3 )]
 position = Vector2( 160, 10 )
@@ -118,5 +117,7 @@ target_scene = "res://Scenes/Flashbacks/FB1-2.tscn"
 
 [node name="CollisionShape2D" parent="Transition" index="0"]
 shape = SubResource( 8 )
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
 [editable path="Transition"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -7,51 +7,57 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight_light.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight.png" type="Texture" id=7]
+[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_right.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_left.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_up.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/Rudeman.png" type="Texture" id=12]
 
-[sub_resource type="CanvasItemMaterial" id=8]
+[sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
 particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="ParticlesMaterial" id=7]
+[sub_resource type="ParticlesMaterial" id=2]
 emission_shape = 2
 emission_box_extents = Vector3( 2, 14, 1 )
 flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 40.0
+angular_velocity = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 anim_speed = 10.0
 anim_offset = 1.0
 anim_offset_random = 1.0
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 34, 15 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 16, 0.5 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 48, 0.5 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 0.5, 7.5 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 24, 16 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 40, 16 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 80, 10 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 16, 8 )
 
-[sub_resource type="Shader" id=12]
+[sub_resource type="Shader" id=11]
 code = "shader_type canvas_item;
 uniform vec4 color : hint_color;
 
@@ -77,12 +83,35 @@ void fragment() {
 	}
 }"
 
-[sub_resource type="ShaderMaterial" id=13]
-shader = SubResource( 12 )
+[sub_resource type="ShaderMaterial" id=12]
+shader = SubResource( 11 )
 shader_param/color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 3.5, 3 )
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
 
 [node name="Scene" type="Node2D"]
 
@@ -100,11 +129,14 @@ __meta__ = {
 }
 
 [node name="PartsWaves" type="Particles2D" parent="."]
-material = SubResource( 8 )
+material = SubResource( 1 )
 position = Vector2( 76, 34 )
 lifetime = 6.0
-process_material = SubResource( 7 )
+process_material = SubResource( 2 )
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2( 80, 18 )
@@ -126,38 +158,38 @@ __meta__ = {
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sign"]
-position = Vector2( 0, 1 )
-shape = SubResource( 1 )
+position = Vector2( 0, 5 )
+shape = SubResource( 3 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 96, 130.5 )
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 192, 130.5 )
-shape = SubResource( 3 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 112.5, 123.5 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 143.5, 123.5 )
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 104, 34 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 200, 34 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 160, 172 )
-shape = SubResource( 10 )
+shape = SubResource( 9 )
 
 [node name="TileMap3" type="TileMap" parent="."]
 position = Vector2( 80, 18 )
@@ -177,10 +209,10 @@ position = Vector2( 144, 10 )
 target_scene = "res://Scenes/Los Muertos/LM_Crossroads.tscn"
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Light" type="Sprite" parent="."]
-material = SubResource( 13 )
+material = SubResource( 12 )
 position = Vector2( 108, 60 )
 texture = ExtResource( 6 )
 
@@ -195,6 +227,17 @@ texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp"]
 position = Vector2( 0, 16.5 )
-shape = SubResource( 11 )
+shape = SubResource( 13 )
+
+[node name="NPCGuide" parent="." instance=ExtResource( 8 )]
+position = Vector2( 186, 82 )
+dialogue_file = "res://Dialogue/Los Muertos/dl_lm_guide.txt"
+auto_advance_set = true
+set_limit = 1
+
+[node name="Sprite" parent="NPCGuide" index="0"]
+frames = SubResource( 14 )
 
 [editable path="Transitions/Transition"]
+
+[editable path="NPCGuide"]

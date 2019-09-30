@@ -13,10 +13,12 @@ const YUpper = 140
 const line_regex_p := "^(\\S+)\\s+(.+)$"
 const buttons_regex_p := "^\\s*([^\\r\\n\\t\\f\\v]+)\\s\\(([\\d-]+),\\s*([\\d-]+)\\)\\s*\\[(\\d+),\\s*(\\d+)\\]\\s*$"
 const choices_regex_p := "^(\\d+) (.+)$"
+const flag_regex_p := "^(.+)\\s+(\\d+)$"
 
 var line_regex := RegEx.new()
 var buttons_regex := RegEx.new()
-var choices_regex = RegEx.new()
+var choices_regex := RegEx.new()
+var flag_regex := RegEx.new()
 
 var co_target = null
 var co_signal: String = ""
@@ -47,6 +49,7 @@ func _ready():
 	line_regex.compile(line_regex_p)
 	buttons_regex.compile(buttons_regex_p)
 	choices_regex.compile(choices_regex_p)
+	flag_regex.compile(flag_regex_p)
 
 # =====================================================================
 
@@ -217,6 +220,12 @@ func parse_discourse_command(command: String):
 				for but in buttons:
 					create_button(buttons_regex.search(but).get_string(1), Vector2(160 + int(buttons_regex.search(but).get_string(2)), 90 + int(buttons_regex.search(but).get_string(3))), i, int(buttons_regex.search(but).get_string(4)), int(buttons_regex.search(but).get_string(5)))
 					i += 1
+			"*":
+				Controller.set_flag(flag_regex.search(text).get_string(1), int(flag_regex.search(text).get_string(2)))
+				co_target = self
+				co_signal = "ignore_line"
+				yield(get_tree().create_timer(0.02), "timeout")
+				emit_signal("ignore_line")
 			_:
 				co_target = self
 				co_signal = "ignore_line"

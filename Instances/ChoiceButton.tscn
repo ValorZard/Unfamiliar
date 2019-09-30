@@ -156,7 +156,6 @@ extents = Vector2( 55, 15 )
 
 [node name="ChoiceButton" type="Polygon2D"]
 position = Vector2( 55, 15 )
-scale = Vector2( 1e-005, 1e-005 )
 z_index = 1500
 color = Color( 0, 0, 0, 1 )
 offset = Vector2( -55, -15 )
