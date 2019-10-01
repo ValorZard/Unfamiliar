@@ -65,8 +65,8 @@ func _process(delta):
 	if Input.is_action_just_pressed("sys_select") and active and hover:
 		#print("TEST")
 		Controller.play_sound_oneshot(SoundClick, rand_range(0.95, 1.05), 12)
-		controller.click_choice(index)
-		text_controller.fade_screen(false)
+		#controller.click_choice(index)
+		#text_controller.fade_screen(false)
 		#$AnimationPlayer.play("Disappear2")
 		click = true
 		emit_signal("clicked")

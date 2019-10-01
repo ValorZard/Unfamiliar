@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/ChoicePolygon.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=2]
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=1]
 resource_name = "Appear"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -30,7 +30,7 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=2]
 resource_name = "Disappear"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -57,7 +57,7 @@ tracks/1/keys = {
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=3]
 resource_name = "Select"
 length = 2.5
 tracks/0/type = "value"
@@ -97,7 +97,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=4]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -125,7 +125,7 @@ tracks/1/keys = {
 "values": [ -1.0, 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:hover_alpha")
 tracks/0/interp = 1
@@ -151,11 +151,12 @@ tracks/1/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 55, 15 )
 
 [node name="ChoiceButton" type="Polygon2D"]
 position = Vector2( 55, 15 )
+scale = Vector2( 1e-005, 1e-005 )
 z_index = 1500
 color = Color( 0, 0, 0, 1 )
 offset = Vector2( -55, -15 )
@@ -180,21 +181,21 @@ text = "Wow, what a so very long question this is! How convenient!"
 align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Appear = SubResource( 8 )
-anims/Disappear = SubResource( 9 )
-anims/Select = SubResource( 10 )
+anims/Appear = SubResource( 1 )
+anims/Disappear = SubResource( 2 )
+anims/Select = SubResource( 3 )
 
 [node name="AnimationPlayerIdle" type="AnimationPlayer" parent="."]
 autoplay = "Idle"
-anims/Idle = SubResource( 11 )
+anims/Idle = SubResource( 4 )
 
 [node name="AnimationPlayerHover" type="AnimationPlayer" parent="."]
-anims/Hover = SubResource( 12 )
+anims/Hover = SubResource( 5 )
 
 [node name="AreaHover" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaHover"]
-shape = SubResource( 13 )
+shape = SubResource( 6 )
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="mouse_entered" from="AreaHover" to="." method="_on_AreaHover_mouse_entered"]
 [connection signal="mouse_exited" from="AreaHover" to="." method="_on_AreaHover_mouse_exited"]
