@@ -1,0 +1,14 @@
+< Your name's Yaga, right?
+> How'd you know that, hamster hair?
+< It says on your sandwich wrapper.
+> ...
+> Figures.
+> Okay, familiar... Tell me about this witch of yours.
+@< sad
+< My name's Cosmo.
+@< idle
+> Fine. Cosmo.
+> Tell me about this witch of yours.
+> 
+>> How much of a socialite is she, exactly?
+[ 11 She's very social. (0, -60)[17, 30] | 11  (0, -60)[17, 30] | 11 She's very social. (0, -60)[17, 30]

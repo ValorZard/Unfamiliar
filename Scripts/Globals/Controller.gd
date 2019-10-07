@@ -39,6 +39,9 @@ func _process(delta):
 		Player.set_state(Player.PlayerState.NoInput)
 		var menu := MenuRef.instance()
 		get_tree().get_root().add_child(menu)
+		
+	if Input.is_action_just_pressed("sys_fullscreen"):
+		OS.set_window_fullscreen(!OS.is_window_fullscreen())
 
 # =====================================================================
 

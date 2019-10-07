@@ -1,5 +1,7 @@
 extends Polygon2D
 
+signal hover_start
+signal hover_end
 signal clicked
 
 const ColorsBlack := PoolColorArray([Color("#0c1323"), Color("#0c1323"), Color("#0c1323"), Color("#0c1323")])
@@ -30,6 +32,7 @@ var controller = null
 var text_controller = null
 
 export(String) var button_text
+export(Texture) var button_image = null
 
 export(float) var hover_offset = 0
 export(float) var hover_alpha = 0
@@ -41,6 +44,8 @@ export(float) var idle_y = 0
 
 func _ready():
 	$Label.set_text(button_text)
+	if button_image != null:
+		$Sprite.set_texture(button_image)
 	
 	for point in polygon:
 		var add := Vector2(-55, -15)
@@ -162,7 +167,9 @@ func _on_AreaHover_mouse_entered():
 		Controller.play_sound_oneshot(SoundHover, rand_range(0.95, 1.05))
 		$AnimationPlayerHover.play("Hover")
 		hover = true
+		emit_signal("hover_start")
 
 
 func _on_AreaHover_mouse_exited():
 	hover = false
+	emit_signal("hover_end")

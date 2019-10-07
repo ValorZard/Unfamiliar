@@ -4,6 +4,7 @@ enum NPCDirection { Up, Down, Left, Right }
 
 export(String, FILE, "*.txt") var dialogue_file
 export(NPCDirection) var start_direction = NPCDirection.Down
+export(bool) var change_direction = true
 export(bool) var auto_advance_set = false
 export(int) var set_limit = 0
 export(NodePath) var end_call_node
@@ -31,7 +32,8 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("sys_action") and in_range and Player.get_state() == Player.PlayerState.Move:
 		interact.hide()
-		_face_player()
+		if change_direction:
+			_face_player()
 		var d := Controller.dialogue(dialogue_file, dialogue_set)
 		if end_call_node != null and end_call_method != "":
 			d.connect("dialogue_ended", get_node(end_call_node), end_call_method)

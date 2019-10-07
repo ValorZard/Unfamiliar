@@ -178,6 +178,8 @@ custom_colors/font_color = Color( 0.486275, 0.639216, 1, 1 )
 text = "Wow, what a so very long question this is! How convenient!"
 align = 1
 
+[node name="Sprite" type="Sprite" parent="."]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Appear = SubResource( 1 )
 anims/Disappear = SubResource( 2 )
