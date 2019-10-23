@@ -961,80 +961,80 @@ position = Vector2( 128, 48 )
 texture = ExtResource( 5 )
 
 [node name="Logo1" type="Sprite" parent="."]
-position = Vector2( -5.05358, 24 )
-scale = Vector2( 0.376, 1 )
+position = Vector2( -50, 24 )
+scale = Vector2( 1e-005, 1 )
 texture = ExtResource( 5 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 35, 43 )
 
 [node name="Logo2" type="Sprite" parent="."]
-position = Vector2( 7.78841, 34 )
-scale = Vector2( 0.280832, 1 )
+position = Vector2( -50, 34 )
+scale = Vector2( 1e-005, 1 )
 texture = ExtResource( 5 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 35, 11, 21, 38 )
 
 [node name="Logo3" type="Sprite" parent="."]
-position = Vector2( 3.45125, 25 )
-scale = Vector2( 0.192576, 1 )
+position = Vector2( -50, 25 )
+scale = Vector2( 1e-005, 1 )
 texture = ExtResource( 5 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 59, 2, 17, 41 )
 
 [node name="Logo4" type="Sprite" parent="."]
-position = Vector2( -32.9432, 34 )
-scale = Vector2( 0.049088, 1 )
+position = Vector2( -50, 34 )
+scale = Vector2( 1e-005, 1 )
 texture = ExtResource( 5 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 80, 11, 19, 32 )
 
 [node name="Logo5" type="Sprite" parent="."]
-position = Vector2( -51.7378, 34 )
-scale = Vector2( -0.0578704, 1 )
+position = Vector2( -50, 34 )
+scale = Vector2( 1e-005, 1 )
 texture = ExtResource( 5 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 104, 11, 32, 38 )
 
 [node name="Logo6" type="Sprite" parent="."]
-position = Vector2( -59.79, 23 )
-scale = Vector2( -0.0732422, 1 )
+position = Vector2( -50, 23 )
+scale = Vector2( 1e-005, 1 )
 texture = ExtResource( 5 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 143, 1, 8, 42 )
 
 [node name="Logo7" type="Sprite" parent="."]
-position = Vector2( -64.2629, 24 )
-scale = Vector2( -0.0656072, 1 )
+position = Vector2( -50, 24 )
+scale = Vector2( 1e-005, 1 )
 texture = ExtResource( 5 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 157, 2, 8, 41 )
 
 [node name="Logo8" type="Sprite" parent="."]
-position = Vector2( -66.595, 23 )
-scale = Vector2( -0.0593888, 1 )
+position = Vector2( -50, 23 )
+scale = Vector2( 1e-005, 1 )
 texture = ExtResource( 5 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 171, 1, 8, 42 )
 
 [node name="Logo9" type="Sprite" parent="."]
-position = Vector2( -68.4677, 34 )
-scale = Vector2( -0.0534232, 1 )
+position = Vector2( -50, 34 )
+scale = Vector2( 1e-005, 1 )
 texture = ExtResource( 5 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 187, 11, 19, 32 )
 
 [node name="Logo10" type="Sprite" parent="."]
-position = Vector2( -70.4442, 33 )
-scale = Vector2( -0.048, 1 )
+position = Vector2( -50, 33 )
+scale = Vector2( 1e-005, 1 )
 texture = ExtResource( 5 )
 centered = false
 region_enabled = true
