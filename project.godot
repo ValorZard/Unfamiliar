@@ -48,6 +48,10 @@ config/name="Unfamiliar"
 run/main_scene="res://Scenes/Intro/Train1.tscn"
 config/icon="res://Icon.png"
 
+[audio]
+
+mix_rate=48000
+
 [autoload]
 
 Controller="*res://Instances/Globals/Controller.tscn"

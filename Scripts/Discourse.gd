@@ -14,11 +14,13 @@ const line_regex_p := "^(\\S+)\\s+(.+)$"
 const buttons_regex_p := "^\\s*([^\\r\\n\\t\\f\\v]+)\\s\\(([\\d-]+),\\s*([\\d-]+)\\)\\s*\\[(\\d+),\\s*(\\d+)\\]\\s*$"
 const choices_regex_p := "^(\\d+) (.+)$"
 const flag_regex_p := "^(.+)\\s+(\\d+)$"
+const flag_regex_2_p := "^(.+)\\s+(\\d+)\\s+(\\d+)$"
 
 var line_regex := RegEx.new()
 var buttons_regex := RegEx.new()
 var choices_regex := RegEx.new()
 var flag_regex := RegEx.new()
+var flag_regex_2 := RegEx.new()
 
 var co_target = null
 var co_signal: String = ""
@@ -50,6 +52,7 @@ func _ready():
 	buttons_regex.compile(buttons_regex_p)
 	choices_regex.compile(choices_regex_p)
 	flag_regex.compile(flag_regex_p)
+	flag_regex_2.compile(flag_regex_2_p)
 
 # =====================================================================
 
@@ -160,7 +163,7 @@ func parse_discourse_command(command: String):
 	if result != null:
 		var text = result.get_string(2)
 		match line_regex.search(command).get_string(1):
-			"<":
+			"<": # Dialogue left - FORMAT: < `Text`
 				text_controller.set_name_text(name_left)
 				text_controller.set_name_side(false)
 				text_controller.show_box()
@@ -168,7 +171,8 @@ func parse_discourse_command(command: String):
 				co_target = text_controller
 				co_signal = "text_ended_button"
 				text_controller.display_text(text)
-			">":
+				
+			">": # Dialogue right - FORMAT: > `Text`
 				text_controller.set_name_text(name_right)
 				text_controller.set_name_side(true)
 				text_controller.show_box()
@@ -176,7 +180,8 @@ func parse_discourse_command(command: String):
 				co_target = text_controller
 				co_signal = "text_ended_button"
 				text_controller.display_text(text)
-			"<<":
+				
+			"<<": # Dialogue left hold - FORMAT: << `Text`
 				text_controller.set_name_text(name_left)
 				text_controller.set_name_side(false)
 				text_controller.show_box()
@@ -185,7 +190,8 @@ func parse_discourse_command(command: String):
 				co_signal = "text_ended"
 				text_controller.set_header_text(text)
 				text_controller.display_text(text)
-			">>":
+				
+			">>": # Dialogue right hold - FORMAT: >> `Text`
 				text_controller.set_name_text(name_right)
 				text_controller.set_name_side(true)
 				text_controller.show_box()
@@ -194,23 +200,27 @@ func parse_discourse_command(command: String):
 				co_signal = "text_ended"
 				text_controller.set_header_text(text)
 				text_controller.display_text(text)
-			"|":
+				
+			"|": # Pause - FORMAT: | `Time in sec`
 				text_controller.hide_box()
 				co_target = get_tree().create_timer(float(text))
 				co_signal = "timeout"
-			"@<":
+				
+			"@<": # Change sprite left - FORMAT: @< `Animation name`
 				co_target = self
 				co_signal = "ignore_line"
 				character_left.set_sprite(text)
 				yield(get_tree().create_timer(0.02), "timeout")
 				emit_signal("ignore_line")
-			"@>":
+				
+			"@>": # Change sprite right - FORMAT: @> `Animation name`
 				co_target = self
 				co_signal = "ignore_line"
 				character_right.set_sprite(text)
 				yield(get_tree().create_timer(0.02), "timeout")
 				emit_signal("ignore_line")
-			"[":
+				
+			"[": # Choice - FORMAT: [ `Line to jump to after branch` `Choice text` (`x coord of choice`, `y coord of choice`)[`start line of choice branch`, `end line of choice branch`] | for each choice
 				co_target = self
 				co_signal = "choice_clicked"
 				response_end_total = int(choices_regex.search(text).get_string(1)) - 1
@@ -220,12 +230,29 @@ func parse_discourse_command(command: String):
 				for but in buttons:
 					create_button(buttons_regex.search(but).get_string(1), Vector2(160 + int(buttons_regex.search(but).get_string(2)), 90 + int(buttons_regex.search(but).get_string(3))), i, int(buttons_regex.search(but).get_string(4)), int(buttons_regex.search(but).get_string(5)))
 					i += 1
-			"*":
+				
+			"^": # Jump to line - FORMAT: ^ `Line number`
+				list_index = int(text) - 2
+				co_target = self
+				co_signal = "ignore_line"
+				yield(get_tree().create_timer(0.02), "timeout")
+				emit_signal("ignore_line")
+				
+			"*": # Set flag - FORMAT: * `Flag` `Value`
 				Controller.set_flag(flag_regex.search(text).get_string(1), int(flag_regex.search(text).get_string(2)))
 				co_target = self
 				co_signal = "ignore_line"
 				yield(get_tree().create_timer(0.02), "timeout")
 				emit_signal("ignore_line")
+				
+			"?": # Jump to line if flag is set - FORMAT: ? `Flag` `Value` `Target line`
+				if Controller.flag(flag_regex_2.search(text).get_string(1)) == int(flag_regex_2.search(text).get_string(2)):
+					list_index = int(flag_regex_2.search(text).get_string(3)) - 2
+				co_target = self
+				co_signal = "ignore_line"
+				yield(get_tree().create_timer(0.02), "timeout")
+				emit_signal("ignore_line")
+				
 			_:
 				co_target = self
 				co_signal = "ignore_line"

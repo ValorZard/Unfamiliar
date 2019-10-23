@@ -1,7 +1,7 @@
 extends Node2D
 
-export(Array, String) var item_names
-export(Array, String) var item_descs
+export(PoolStringArray) var item_names
+export(PoolStringArray) var item_descs
 
 var hover: int = -1
 
