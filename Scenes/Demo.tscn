@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Scene_Demo.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Sprites/Props/Train_light.png" type="Texture" id=7]
 [ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_down.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Particles/Wind.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Particles/Leaf1.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 28 )
@@ -48,8 +50,36 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="ParticlesMaterial" id=12]
+emission_shape = 2
+emission_box_extents = Vector3( 20, 70, 1 )
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1000.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[sub_resource type="ParticlesMaterial" id=13]
+emission_shape = 2
+emission_box_extents = Vector3( 20, 70, 1 )
+flag_disable_z = true
+spread = 20.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 500.0
+angular_velocity = 200.0
+angular_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+damping = 200.0
+angle = 360.0
+angle_random = 1.0
+
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 90.0 ]
+}
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 80, 17 )
@@ -241,5 +271,17 @@ end_call_method = "demo_discourse"
 
 [node name="Sprite" parent="NPCRhona" index="0"]
 frames = SubResource( 11 )
+
+[node name="Particles2D" type="Particles2D" parent="."]
+position = Vector2( 0, 90 )
+amount = 24
+process_material = SubResource( 12 )
+texture = ExtResource( 10 )
+
+[node name="Particles2D2" type="Particles2D" parent="."]
+position = Vector2( 0, 90 )
+amount = 6
+process_material = SubResource( 13 )
+texture = ExtResource( 11 )
 
 [editable path="NPCRhona"]

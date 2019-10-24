@@ -2,17 +2,17 @@
 
 [ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_idle_new.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_glare_new.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_Laugh.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_whatnow_new.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_whatnow_new.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_sad_new.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_satisfied_new.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_sad_new.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_smile_new.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_angry_new.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_laugh_new.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_heh_new.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_explain2_new.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_think_new.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_heh_new.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_explain2_new.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_explain_new.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_ennui_new.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_explain_new.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_ennui_new.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_angry_new.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_smile_new.png" type="Texture" id=13]
 
 [resource]
 animations = [ {
@@ -28,12 +28,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "laugh",
+"name": "whatnow",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "whatnow",
+"name": "sad",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
@@ -43,17 +43,17 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "sad",
+"name": "laugh",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "smile",
+"name": "heh",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "angry",
+"name": "explain2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 9 ) ],
@@ -63,21 +63,21 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "heh",
+"name": "explain",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "explain2",
+"name": "ennui",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "explain",
+"name": "angry",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "ennui",
+"name": "smile",
 "speed": 5.0
 } ]
