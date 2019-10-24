@@ -254,7 +254,7 @@
 < What kind of job do you want to have?
 @> serious
 > I'm not entirely sure.
-> My grandpa always tries to get me#to join the repair business with him.
+> My grandpa always tries to get me#to join the repair business with#him.
 < Are you interested in that?
 @< idle
 > Not really.
@@ -262,7 +262,7 @@
 > My grandpa has taught me a bunch,#and he says I'm really good with my#hands.
 > He thinks I would make a great#craftsperson.
 @> annoyed
-> But... come on! Gluing,#hammering, and screwing stuff together?
+> But... come on! Gluing, hammering, and#screwing stuff together?
 > That sounds like the most boring#job in the world.
 @> explain
 > I mean, look at you! You get to help#a witch do magical stuff!
