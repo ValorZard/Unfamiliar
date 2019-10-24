@@ -81,7 +81,7 @@ func load_text_from_file(file: String, set: int):
 
 func _on_TimerRollText_timeout():
 	disp += 1
-	if disp < page_length:
+	if disp < page_length and disp % 3 <= 1:
 		Controller.play_sound_oneshot(sound_type, rand_range(0.9, 1.1), -10)
 	if disp >= len(text[page]):
 		roll = false

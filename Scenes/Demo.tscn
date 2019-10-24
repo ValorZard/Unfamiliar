@@ -273,12 +273,14 @@ end_call_method = "demo_discourse"
 frames = SubResource( 11 )
 
 [node name="Particles2D" type="Particles2D" parent="."]
+visible = false
 position = Vector2( 0, 90 )
 amount = 24
 process_material = SubResource( 12 )
 texture = ExtResource( 10 )
 
 [node name="Particles2D2" type="Particles2D" parent="."]
+visible = false
 position = Vector2( 0, 90 )
 amount = 6
 process_material = SubResource( 13 )

@@ -9,6 +9,73 @@
 @< idle
 > Fine. Cosmo.
 > Tell me about this witch of yours.
-> 
+< Why?
+> I know this city in and out. I know where people tend to end up.
 >> How much of a socialite is she, exactly?
-[ 11 She's very social. (0, -60)[17, 30] | 11  (0, -60)[17, 30] | 11 She's very social. (0, -60)[17, 30]
+[ 11 She's very social. (0, -60)[17, 30] | 11 A little bit. (0, -60)[17, 30] | 11 She's a real recluse. (0, -60)[17, 30]
+< She's very social.
+< I get dragged to social outings with her a lot.
+< She seems really eager to show everyone she has a familiar.
+> Oh, brother...
+> There's nothing special about having a familiar.
+< Gee, thanks.
+> That wasn't a jab at you, honeybucket. That was a jab at your witch.
+> Do you see me $wflaunting $0the fact that I'm a witch? Nope.
+> It's nothing to flaunt about. Everyone's a witch nowadays.
+< Is that how you feel about demons?
+> Don't ask me loaded questions, hamster hair.
+> I've got no problems with you. That's all you should care about.
+< ...
+========================
+<< Hey, Yaga...
+[ 11 Have you ever had a familiar? (0, -60)[17, 30] | 11 Do you like being a witch? (0, -60)[17, 30] | 11 Why are you eating at this restaurant? (0, -60)[17, 30]
+------------------------
+< Have you ever had a familiar?
+> Nope. Never have, never will.
+> I don't have the time or energy for that. It's way more trouble than it's worth.
+< ...
+> It's like having a kid.
+< What? It's not-
+> A kid bound to you by a contract of the underworld, who happens to be at your eternal servitude.
+< Yep. $wThat's $0more like it.
+> Okay, look, hamster hair: even if you have a magical personal assistant, it's one more mouth to feed.
+> It's one more person to care for.
+< Oh, and you think all witches care whether their familiars are happy?
+> Of course not! I know they don't! This world is full of awful people! I'm pretty damn awful myself!
+> ...
+> But they should care.
+> We make contracts with you demons. We drag you into our world.
+> You have just as much right to be here as us.
+< ...
+< I'm glad you think so.
+------------------------
+< Do you like being a witch?
+> Ugh...
+< Sorry. Should I have-
+> I hate it! It was the worst choice I ever made!
+> What genius thought it should be a permanent decision?
+> I was a fifteen-year-old girl who was fascinated with demons and the underworld.
+> It was a fad. I chained myself to the underworld because of a fad.
+> And once I realized I'd thrown my life away, I couldn't go back.
+> You're a demon. You know what it's like. Everyone's terrified of you.
+> Can't even order a lousy sandwich without the cashier shaking a bit.
+< Yeah...
+> Although, it $wdoes $0have its perks.
+> Nobody'll bother you when you're eating dinner at the worst restaurant in town.
+> Except talkative demons, apparently.
+< Heh...
+------------------------
+< Why are you eating at this restaurant?
+< You keep talking about how terrible it is.
+> You aren't from Los Muertos, are you?
+< Nope.
+> Well, let me tell you about this town's restaurants.
+> They're all too expensive. Five-star. $wLudicrously $0overpriced.
+> You can't blame them. Los Muertos has always been a tourist attraction.
+> "The city of the dead!"#"Home of witches and demons and twisted monsters!"#"The thread that ties the mortal realm to the underworld!"
+> In other words, if you want to go out to eat in this town, you have two choices:
+> Empty your wallet for some divine-grade five-star food,
+> or go to $wDell's Delicatessen.
+> This place sucks. They have the worst sandwiches I've ever eaten.
+> But I don't have to mortgage my house to eat here, so I'm gonna eat here.
+> I usually cook at home, anyway.

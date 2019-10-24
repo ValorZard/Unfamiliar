@@ -168,7 +168,8 @@ func fade_screen(out: bool):
 func _on_TimerRollText_timeout():
 	disp += 1
 	#if disp < text_length:
-	Controller.play_sound_oneshot(sound_type, rand_range(0.9, 1.1), -10)
+	if disp % 2 == 0:
+		Controller.play_sound_oneshot(sound_type, rand_range(0.9, 1.1), -10)
 	if disp >= len(text) - 1:
 		roll = false
 		finished = true
