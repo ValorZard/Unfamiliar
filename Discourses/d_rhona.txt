@@ -94,7 +94,7 @@
 @> idle
 > I come here every few months to visit#my grandpa.
 @> explain2
-> He works here at Ainsley's#Knack and Craft. He repairs small trinkets.
+> He works here at Ainsley's#Knack and Craft. He repairs small#trinkets.
 @< smile
 @> idle
 < Oh, that place?
