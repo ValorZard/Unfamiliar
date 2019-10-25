@@ -57,6 +57,7 @@ flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 1000.0
+angular_velocity = 2.5033e+034
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 

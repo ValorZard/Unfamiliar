@@ -29,6 +29,14 @@ onready var anim_player_fade: AnimationPlayer = $AnimationPlayerFade
 
 # =====================================================================
 
+func _ready():
+	var f := File.new()
+	if not f.file_exists("user://Hello.txt"):
+		f.open("user://Hello.txt", File.WRITE)
+		f.store_line("Hello. Please don't edit these files. You'll make Cosmo very upset. Thanks.")
+		if f.is_open():
+			f.close()
+
 func _process(delta):
 	if money_disp != money:
 		money_disp = lerp(money_disp, money, 0.15)
@@ -43,6 +51,12 @@ func _process(delta):
 		
 	if Input.is_action_just_pressed("sys_fullscreen"):
 		OS.set_window_fullscreen(!OS.is_window_fullscreen())
+		
+	if Input.is_action_just_pressed("debug_1"):
+		save_game(0)
+		
+	if Input.is_action_just_pressed("debug_2"):
+		load_game(0)
 
 # =====================================================================
 
@@ -119,6 +133,45 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		scn_i.set_name("Scene")
 		current_scene.queue_free()
 		
+		
+func save_game(slot: int):
+	var f := File.new()
+	var fname := "user://data_s" + str(slot + 1) + ".uf"
+	if f.file_exists(fname):
+		var dir := Directory.new()
+		dir.remove(fname)
+	f.open(fname, File.WRITE)
+	f.store_line(get_tree().get_current_scene().get_filename())
+	f.store_line(str(Player.get_position().x))
+	f.store_line(str(Player.get_position().y))
+	f.store_line(str(Player.get_direction()))
+	f.store_line(str(money))
+	f.store_line(to_json(flags))
+	if f.is_open():
+		f.close()
+
+
+func load_game(slot: int):
+	var f := File.new()
+	f.open("user://data_" + str(slot + 1) + ".uf", File.READ)
+	var scn: String
+	var pos: Vector2 = Vector2(0, 0)
+	var dir: int
+	
+	scn = f.get_line()
+	pos.x = float(f.get_line())
+	pos.y = float(f.get_line())
+	dir = int(f.get_line())
+	money = int(f.get_line())
+	flags = parse_json(f.get_line())
+	
+	if f.is_open():
+		f.close()
+
+	get_tree().change_scene(scn)
+	Player.set_position(pos)
+	Player.set_direction(dir)
+
 
 func get_money() -> int:
 	return money
