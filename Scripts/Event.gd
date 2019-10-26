@@ -1,17 +1,25 @@
 extends Area2D
 
+export(bool) var autostart = false
 export(bool) var destroy
 export(String) var destroy_flag
+
+var started := false
 
 func _ready():
 	if destroy and Controller.flag(destroy_flag) == 1:
 		queue_free()
+		
+	if autostart:
+		start_event()
 	
 # =====================================================================
 	
 func start_event():
-	Player.set_state(Player.PlayerState.NoInput)
-	$AnimationPlayer.play("Event")
+	if not started:
+		Player.set_state(Player.PlayerState.NoInput)
+		$AnimationPlayer.play("Event")
+		started = true
 	
 # =====================================================================
 

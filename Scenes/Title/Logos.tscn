@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Misc/Logos.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Sprites/LogoSF.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/LogoG.png" type="Texture" id=5]
 [ext_resource path="res://Audio/Intro train 2.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Shaders/Transition.shader" type="Shader" id=7]
+[ext_resource path="res://Sprites/UI/Transition2.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "TrainFlyby"
@@ -49,20 +51,36 @@ tracks/2/keys = {
 "times": PoolRealArray( 0.5 )
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("Fade:color")
+tracks/3/path = NodePath("Fade2:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 8.5, 9 ),
+"times": PoolRealArray( 0, 8.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Fade2:material:shader_param/cutoff")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 8.5, 9.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0.0470588, 0.0745098, 0.137255, 0 ), Color( 0.0470588, 0.0745098, 0.137255, 1 ) ]
+"values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Fadein"
+[sub_resource type="ShaderMaterial" id=2]
+shader = ExtResource( 7 )
+shader_param/cutoff = 1.0
+shader_param/mask = ExtResource( 8 )
+
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Fade:color")
 tracks/0/interp = 1
@@ -81,7 +99,7 @@ script = ExtResource( 1 )
 
 [node name="RigidBody2D2" type="RigidBody2D" parent="."]
 gravity_scale = 0.0
-linear_velocity = Vector2( -600, 0 )
+linear_velocity = Vector2( -20, 0 )
 
 [node name="Intro_bg" type="Sprite" parent="RigidBody2D2"]
 texture = ExtResource( 2 )
@@ -92,7 +110,6 @@ region_rect = Rect2( 0, 0, 10000, 180 )
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 position = Vector2( 1104, 0 )
 gravity_scale = 0.0
-linear_velocity = Vector2( -3000, 0 )
 
 [node name="Intro_traincar" type="Sprite" parent="RigidBody2D"]
 texture = ExtResource( 3 )
@@ -120,9 +137,17 @@ margin_bottom = 180.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
+[node name="Fade2" type="ColorRect" parent="."]
+visible = false
+material = SubResource( 2 )
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+color = Color( 0.0470588, 0.0745098, 0.137255, 1 )
+
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 autoplay = "Fadein"
-anims/Fadein = SubResource( 2 )
+anims/Fadein = SubResource( 3 )
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 9.5

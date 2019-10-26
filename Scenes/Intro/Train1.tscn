@@ -414,6 +414,7 @@ centered = false
 
 [node name="Event" parent="." instance=ExtResource( 8 )]
 position = Vector2( 176, 98 )
+autostart = true
 destroy = true
 destroy_flag = "intro"
 

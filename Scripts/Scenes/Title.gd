@@ -10,7 +10,14 @@ func _ready():
 
 
 func _on_Button1_clicked() -> void:
-	print("BUTTON 1")
+	but1.anim_selected()
+	but2.anim_not_selected()
+	but3.anim_not_selected()
+	yield(get_tree().create_timer(0.5), "timeout")
+	$AnimationPlayerSetup.play("Teardown Start")
+	yield($AnimationPlayerSetup, "animation_finished")
+	Controller.draw_overlay(true)
+	get_tree().change_scene("res://Scenes/Intro/Train1.tscn")
 
 
 func _on_Button2_clicked() -> void:

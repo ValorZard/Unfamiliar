@@ -40,6 +40,8 @@ export(float) var hover_alpha = 0
 export(float) var idle_x = 0
 export(float) var idle_y = 0
 
+export(bool) var decisive_click = false
+
 # =====================================================================
 
 func _ready():
@@ -69,7 +71,10 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("sys_select") and active and hover:
 		#print("TEST")
-		Controller.play_sound_oneshot(SoundClick, rand_range(0.95, 1.05), 12)
+		if decisive_click:
+			Controller.play_sound_oneshot_from_path("res://Audio/Click 2.ogg", 1.0, 12)
+		else:
+			Controller.play_sound_oneshot(SoundClick, rand_range(0.95, 1.05), 12)
 		#controller.click_choice(index)
 		#text_controller.fade_screen(false)
 		#$AnimationPlayer.play("Disappear2")
