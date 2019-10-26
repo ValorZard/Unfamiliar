@@ -11,7 +11,7 @@ const OutlineWidth: float = 1.5
 const Variance: int = 5
 const MoveLeniency = 30
 
-const SoundHover := preload("res://Audio/Hover.ogg")
+const SoundHover := preload("res://Audio/Hover_new.ogg")
 const SoundClick := preload("res://Audio/Click.ogg")
 
 var index: int
@@ -166,6 +166,7 @@ func _on_AreaHover_mouse_entered():
 	if active:
 		Controller.play_sound_oneshot(SoundHover, rand_range(0.95, 1.05))
 		$AnimationPlayerHover.play("Hover")
+		$AnimationPlayerHover.seek(0)
 		hover = true
 		emit_signal("hover_start")
 
