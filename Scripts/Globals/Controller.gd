@@ -9,13 +9,16 @@ const SoundOneShotRef := preload("res://Instances/SoundOneShot.tscn")
 const MenuRef := preload("res://Instances/System/Menu.tscn")
 
 var inventory := {}
-var flags := {
-	"intro": 0,
+var flags: Dictionary = {
+	"scn_intro": 0,
+	
+	"npc_train_rudeman": 0,
+	"npc_train_unsurewoman": 0,
+	
 	"choice_hometown": 0, # 0 = Salem, 1 = Zzyzx, 2 = Cottonwood
 	"choice_know_rhona's_grandpa": 0, # 0 = No, 1 = Yes
 	"choice_witch_profession": 0, # 0 = Teacher, 1 = Potions, 2 = Books
 	"choice_witch_personality": 0, # 0 = Good, 1 = Okay, 2 = Bad
-	"test": 0
 }
 
 var money: int = 20

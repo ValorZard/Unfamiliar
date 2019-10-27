@@ -138,7 +138,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 25, 33 ),
+"times": PoolRealArray( 0, 22.2, 27 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ -80.0, -80.0, -10.0 ]
@@ -150,7 +150,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 25 ),
+"times": PoolRealArray( 0, 22.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
@@ -416,7 +416,7 @@ centered = false
 position = Vector2( 176, 98 )
 autostart = true
 destroy = true
-destroy_flag = "intro"
+destroy_flag = "scn_intro"
 
 [node name="AnimationPlayer" parent="Event" index="0"]
 anims/Event = SubResource( 9 )
