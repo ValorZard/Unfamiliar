@@ -20,6 +20,9 @@ func _ready():
 	
 	
 func start():
+	$CanvasLayer/ColorRect.get_material().set_shader_param("cutoff", 1)
+	$CanvasLayer/ColorRect.hide()
+	$CanvasLayer/ColorRect.set_self_modulate(Color(1, 1, 1, 1))
 	$CanvasLayer/AnimationPlayer.play("Anim")
 	
 	
@@ -60,9 +63,13 @@ func show_flashback_text():
 			yield(get_tree().create_timer(fb_waits[i]), "timeout")
 			
 	text_controller.hide_box()
-	yield(get_tree().create_timer(1.0), "timeout")
+	yield(get_tree().create_timer(0.4), "timeout")
+	
+	$CanvasLayer/ColorRect.get_material().set_shader_param("cutoff", 1)
+	$CanvasLayer/ColorRect.hide()
+	$CanvasLayer/ColorRect.set_self_modulate(Color(1, 1, 1, 1))
 	$CanvasLayer/AnimationPlayer.play("Anim End")
-		
+	
 
 func _display_text(text: String, name: String, show_name: bool = true):
 	text_controller.set_name_visible(show_name)

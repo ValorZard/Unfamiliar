@@ -21,7 +21,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id=4]
 shader = SubResource( 3 )
-shader_param/cutoff = 0.0
+shader_param/cutoff = 1.0
 shader_param/mask = ExtResource( 4 )
 
 [sub_resource type="Animation" id=5]
@@ -221,7 +221,8 @@ texture = ExtResource( 3 )
 centered = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-self_modulate = Color( 1, 1, 1, 0 )
+visible = false
+self_modulate = Color( 1, 1, 1, 0.6 )
 material = SubResource( 4 )
 margin_right = 320.0
 margin_bottom = 180.0
@@ -237,8 +238,3 @@ anims/Anim = SubResource( 5 )
 [node name="SoundFB" type="AudioStreamPlayer" parent="CanvasLayer"]
 stream = ExtResource( 6 )
 volume_db = 24.0
-
-[node name="Timer" type="Timer" parent="CanvasLayer"]
-wait_time = 0.5
-one_shot = true
-[connection signal="timeout" from="CanvasLayer/Timer" to="CanvasLayer/AnimationPlayer" method="play" binds= [ "Anim" ]]
