@@ -126,6 +126,7 @@ func fade(time: float, fadeout: bool, color: Color = Color(0, 0, 0), above_overl
 func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, relative_coords: bool = true):
 	if transition:
 		Player.set_state(Player.PlayerState.NoInput)
+		Player.set_in_transition(true)
 		var current_scene := get_tree().get_root().get_node("Scene")
 		var scn: PackedScene = load(path)
 		var scn_i := scn.instance()
@@ -161,6 +162,7 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		scn_i.set_position(Vector2.ZERO)
 		$MainCamera.set_offset(Vector2.ZERO)
 		
+		Player.set_in_transition(false)
 		Player.set_state(Player.PlayerState.Move)
 	else:
 		var current_scene := get_tree().get_root().get_node("Scene")

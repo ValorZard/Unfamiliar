@@ -266,7 +266,7 @@ layer = 6
 
 [node name="NPCRhona" parent="." instance=ExtResource( 8 )]
 position = Vector2( 136, 82 )
-dialogue_file = "res://Dialogue/dl_train_rhona.txt"
+dialogue_file = "res://Dialogue/Train/dl_train_rhona.txt"
 end_call_node = NodePath("..")
 end_call_method = "demo_discourse"
 

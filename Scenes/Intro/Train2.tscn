@@ -286,7 +286,7 @@ shape = SubResource( 9 )
 
 [node name="NPCRudeman" parent="." instance=ExtResource( 9 )]
 position = Vector2( 192, 82 )
-dialogue_file = "res://Dialogue/dl_train_rudeman.txt"
+dialogue_file = "res://Dialogue/Train/dl_train_rudeman.txt"
 auto_advance_set = true
 set_limit = 1
 
@@ -296,7 +296,7 @@ frames = SubResource( 10 )
 [node name="NPCUnsurewoman" parent="." instance=ExtResource( 9 )]
 visible = false
 position = Vector2( 120, 89 )
-dialogue_file = "res://Dialogue/dl_train_unsurewoman.txt"
+dialogue_file = "res://Dialogue/Train/dl_train_unsurewoman.txt"
 auto_advance_set = true
 set_limit = 1
 

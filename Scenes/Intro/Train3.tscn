@@ -9,8 +9,8 @@
 [ext_resource path="res://Sprites/Props/Train_light.png" type="Texture" id=7]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_left.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_right.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_right.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_left.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_up.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_down.png" type="Texture" id=13]
 [ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=14]
@@ -42,16 +42,16 @@ extents = Vector2( 8, 30 )
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 8, 30 )
 
-[sub_resource type="SpriteFrames" id=11]
+[sub_resource type="SpriteFrames" id=10]
 animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
@@ -65,7 +65,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -76,7 +76,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
-"args": [ "res://Dialogue/dl_train_rhona.txt", 0 ],
+"args": [ "res://Dialogue/Train/dl_train_rhona.txt", 0 ],
 "method": "_event_dialogue"
 }, {
 "args": [ "res://Discourses/d_rhona.txt", "Rhona", "res://Resources/Sprite Frames/SpriteFrames_Rhona.tres" ],
@@ -84,7 +84,7 @@ tracks/0/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=12]
 resource_name = "Event2"
 length = 0.05
 tracks/0/type = "method"
@@ -97,12 +97,12 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ "res://Dialogue/dl_train_rhona.txt", 1 ],
+"args": [ "res://Dialogue/Train/dl_train_rhona.txt", 1 ],
 "method": "_event_dialogue"
 } ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=13]
 resource_name = "Event"
 length = 2.0
 tracks/0/type = "method"
@@ -115,7 +115,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.1, 0.5, 1, 1.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "values": [ {
-"args": [ "res://Dialogue/dl_train_rhona.txt", 0 ],
+"args": [ "res://Dialogue/Train/dl_train_rhona.txt", 0 ],
 "method": "_event_dialogue"
 }, {
 "args": [ 0 ],
@@ -124,7 +124,7 @@ tracks/0/keys = {
 "args": [ Vector2( 136, 98 ), 1.0, 0 ],
 "method": "_event_move_player_to_position"
 }, {
-"args": [ "res://Dialogue/dl_train_rhona.txt", 2 ],
+"args": [ "res://Dialogue/Train/dl_train_rhona.txt", 2 ],
 "method": "_event_dialogue"
 }, {
 "args": [ "res://Discourses/d_rhona.txt", "Rhona", "res://Resources/Sprite Frames/SpriteFrames_Rhona.tres" ],
@@ -336,11 +336,11 @@ position = Vector2( 136, 82 )
 set_limit = 1
 
 [node name="Sprite" parent="EventNPCRhona" index="0"]
-frames = SubResource( 11 )
+frames = SubResource( 10 )
 
 [node name="AnimationPlayer" parent="EventNPCRhona/Event" index="0"]
-anims/Event = SubResource( 12 )
-anims/Event2 = SubResource( 13 )
+anims/Event = SubResource( 11 )
+anims/Event2 = SubResource( 12 )
 
 [node name="Event" parent="." instance=ExtResource( 14 )]
 position = Vector2( 136, 122 )
@@ -350,7 +350,7 @@ auto_set_destroy = true
 discourse_npc = NodePath("../EventNPCRhona")
 
 [node name="AnimationPlayer" parent="Event" index="0"]
-anims/Event = SubResource( 15 )
+anims/Event = SubResource( 13 )
 
 [node name="CollisionShape2D" parent="Event" index="1"]
 shape = SubResource( 14 )

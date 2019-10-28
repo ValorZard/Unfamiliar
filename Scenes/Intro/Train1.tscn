@@ -85,13 +85,13 @@ tracks/0/keys = {
 "args": [ "res://Audio/Bing bong.ogg" ],
 "method": "_event_play_sound"
 }, {
-"args": [ "res://Dialogue/dl_train_intro1.txt", 0 ],
+"args": [ "res://Dialogue/Train/dl_train_intro.txt", 0 ],
 "method": "_event_dialogue"
 }, {
 "args": [ "res://Flashbacks/fb_opening.txt", "res://Sprites/Artwork/Art_temp.png" ],
 "method": "_event_flashback"
 }, {
-"args": [ "res://Dialogue/dl_train_intro1.txt", 1 ],
+"args": [ "res://Dialogue/Train/dl_train_intro.txt", 1 ],
 "method": "_event_dialogue"
 }, {
 "args": [ "scn_intro", 1 ],

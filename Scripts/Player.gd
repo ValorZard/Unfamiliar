@@ -14,6 +14,7 @@ enum Direction { Up, Down, Left, Right }
 var state: int = PlayerState.Move
 var face: int = Direction.Down
 var walking := false
+var in_transition := false
 
 onready var spr: AnimatedSprite = $Sprite
 onready var sight: Area2D = $Sight
@@ -23,11 +24,6 @@ onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 func _ready():
 	set_position(Vector2(176, 98))
-	
-	
-func _process(delta):
-	if Input.is_action_just_pressed("debug_1"):
-		print(get_position().direction_to(Vector2(160, 90)))
 
 
 func _physics_process(delta):
@@ -80,6 +76,10 @@ func set_speed_override(value: float):
 	speed_override = value
 	
 	
+func set_in_transition(value: bool):
+	in_transition = value
+	
+	
 func stop_moving():
 	walking = false
 	match face:
@@ -128,10 +128,10 @@ func direction_management():
 func sprite_management():
 	match face:
 		Direction.Up:
-			spr.play("up_walk" if walking else "up")
+			spr.play("up_walk" if walking or in_transition else "up")
 		Direction.Down:
-			spr.play("down_walk" if walking else "down")
+			spr.play("down_walk" if walking or in_transition else "down")
 		Direction.Left:
-			spr.play("left_walk" if walking else "left")
+			spr.play("left_walk" if walking or in_transition else "left")
 		Direction.Right:
-			spr.play("right_walk" if walking else "right")
+			spr.play("right_walk" if walking or in_transition else "right")
