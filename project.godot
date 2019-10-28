@@ -24,6 +24,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Discourse.gd"
 }, {
+"base": "Area2D",
+"class": "Event",
+"language": "GDScript",
+"path": "res://Scripts/Event.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "EventNPC",
+"language": "GDScript",
+"path": "res://Scripts/EventNPC.gd"
+}, {
 "base": "Node2D",
 "class": "Flashback",
 "language": "GDScript",
@@ -43,6 +53,8 @@ _global_script_class_icons={
 "Dialogue": "",
 "DiscourseCharacter": "",
 "DiscourseController": "",
+"Event": "",
+"EventNPC": "",
 "Flashback": "",
 "PlayerClass": "",
 "TextDisplay": ""

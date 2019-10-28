@@ -115,6 +115,18 @@ func run_discourse(file: String, right_name: String, right_sprite: SpriteFrames,
 			
 	text_controller.hide()
 	$AnimationPlayer.play("Fadeout")
+	yield($AnimationPlayer, "animation_finished")
+	Controller.fade(0.05, true, Color(1, 1, 1))
+	yield(get_tree().create_timer(0.5), "timeout")
+	
+	character_left.queue_free()
+	character_right.queue_free()
+	Controller.draw_overlay(true)
+	Player.show()
+	Controller.goto_scene(Controller.get_previous_scene(), Controller.get_previous_pos(), Controller.get_previous_dir(), false, false)
+	Controller.get_previous_npc().increment_dialogue_set()
+	Player.set_state(Player.PlayerState.Move)
+	Controller.fade(1.0, false, Color(1, 1, 1), true)
 			
 
 func click_choice(index: int):
@@ -166,6 +178,7 @@ func parse_discourse_command(command: String):
 			"<": # Dialogue left - FORMAT: < `Text`
 				text_controller.set_name_text(name_left)
 				text_controller.set_name_side(false)
+				text_controller.set_name_visible(true)
 				text_controller.show_box()
 				speaker_right = false
 				co_target = text_controller
@@ -175,6 +188,7 @@ func parse_discourse_command(command: String):
 			">": # Dialogue right - FORMAT: > `Text`
 				text_controller.set_name_text(name_right)
 				text_controller.set_name_side(true)
+				text_controller.set_name_visible(true)
 				text_controller.show_box()
 				speaker_right = true
 				co_target = text_controller
@@ -184,6 +198,7 @@ func parse_discourse_command(command: String):
 			"<<": # Dialogue left hold - FORMAT: << `Text`
 				text_controller.set_name_text(name_left)
 				text_controller.set_name_side(false)
+				text_controller.set_name_visible(true)
 				text_controller.show_box()
 				speaker_right = false
 				co_target = text_controller
@@ -194,6 +209,7 @@ func parse_discourse_command(command: String):
 			">>": # Dialogue right hold - FORMAT: >> `Text`
 				text_controller.set_name_text(name_right)
 				text_controller.set_name_side(true)
+				text_controller.set_name_visible(true)
 				text_controller.show_box()
 				speaker_right = true
 				co_target = text_controller

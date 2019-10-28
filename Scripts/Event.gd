@@ -1,5 +1,10 @@
 extends Area2D
 
+class_name Event
+
+signal event_ended
+
+export(bool) var in_npc = false
 export(bool) var autostart = false
 export(bool) var destroy
 export(String) var destroy_flag
@@ -15,10 +20,10 @@ func _ready():
 	
 # =====================================================================
 	
-func start_event():
+func start_event(index: int = 0):
 	if not started:
 		Player.set_state(Player.PlayerState.NoInput)
-		$AnimationPlayer.play("Event")
+		$AnimationPlayer.play("Event" + (str(index) if index != 0 else ""))
 		started = true
 	
 # =====================================================================
@@ -42,6 +47,10 @@ func _event_flashback(file: String, texture: String):
 	yield(Controller.flashback(file, load(texture)), "flashback_finished")
 	$AnimationPlayer.play()
 	
+
+func _event_discourse(file: String, right_name: String, right_sprite: String):
+	$AnimationPlayer.stop(false)
+	Controller.start_discourse(file, right_name, load(right_sprite) as SpriteFrames)
 	
 
 func _event_play_sound(sound_path: String):
@@ -65,4 +74,8 @@ func _on_Event_body_entered(body: PhysicsBody2D):
 func _on_AnimationPlayer_animation_finished(anim_name: String):
 	if anim_name == "Event":
 		Player.set_state(Player.PlayerState.Move)
-		queue_free()
+		emit_signal("event_ended")
+		
+		started = false
+		if not in_npc:
+			queue_free()

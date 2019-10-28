@@ -28,6 +28,11 @@ var money_disp: int = 20
 
 var menu_open := false
 
+var d_previous_scene: String
+var d_previous_pos: Vector2
+var d_previous_dir: int
+var d_previous_npc: EventNPC = null
+
 onready var money_text: Label = $Overlay/Money
 onready var anim_player: AnimationPlayer = $AnimationPlayer
 onready var anim_player_fade: AnimationPlayer = $AnimationPlayerFade
@@ -55,13 +60,13 @@ func _process(delta):
 		get_tree().get_root().add_child(menu)
 		
 	if Input.is_action_just_pressed("sys_fullscreen"):
-		OS.set_window_fullscreen(!OS.is_window_fullscreen())
+		OS.set_window_fullscreen(not OS.is_window_fullscreen())
 		
-	if Input.is_action_just_pressed("debug_1"):
-		save_game(0)
+	#if Input.is_action_just_pressed("debug_1"):
+	#	save_game(0)
 		
-	if Input.is_action_just_pressed("debug_2"):
-		load_game(0)
+	#if Input.is_action_just_pressed("debug_2"):
+	#	load_game(0)
 
 # =====================================================================
 
@@ -73,11 +78,33 @@ func set_flag(key: String, value: int):
 	flags[key] = value
 	
 	
+func get_previous_scene() -> String:
+	return d_previous_scene
+	
+	
+func get_previous_pos() -> Vector2:
+	return d_previous_pos
+	
+	
+func get_previous_dir() -> int:
+	return d_previous_dir
+	
+	
+func get_previous_npc() -> EventNPC:
+	return d_previous_npc
+	
+	
+func set_previous_npc(npc: EventNPC):
+	d_previous_npc = npc
+	
+	
 func set_menu_open(value: bool):
 	menu_open = value
 	
 	
-func fade(time: float, fadeout: bool, color: Color = Color(0, 0, 0)):
+func fade(time: float, fadeout: bool, color: Color = Color(0, 0, 0), above_overlay: bool = false):
+	$CanvasLayer.set_layer(3 if above_overlay else 0)
+	
 	var anim: Animation = anim_player_fade.get_animation("Fadeout" if fadeout else "Fadein")
 	if fadeout:
 		anim.track_set_key_value(0, 0, Color(color.r, color.g, color.b, 0.0))
@@ -223,6 +250,11 @@ func flashback(file: String, art: Texture) -> Flashback:
 
 func start_discourse(file: String, right_name: String, right_sprite: SpriteFrames, left_name: String = "Cosmo", left_sprite: SpriteFrames = CosmoSprite):
 	Player.set_state(Player.PlayerState.NoInput)
+	
+	d_previous_scene = get_tree().get_current_scene().get_filename()
+	d_previous_pos = Player.get_position()
+	d_previous_dir = Player.get_direction()
+	
 	var start := DiscourseStartRef.instance()
 	start.set_position(Vector2.ZERO)
 	get_tree().get_root().add_child(start)

@@ -23,3 +23,7 @@ Cosmo: I'm not very good at talking.
 Rhona: Oh, don't worry.
 I'll show you how it's done!
 -
+
+1
+Rhona: See you later, Cosmo!
+-

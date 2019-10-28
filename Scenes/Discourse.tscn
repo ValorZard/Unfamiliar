@@ -51,7 +51,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=6]
 resource_name = "Fadeout"
-length = 6.0
+length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("FadeBase/Fade:color")
 tracks/0/interp = 1
@@ -75,18 +75,6 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 3.0, -80.0 ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Credits:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 4, 6 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -470,22 +458,3 @@ anims/Words = SubResource( 9 )
 [node name="AnimationPlayerBg" type="AnimationPlayer" parent="."]
 autoplay = "Bg"
 anims/Bg = SubResource( 10 )
-
-[node name="Credits" type="Node2D" parent="."]
-modulate = Color( 1, 1, 1, 0 )
-z_index = 2000
-
-[node name="Label" type="Label" parent="Credits"]
-margin_left = 61.5502
-margin_top = 33.1596
-margin_right = 260.55
-margin_bottom = 132.16
-custom_fonts/font = ExtResource( 7 )
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Unfamiliar
-Coming soon!
-
-Made by Duncan Sparks
-Additional art by Rami Shreim
-Music by Dorian Cromartie"
-align = 1
