@@ -1,0 +1,4 @@
+nil 0 0 I'm sorry, madam, but there's only#one seat left on this train.
+nil 0 0.3 There's another train coming in an#hour or so. The demon will need to#get on that one.
+nil 0 0.6 That doesn't work for me. He's my#familiar. I can't just leave him#here.
+nil 0 0 There's nothing we can do about it.#I'm sorry.

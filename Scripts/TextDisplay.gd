@@ -119,7 +119,7 @@ func _draw():
 
 func show_box():
 	$Box.show()
-	$Namebox.show()
+	#$Namebox.show()
 	#$Tail.show()
 	box_visible = true
 	
@@ -129,6 +129,10 @@ func hide_box():
 	$Namebox.hide()
 	#$Tail.hide()
 	box_visible = false
+	
+	
+func set_name_visible(visible: bool):
+	$Namebox.set_visible(visible)
 	
 	
 func set_name_text(text: String):

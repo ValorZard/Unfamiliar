@@ -36,6 +36,13 @@ func _event_dialogue(file: String, set: int):
 	yield(Controller.dialogue(file, set, false), "dialogue_ended")
 	$AnimationPlayer.play()
 	
+	
+func _event_flashback(file: String, texture: String):
+	$AnimationPlayer.stop(false)
+	yield(Controller.flashback(file, load(texture)), "flashback_finished")
+	$AnimationPlayer.play()
+	
+	
 
 func _event_play_sound(sound_path: String):
 	Controller.play_sound_oneshot_from_path(sound_path)

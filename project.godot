@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Scripts/Discourse.gd"
 }, {
+"base": "Node2D",
+"class": "Flashback",
+"language": "GDScript",
+"path": "res://Scripts/System/Flashback.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "PlayerClass",
 "language": "GDScript",
@@ -38,6 +43,7 @@ _global_script_class_icons={
 "Dialogue": "",
 "DiscourseCharacter": "",
 "DiscourseController": "",
+"Flashback": "",
 "PlayerClass": "",
 "TextDisplay": ""
 }

@@ -76,8 +76,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 20, 22, 38, 38.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 20, 22, 23, 25, 38, 38.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ false ],
 "method": "_event_show_player"
@@ -88,7 +88,13 @@ tracks/0/keys = {
 "args": [ "res://Dialogue/dl_train_intro1.txt", 0 ],
 "method": "_event_dialogue"
 }, {
-"args": [ "intro", 1 ],
+"args": [ "res://Flashbacks/fb_opening.txt", "res://Sprites/Artwork/Art_temp.png" ],
+"method": "_event_flashback"
+}, {
+"args": [ "res://Dialogue/dl_train_intro1.txt", 1 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "scn_intro", 1 ],
 "method": "_event_set_flag"
 }, {
 "args": [ NodePath("../PlayerStart") ],
@@ -114,7 +120,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 8, 25, 36.1 ),
+"times": PoolRealArray( 0, 8, 28, 36.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ -80.0, -6.0, -6.0, -80.0 ]
@@ -126,7 +132,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 24.3, 36.1 ),
+"times": PoolRealArray( 0, 27.3, 36.1 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ -2.0, -2.0, 0.0 ]
@@ -138,7 +144,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 22.2, 27 ),
+"times": PoolRealArray( 0, 25.3, 30 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ -80.0, -80.0, -10.0 ]
@@ -150,7 +156,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 22.2 ),
+"times": PoolRealArray( 0, 25.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]

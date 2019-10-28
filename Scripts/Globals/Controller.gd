@@ -8,6 +8,8 @@ const DiscourseScene := "res://Scenes/Discourse.tscn"
 const SoundOneShotRef := preload("res://Instances/SoundOneShot.tscn")
 const MenuRef := preload("res://Instances/System/Menu.tscn")
 
+const FlashbackPath := "res://Instances/System/Flashback.tscn"
+
 var inventory := {}
 var flags: Dictionary = {
 	"scn_intro": 0,
@@ -207,6 +209,16 @@ func dialogue(file: String, set: int, reset_state: bool = true) -> Dialogue:
 	dlg.start(file, set, reset_state)
 	get_tree().get_root().add_child(dlg)
 	return dlg
+	
+	
+func flashback(file: String, art: Texture) -> Flashback:
+	var fb: PackedScene = load(FlashbackPath)
+	var fb_i = fb.instance() as Flashback
+	fb_i.set_fb_file(file)
+	fb_i.set_art(art)
+	get_tree().get_root().add_child(fb_i)
+	fb_i.start()
+	return fb_i
 
 
 func start_discourse(file: String, right_name: String, right_sprite: SpriteFrames, left_name: String = "Cosmo", left_sprite: SpriteFrames = CosmoSprite):
