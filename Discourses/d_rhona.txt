@@ -222,7 +222,7 @@
 @< smile
 @> idle
 << What about you, Rhona?
-[ 274 What do you like to do? (-20, -55)[227, 252] | What kind of job do you want to have? (20, -5)[254, 272]
+[ 274 What do you like to do? (-20, -55)[227, 252] | What do you want to do for a living? (20, -5)[254, 272]
 ------------------------
 < What do you like to do?
 @> happy
@@ -251,7 +251,7 @@
 @< smile
 < My witch is really good at that#game where you try to jump on all#the cubes.
 ------------------------
-< What kind of job do you want to have?
+< What do you want to do for a living?
 @> serious
 > I'm not entirely sure.
 > My grandpa always tries to get me#to join the repair business with#him.

@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Scene_Demo.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=2]
@@ -8,12 +8,12 @@
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/Props/Train_light.png" type="Texture" id=7]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_down.png" type="Texture" id=10]
-[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_left.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_right.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_up.png" type="Texture" id=14]
+[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_left.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_right.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_up.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_down.png" type="Texture" id=13]
+[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 28 )
@@ -42,39 +42,30 @@ extents = Vector2( 8, 30 )
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 8, 30 )
 
-[sub_resource type="SpriteFrames" id=10]
+[sub_resource type="SpriteFrames" id=11]
 animations = [ {
 "frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-} ]
-
-[sub_resource type="SpriteFrames" id=12]
-animations = [ {
-"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=11]
-resource_name = "Event"
+[sub_resource type="Animation" id=12]
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -95,6 +86,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=13]
 resource_name = "Event2"
+length = 0.05
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -110,8 +102,44 @@ tracks/0/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=15]
+resource_name = "Event"
+length = 2.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.5, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "res://Dialogue/dl_train_rhona.txt", 0 ],
+"method": "_event_dialogue"
+}, {
+"args": [ 0 ],
+"method": "_event_set_player_direction"
+}, {
+"args": [ Vector2( 136, 98 ), 1.0, 0 ],
+"method": "_event_move_player_to_position"
+}, {
+"args": [ "res://Dialogue/dl_train_rhona.txt", 2 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Discourses/d_rhona.txt", "Rhona", "res://Resources/Sprite Frames/SpriteFrames_Rhona.tres" ],
+"method": "_event_discourse"
+} ]
+}
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 2, 40 )
+
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 80, 17 )
@@ -284,50 +312,55 @@ shape = SubResource( 6 )
 position = Vector2( 136, 76 )
 shape = SubResource( 7 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="CanvasLayer" instance=ExtResource( 8 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 8 )]
 position = Vector2( 248, 120 )
 target_scene = "res://Scenes/Intro/Train2.tscn"
 target_direction = 3
 
-[node name="CollisionShape2D" parent="CanvasLayer/Transition" index="0"]
+[node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
 shape = SubResource( 8 )
 
-[node name="Transition2" parent="CanvasLayer" instance=ExtResource( 8 )]
+[node name="Transition2" parent="Transitions" instance=ExtResource( 8 )]
 position = Vector2( 72, 120 )
 target_scene = "res://Scenes/Intro/Train4.tscn"
 target_direction = 2
 
-[node name="CollisionShape2D" parent="CanvasLayer/Transition2" index="0"]
+[node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
 shape = SubResource( 9 )
 
-[node name="NPCRhona" parent="." instance=ExtResource( 9 )]
+[node name="EventNPCRhona" parent="." instance=ExtResource( 9 )]
 position = Vector2( 136, 82 )
-dialogue_file = "res://Dialogue/dl_train_rhona.txt"
-end_call_node = NodePath("..")
-end_call_method = "demo_discourse"
-
-[node name="Sprite" parent="NPCRhona" index="0"]
-frames = SubResource( 10 )
-
-[node name="EventNPCRhona" parent="." instance=ExtResource( 11 )]
-position = Vector2( 176, 89 )
+set_limit = 1
 
 [node name="Sprite" parent="EventNPCRhona" index="0"]
-frames = SubResource( 12 )
+frames = SubResource( 11 )
 
 [node name="AnimationPlayer" parent="EventNPCRhona/Event" index="0"]
-anims/Event = SubResource( 11 )
+anims/Event = SubResource( 12 )
 anims/Event2 = SubResource( 13 )
 
-[editable path="CanvasLayer/Transition"]
+[node name="Event" parent="." instance=ExtResource( 14 )]
+position = Vector2( 136, 122 )
+destroy = true
+destroy_flag = "scn_rhona"
+auto_set_destroy = true
+discourse_npc = NodePath("../EventNPCRhona")
 
-[editable path="CanvasLayer/Transition2"]
+[node name="AnimationPlayer" parent="Event" index="0"]
+anims/Event = SubResource( 15 )
 
-[editable path="NPCRhona"]
+[node name="CollisionShape2D" parent="Event" index="1"]
+shape = SubResource( 14 )
+
+[editable path="Transitions/Transition"]
+
+[editable path="Transitions/Transition2"]
 
 [editable path="EventNPCRhona"]
 
 [editable path="EventNPCRhona/Event"]
+
+[editable path="Event"]

@@ -5,6 +5,8 @@ class_name PlayerClass
 const Speed := 65
 
 var vel := Vector2(0, 0)
+var vel_override := Vector2(0, 0)
+var speed_override: float = 0.0
 
 enum PlayerState { Move, NoInput }
 enum Direction { Up, Down, Left, Right }
@@ -21,6 +23,11 @@ onready var anim_player: AnimationPlayer = $AnimationPlayer
 
 func _ready():
 	set_position(Vector2(176, 98))
+	
+	
+func _process(delta):
+	if Input.is_action_just_pressed("debug_1"):
+		print(get_position().direction_to(Vector2(160, 90)))
 
 
 func _physics_process(delta):
@@ -40,6 +47,12 @@ func _physics_process(delta):
 			sprite_management()
 			
 			move_and_slide(vel * Speed)
+			
+		PlayerState.NoInput:
+			walking = speed_override > 0
+			sprite_management()
+			
+			move_and_slide(vel_override * speed_override)
 
 # =====================================================================
 
@@ -57,6 +70,14 @@ func get_direction() -> int:
 
 func set_direction(value: int):
 	face = value
+	
+	
+func set_vel_override(value: Vector2):
+	vel_override = value
+	
+	
+func set_speed_override(value: float):
+	speed_override = value
 	
 	
 func stop_moving():

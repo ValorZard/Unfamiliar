@@ -8,6 +8,8 @@ export(bool) var in_npc = false
 export(bool) var autostart = false
 export(bool) var destroy
 export(String) var destroy_flag
+export(bool) var auto_set_destroy = false
+export(NodePath) var discourse_npc = null
 
 var started := false
 
@@ -23,7 +25,11 @@ func _ready():
 func start_event(index: int = 0):
 	if not started:
 		Player.set_state(Player.PlayerState.NoInput)
-		$AnimationPlayer.play("Event" + (str(index) if index != 0 else ""))
+		$AnimationPlayer.play("Event" + (str(index + 1) if index != 0 else ""))
+		if discourse_npc != null:
+			Controller.set_previous_npc(get_node(discourse_npc).get_path())
+		if auto_set_destroy:
+			Controller.set_flag(destroy_flag, 1)
 		started = true
 	
 # =====================================================================
@@ -34,6 +40,56 @@ func _event_set_flag(key: String, value: int):
 
 func _event_show_player(show: bool):
 	Player.set_visible(show)
+	
+	
+func _event_set_player_direction(direction: int):
+	Player.set_direction(direction)
+	
+	
+func _event_move_player_to_position(pos: Vector2, time: float, direction: int):
+	$AnimationPlayer.stop(false)
+	Player.set_direction(direction)
+	var dir = Player.get_position().direction_to(pos)
+	if dir.x < 0:
+		if dir.y < 0:
+			match direction:
+				Player.Direction.Up:
+					Player.set_vel_override(Vector2(0, -1))
+				Player.Direction.Left:
+					Player.set_vel_override(Vector2(-1, 0))
+				_:
+					Player.set_vel_override(Vector2(0, -1))
+		else:
+			match direction:
+				Player.Direction.Down:
+					Player.set_vel_override(Vector2(0, 1))
+				Player.Direction.Left:
+					Player.set_vel_override(Vector2(-1, 0))
+				_:
+					Player.set_vel_override(Vector2(0, 1))
+	else:
+		if dir.y < 0:
+			match direction:
+				Player.Direction.Up:
+					Player.set_vel_override(Vector2(0, -1))
+				Player.Direction.Right:
+					Player.set_vel_override(Vector2(1, 0))
+				_:
+					Player.set_vel_override(Vector2(0, -1))
+		else:
+			match direction:
+				Player.Direction.Down:
+					Player.set_vel_override(Vector2(0, 1))
+				Player.Direction.Right:
+					Player.set_vel_override(Vector2(1, 0))
+				_:
+					Player.set_vel_override(Vector2(0, 1))
+					
+	Player.set_speed_override(Player.get_position().distance_to(pos) / time)
+	
+	yield(get_tree().create_timer(time), "timeout")
+	Player.set_speed_override(0)
+	$AnimationPlayer.play()
 	
 
 func _event_dialogue(file: String, set: int):
@@ -72,7 +128,7 @@ func _on_Event_body_entered(body: PhysicsBody2D):
 	
 
 func _on_AnimationPlayer_animation_finished(anim_name: String):
-	if anim_name == "Event":
+	if anim_name.substr(0, 5) == "Event":
 		Player.set_state(Player.PlayerState.Move)
 		emit_signal("event_ended")
 		

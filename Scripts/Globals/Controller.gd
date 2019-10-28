@@ -13,6 +13,7 @@ const FlashbackPath := "res://Instances/System/Flashback.tscn"
 var inventory := {}
 var flags: Dictionary = {
 	"scn_intro": 0,
+	"scn_rhona": 0,
 	
 	"npc_train_rudeman": 0,
 	"npc_train_unsurewoman": 0,
@@ -31,7 +32,7 @@ var menu_open := false
 var d_previous_scene: String
 var d_previous_pos: Vector2
 var d_previous_dir: int
-var d_previous_npc: EventNPC = null
+var d_previous_npc: NodePath
 
 onready var money_text: Label = $Overlay/Money
 onready var anim_player: AnimationPlayer = $AnimationPlayer
@@ -90,16 +91,21 @@ func get_previous_dir() -> int:
 	return d_previous_dir
 	
 	
-func get_previous_npc() -> EventNPC:
+func get_previous_npc() -> NodePath:
 	return d_previous_npc
 	
 	
-func set_previous_npc(npc: EventNPC):
+func set_previous_npc(npc: NodePath):
 	d_previous_npc = npc
 	
 	
 func set_menu_open(value: bool):
 	menu_open = value
+	
+	
+func post_discourse():
+	Player.set_state(Player.PlayerState.Move)
+	(get_node(d_previous_npc) as EventNPC).show_interact(true)
 	
 	
 func fade(time: float, fadeout: bool, color: Color = Color(0, 0, 0), above_overlay: bool = false):
@@ -251,7 +257,7 @@ func flashback(file: String, art: Texture) -> Flashback:
 func start_discourse(file: String, right_name: String, right_sprite: SpriteFrames, left_name: String = "Cosmo", left_sprite: SpriteFrames = CosmoSprite):
 	Player.set_state(Player.PlayerState.NoInput)
 	
-	d_previous_scene = get_tree().get_current_scene().get_filename()
+	d_previous_scene = get_tree().get_root().get_node("Scene").get_filename()
 	d_previous_pos = Player.get_position()
 	d_previous_dir = Player.get_direction()
 	

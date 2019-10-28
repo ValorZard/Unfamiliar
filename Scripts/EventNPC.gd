@@ -4,13 +4,10 @@ class_name EventNPC
 
 enum NPCDirection { Up, Down, Left, Right }
 
-#export(String, FILE, "*.txt") var dialogue_file
 export(NPCDirection) var start_direction = NPCDirection.Down
 export(bool) var change_direction = true
 export(bool) var auto_advance_set = false
 export(int) var set_limit = 0
-export(NodePath) var end_call_node
-export(String) var end_call_method
 
 var face: int = NPCDirection.Down
 
@@ -38,12 +35,8 @@ func _process(delta):
 		if change_direction:
 			_face_player()
 		
-		Controller.set_previous_npc(self)
+		Controller.set_previous_npc(get_path())
 		event.start_event(dialogue_set)
-		#var d := Controller.dialogue(dialogue_file, dialogue_set)
-		#if end_call_node != null and end_call_method != "":
-		#	d.connect("dialogue_ended", get_node(end_call_node), end_call_method)
-		#yield(d, "dialogue_ended")
 		yield(event, "event_ended")
 		if auto_advance_set and dialogue_set < set_limit:
 			dialogue_set += 1
@@ -53,6 +46,10 @@ func _process(delta):
 
 func increment_dialogue_set():
 	dialogue_set += 1
+	
+	
+func show_interact(show: bool):
+	interact.set_visible(show)
 
 # =====================================================================
 

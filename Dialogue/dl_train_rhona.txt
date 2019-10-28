@@ -1,11 +1,18 @@
 0
 Commuter: Oh, it's a demon! Hi, demon!
+-
+
+1
+Rhona: See you later, Cosmo!
+-
+
+2
 Cosmo: Um... hi.
 Commuter: Are you a familiar?
 Cosmo: Yes.
 I'm not sure where my witch is. She was on a different train.
 Commuter: Oh... do you need help finding her?
-Cosmo: No. I can probably find her myself.
+Cosmo: I can probably find her myself.
 Commuter: ...
 Well, before you leave, we should talk a bit!
 Cosmo: What?
@@ -22,8 +29,4 @@ I still want to learn more about you!
 Cosmo: I'm not very good at talking.
 Rhona: Oh, don't worry.
 I'll show you how it's done!
--
-
-1
-Rhona: See you later, Cosmo!
 -

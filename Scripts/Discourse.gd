@@ -124,9 +124,12 @@ func run_discourse(file: String, right_name: String, right_sprite: SpriteFrames,
 	Controller.draw_overlay(true)
 	Player.show()
 	Controller.goto_scene(Controller.get_previous_scene(), Controller.get_previous_pos(), Controller.get_previous_dir(), false, false)
-	Controller.get_previous_npc().increment_dialogue_set()
-	Player.set_state(Player.PlayerState.Move)
+	yield(get_tree(), "tree_changed")
+
+	(get_node(Controller.get_previous_npc()) as EventNPC).increment_dialogue_set()
+	(get_tree().create_timer(0.05)).connect("timeout", get_node(Controller.get_previous_npc()) as EventNPC, "show_interact", [false])
 	Controller.fade(1.0, false, Color(1, 1, 1), true)
+	(get_tree().create_timer(1.0)).connect("timeout", Controller, "post_discourse")
 			
 
 func click_choice(index: int):
