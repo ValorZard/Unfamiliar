@@ -9,6 +9,8 @@ export(float) var fade_time = 0.5
 
 var in_area := false
 
+# =====================================================================
+
 func _process(delta):
 	if Input.is_action_just_pressed("sys_action") and in_area:
 		Controller.play_sound_oneshot(door_sound)
@@ -19,8 +21,8 @@ func _process(delta):
 		Player.set_position(target_position)
 		Controller.fade(fade_time, false, fade_color)
 		Player.set_state(Player.PlayerState.Move)
-		
 
+# =====================================================================
 
 func _on_Door_body_entered(body: PhysicsBody2D):
 	if body != null:

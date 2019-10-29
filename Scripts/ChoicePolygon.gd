@@ -69,7 +69,6 @@ func _draw():
 	draw_polygon(PoolVector2Array([poly[0] + Vector2(-OutlineWidth, OutlineWidth), poly[1] + Vector2(OutlineWidth, OutlineWidth), poly[2] + Vector2(OutlineWidth, -OutlineWidth), poly[3] + Vector2(-OutlineWidth, -OutlineWidth)]), ColorsWhite)
 	draw_polygon(poly, ColorsBlack)
 	
-
 # =====================================================================
 
 func set_text_controller(value):
@@ -86,12 +85,6 @@ func setup_animation(end_pos: Vector2):
 	$AnimationPlayer.get_animation("Appear").track_insert_key(1, 1, end_pos)
 	$AnimationPlayer.get_animation("Disappear").track_insert_key(1, 0, end_pos, 1.52)
 	$AnimationPlayer.get_animation("Disappear").track_insert_key(1, 1, Vector2(160, 90))
-	#$$AnimationPlayer.get_animation("Disappear").track_set_key_value(1, 0, end_pos);
-	#$AnimationPlayer.get_animation("Disappear").track_set_key_value(1, 1, Vector2(160, 90))
-	#$AnimationPlayer.get_animation("Select").track_insert_key(1, 0, end_pos, 0.52)
-	#$AnimationPlayer.get_animation("Select").track_insert_key(1, 1, Vector2(320, 180))
-	#$AnimationPlayer.get_animation("Select").track_set_key_value(1, 0, $Label.get_margin(MARGIN_LEFT))
-	#$AnimationPlayer.get_animation("Select").track_set_key_value(2, 0, $Label.get_margin(MARGIN_TOP))
 	$AnimationPlayer.add_animation("Appear2", $AnimationPlayer.get_animation("Appear").duplicate())
 	$AnimationPlayer.add_animation("Disappear2", $AnimationPlayer.get_animation("Disappear").duplicate())
 	$AnimationPlayer.add_animation("Select2", $AnimationPlayer.get_animation("Select").duplicate())

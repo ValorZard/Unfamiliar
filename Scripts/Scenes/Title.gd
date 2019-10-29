@@ -8,6 +8,7 @@ func _ready():
 	Controller.draw_overlay(false)
 	Player.hide()
 
+# =====================================================================
 
 func _on_Button1_clicked() -> void:
 	but1.anim_selected()

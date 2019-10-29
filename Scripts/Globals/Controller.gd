@@ -48,6 +48,7 @@ func _ready():
 		if f.is_open():
 			f.close()
 
+
 func _process(delta):
 	if money_disp != money:
 		money_disp = lerp(money_disp, money, 0.15)
@@ -62,12 +63,6 @@ func _process(delta):
 		
 	if Input.is_action_just_pressed("sys_fullscreen"):
 		OS.set_window_fullscreen(not OS.is_window_fullscreen())
-		
-	#if Input.is_action_just_pressed("debug_1"):
-	#	save_game(0)
-		
-	#if Input.is_action_just_pressed("debug_2"):
-	#	load_game(0)
 
 # =====================================================================
 
