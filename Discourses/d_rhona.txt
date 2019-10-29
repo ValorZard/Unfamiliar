@@ -44,11 +44,7 @@
 < Although... $wweird $0people and#creatures pass through town#sometimes.
 @> serious
 < And it's $shot. $0In the 90s all the time.
-@> shock
-> What?!
-< Farenheit.
-@> idle
-> Oh. Right.
+> Wow.
 @> think
 > Don't demons like it to be hot, or#something?
 < I could take it or leave it.
@@ -61,19 +57,10 @@
 > Oh, that's pretty close!
 @< smile
 @> idle
-< Yeah. We actually visit Los Muertos#a lot.
+< Yeah. We actually travel a lot.
 @< idle
-< Cottonwood is just so boring.
+< Cottonwood is just so $wboring.
 < At least, I think so. I don't know if#my witch cares.
-@> explain2
-> Isn't Cottonwood the town with the#world's largest ball of paperclips?
-< Yes.
-@> idle
-@< heh
-< It gets a lot less interesting after#the first time you look at it.
-@> heh
-> Okay, that's fair.
-@< smile
 @> idle
 ^ BRANCH_2
 ========================
@@ -107,12 +94,10 @@
 > He works here at Ainsley's#Knack and Craft. He repairs small#trinkets.
 @< smile
 @> idle
-< Oh, that place?
-@< explain2
-< We've walked past it a few times on#our previous visits.
-< I always look through the windows.#It looks really neat in there.
+< Sounds interesting!
 @> explain2
-> Yeah. My grandpa is a wizard.
+> Yeah! You should stop by and#take a look while you're here.#The shop looks pretty incredible.
+> My grandpa is a wizard.
 @< smile
 < Really?
 > A wizard at interior decorating.
@@ -128,7 +113,7 @@
 @> serious
 > They're not here. I usually come to#Los Muertos by myself.
 @> sad
-> My dad passed away a few years ago.
+> My dad died a few years ago.
 @< sad
 < Oh...
 > And my mom...
@@ -175,7 +160,8 @@
 > Wait... you can just $wteach $0people#magic?
 @> explain
 > I thought you had to be born a witch,#or something.
-< Surprisingly not. Anyone can#become a witch with enough#training.
+@< smile
+< Nope! Anyone can become a witch#with enough training.
 @> idle
 @< heh
 < Anyone human, that is.
@@ -197,8 +183,9 @@
 ------------------------
 : R_3_2
 < She makes and sells potions.
+> Really? What kinds of potions?
 @< explain2
-< Healing potions, enhancement#potions...
+< Oh, all sorts. Healing potions,#enhancement potions...
 @> happy
 > $wLove $0potions?
 @< smile
@@ -233,9 +220,10 @@
 @< idle
 @> happy
 > Interesting!
+@< smile
+< She also talks all about the spells#in the books. You know... the history#of magic, and all.
 @> idle
 > Is she a good writer?
-@< smile
 < Yeah. She has a real way with words.
 ^ BRANCH_4
 ========================

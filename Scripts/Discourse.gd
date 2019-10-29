@@ -5,11 +5,6 @@ class_name DiscourseController
 signal choice_clicked
 signal ignore_line
 
-const XLower = 55
-const XUpper = 285
-const YLower = 15
-const YUpper = 140
-
 const line_regex_p := "^(\\S+)\\s+(.+)$"
 const buttons_regex_p := "^\\s*([^\\r\\n\\t\\f\\v]+)\\s\\(([\\d-]+),\\s*([\\d-]+)\\)\\s*(\\w+)\\s*$"
 const flag_regex_p := "^(.+)\\s+(\\d+)$"
@@ -40,6 +35,10 @@ var speaker_right := false
 var list_index: int = 0
 
 onready var text_controller := $TextDisplay
+onready var anim_player_left := $AnimationPlayerLeftChar
+onready var anim_player_right := $AnimationPlayerRightChar
+
+# =====================================================================
 
 func _ready():
 	randomize()
@@ -71,29 +70,29 @@ func run_discourse(file: String, right_name: String, right_sprite: SpriteFrames,
 	character_left.hide()
 	character_right.hide()
 	
-	$AnimationPlayerLeftChar.get_animation("Movein").add_track(Animation.TYPE_VALUE, 0)
-	$AnimationPlayerLeftChar.get_animation("Movein").track_set_path(0, NodePath(str(character_left.get_path()) + ":position"))
-	$AnimationPlayerLeftChar.get_animation("Movein").track_set_interpolation_type(0, Animation.INTERPOLATION_CUBIC)
-	$AnimationPlayerLeftChar.get_animation("Movein").track_insert_key(0, 0, character_left.get_position() - Vector2(200, 0), 0.4)
-	$AnimationPlayerLeftChar.get_animation("Movein").track_insert_key(0, 1, character_left.get_position())
-	$AnimationPlayerLeftChar.get_animation("Movein").add_track(Animation.TYPE_VALUE, 1)
-	$AnimationPlayerLeftChar.get_animation("Movein").track_set_path(1, NodePath(str(character_left.get_path()) + ":visible"))
-	$AnimationPlayerLeftChar.get_animation("Movein").track_insert_key(1, 0, true)
+	anim_player_left.get_animation("Movein").add_track(Animation.TYPE_VALUE, 0)
+	anim_player_left.get_animation("Movein").track_set_path(0, NodePath(str(character_left.get_path()) + ":position"))
+	anim_player_left.get_animation("Movein").track_set_interpolation_type(0, Animation.INTERPOLATION_CUBIC)
+	anim_player_left.get_animation("Movein").track_insert_key(0, 0, character_left.get_position() - Vector2(200, 0), 0.4)
+	anim_player_left.get_animation("Movein").track_insert_key(0, 1, character_left.get_position())
+	anim_player_left.get_animation("Movein").add_track(Animation.TYPE_VALUE, 1)
+	anim_player_left.get_animation("Movein").track_set_path(1, NodePath(str(character_left.get_path()) + ":visible"))
+	anim_player_left.get_animation("Movein").track_insert_key(1, 0, true)
 	
-	$AnimationPlayerRightChar.get_animation("Movein").add_track(Animation.TYPE_VALUE, 0)
-	$AnimationPlayerRightChar.get_animation("Movein").track_set_path(0, NodePath(str(character_right.get_path()) + ":position"))
-	$AnimationPlayerRightChar.get_animation("Movein").track_set_interpolation_type(0, Animation.INTERPOLATION_CUBIC)
-	$AnimationPlayerRightChar.get_animation("Movein").track_insert_key(0, 0, character_right.get_position() + Vector2(200, 0), 0.4)
-	$AnimationPlayerRightChar.get_animation("Movein").track_insert_key(0, 0.25, character_right.get_position() + Vector2(200, 0), 0.4)
-	$AnimationPlayerRightChar.get_animation("Movein").track_insert_key(0, 1.25, character_right.get_position())
-	$AnimationPlayerRightChar.get_animation("Movein").add_track(Animation.TYPE_VALUE, 1)
-	$AnimationPlayerRightChar.get_animation("Movein").track_set_path(1, NodePath(str(character_right.get_path()) + ":visible"))
-	$AnimationPlayerRightChar.get_animation("Movein").track_insert_key(1, 0, true)
+	anim_player_right.get_animation("Movein").add_track(Animation.TYPE_VALUE, 0)
+	anim_player_right.get_animation("Movein").track_set_path(0, NodePath(str(character_right.get_path()) + ":position"))
+	anim_player_right.get_animation("Movein").track_set_interpolation_type(0, Animation.INTERPOLATION_CUBIC)
+	anim_player_right.get_animation("Movein").track_insert_key(0, 0, character_right.get_position() + Vector2(200, 0), 0.4)
+	anim_player_right.get_animation("Movein").track_insert_key(0, 0.25, character_right.get_position() + Vector2(200, 0), 0.4)
+	anim_player_right.get_animation("Movein").track_insert_key(0, 1.25, character_right.get_position())
+	anim_player_right.get_animation("Movein").add_track(Animation.TYPE_VALUE, 1)
+	anim_player_right.get_animation("Movein").track_set_path(1, NodePath(str(character_right.get_path()) + ":visible"))
+	anim_player_right.get_animation("Movein").track_insert_key(1, 0, true)
 	
 	yield(get_tree().create_timer(1.0), "timeout")
 	
-	$AnimationPlayerLeftChar.play("Movein")
-	$AnimationPlayerRightChar.play("Movein")
+	anim_player_left.play("Movein")
+	anim_player_right.play("Movein")
 	
 	yield(get_tree().create_timer(2.5), "timeout")
 	
