@@ -14,8 +14,7 @@ const SoundClick := preload("res://Audio/Click.ogg")
 
 var index: int
 
-var target_line_start: int = -1
-var target_line_end: int = -1
+var target_line: int = -1
 
 var pos_start: Vector2
 var poly := PoolVector2Array()
@@ -113,17 +112,12 @@ func set_button_text(text: String):
 	$Label.set_text(text)
 	
 	
-func get_target_line_start() -> int:
-	return target_line_start
-	
-
-func get_target_line_end() -> int:
-	return target_line_end
+func get_target_line() -> int:
+	return target_line
 	
 	
-func set_target_lines(start: int, end: int):
-	target_line_start = start
-	target_line_end = end
+func set_target_line(target: int):
+	target_line = target
 	
 # =====================================================================
 

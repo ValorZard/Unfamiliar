@@ -1,0 +1,25 @@
+0
+RAWR
+-
+
+1
+Chip: Welcome to the Styx Inn.
+Cosmo: Hi. Has a witch wearing a yellow coat checked into this motel?
+Chip: Nope. It's been a pretty slow day.
+You might try looking at Hotel Los Muertos. They usually get more traffic.
+It's on the other side of town.
+Cosmo: Okay. Thanks.
+-
+
+2
+Chip: Have a nice day.
+-
+
+3
+Chip: Hello there.
+Hotel Los Muertos is on the other side of town. Your witch might be there.
+-
+
+4
+Chip: You just really like hearing me roar, don't you?
+-

@@ -11,14 +11,12 @@ const YLower = 15
 const YUpper = 140
 
 const line_regex_p := "^(\\S+)\\s+(.+)$"
-const buttons_regex_p := "^\\s*([^\\r\\n\\t\\f\\v]+)\\s\\(([\\d-]+),\\s*([\\d-]+)\\)\\s*\\[(\\d+),\\s*(\\d+)\\]\\s*$"
-const choices_regex_p := "^(\\d+) (.+)$"
+const buttons_regex_p := "^\\s*([^\\r\\n\\t\\f\\v]+)\\s\\(([\\d-]+),\\s*([\\d-]+)\\)\\s*(\\w+)\\s*$"
 const flag_regex_p := "^(.+)\\s+(\\d+)$"
-const flag_regex_2_p := "^(.+)\\s+(\\d+)\\s+(\\d+)$"
+const flag_regex_2_p := "^(.+)\\s+(\\d+)\\s+(\\w+)$"
 
 var line_regex := RegEx.new()
 var buttons_regex := RegEx.new()
-var choices_regex := RegEx.new()
 var flag_regex := RegEx.new()
 var flag_regex_2 := RegEx.new()
 
@@ -31,6 +29,7 @@ const DiscourseCharacterRef := preload("res://Instances/DiscourseCharacter.tscn"
 
 var script_list := []
 var buttons_list := []
+var label_table := {}
 
 var character_left: DiscourseCharacter = null
 var character_right: DiscourseCharacter = null
@@ -39,9 +38,6 @@ var name_right: String = ""
 var speaker_right := false
 
 var list_index: int = 0
-var response := false
-var response_end: int = -1
-var response_end_total: int = -1
 
 onready var text_controller := $TextDisplay
 
@@ -50,7 +46,6 @@ func _ready():
 	
 	line_regex.compile(line_regex_p)
 	buttons_regex.compile(buttons_regex_p)
-	choices_regex.compile(choices_regex_p)
 	flag_regex.compile(flag_regex_p)
 	flag_regex_2.compile(flag_regex_2_p)
 
@@ -106,12 +101,7 @@ func run_discourse(file: String, right_name: String, right_sprite: SpriteFrames,
 	while list_index < len(script_list):
 		parse_discourse_command(script_list[list_index])
 		yield(co_target, co_signal)
-		
-		if response and list_index == response_end:
-			list_index = response_end_total
-			response = false
-		else:
-			list_index += 1
+		list_index += 1
 			
 	text_controller.hide()
 	$AnimationPlayer.play("Fadeout")
@@ -136,9 +126,7 @@ func click_choice(index: int):
 	var i: int = 0
 	for but in buttons_list:
 		if i == index:
-			response = true
-			list_index = but.get_target_line_start() - 2
-			response_end = but.get_target_line_end() - 1
+			list_index = but.get_target_line()
 			but.anim_selected()
 		else:
 			but.anim_not_selected()
@@ -149,12 +137,12 @@ func click_choice(index: int):
 
 # =====================================================================
 
-func create_button(text: String, pos: Vector2, index: int, start_line: int, end_line: int):
+func create_button(text: String, pos: Vector2, index: int, target_line: int):
 	var but := ChoiceButton.instance()
 	but.set_text_controller($TextDisplay)
 	but.set_controller(self)
 	but.set_index(index)
-	but.set_target_lines(start_line, end_line)
+	but.set_target_line(target_line)
 	but.set_position(Vector2(160, 90))
 	but.set_button_text(text)
 	but.setup_animation(pos)
@@ -168,7 +156,13 @@ func load_file(path: String):
 	var file := File.new()
 	file.open(path, File.READ)
 	while not file.eof_reached():
-		script_list.push_back(file.get_line())
+		var line: String = file.get_line()
+		script_list.push_back(line)
+		
+		# If this is a label, add it to the lookup table
+		if line[0] == ":":
+			label_table[line.substr(2, len(line) - 2)] = len(script_list) - 1
+			
 	if file.is_open():
 		file.close()
 
@@ -239,19 +233,18 @@ func parse_discourse_command(command: String):
 				yield(get_tree().create_timer(0.02), "timeout")
 				emit_signal("ignore_line")
 				
-			"[": # Choice - FORMAT: [ `Line to jump to after branch` `Choice text` (`x coord of choice`, `y coord of choice`)[`start line of choice branch`, `end line of choice branch`] | for each choice
+			"[": # Choice - FORMAT: [ `Choice text` (`x coord of choice`, `y coord of choice`) `LABEL_AT_START_OF_BRANCH` | for each choice
 				co_target = self
 				co_signal = "choice_clicked"
-				response_end_total = int(choices_regex.search(text).get_string(1)) - 1
-				var buttons: PoolStringArray = choices_regex.search(text).get_string(2).split("|")
+				var buttons: PoolStringArray = text.split("|")
 				text_controller.fade_screen(true)
 				var i: int = 0
 				for but in buttons:
-					create_button(buttons_regex.search(but).get_string(1), Vector2(160 + int(buttons_regex.search(but).get_string(2)), 90 + int(buttons_regex.search(but).get_string(3))), i, int(buttons_regex.search(but).get_string(4)), int(buttons_regex.search(but).get_string(5)))
+					create_button(buttons_regex.search(but).get_string(1), Vector2(160 + int(buttons_regex.search(but).get_string(2)), 90 + int(buttons_regex.search(but).get_string(3))), i, label_table[buttons_regex.search(but).get_string(4)])
 					i += 1
-				
-			"^": # Jump to line - FORMAT: ^ `Line number`
-				list_index = int(text) - 2
+
+			"^": # Jump to label - FORMAT: ^ `LABEL_NAME`
+				list_index = label_table[text]
 				co_target = self
 				co_signal = "ignore_line"
 				yield(get_tree().create_timer(0.02), "timeout")
@@ -264,9 +257,9 @@ func parse_discourse_command(command: String):
 				yield(get_tree().create_timer(0.02), "timeout")
 				emit_signal("ignore_line")
 				
-			"?": # Jump to line if flag is set - FORMAT: ? `Flag` `Value` `Target line`
+			"?": # Jump to label if flag is set - FORMAT: ? `Flag` `Value` `TARGET_LABEL`
 				if Controller.flag(flag_regex_2.search(text).get_string(1)) == int(flag_regex_2.search(text).get_string(2)):
-					list_index = int(flag_regex_2.search(text).get_string(3)) - 2
+					list_index = label_table[flag_regex_2.search(text).get_string(3)]
 				co_target = self
 				co_signal = "ignore_line"
 				yield(get_tree().create_timer(0.02), "timeout")

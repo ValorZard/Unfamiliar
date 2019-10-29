@@ -3,14 +3,15 @@
 < It says on your sandwich wrapper.
 > ...
 > Figures.
-> Okay, familiar... Tell me about this witch of yours.
-@< sad
+> Okay, familiar...
+@< glare
 < My name's Cosmo.
 @< idle
 > Fine. Cosmo.
 > Tell me about this witch of yours.
 < Why?
 > I know this city in and out. I know where people tend to end up.
+< ...Okay.
 >> How much of a socialite is she, exactly?
 [ 11 She's very social. (0, -60)[17, 30] | 11 A little bit. (0, -60)[17, 30] | 11 She's a real recluse. (0, -60)[17, 30]
 < She's very social.
@@ -36,7 +37,7 @@
 < ...
 > It's like having a kid.
 < What? It's not-
-> A kid bound to you by a contract of the underworld, who happens to be at your eternal servitude.
+> ...A kid bound to you by a contract of the underworld, who happens to be at your eternal servitude.
 < Yep. $wThat's $0more like it.
 > Okay, look, hamster hair: even if you have a magical personal assistant, it's one more mouth to feed.
 > It's one more person to care for.
