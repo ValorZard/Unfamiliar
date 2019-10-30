@@ -15,6 +15,7 @@
 [ Salem, up north. (0, -60) R_1_1 | Zzyzx, to the west. (-90, -10) R_1_2 | Cottonwood, to the east. (70, -10) R_1_3
 ------------------------
 : R_1_1
+* choice_hometown 0
 < Salem, up north.
 < They don't really like witches and#demons up there.
 @> serious
@@ -32,6 +33,7 @@
 ^ BRANCH_2
 ------------------------
 : R_1_2
+* choice_hometown 1
 < Zzyzx, to the west.
 @> happy
 > Z... $wZzyzx? $0That's a strange name.
@@ -52,6 +54,7 @@
 ^ BRANCH_2
 ------------------------
 : R_1_3
+* choice_hometown 2
 < Cottonwood, to the east.
 @> happy
 > Oh, that's pretty close!
@@ -92,6 +95,7 @@
 > I come here every few months to visit#my grandpa.
 @> explain2
 > He works here at Ainsley's#Knack and Craft. He repairs small#trinkets.
+* choice_know_rhona's_grandpa 1
 @< smile
 @> idle
 < Sounds interesting!
@@ -155,6 +159,7 @@
 [ She teaches people magic. (-20, -60) R_3_1 | She makes and sells potions. (20, -10) R_3_2 | She writes books of hexes. (0, 40) R_3_3
 ------------------------
 : R_3_1
+* choice_witch_profession 0
 < She teaches people magic.
 @> shock
 > Wait... you can just $wteach $0people#magic?
@@ -182,6 +187,7 @@
 ^ BRANCH_4
 ------------------------
 : R_3_2
+* choice_witch_profession 1
 < She makes and sells potions.
 > Really? What kinds of potions?
 @< explain2
@@ -204,6 +210,7 @@
 ^ BRANCH_4
 ------------------------
 : R_3_3
+* choice_witch_profession 2
 < She writes books of hexes.
 @< explain2
 < You can't cast a spell without#knowing how, after all.
@@ -287,10 +294,10 @@
 : BRANCH_5
 @> idle
 > So, Cosmo...
-> You and your witch are always, uh...#$wtogether, $0right?
+> You normally wouldn't be apart from#your witch, right?
 @< idle
 @> serious
-< Yep. We got put on different trains,#but we normally wouldn't split up.
+< Yeah. We got put on different trains,#but we normally wouldn't split up.
 < She doesn't trust me to be on my own.
 @> sad
 >  Oh.
@@ -300,6 +307,7 @@
 [ She's actually really nice. (-20, -60) R_5_1 | She's all right. (20, -10) R_5_2 | She isn't very nice. (0, 40) R_5_3
 ------------------------
 : R_5_1
+* choice_witch_personality 0
 @< smile
 < She's actually really nice.
 @> idle
@@ -321,6 +329,7 @@
 ^ END
 ------------------------
 : R_5_2
+* choice_witch_personality 1
 < She's all right.
 < We don't talk too much. She just asks#me to do stuff for her, and I do it.
 < Not much more than that.
@@ -341,6 +350,7 @@
 ^ END
 ------------------------
 : R_5_3
+* choice_witch_personality 2
 @< sad
 < She isn't very nice.
 @> shock
@@ -383,7 +393,7 @@
 @> idle
 > You're still smart, handsome, and#charming.
 @> annoyed
-> Everyone calls demons "edritch#abominations," but...
+> Everyone calls demons "eldritch#abominations," but...
 @> idle
 > Even if you're an abomination,#I'll still talk with you.
 @< sad

@@ -14,18 +14,20 @@ var inventory := {}
 var flags: Dictionary = {
 	"scn_intro": 0,
 	"scn_rhona": 0,
-	
+	# ========================================
 	"npc_train_rudeman": 0,
 	"npc_train_unsurewoman": 0,
 	"npc_train_rhona": 0,
-	
+	# ----------------------------------------
 	"npc_lm_guide": 0,
 	"npc_lm_pace": 0,
-	
+	# ========================================
 	"choice_hometown": 0, # 0 = Salem, 1 = Zzyzx, 2 = Cottonwood
 	"choice_know_rhona's_grandpa": 0, # 0 = No, 1 = Yes
 	"choice_witch_profession": 0, # 0 = Teacher, 1 = Potions, 2 = Books
 	"choice_witch_personality": 0, # 0 = Good, 1 = Okay, 2 = Bad
+	# ----------------------------------------
+	"choice_witch_socialness": 0, # 0 = Social, 1 = Sort of, 2 = Recluse
 }
 
 var money: int = 20

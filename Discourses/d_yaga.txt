@@ -13,43 +13,117 @@
 > I know this city in and out. I know where people tend to end up.
 < ...Okay.
 >> How much of a socialite is she, exactly?
-[ 11 She's very social. (0, -60)[17, 30] | 11 A little bit. (0, -60)[17, 30] | 11 She's a real recluse. (0, -60)[17, 30]
+[ She's very social. (0, -60) R_1_1 | A little bit. (0, -60) R_1_2 | She's a real recluse. (0, -60) R_1_3
+------------------------
+: R_1_1
+* choice_witch_socialness 0
 < She's very social.
+@< explain
 < I get dragged to social outings with her a lot.
 < She seems really eager to show everyone she has a familiar.
 > Oh, brother...
+@< idle
 > There's nothing special about having a familiar.
+@< glare
 < Gee, thanks.
 > That wasn't a jab at you, honeybucket. That was a jab at your witch.
+@< idle
 > Do you see me $wflaunting $0the fact that I'm a witch? Nope.
 > It's nothing to flaunt about. Everyone's a witch nowadays.
+@< glare
 < Is that how you feel about demons?
 > Don't ask me loaded questions, hamster hair.
 > I've got no problems with you. That's all you should care about.
+@< idle
 < ...
-========================
-<< Hey, Yaga...
-[ 11 Have you ever had a familiar? (0, -60)[17, 30] | 11 Do you like being a witch? (0, -60)[17, 30] | 11 Why are you eating at this restaurant? (0, -60)[17, 30]
+^ BRANCH_2
 ------------------------
+: R_1_2
+* choice_witch_socialness 1
+< A little bit.
+< She's not $wopposed $0to social situations, but she also likes her alone time.
+> What does she do?
+? ? choice_witch_profession 0 B_JOB_1
+? ? choice_witch_profession 1 B_JOB_2
+? ? choice_witch_profession 2 B_JOB_3
+: B_JOB_1
+< She teaches people magic.
+> I see. You'd think she'd be more comfortable with talking to people after doing that for so long.
+< She's only been doing it for nine years.
+> Nine years is a long time, hamster hair.
+< Not for a demon.
+@< heh
+< We're kinda immortal.
+> Fair.
+^ B_JOB_END
+: B_JOB_2
+< She's an alchemist. She makes potions and sells them.
+> Okay. Not exactly the most socially-oriented job in the world.
+^ B_JOB_END
+: B_JOB_3
+< She's a writer. She writes books of hexes.
+> Sounds about right.
+> Writers tend to prefer using their words over their voices.
+: B_JOB_END
+^ BRANCH_2
+------------------------
+: R_1_3
+* choice_witch_socialness 2
+< She's a real recluse.
+< Even though she likes to travel, she hates talking to people.
+? choice_witch_profession 1 B_PERSONALITY_01
+< She teaches people magic for a living, but that's all the social contact she can tolerate.
+: B_PERSONALITY_01
+@< sad
+< She says I'm pretty much her only friend.
+? choice_witch_personality 0 B_PERSONALITY_02
+< ...If you can even say that.
+: B_PERSONALITY_02
+> Yep. That sounds about right.
+> Being a witch tends to do that to you. One way or another.
+@< idle
+> When I lived in Hackberry, I used to know this popular man.
+> He was a real socialite. Knew everyone in town.
+> Then he decided to become a witch, and his friends never talked to him again.
+> Now he stays in his house all day doing nothing.
+@< sad
+< That's sad...
+> Mhm. If you want to be a witch, you've got to be prepared to live with the consequences.
+> Namely, lots of people hating you. Unless you live in a town like Los Muertos.
+@< idle
+> If you can't deal with witches, demons, and other eldritch abominations, you $wreally $0shouldn't be living here.
+^ BRANCH_2
+========================
+: BRANCH_2
+<< Hey, Yaga...
+[ Have you ever had a familiar? (0, -60) R_2_1 | Do you like being a witch? (0, -60) R_2_2 | Why are you eating at this restaurant? (0, -60) R_2_3
+------------------------
+: R_2_1
 < Have you ever had a familiar?
 > Nope. Never have, never will.
 > I don't have the time or energy for that. It's way more trouble than it's worth.
 < ...
 > It's like having a kid.
+@< angry
 < What? It's not-
 > ...A kid bound to you by a contract of the underworld, who happens to be at your eternal servitude.
+@< glare
 < Yep. $wThat's $0more like it.
 > Okay, look, hamster hair: even if you have a magical personal assistant, it's one more mouth to feed.
 > It's one more person to care for.
+@< angry2
 < Oh, and you think all witches care whether their familiars are happy?
 > Of course not! I know they don't! This world is full of awful people! I'm pretty damn awful myself!
+@< sad
 > ...
 > But they should care.
 > We make contracts with you demons. We drag you into our world.
 > You have just as much right to be here as us.
 < ...
 < I'm glad you think so.
+^ BRANCH_3
 ------------------------
+: R_2_2
 < Do you like being a witch?
 > Ugh...
 < Sorry. Should I have-
@@ -64,8 +138,11 @@
 > Although, it $wdoes $0have its perks.
 > Nobody'll bother you when you're eating dinner at the worst restaurant in town.
 > Except talkative demons, apparently.
+@< smile
 < Heh...
+^ BRANCH_3
 ------------------------
+: R_2_3
 < Why are you eating at this restaurant?
 < You keep talking about how terrible it is.
 > You aren't from Los Muertos, are you?
@@ -80,3 +157,12 @@
 > This place sucks. They have the worst sandwiches I've ever eaten.
 > But I don't have to mortgage my house to eat here, so I'm gonna eat here.
 > I usually cook at home, anyway.
+^ BRANCH_3
+========================
+: BRANCH_3
+@< idle
+> Okay, honeybucket...
+? choice_witch_socialness 0 B_SOCIAL_1
+? choice_witch_socialness 1 B_SOCIAL_2
+? choice_witch_socialness 2 B_SOCIAL_3
+: B_SOCIAL_1
