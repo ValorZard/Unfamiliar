@@ -8,6 +8,7 @@ export(NPCDirection) var start_direction = NPCDirection.Down
 export(bool) var change_direction = true
 export(bool) var auto_advance_set = false
 export(int) var set_limit = 0
+export(String) var set_flag
 
 var face: int = NPCDirection.Down
 
@@ -24,6 +25,7 @@ onready var event: Event = $Event
 func _ready():
 	interact.hide()
 	face = start_direction
+	dialogue_set = Controller.flag(set_flag)
 	
 func _process(delta):
 	set_z_index(int(get_position().y))
@@ -40,12 +42,14 @@ func _process(delta):
 		yield(event, "event_ended")
 		if auto_advance_set and dialogue_set < set_limit:
 			dialogue_set += 1
+		Controller.set_flag(set_flag, dialogue_set)
 		interact.show()
 		
 # =====================================================================
 
 func increment_dialogue_set():
 	dialogue_set += 1
+	Controller.set_flag(set_flag, dialogue_set)
 	
 	
 func show_interact(show: bool):

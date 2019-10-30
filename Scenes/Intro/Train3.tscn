@@ -8,8 +8,8 @@
 [ext_resource path="res://Sprites/Props/Train_light.png" type="Texture" id=6]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_left.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_right.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_right.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_left.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_up.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_down.png" type="Texture" id=12]
 [ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=13]
@@ -45,12 +45,12 @@ extents = Vector2( 8, 30 )
 animations = [ {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
@@ -332,6 +332,7 @@ shape = SubResource( 9 )
 [node name="EventNPCRhona" parent="." instance=ExtResource( 8 )]
 position = Vector2( 136, 82 )
 set_limit = 1
+set_flag = "npc_train_rhona"
 
 [node name="Sprite" parent="EventNPCRhona" index="0"]
 frames = SubResource( 10 )

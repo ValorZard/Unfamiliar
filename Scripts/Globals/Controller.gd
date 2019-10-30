@@ -17,6 +17,10 @@ var flags: Dictionary = {
 	
 	"npc_train_rudeman": 0,
 	"npc_train_unsurewoman": 0,
+	"npc_train_rhona": 0,
+	
+	"npc_lm_guide": 0,
+	"npc_lm_pace": 0,
 	
 	"choice_hometown": 0, # 0 = Salem, 1 = Zzyzx, 2 = Cottonwood
 	"choice_know_rhona's_grandpa": 0, # 0 = No, 1 = Yes

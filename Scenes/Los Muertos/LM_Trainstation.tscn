@@ -26,7 +26,6 @@ flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 40.0
-angular_velocity = 0.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 anim_speed = 10.0
@@ -234,6 +233,7 @@ position = Vector2( 186, 82 )
 dialogue_file = "res://Dialogue/Los Muertos/dl_lm_guide.txt"
 auto_advance_set = true
 set_limit = 1
+set_flag = "npc_lm_guide"
 
 [node name="Sprite" parent="NPCGuide" index="0"]
 frames = SubResource( 14 )
