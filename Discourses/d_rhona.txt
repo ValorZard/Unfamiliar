@@ -12,20 +12,23 @@
 > Tell me a bit about yourself.
 ========================
 >> Where are you and your witch from?
-[ Salem, up north. (0, -60) R_1_1 | Zzyzx, to the west. (-90, -10) R_1_2 | Cottonwood, to the east. (70, -10) R_1_3
+[ Flagstaff, up north. (0, -60) R_1_1 | Zzyzx, to the west. (-90, -10) R_1_2 | Cottonwood, to the east. (70, -10) R_1_3
 ------------------------
 : R_1_1
 * choice_hometown 0
-< Salem, up north.
-< They don't really like witches and#demons up there.
+< Flagstaff, up north.
+< People don't really like witches and#demons up there.
 @> serious
-< Our house almost got burned down.
+< I don't leave the house much, because#walking through town isn't fun.
 @< sad
-< Three times.
+< I'm glad my witch homeschools me. Public#school would be a nightmare.
 @< idle
-< It's nice and cool, though.
-< There are lots of trees. It's really#pretty.
+> Wow... sounds like a pretty terrible#place to live.
+< I mean... it's not the $wworst. $0It's#nowhere near as hot there as some of the other places around here.
+@< smile
+< There are also lots of trees and#mountains. It's a really pretty city.
 > Have you ever considered moving?
+@< idle
 < Not really. My witch has lived there#her whole life. It means too much to#her.
 @> sad
 > I see...

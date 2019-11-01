@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cosmo_glare_noveau.png-c6d9b405e83f7f7c8c8a38bbcf6024f7.stex"
+path="res://.import/Cosmo_shadow.png-42cdd3be49d54d353fac267b7f36e68c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_glare_noveau.png"
-dest_files=[ "res://.import/Cosmo_glare_noveau.png-c6d9b405e83f7f7c8c8a38bbcf6024f7.stex" ]
+source_file="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_shadow.png"
+dest_files=[ "res://.import/Cosmo_shadow.png-42cdd3be49d54d353fac267b7f36e68c.stex" ]
 
 [params]
 

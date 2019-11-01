@@ -4,7 +4,7 @@
 [ext_resource path="res://Sprites/Particles/DiscourseBg.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UI/BG2.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UI/BG1.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_idle_new.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_shadow.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/UI/Title Logo.png" type="Texture" id=6]
 [ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=8]
@@ -31,27 +31,26 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 80.0
 initial_velocity_random = 0.5
-angular_velocity = 0.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 color_ramp = SubResource( 3 )
 anim_offset = 1.0
 anim_offset_random = 1.0
 
-[sub_resource type="Shader" id=5]
+[sub_resource type="Shader" id=29]
 code = "shader_type canvas_item;
 
 uniform vec4 color : hint_color;
 
 void fragment() {
 	COLOR = texture(TEXTURE, UV);
-	COLOR.rgb = color.rgb;
+	COLOR.rgb *= color.rgb;
 }
 "
 
 [sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
-shader_param/color = Color( 0.0784314, 0.121569, 0.223529, 1 )
+shader = SubResource( 29 )
+shader_param/color = Color( 0.501961, 0.501961, 0.501961, 1 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 37, 8 )

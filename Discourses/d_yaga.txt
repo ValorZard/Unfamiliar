@@ -162,7 +162,9 @@
 : BRANCH_3
 @< idle
 > Okay, honeybucket...
-? choice_witch_socialness 0 B_SOCIAL_1
-? choice_witch_socialness 1 B_SOCIAL_2
-? choice_witch_socialness 2 B_SOCIAL_3
-: B_SOCIAL_1
+# ? choice_witch_socialness 0 B_SOCIAL_1
+# ? choice_witch_socialness 1 B_SOCIAL_2
+# ? choice_witch_socialness 2 B_SOCIAL_3
+# : B_SO
+>> Why'd you and your witch travel to Los Muertos in the first place?
+[ 
