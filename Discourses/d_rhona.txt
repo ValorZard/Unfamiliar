@@ -17,14 +17,14 @@
 : R_1_1
 * choice_hometown 0
 < Flagstaff, up north.
-< People don't really like witches and#demons up there.
+< People don't really like witches#and demons up there.
 @> serious
 < I don't leave the house much, because#walking through town isn't fun.
 @< sad
-< I'm glad my witch homeschools me. Public#school would be a nightmare.
-@< idle
+< I'm glad my witch homeschools me.#Public school would be a nightmare.
 > Wow... sounds like a pretty terrible#place to live.
-< I mean... it's not the $wworst. $0It's#nowhere near as hot there as some of the other places around here.
+@< idle
+< I mean... it's not the $wworst. $0It's#nowhere near as hot there as some of#the other places around here.
 @< smile
 < There are also lots of trees and#mountains. It's a really pretty city.
 > Have you ever considered moving?
@@ -155,7 +155,7 @@
 @> think
 > I thought all demons were from the...#underworld, or something?
 @> serious
-< Not exactly. It's really complicated.
+< Not exactly. It's complicated.
 > Oh. All right.
 @< idle
 >> So, what does your witch $wdo, $0exactly?
@@ -192,6 +192,8 @@
 : R_3_2
 * choice_witch_profession 1
 < She makes and sells potions.
+@< smile
+@> idle
 > Really? What kinds of potions?
 @< explain2
 < Oh, all sorts. Healing potions,#enhancement potions...

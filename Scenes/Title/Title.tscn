@@ -1,14 +1,16 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Title.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Particles/DiscourseBg.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UI/BG2.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UI/BG1.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_shadow.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/UI/Title Logo.png" type="Texture" id=6]
-[ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=8]
-[ext_resource path="res://Sprites/UI/Transition2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Overlays/Cosmo_shadow_blink1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Overlays/Cosmo_shadow_blink2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/UI/Title Logo.png" type="Texture" id=8]
+[ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Sprites/UI/Transition2.png" type="Texture" id=11]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -31,26 +33,68 @@ spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 80.0
 initial_velocity_random = 0.5
+angular_velocity = 1.05
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 color_ramp = SubResource( 3 )
 anim_offset = 1.0
 anim_offset_random = 1.0
 
-[sub_resource type="Shader" id=29]
-code = "shader_type canvas_item;
-
-uniform vec4 color : hint_color;
-
-void fragment() {
-	COLOR = texture(TEXTURE, UV);
-	COLOR.rgb *= color.rgb;
-}
-"
-
 [sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 29 )
-shader_param/color = Color( 0.501961, 0.501961, 0.501961, 1 )
+
+[sub_resource type="SpriteFrames" id=29]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "blink",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=30]
+resource_name = "Blink"
+length = 2.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Blink:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2, 2.1, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Blink:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "randomize_anim_player_speed"
+}, {
+"args": [  ],
+"method": "reset_anim_player_speed"
+} ]
+}
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 37, 8 )
@@ -935,7 +979,7 @@ tracks/11/keys = {
 "times": PoolRealArray( 0, 3, 4 ),
 "transitions": PoolRealArray( 1, 0.406126, 1 ),
 "update": 0,
-"values": [ Vector2( 350, 184 ), Vector2( 350, 184 ), Vector2( 280, 184 ) ]
+"values": [ Vector2( 350, 184 ), Vector2( 350, 184 ), Vector2( 272, 184 ) ]
 }
 tracks/12/type = "value"
 tracks/12/path = NodePath("Fade2:visible")
@@ -1292,7 +1336,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id=28]
 shader = SubResource( 27 )
 shader_param/cutoff = 1.0
-shader_param/mask = ExtResource( 9 )
+shader_param/mask = ExtResource( 11 )
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
@@ -1341,11 +1385,21 @@ color = Color( 0.0784314, 0.145098, 0.278431, 1 )
 polygon = PoolVector2Array( 112, -8, 352, 72, 352, -8 )
 
 [node name="Cosmo" type="Sprite" parent="."]
+modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
 material = SubResource( 6 )
 position = Vector2( 350, 184 )
 texture = ExtResource( 5 )
 offset = Vector2( -30, -86.5 )
-flip_h = true
+
+[node name="Blink" type="AnimatedSprite" parent="Cosmo"]
+visible = false
+position = Vector2( -20, -129 )
+frames = SubResource( 29 )
+animation = "blink"
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cosmo"]
+anims/Blink = SubResource( 30 )
 
 [node name="Polygon2D2" type="Polygon2D" parent="."]
 position = Vector2( 71, 34 )
@@ -1360,12 +1414,12 @@ polygon = PoolVector2Array( -8, 72, 48, 224, -24, 216 )
 [node name="Logo" type="Sprite" parent="."]
 visible = false
 position = Vector2( 128, 48 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 
 [node name="Logo1" type="Sprite" parent="."]
 position = Vector2( -50, 24 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 35, 43 )
@@ -1373,7 +1427,7 @@ region_rect = Rect2( 0, 0, 35, 43 )
 [node name="Logo2" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 35, 11, 21, 38 )
@@ -1381,7 +1435,7 @@ region_rect = Rect2( 35, 11, 21, 38 )
 [node name="Logo3" type="Sprite" parent="."]
 position = Vector2( -50, 25 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 59, 2, 17, 41 )
@@ -1389,7 +1443,7 @@ region_rect = Rect2( 59, 2, 17, 41 )
 [node name="Logo4" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 80, 11, 19, 32 )
@@ -1397,7 +1451,7 @@ region_rect = Rect2( 80, 11, 19, 32 )
 [node name="Logo5" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 104, 11, 32, 38 )
@@ -1405,7 +1459,7 @@ region_rect = Rect2( 104, 11, 32, 38 )
 [node name="Logo6" type="Sprite" parent="."]
 position = Vector2( -50, 23 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 143, 1, 8, 42 )
@@ -1413,7 +1467,7 @@ region_rect = Rect2( 143, 1, 8, 42 )
 [node name="Logo7" type="Sprite" parent="."]
 position = Vector2( -50, 24 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 157, 2, 8, 41 )
@@ -1421,7 +1475,7 @@ region_rect = Rect2( 157, 2, 8, 41 )
 [node name="Logo8" type="Sprite" parent="."]
 position = Vector2( -50, 23 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 171, 1, 8, 42 )
@@ -1429,7 +1483,7 @@ region_rect = Rect2( 171, 1, 8, 42 )
 [node name="Logo9" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 187, 11, 19, 32 )
@@ -1437,21 +1491,21 @@ region_rect = Rect2( 187, 11, 19, 32 )
 [node name="Logo10" type="Sprite" parent="."]
 position = Vector2( -50, 33 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 211, 11, 16, 32 )
 
-[node name="Button1" parent="." instance=ExtResource( 7 )]
-position = Vector2( 88, 95 )
+[node name="Button1" parent="." instance=ExtResource( 9 )]
+position = Vector2( 72, 95 )
 decisive_click = true
 
 [node name="CollisionShape2D" parent="Button1/AreaHover" index="0"]
 position = Vector2( -1, 1 )
 shape = SubResource( 7 )
 
-[node name="Button2" parent="." instance=ExtResource( 7 )]
-position = Vector2( 155, 125 )
+[node name="Button2" parent="." instance=ExtResource( 9 )]
+position = Vector2( 139, 125 )
 polygon = PoolVector2Array( 17, 26, 108, 23, 95, 7, 12, 8 )
 button_text = "Continue"
 
@@ -1470,8 +1524,8 @@ anims/Hover = SubResource( 12 )
 position = Vector2( 3, 1 )
 shape = SubResource( 13 )
 
-[node name="Button3" parent="." instance=ExtResource( 7 )]
-position = Vector2( 210, 156 )
+[node name="Button3" parent="." instance=ExtResource( 9 )]
+position = Vector2( 194, 156 )
 polygon = PoolVector2Array( 31, 23, 89, 22, 95, 7, 21, 8 )
 button_text = "Exit"
 
@@ -1518,7 +1572,7 @@ margin_left = 36.0
 margin_top = 200.0
 margin_right = 147.0
 margin_bottom = 183.0
-custom_fonts/font = ExtResource( 8 )
+custom_fonts/font = ExtResource( 10 )
 custom_colors/font_color = Color( 0.282353, 0.384314, 0.627451, 1 )
 text = "© 2019 Studio Fractal"
 
@@ -1541,10 +1595,16 @@ color = Color( 0, 0, 0, 1 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="TimerBlink" type="Timer" parent="."]
+wait_time = 4.6
+one_shot = true
+autostart = true
 [connection signal="clicked" from="Button1" to="." method="_on_Button1_clicked"]
 [connection signal="clicked" from="Button2" to="." method="_on_Button2_clicked"]
 [connection signal="clicked" from="Button3" to="." method="_on_Button3_clicked"]
 [connection signal="timeout" from="TimerSetup" to="AnimationPlayerSetup" method="play" binds= [ "Setup" ]]
+[connection signal="timeout" from="TimerBlink" to="Cosmo/AnimationPlayer" method="play" binds= [ "Blink" ]]
 
 [editable path="Button1"]
 
