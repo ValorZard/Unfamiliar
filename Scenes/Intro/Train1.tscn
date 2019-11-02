@@ -6,11 +6,11 @@
 [ext_resource path="res://Sprites/Props/Train_rail.png" type="Texture" id=4]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Props/Train_light.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_sit.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_sit.png" type="Texture" id=7]
 [ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_stand1.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_stand2.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_down.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_stand1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_stand2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_down.png" type="Texture" id=11]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=13]
 [ext_resource path="res://Audio/Train loop.ogg" type="AudioStream" id=14]
@@ -169,7 +169,7 @@ tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
 "times": PoolRealArray( 0, 38, 38.1, 38.2 ),
-"transitions": PoolRealArray( 1, 8.87655, 1, 1.1487 ),
+"transitions": PoolRealArray( 2.37841, 8.87655, 1, 9.84917 ),
 "update": 1,
 "values": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
 }

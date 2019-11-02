@@ -1,5 +1,5 @@
 nil 0 0 I'm sorry, madam, but there's only#one seat left on this train.
 nil 0 0.3 There's another train coming in an#hour or so. The demon will need to#get on that one.
 nil 0 0 That's not going to work for me.
-nil 0 0.6 He's my familiar. He can't just stay#here alone.
+nil 0 0.6 They're my familiar. They can't just#stay here alone.
 nil 0 0 There's nothing we can do about it.#I'm sorry.

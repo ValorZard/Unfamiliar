@@ -6,7 +6,7 @@
 @< idle
 @> idle
 > I've never talked to a demon before,#and I want to learn more about you!
-@< whatnow
+# @< whatnow
 < ...
 @< idle
 > Tell me a bit about yourself.
@@ -147,7 +147,7 @@
 < Yeah.
 @> think
 > What does that mean, exactly?
-@< whatnow
+# @< whatnow
 < Well, uh...
 @> serious
 @< explain

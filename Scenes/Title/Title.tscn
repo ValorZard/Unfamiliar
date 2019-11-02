@@ -40,9 +40,9 @@ color_ramp = SubResource( 3 )
 anim_offset = 1.0
 anim_offset_random = 1.0
 
-[sub_resource type="ShaderMaterial" id=6]
+[sub_resource type="ShaderMaterial" id=5]
 
-[sub_resource type="SpriteFrames" id=29]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
 "loop": true,
@@ -50,7 +50,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=7]
 resource_name = "Blink"
 length = 2.5
 loop = true
@@ -96,34 +96,8 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 37, 8 )
-
-[sub_resource type="Animation" id=8]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.517632, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
 
 [sub_resource type="Animation" id=9]
 tracks/0/type = "value"
@@ -134,6 +108,32 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.517632, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+
+[sub_resource type="Animation" id=10]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1.51572, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
@@ -151,7 +151,7 @@ tracks/1/keys = {
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -190,7 +190,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -218,7 +218,7 @@ tracks/1/keys = {
 "values": [ -1.0, 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=13]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:hover_alpha")
 tracks/0/interp = 1
@@ -244,10 +244,10 @@ tracks/1/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 43, 7 )
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
@@ -273,7 +273,7 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=16]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
@@ -299,7 +299,7 @@ tracks/1/keys = {
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=17]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -338,7 +338,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=18]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -366,7 +366,7 @@ tracks/1/keys = {
 "values": [ -1.0, 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=19]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:hover_alpha")
 tracks/0/interp = 1
@@ -392,10 +392,10 @@ tracks/1/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=19]
+[sub_resource type="RectangleShape2D" id=20]
 extents = Vector2( 34, 8 )
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=21]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Logo1:position")
@@ -638,7 +638,7 @@ tracks/19/keys = {
 "values": [ Vector2( 0, 1 ), Vector2( 0, 1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=22]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Logo1:position")
@@ -761,7 +761,7 @@ tracks/9/keys = {
 "values": [ Vector2( 226, 33 ), Vector2( 226, 33 ), Vector2( 226, -50 ) ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=23]
 length = 8.0
 loop = true
 tracks/0/type = "value"
@@ -825,7 +825,7 @@ tracks/4/keys = {
 "values": [ Vector2( 448, 168 ), Vector2( -280, 168 ) ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=24]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -994,7 +994,7 @@ tracks/12/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=25]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1143,8 +1143,7 @@ tracks/11/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=25]
-resource_name = "Teardown Start"
+[sub_resource type="Animation" id=26]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1305,7 +1304,7 @@ tracks/12/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=27]
 length = 2.5
 loop = true
 tracks/0/type = "value"
@@ -1321,7 +1320,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1.015 ) ]
 }
 
-[sub_resource type="Shader" id=27]
+[sub_resource type="Shader" id=28]
 code = "shader_type canvas_item;
 
 uniform float cutoff : hint_range(0f, 1f);
@@ -1333,8 +1332,8 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id=28]
-shader = SubResource( 27 )
+[sub_resource type="ShaderMaterial" id=29]
+shader = SubResource( 28 )
 shader_param/cutoff = 1.0
 shader_param/mask = ExtResource( 11 )
 
@@ -1386,7 +1385,7 @@ polygon = PoolVector2Array( 112, -8, 352, 72, 352, -8 )
 
 [node name="Cosmo" type="Sprite" parent="."]
 modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
-material = SubResource( 6 )
+material = SubResource( 5 )
 position = Vector2( 350, 184 )
 texture = ExtResource( 5 )
 offset = Vector2( -30, -86.5 )
@@ -1394,12 +1393,12 @@ offset = Vector2( -30, -86.5 )
 [node name="Blink" type="AnimatedSprite" parent="Cosmo"]
 visible = false
 position = Vector2( -20, -129 )
-frames = SubResource( 29 )
+frames = SubResource( 6 )
 animation = "blink"
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Cosmo"]
-anims/Blink = SubResource( 30 )
+anims/Blink = SubResource( 7 )
 
 [node name="Polygon2D2" type="Polygon2D" parent="."]
 position = Vector2( 71, 34 )
@@ -1502,7 +1501,7 @@ decisive_click = true
 
 [node name="CollisionShape2D" parent="Button1/AreaHover" index="0"]
 position = Vector2( -1, 1 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Button2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 139, 125 )
@@ -1510,19 +1509,19 @@ polygon = PoolVector2Array( 17, 26, 108, 23, 95, 7, 12, 8 )
 button_text = "Continue"
 
 [node name="AnimationPlayer" parent="Button2" index="2"]
-anims/Appear = SubResource( 8 )
-anims/Disappear = SubResource( 9 )
-anims/Select = SubResource( 10 )
+anims/Appear = SubResource( 9 )
+anims/Disappear = SubResource( 10 )
+anims/Select = SubResource( 11 )
 
 [node name="AnimationPlayerIdle" parent="Button2" index="3"]
-anims/Idle = SubResource( 11 )
+anims/Idle = SubResource( 12 )
 
 [node name="AnimationPlayerHover" parent="Button2" index="4"]
-anims/Hover = SubResource( 12 )
+anims/Hover = SubResource( 13 )
 
 [node name="CollisionShape2D" parent="Button2/AreaHover" index="0"]
 position = Vector2( 3, 1 )
-shape = SubResource( 13 )
+shape = SubResource( 14 )
 
 [node name="Button3" parent="." instance=ExtResource( 9 )]
 position = Vector2( 194, 156 )
@@ -1530,38 +1529,38 @@ polygon = PoolVector2Array( 31, 23, 89, 22, 95, 7, 21, 8 )
 button_text = "Exit"
 
 [node name="AnimationPlayer" parent="Button3" index="2"]
-anims/Appear = SubResource( 14 )
-anims/Disappear = SubResource( 15 )
-anims/Select = SubResource( 16 )
+anims/Appear = SubResource( 15 )
+anims/Disappear = SubResource( 16 )
+anims/Select = SubResource( 17 )
 
 [node name="AnimationPlayerIdle" parent="Button3" index="3"]
-anims/Idle = SubResource( 17 )
+anims/Idle = SubResource( 18 )
 
 [node name="AnimationPlayerHover" parent="Button3" index="4"]
-anims/Hover = SubResource( 18 )
+anims/Hover = SubResource( 19 )
 
 [node name="CollisionShape2D" parent="Button3/AreaHover" index="0"]
 position = Vector2( 3, 0 )
-shape = SubResource( 19 )
+shape = SubResource( 20 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.5
-"anims/Logo flyin" = SubResource( 20 )
-"anims/Logo flyout" = SubResource( 21 )
+"anims/Logo flyin" = SubResource( 21 )
+"anims/Logo flyout" = SubResource( 22 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 playback_speed = 0.7
-anims/Background = SubResource( 22 )
+anims/Background = SubResource( 23 )
 
 [node name="AnimationPlayerSetup" type="AnimationPlayer" parent="."]
-anims/Setup = SubResource( 23 )
-anims/Teardown = SubResource( 24 )
-"anims/Teardown Start" = SubResource( 25 )
+anims/Setup = SubResource( 24 )
+anims/Teardown = SubResource( 25 )
+"anims/Teardown Start" = SubResource( 26 )
 
 [node name="AnimationPlayerCosmo" type="AnimationPlayer" parent="."]
 autoplay = "Cosmo Idle"
 playback_speed = 0.85
-"anims/Cosmo Idle" = SubResource( 26 )
+"anims/Cosmo Idle" = SubResource( 27 )
 
 [node name="TimerSetup" type="Timer" parent="."]
 one_shot = true
@@ -1587,7 +1586,7 @@ __meta__ = {
 
 [node name="Fade2" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 28 )
+material = SubResource( 29 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
