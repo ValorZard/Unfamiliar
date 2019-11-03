@@ -6,6 +6,7 @@ signal clicked
 
 const ColorsBlack := PoolColorArray([Color("#0c1323"), Color("#0c1323"), Color("#0c1323"), Color("#0c1323")])
 const ColorsWhite := PoolColorArray([Color("#2b4580"), Color("#2b4580"), Color("#2b4580"), Color("#2b4580")])
+const ColorsSelect := PoolColorArray([Color("#4776e1"), Color("#4776e1"), Color("#4776e1"), Color("#4776e1")])
 const ColorsTransparent := PoolColorArray([Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 0)])
 const OutlineWidth: float = 1.5
 const Variance: int = 5
@@ -86,7 +87,7 @@ func _process(delta):
 
 func _draw():
 	draw_polygon(PoolVector2Array([poly[0] + Vector2(-OutlineWidth, OutlineWidth) + Vector2(-hover_offset, hover_offset), poly[1] + Vector2(OutlineWidth, OutlineWidth) + Vector2(hover_offset, hover_offset), poly[2] + Vector2(OutlineWidth, -OutlineWidth) + Vector2(hover_offset, -hover_offset), poly[3] + Vector2(-OutlineWidth, -OutlineWidth) + Vector2(-hover_offset, -hover_offset)]), PoolColorArray([Color(0.17, 0.27, 0.5, hover_alpha), Color(0.17, 0.27, 0.5, hover_alpha), Color(0.17, 0.27, 0.5, hover_alpha), Color(0.17, 0.27, 0.5, hover_alpha)]))
-	draw_polygon(PoolVector2Array([poly[0] + Vector2(-OutlineWidth, OutlineWidth), poly[1] + Vector2(OutlineWidth, OutlineWidth), poly[2] + Vector2(OutlineWidth, -OutlineWidth), poly[3] + Vector2(-OutlineWidth, -OutlineWidth)]), ColorsWhite)
+	draw_polygon(PoolVector2Array([poly[0] + Vector2(-OutlineWidth, OutlineWidth), poly[1] + Vector2(OutlineWidth, OutlineWidth), poly[2] + Vector2(OutlineWidth, -OutlineWidth), poly[3] + Vector2(-OutlineWidth, -OutlineWidth)]), ColorsSelect if hover else ColorsWhite)
 	draw_polygon(poly, ColorsBlack)
 	
 
@@ -111,12 +112,6 @@ func setup_animation(end_pos: Vector2):
 	$AnimationPlayer.get_animation("Appear").track_insert_key(1, 1, end_pos)
 	$AnimationPlayer.get_animation("Disappear").track_insert_key(1, 0, end_pos, 1.52)
 	$AnimationPlayer.get_animation("Disappear").track_insert_key(1, 1, Vector2(160, 90))
-	#$$AnimationPlayer.get_animation("Disappear").track_set_key_value(1, 0, end_pos);
-	#$AnimationPlayer.get_animation("Disappear").track_set_key_value(1, 1, Vector2(160, 90))
-	#$AnimationPlayer.get_animation("Select").track_insert_key(1, 0, end_pos, 0.52)
-	#$AnimationPlayer.get_animation("Select").track_insert_key(1, 1, Vector2(320, 180))
-	#$AnimationPlayer.get_animation("Select").track_set_key_value(1, 0, $Label.get_margin(MARGIN_LEFT))
-	#$AnimationPlayer.get_animation("Select").track_set_key_value(2, 0, $Label.get_margin(MARGIN_TOP))
 	$AnimationPlayer.add_animation("Appear2", $AnimationPlayer.get_animation("Appear").duplicate())
 	$AnimationPlayer.add_animation("Disappear2", $AnimationPlayer.get_animation("Disappear").duplicate())
 	$AnimationPlayer.add_animation("Select2", $AnimationPlayer.get_animation("Select").duplicate())
@@ -177,5 +172,6 @@ func _on_AreaHover_mouse_entered():
 
 
 func _on_AreaHover_mouse_exited():
-	hover = false
-	emit_signal("hover_end")
+	if active:
+		hover = false
+		emit_signal("hover_end")

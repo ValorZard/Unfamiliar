@@ -7,7 +7,7 @@
 [ext_resource path="res://Sprites/LogoG.png" type="Texture" id=5]
 [ext_resource path="res://Audio/Intro train 2.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Shaders/Transition.shader" type="Shader" id=7]
-[ext_resource path="res://Sprites/UI/Transition4.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/UI/Transition.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 resource_name = "TrainFlyby"

@@ -40,6 +40,8 @@ var d_previous_pos: Vector2
 var d_previous_dir: int
 var d_previous_npc: NodePath
 
+var controller_connected: bool = false
+
 onready var money_text: Label = $Overlay/Money
 onready var anim_player: AnimationPlayer = $AnimationPlayer
 onready var anim_player_fade: AnimationPlayer = $AnimationPlayerFade
@@ -47,12 +49,15 @@ onready var anim_player_fade: AnimationPlayer = $AnimationPlayerFade
 # =====================================================================
 
 func _ready():
-	var f := File.new()
-	if not f.file_exists("user://Hello.txt"):
-		f.open("user://Hello.txt", File.WRITE)
-		f.store_line("Hello. Please don't edit these files. You'll make Cosmo very upset. Thanks.")
-		if f.is_open():
-			f.close()
+	#var f := File.new()
+	#if not f.file_exists("user://Hello.txt"):
+	#	f.open("user://Hello.txt", File.WRITE)
+	#	f.store_line("Hello. Please don't edit these files. You'll make Cosmo very upset. Thanks.")
+	#	if f.is_open():
+	#		f.close()
+	
+	controller_connected = len(Input.get_connected_joypads()) > 0
+	Input.connect("joy_connection_changed", self, "controller_connection")
 
 
 func _process(delta):
@@ -286,3 +291,10 @@ func goto_scene_post(pos: Vector2, direction: int):
 	var p := Player
 	p.set_position(pos)
 	p.set_direction(direction)
+	
+# =====================================================================
+
+func controller_connection(device: int, connected: bool):
+	controller_connected = connected
+	if connected:
+		print(Input.get_joy_name(0))
