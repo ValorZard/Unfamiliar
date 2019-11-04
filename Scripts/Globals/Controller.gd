@@ -316,6 +316,7 @@ func start_discourse(file: String, right_name: String, right_sprite: SpriteFrame
 	get_tree().get_root().add_child(start)
 	yield(get_tree().create_timer(4.5), "timeout")
 	draw_overlay(false)
+	draw_overlay_map(false)
 	goto_scene(DiscourseScene, Vector2.ZERO, Player.Direction.Down, false)
 	yield(get_tree().create_timer(0.02), "timeout")
 	Player.hide()

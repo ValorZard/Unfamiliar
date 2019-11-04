@@ -3,10 +3,13 @@
 [ext_resource path="res://Scripts/Transition.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8, 8 )
+extents = Vector2( 48, 8 )
 
 [node name="Transition" type="Area2D"]
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 modulate = Color( 0, 1, 0.0156863, 1 )
