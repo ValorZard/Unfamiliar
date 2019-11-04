@@ -28,7 +28,7 @@ var finished := false
 
 var box_visible := true
 
-enum Modifier { Normal, Red, Green, Blue, Yellow, Shake, Wave }
+enum Modifier { Normal, Red, Green, Blue, Yellow, Shake, Wave, Contract }
 
 # =====================================================================
 
@@ -87,6 +87,8 @@ func _draw():
 							mod = Modifier.Shake
 						"w":
 							mod = Modifier.Wave
+						"c":
+							mod = Modifier.Contract
 						_:
 							mod = Modifier.Normal
 			
@@ -110,6 +112,12 @@ func _draw():
 								var s: float = 2.0 * t + i * 3.0;
 								var shift: float = sin(s * PI * (1.0 / 60.0)) * 3.0
 								char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line) + shift), text[i], "", Color(1, 1, 1, 1))
+							Modifier.Contract:
+								var s: float = 2.0 * (t / 2.0) + i * 3.0;
+								var shift: float = sin(s * PI * (1.0 / 60.0)) * 3.0
+								#var shift: float = s * PI * (1.0 / 60.0) * 6.0
+								char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line) + shift), text[i], "", Color(1, 0.8, 0, 1))
+								#char_spacing += draw_char(font, Vector2(XStart + char_spacing + cos(shift), YStart + (LineSpacing * line) + sin(shift)), text[i], "", Color(1, 0.8, 0, 1))
 							_:
 								char_spacing += draw_char(font, Vector2(XStart + char_spacing, YStart + (LineSpacing * line)), text[i], "", Color(1, 1, 1, 1))
 							

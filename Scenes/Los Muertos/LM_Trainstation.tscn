@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_left.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_up.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Characters (Overworld)/Train/Rudeman.png" type="Texture" id=12]
+[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=13]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -112,7 +113,34 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="Animation" id=15]
+resource_name = "Event"
+length = 5.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 2, 3, 4.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ Vector2( 128, 112 ), 2.0, 0 ],
+"method": "_event_move_player_to_position"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_intro.txt", 0 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_intro.txt", 1 ],
+"method": "_event_dialogue"
+} ]
+}
+
 [node name="Scene" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
 
 [node name="Overlay" parent="." instance=ExtResource( 1 )]
 is_preview = true
@@ -238,6 +266,17 @@ set_flag = "npc_lm_guide"
 [node name="Sprite" parent="NPCGuide" index="0"]
 frames = SubResource( 14 )
 
+[node name="Event" parent="." instance=ExtResource( 13 )]
+position = Vector2( 128, 138 )
+destroy = true
+destroy_flag = "scn_lm_intro"
+auto_set_destroy = true
+
+[node name="AnimationPlayer" parent="Event" index="0"]
+anims/Event = SubResource( 15 )
+
 [editable path="Transitions/Transition"]
 
 [editable path="NPCGuide"]
+
+[editable path="Event"]

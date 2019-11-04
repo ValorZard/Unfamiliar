@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Tilesets/TilesTrain.png" type="Texture" id=2]
@@ -26,6 +26,9 @@ extents = Vector2( 38, 4 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 2, 6 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 10, 28 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 8, 30 )
@@ -202,6 +205,10 @@ shape = SubResource( 6 )
 position = Vector2( 210, 149 )
 shape = SubResource( 6 )
 
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="SeatCollision"]
+position = Vector2( 70, 118 )
+shape = SubResource( 9 )
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 6
 
@@ -217,11 +224,11 @@ shape = SubResource( 7 )
 position = Vector2( 160, 82 )
 target_scene = "res://Scenes/Los Muertos/LM_Trainstation.tscn"
 target_position = Vector2( 128, 146 )
+fade_time = 2.0
 
 [node name="CollisionShape2D" parent="Door" index="0"]
 position = Vector2( 0, -4 )
 shape = SubResource( 8 )
-disabled = true
 
 [editable path="CanvasLayer/Transition"]
 

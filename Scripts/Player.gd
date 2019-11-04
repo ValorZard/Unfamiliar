@@ -49,6 +49,9 @@ func _physics_process(delta):
 			sprite_management()
 			
 			move_and_slide(vel_override * speed_override)
+			
+	if Input.is_action_just_pressed("debug_1"):
+		Controller.flashback("res://Flashbacks/fb_contract.txt", load("res://Splash.png"))
 
 # =====================================================================
 

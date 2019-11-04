@@ -1,19 +1,20 @@
 extends Node
 
-const DialogueRef := preload("res://Instances/Dialogue.tscn")
-const DiscourseStartRef := preload("res://Scenes/DiscourseStart.tscn")
-const CosmoSprite := preload("res://Resources/Sprite Frames/SpriteFrames_Cosmo.tres")
-const RhonaSprite := preload("res://Resources/Sprite Frames/SpriteFrames_Rhona.tres")
+const DialogueRef := "res://Instances/Dialogue.tscn"
+const DiscourseStartRef := "res://Scenes/DiscourseStart.tscn"
+const CosmoSprite := "res://Resources/Sprite Frames/SpriteFrames_Cosmo.tres"
 const DiscourseScene := "res://Scenes/Discourse.tscn"
-const SoundOneShotRef := preload("res://Instances/SoundOneShot.tscn")
-const MenuRef := preload("res://Instances/System/Menu.tscn")
+const MenuRef := "res://Instances/System/Menu.tscn"
+const FlashbackRef := "res://Instances/System/Flashback.tscn"
 
-const FlashbackPath := "res://Instances/System/Flashback.tscn"
+const SoundOneShotRef := preload("res://Instances/SoundOneShot.tscn")
 
 var inventory := {}
+
 var flags: Dictionary = {
 	"scn_intro": 0,
 	"scn_rhona": 0,
+	"scn_lm_intro": 0,
 	# ========================================
 	"npc_train_rudeman": 0,
 	"npc_train_unsurewoman": 0,
@@ -30,6 +31,23 @@ var flags: Dictionary = {
 	"choice_witch_socialness": 0, # 0 = Social, 1 = Sort of, 2 = Recluse
 }
 
+var settings: Dictionary = {
+	"window_size": 0, # 0 = 1x, 1 = 2x, 2 = 3x
+	"fullscreen": 0, # 0 = No, 1 = Yes
+	"controller_buttons": 0, # 0 = XBox, 1 = PS, 2 = Switch
+	"text_speed_overworld": 1, # 0 = Slow, 1 = Medium, 2 = Fast
+	"text_speed_discourse": 2 # 0 = Slow, 1 = Medium, 2 = Fast
+}
+
+const map_marker_locs: Dictionary = {
+	"res://Scenes/Los Muertos/LM_Trainstation.tscn": Vector2(3, 4),
+	"res://Scenes/Los Muertos/LM_Crossroads.tscn": Vector2(3, 3),
+	"res://Scenes/Los Muertos/LM_Waterfront_R1.tscn": Vector2(4, 3),
+	"res://Scenes/Los Muertos/LM_Waterfront_L1.tscn": Vector2(2, 3),
+	"res://Scenes/Los Muertos/LM_Mainstreet_S.tscn": Vector2(3, 2),
+	"res://Scenes/Los Muertos/LM_Mainstreet_N.tscn": Vector2(3, 1),
+}
+
 var money: int = 20
 var money_disp: int = 20
 
@@ -42,11 +60,26 @@ var d_previous_npc: NodePath
 
 var controller_connected: bool = false
 
-onready var money_text: Label = $Overlay/Money
+onready var money_text: Label = $Overlay/CanvasLayer/Money
 onready var anim_player: AnimationPlayer = $AnimationPlayer
 onready var anim_player_fade: AnimationPlayer = $AnimationPlayerFade
 
 # =====================================================================
+
+func _init():
+	#match settings["window_size"]:
+	#	0:
+	#		OS.set_window_size(Vector2(1280, 720))
+	#	1:
+	#		OS.set_window_size(Vector2(1920, 1080))
+	#	2:
+	#		OS.set_window_size(Vector2(2560, 1440))
+		
+	#OS.center_window()
+	
+	if settings["fullscreen"] == 1:
+		OS.set_window_fullscreen(true)
+	
 
 func _ready():
 	#var f := File.new()
@@ -55,6 +88,8 @@ func _ready():
 	#	f.store_line("Hello. Please don't edit these files. You'll make Cosmo very upset. Thanks.")
 	#	if f.is_open():
 	#		f.close()
+	
+	#var rt := get_tree().get_root()
 	
 	controller_connected = len(Input.get_connected_joypads()) > 0
 	Input.connect("joy_connection_changed", self, "controller_connection")
@@ -69,7 +104,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("sys_menu") and not menu_open:
 		menu_open = true
 		Player.set_state(Player.PlayerState.NoInput)
-		var menu := MenuRef.instance()
+		var menu := (load(MenuRef) as PackedScene).instance()
 		get_tree().get_root().add_child(menu)
 		
 	if Input.is_action_just_pressed("sys_fullscreen"):
@@ -83,6 +118,10 @@ func flag(key: String) -> int:
 
 func set_flag(key: String, value: int):
 	flags[key] = value
+	
+	
+func get_scene_map_marker(scene: String) -> Vector2:
+	return map_marker_locs.get(scene)
 	
 	
 func get_previous_scene() -> String:
@@ -134,7 +173,7 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		Player.set_state(Player.PlayerState.NoInput)
 		Player.set_in_transition(true)
 		var current_scene := get_tree().get_root().get_node("Scene")
-		var scn: PackedScene = load(path)
+		var scn: PackedScene = load(path) as PackedScene
 		var scn_i := scn.instance()
 		
 		var target: Vector2
@@ -154,6 +193,9 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 				player_offset = Vector2(8, 0)
 		scn_i.set_position(target)
 		get_tree().get_root().add_child(scn_i)
+		
+		var loc: Vector2 = map_marker_locs.get(path)
+		$Overlay/CanvasLayer/Map/Marker.set_position(Vector2(4 + 8 * loc.x, 3 + 6 * loc.y) if loc != null else Vector2(4, 3))
 		
 		anim_player.get_animation("CameraScroll").track_set_key_value(0, 1, target)
 		anim_player.play("CameraScroll")
@@ -246,14 +288,14 @@ func play_sound_oneshot_from_path(sound: String, pitch: float = 1.0, volume: flo
 	
 	
 func dialogue(file: String, set: int, reset_state: bool = true) -> Dialogue:
-	var dlg: Dialogue = DialogueRef.instance() as Dialogue
+	var dlg: Dialogue = (load(DialogueRef) as PackedScene).instance() as Dialogue
 	dlg.start(file, set, reset_state)
 	get_tree().get_root().add_child(dlg)
 	return dlg
 	
 	
 func flashback(file: String, art: Texture) -> Flashback:
-	var fb: PackedScene = load(FlashbackPath)
+	var fb: PackedScene = load(FlashbackRef) as PackedScene
 	var fb_i = fb.instance() as Flashback
 	fb_i.set_fb_file(file)
 	fb_i.set_art(art)
@@ -262,14 +304,14 @@ func flashback(file: String, art: Texture) -> Flashback:
 	return fb_i
 
 
-func start_discourse(file: String, right_name: String, right_sprite: SpriteFrames, left_name: String = "Cosmo", left_sprite: SpriteFrames = CosmoSprite):
+func start_discourse(file: String, right_name: String, right_sprite: SpriteFrames, left_name: String = "Cosmo", left_sprite: SpriteFrames = (load(CosmoSprite) as SpriteFrames)):
 	Player.set_state(Player.PlayerState.NoInput)
 	
 	d_previous_scene = get_tree().get_root().get_node("Scene").get_filename()
 	d_previous_pos = Player.get_position()
 	d_previous_dir = Player.get_direction()
 	
-	var start := DiscourseStartRef.instance()
+	var start := (load(DiscourseStartRef) as PackedScene).instance()
 	start.set_position(Vector2.ZERO)
 	get_tree().get_root().add_child(start)
 	yield(get_tree().create_timer(4.5), "timeout")
@@ -281,8 +323,12 @@ func start_discourse(file: String, right_name: String, right_sprite: SpriteFrame
 	
 	
 func draw_overlay(draw: bool):
-	$Overlay/Sprite.set_visible(draw)
-	$Overlay/Money.set_visible(draw)
+	$Overlay/CanvasLayer/Sprite.set_visible(draw)
+	$Overlay/CanvasLayer/Money.set_visible(draw)
+
+
+func draw_overlay_map(draw: bool):
+	$Overlay/CanvasLayer/Map.set_visible(draw)
 
 # =====================================================================
 
