@@ -1,2 +1,39 @@
 0
-Cosmo: 
+Resident: Oh, yeah! Got the shot!
+-
+
+1
+Resident: O-oh. H-hi, demon.
+You, uh... weren't supposed to see that.
+Cosmo: Why'd you just take a picture of me?
+Resident: Oh, y'know... I, uh...
+I do photography. I really like taking portraits on the street.
+I've never taken a portrait of a demon before. And that was the perfect opportunity!
+...You are a demon, right?
+Cosmo: Yeah. I'm a familiar.
+Resident: What? Really? Oh... uh...
+Y-you're not gonna, like... tell your witch about me, are you?
+Cosmo: What? No.
+I don't care that you took my picture.
+-
+
+2
+Resident: Well, then what're you scaring me for?!
+Heh, heh... Anyway.
+I'm Keifer. Who're you?
+Cosmo: Cosmo.
+Keifer: Hey, Cosmo! What're you up to?
+Cosmo: I'm trying to find my witch. We got separated.
+Keifer: Aw, man... That sucks.
+Cosmo: Yeah. She's probably not very happy right now.
+Keifer: How'd you get separated?
+Cosmo: We were getting on the train to come here, but there was only one seat left.
+I had to wait an hour for another train to show up.
+Keifer: Ah. Gotcha.
+I wouldn't worry about it. It's not like it was your fault.
+Cosmo: ...
+Yeah. You're right.
+Keifer: Maybe you should take a break from looking for her.
+Want to talk for a bit?
+Cosmo: Sure!
+-
