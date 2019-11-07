@@ -1,0 +1,195 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Sprites/Props/Intro_bg2.png" type="Texture" id=1]
+[ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Audio/Music/Intro.ogg" type="AudioStream" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Intro"
+length = 30.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasLayer/Fade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 8, 11, 12, 16.3, 18.5, 19.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("CanvasLayer/Text1:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 4, 6, 14, 16 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayer/Text2:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 6.5, 8.6, 14, 16 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("CanvasLayer/Text3:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 10, 12, 14, 16 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("CanvasLayer/Fade:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 11.5, 17 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("MusicIntro")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Camera2D:zoom")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 15, 16.6, 18, 20 ),
+"transitions": PoolRealArray( 1, 0.5, 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0.05, 0.05 ), Vector2( 0.05, 0.05 ), Vector2( 0.3, 0.3 ), Vector2( 0.3, 0.3 ), Vector2( 1, 1 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Camera2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 15, 16.6, 18, 20 ),
+"transitions": PoolRealArray( 1, 0.5, 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 65, 26 ), Vector2( 65, 26 ), Vector2( 23, 7 ), Vector2( 23, 7 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+void fragment() {
+	vec4 col = texture(TEXTURE, UV);
+	vec4 screenTex = texture(SCREEN_TEXTURE, SCREEN_UV);
+	
+	COLOR = vec4(1f - screenTex.r, 1f - screenTex.g, 1f - screenTex.b, col.a);
+}
+"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+
+[node name="Scene" type="Node2D"]
+
+[node name="Background" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 65, 26 )
+anchor_mode = 0
+current = true
+zoom = Vector2( 0.05, 0.05 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Intro"
+anims/Intro = SubResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 8
+
+[node name="Fade" type="ColorRect" parent="CanvasLayer"]
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Text1" type="Label" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 3 )
+margin_left = 113.0
+margin_top = 61.0
+margin_right = 207.0
+margin_bottom = 75.0
+custom_fonts/font = ExtResource( 2 )
+text = "Duncan Sparks"
+align = 1
+
+[node name="Text2" type="Label" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 3 )
+margin_left = 110.0
+margin_top = 73.0
+margin_right = 210.0
+margin_bottom = 87.0
+custom_fonts/font = ExtResource( 2 )
+text = "Studio Fractal"
+align = 1
+
+[node name="Text3" type="Label" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0 )
+material = SubResource( 3 )
+margin_left = 110.0
+margin_top = 103.0
+margin_right = 210.0
+margin_bottom = 117.0
+custom_fonts/font = ExtResource( 2 )
+text = "Presents"
+align = 1
+
+[node name="Text4" type="Label" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0 )
+margin_left = 110.0
+margin_top = 83.0
+margin_right = 210.0
+margin_bottom = 97.0
+custom_fonts/font = ExtResource( 2 )
+text = "Unfamiliar"
+align = 1
+
+[node name="MusicIntro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )

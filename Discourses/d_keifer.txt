@@ -4,3 +4,6 @@
 > If you want great portraits of a stranger, you've gotta connect with them!
 > ...I hope you don't mind me taking a few more shots while we're talking.
 < Not at all!
+> So, Cosmo...
+> I'm all about photography, but... what are you into?
+[  (0, -60) R_1_1

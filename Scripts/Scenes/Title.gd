@@ -14,6 +14,7 @@ onready var anim_player_blink := $Cosmo/AnimationPlayer
 
 func _ready():
 	Controller.draw_overlay(false)
+	Controller.draw_overlay_map(false)
 	Player.hide()
 	
 	but1.connect("hover_start", self, "_on_Button1_hover_start")
@@ -92,8 +93,9 @@ func _on_Button1_clicked() -> void:
 	yield(get_tree().create_timer(0.5), "timeout")
 	$AnimationPlayerSetup.play("Teardown Start")
 	yield($AnimationPlayerSetup, "animation_finished")
-	Controller.draw_overlay(true)
-	get_tree().change_scene("res://Scenes/Intro/Train1.tscn")
+	#Controller.draw_overlay(true)
+	#get_tree().change_scene("res://Scenes/Intro/Train1.tscn")
+	get_tree().change_scene("res://Scenes/Intro/IntroNew.tscn")
 
 
 func _on_Button2_clicked() -> void:
