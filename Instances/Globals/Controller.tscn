@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Globals/Controller.gd" type="Script" id=1]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "CameraScroll"
 tracks/0/type = "value"
 tracks/0/path = NodePath("MainCamera:offset")
@@ -18,7 +18,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Fadein"
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Fade:color")
@@ -33,7 +33,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Fade:color")
 tracks/0/interp = 1
@@ -69,10 +69,10 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/CameraScroll = SubResource( 2 )
+anims/CameraScroll = SubResource( 1 )
 
 [node name="AnimationPlayerFade" type="AnimationPlayer" parent="."]
-anims/Fadein = SubResource( 3 )
-anims/Fadeout = SubResource( 4 )
+anims/Fadein = SubResource( 2 )
+anims/Fadeout = SubResource( 3 )
 
 [editable path="Overlay"]

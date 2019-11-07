@@ -3,12 +3,10 @@
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Fountain.png" type="Texture" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 8 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 24 )
 
 [node name="Scene" type="Node2D"]
 
@@ -30,7 +28,7 @@ position = Vector2( 80, 18 )
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, 30, 0, 1, 536870941, 0, 8, 29, 0, 9, 30, 0, 65536, 18, 0, 65537, 536870944, 0, 65544, 32, 0, 65545, 18, 0, 131072, 21, 0, 131073, 22, 0, 131080, 32, 0, 131081, 18, 0, 196616, 536870934, 0, 196617, -1073741792, 0, 458760, 1073741853, 0, 458761, 1073741854, 0, 524288, 1073741854, 0, 524289, 1610612765, 0, 524296, -536870882, 0, 524297, 1610612763, 0 )
+tile_data = PoolIntArray( 0, 18, 0, 1, 18, 0, 2, 18, 0, 3, 18, 0, 4, 18, 0, 5, 18, 0, 6, 18, 0, 7, 18, 0, 8, 18, 0, 9, 18, 0, 65536, 21, 0, 65537, 21, 0, 65538, 21, 0, 65539, 21, 0, 65540, 21, 0, 65541, 21, 0, 65542, 21, 0, 65543, 21, 0, 65544, 21, 0, 65545, 21, 0, 524288, 1073741854, 0, 524289, 1610612765, 0, 524296, 1073741853, 0, 524297, 1073741854, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -39,31 +37,29 @@ __meta__ = {
 
 [node name="Transition" parent="Transitions" instance=ExtResource( 3 )]
 position = Vector2( 160, 170 )
-target_scene = "res://Scenes/Los Muertos/LM_Mainstreet_S.tscn"
+target_scene = "res://Scenes/Los Muertos/LM_Mainstreet_N.tscn"
 target_direction = 1
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
 shape = SubResource( 1 )
-
-[node name="Transition2" parent="Transitions" instance=ExtResource( 3 )]
-position = Vector2( 160, 10 )
-target_scene = "res://Scenes/Los Muertos/LM_Square.tscn"
-
-[node name="Transition3" parent="Transitions" instance=ExtResource( 3 )]
-position = Vector2( 248, 106 )
-target_scene = "res://Scenes/Los Muertos/LM_Mainstreet_R.tscn"
-target_direction = 3
-
-[node name="CollisionShape2D" parent="Transitions/Transition3" index="0"]
-shape = SubResource( 2 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Fountain" type="StaticBody2D" parent="."]
+position = Vector2( 112, 63 )
+z_index = 70
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Fountain"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fountain"]
+polygon = PoolVector2Array( 0, 37, 12, 51, 38, 59, 58, 59, 84, 51, 96, 37, 95, 21, 73, 6, 23, 6, 1, 21 )
+
 [editable path="Transitions/Transition"]
-
-[editable path="Transitions/Transition2"]
-
-[editable path="Transitions/Transition3"]

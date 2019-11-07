@@ -6,4 +6,4 @@
 < Not at all!
 > So, Cosmo...
 > I'm all about photography, but... what are you into?
-[  (0, -60) R_1_1
+[ I like reading. (0, -60) R_1_1 | I play a few instruments. (0, -60) R_1_2 | 

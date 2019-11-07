@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Overlay.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/Overlay.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UI/Map.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UI/MapMarker.png" type="Texture" id=4]
 [ext_resource path="res://Fonts/small_pixel.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Sprites/Items/ItemTemp.png" type="Texture" id=6]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Blink"
 loop = true
 tracks/0/type = "value"
@@ -22,7 +23,7 @@ tracks/0/keys = {
 "values": [ Color( 0.486275, 0.639216, 1, 1 ), Color( 0.74902, 0.819608, 0.992157, 1 ) ]
 }
 
-[sub_resource type="DynamicFont" id=1]
+[sub_resource type="DynamicFont" id=2]
 size = 8
 extra_spacing_char = 1
 font_data = ExtResource( 5 )
@@ -50,14 +51,28 @@ centered = false
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Map"]
 autoplay = "Blink"
 playback_speed = 0.5
-anims/Blink = SubResource( 2 )
+anims/Blink = SubResource( 1 )
 
 [node name="Money" type="Label" parent="CanvasLayer"]
 margin_left = 256.0
 margin_top = 125.0
 margin_right = 296.0
 margin_bottom = 139.0
-custom_fonts/font = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.486275, 0.639216, 1, 1 )
 text = "999"
 align = 2
+
+[node name="Inventory" type="GridContainer" parent="CanvasLayer"]
+margin_left = 256.0
+margin_top = 29.0
+margin_right = 310.0
+margin_bottom = 115.0
+custom_constants/vseparation = 10
+custom_constants/hseparation = 10
+columns = 2
+
+[node name="Item1" type="TextureRect" parent="CanvasLayer/Inventory"]
+margin_right = 22.0
+margin_bottom = 22.0
+texture = ExtResource( 6 )

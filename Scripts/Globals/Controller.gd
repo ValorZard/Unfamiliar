@@ -8,8 +8,9 @@ const MenuRef := "res://Instances/System/Menu.tscn"
 const FlashbackRef := "res://Instances/System/Flashback.tscn"
 
 const SoundOneShotRef := preload("res://Instances/SoundOneShot.tscn")
+const ItemRef := preload("res://Instances/System/Item.tscn")
 
-var inventory := {}
+#var inventory := []
 
 var flags: Dictionary = {
 	"scn_intro": 0,
@@ -40,12 +41,16 @@ var settings: Dictionary = {
 }
 
 const map_marker_locs: Dictionary = {
-	"res://Scenes/Los Muertos/LM_Trainstation.tscn": Vector2(3, 4),
-	"res://Scenes/Los Muertos/LM_Crossroads.tscn": Vector2(3, 3),
-	"res://Scenes/Los Muertos/LM_Waterfront_R1.tscn": Vector2(4, 3),
-	"res://Scenes/Los Muertos/LM_Waterfront_L1.tscn": Vector2(2, 3),
-	"res://Scenes/Los Muertos/LM_Mainstreet_S.tscn": Vector2(3, 2),
-	"res://Scenes/Los Muertos/LM_Mainstreet_N.tscn": Vector2(3, 1),
+	"res://Scenes/Los Muertos/LM_Trainstation.tscn":   Vector2(3, 4),
+	"res://Scenes/Los Muertos/LM_Crossroads.tscn":     Vector2(3, 3),
+	"res://Scenes/Los Muertos/LM_Waterfront_R1.tscn":  Vector2(4, 3),
+	"res://Scenes/Los Muertos/LM_Waterfront_L1.tscn":  Vector2(2, 3),
+	"res://Scenes/Los Muertos/LM_Mainstreet_S.tscn":   Vector2(3, 2),
+	"res://Scenes/Los Muertos/LM_Mainstreet_N.tscn":   Vector2(3, 1),
+	"res://Scenes/Los Muertos/LM_Square.tscn":         Vector2(3, 0),
+	"res://Scenes/Los Muertos/LM_Mainstreet_R.tscn":   Vector2(4, 1),
+	"res://Scenes/Los Muertos/LM_Eastside_3.tscn":     Vector2(5, 1),
+	"res://Scenes/Los Muertos/LM_Hideout.tscn":        Vector2(5, 0),
 }
 
 var money: int = 20
@@ -267,6 +272,12 @@ func get_money() -> int:
 	
 func add_money(amount: int):
 	money += amount
+	
+
+func add_item(name: String, desc: String, picture: Texture):
+	var t: TextureRect = ItemRef.instance() as TextureRect
+	t.set_texture(picture)
+	$Overlay/CanvasLayer/Inventory.add_child(t)
 	
 
 func play_sound_oneshot(sound: AudioStream, pitch: float = 1.0, volume: float = 0.0):

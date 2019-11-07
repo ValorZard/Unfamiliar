@@ -5,10 +5,10 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 48, 8 )
+extents = Vector2( 8, 32 )
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 8, 24 )
+extents = Vector2( 32, 8 )
 
 [node name="Scene" type="Node2D"]
 
@@ -30,7 +30,7 @@ position = Vector2( 80, 18 )
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, 30, 0, 1, 536870941, 0, 8, 29, 0, 9, 30, 0, 65536, 18, 0, 65537, 536870944, 0, 65544, 32, 0, 65545, 18, 0, 131072, 21, 0, 131073, 22, 0, 131080, 32, 0, 131081, 18, 0, 196616, 536870934, 0, 196617, -1073741792, 0, 458760, 1073741853, 0, 458761, 1073741854, 0, 524288, 1073741854, 0, 524289, 1610612765, 0, 524296, -536870882, 0, 524297, 1610612763, 0 )
+tile_data = PoolIntArray( 0, 30, 0, 1, 30, 0, 2, 536870941, 0, 7, -536870882, 0, 8, 27, 0, 9, 27, 0, 65536, 18, 0, 65537, 18, 0, 65538, 536870944, 0, 65543, -536870882, 0, 65544, 27, 0, 65545, 27, 0, 131072, 18, 0, 131073, 18, 0, 131074, 536870944, 0, 131079, -536870882, 0, 131080, 27, 0, 131081, 27, 0, 196608, -1073741792, 0, 196609, -1073741792, 0, 196610, 22, 0, 196615, -536870882, 0, 196616, 27, 0, 196617, 27, 0, 262151, -536870882, 0, 262152, 27, 0, 262153, 27, 0, 327687, -536870882, 0, 327688, 27, 0, 327689, 27, 0, 393223, -536870882, 0, 393224, 27, 0, 393225, 27, 0, 458759, -536870882, 0, 458760, 27, 0, 458761, 27, 0, 524288, 1073741854, 0, 524289, 1073741854, 0, 524290, 1610612765, 0, 524295, -536870882, 0, 524296, 27, 0, 524297, 27, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -38,23 +38,18 @@ __meta__ = {
 [node name="Transitions" type="CanvasLayer" parent="."]
 
 [node name="Transition" parent="Transitions" instance=ExtResource( 3 )]
-position = Vector2( 160, 170 )
-target_scene = "res://Scenes/Los Muertos/LM_Mainstreet_S.tscn"
-target_direction = 1
+position = Vector2( 72, 114 )
+target_scene = "res://Scenes/Los Muertos/LM_Mainstreet_R.tscn"
+target_direction = 2
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
 shape = SubResource( 1 )
 
 [node name="Transition2" parent="Transitions" instance=ExtResource( 3 )]
 position = Vector2( 160, 10 )
-target_scene = "res://Scenes/Los Muertos/LM_Square.tscn"
+target_scene = "res://Scenes/Los Muertos/LM_Hideout.tscn"
 
-[node name="Transition3" parent="Transitions" instance=ExtResource( 3 )]
-position = Vector2( 248, 106 )
-target_scene = "res://Scenes/Los Muertos/LM_Mainstreet_R.tscn"
-target_direction = 3
-
-[node name="CollisionShape2D" parent="Transitions/Transition3" index="0"]
+[node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
 shape = SubResource( 2 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
@@ -65,5 +60,3 @@ __meta__ = {
 [editable path="Transitions/Transition"]
 
 [editable path="Transitions/Transition2"]
-
-[editable path="Transitions/Transition3"]
