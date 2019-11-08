@@ -1,19 +1,18 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_up.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkright1.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkright2.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_walkup1.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_walkup2.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_down.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_walkleft1.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_left.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_walkleft2.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkdown1.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkdown2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkleft1.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkleft2.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkup1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkup2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_down.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkdown1.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkdown2.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -37,22 +36,22 @@ animations = [ {
 "name": "right_walk",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 4 ) ],
-"loop": true,
-"name": "up_walk",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 2 ), ExtResource( 8 ), ExtResource( 2 ) ],
 "loop": true,
 "name": "left_walk",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "up_walk",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "down_walk",
 "speed": 7.0

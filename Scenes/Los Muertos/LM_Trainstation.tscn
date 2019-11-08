@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -8,11 +8,8 @@
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight_light.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight.png" type="Texture" id=7]
 [ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_left.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_right.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_up.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Characters (Overworld)/Train/Rudeman.png" type="Texture" id=12]
-[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/Rudeman.png" type="Texture" id=9]
+[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -92,22 +89,22 @@ extents = Vector2( 3.5, 3 )
 
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [ ExtResource( 9 ) ],
+"frames": [  ],
 "loop": true,
 "name": "left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [  ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [  ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
@@ -266,7 +263,7 @@ set_flag = "npc_lm_guide"
 [node name="Sprite" parent="NPCGuide" index="0"]
 frames = SubResource( 14 )
 
-[node name="Event" parent="." instance=ExtResource( 13 )]
+[node name="Event" parent="." instance=ExtResource( 10 )]
 position = Vector2( 128, 138 )
 destroy = true
 destroy_flag = "scn_lm_intro"

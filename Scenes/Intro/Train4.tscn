@@ -27,13 +27,13 @@ extents = Vector2( 38, 4 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 2, 6 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 10, 28 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8, 30 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 16, 8 )
 
 [node name="Scene" type="Node2D"]
@@ -207,7 +207,7 @@ shape = SubResource( 6 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 70, 118 )
-shape = SubResource( 9 )
+shape = SubResource( 7 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 6
@@ -218,7 +218,7 @@ target_scene = "res://Scenes/Intro/Train3.tscn"
 target_direction = 3
 
 [node name="CollisionShape2D" parent="CanvasLayer/Transition" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Door" parent="." instance=ExtResource( 8 )]
 position = Vector2( 160, 82 )
@@ -228,7 +228,7 @@ fade_time = 2.0
 
 [node name="CollisionShape2D" parent="Door" index="0"]
 position = Vector2( 0, -4 )
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [editable path="CanvasLayer/Transition"]
 
