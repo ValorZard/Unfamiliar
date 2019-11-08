@@ -1,5 +1,7 @@
 extends Polygon2D
 
+class_name ButtonUF
+
 signal hover_start
 signal hover_end
 signal clicked

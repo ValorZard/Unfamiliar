@@ -34,9 +34,9 @@ var speaker_right := false
 
 var list_index: int = 0
 
-onready var text_controller := $TextDisplay
-onready var anim_player_left := $AnimationPlayerLeftChar
-onready var anim_player_right := $AnimationPlayerRightChar
+onready var text_controller := $TextDisplay as TextDisplay
+onready var anim_player_left := $AnimationPlayerLeftChar as AnimationPlayer
+onready var anim_player_right := $AnimationPlayerRightChar as AnimationPlayer
 
 # =====================================================================
 
@@ -137,13 +137,11 @@ func click_choice(index: int):
 # =====================================================================
 
 func create_button(text: String, pos: Vector2, index: int, target_line: int):
-	var but := ChoiceButton.instance()
+	var but := ChoiceButton.instance() as ButtonUF
 	but.set_text_controller($TextDisplay)
 	but.set_controller(self)
 	but.set_index(index)
 	but.set_target_line(target_line)
-	#but.set_position(Vector2(160, 90))
-	#but.setup_animation(pos)
 	but.set_position(pos)
 	buttons_list.push_back(but)
 	but.connect("clicked", self, "emit_signal", ["choice_clicked"])
@@ -151,7 +149,6 @@ func create_button(text: String, pos: Vector2, index: int, target_line: int):
 	get_tree().get_root().add_child(but)
 	but.set_button_text(text)
 	but.appear()
-	
 
 
 func load_file(path: String):
@@ -170,7 +167,7 @@ func load_file(path: String):
 
 
 func parse_discourse_command(command: String):
-	var result = line_regex.search(command)
+	var result := line_regex.search(command)
 	if result != null:
 		var text = result.get_string(2)
 		match line_regex.search(command).get_string(1):
