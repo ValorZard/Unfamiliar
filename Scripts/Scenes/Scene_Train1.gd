@@ -6,4 +6,4 @@ func _ready():
 		get_node("PlayerStart").queue_free()
 		get_node("AnimationPlayer").stop()
 		get_node("AnimationPlayer").seek(0)
-		get_node("Sprite").position.x += 80
+		get_node("Bg").position.x += 80

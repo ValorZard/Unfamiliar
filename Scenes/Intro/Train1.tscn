@@ -1,27 +1,28 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Scene_Train1.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Tilesets/Tileset_Train.tres" type="TileSet" id=3]
-[ext_resource path="res://Sprites/Props/Train_rail.png" type="Texture" id=4]
-[ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/Props/Train_light.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_sit.png" type="Texture" id=7]
-[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_stand1.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_stand2.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_down.png" type="Texture" id=11]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=13]
-[ext_resource path="res://Audio/Train loop.ogg" type="AudioStream" id=14]
-[ext_resource path="res://Audio/Train stop.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Sprites/Tilesets/TilesTrain.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Props/Train_rail.png" type="Texture" id=5]
+[ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Props/Train_light.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_sit.png" type="Texture" id=8]
+[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_stand1.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_stand2.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_down.png" type="Texture" id=12]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=14]
+[ext_resource path="res://Audio/Train loop.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Audio/Train stop.ogg" type="AudioStream" id=16]
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
 length = 2.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:position")
+tracks/0/path = NodePath("Bg:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/imported = false
@@ -33,7 +34,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, -46 ), Vector2( -320, -46 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("Sprite2:position")
+tracks/1/path = NodePath("Bg2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/imported = false
@@ -171,7 +172,7 @@ tracks/6/keys = {
 "times": PoolRealArray( 0, 38, 38.1, 38.2 ),
 "transitions": PoolRealArray( 2.37841, 8.87655, 1, 9.84917 ),
 "update": 1,
-"values": [ ExtResource( 7 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ) ]
+"values": [ ExtResource( 8 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ]
 }
 tracks/7/type = "value"
 tracks/7/path = NodePath("../PlayerStart:position")
@@ -244,7 +245,7 @@ __meta__ = {
 "_edit_vertical_guides_": [ 160.0 ]
 }
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Bg" type="Sprite" parent="."]
 position = Vector2( 0, -46 )
 texture = ExtResource( 2 )
 centered = false
@@ -252,7 +253,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="Bg2" type="Sprite" parent="."]
 position = Vector2( 320, -46 )
 texture = ExtResource( 2 )
 centered = false
@@ -285,6 +286,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="BgCover" type="Sprite" parent="."]
+position = Vector2( 192, 70 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 16, 68, 12, 12 )
+
 [node name="Prop3" type="StaticBody2D" parent="."]
 editor/display_folded = true
 position = Vector2( 192, 207 )
@@ -294,7 +302,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Prop3"]
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 flip_h = true
 
@@ -312,7 +320,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Prop4"]
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 flip_h = true
 
@@ -341,7 +349,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Overlay" parent="." instance=ExtResource( 5 )]
+[node name="Overlay" parent="." instance=ExtResource( 6 )]
 is_preview = true
 
 [node name="Prop" type="StaticBody2D" parent="."]
@@ -352,7 +360,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Prop"]
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Prop"]
@@ -367,7 +375,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Prop2"]
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 flip_h = true
 
@@ -377,7 +385,7 @@ shape = SubResource( 2 )
 
 [node name="Prop5" type="Sprite" parent="."]
 position = Vector2( 176, 58 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 
 [node name="SeatCollision" type="StaticBody2D" parent="."]
 __meta__ = {
@@ -415,10 +423,10 @@ shape = SubResource( 8 )
 
 [node name="PlayerStart" type="Sprite" parent="."]
 position = Vector2( 200, 69 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 centered = false
 
-[node name="Event" parent="." instance=ExtResource( 8 )]
+[node name="Event" parent="." instance=ExtResource( 9 )]
 position = Vector2( 176, 98 )
 autostart = true
 destroy = true
@@ -430,7 +438,7 @@ anims/Event = SubResource( 9 )
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="Transitions" instance=ExtResource( 12 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 13 )]
 position = Vector2( 72, 117 )
 target_scene = "res://Scenes/Intro/Train2.tscn"
 target_direction = 2
@@ -456,7 +464,7 @@ margin_left = 113.0
 margin_top = 61.0
 margin_right = 207.0
 margin_bottom = 75.0
-custom_fonts/font = ExtResource( 13 )
+custom_fonts/font = ExtResource( 14 )
 text = "Duncan Sparks"
 align = 1
 
@@ -466,7 +474,7 @@ margin_left = 110.0
 margin_top = 73.0
 margin_right = 210.0
 margin_bottom = 87.0
-custom_fonts/font = ExtResource( 13 )
+custom_fonts/font = ExtResource( 14 )
 text = "Studio Fractal"
 align = 1
 
@@ -476,7 +484,7 @@ margin_left = 110.0
 margin_top = 103.0
 margin_right = 210.0
 margin_bottom = 117.0
-custom_fonts/font = ExtResource( 13 )
+custom_fonts/font = ExtResource( 14 )
 text = "Presents"
 align = 1
 
@@ -486,17 +494,17 @@ margin_left = 110.0
 margin_top = 83.0
 margin_right = 210.0
 margin_bottom = 97.0
-custom_fonts/font = ExtResource( 13 )
+custom_fonts/font = ExtResource( 14 )
 text = "Unfamiliar"
 align = 1
 
 [node name="BGSTrain" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 14 )
+stream = ExtResource( 15 )
 volume_db = -80.0
 autoplay = true
 
 [node name="SoundTrainStop" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 15 )
+stream = ExtResource( 16 )
 volume_db = -80.0
 
 [editable path="Event"]
