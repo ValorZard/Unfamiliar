@@ -13,9 +13,14 @@ const ItemRef := preload("res://Instances/System/Item.tscn")
 #var inventory := []
 
 var flags: Dictionary = {
+	# ========================================
+	# SCENES
+	# ========================================
 	"scn_intro": 0,
 	"scn_rhona": 0,
 	"scn_lm_intro": 0,
+	# ========================================
+	# NPCS
 	# ========================================
 	"npc_train_rudeman": 0,
 	"npc_train_unsurewoman": 0,
@@ -23,6 +28,8 @@ var flags: Dictionary = {
 	# ----------------------------------------
 	"npc_lm_guide": 0,
 	"npc_lm_pace": 0,
+	# ========================================
+	# DIALOGUE CHOICES
 	# ========================================
 	"choice_hometown": 0, # 0 = Salem, 1 = Zzyzx, 2 = Cottonwood
 	"choice_know_rhona's_grandpa": 0, # 0 = No, 1 = Yes

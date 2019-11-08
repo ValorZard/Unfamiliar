@@ -1744,17 +1744,21 @@ __meta__ = {
 }
 
 [node name="Button1" parent="." instance=ExtResource( 9 )]
-position = Vector2( 52, 84 )
+position = Vector2( 52, 88 )
+polygon = PoolVector2Array( 18, 24, 89, 25, 96, 5, 16, 8 )
+button_text = "New Game"
 decisive_click = true
+choice_button = false
 
 [node name="CollisionShape2D" parent="Button1/AreaHover" index="0"]
 position = Vector2( -1, 1 )
 shape = SubResource( 7 )
 
 [node name="Button2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 103, 110 )
+position = Vector2( 103, 113 )
 polygon = PoolVector2Array( 17, 26, 108, 23, 95, 7, 12, 8 )
 button_text = "Continue"
+choice_button = false
 
 [node name="AnimationPlayer" parent="Button2" index="2"]
 anims/Appear = SubResource( 8 )
@@ -1775,6 +1779,7 @@ shape = SubResource( 13 )
 position = Vector2( 148, 140 )
 polygon = PoolVector2Array( 20, 23, 92, 22, 86, 7, 23, 6 )
 button_text = "Options"
+choice_button = false
 
 [node name="AnimationPlayer" parent="Button3" index="2"]
 anims/Appear = SubResource( 14 )
@@ -1795,6 +1800,7 @@ shape = SubResource( 19 )
 position = Vector2( 196, 164 )
 polygon = PoolVector2Array( 31, 23, 89, 22, 95, 7, 21, 8 )
 button_text = "Exit"
+choice_button = false
 
 [node name="AnimationPlayer" parent="Button4" index="2"]
 anims/Appear = SubResource( 20 )

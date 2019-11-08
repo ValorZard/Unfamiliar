@@ -16,9 +16,7 @@ const SoundHover := preload("res://Audio/Hover_new.ogg")
 const SoundClick := preload("res://Audio/Click.ogg")
 
 var index: int
-
-var target_line_start: int = -1
-var target_line_end: int = -1
+var target_line: int = -1
 
 var pos_start: Vector2
 var poly := PoolVector2Array()
@@ -32,10 +30,15 @@ var controller = null
 
 var text_controller = null
 
+onready var anim_player := $AnimationPlayer
+onready var anim_player_hover := $AnimationPlayerHover
+
 export(String) var button_text
 export(Texture) var button_image = null
 
+# warning-ignore:unused_class_variable
 export(float) var hover_offset = 0
+# warning-ignore:unused_class_variable
 export(float) var hover_alpha = 0
 
 export(float) var idle_x = 0
@@ -43,15 +46,19 @@ export(float) var idle_y = 0
 
 export(bool) var decisive_click = false
 
+export(bool) var choice_button = true
+
 # =====================================================================
 
 func _ready():
 	$Label.set_text(button_text)
 	if button_image != null:
 		$Sprite.set_texture(button_image)
-	
+
 	for point in polygon:
-		var add := Vector2(-55, -15)
+		var xx = rand_range(-Variance, Variance) if choice_button else 0.0
+		var yy = rand_range(-Variance, Variance) if choice_button else 0.0
+		var add := Vector2(xx - 55, yy - 15)
 		poly.push_back(point + add)
 	polygon = poly
 	poly_initial = poly
@@ -71,14 +78,15 @@ func _process(delta):
 		set_position((get_position() if not active and not click else pos_start))
 	
 	if Input.is_action_just_pressed("sys_select") and active and hover:
-		#print("TEST")
 		if decisive_click:
 			Controller.play_sound_oneshot_from_path("res://Audio/Click 2.ogg", 1.0, 12)
 		else:
 			Controller.play_sound_oneshot(SoundClick, rand_range(0.95, 1.05), 12)
-		#controller.click_choice(index)
-		#text_controller.fade_screen(false)
-		#$AnimationPlayer.play("Disappear2")
+		
+		if choice_button:
+			controller.click_choice(index)
+			text_controller.fade_screen(false)
+
 		click = true
 		emit_signal("clicked")
 	
@@ -108,24 +116,25 @@ func set_controller(controller):
 
 func setup_animation(end_pos: Vector2):
 	pos_start = end_pos
-	$AnimationPlayer.get_animation("Appear").track_insert_key(1, 0, Vector2(160, 90), 0.52)
-	$AnimationPlayer.get_animation("Appear").track_insert_key(1, 1, end_pos)
-	$AnimationPlayer.get_animation("Disappear").track_insert_key(1, 0, end_pos, 1.52)
-	$AnimationPlayer.get_animation("Disappear").track_insert_key(1, 1, Vector2(160, 90))
-	$AnimationPlayer.add_animation("Appear2", $AnimationPlayer.get_animation("Appear").duplicate())
-	$AnimationPlayer.add_animation("Disappear2", $AnimationPlayer.get_animation("Disappear").duplicate())
-	$AnimationPlayer.add_animation("Select2", $AnimationPlayer.get_animation("Select").duplicate())
-	$AnimationPlayer.play("Appear2")
+	var player: AnimationPlayer = $AnimationPlayer
+	player.get_animation("Appear").track_insert_key(1, 0, Vector2(160, 90), 0.52)
+	player.get_animation("Appear").track_insert_key(1, 1, end_pos)
+	player.get_animation("Disappear").track_insert_key(1, 0, end_pos, 1.52)
+	player.get_animation("Disappear").track_insert_key(1, 1, Vector2(160, 90))
+	player.add_animation("Appear2", player.get_animation("Appear").duplicate())
+	player.add_animation("Disappear2", player.get_animation("Disappear").duplicate())
+	player.add_animation("Select2", player.get_animation("Select").duplicate())
+	player.play("Appear2")
 	
 	
 func anim_selected():
 	active = false
-	$AnimationPlayer.play("Select2")
+	anim_player.play("Select2")
 	
 
 func anim_not_selected():
 	active = false
-	$AnimationPlayer.play("Disappear2")
+	anim_player.play("Disappear2")
 	
 	
 func get_index() -> int:
@@ -139,18 +148,13 @@ func set_index(value: int):
 func set_button_text(text: String):
 	$Label.set_text(text)
 	
-	
-func get_target_line_start() -> int:
-	return target_line_start
-	
 
-func get_target_line_end() -> int:
-	return target_line_end
+func get_target_line() -> int:
+	return target_line
 	
 	
-func set_target_lines(start: int, end: int):
-	target_line_start = start
-	target_line_end = end
+func set_target_line(target: int):
+	target_line = target	
 	
 # =====================================================================
 
@@ -165,8 +169,10 @@ func _on_AnimationPlayer_animation_finished(anim_name: String):
 func _on_AreaHover_mouse_entered():
 	if active:
 		Controller.play_sound_oneshot(SoundHover, rand_range(0.95, 1.05))
-		$AnimationPlayerHover.play("Hover")
-		$AnimationPlayerHover.seek(0)
+		if not anim_player_hover.is_playing():
+			anim_player_hover.play("Hover")
+			anim_player_hover.seek(0)
+			
 		hover = true
 		emit_signal("hover_start")
 

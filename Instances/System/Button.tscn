@@ -160,13 +160,14 @@ z_index = 1500
 color = Color( 0, 0, 0, 1 )
 offset = Vector2( -55, -15 )
 antialiased = true
-polygon = PoolVector2Array( 15, 23, 85, 26, 95, 7, 23, 7 )
+polygon = PoolVector2Array( 0, 30, 110, 30, 110, 0, 0, 0 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-button_text = "New Game"
-idle_y = -1.0
+button_text = "Button"
+idle_x = 0.381836
+idle_y = 0.800781
 
 [node name="Label" type="Label" parent="."]
 margin_left = -184.0
