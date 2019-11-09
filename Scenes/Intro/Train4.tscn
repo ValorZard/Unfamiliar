@@ -225,6 +225,7 @@ position = Vector2( 160, 82 )
 target_scene = "res://Scenes/Los Muertos/LM_Trainstation.tscn"
 target_position = Vector2( 128, 146 )
 fade_time = 2.0
+restore_control = false
 
 [node name="CollisionShape2D" parent="Door" index="0"]
 position = Vector2( 0, -4 )

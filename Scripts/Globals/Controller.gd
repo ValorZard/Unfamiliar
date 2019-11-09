@@ -58,6 +58,7 @@ const map_marker_locs: Dictionary = {
 	"res://Scenes/Los Muertos/LM_Mainstreet_R.tscn":   Vector2(4, 1),
 	"res://Scenes/Los Muertos/LM_Eastside_3.tscn":     Vector2(5, 1),
 	"res://Scenes/Los Muertos/LM_Hideout.tscn":        Vector2(5, 0),
+	"res://Scenes/Los Muertos/LM_Thoroughfare_R.tscn": Vector2(2, 1),
 }
 
 var money: int = 20

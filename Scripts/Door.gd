@@ -6,6 +6,7 @@ export(Player.Direction) var target_direction
 export(AudioStream) var door_sound
 export(Color) var fade_color = Color(0, 0, 0)
 export(float) var fade_time = 0.5
+export(bool) var restore_control = true
 
 var in_area := false
 
@@ -20,7 +21,9 @@ func _process(delta):
 		Controller.goto_scene(target_scene, target_position, target_direction, false, false)
 		Player.set_position(target_position)
 		Controller.fade(fade_time, false, fade_color)
-		Player.set_state(Player.PlayerState.Move)
+		
+		if restore_control:
+			get_tree().create_timer(fade_time).connect("timeout", Player, "set_state", [0])
 
 # =====================================================================
 
