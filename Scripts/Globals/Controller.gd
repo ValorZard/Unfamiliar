@@ -76,10 +76,10 @@ var d_previous_npc: NodePath
 
 var controller_connected: bool = false
 
-onready var money_text: Label = $Overlay/CanvasLayer/Money as Label
-onready var anim_player: AnimationPlayer = $AnimationPlayer as AnimationPlayer
-onready var anim_player_fade: AnimationPlayer = $AnimationPlayerFade as AnimationPlayer
-onready var map_marker: Sprite = $Overlay/CanvasLayer/Map/Marker as Sprite
+onready var money_text := $Overlay/CanvasLayer/Money as Label
+onready var anim_player := $AnimationPlayer as AnimationPlayer
+onready var anim_player_fade := $AnimationPlayerFade as AnimationPlayer
+onready var map_marker := $Overlay/CanvasLayer/Map/Marker as Sprite
 
 # =====================================================================
 

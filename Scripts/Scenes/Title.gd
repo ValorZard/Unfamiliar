@@ -10,7 +10,7 @@ onready var but4 := get_node("Button4")
 
 onready var buttons = [but1, but2, but3, but4]
 
-onready var anim_player_blink := $Cosmo/AnimationPlayer
+onready var anim_player_blink := $Cosmo/AnimationPlayer as AnimationPlayer
 
 func _ready():
 	Controller.draw_overlay(false)

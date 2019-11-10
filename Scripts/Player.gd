@@ -16,9 +16,9 @@ var face: int = Direction.Down
 var walking := false
 var in_transition := false
 
-onready var spr: AnimatedSprite = $Sprite
-onready var sight: Area2D = $Sight
-onready var anim_player: AnimationPlayer = $AnimationPlayer
+onready var spr := $Sprite as AnimatedSprite
+onready var sight := $Sight as Area2D
+onready var anim_player := $AnimationPlayer as AnimationPlayer
 
 # =====================================================================
 
