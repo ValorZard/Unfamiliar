@@ -1,0 +1,206 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
+[ext_resource path="res://Sprites/Particles/Wave.png" type="Texture" id=3]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight_light.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight.png" type="Texture" id=6]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 2
+emission_box_extents = Vector3( 2, 14, 1 )
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+anim_speed = 10.0
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 80, 0.5 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 88, 16 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 56, 8 )
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 16, 8 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 24, 8 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8, 56 )
+
+[sub_resource type="Shader" id=7]
+code = "shader_type canvas_item;
+uniform vec4 color : hint_color;
+
+void fragment() {
+	COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+	float sprAlpha = texture(TEXTURE, UV).a;
+	
+	if (sprAlpha > 0f) {
+		if (COLOR.r < 0.5)
+			COLOR.r *= 2f * color.r;
+		else
+			COLOR.r = 1f - (2f * (1f - COLOR.r) * (1f - color.r));
+		
+		if (COLOR.g < 0.5)
+			COLOR.g *= 2f * color.g;
+		else
+			COLOR.g = 1f - (2f * (1f - COLOR.g) * (1f - color.g));
+			
+		if (COLOR.b < 0.5)
+			COLOR.b *= 2f * color.b;
+		else
+			COLOR.b = 1f - (2f * (1f - COLOR.b) * (1f - color.b));
+	}
+}"
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
+shader_param/color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 3.5, 3 )
+
+[node name="Scene" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
+
+[node name="Overlay" parent="." instance=ExtResource( 1 )]
+is_preview = true
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 80, 18 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 8, 0, 1, 8, 0, 2, 8, 0, 3, 8, 0, 4, 8, 0, 5, 8, 0, 6, 8, 0, 7, 8, 0, 8, 8, 0, 9, 8, 0, 65536, 8, 0, 65537, 8, 0, 65538, 8, 0, 65539, 8, 0, 65540, 8, 0, 65541, 8, 0, 65542, 8, 0, 65543, 8, 0, 65544, 8, 0, 65545, 8, 0, 131072, 1, 0, 131073, 1, 0, 131074, 1, 0, 131075, 1, 0, 131076, 1, 0, 131077, 1, 0, 131078, 1, 0, 131079, 1, 0, 131080, 1, 0, 131081, 1, 0, 196608, 1, 0, 196609, 1, 0, 196610, 1, 0, 196611, 1, 0, 196612, 1, 0, 196613, 1, 0, 196614, 1, 0, 196615, 1, 0, 196616, 1, 0, 196617, 1, 0, 262144, 1, 0, 262145, 1, 0, 262146, 1, 0, 262147, 1, 0, 262148, 1, 0, 262149, 1, 0, 262150, 1, 0, 262151, 1, 0, 262152, 1, 0, 262153, 1, 0, 327680, 1, 0, 327681, 1, 0, 327682, 1, 0, 327683, 1, 0, 327684, 1, 0, 327685, 1, 0, 327686, 1, 0, 327687, 1, 0, 327688, 1, 0, 327689, 1, 0, 393216, 1, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 458752, 2, 0, 458753, 2, 0, 458754, 2, 0, 458755, 2, 0, 458756, 2, 0, 458757, 2, 0, 458758, 2, 0, 458759, 2, 0, 458760, 2, 0, 458761, 2, 0, 524288, 0, 0, 524289, 0, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap4" type="TileMap" parent="."]
+position = Vector2( 80, 18 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 131072, 39, 0, 131073, 39, 0, 131074, 39, 0, 131075, 39, 0, 131076, 39, 0, 131077, 39, 0, 131078, 39, 0, 131079, 39, 0, 131080, 39, 0, 131081, 39, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PartsWaves" type="Particles2D" parent="."]
+material = SubResource( 1 )
+position = Vector2( 76, 34 )
+lifetime = 6.0
+process_material = SubResource( 2 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap2" type="TileMap" parent="."]
+position = Vector2( 80, 18 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 458752, 536870919, 0, 458753, 536870919, 0, 458754, 536870919, 0, 458755, 536870919, 0, 458756, 536870919, 0, 458757, 536870919, 0, 458758, 536870919, 0, 458759, 536870919, 0, 458760, 536870919, 0, 458761, 536870919, 0 )
+
+[node name="Walls" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 160, 130.5 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 160, 34 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 120, 170 )
+shape = SubResource( 13 )
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 240, 170 )
+shape = SubResource( 14 )
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 200, 180 )
+shape = SubResource( 12 )
+
+[node name="TileMap3" type="TileMap" parent="."]
+position = Vector2( 80, 18 )
+z_index = 3000
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 524288, 4, 0, 524289, 4, 0, 524290, 4, 0, 524291, 4, 0, 524292, 4, 0, 524293, 536870915, 0, 524297, 3, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Transitions" type="CanvasLayer" parent="."]
+
+[node name="Transition" parent="Transitions" instance=ExtResource( 4 )]
+position = Vector2( 72, 106 )
+target_scene = "res://Scenes/Los Muertos/LM_Trainstation_R1.tscn"
+target_direction = 2
+
+[node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
+shape = SubResource( 6 )
+
+[node name="Light" type="Sprite" parent="."]
+material = SubResource( 8 )
+position = Vector2( 112, 68 )
+texture = ExtResource( 5 )
+
+[node name="Lamp" type="StaticBody2D" parent="."]
+position = Vector2( 112, 50 )
+z_index = 54
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Lamp"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp"]
+position = Vector2( 0, 16.5 )
+shape = SubResource( 9 )
+
+[node name="Light2" type="Sprite" parent="."]
+material = SubResource( 8 )
+position = Vector2( 208, 68 )
+texture = ExtResource( 5 )
+
+[node name="Lamp2" type="StaticBody2D" parent="."]
+position = Vector2( 208, 50 )
+z_index = 54
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Lamp2"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp2"]
+position = Vector2( 0, 16.5 )
+shape = SubResource( 9 )
+
+[editable path="Transitions/Transition"]

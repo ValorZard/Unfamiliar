@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Intro TEMP.ogg-1eed8f673cd931d99fec959916338f08.oggstr"
+
+[deps]
+
+source_file="res://Audio/Music/Intro TEMP.ogg"
+dest_files=[ "res://.import/Intro TEMP.ogg-1eed8f673cd931d99fec959916338f08.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

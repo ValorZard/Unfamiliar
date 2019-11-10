@@ -48,17 +48,20 @@ var settings: Dictionary = {
 }
 
 const map_marker_locs: Dictionary = {
-	"res://Scenes/Los Muertos/LM_Trainstation.tscn":   Vector2(3, 4),
-	"res://Scenes/Los Muertos/LM_Crossroads.tscn":     Vector2(3, 3),
-	"res://Scenes/Los Muertos/LM_Waterfront_R1.tscn":  Vector2(4, 3),
-	"res://Scenes/Los Muertos/LM_Waterfront_L1.tscn":  Vector2(2, 3),
-	"res://Scenes/Los Muertos/LM_Mainstreet_S.tscn":   Vector2(3, 2),
-	"res://Scenes/Los Muertos/LM_Mainstreet_N.tscn":   Vector2(3, 1),
-	"res://Scenes/Los Muertos/LM_Square.tscn":         Vector2(3, 0),
-	"res://Scenes/Los Muertos/LM_Mainstreet_R.tscn":   Vector2(4, 1),
-	"res://Scenes/Los Muertos/LM_Eastside_3.tscn":     Vector2(5, 1),
-	"res://Scenes/Los Muertos/LM_Hideout.tscn":        Vector2(5, 0),
-	"res://Scenes/Los Muertos/LM_Thoroughfare_R.tscn": Vector2(2, 1),
+	"res://Scenes/Los Muertos/LM_Trainstation.tscn":    Vector2(3, 4),
+	"res://Scenes/Los Muertos/LM_Trainstation_L.tscn":  Vector2(2, 4),
+	"res://Scenes/Los Muertos/LM_Trainstation_R1.tscn": Vector2(4, 4),
+	"res://Scenes/Los Muertos/LM_Trainstation_R2.tscn": Vector2(5, 4),
+	"res://Scenes/Los Muertos/LM_Crossroads.tscn":      Vector2(3, 3),
+	"res://Scenes/Los Muertos/LM_Waterfront_R1.tscn":   Vector2(4, 3),
+	"res://Scenes/Los Muertos/LM_Waterfront_L1.tscn":   Vector2(2, 3),
+	"res://Scenes/Los Muertos/LM_Mainstreet_S.tscn":    Vector2(3, 2),
+	"res://Scenes/Los Muertos/LM_Mainstreet_N.tscn":    Vector2(3, 1),
+	"res://Scenes/Los Muertos/LM_Square.tscn":          Vector2(3, 0),
+	"res://Scenes/Los Muertos/LM_Mainstreet_R.tscn":    Vector2(4, 1),
+	"res://Scenes/Los Muertos/LM_Eastside_3.tscn":      Vector2(5, 1),
+	"res://Scenes/Los Muertos/LM_Hideout.tscn":         Vector2(5, 0),
+	"res://Scenes/Los Muertos/LM_Thoroughfare_R.tscn":  Vector2(2, 1),
 }
 
 var money: int = 20
@@ -73,9 +76,10 @@ var d_previous_npc: NodePath
 
 var controller_connected: bool = false
 
-onready var money_text: Label = $Overlay/CanvasLayer/Money
-onready var anim_player: AnimationPlayer = $AnimationPlayer
-onready var anim_player_fade: AnimationPlayer = $AnimationPlayerFade
+onready var money_text: Label = $Overlay/CanvasLayer/Money as Label
+onready var anim_player: AnimationPlayer = $AnimationPlayer as AnimationPlayer
+onready var anim_player_fade: AnimationPlayer = $AnimationPlayerFade as AnimationPlayer
+onready var map_marker: Sprite = $Overlay/CanvasLayer/Map/Marker as Sprite
 
 # =====================================================================
 
@@ -189,6 +193,7 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		var scn: PackedScene = load(path) as PackedScene
 		var scn_i := scn.instance()
 		
+		# Setup player movement
 		var target: Vector2
 		var player_offset: Vector2
 		match direction:
@@ -207,14 +212,21 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		scn_i.set_position(target)
 		get_tree().get_root().add_child(scn_i)
 		
+		# Move map marker
 		var loc: Vector2 = map_marker_locs.get(path)
-		$Overlay/CanvasLayer/Map/Marker.set_position(Vector2(4 + 8 * loc.x, 3 + 6 * loc.y) if loc != null else Vector2(4, 3))
+		if loc != null:
+			map_marker.set_position(Vector2(4 + 8 * loc.x, 3 + 6 * loc.y))
+			map_marker.show()
+		else:
+			map_marker.hide()
 		
+		# Scroll camera
 		anim_player.get_animation("CameraScroll").track_set_key_value(0, 1, target)
 		anim_player.play("CameraScroll")
 		Player.scroll_offset(player_offset)
 		yield(anim_player, "animation_finished")
 		
+		# Swap the active scene
 		current_scene.set_name("__temp")
 		scn_i.set_name("Scene")
 		current_scene.queue_free()

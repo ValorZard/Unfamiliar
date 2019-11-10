@@ -94,6 +94,7 @@ func _on_Button1_clicked() -> void:
 	$AnimationPlayerSetup.play("Teardown Start")
 	yield($AnimationPlayerSetup, "animation_finished")
 	Controller.draw_overlay(true)
+	Controller.draw_overlay_map(true)
 	get_tree().change_scene("res://Scenes/Intro/Train1.tscn")
 	#get_tree().change_scene("res://Scenes/Intro/IntroNew.tscn")
 
