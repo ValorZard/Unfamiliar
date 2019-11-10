@@ -130,8 +130,9 @@ func setup_animation(end_pos: Vector2):
 	player.play("Appear2")
 	
 	
-func anim_selected():
+func anim_selected(destroy: bool = true):
 	active = false
+	destroy_after_disappear = destroy
 	anim_player.play("Select2")
 	
 
@@ -166,7 +167,7 @@ func _on_AnimationPlayer_animation_finished(anim_name: String):
 	if anim_name == "Appear2":
 		active = true
 	
-	if anim_name == "Select2" or (anim_name == "Disappear2" and destroy_after_disappear):
+	if (anim_name == "Select2" or anim_name == "Disappear2") and destroy_after_disappear:
 		queue_free()
 
 

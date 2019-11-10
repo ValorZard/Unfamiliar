@@ -13,6 +13,8 @@ export(NodePath) var discourse_npc = null
 
 var started := false
 
+# =====================================================================
+
 func _ready():
 	if destroy and Controller.flag(destroy_flag) == 1:
 		queue_free()

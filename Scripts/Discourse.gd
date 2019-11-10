@@ -5,10 +5,10 @@ class_name DiscourseController
 signal choice_clicked
 signal ignore_line
 
-const line_regex_p := "^(\\S+)\\s+(.+)$"
-const buttons_regex_p := "^\\s*([^\\r\\n\\t\\f\\v]+)\\s\\(([\\d-]+),\\s*([\\d-]+)\\)\\s*(\\w+)\\s*$"
-const flag_regex_p := "^(.+)\\s+(\\d+)$"
-const flag_regex_2_p := "^(.+)\\s+(\\d+)\\s+(\\w+)$"
+const line_regex_p := "^(\\S+)\\s+(.+)$" # ^(\S+)\s+(.+)$
+const buttons_regex_p := "^\\s*([^\\r\\n\\t\\f\\v]+)\\s\\(([\\d-]+),\\s*([\\d-]+)\\)\\s*(\\w+)\\s*$" # ^\s*([^\r\n\t\f\v]+)\s\(([\d-]+),\s*([\d-]+)\)\s*(\w+)\s*$
+const flag_regex_p := "^(.+)\\s+(\\d+)$" # ^(.+)\s+(\d+)$
+const flag_regex_2_p := "^(.+)\\s+(\\d+)\\s+(\\w+)$" # ^(.+)\s+(\d+)\s+(\w+)$
 
 var line_regex := RegEx.new()
 var buttons_regex := RegEx.new()

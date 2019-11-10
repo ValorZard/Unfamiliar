@@ -64,6 +64,9 @@ const map_marker_locs: Dictionary = {
 	"res://Scenes/Los Muertos/LM_Thoroughfare_R.tscn":  Vector2(2, 1),
 }
 
+var playtime: float = 0.0
+var track_playtime := false
+
 var money: int = 20
 var money_disp: int = 20
 
@@ -112,7 +115,10 @@ func _ready():
 	Input.connect("joy_connection_changed", self, "controller_connection")
 
 
-func _process(delta):
+func _process(delta: float):
+	if track_playtime:
+		playtime += delta
+	
 	if money_disp != money:
 		money_disp = lerp(money_disp, money, 0.15)
 	
@@ -126,6 +132,9 @@ func _process(delta):
 		
 	if Input.is_action_just_pressed("sys_fullscreen"):
 		OS.set_window_fullscreen(not OS.is_window_fullscreen())
+		
+	if Input.is_action_just_pressed("debug_2"):
+		save_game(0)
 
 # =====================================================================
 
@@ -135,6 +144,18 @@ func flag(key: String) -> int:
 
 func set_flag(key: String, value: int):
 	flags[key] = value
+	
+
+func set_playtime(value: float):
+	playtime = value
+	
+	
+func get_playtime_str(playtime_value: float) -> String:
+	return str(floor(playtime_value / 60)).pad_zeros(3) + ":" + str(int(floor(playtime_value)) % 60).pad_zeros(2)
+
+	
+func set_tracking_playtime(value: bool):
+	track_playtime = value
 	
 	
 func get_scene_map_marker(scene: String) -> Vector2:
@@ -231,6 +252,7 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		scn_i.set_name("Scene")
 		current_scene.queue_free()
 		
+		# Cover up the position discrepancies
 		Player.position -= target
 		scn_i.set_position(Vector2.ZERO)
 		$MainCamera.set_offset(Vector2.ZERO)
@@ -254,23 +276,28 @@ func save_game(slot: int):
 		var dir := Directory.new()
 		dir.remove(fname)
 	f.open(fname, File.WRITE)
+	f.store_line(str(playtime))
 	f.store_line(get_tree().get_current_scene().get_filename())
 	f.store_line(str(Player.get_position().x))
 	f.store_line(str(Player.get_position().y))
 	f.store_line(str(Player.get_direction()))
 	f.store_line(str(money))
 	f.store_line(to_json(flags))
+	
 	if f.is_open():
 		f.close()
 
 
 func load_game(slot: int):
 	var f := File.new()
-	f.open("user://data_" + str(slot + 1) + ".uf", File.READ)
+	var fname := "user://data_s" + str(slot + 1) + ".uf"
+	assert(f.file_exists(fname))
+	f.open(fname, File.READ)
 	var scn: String
 	var pos: Vector2 = Vector2(0, 0)
 	var dir: int
 	
+	playtime = float(f.get_line())
 	scn = f.get_line()
 	pos.x = float(f.get_line())
 	pos.y = float(f.get_line())

@@ -3,14 +3,16 @@ extends Node2D
 var nav_pos: int = -1
 var active := false
 
-onready var but1 := get_node("Button1")
-onready var but2 := get_node("Button2")
-onready var but3 := get_node("Button3")
-onready var but4 := get_node("Button4")
+onready var but1 := $Button1 as ButtonUF
+onready var but2 := $Button2 as ButtonUF
+onready var but3 := $Button3 as ButtonUF
+onready var but4 := $Button4 as ButtonUF
 
 onready var buttons = [but1, but2, but3, but4]
 
 onready var anim_player_blink := $Cosmo/AnimationPlayer as AnimationPlayer
+
+# =====================================================================
 
 func _ready():
 	Controller.draw_overlay(false)
@@ -96,6 +98,8 @@ func _on_Button1_clicked() -> void:
 	Controller.draw_overlay(true)
 	Controller.draw_overlay_map(true)
 	get_tree().change_scene("res://Scenes/Intro/Train1.tscn")
+	Controller.set_playtime(0)
+	Controller.set_tracking_playtime(true)
 	#get_tree().change_scene("res://Scenes/Intro/IntroNew.tscn")
 
 
