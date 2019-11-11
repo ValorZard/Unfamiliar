@@ -43,12 +43,12 @@ extents = Vector2( 8, 30 )
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -262,23 +262,23 @@ texture = ExtResource( 7 )
 position = Vector2( 227, 56 )
 texture = ExtResource( 7 )
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="CanvasLayer" instance=ExtResource( 8 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 8 )]
 position = Vector2( 248, 120 )
 target_scene = "res://Scenes/Intro/Train1.tscn"
 target_direction = 3
 
-[node name="CollisionShape2D" parent="CanvasLayer/Transition" index="0"]
+[node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
 shape = SubResource( 8 )
 
-[node name="Transition2" parent="CanvasLayer" instance=ExtResource( 8 )]
+[node name="Transition2" parent="Transitions" instance=ExtResource( 8 )]
 position = Vector2( 72, 120 )
 target_scene = "res://Scenes/Intro/Train3.tscn"
 target_direction = 2
 
-[node name="CollisionShape2D" parent="CanvasLayer/Transition2" index="0"]
+[node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
 shape = SubResource( 9 )
 
 [node name="NPCRudeman" parent="." instance=ExtResource( 9 )]
@@ -302,9 +302,9 @@ set_flag = "npc_train_unsurewoman"
 [node name="Sprite" parent="NPCUnsurewoman" index="0"]
 frames = SubResource( 11 )
 
-[editable path="CanvasLayer/Transition"]
+[editable path="Transitions/Transition"]
 
-[editable path="CanvasLayer/Transition2"]
+[editable path="Transitions/Transition2"]
 
 [editable path="NPCRudeman"]
 

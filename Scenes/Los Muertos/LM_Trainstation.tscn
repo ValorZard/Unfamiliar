@@ -252,6 +252,7 @@ __meta__ = {
 }
 
 [node name="Transitions" type="CanvasLayer" parent="."]
+layer = 6
 
 [node name="Transition" parent="Transitions" instance=ExtResource( 5 )]
 position = Vector2( 144, 10 )

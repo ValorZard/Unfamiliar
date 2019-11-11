@@ -251,12 +251,7 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		get_tree().get_root().add_child(scn_i)
 		
 		# Move map marker
-		var loc: Vector2 = map_marker_locs.get(path)
-		if loc != null:
-			map_marker.set_position(Vector2(4 + 8 * loc.x, 3 + 6 * loc.y))
-			map_marker.show()
-		else:
-			map_marker.hide()
+		update_map_marker(path)
 		
 		# Scroll camera
 		anim_player.get_animation("CameraScroll").track_set_key_value(0, 1, target)
@@ -284,6 +279,15 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		current_scene.set_name("__temp")
 		scn_i.set_name("Scene")
 		current_scene.queue_free()
+		
+		
+func update_map_marker(path: String):
+	var loc: Vector2 = map_marker_locs.get(path)
+	if loc != null:
+		map_marker.set_position(Vector2(4 + 8 * loc.x, 3 + 6 * loc.y))
+		map_marker.show()
+	else:
+		map_marker.hide()
 		
 		
 func save_game(slot: int, datetime: Dictionary):
@@ -315,6 +319,7 @@ func load_game(slot: int):
 	var pos: Vector2 = Vector2(0, 0)
 	var dir: int
 	
+	var buffer = f.get_line() # Skip date/time
 	playtime = float(f.get_line())
 	scn = f.get_line()
 	pos.x = float(f.get_line())
@@ -326,9 +331,12 @@ func load_game(slot: int):
 	if f.is_open():
 		f.close()
 
-	get_tree().change_scene(scn)
-	Player.set_position(pos)
-	Player.set_direction(dir)
+	goto_scene(scn, pos, dir, false)
+	update_map_marker(scn)
+	draw_overlay(true)
+	draw_overlay_map(true)
+	Player.show()
+	Controller.set_tracking_playtime(true)
 
 
 func get_money() -> int:

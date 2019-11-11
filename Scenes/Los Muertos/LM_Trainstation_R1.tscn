@@ -20,6 +20,7 @@ flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 40.0
+angular_velocity = 1.46993e+028
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 anim_speed = 10.0
@@ -32,19 +33,19 @@ extents = Vector2( 80, 0.5 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 88, 16 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 32, 8 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 40, 8 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 24, 8 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8, 56 )
 
-[sub_resource type="Shader" id=8]
+[sub_resource type="Shader" id=9]
 code = "shader_type canvas_item;
 uniform vec4 color : hint_color;
 
@@ -70,11 +71,11 @@ void fragment() {
 	}
 }"
 
-[sub_resource type="ShaderMaterial" id=9]
-shader = SubResource( 8 )
+[sub_resource type="ShaderMaterial" id=10]
+shader = SubResource( 9 )
 shader_param/color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 3.5, 3 )
 
 [node name="Scene" type="Node2D"]
@@ -134,15 +135,15 @@ shape = SubResource( 4 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 96, 170 )
-shape = SubResource( 11 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 216, 170 )
-shape = SubResource( 12 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 152, 180 )
-shape = SubResource( 13 )
+shape = SubResource( 7 )
 
 [node name="TileMap3" type="TileMap" parent="."]
 position = Vector2( 80, 18 )
@@ -156,6 +157,7 @@ __meta__ = {
 }
 
 [node name="Transitions" type="CanvasLayer" parent="."]
+layer = 6
 
 [node name="Transition" parent="Transitions" instance=ExtResource( 4 )]
 position = Vector2( 72, 106 )
@@ -163,7 +165,7 @@ target_scene = "res://Scenes/Los Muertos/LM_Trainstation.tscn"
 target_direction = 2
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Transition2" parent="Transitions" instance=ExtResource( 4 )]
 position = Vector2( 248, 106 )
@@ -171,10 +173,10 @@ target_scene = "res://Scenes/Los Muertos/LM_Trainstation_R2.tscn"
 target_direction = 3
 
 [node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Light" type="Sprite" parent="."]
-material = SubResource( 9 )
+material = SubResource( 10 )
 position = Vector2( 112, 68 )
 texture = ExtResource( 5 )
 
@@ -190,10 +192,10 @@ texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp"]
 position = Vector2( 0, 16.5 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="Light2" type="Sprite" parent="."]
-material = SubResource( 9 )
+material = SubResource( 10 )
 position = Vector2( 208, 68 )
 texture = ExtResource( 5 )
 
@@ -209,7 +211,7 @@ texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp2"]
 position = Vector2( 0, 16.5 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [editable path="Transitions/Transition"]
 

@@ -24,6 +24,7 @@ flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 40.0
+angular_velocity = -1.#QNAN
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 anim_speed = 10.0
@@ -134,6 +135,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 3, 16 )
 
 [node name="Transitions" type="CanvasLayer" parent="."]
+layer = 6
 
 [node name="Transition" parent="Transitions" instance=ExtResource( 7 )]
 position = Vector2( 248, 98 )

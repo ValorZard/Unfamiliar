@@ -109,8 +109,10 @@ func _on_Button2_clicked() -> void:
 	but2.anim_selected()
 	but3.anim_not_selected()
 	but4.anim_not_selected()
-	yield(get_tree().create_timer(0.8), "timeout")
-	yield(Controller.open_save_menu(true), "menu_closed")
+	yield(get_tree().create_timer(0.5), "timeout")
+	$AnimationPlayerSetup.play("Teardown Options 2")
+	yield($AnimationPlayerSetup, "animation_finished")
+	yield(Controller.open_save_menu(true, false), "menu_closed")
 
 
 func _on_Button3_clicked() -> void:
@@ -120,7 +122,7 @@ func _on_Button3_clicked() -> void:
 	but3.anim_selected()
 	but4.anim_not_selected()
 	yield(get_tree().create_timer(0.5), "timeout")
-	$AnimationPlayerSetup.play("Teardown Options")
+	$AnimationPlayerSetup.play("Teardown Options 2")
 	yield($AnimationPlayerSetup, "animation_finished")
 
 

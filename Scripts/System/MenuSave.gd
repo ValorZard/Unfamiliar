@@ -25,18 +25,23 @@ func start(use_background: bool):
 	if not use_background:
 		$CanvasLayer/ColorRect.hide()
 	
-	$AnimationPlayer.play("Appear")
+	var player := $AnimationPlayer as AnimationPlayer
+	player.play("Appear")
+	if not use_background:
+		player.seek(0.9)
 	
 
 func set_load_mode(value: bool):
 	load_mode = value
+	if value:
+		$CanvasLayer/Polygon2D/Label.set_text("Load Game")
 
 # =====================================================================
 
 func _get_info_str(day: int, month: int, year: int, money: int, hour: int, minute: int, playtime: float) -> String:
 	return str(day) + " " + Controller.get_month_str(int(month)) + ", " + str(year) + " " \
-				+ "                $" + str(money) + "\n" + str(hour) + ":" + str(minute).pad_zeros(2) + \
-				"                " + Controller.get_playtime_str(playtime)
+				+ "                $" + str(money) + "\n" + str(hour) + ":" + str(minute).pad_zeros(2) \
+				+ "                " + Controller.get_playtime_str(playtime)
 
 func _load_save_info():
 	for slot in range(4):
@@ -72,10 +77,24 @@ func _click_slot(slot: int):
 		var dt := OS.get_datetime()
 		Controller.save_game(slot, dt)
 		(buttons[slot] as ButtonUF).set_button_text(_get_info_str(dt.day, dt.month, dt.year, Controller.get_money(), dt.hour, dt.minute, Controller.get_playtime()))
+		$AnimationPlayerText.play("Disappear")
 		yield(get_tree().create_timer(2.5), "timeout")
 		anim_player.play("Disappear")
 	else: # Load game
-		pass
+		$AnimationPlayerText.play("Disappear")
+		yield(get_tree().create_timer(2.5), "timeout")
+		anim_player.play("Disappear Load")
+		yield(anim_player, "animation_finished")
+		Controller.fade(0.5, true, Color(0, 0, 0), true)
+		yield(get_tree().create_timer(0.5), "timeout")
+		Controller.load_game(slot)
+		Controller.fade(0.1, false, Color(0, 0, 0), true)
+		yield(get_tree().create_timer(0.5), "timeout")
+		$CanvasLayer/ColorRect.hide()
+		anim_player.play("Finish Load")
+		yield(anim_player, "animation_finished")
+		Player.set_state(Player.PlayerState.Move)
+		queue_free()
 		
 # =====================================================================
 
