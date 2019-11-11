@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/System/Menu.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=2]
@@ -6,33 +6,6 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 26, 8 )
-
-[sub_resource type="Animation" id=2]
-resource_name = "Appear"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.517632, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Disappear"
@@ -157,33 +130,6 @@ tracks/1/keys = {
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 31, 8 )
-
-[sub_resource type="Animation" id=8]
-resource_name = "Appear"
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.517632, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
 
 [sub_resource type="Animation" id=9]
 resource_name = "Disappear"
@@ -521,7 +467,6 @@ button_text = "Options"
 choice_button = false
 
 [node name="AnimationPlayer" parent="CanvasLayer/Button2" index="2"]
-anims/Appear = SubResource( 2 )
 anims/Disappear = SubResource( 3 )
 anims/Select = SubResource( 4 )
 
@@ -541,7 +486,6 @@ button_text = "Exit"
 choice_button = false
 
 [node name="AnimationPlayer" parent="CanvasLayer/Button3" index="2"]
-anims/Appear = SubResource( 8 )
 anims/Disappear = SubResource( 9 )
 anims/Select = SubResource( 10 )
 

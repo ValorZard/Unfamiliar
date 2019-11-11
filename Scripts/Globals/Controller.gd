@@ -6,6 +6,7 @@ const CosmoSprite := "res://Resources/Sprite Frames/SpriteFrames_Cosmo.tres"
 const DiscourseScene := "res://Scenes/Discourse.tscn"
 const MenuRef := "res://Instances/System/Menu.tscn"
 const SaveMenuRef := "res://Instances/System/MenuSave.tscn"
+const ExitMenuRef := "res://Instances/System/MenuExit.tscn"
 const FlashbackRef := "res://Instances/System/Flashback.tscn"
 
 const SoundOneShotRef := preload("res://Instances/SoundOneShot.tscn")
@@ -220,6 +221,13 @@ func open_save_menu(load_: bool, use_background: bool = true):
 	menu.set_load_mode(load_)
 	get_tree().get_root().add_child(menu)
 	menu.start(use_background)
+	return menu
+
+
+func open_exit_menu(parent_menu: Menu):
+	var menu := (load(ExitMenuRef) as PackedScene).instance()
+	menu.set_parent_menu(parent_menu)
+	get_tree().get_root().add_child(menu)
 	return menu
 
 

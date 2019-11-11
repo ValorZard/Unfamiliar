@@ -1,0 +1,109 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scripts/System/MenuExit.gd" type="Script" id=1]
+[ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 39.669, 10.6212 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 43.9602, 11.705 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 29.2524, 8.92006 )
+
+[sub_resource type="Animation" id=1]
+resource_name = "Appear"
+tracks/0/type = "method"
+tracks/0/path = NodePath("CanvasLayer/Button1")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("CanvasLayer/Button2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("CanvasLayer/Button3")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear"
+} ]
+}
+
+[node name="MenuExit" type="Node2D"]
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [ 90.7749 ],
+"_edit_vertical_guides_": [ 160.0 ]
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Button1" parent="CanvasLayer" instance=ExtResource( 2 )]
+position = Vector2( 147.607, 55.1525 )
+polygon = PoolVector2Array( 18.4504, 24.925, 96.7935, 24.7104, 90.9983, 6.68072, 24.6749, 3.2465 )
+button_text = "To Title"
+choice_button = false
+
+[node name="CollisionShape2D" parent="CanvasLayer/Button1/AreaHover" index="0"]
+position = Vector2( 3, -1 )
+shape = SubResource( 2 )
+
+[node name="Button2" parent="CanvasLayer" instance=ExtResource( 2 )]
+position = Vector2( 172.13, 97.7257 )
+polygon = PoolVector2Array( 8.03457, 26.8422, 92.3876, 25.125, 97.9682, 7.95394, 17.264, 3.01725 )
+button_text = "To Desktop"
+choice_button = false
+
+[node name="CollisionShape2D" parent="CanvasLayer/Button2/AreaHover" index="0"]
+position = Vector2( -2, 0 )
+shape = SubResource( 3 )
+
+[node name="Button3" parent="CanvasLayer" instance=ExtResource( 2 )]
+position = Vector2( 115.873, 146.521 )
+polygon = PoolVector2Array( 28.5201, 23.5488, 83.253, 22.9049, 83.253, 4.446, 23.5834, 6.59239 )
+button_text = "Cancel"
+choice_button = false
+
+[node name="CollisionShape2D" parent="CanvasLayer/Button3/AreaHover" index="0"]
+position = Vector2( -1, -1 )
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Appear = SubResource( 1 )
+[connection signal="clicked" from="CanvasLayer/Button1" to="." method="_on_Button_clicked"]
+[connection signal="clicked" from="CanvasLayer/Button2" to="." method="_on_Button2_clicked"]
+[connection signal="clicked" from="CanvasLayer/Button3" to="." method="_on_Button3_clicked"]
+
+[editable path="CanvasLayer/Button1"]
+
+[editable path="CanvasLayer/Button2"]
+
+[editable path="CanvasLayer/Button3"]

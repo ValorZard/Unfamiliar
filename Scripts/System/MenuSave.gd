@@ -38,7 +38,7 @@ func set_load_mode(value: bool):
 	load_mode = value
 	if value:
 		$CanvasLayer/Polygon2D/Label.set_text("Load Game")
-
+		
 # =====================================================================
 
 func _get_info_str(day: int, month: int, year: int, money: int, hour: int, minute: int, playtime: float) -> String:

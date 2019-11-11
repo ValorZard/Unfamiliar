@@ -39,13 +39,20 @@ func _on_Button2_clicked():
 	but1.anim_not_selected(false)
 	but2.anim_selected(false)
 	but3.anim_not_selected(false)
-
+	
 
 func _on_Button3_clicked():
 	but1.anim_not_selected(false)
 	but2.anim_not_selected(false)
 	but3.anim_selected(false)
-
+	yield(get_tree().create_timer(0.8), "timeout")
+	yield(Controller.open_exit_menu(self), "menu_closed")
+	but3.set_clicked(false)
+	but3.set_hover(false)
+	but1.appear()
+	but2.appear()
+	but3.appear()
+	
 
 func _on_AnimationPlayer_animation_finished(anim_name: String):
 	if anim_name == "Appear":
