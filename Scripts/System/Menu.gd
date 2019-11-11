@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Menu
+
 var active := false
 
 onready var but1 := $CanvasLayer/Button1 as ButtonUF
@@ -16,10 +18,21 @@ func _process(delta):
 		
 # =====================================================================
 
+
+
+# =====================================================================
+
 func _on_Button_clicked():
 	but1.anim_selected(false)
 	but2.anim_not_selected(false)
 	but3.anim_not_selected(false)
+	yield(get_tree().create_timer(0.8), "timeout")
+	yield(Controller.open_save_menu(false), "menu_closed")
+	but1.set_clicked(false)
+	but1.set_hover(false)
+	but1.appear()
+	but2.appear()
+	but3.appear()
 
 
 func _on_Button2_clicked():

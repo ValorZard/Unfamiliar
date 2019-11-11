@@ -109,7 +109,8 @@ func _on_Button2_clicked() -> void:
 	but2.anim_selected()
 	but3.anim_not_selected()
 	but4.anim_not_selected()
-	print("BUTTON 2")
+	yield(get_tree().create_timer(0.8), "timeout")
+	yield(Controller.open_save_menu(true), "menu_closed")
 
 
 func _on_Button3_clicked() -> void:

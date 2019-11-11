@@ -20,6 +20,7 @@ const SoundClick := preload("res://Audio/Click.ogg")
 var index: int
 var target_line: int = -1
 
+var initial_position: Vector2
 var pos_start: Vector2
 var poly := PoolVector2Array()
 var poly_initial := PoolVector2Array()
@@ -33,6 +34,8 @@ var controller = null
 
 var text_controller = null
 
+onready var label := $Label as Label
+onready var spr := $Sprite as Sprite
 onready var anim_player := $AnimationPlayer as AnimationPlayer
 onready var anim_player_hover := $AnimationPlayerHover as AnimationPlayer
 
@@ -54,9 +57,9 @@ export(bool) var choice_button = true
 # =====================================================================
 
 func _ready():
-	$Label.set_text(button_text)
+	label.set_text(button_text)
 	if button_image != null:
-		$Sprite.set_texture(button_image)
+		spr.set_texture(button_image)
 
 	for point in polygon:
 		var xx = rand_range(-Variance, Variance) if choice_button else 0.0
@@ -67,6 +70,7 @@ func _ready():
 	poly_initial = poly
 	vertex_colors = ColorsTransparent
 	
+	initial_position = get_position()
 	set_scale(Vector2.ZERO)
 	
 	if randf() > 0.5:
@@ -106,7 +110,7 @@ func _draw():
 
 func appear():
 	animate = true
-	setup_animation(get_position())
+	setup_animation(initial_position)
 
 
 func set_text_controller(value):
@@ -118,8 +122,9 @@ func set_controller(controller):
 
 
 func setup_animation(end_pos: Vector2):
+	var player := $AnimationPlayer as AnimationPlayer
 	pos_start = end_pos
-	var player: AnimationPlayer = $AnimationPlayer
+	
 	player.get_animation("Appear").track_insert_key(1, 0, Vector2(160, 90), 0.52)
 	player.get_animation("Appear").track_insert_key(1, 1, end_pos)
 	player.get_animation("Disappear").track_insert_key(1, 0, end_pos, 1.52)
@@ -127,19 +132,31 @@ func setup_animation(end_pos: Vector2):
 	player.add_animation("Appear2", player.get_animation("Appear").duplicate())
 	player.add_animation("Disappear2", player.get_animation("Disappear").duplicate())
 	player.add_animation("Select2", player.get_animation("Select").duplicate())
-	player.play("Appear2")
 	
+	player.rename_animation("Appear", "__temp")
+	player.rename_animation("Appear2", "Appear")
+	player.remove_animation("__temp")
+	
+	player.rename_animation("Select", "__temp2")
+	player.rename_animation("Select2", "Select")
+	player.remove_animation("__temp2")
+	
+	player.rename_animation("Disappear", "__temp3")
+	player.rename_animation("Disappear2", "Disappear")
+	player.remove_animation("__temp3")
+	
+	player.play("Appear")
 	
 func anim_selected(destroy: bool = true):
 	active = false
 	destroy_after_disappear = destroy
-	anim_player.play("Select2")
+	anim_player.play("Select")
 	
 
 func anim_not_selected(destroy: bool = true):
 	active = false
 	destroy_after_disappear = destroy
-	anim_player.play("Disappear2")
+	anim_player.play("Disappear")
 	
 	
 func get_index() -> int:
@@ -149,9 +166,17 @@ func get_index() -> int:
 func set_index(value: int):
 	index = value
 	
+	
+func set_hover(value: bool):
+	hover = value
+	
+	
+func set_clicked(value: bool):
+	click = value
+	
 
 func set_button_text(text: String):
-	$Label.set_text(text)
+	label.set_text(text)
 	
 
 func get_target_line() -> int:
@@ -164,10 +189,10 @@ func set_target_line(target: int):
 # =====================================================================
 
 func _on_AnimationPlayer_animation_finished(anim_name: String):
-	if anim_name == "Appear2":
+	if anim_name == "Appear":
 		active = true
 	
-	if (anim_name == "Select2" or anim_name == "Disappear2") and destroy_after_disappear:
+	if (anim_name == "Select" or anim_name == "Disappear") and destroy_after_disappear:
 		queue_free()
 
 

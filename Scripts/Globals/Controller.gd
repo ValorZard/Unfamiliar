@@ -5,6 +5,7 @@ const DiscourseStartRef := "res://Scenes/DiscourseStart.tscn"
 const CosmoSprite := "res://Resources/Sprite Frames/SpriteFrames_Cosmo.tres"
 const DiscourseScene := "res://Scenes/Discourse.tscn"
 const MenuRef := "res://Instances/System/Menu.tscn"
+const SaveMenuRef := "res://Instances/System/MenuSave.tscn"
 const FlashbackRef := "res://Instances/System/Flashback.tscn"
 
 const SoundOneShotRef := preload("res://Instances/SoundOneShot.tscn")
@@ -124,17 +125,14 @@ func _process(delta: float):
 	
 	money_text.text = str(money_disp)
 	
-	if Input.is_action_just_pressed("sys_menu") and not menu_open:
-		menu_open = true
-		Player.set_state(Player.PlayerState.NoInput)
-		var menu := (load(MenuRef) as PackedScene).instance()
-		get_tree().get_root().add_child(menu)
+	if Input.is_action_just_pressed("sys_menu") and not menu_open and Player.get_state() != Player.PlayerState.NoInput:
+		open_menu()
 		
 	if Input.is_action_just_pressed("sys_fullscreen"):
 		OS.set_window_fullscreen(not OS.is_window_fullscreen())
 		
 	if Input.is_action_just_pressed("debug_2"):
-		save_game(0)
+		save_game(0, OS.get_datetime())
 
 # =====================================================================
 
@@ -144,6 +142,10 @@ func flag(key: String) -> int:
 
 func set_flag(key: String, value: int):
 	flags[key] = value
+	
+	
+func get_playtime() -> float:
+	return playtime
 	
 
 func set_playtime(value: float):
@@ -204,6 +206,21 @@ func fade(time: float, fadeout: bool, color: Color = Color(0, 0, 0), above_overl
 	
 	anim_player_fade.set_speed_scale(1.0 / time)
 	anim_player_fade.play("Fadeout" if fadeout else "Fadein")
+	
+	
+func open_menu():
+	menu_open = true
+	Player.set_state(Player.PlayerState.NoInput)
+	var menu := (load(MenuRef) as PackedScene).instance()
+	get_tree().get_root().add_child(menu)	
+	
+	
+func open_save_menu(load_: bool, use_background: bool = true):
+	var menu := (load(SaveMenuRef) as PackedScene).instance()
+	menu.set_load_mode(load_)
+	get_tree().get_root().add_child(menu)
+	menu.start(use_background)
+	return menu
 
 
 func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, relative_coords: bool = true):
@@ -269,15 +286,16 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		current_scene.queue_free()
 		
 		
-func save_game(slot: int):
+func save_game(slot: int, datetime: Dictionary):
 	var f := File.new()
 	var fname := "user://data_s" + str(slot + 1) + ".uf"
 	if f.file_exists(fname):
 		var dir := Directory.new()
 		dir.remove(fname)
 	f.open(fname, File.WRITE)
+	f.store_line(to_json(datetime))
 	f.store_line(str(playtime))
-	f.store_line(get_tree().get_current_scene().get_filename())
+	f.store_line(get_node("/root/Scene").get_filename())
 	f.store_line(str(Player.get_position().x))
 	f.store_line(str(Player.get_position().y))
 	f.store_line(str(Player.get_direction()))
@@ -388,6 +406,34 @@ func draw_overlay(draw: bool):
 
 func draw_overlay_map(draw: bool):
 	$Overlay/CanvasLayer/Map.set_visible(draw)
+	
+	
+func get_month_str(month: int, short: bool = true) -> String:
+	match month:
+		1:
+			return "Jan" if short else "January"
+		2:
+			return "Feb" if short else "February"
+		3:
+			return "Mar" if short else "March"
+		4:
+			return "Apr" if short else "April"
+		5:
+			return "May"
+		6:
+			return "Jun" if short else "June"
+		7:
+			return "Jul" if short else "July"
+		8:
+			return "Aug" if short else "August"
+		9:
+			return "Sep" if short else "September"
+		10:
+			return "Oct" if short else "October"
+		11:
+			return "Nov" if short else "November"
+		12:
+			return "Dec" if short else "December"
 
 # =====================================================================
 
