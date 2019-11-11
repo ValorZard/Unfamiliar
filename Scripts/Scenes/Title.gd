@@ -88,10 +88,10 @@ func _on_Button4_hover_start():
 
 func _on_Button1_clicked() -> void:
 	active = false
-	but1.anim_selected()
-	but2.anim_not_selected()
-	but3.anim_not_selected()
-	but4.anim_not_selected()
+	but1.anim_selected(false)
+	but2.anim_not_selected(false)
+	but3.anim_not_selected(false)
+	but4.anim_not_selected(false)
 	yield(get_tree().create_timer(0.5), "timeout")
 	$AnimationPlayerSetup.play("Teardown Start")
 	yield($AnimationPlayerSetup, "animation_finished")
@@ -105,22 +105,25 @@ func _on_Button1_clicked() -> void:
 
 func _on_Button2_clicked() -> void:
 	active = false
-	but1.anim_not_selected()
-	but2.anim_selected()
-	but3.anim_not_selected()
-	but4.anim_not_selected()
+	but1.anim_not_selected(false)
+	but2.anim_selected(false)
+	but3.anim_not_selected(false)
+	but4.anim_not_selected(false)
 	yield(get_tree().create_timer(0.5), "timeout")
 	$AnimationPlayerSetup.play("Teardown Options 2")
 	yield($AnimationPlayerSetup, "animation_finished")
 	yield(Controller.open_save_menu(true, false), "menu_closed")
+	but2.set_clicked(false)
+	but2.set_hover(false)
+	$AnimationPlayerSetup.play("Unteardown")
 
 
 func _on_Button3_clicked() -> void:
 	active = false
-	but1.anim_not_selected()
-	but2.anim_not_selected()
-	but3.anim_selected()
-	but4.anim_not_selected()
+	but1.anim_not_selected(false)
+	but2.anim_not_selected(false)
+	but3.anim_selected(false)
+	but4.anim_not_selected(false)
 	yield(get_tree().create_timer(0.5), "timeout")
 	$AnimationPlayerSetup.play("Teardown Options 2")
 	yield($AnimationPlayerSetup, "animation_finished")
@@ -128,10 +131,10 @@ func _on_Button3_clicked() -> void:
 
 func _on_Button4_clicked() -> void:
 	active = false
-	but1.anim_not_selected()
-	but2.anim_not_selected()
-	but3.anim_not_selected()
-	but4.anim_selected()
+	but1.anim_not_selected(false)
+	but2.anim_not_selected(false)
+	but3.anim_not_selected(false)
+	but4.anim_selected(false)
 	yield(get_tree().create_timer(0.5), "timeout")
 	$AnimationPlayerSetup.play("Teardown")
 	yield($AnimationPlayerSetup, "animation_finished")

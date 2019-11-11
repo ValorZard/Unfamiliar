@@ -5,12 +5,15 @@ signal menu_closed
 var active := false
 var load_mode := false
 
+var files_present: Array = [false, false, false, false]
+
 onready var anim_player := $AnimationPlayer as AnimationPlayer
 
 onready var button1 = $CanvasLayer/Button1 as ButtonUF
 onready var button2 = $CanvasLayer/Button2 as ButtonUF
 onready var button3 = $CanvasLayer/Button3 as ButtonUF
 onready var button4 = $CanvasLayer/Button4 as ButtonUF
+onready var button_cancel = $CanvasLayer/Button5 as ButtonUF
 
 onready var buttons: Array = [button1, button2, button3, button4]
 
@@ -66,8 +69,9 @@ func _load_save_info():
 				f.close()
 			
 			var info_str := _get_info_str(slot_datetime.day, slot_datetime.month, slot_datetime.year, slot_money, slot_datetime.hour, slot_datetime.minute, slot_playtime)
-				
+			
 			(buttons[slot] as ButtonUF).set_button_text(info_str)
+			files_present[slot] = true
 		else:
 			(buttons[slot] as ButtonUF).set_button_text("EMPTY")
 			
@@ -99,35 +103,54 @@ func _click_slot(slot: int):
 # =====================================================================
 
 func _on_Button1_clicked():
-	button1.anim_selected()
-	button2.anim_not_selected()
-	button3.anim_not_selected()
-	button4.anim_not_selected()
-	_click_slot(0)
+	if files_present[0] or not load_mode:
+		button1.anim_selected()
+		button2.anim_not_selected()
+		button3.anim_not_selected()
+		button4.anim_not_selected()
+		button_cancel.anim_not_selected()
+		_click_slot(0)
 
 
 func _on_Button2_clicked():
-	button1.anim_not_selected()
-	button2.anim_selected()
-	button3.anim_not_selected()
-	button4.anim_not_selected()
-	_click_slot(1)
+	if files_present[1] or not load_mode:
+		button1.anim_not_selected()
+		button2.anim_selected()
+		button3.anim_not_selected()
+		button4.anim_not_selected()
+		button_cancel.anim_not_selected()
+		_click_slot(1)
 
 
 func _on_Button3_clicked():
-	button1.anim_not_selected()
-	button2.anim_not_selected()
-	button3.anim_selected()
-	button4.anim_not_selected()
-	_click_slot(2)
+	if files_present[2] or not load_mode:
+		button1.anim_not_selected()
+		button2.anim_not_selected()
+		button3.anim_selected()
+		button4.anim_not_selected()
+		button_cancel.anim_not_selected()
+		_click_slot(2)
 
 
 func _on_Button4_clicked():
+	if files_present[3] or not load_mode:
+		button1.anim_not_selected()
+		button2.anim_not_selected()
+		button3.anim_not_selected()
+		button4.anim_selected()
+		button_cancel.anim_not_selected()
+		_click_slot(3)
+		
+		
+func _on_Button5_clicked():
 	button1.anim_not_selected()
 	button2.anim_not_selected()
 	button3.anim_not_selected()
-	button4.anim_selected()
-	_click_slot(3)
+	button4.anim_not_selected()
+	button_cancel.anim_selected()
+	$AnimationPlayerText.play("Disappear")
+	yield(get_tree().create_timer(2.5), "timeout")
+	anim_player.play("Disappear")
 
 
 func _on_AnimationPlayer_animation_finished(anim_name: String):

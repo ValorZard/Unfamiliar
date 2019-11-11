@@ -319,6 +319,7 @@ func load_game(slot: int):
 	var pos: Vector2 = Vector2(0, 0)
 	var dir: int
 	
+	# warning-ignore:unused_variable
 	var buffer = f.get_line() # Skip date/time
 	playtime = float(f.get_line())
 	scn = f.get_line()

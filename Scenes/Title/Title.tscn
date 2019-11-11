@@ -95,33 +95,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 37, 8 )
-
-[sub_resource type="Animation" id=8]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.517632, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
+extents = Vector2( 40, 10 )
 
 [sub_resource type="Animation" id=9]
 tracks/0/type = "value"
@@ -243,33 +217,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 43, 7 )
-
-[sub_resource type="Animation" id=14]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.517632, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
+extents = Vector2( 47, 9 )
 
 [sub_resource type="Animation" id=15]
 tracks/0/type = "value"
@@ -390,34 +338,8 @@ tracks/1/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=19]
-extents = Vector2( 34, 8 )
-
-[sub_resource type="Animation" id=20]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.517632, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
+[sub_resource type="RectangleShape2D" id=38]
+extents = Vector2( 35, 9 )
 
 [sub_resource type="Animation" id=21]
 tracks/0/type = "value"
@@ -537,6 +459,9 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 0.0, 10.0 ]
 }
+
+[sub_resource type="RectangleShape2D" id=39]
+extents = Vector2( 37, 8 )
 
 [sub_resource type="Animation" id=25]
 length = 5.0
@@ -904,6 +829,130 @@ tracks/9/keys = {
 "values": [ Vector2( 226, 33 ), Vector2( 226, 33 ), Vector2( 226, -50 ) ]
 }
 
+[sub_resource type="Animation" id=40]
+resource_name = "Logo unflyout"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Logo1:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.420448, 1 ),
+"update": 0,
+"values": [ Vector2( 14, -50 ), Vector2( 14, 24 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Logo2:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.8 ),
+"transitions": PoolRealArray( 0.420448, 0.420448, 1 ),
+"update": 0,
+"values": [ Vector2( 50, -50 ), Vector2( 50, -50 ), Vector2( 50, 34 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Logo3:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.9 ),
+"transitions": PoolRealArray( 0.420448, 0.420448, 1 ),
+"update": 0,
+"values": [ Vector2( 74, -50 ), Vector2( 74, -50 ), Vector2( 74, 25 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Logo4:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.4, 1 ),
+"transitions": PoolRealArray( 0.420448, 0.420448, 1 ),
+"update": 0,
+"values": [ Vector2( 95, -50 ), Vector2( 95, -50 ), Vector2( 95, 34 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Logo5:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 1.1 ),
+"transitions": PoolRealArray( 0.420448, 0.420448, 1 ),
+"update": 0,
+"values": [ Vector2( 119, -50 ), Vector2( 119, -50 ), Vector2( 119, 34 ) ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Logo6:position")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.6, 1.2 ),
+"transitions": PoolRealArray( 0.420448, 0.420448, 1 ),
+"update": 0,
+"values": [ Vector2( 158, -50 ), Vector2( 158, -50 ), Vector2( 158, 23 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Logo7:position")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.7, 1.3 ),
+"transitions": PoolRealArray( 0.420448, 0.420448, 1 ),
+"update": 0,
+"values": [ Vector2( 172, -50 ), Vector2( 172, -50 ), Vector2( 172, 24 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Logo8:position")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.8, 1.4 ),
+"transitions": PoolRealArray( 0.420448, 0.420448, 1 ),
+"update": 0,
+"values": [ Vector2( 186, -50 ), Vector2( 186, -50 ), Vector2( 186, 23 ) ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Logo9:position")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 0.9, 1.6 ),
+"transitions": PoolRealArray( 0.420448, 0.420448, 1 ),
+"update": 0,
+"values": [ Vector2( 202, -50 ), Vector2( 202, -50 ), Vector2( 202, 34 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Logo10:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 1, 1.8 ),
+"transitions": PoolRealArray( 0.420448, 0.420448, 1 ),
+"update": 0,
+"values": [ Vector2( 226, -50 ), Vector2( 226, -50 ), Vector2( 226, 33 ) ]
+}
+
 [sub_resource type="Animation" id=27]
 length = 8.0
 loop = true
@@ -1098,7 +1147,7 @@ tracks/9/keys = {
 "times": PoolRealArray( 0, 4.2, 4.9 ),
 "transitions": PoolRealArray( 1, 0.482968, 1 ),
 "update": 0,
-"values": [ 200, 200, 169.0 ]
+"values": [ 280, 280, 169.0 ]
 }
 tracks/10/type = "value"
 tracks/10/path = NodePath("Fade:color")
@@ -1225,7 +1274,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 2, 1 ),
 "update": 0,
-"values": [ 169.0, 169, 200 ]
+"values": [ 169.0, 169, 280 ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("Sprite3:self_modulate")
@@ -1327,7 +1376,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 2, 1 ),
 "update": 0,
-"values": [ 169.0, 169, 200 ]
+"values": [ 169.0, 169, 280 ]
 }
 tracks/2/type = "value"
 tracks/2/path = NodePath("Blur:material:shader_param/amount")
@@ -1405,7 +1454,7 @@ tracks/4/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 2, 1 ),
 "update": 0,
-"values": [ 169.0, 169, 200 ]
+"values": [ 169.0, 169, 280 ]
 }
 tracks/5/type = "value"
 tracks/5/path = NodePath("Blur:material:shader_param/amount")
@@ -1494,7 +1543,7 @@ tracks/5/keys = {
 "times": PoolRealArray( 0, 0.5, 1 ),
 "transitions": PoolRealArray( 1, 2, 1 ),
 "update": 0,
-"values": [ 169.0, 169, 200 ]
+"values": [ 169.0, 169, 280 ]
 }
 tracks/6/type = "value"
 tracks/6/path = NodePath("Sprite3:self_modulate")
@@ -1579,6 +1628,140 @@ tracks/12/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=41]
+resource_name = "Unteardown"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Polygon2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.420448, 1 ),
+"update": 0,
+"values": [ Vector2( 80, -64 ), Vector2( 16, -8 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Polygon2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.7 ),
+"transitions": PoolRealArray( 0.420448, 0.420448, 1 ),
+"update": 0,
+"values": [ Vector2( 71, 34 ), Vector2( 71, 34 ), Vector2( 0, -6 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Polygon2D3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.5, 1.1 ),
+"transitions": PoolRealArray( 0.420448, 0.420448, 1 ),
+"update": 0,
+"values": [ Vector2( -48, 34 ), Vector2( -48, 34 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Logo unflyout", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Copyright:margin_top")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 0.420448, 0.420448, 1 ),
+"update": 0,
+"values": [ 280, 280, 169 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Blur:material:shader_param/amount")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.2, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 2.5, 2.5, 0.0 ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("Button1")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear"
+} ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("Button2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear"
+} ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath("Button3")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear"
+} ]
+}
+tracks/9/type = "method"
+tracks/9/path = NodePath("Button4")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear"
+} ]
 }
 
 [sub_resource type="Animation" id=33]
@@ -1829,17 +2012,16 @@ decisive_click = true
 choice_button = false
 
 [node name="CollisionShape2D" parent="Button1/AreaHover" index="0"]
-position = Vector2( -1, 1 )
+position = Vector2( 1, 0 )
 shape = SubResource( 7 )
 
 [node name="Button2" parent="." instance=ExtResource( 9 )]
-position = Vector2( 103, 113 )
-polygon = PoolVector2Array( 17, 26, 108, 23, 95, 7, 12, 8 )
-button_text = "Continue"
+position = Vector2( 103, 115 )
+polygon = PoolVector2Array( 15, 24, 106, 21, 93, 5, 10, 6 )
+button_text = "Load Game"
 choice_button = false
 
 [node name="AnimationPlayer" parent="Button2" index="2"]
-anims/Appear = SubResource( 8 )
 anims/Disappear = SubResource( 9 )
 anims/Select = SubResource( 10 )
 
@@ -1850,7 +2032,7 @@ anims/Idle = SubResource( 11 )
 anims/Hover = SubResource( 12 )
 
 [node name="CollisionShape2D" parent="Button2/AreaHover" index="0"]
-position = Vector2( 3, 1 )
+position = Vector2( 2, -1 )
 shape = SubResource( 13 )
 
 [node name="Button3" parent="." instance=ExtResource( 9 )]
@@ -1860,7 +2042,6 @@ button_text = "Options"
 choice_button = false
 
 [node name="AnimationPlayer" parent="Button3" index="2"]
-anims/Appear = SubResource( 14 )
 anims/Disappear = SubResource( 15 )
 anims/Select = SubResource( 16 )
 
@@ -1871,8 +2052,8 @@ anims/Idle = SubResource( 17 )
 anims/Hover = SubResource( 18 )
 
 [node name="CollisionShape2D" parent="Button3/AreaHover" index="0"]
-position = Vector2( 3, 0 )
-shape = SubResource( 19 )
+position = Vector2( 1, 0 )
+shape = SubResource( 38 )
 
 [node name="Button4" parent="." instance=ExtResource( 9 )]
 position = Vector2( 196, 164 )
@@ -1881,7 +2062,6 @@ button_text = "Exit"
 choice_button = false
 
 [node name="AnimationPlayer" parent="Button4" index="2"]
-anims/Appear = SubResource( 20 )
 anims/Disappear = SubResource( 21 )
 anims/Select = SubResource( 22 )
 
@@ -1893,12 +2073,13 @@ anims/Hover = SubResource( 24 )
 
 [node name="CollisionShape2D" parent="Button4/AreaHover" index="0"]
 position = Vector2( 3, 0 )
-shape = SubResource( 19 )
+shape = SubResource( 39 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.5
 "anims/Logo flyin" = SubResource( 25 )
 "anims/Logo flyout" = SubResource( 26 )
+"anims/Logo unflyout" = SubResource( 40 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 playback_speed = 0.7
@@ -1910,6 +2091,7 @@ anims/Teardown = SubResource( 29 )
 "anims/Teardown Options" = SubResource( 30 )
 "anims/Teardown Options 2" = SubResource( 31 )
 "anims/Teardown Start" = SubResource( 32 )
+anims/Unteardown = SubResource( 41 )
 
 [node name="AnimationPlayerCosmo" type="AnimationPlayer" parent="."]
 autoplay = "Cosmo Idle"
@@ -1922,7 +2104,7 @@ autostart = true
 
 [node name="Copyright" type="Label" parent="."]
 margin_left = 36.0
-margin_top = 200.0
+margin_top = 280.0
 margin_right = 147.0
 margin_bottom = 183.0
 custom_fonts/font = ExtResource( 10 )

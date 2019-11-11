@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scripts/System/MenuSave.gd" type="Script" id=1]
 [ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=2]
@@ -305,8 +305,8 @@ tracks/1/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=13]
-extents = Vector2( 86, 19 )
+[sub_resource type="RectangleShape2D" id=29]
+extents = Vector2( 84, 19 )
 
 [sub_resource type="Animation" id=14]
 tracks/0/type = "value"
@@ -456,16 +456,19 @@ tracks/1/keys = {
 [sub_resource type="RectangleShape2D" id=19]
 extents = Vector2( 82, 18 )
 
-[sub_resource type="DynamicFont" id=26]
+[sub_resource type="RectangleShape2D" id=28]
+extents = Vector2( 28, 9 )
+
+[sub_resource type="DynamicFont" id=20]
 size = 32
 font_data = ExtResource( 3 )
 
-[sub_resource type="ShaderMaterial" id=23]
+[sub_resource type="ShaderMaterial" id=21]
 shader = ExtResource( 4 )
 shader_param/cutoff = 1.0
 shader_param/mask = ExtResource( 5 )
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=22]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
@@ -486,7 +489,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 1.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -500,7 +503,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 1.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -514,7 +517,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 1.2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -528,6 +531,20 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear"
+} ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("CanvasLayer/Button5")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
 "times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -536,8 +553,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=21]
-resource_name = "Disappear"
+[sub_resource type="Animation" id=23]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
 tracks/0/interp = 1
@@ -581,7 +597,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=26]
 resource_name = "Appear"
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Polygon2D:position")
@@ -608,7 +624,7 @@ tracks/1/keys = {
 "values": [ Vector2( -40, 40 ), Vector2( -40, 40 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=27]
 resource_name = "Disappear"
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Polygon2D:position")
@@ -701,7 +717,7 @@ anims/Hover = SubResource( 12 )
 
 [node name="CollisionShape2D" parent="CanvasLayer/Button3/AreaHover" index="0"]
 position = Vector2( 1, 4 )
-shape = SubResource( 13 )
+shape = SubResource( 29 )
 
 [node name="Button4" parent="CanvasLayer" instance=ExtResource( 2 )]
 position = Vector2( 229, 150 )
@@ -724,6 +740,16 @@ anims/Hover = SubResource( 18 )
 position = Vector2( 0, 5 )
 shape = SubResource( 19 )
 
+[node name="Button5" parent="CanvasLayer" instance=ExtResource( 2 )]
+position = Vector2( 71, 147 )
+polygon = PoolVector2Array( 27, 25, 82, 24, 81, 6, 27, 8 )
+button_text = "Cancel"
+choice_button = false
+
+[node name="CollisionShape2D" parent="CanvasLayer/Button5/AreaHover" index="0"]
+position = Vector2( -1, 1 )
+shape = SubResource( 28 )
+
 [node name="Polygon2D" type="Polygon2D" parent="CanvasLayer"]
 position = Vector2( 60, -60 )
 color = Color( 0.109804, 0.188235, 0.352941, 1 )
@@ -735,7 +761,7 @@ margin_top = -4.0
 margin_right = 343.0
 margin_bottom = 20.0
 rect_rotation = 25.0
-custom_fonts/font = SubResource( 26 )
+custom_fonts/font = SubResource( 20 )
 custom_colors/font_color = Color( 0.486275, 0.639216, 1, 1 )
 text = "Save Game"
 align = 1
@@ -746,26 +772,27 @@ color = Color( 0.141176, 0.235294, 0.423529, 1 )
 polygon = PoolVector2Array( -16, 96, 24, 160, 176, 184, -16, 184 )
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer"]
-material = SubResource( 23 )
+material = SubResource( 21 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Appear = SubResource( 20 )
-anims/Disappear = SubResource( 21 )
+anims/Appear = SubResource( 22 )
+anims/Disappear = SubResource( 23 )
 "anims/Disappear Load" = SubResource( 24 )
 "anims/Finish Load" = SubResource( 25 )
 
 [node name="AnimationPlayerText" type="AnimationPlayer" parent="."]
 autoplay = "Appear"
-anims/Appear = SubResource( 27 )
-anims/Disappear = SubResource( 28 )
+anims/Appear = SubResource( 26 )
+anims/Disappear = SubResource( 27 )
 [connection signal="clicked" from="CanvasLayer/Button1" to="." method="_on_Button1_clicked"]
 [connection signal="clicked" from="CanvasLayer/Button2" to="." method="_on_Button2_clicked"]
 [connection signal="clicked" from="CanvasLayer/Button3" to="." method="_on_Button3_clicked"]
 [connection signal="clicked" from="CanvasLayer/Button4" to="." method="_on_Button4_clicked"]
+[connection signal="clicked" from="CanvasLayer/Button5" to="." method="_on_Button5_clicked"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 [editable path="CanvasLayer/Button1"]
@@ -775,3 +802,5 @@ anims/Disappear = SubResource( 28 )
 [editable path="CanvasLayer/Button3"]
 
 [editable path="CanvasLayer/Button4"]
+
+[editable path="CanvasLayer/Button5"]
