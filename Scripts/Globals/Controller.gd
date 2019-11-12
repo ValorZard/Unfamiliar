@@ -1,11 +1,14 @@
 extends Node
 
+#class_name Controller
+
 const DialogueRef := "res://Instances/Dialogue.tscn"
 const DiscourseStartRef := "res://Scenes/DiscourseStart.tscn"
 const CosmoSprite := "res://Resources/Sprite Frames/SpriteFrames_Cosmo.tres"
 const DiscourseScene := "res://Scenes/Discourse.tscn"
 const MenuRef := "res://Instances/System/Menu.tscn"
 const SaveMenuRef := "res://Instances/System/MenuSave.tscn"
+const OptionsMenuRef := "res://Instances/System/MenuOptions.tscn"
 const ExitMenuRef := "res://Instances/System/MenuExit.tscn"
 const FlashbackRef := "res://Instances/System/Flashback.tscn"
 
@@ -154,7 +157,7 @@ func set_playtime(value: float):
 	
 	
 func get_playtime_str(playtime_value: float) -> String:
-	return str(floor(playtime_value / 60)).pad_zeros(3) + ":" + str(int(floor(playtime_value)) % 60).pad_zeros(2)
+	return str(floor(playtime_value / 3600)).pad_zeros(2) + ":" + str(floor(playtime_value / 60)).pad_zeros(2) + ":" + str(int(floor(playtime_value)) % 60).pad_zeros(2)
 
 	
 func set_tracking_playtime(value: bool):
@@ -222,7 +225,12 @@ func open_save_menu(load_: bool, use_background: bool = true):
 	get_tree().get_root().add_child(menu)
 	menu.start(use_background)
 	return menu
-
+	
+	
+func open_options_menu(use_background: bool = true):
+	var menu := (load(OptionsMenuRef) as PackedScene).instance()
+	get_tree().get_root().add_child(menu)
+	return menu
 
 func open_exit_menu(parent_menu: Menu):
 	var menu := (load(ExitMenuRef) as PackedScene).instance()

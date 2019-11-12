@@ -127,6 +127,10 @@ func _on_Button3_clicked() -> void:
 	yield(get_tree().create_timer(0.5), "timeout")
 	$AnimationPlayerSetup.play("Teardown Options 2")
 	yield($AnimationPlayerSetup, "animation_finished")
+	yield(Controller.open_options_menu(false), "menu_closed")
+	but3.set_clicked(false)
+	but3.set_hover(false)
+	$AnimationPlayerSetup.play("Unteardown")
 
 
 func _on_Button4_clicked() -> void:

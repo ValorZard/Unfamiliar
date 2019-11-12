@@ -97,7 +97,7 @@ tracks/2/keys = {
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 40, 10 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
@@ -121,76 +121,76 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1.51572, 1 ),
 "update": 0,
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=10]
-length = 2.5
+length = 2.0
+loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
+tracks/0/path = NodePath(".:idle_x")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ 0.0, 1.0, -1.0 ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
+tracks/1/path = NodePath(".:idle_y")
+tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Label:self_modulate")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1.2, 2.5 ),
+"times": PoolRealArray( 0, 0.7, 1.5 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+"values": [ -1.0, 1.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=11]
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:idle_x")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0, -1.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:idle_y")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ -1.0, 1.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:hover_alpha")
 tracks/0/interp = 1
@@ -216,10 +216,10 @@ tracks/1/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 47, 9 )
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=13]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
@@ -243,76 +243,76 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1.51572, 1 ),
 "update": 0,
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
+}
+
+[sub_resource type="Animation" id=14]
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=15]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:idle_x")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, -1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:idle_y")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -1.0, 1.0, 0.0 ]
 }
 
 [sub_resource type="Animation" id=16]
-length = 2.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Label:self_modulate")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1.2, 2.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-
-[sub_resource type="Animation" id=17]
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:idle_x")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0, -1.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:idle_y")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ -1.0, 1.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=18]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:hover_alpha")
 tracks/0/interp = 1
@@ -338,10 +338,10 @@ tracks/1/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=38]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 35, 9 )
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=18]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
@@ -367,7 +367,7 @@ tracks/1/keys = {
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=19]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -406,7 +406,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=20]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -434,7 +434,7 @@ tracks/1/keys = {
 "values": [ -1.0, 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=21]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:hover_alpha")
 tracks/0/interp = 1
@@ -460,10 +460,10 @@ tracks/1/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=39]
+[sub_resource type="RectangleShape2D" id=22]
 extents = Vector2( 37, 8 )
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=23]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Logo1:position")
@@ -706,7 +706,7 @@ tracks/19/keys = {
 "values": [ Vector2( 0, 1 ), Vector2( 0, 1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=24]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Logo1:position")
@@ -829,7 +829,7 @@ tracks/9/keys = {
 "values": [ Vector2( 226, 33 ), Vector2( 226, 33 ), Vector2( 226, -50 ) ]
 }
 
-[sub_resource type="Animation" id=40]
+[sub_resource type="Animation" id=25]
 resource_name = "Logo unflyout"
 length = 5.0
 tracks/0/type = "value"
@@ -953,7 +953,7 @@ tracks/9/keys = {
 "values": [ Vector2( 226, -50 ), Vector2( 226, -50 ), Vector2( 226, 33 ) ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=26]
 length = 8.0
 loop = true
 tracks/0/type = "value"
@@ -1017,7 +1017,7 @@ tracks/4/keys = {
 "values": [ Vector2( 448, 168 ), Vector2( -280, 168 ) ]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=27]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1200,7 +1200,7 @@ tracks/13/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=28]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1349,7 +1349,7 @@ tracks/11/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=30]
+[sub_resource type="Animation" id=29]
 resource_name = "Teardown Options"
 length = 2.5
 tracks/0/type = "method"
@@ -1391,7 +1391,7 @@ tracks/2/keys = {
 "values": [ 0.0, 0.0, 2.5 ]
 }
 
-[sub_resource type="Animation" id=31]
+[sub_resource type="Animation" id=30]
 resource_name = "Teardown Options 2"
 length = 2.5
 tracks/0/type = "value"
@@ -1469,7 +1469,7 @@ tracks/5/keys = {
 "values": [ 0.0, 0.0, 2.5 ]
 }
 
-[sub_resource type="Animation" id=32]
+[sub_resource type="Animation" id=31]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1630,7 +1630,7 @@ tracks/12/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=41]
+[sub_resource type="Animation" id=32]
 resource_name = "Unteardown"
 length = 2.5
 tracks/0/type = "value"
@@ -2022,18 +2022,18 @@ button_text = "Load Game"
 choice_button = false
 
 [node name="AnimationPlayer" parent="Button2" index="2"]
-anims/Disappear = SubResource( 9 )
-anims/Select = SubResource( 10 )
+anims/Disappear = SubResource( 8 )
+anims/Select = SubResource( 9 )
 
 [node name="AnimationPlayerIdle" parent="Button2" index="3"]
-anims/Idle = SubResource( 11 )
+anims/Idle = SubResource( 10 )
 
 [node name="AnimationPlayerHover" parent="Button2" index="4"]
-anims/Hover = SubResource( 12 )
+anims/Hover = SubResource( 11 )
 
 [node name="CollisionShape2D" parent="Button2/AreaHover" index="0"]
 position = Vector2( 2, -1 )
-shape = SubResource( 13 )
+shape = SubResource( 12 )
 
 [node name="Button3" parent="." instance=ExtResource( 9 )]
 position = Vector2( 148, 140 )
@@ -2042,18 +2042,18 @@ button_text = "Options"
 choice_button = false
 
 [node name="AnimationPlayer" parent="Button3" index="2"]
-anims/Disappear = SubResource( 15 )
-anims/Select = SubResource( 16 )
+anims/Disappear = SubResource( 13 )
+anims/Select = SubResource( 14 )
 
 [node name="AnimationPlayerIdle" parent="Button3" index="3"]
-anims/Idle = SubResource( 17 )
+anims/Idle = SubResource( 15 )
 
 [node name="AnimationPlayerHover" parent="Button3" index="4"]
-anims/Hover = SubResource( 18 )
+anims/Hover = SubResource( 16 )
 
 [node name="CollisionShape2D" parent="Button3/AreaHover" index="0"]
 position = Vector2( 1, 0 )
-shape = SubResource( 38 )
+shape = SubResource( 17 )
 
 [node name="Button4" parent="." instance=ExtResource( 9 )]
 position = Vector2( 196, 164 )
@@ -2062,36 +2062,36 @@ button_text = "Exit"
 choice_button = false
 
 [node name="AnimationPlayer" parent="Button4" index="2"]
-anims/Disappear = SubResource( 21 )
-anims/Select = SubResource( 22 )
+anims/Disappear = SubResource( 18 )
+anims/Select = SubResource( 19 )
 
 [node name="AnimationPlayerIdle" parent="Button4" index="3"]
-anims/Idle = SubResource( 23 )
+anims/Idle = SubResource( 20 )
 
 [node name="AnimationPlayerHover" parent="Button4" index="4"]
-anims/Hover = SubResource( 24 )
+anims/Hover = SubResource( 21 )
 
 [node name="CollisionShape2D" parent="Button4/AreaHover" index="0"]
 position = Vector2( 3, 0 )
-shape = SubResource( 39 )
+shape = SubResource( 22 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.5
-"anims/Logo flyin" = SubResource( 25 )
-"anims/Logo flyout" = SubResource( 26 )
-"anims/Logo unflyout" = SubResource( 40 )
+"anims/Logo flyin" = SubResource( 23 )
+"anims/Logo flyout" = SubResource( 24 )
+"anims/Logo unflyout" = SubResource( 25 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 playback_speed = 0.7
-anims/Background = SubResource( 27 )
+anims/Background = SubResource( 26 )
 
 [node name="AnimationPlayerSetup" type="AnimationPlayer" parent="."]
-anims/Setup = SubResource( 28 )
-anims/Teardown = SubResource( 29 )
-"anims/Teardown Options" = SubResource( 30 )
-"anims/Teardown Options 2" = SubResource( 31 )
-"anims/Teardown Start" = SubResource( 32 )
-anims/Unteardown = SubResource( 41 )
+anims/Setup = SubResource( 27 )
+anims/Teardown = SubResource( 28 )
+"anims/Teardown Options" = SubResource( 29 )
+"anims/Teardown Options 2" = SubResource( 30 )
+"anims/Teardown Start" = SubResource( 31 )
+anims/Unteardown = SubResource( 32 )
 
 [node name="AnimationPlayerCosmo" type="AnimationPlayer" parent="."]
 autoplay = "Cosmo Idle"
