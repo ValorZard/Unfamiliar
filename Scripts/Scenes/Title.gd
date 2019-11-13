@@ -1,6 +1,6 @@
 extends Node2D
 
-var nav_pos: int = -1
+#var nav_pos: int = -1
 var active := false
 
 onready var but1 := $Button1 as ButtonUF
@@ -25,23 +25,24 @@ func _ready():
 	but4.connect("hover_start", self, "_on_Button4_hover_start")
 	
 	
-func _process(delta):
-	if active:
-		if Input.is_action_just_pressed("sys_up"):
-			if nav_pos != -1:
-				buttons[nav_pos]._on_AreaHover_mouse_exited()
-				nav_pos = wrapi(nav_pos - 1, 0, 4)
-			else:
-				nav_pos = 0
-			buttons[nav_pos]._on_AreaHover_mouse_entered()
-		
-		if Input.is_action_just_pressed("sys_down"):
-			if nav_pos != -1:
-				buttons[nav_pos]._on_AreaHover_mouse_exited()
-				nav_pos = wrapi(nav_pos + 1, 0, 4)
-			else:
-				nav_pos = 0
-			buttons[nav_pos]._on_AreaHover_mouse_entered()
+#func _process(delta):
+#	pass
+#	if active:
+#		if Input.is_action_just_pressed("sys_up"):
+#			if nav_pos != -1:
+#				buttons[nav_pos]._on_AreaHover_mouse_exited()
+#				nav_pos = wrapi(nav_pos - 1, 0, 4)
+#			else:
+#				nav_pos = 0
+#			buttons[nav_pos]._on_AreaHover_mouse_entered()
+#
+#		if Input.is_action_just_pressed("sys_down"):
+#			if nav_pos != -1:
+#				buttons[nav_pos]._on_AreaHover_mouse_exited()
+#				nav_pos = wrapi(nav_pos + 1, 0, 4)
+#			else:
+#				nav_pos = 0
+#			buttons[nav_pos]._on_AreaHover_mouse_entered()
 
 # =====================================================================
 
@@ -58,32 +59,32 @@ func reset_anim_player_speed():
 
 # =====================================================================
 
-func _on_Button1_hover_start() -> void:
-	but2._on_AreaHover_mouse_exited()
-	but3._on_AreaHover_mouse_exited()
-	but4._on_AreaHover_mouse_exited()
-	nav_pos = 0
-	
-
-func _on_Button2_hover_start() -> void:
-	but1._on_AreaHover_mouse_exited()
-	but3._on_AreaHover_mouse_exited()
-	but4._on_AreaHover_mouse_exited()
-	nav_pos = 1
-	
-	
-func _on_Button3_hover_start() -> void:
-	but1._on_AreaHover_mouse_exited()
-	but2._on_AreaHover_mouse_exited()
-	but4._on_AreaHover_mouse_exited()
-	nav_pos = 2
-
-
-func _on_Button4_hover_start():
-	but1._on_AreaHover_mouse_exited()
-	but2._on_AreaHover_mouse_exited()
-	but3._on_AreaHover_mouse_exited()
-	nav_pos = 3
+#func _on_Button1_hover_start() -> void:
+#	but2._on_AreaHover_mouse_exited()
+#	but3._on_AreaHover_mouse_exited()
+#	but4._on_AreaHover_mouse_exited()
+#	#nav_pos = 0
+#
+#
+#func _on_Button2_hover_start() -> void:
+#	but1._on_AreaHover_mouse_exited()
+#	but3._on_AreaHover_mouse_exited()
+#	but4._on_AreaHover_mouse_exited()
+#	#nav_pos = 1
+#
+#
+#func _on_Button3_hover_start() -> void:
+#	but1._on_AreaHover_mouse_exited()
+#	but2._on_AreaHover_mouse_exited()
+#	but4._on_AreaHover_mouse_exited()
+#	#nav_pos = 2
+#
+#
+#func _on_Button4_hover_start():
+#	but1._on_AreaHover_mouse_exited()
+#	but2._on_AreaHover_mouse_exited()
+#	but3._on_AreaHover_mouse_exited()
+#	#nav_pos = 3
 
 
 func _on_Button1_clicked() -> void:

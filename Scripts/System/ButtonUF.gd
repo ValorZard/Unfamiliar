@@ -58,6 +58,7 @@ export(bool) var choice_button = true
 
 func _ready():
 	label.set_text(button_text)
+	label.show()
 	if button_image != null:
 		spr.set_texture(button_image)
 
@@ -84,18 +85,18 @@ func _process(delta):
 	else:
 		set_position((get_position() if not active and not click else pos_start))
 	
-	if Input.is_action_just_pressed("sys_select") and active and hover:
-		if decisive_click:
-			Controller.play_sound_oneshot_from_path("res://Audio/Click 2.ogg", 1.0, 12)
-		else:
-			Controller.play_sound_oneshot(SoundClick, rand_range(0.95, 1.05), 12)
-		
-		if choice_button:
-			controller.click_choice(index)
-			text_controller.fade_screen(false)
-
-		click = true
-		emit_signal("clicked")
+#	if Input.is_action_just_pressed("sys_select") and active and hover:
+#		if decisive_click:
+#			Controller.play_sound_oneshot_from_path("res://Audio/Click 2.ogg", 1.0, 12)
+#		else:
+#			Controller.play_sound_oneshot(SoundClick, rand_range(0.95, 1.05), 12)
+#
+#		if choice_button:
+#			controller.click_choice(index)
+#			text_controller.fade_screen(false)
+#
+#		click = true
+#		emit_signal("clicked")
 	
 	update()
 
@@ -148,12 +149,14 @@ func setup_animation(end_pos: Vector2):
 	player.play("Appear")
 	
 func anim_selected(destroy: bool = true):
+	$Button.set_disabled(true)
 	active = false
 	destroy_after_disappear = destroy
 	anim_player.play("Select")
 	
 
 func anim_not_selected(destroy: bool = true):
+	$Button.set_disabled(true)
 	active = false
 	destroy_after_disappear = destroy
 	anim_player.play("Disappear")
@@ -191,23 +194,41 @@ func set_target_line(target: int):
 func _on_AnimationPlayer_animation_finished(anim_name: String):
 	if anim_name == "Appear":
 		active = true
+		$Button.set_disabled(false)
 	
 	if (anim_name == "Select" or anim_name == "Disappear") and destroy_after_disappear:
 		queue_free()
 
 
-func _on_AreaHover_mouse_entered():
+func _button_get_focus():
 	if active:
+		$Button.grab_focus()
 		Controller.play_sound_oneshot(SoundHover, rand_range(0.95, 1.05))
 		if not anim_player_hover.is_playing():
 			anim_player_hover.play("Hover")
 			anim_player_hover.seek(0)
 			
 		hover = true
-		emit_signal("hover_start")
+		#emit_signal("hover_start")
 
 
-func _on_AreaHover_mouse_exited():
+func _button_lose_focus():
+	$Button.release_focus()
 	if active:
 		hover = false
-		emit_signal("hover_end")
+		#emit_signal("hover_end")
+
+
+func _on_Button_pressed() -> void:
+	#$Button.set_disabled(true)
+	if decisive_click:
+		Controller.play_sound_oneshot_from_path("res://Audio/Click 2.ogg", 1.0, 12)
+	else:
+		Controller.play_sound_oneshot(SoundClick, rand_range(0.95, 1.05), 12)
+
+	if choice_button:
+		controller.click_choice(index)
+		text_controller.fade_screen(false)
+
+	click = true
+	emit_signal("clicked")
