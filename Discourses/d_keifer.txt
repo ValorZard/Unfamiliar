@@ -6,4 +6,15 @@
 < Not at all!
 > So, Cosmo...
 > I'm all about photography, but... what are you into?
-[ I like reading. (0, -60) R_1_1 | I play a few instruments. (0, -60) R_1_2 | 
+[ I like reading. (0, -60) R_1_1 | I play a few instruments. (0, -60) R_1_2 | (uhh) (0, -60) R_1_3
+: R_1_1
+< I like reading.
+> Oh. That's, uh... not exactly my thing, but I can appreciate it.
+< [uhh add more here]
+---------------------
+: R_2_2
+< I play a few instruments.
+> Really? Which ones?
+< My favorite is my ocarina.
+< I'm carrying it in my pocket right now.
+> Huh...

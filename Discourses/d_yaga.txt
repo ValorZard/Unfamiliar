@@ -41,7 +41,7 @@
 : R_1_2
 * choice_witch_socialness 1
 < A little bit.
-< She's not $wopposed $0to social situations, but she also likes her alone time.
+< She's doesn't $whate $0social situations, but she also likes having alone time.
 > What does she do?
 ? ? choice_witch_profession 0 B_JOB_1
 ? ? choice_witch_profession 1 B_JOB_2
@@ -58,7 +58,7 @@
 ^ B_JOB_END
 : B_JOB_2
 < She's an alchemist. She makes potions and sells them.
-> Okay. Not exactly the most socially-oriented job in the world.
+> Okay. Not exactly the most social job in the world.
 ^ B_JOB_END
 : B_JOB_3
 < She's a writer. She writes books of hexes.
@@ -108,7 +108,7 @@
 < What? It's not-
 > ...A kid bound to you by a contract of the underworld, who happens to be at your eternal servitude.
 @< glare
-< Yep. $wThat's $0more like it.
+< Yep. $wThat's $0more accurate.
 > Okay, look, hamster hair: even if you have a magical personal assistant, it's one more mouth to feed.
 > It's one more person to care for.
 @< angry2
@@ -126,7 +126,7 @@
 : R_2_2
 < Do you like being a witch?
 > Ugh...
-< Sorry. Should I have-
+< Sorry. Should I not have-
 > I hate it! It was the worst choice I ever made!
 > What genius thought it should be a permanent decision?
 > I was a fifteen-year-old girl who was fascinated with demons and the underworld.
