@@ -1,11 +1,11 @@
-> All right! I'll show you how we#strike up a conversation back home!
+> All right! I'll show you how we strike up a conversation back home!
 @< glare
 < Why are we doing this, again?
 @> happy
-> Because you're a $wdemon! $0How cool is#that?
+> Because you're a $wdemon! $0How cool is that?
 @< idle
 @> idle
-> I've never talked to a demon before,#and I want to learn more about you!
+> I've never talked to a demon before, and I want to learn more about you!
 # @< whatnow
 < ...
 @< idle
@@ -17,19 +17,19 @@
 : R_1_1
 * choice_hometown 0
 < Flagstaff, up north.
-< People don't really like witches#and demons up there.
+< People don't really like witches and demons up there.
 @> serious
-< I don't leave the house much, because#walking through town isn't fun.
+< I don't leave the house much, because walking through town isn't fun.
 @< sad
-< I'm glad my witch homeschools me.#Public school would be a nightmare.
-> Wow... sounds like a pretty terrible#place to live.
+< I'm glad my witch homeschools me. Public school would be a nightmare.
+> Wow... sounds like a pretty terrible place to live.
 @< idle
-< I mean... it's not the $wworst. $0It's#nowhere near as hot there as some of#the other places around here.
+< I mean... it's not the $wworst. $0It's nowhere near as hot there as some of the other places around here.
 @< smile
-< There are also lots of trees and#mountains. It's a really pretty city.
+< There are also lots of trees and mountains. It's a really pretty city.
 > Have you ever considered moving?
 @< idle
-< Not really. My witch has lived there#her whole life. It means too much to#her.
+< Not really. My witch has lived there her whole life. It means too much to her.
 @> sad
 > I see...
 @> serious

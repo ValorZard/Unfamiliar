@@ -53,10 +53,15 @@ export(float) var idle_y = 0
 export(bool) var decisive_click = false
 
 export(bool) var choice_button = true
+export(bool) var idle_animation = true
+#export(NodePath) var manager = null
 
 # =====================================================================
 
 func _ready():
+	#if manager != null:
+	#	get_node(manager).add_button(self)
+	
 	label.set_text(button_text)
 	label.show()
 	if button_image != null:
@@ -76,7 +81,11 @@ func _ready():
 	
 	if randf() > 0.5:
 		$AnimationPlayerIdle.play_backwards("Idle")
+		
 	$AnimationPlayerIdle.seek(rand_range(0, 2))
+	
+	if not idle_animation:
+		$AnimationPlayerIdle.stop()
 	
 	
 func _process(delta):
@@ -201,7 +210,7 @@ func _on_AnimationPlayer_animation_finished(anim_name: String):
 
 
 func _button_get_focus():
-	if active:
+	if active and not $Button.has_focus():
 		$Button.grab_focus()
 		Controller.play_sound_oneshot(SoundHover, rand_range(0.95, 1.05))
 		if not anim_player_hover.is_playing():

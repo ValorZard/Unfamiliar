@@ -175,7 +175,7 @@ func parse_discourse_command(command: String):
 				text_controller.set_name_text(name_left)
 				text_controller.set_name_side(false)
 				text_controller.set_name_visible(true)
-				text_controller.show_box()
+				text_controller.show_box(TextDisplay.BoxType.Left)
 				speaker_right = false
 				co_target = text_controller
 				co_signal = "text_ended_button"
@@ -185,7 +185,7 @@ func parse_discourse_command(command: String):
 				text_controller.set_name_text(name_right)
 				text_controller.set_name_side(true)
 				text_controller.set_name_visible(true)
-				text_controller.show_box()
+				text_controller.show_box(TextDisplay.BoxType.Right)
 				speaker_right = true
 				co_target = text_controller
 				co_signal = "text_ended_button"
@@ -195,7 +195,7 @@ func parse_discourse_command(command: String):
 				text_controller.set_name_text(name_left)
 				text_controller.set_name_side(false)
 				text_controller.set_name_visible(true)
-				text_controller.show_box()
+				text_controller.show_box(TextDisplay.BoxType.Left)
 				speaker_right = false
 				co_target = text_controller
 				co_signal = "text_ended"
@@ -206,7 +206,7 @@ func parse_discourse_command(command: String):
 				text_controller.set_name_text(name_right)
 				text_controller.set_name_side(true)
 				text_controller.set_name_visible(true)
-				text_controller.show_box()
+				text_controller.show_box(TextDisplay.BoxType.Right)
 				speaker_right = true
 				co_target = text_controller
 				co_signal = "text_ended"

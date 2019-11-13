@@ -9,9 +9,11 @@ export(DynamicFont) var font
 export(AudioStream) var sound_type
 
 const Interval := 0.02
-const XStart := 41
-const YStart := 132
+const XStart := 36#41
+const YStart := 136#132
 const LineSpacing := 14
+const LineEnd := 200
+const WordRegexPattern := "\\b\\w*\\b"
 
 var text: String = ""
 var text_length: int = 0
@@ -28,13 +30,27 @@ var finished := false
 
 var box_visible := true
 
+var word_regex := RegEx.new()
+
+#onready var poly := $Polygon2D as Polygon2D
+onready var box_left := $BoxLeft as Polygon2D
+onready var box_left_stroke := $BoxLeftStroke as Polygon2D
+onready var box_right := $BoxRight as Polygon2D
+onready var box_right_stroke := $BoxRightStroke as Polygon2D
+
 enum Modifier { Normal, Red, Green, Blue, Yellow, Shake, Wave, Contract }
+enum BoxType { Left, Right, Neutral }
 
 # =====================================================================
 
 func _ready():
-	$Box.hide()
-	$Namebox.hide()
+	word_regex.compile(WordRegexPattern)
+	#$Box.hide()
+	#$Namebox.hide()
+	box_left.hide()
+	box_left_stroke.hide()
+	box_right.hide()
+	box_right_stroke.hide()
 	box_visible = false
 	
 	
@@ -56,6 +72,13 @@ func _process(delta):
 	
 	
 func _draw():
+	#var p: PoolVector2Array = PoolVector2Array(poly.get_polygon())
+	#for i in range(1, p.size()):
+	#	draw_line(p[i - 1], p[i], Color("#2b4580"), 3, true)
+	#draw_line(p[p.size() - 1], p[0],  Color("#2b4580"), 3, true)
+	#for point in p:
+	#	point += 
+	
 	if disp >= 0:
 		var mod: int = Modifier.Normal
 		
@@ -64,6 +87,11 @@ func _draw():
 		var char_spacing: float = 0
 		
 		while i < disp + 1:
+			if i > 0 and text[i] == " " and char_spacing + len(word_regex.search(text, i).get_string(1)) > LineEnd:
+				char_spacing = 0
+				line += 1
+				i += 1
+				
 			match text[i]:
 				"#":
 					char_spacing = 0
@@ -125,36 +153,55 @@ func _draw():
 			
 # =====================================================================
 
-func show_box():
-	$Box.show()
+func show_box(type: int):
+	match type:
+		BoxType.Left:
+			box_left_stroke.show()
+			box_left.show()
+			box_right_stroke.hide()
+			box_right.hide()
+		BoxType.Right:
+			box_right_stroke.show()
+			box_right.show()
+			box_left_stroke.hide()
+			box_left.hide()
+		
 	#$Namebox.show()
 	#$Tail.show()
 	box_visible = true
 	
 
 func hide_box():
-	$Box.hide()
-	$Namebox.hide()
+	#$Box.hide()
+	#$Namebox.hide()
+	box_left_stroke.hide()
+	box_left.hide()
+	box_right_stroke.hide()
+	box_right.hide()
 	#$Tail.hide()
 	box_visible = false
 	
 	
 func set_name_visible(visible: bool):
-	$Namebox.set_visible(visible)
+	pass
+	#$Namebox.set_visible(visible)
 	
 	
 func set_name_text(text: String):
-	$Namebox/NameText.set_text(text)
-	$Namebox.margin_right = $Namebox.margin_left + font.get_string_size(text).x + 7
+	pass
+	#$Namebox/NameText.set_text(text)
+	#$Namebox.margin_right = $Namebox.margin_left + font.get_string_size(text).x + 7
 	
 	
 func set_name_side(right: bool):
 	if right:
-		$Tail.set_position(Vector2(262, 110))
+		pass
+		#$Tail.set_position(Vector2(262, 110))
 		#$Namebox/NameText.set_align(Label.ALIGN_RIGHT)
 		#$Namebox/NameText.margin_left = 244
 	else:
-		$Tail.set_position(Vector2(42, 110))
+		pass
+		#$Tail.set_position(Vector2(42, 110))
 		#$Namebox/NameText.set_align(Label.ALIGN_LEFT)
 		#$Namebox/NameText.margin_left = 4
 	

@@ -15,7 +15,7 @@ onready var button3 = $CanvasLayer/Button3 as ButtonUF
 onready var button4 = $CanvasLayer/Button4 as ButtonUF
 onready var button_cancel = $CanvasLayer/Button5 as ButtonUF
 
-onready var buttons: Array = [button1, button2, button3, button4]
+onready var buttons: Array = [button1, button2, button3, button4, button_cancel]
 
 # =====================================================================
 
@@ -104,50 +104,30 @@ func _click_slot(slot: int):
 
 func _on_Button1_clicked():
 	if files_present[0] or not load_mode:
-		button1.anim_selected()
-		button2.anim_not_selected()
-		button3.anim_not_selected()
-		button4.anim_not_selected()
-		button_cancel.anim_not_selected()
+		Controller.select_menu_button(buttons, button1.get_name())
 		_click_slot(0)
 
 
 func _on_Button2_clicked():
 	if files_present[1] or not load_mode:
-		button1.anim_not_selected()
-		button2.anim_selected()
-		button3.anim_not_selected()
-		button4.anim_not_selected()
-		button_cancel.anim_not_selected()
+		Controller.select_menu_button(buttons, button2.get_name())
 		_click_slot(1)
 
 
 func _on_Button3_clicked():
 	if files_present[2] or not load_mode:
-		button1.anim_not_selected()
-		button2.anim_not_selected()
-		button3.anim_selected()
-		button4.anim_not_selected()
-		button_cancel.anim_not_selected()
+		Controller.select_menu_button(buttons, button3.get_name())
 		_click_slot(2)
 
 
 func _on_Button4_clicked():
 	if files_present[3] or not load_mode:
-		button1.anim_not_selected()
-		button2.anim_not_selected()
-		button3.anim_not_selected()
-		button4.anim_selected()
-		button_cancel.anim_not_selected()
+		Controller.select_menu_button(buttons, button4.get_name())
 		_click_slot(3)
 		
 		
 func _on_Button5_clicked():
-	button1.anim_not_selected()
-	button2.anim_not_selected()
-	button3.anim_not_selected()
-	button4.anim_not_selected()
-	button_cancel.anim_selected()
+	Controller.select_menu_button(buttons, button_cancel.get_name())
 	$AnimationPlayerText.play("Disappear")
 	yield(get_tree().create_timer(2.5), "timeout")
 	anim_player.play("Disappear")

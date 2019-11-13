@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Scripts/System/MenuSave.gd" type="Script" id=1]
 [ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=2]
@@ -6,10 +6,7 @@
 [ext_resource path="res://Shaders/Transition.shader" type="Shader" id=4]
 [ext_resource path="res://Sprites/UI/Transition2.png" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 82, 18 )
-
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Appear"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -36,7 +33,7 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 resource_name = "Disappear"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -63,7 +60,7 @@ tracks/1/keys = {
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
 }
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=3]
 resource_name = "Select"
 length = 2.5
 tracks/0/type = "value"
@@ -103,7 +100,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -129,39 +126,36 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ -1.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:hover_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:hover_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0 ]
 }
 
 [sub_resource type="Animation" id=6]
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:hover_alpha")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 1.0, 1.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:hover_offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 10.0 ]
-}
-
-[sub_resource type="RectangleShape2D" id=7]
-extents = Vector2( 80, 19 )
-
-[sub_resource type="Animation" id=8]
-tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
@@ -186,7 +180,7 @@ tracks/1/keys = {
 "values": [  ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
@@ -212,7 +206,7 @@ tracks/1/keys = {
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=8]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -251,7 +245,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=9]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -277,65 +271,62 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ -1.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:hover_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:hover_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0 ]
+}
+
+[sub_resource type="Animation" id=11]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.517632, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
 }
 
 [sub_resource type="Animation" id=12]
 tracks/0/type = "value"
-tracks/0/path = NodePath(".:hover_alpha")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 1.0, 1.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:hover_offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 10.0 ]
-}
-
-[sub_resource type="RectangleShape2D" id=29]
-extents = Vector2( 84, 19 )
-
-[sub_resource type="Animation" id=14]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.517632, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
-
-[sub_resource type="Animation" id=15]
-tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
@@ -360,7 +351,7 @@ tracks/1/keys = {
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=13]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -399,7 +390,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=14]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -427,7 +418,7 @@ tracks/1/keys = {
 "values": [ -1.0, 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=15]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:hover_alpha")
 tracks/0/interp = 1
@@ -453,22 +444,16 @@ tracks/1/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[sub_resource type="RectangleShape2D" id=19]
-extents = Vector2( 82, 18 )
-
-[sub_resource type="RectangleShape2D" id=28]
-extents = Vector2( 28, 9 )
-
-[sub_resource type="DynamicFont" id=20]
+[sub_resource type="DynamicFont" id=16]
 size = 32
 font_data = ExtResource( 3 )
 
-[sub_resource type="ShaderMaterial" id=21]
+[sub_resource type="ShaderMaterial" id=17]
 shader = ExtResource( 4 )
 shader_param/cutoff = 1.0
 shader_param/mask = ExtResource( 5 )
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=18]
 length = 2.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
@@ -553,7 +538,7 @@ tracks/5/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=19]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
 tracks/0/interp = 1
@@ -567,7 +552,7 @@ tracks/0/keys = {
 "values": [ Color( 0.0470588, 0.0745098, 0.137255, 1 ), Color( 0.0470588, 0.0745098, 0.137255, 0 ) ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=20]
 resource_name = "Disappear Load"
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Fade:material:shader_param/cutoff")
@@ -582,7 +567,7 @@ tracks/0/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=21]
 resource_name = "Finish Load"
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Fade:material:shader_param/cutoff")
@@ -597,7 +582,7 @@ tracks/0/keys = {
 "values": [ 0.0, 1.0 ]
 }
 
-[sub_resource type="Animation" id=26]
+[sub_resource type="Animation" id=22]
 resource_name = "Appear"
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Polygon2D:position")
@@ -624,7 +609,7 @@ tracks/1/keys = {
 "values": [ Vector2( -40, 40 ), Vector2( -40, 40 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=23]
 resource_name = "Disappear"
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Polygon2D:position")
@@ -673,10 +658,6 @@ polygon = PoolVector2Array( -28, 39, 139, 37, 134, 0, -24, 4 )
 decisive_click = true
 choice_button = false
 
-[node name="CollisionShape2D" parent="CanvasLayer/Button1/AreaHover" index="0"]
-position = Vector2( 1, 5 )
-shape = SubResource( 1 )
-
 [node name="Button2" parent="CanvasLayer" instance=ExtResource( 2 )]
 position = Vector2( 116, 63 )
 polygon = PoolVector2Array( -23, 39, 136, 38, 138, 0, -24, 4 )
@@ -684,19 +665,15 @@ decisive_click = true
 choice_button = false
 
 [node name="AnimationPlayer" parent="CanvasLayer/Button2" index="2"]
-anims/Appear = SubResource( 2 )
-anims/Disappear = SubResource( 3 )
-anims/Select = SubResource( 4 )
+anims/Appear = SubResource( 1 )
+anims/Disappear = SubResource( 2 )
+anims/Select = SubResource( 3 )
 
 [node name="AnimationPlayerIdle" parent="CanvasLayer/Button2" index="3"]
-anims/Idle = SubResource( 5 )
+anims/Idle = SubResource( 4 )
 
 [node name="AnimationPlayerHover" parent="CanvasLayer/Button2" index="4"]
-anims/Hover = SubResource( 6 )
-
-[node name="CollisionShape2D" parent="CanvasLayer/Button2/AreaHover" index="0"]
-position = Vector2( 2, 5 )
-shape = SubResource( 7 )
+anims/Hover = SubResource( 5 )
 
 [node name="Button3" parent="CanvasLayer" instance=ExtResource( 2 )]
 position = Vector2( 171, 106 )
@@ -705,19 +682,15 @@ decisive_click = true
 choice_button = false
 
 [node name="AnimationPlayer" parent="CanvasLayer/Button3" index="2"]
-anims/Appear = SubResource( 8 )
-anims/Disappear = SubResource( 9 )
-anims/Select = SubResource( 10 )
+anims/Appear = SubResource( 6 )
+anims/Disappear = SubResource( 7 )
+anims/Select = SubResource( 8 )
 
 [node name="AnimationPlayerIdle" parent="CanvasLayer/Button3" index="3"]
-anims/Idle = SubResource( 11 )
+anims/Idle = SubResource( 9 )
 
 [node name="AnimationPlayerHover" parent="CanvasLayer/Button3" index="4"]
-anims/Hover = SubResource( 12 )
-
-[node name="CollisionShape2D" parent="CanvasLayer/Button3/AreaHover" index="0"]
-position = Vector2( 1, 4 )
-shape = SubResource( 29 )
+anims/Hover = SubResource( 10 )
 
 [node name="Button4" parent="CanvasLayer" instance=ExtResource( 2 )]
 position = Vector2( 229, 150 )
@@ -726,29 +699,21 @@ decisive_click = true
 choice_button = false
 
 [node name="AnimationPlayer" parent="CanvasLayer/Button4" index="2"]
-anims/Appear = SubResource( 14 )
-anims/Disappear = SubResource( 15 )
-anims/Select = SubResource( 16 )
+anims/Appear = SubResource( 11 )
+anims/Disappear = SubResource( 12 )
+anims/Select = SubResource( 13 )
 
 [node name="AnimationPlayerIdle" parent="CanvasLayer/Button4" index="3"]
-anims/Idle = SubResource( 17 )
+anims/Idle = SubResource( 14 )
 
 [node name="AnimationPlayerHover" parent="CanvasLayer/Button4" index="4"]
-anims/Hover = SubResource( 18 )
-
-[node name="CollisionShape2D" parent="CanvasLayer/Button4/AreaHover" index="0"]
-position = Vector2( 0, 5 )
-shape = SubResource( 19 )
+anims/Hover = SubResource( 15 )
 
 [node name="Button5" parent="CanvasLayer" instance=ExtResource( 2 )]
 position = Vector2( 71, 147 )
 polygon = PoolVector2Array( 27, 25, 82, 24, 81, 6, 27, 8 )
 button_text = "Cancel"
 choice_button = false
-
-[node name="CollisionShape2D" parent="CanvasLayer/Button5/AreaHover" index="0"]
-position = Vector2( -1, 1 )
-shape = SubResource( 28 )
 
 [node name="Polygon2D" type="Polygon2D" parent="CanvasLayer"]
 position = Vector2( 60, -60 )
@@ -761,7 +726,7 @@ margin_top = -4.0
 margin_right = 343.0
 margin_bottom = 20.0
 rect_rotation = 25.0
-custom_fonts/font = SubResource( 20 )
+custom_fonts/font = SubResource( 16 )
 custom_colors/font_color = Color( 0.486275, 0.639216, 1, 1 )
 text = "Save Game"
 align = 1
@@ -772,22 +737,22 @@ color = Color( 0.141176, 0.235294, 0.423529, 1 )
 polygon = PoolVector2Array( -16, 96, 24, 160, 176, 184, -16, 184 )
 
 [node name="Fade" type="ColorRect" parent="CanvasLayer"]
-material = SubResource( 21 )
+material = SubResource( 17 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Appear = SubResource( 22 )
-anims/Disappear = SubResource( 23 )
-"anims/Disappear Load" = SubResource( 24 )
-"anims/Finish Load" = SubResource( 25 )
+anims/Appear = SubResource( 18 )
+anims/Disappear = SubResource( 19 )
+"anims/Disappear Load" = SubResource( 20 )
+"anims/Finish Load" = SubResource( 21 )
 
 [node name="AnimationPlayerText" type="AnimationPlayer" parent="."]
 autoplay = "Appear"
-anims/Appear = SubResource( 26 )
-anims/Disappear = SubResource( 27 )
+anims/Appear = SubResource( 22 )
+anims/Disappear = SubResource( 23 )
 [connection signal="clicked" from="CanvasLayer/Button1" to="." method="_on_Button1_clicked"]
 [connection signal="clicked" from="CanvasLayer/Button2" to="." method="_on_Button2_clicked"]
 [connection signal="clicked" from="CanvasLayer/Button3" to="." method="_on_Button3_clicked"]

@@ -212,6 +212,14 @@ func fade(time: float, fadeout: bool, color: Color = Color(0, 0, 0), above_overl
 	anim_player_fade.play("Fadeout" if fadeout else "Fadein")
 	
 	
+func select_menu_button(buttons: Array, index: String, destroy: bool = true):
+	for but in buttons:
+		if but.get_name() == index:
+			but.anim_selected(destroy)
+		else:
+			but.anim_not_selected(destroy)
+	
+	
 func open_menu():
 	menu_open = true
 	Player.set_state(Player.PlayerState.NoInput)
