@@ -43,9 +43,9 @@
 < A little bit.
 < She's doesn't $whate $0social situations, but she also likes having alone time.
 > What does she do?
-? ? choice_witch_profession 0 B_JOB_1
-? ? choice_witch_profession 1 B_JOB_2
-? ? choice_witch_profession 2 B_JOB_3
+? choice_witch_profession 0 B_JOB_1
+? choice_witch_profession 1 B_JOB_2
+? choice_witch_profession 2 B_JOB_3
 : B_JOB_1
 < She teaches people magic.
 > I see. You'd think she'd be more comfortable with talking to people after doing that for so long.

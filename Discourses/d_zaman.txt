@@ -25,5 +25,126 @@
 < To show their witch thanks for summoning them into this world and granting them life.
 < Then the witch gives their familiar a gift, too.
 < To say thanks to their familiar for serving them and being their companion.
-< Then the two of them spend the day together.
-< 
+< Then they spend the rest of the day doing their favorite activities together.
+< The witch isn't supposed to give their familiar any orders throughout the day.
+< It's a way of representing that, even thogh we serve our witches, we aren't any less than them.
+< We're a part of each other. We need each other.
+> That's... really wonderful.
+< Yeah. Not all witches practice Communion Day, though.
+< And, of course... you can't practice Communion Day if the familiar doesn't acknowledge it.
+> The witch can't remind them, or anything?
+< Nope. That's part of the tradition.
+< And I ruined it. I forgot.
+< I've ruined it multiple times.
+< I'm such an awful familiar.
+> Cosmo... Everyone makes mistakes. Everyone forgets things.
+> It's not a big deal.
+< Yes it IS!
+< You don't understand!
+< It's not liek forgetting to wish someone a happy birthday.
+< If you're a familiar, forgetting to acknowledge Communion Day is lone of the most disprespectful things you can do to your witch.
+< It's like telling them that you don't appreciate them.
+< That your eternal contract and bond means nothing.
+< Like you hate each other, even...
+< And I forgot! $sAGAIN!
+< I've forgotten so many times, and she's gotten so mad at me every time, and I $sSTILL $0managed to forget!
+< What's wrong with me...?
+< It's bad enough that we got separated at the train station.
+< Now we never even got to celebrate Communion Day.
+< And it's all my fault.
+> Wait... you two got separated?
+< Yeah.
+< The train was full. I had to wait for a later one.
+< I looked for her all night. I looked all over the city.
+< I never found her.
+> Cosmo-
+< Maybe she doesn't even want me to find her.
+< I've forgotten so many times, she probably wants nothing to do with me anymore.
+> Cosmo...
+> It sure sounds to me like you appreciate your witch.
+< Why?
+> You've been searching for her all night.
+> That sounds to me like you care.
+@< angry
+< I'm her familiar.
+< I have to care about her. I'm bound to serve her for eternity.
+> Are you saying you're only searching for her because you have to?
+> If you weren't her familiar, would you even be looking for her?
+> Is that the only reason you care?
+@< angry2
+< $sNO!
+< Of $scourse $0it isn't!
+>> Then why did you spend all night looking for her?
+[ I'm worried about her! (0, -60) R_1_1 | I have to apologize to her! (0, -60) R_1_2 | I don't trust myself to be alone! (0, -60) R_1_3
+-----------------------------------------------------
+: R_1_1
+< I'm worried about her!
+< Do you have any idea what people do to witches?
+^ 
+@< angry
+< You should see what it's like back in Flagstaff.
+< It happens practically every single time we leave the house.
+< People treat her like trash. Just for being a witch.
+< They treat me like trash, too, but that's beyond the point.
+< Nothing too horrible has ever happened, but that's because we can protect each other.
+< Now she's alone. And neither of us have been to Los Muertos before.
+< There could be people here who will kill her.
+< And if that happens, I...
+< $s...
+> Cosmo...
+> You're not an awful familiar.
+> If you care about your witch that much, you can't be.
+@< sad
+< ...
+> And I'm sure she's fine.
+> I've visited Los Muertos a few times.
+> There are obviously some bad people here, but...
+> It's a city full of witches, monsters, and demons. People are probably fine with them.
+> And, I mean... she's a $wwitch. $0She can defend herself, right?
+< Well... yeah.
+> I think you should stop worrying.
+> Everything's going to be fine. Take a deep breath, all right?
+< ...
+< Okay.
+-----------------------------------------------------
+>> So, why did you two come to Los Muertos, anyway?
+[ We're meeting a client. (0, -60) R_2_1 | She's meeting some friends. (0, -60) R_2_2 | She's shopping for occult materials. (0, -60) R_2_3
+-----------------------------------------------------
+: R_2_1
+< We're meeting a client.
+? choice_witch_profession 0 B_JOB_1
+? choice_witch_profession 1 B_JOB_2
+? choice_witch_profession 2 B_JOB_3
+: B_JOB_1
+< She's meeting with an extracurricular coordinator at the school here.
+< He's interested in starting a program that teaches kids about witchcraft.
+@< explain
+< My witch is a magic teacher, so she knows all about that stuff.
+> Wow...
+> That would be crazy for any other school to do.
+> I guess they're more accepting of witchcraft in Los Muertos.
+< Yeah.
+> What time are you meeting the coordinator?
+< Tomorrow morning. Right after school starts.
+> Well... your witch $whas $0to be there, right?
+> It's for her work. She wouldn't miss it.
+< Yeah. She definitely wouldn't miss it.
+@< sad
+< If she isn't there...
+< ...
+< Then something definitely happened to her.
+> I wouldn't worry about it until tomorrow.
+> She'll probably be there, and everything will be fine.
+< ...
+< You're right.
+-------------------------------------------------
+@< idle
+< Thanks for talking some sense into me, Zaman.
+@< smile
+< I appreciate it.
+> Any time.
+> I don't think I've ever seen a demon smile before.
+@< heh
+< Well, uh... you're welcome, I guess?
+@< smile
+> 
