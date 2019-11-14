@@ -32,7 +32,6 @@ var box_visible := true
 
 var word_regex := RegEx.new()
 
-#onready var poly := $Polygon2D as Polygon2D
 onready var box_left := $BoxLeft as Polygon2D
 onready var box_left_stroke := $BoxLeftStroke as Polygon2D
 onready var box_right := $BoxRight as Polygon2D
@@ -72,13 +71,6 @@ func _process(delta):
 	
 	
 func _draw():
-	#var p: PoolVector2Array = PoolVector2Array(poly.get_polygon())
-	#for i in range(1, p.size()):
-	#	draw_line(p[i - 1], p[i], Color("#2b4580"), 3, true)
-	#draw_line(p[p.size() - 1], p[0],  Color("#2b4580"), 3, true)
-	#for point in p:
-	#	point += 
-	
 	if disp >= 0:
 		var mod: int = Modifier.Normal
 		
@@ -166,44 +158,27 @@ func show_box(type: int):
 			box_left_stroke.hide()
 			box_left.hide()
 		
-	#$Namebox.show()
-	#$Tail.show()
 	box_visible = true
 	
 
 func hide_box():
-	#$Box.hide()
-	#$Namebox.hide()
 	box_left_stroke.hide()
 	box_left.hide()
 	box_right_stroke.hide()
 	box_right.hide()
-	#$Tail.hide()
 	box_visible = false
 	
 	
 func set_name_visible(visible: bool):
 	pass
-	#$Namebox.set_visible(visible)
 	
 	
 func set_name_text(text: String):
 	pass
-	#$Namebox/NameText.set_text(text)
-	#$Namebox.margin_right = $Namebox.margin_left + font.get_string_size(text).x + 7
 	
 	
 func set_name_side(right: bool):
-	if right:
-		pass
-		#$Tail.set_position(Vector2(262, 110))
-		#$Namebox/NameText.set_align(Label.ALIGN_RIGHT)
-		#$Namebox/NameText.margin_left = 244
-	else:
-		pass
-		#$Tail.set_position(Vector2(42, 110))
-		#$Namebox/NameText.set_align(Label.ALIGN_LEFT)
-		#$Namebox/NameText.margin_left = 4
+	pass
 	
 
 func display_text(text: String):

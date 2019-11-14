@@ -2,6 +2,8 @@ extends Node
 
 #class_name Controller
 
+signal scene_changed
+
 const DialogueRef := "res://Instances/Dialogue.tscn"
 const DiscourseStartRef := "res://Scenes/DiscourseStart.tscn"
 const CosmoSprite := "res://Resources/Sprite Frames/SpriteFrames_Cosmo.tres"
@@ -30,9 +32,12 @@ var flags: Dictionary = {
 	"npc_train_rudeman": 0,
 	"npc_train_unsurewoman": 0,
 	"npc_train_rhona": 0,
+	"npc_motel_chip": 0,
 	# ----------------------------------------
 	"npc_lm_guide": 0,
 	"npc_lm_pace": 0,
+	"npc_lm_paul": 0,
+	"npc_lm_rhona": 0,
 	# ========================================
 	# DIALOGUE CHOICES
 	# ========================================
@@ -116,6 +121,8 @@ func _ready():
 	
 	#var rt := get_tree().get_root()
 	
+	#connect("scene_changed", self, "test")
+	
 	controller_connected = len(Input.get_connected_joypads()) > 0
 	Input.connect("joy_connection_changed", self, "controller_connection")
 
@@ -139,6 +146,9 @@ func _process(delta: float):
 		save_game(0, OS.get_datetime())
 
 # =====================================================================
+
+func test():
+	print("TEST")
 
 func flag(key: String) -> int:
 	return flags[key]
@@ -240,6 +250,7 @@ func open_options_menu(use_background: bool = true):
 	get_tree().get_root().add_child(menu)
 	return menu
 
+
 func open_exit_menu(parent_menu: Menu):
 	var menu := (load(ExitMenuRef) as PackedScene).instance()
 	menu.set_parent_menu(parent_menu)
@@ -295,6 +306,7 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		
 		Player.set_in_transition(false)
 		Player.set_state(Player.PlayerState.Move)
+		emit_signal("scene_changed")
 	else:
 		var current_scene := get_tree().get_root().get_node("Scene")
 		var scn: PackedScene = load(path) as PackedScene
@@ -303,6 +315,7 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		current_scene.set_name("__temp")
 		scn_i.set_name("Scene")
 		current_scene.queue_free()
+		emit_signal("scene_changed")
 		
 		
 func update_map_marker(path: String):
@@ -396,8 +409,9 @@ func play_sound_oneshot_from_path(sound: String, pitch: float = 1.0, volume: flo
 	get_tree().get_root().add_child(i)
 	
 	
-func dialogue(file: String, set: int, reset_state: bool = true) -> Dialogue:
+func dialogue(file: String, set: int, text_size: int = 8, reset_state: bool = true) -> Dialogue:
 	var dlg: Dialogue = (load(DialogueRef) as PackedScene).instance() as Dialogue
+	dlg.set_text_size(text_size)
 	dlg.start(file, set, reset_state)
 	get_tree().get_root().add_child(dlg)
 	return dlg

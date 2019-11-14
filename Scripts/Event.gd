@@ -13,6 +13,8 @@ export(NodePath) var discourse_npc = null
 
 var started := false
 
+onready var anim_player := $AnimationPlayer as AnimationPlayer
+
 # =====================================================================
 
 func _ready():
@@ -27,7 +29,7 @@ func _ready():
 func start_event(index: int = 0):
 	if not started:
 		Player.set_state(Player.PlayerState.NoInput)
-		$AnimationPlayer.play("Event" + (str(index + 1) if index != 0 else ""))
+		anim_player.play("Event" + (str(index + 1) if index != 0 else ""))
 		if discourse_npc != null:
 			Controller.set_previous_npc(get_node(discourse_npc).get_path())
 		if auto_set_destroy:
@@ -49,7 +51,7 @@ func _event_set_player_direction(direction: int):
 	
 	
 func _event_move_player_to_position(pos: Vector2, time: float, direction: int):
-	$AnimationPlayer.stop(false)
+	anim_player.stop(false)
 	Player.set_direction(direction)
 	var dir = Player.get_position().direction_to(pos)
 	if dir.x < 0:
@@ -91,23 +93,29 @@ func _event_move_player_to_position(pos: Vector2, time: float, direction: int):
 	
 	yield(get_tree().create_timer(time), "timeout")
 	Player.set_speed_override(0)
-	$AnimationPlayer.play()
+	anim_player.play()
 	
 
-func _event_dialogue(file: String, set: int):
-	$AnimationPlayer.stop(false)
-	yield(Controller.dialogue(file, set, false), "dialogue_ended")
-	$AnimationPlayer.play()
+func _event_dialogue(file: String, set: int, text_size: int = 8):
+	anim_player.stop(false)
+	yield(Controller.dialogue(file, set, text_size, false), "dialogue_ended")
+	anim_player.play()
+	
+	
+func _event_dialogue_conditional(file: String, flag_: String, table: Dictionary, text_size: int = 8):
+	anim_player.stop(false)
+	yield(Controller.dialogue(file, table[Controller.flag(flag_)], text_size, false), "dialogue_ended")
+	anim_player.play()
 	
 	
 func _event_flashback(file: String, texture: String):
-	$AnimationPlayer.stop(false)
+	anim_player.stop(false)
 	yield(Controller.flashback(file, load(texture)), "flashback_finished")
-	$AnimationPlayer.play()
+	anim_player.play()
 	
 
 func _event_discourse(file: String, right_name: String, right_sprite: String):
-	$AnimationPlayer.stop(false)
+	anim_player.stop(false)
 	Controller.start_discourse(file, right_name, load(right_sprite) as SpriteFrames)
 	
 

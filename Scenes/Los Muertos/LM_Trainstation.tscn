@@ -101,12 +101,12 @@ extents = Vector2( 3.5, 3 )
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -307,6 +307,7 @@ frames = SubResource( 17 )
 
 [node name="Event" parent="." instance=ExtResource( 10 )]
 position = Vector2( 128, 138 )
+autostart = true
 destroy = true
 destroy_flag = "scn_lm_intro"
 auto_set_destroy = true

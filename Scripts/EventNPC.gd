@@ -27,6 +27,7 @@ func _ready():
 	face = start_direction
 	dialogue_set = Controller.flag(set_flag)
 	
+	
 func _process(delta):
 	set_z_index(int(get_position().y))
 	

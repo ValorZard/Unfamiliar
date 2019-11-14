@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Roar.ogg-e4937530011fb7c54567c5c4aa7d80f9.oggstr"
+
+[deps]
+
+source_file="res://Audio/Roar.ogg"
+dest_files=[ "res://.import/Roar.ogg-e4937530011fb7c54567c5c4aa7d80f9.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

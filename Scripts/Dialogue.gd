@@ -14,6 +14,8 @@ var page_length: int = 0
 var disp: int = 0
 var roll := false
 
+var text_size: int = 8
+
 var allow_advance := false
 var buffer := false
 
@@ -49,12 +51,17 @@ func _process(delta):
 
 # =====================================================================
 
+func set_text_size(value: int):
+	text_size = value
+	
+
 func start(file: String, set: int, reset_state_: bool):
 	Player.set_state(Player.PlayerState.NoInput)
 	reset_state = reset_state_
 	Player.stop_moving()
 	load_text_from_file(file, set)
 	page_length = len(text[0].replace(" ", ""))
+	get_node("Text").get("custom_fonts/font").set_size(text_size)
 	$TimerRollText.start()
 	
 # =====================================================================
@@ -72,7 +79,7 @@ func load_text_from_file(file: String, set: int):
 			break
 		if read:
 			text.push_back(line)
-		if len(line) > 0 and int(line[0]) == set:
+		if len(line) > 0 and int(line) == set:
 			read = true
 	if f.is_open():
 		f.close()

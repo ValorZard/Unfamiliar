@@ -4,7 +4,7 @@ RAWR
 
 1
 Chip: Welcome to the Styx Inn.
-Cosmo: Hi. Has a witch wearing a yellow coat checked into this motel?
+Cosmo: Hi. Has a witch wearing a yellow coat checked into this hotel?
 Chip: Nope. It's been a pretty slow day.
 You might try looking at Hotel Los Muertos. They usually get more traffic.
 It's on the other side of town.
