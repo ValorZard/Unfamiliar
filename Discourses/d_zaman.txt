@@ -1,14 +1,15 @@
+@< sad
 > What's your name, kid?
 < Cosmo.
-> Your witch picked a nice name for you.
+> Ah. Your witch picked a nice name for you.
 > I'm Zaman. Nice to meet you, Cosmo.
-< Mhm.
 < ...
 > So... what did you say you forgot about?
 < Communion Day.
 > Communion Day...
 > I don't know that much about witches. Is that a day that they celebrate?
-< Witches and their familiars.
+< Yes. Witches and their familiars.
+@< idle
 < It's sort of an anniversary. It's the day a witch created their familiar.
 < Like I said, she created me eight years ago today.
 > Really? You don't look eight.
@@ -18,18 +19,23 @@
 > Is it sort of like a birthday?
 < No.
 < There's a tradition for it that most witches follow.
+@< explain
 < It's supposed to be a celebration of the bond between a witch and their familiar.
 < It's always started by the familiar.
 < The familiar gives a gift to their witch.
+@< idle
 < It doesn't have to be anything special. Just a little token of gratitude.
-< To show their witch thanks for summoning them into this world and granting them life.
+< It's to show their witch thanks for summoning them into this world and granting them life.
 < Then the witch gives their familiar a gift, too.
-< To say thanks to their familiar for serving them and being their companion.
+< It's to say thanks to their familiar for serving them and being their companion.
+@< sad
 < Then they spend the rest of the day doing their favorite activities together.
 < The witch isn't supposed to give their familiar any orders throughout the day.
-< It's a way of representing that, even thogh we serve our witches, we aren't any less than them.
+< It's a way of representing that, even though we serve our witches, we aren't any less than them.
+@< idle
 < We're a part of each other. We need each other.
 > That's... really wonderful.
+@< sad
 < Yeah. Not all witches practice Communion Day, though.
 < And, of course... you can't practice Communion Day if the familiar doesn't acknowledge it.
 > The witch can't remind them, or anything?
@@ -38,20 +44,23 @@
 < I've ruined it multiple times.
 < I'm such an awful familiar.
 > Cosmo... Everyone makes mistakes. Everyone forgets things.
-> It's not a big deal.
-< Yes it IS!
+> It's not the end of the world.
+@< angry2
+< Yes it $sIS!
 < You don't understand!
-< It's not liek forgetting to wish someone a happy birthday.
-< If you're a familiar, forgetting to acknowledge Communion Day is lone of the most disprespectful things you can do to your witch.
+@< angry
+< It's not like forgetting to wish someone a happy birthday, Zaman.
+< If you're a familiar, forgetting to acknowledge Communion Day is one of the most disrespectful things you can do to your witch.
 < It's like telling them that you don't appreciate them.
+@< sad
 < That your eternal contract and bond means nothing.
 < Like you hate each other, even...
 < And I forgot! $sAGAIN!
 < I've forgotten so many times, and she's gotten so mad at me every time, and I $sSTILL $0managed to forget!
-< What's wrong with me...?
-< It's bad enough that we got separated at the train station.
-< Now we never even got to celebrate Communion Day.
-< And it's all my fault.
+< $sWhat's wrong with me...?
+< $sIt's bad enough that we got separated at the train station.
+< $sNow we've missed Communion Day again.
+< $sAnd it's all my fault.
 > Wait... you two got separated?
 < Yeah.
 < The train was full. I had to wait for a later one.
@@ -75,8 +84,9 @@
 < $sNO!
 < Of $scourse $0it isn't!
 >> Then why did you spend all night looking for her?
+========================
 [ I'm worried about her! (0, -60) R_1_1 | I have to apologize to her! (0, -60) R_1_2 | I don't trust myself to be alone! (0, -60) R_1_3
------------------------------------------------------
+------------------------
 : R_1_1
 < I'm worried about her!
 < Do you have any idea what people do to witches?
@@ -87,29 +97,48 @@
 < People treat her like trash. Just for being a witch.
 < They treat me like trash, too, but that's beyond the point.
 < Nothing too horrible has ever happened, but that's because we can protect each other.
+@< sad
 < Now she's alone. And neither of us have been to Los Muertos before.
 < There could be people here who will kill her.
 < And if that happens, I...
 < $s...
 > Cosmo...
 > You're not an awful familiar.
-> If you care about your witch that much, you can't be.
+> Not if you care about your witch that much.
 @< sad
 < ...
 > And I'm sure she's fine.
 > I've visited Los Muertos a few times.
 > There are obviously some bad people here, but...
-> It's a city full of witches, monsters, and demons. People are probably fine with them.
+> It's a city full of monsters, demons, and lots of witches. Most people here are probably fine with them.
 > And, I mean... she's a $wwitch. $0She can defend herself, right?
 < Well... yeah.
 > I think you should stop worrying.
 > Everything's going to be fine. Take a deep breath, all right?
 < ...
 < Okay.
------------------------------------------------------
+^ BRANCH_2
+------------------------
+: R_1_2
+< I have to apologize to her!
+< I feel awful. I'm so stupid.
+? choice_witch_personality 0 B_PERSONALITY_01
+? choice_witch_personality 1 B_PERSONALITY_01
+< I'm an idiot. Just like she always says.
+: B_PERSONALITY_01
+< At some point she's going to stop forgiving me.
+< But I'm not letting myself not apologize.
+< 
+^ BRANCH_2
+------------------------
+: R_1_3
+< I don't trust myself to be alone!
+^ BRANCH_2
+========================
+: BRANCH_2
 >> So, why did you two come to Los Muertos, anyway?
 [ We're meeting a client. (0, -60) R_2_1 | She's meeting some friends. (0, -60) R_2_2 | She's shopping for occult materials. (0, -60) R_2_3
------------------------------------------------------
+------------------------
 : R_2_1
 < We're meeting a client.
 ? choice_witch_profession 0 B_JOB_1
@@ -137,7 +166,12 @@
 > She'll probably be there, and everything will be fine.
 < ...
 < You're right.
--------------------------------------------------
+------------------------
+: R_2_2
+< She's meeting some friends.
+
+------------------------
+: END
 @< idle
 < Thanks for talking some sense into me, Zaman.
 @< smile
