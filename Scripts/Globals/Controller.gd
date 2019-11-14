@@ -72,6 +72,7 @@ const map_marker_locs: Dictionary = {
 	"res://Scenes/Los Muertos/LM_Eastside_3.tscn":      Vector2(5, 1),
 	"res://Scenes/Los Muertos/LM_Hideout.tscn":         Vector2(5, 0),
 	"res://Scenes/Los Muertos/LM_Thoroughfare_R.tscn":  Vector2(2, 1),
+	"res://Scenes/Los Muertos/LM_Thoroughfare_M.tscn":  Vector2(1, 1),
 }
 
 var playtime: float = 0.0
@@ -146,9 +147,6 @@ func _process(delta: float):
 		save_game(0, OS.get_datetime())
 
 # =====================================================================
-
-func test():
-	print("TEST")
 
 func flag(key: String) -> int:
 	return flags[key]

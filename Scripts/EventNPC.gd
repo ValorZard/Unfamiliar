@@ -13,6 +13,7 @@ export(String) var set_flag
 var face: int = NPCDirection.Down
 
 var in_range := false
+var can_talk_to := true
 
 var dialogue_set: int = 0
 
@@ -55,6 +56,10 @@ func increment_dialogue_set():
 	
 func show_interact(show: bool):
 	interact.set_visible(show)
+	
+
+func set_can_talk_to(value: bool):
+	can_talk_to = value
 
 # =====================================================================
 
@@ -84,7 +89,7 @@ func _sprite_management():
 # =====================================================================
 
 func _on_InteractArea_area_entered(area: Area2D):
-	if area.is_in_group("PlayerSight"):
+	if can_talk_to and area.is_in_group("PlayerSight"):
 		in_range = true
 		interact.show()
 

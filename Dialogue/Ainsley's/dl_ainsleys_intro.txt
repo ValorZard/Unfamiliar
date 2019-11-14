@@ -1,43 +1,48 @@
 0
-Man: Hello, and welcome!
+Man: Hello!
 Rhona: Oh, hey! It's Cosmo!
 -
 
 1
 Cosmo: Hey, Rhona!
 Rhona: Good to see you again!
-Man: You know this demon, Rhona?
-Rhona: Yeah, Grandpa! I met them on the train here.
-Rhona's Grandpa: Really?
+Man: Is this the demon you told me about, Rhona?
+Rhona: Yeah, Grandpa! They're the one I met on the train.
 -
 
 2
-Rhona's Grandpa: What was your name?
-Cosmo: Cosmo.
+Rhona's Grandpa: What was your name? Cosmo?
+Cosmo: Yeah.
 Rhona's Grandpa: I'm Paul, Rhona's grandfather. Nice to meet you.
+Rhona told me a lot about you.
+She seemed very excited that she got to talk to you.
 -
 
 3
-Rhona's Grandpa: What was your name?
-Cosmo: Cosmo.
-Rhona's Grandpa: I'm Paul, Rhona's grandfather. Nice to meet you.
-Cosmo: Rhona told me a bit about you.
-She told me you were an amazing interior decorator.
-Paul: Ha! Did she?
-Well... I do try my best to make this place look presentable.
+Cosmo: Heh... yeah.
 -
 
 4
+Cosmo: Heh... yeah.
+Rhona told me a bit about you, too.
+She told me you're an amazing interior decorator.
+Paul: Ha! Did she?
+Well... I try my best to make this place look nice.
+-
+
+5
 Rhona: So, what are you doing here, Cosmo?
-Cosmo: I don't know. I can't find my witch, and I'm not sure where to go.
+Have you found your witch?
+Cosmo: No.
+I'm not sure where to go.
 Paul: Oh, you're a familiar?
-Cosmo: Yeah. And my witch is...
-...She's not going to be happy if I take too long to find her.
+Cosmo: Yeah. My witch and I got separated.
+She's not going to be happy if I take too long to find her.
 Paul: She'll definitely turn up. She's probably looking for you, too.
 Cosmo: Ugh...
 -
 
-5
+6
 Rhona: You're stressing out too much.
 You should take a break. Do something to take your mind off it.
 Cosmo: ...Like what?
@@ -50,7 +55,7 @@ Cosmo: I, uh...
 I'd probably be pretty hopeless at that.
 -
 
-6
+7
 Rhona: You're stressing out too much.
 You should take a break. Do something to take your mind off it.
 Cosmo: ...Like what?

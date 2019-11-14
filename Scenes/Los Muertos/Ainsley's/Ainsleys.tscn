@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -69,6 +69,7 @@ extents = Vector2( 39, 4 )
 
 [sub_resource type="Animation" id=7]
 resource_name = "Event"
+length = 4.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -76,18 +77,59 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
+"times": PoolRealArray( 0.6, 0.7, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 0, 0 ],
+"method": "_event_dialogue"
+}, {
+"args": [ Vector2( 192, 120 ), 0.8, 0 ],
+"method": "_event_move_player_to_position"
+}, {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 1, 0 ],
+"method": "_event_dialogue"
+}, {
+"args": [ PoolVector2Array( 176, 114, 176, 102 ), PoolRealArray( 0.5, 0.5 ), PoolIntArray( 2, 0 ) ],
+"method": "_event_move_player_sequence"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../NPCRhona")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", "test", {
-0: 9,
-1: 10
-} ],
-"method": "_event_dialogue_conditional"
+"args": [ false ],
+"method": "set_can_talk_to"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../NPCPaul")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ false ],
+"method": "set_can_talk_to"
 } ]
 }
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 16, 8 )
+
 [node name="Scene" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 136.0, 120.0, 104.0 ],
+"_edit_vertical_guides_": [ 192.0, 176.0 ]
+}
 
 [node name="Overlay" parent="." instance=ExtResource( 1 )]
 is_preview = true
@@ -178,10 +220,14 @@ position = Vector2( 185, 91 )
 shape = SubResource( 6 )
 
 [node name="Event" parent="." instance=ExtResource( 8 )]
-position = Vector2( 192, 130 )
+position = Vector2( 192, 139 )
+autostart = true
 
 [node name="AnimationPlayer" parent="Event" index="0"]
 anims/Event = SubResource( 7 )
+
+[node name="CollisionShape2D" parent="Event" index="1"]
+shape = SubResource( 8 )
 
 [editable path="NPCRhona"]
 
