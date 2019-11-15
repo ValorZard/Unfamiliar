@@ -26,6 +26,7 @@ var flags: Dictionary = {
 	"scn_intro": 0,
 	"scn_rhona": 0,
 	"scn_lm_intro": 0,
+	"scn_ainsley's_intro": 0,
 	# ========================================
 	# NPCS
 	# ========================================
@@ -52,7 +53,7 @@ var flags: Dictionary = {
 var settings: Dictionary = {
 	"window_size": 0, # 0 = 1x, 1 = 2x, 2 = 3x
 	"fullscreen": 0, # 0 = No, 1 = Yes
-	"controller_buttons": 0, # 0 = XBox, 1 = PS, 2 = Switch
+	"controller_buttons": 0, # 0 = XB, 1 = PS, 2 = Switch
 	"text_speed_overworld": 1, # 0 = Slow, 1 = Medium, 2 = Fast
 	"text_speed_discourse": 2 # 0 = Slow, 1 = Medium, 2 = Fast
 }
@@ -310,6 +311,10 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		var scn: PackedScene = load(path) as PackedScene
 		var scn_i := scn.instance()
 		get_tree().get_root().add_child(scn_i)
+		update_map_marker(path)
+		Player.set_position(pos)
+		Player.set_direction(direction)
+		
 		current_scene.set_name("__temp")
 		scn_i.set_name("Scene")
 		current_scene.queue_free()

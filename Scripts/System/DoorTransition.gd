@@ -5,4 +5,5 @@ func destroy(dummy: String):
 
 
 func restore_player_movement(dummy: String):
-	Player.set_state(Player.PlayerState.Move)
+	if not Player.is_in_event():
+		Player.set_state(Player.PlayerState.Move)

@@ -15,16 +15,19 @@ var state: int = PlayerState.Move
 var face: int = Direction.Down
 var walking := false
 var in_transition := false
+var in_event := false
 
 var sprite_override := false
 
 onready var spr := $Sprite as AnimatedSprite
+onready var interact := $Interact as Sprite
 onready var sight := $Sight as Area2D
 onready var anim_player := $AnimationPlayer as AnimationPlayer
 
 # =====================================================================
 
 func _ready():
+	interact.hide()
 	set_position(Vector2(176, 98))
 
 
@@ -52,8 +55,8 @@ func _physics_process(delta):
 			
 			move_and_slide(vel_override * speed_override)
 			
-	if Input.is_action_just_pressed("debug_1"):
-		Controller.flashback("res://Flashbacks/fb_contract.txt", load("res://Splash.png"))
+	#if Input.is_action_just_pressed("debug_1"):
+		#Controller.flashback("res://Flashbacks/fb_contract.txt", load("res://Splash.png"))
 
 # =====================================================================
 
@@ -63,6 +66,14 @@ func get_state() -> int:
 
 func set_state(value: int):
 	state = value
+	
+	
+func is_in_event() -> bool:
+	return in_event
+	
+	
+func set_in_event(value: bool):
+	in_event = value
 	
 	
 func get_direction() -> int:
@@ -83,6 +94,10 @@ func set_speed_override(value: float):
 	
 func set_in_transition(value: bool):
 	in_transition = value
+	
+	
+func show_interact(show: bool):
+	interact.set_visible(show)
 	
 	
 func stop_moving():

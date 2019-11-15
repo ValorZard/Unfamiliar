@@ -20,8 +20,7 @@ onready var anim_player := $AnimationPlayer as AnimationPlayer
 func _ready():
 	if destroy and Controller.flag(destroy_flag) == 1:
 		queue_free()
-		
-	if autostart:
+	elif autostart:
 		start_event()
 	
 # =====================================================================
@@ -29,6 +28,8 @@ func _ready():
 func start_event(index: int = 0):
 	if not started:
 		Player.set_state(Player.PlayerState.NoInput)
+		Player.show_interact(false)
+		Player.set_in_event(true)
 		anim_player.play("Event" + (str(index + 1) if index != 0 else ""))
 		if discourse_npc != null:
 			Controller.set_previous_npc(get_node(discourse_npc).get_path())
@@ -165,6 +166,7 @@ func _on_Event_body_entered(body: PhysicsBody2D):
 func _on_AnimationPlayer_animation_finished(anim_name: String):
 	if anim_name.substr(0, 5) == "Event":
 		Player.set_state(Player.PlayerState.Move)
+		Player.set_in_event(false)
 		emit_signal("event_ended")
 		
 		started = false

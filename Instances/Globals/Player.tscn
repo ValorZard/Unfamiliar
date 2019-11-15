@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=2]
@@ -10,10 +10,11 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkup2.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkleft1.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkleft2.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_down.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_stand1.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkdown1.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkdown2.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_stand1.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_down.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkdown2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/UI/Interact2.png" type="Texture" id=15]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -49,17 +50,17 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "down",
+"name": "down_sad",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 11 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "down_walk",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "down_sad",
+"name": "down",
 "speed": 5.0
 } ]
 
@@ -82,6 +83,22 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 
+[sub_resource type="Animation" id=4]
+resource_name = "Interact"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Interact:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0, -17 ), Vector2( 0, -19 ), Vector2( 0, -17 ) ]
+}
+
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
@@ -93,6 +110,10 @@ __meta__ = {
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
 animation = "down"
+
+[node name="Interact" type="Sprite" parent="."]
+position = Vector2( 0, -17 )
+texture = ExtResource( 15 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8 )
@@ -107,3 +128,7 @@ polygon = PoolVector2Array( 0, 4, -5, 23, 5, 23 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/ScrollOffset = SubResource( 3 )
+
+[node name="AnimationPlayerInteract" type="AnimationPlayer" parent="."]
+autoplay = "Interact"
+anims/Interact = SubResource( 4 )
