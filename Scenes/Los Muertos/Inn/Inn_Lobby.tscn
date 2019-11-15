@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Chip.png" type="Texture" id=7]
+[ext_resource path="res://Audio/Roar.ogg" type="AudioStream" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -56,6 +57,23 @@ tracks/0/keys = {
 }, {
 "args": [ "res://Dialogue/Motel/dl_motel_chip.txt", 2 ],
 "method": "_event_dialogue"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../../SoundRoar")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+}, {
+"args": [ 0.0 ],
+"method": "play"
 } ]
 }
 
@@ -117,6 +135,9 @@ position = Vector2( 0, 4 )
 
 [node name="AnimationPlayer" parent="EventNPCChip/Event" index="0"]
 anims/Event = SubResource( 3 )
+
+[node name="SoundRoar" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
 
 [editable path="EventNPCChip"]
 

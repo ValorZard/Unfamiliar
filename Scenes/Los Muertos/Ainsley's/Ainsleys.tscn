@@ -77,20 +77,38 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.6, 0.7, 0.8, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0.6, 0.7, 0.8, 1, 1.1, 1.2, 1.4, 1.5, 1.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
-"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 0, 0 ],
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 0 ],
 "method": "_event_dialogue"
 }, {
 "args": [ Vector2( 192, 120 ), 0.8, 0 ],
 "method": "_event_move_player_to_position"
 }, {
-"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 1, 0 ],
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 1 ],
 "method": "_event_dialogue"
 }, {
-"args": [ PoolVector2Array( 176, 114, 176, 102 ), PoolRealArray( 0.5, 0.5 ), PoolIntArray( 2, 0 ) ],
+"args": [ PoolVector2Array( 176, 114, 176, 98 ), PoolRealArray( 0.5, 0.5 ), PoolIntArray( 2, 0 ) ],
 "method": "_event_move_player_sequence"
+}, {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 2 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", "choice_know_rhona's_grandpa", {
+0: 3,
+1: 4
+} ],
+"method": "_event_dialogue_conditional"
+}, {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 5 ],
+"method": "_event_dialogue"
+}, {
+"args": [ 3 ],
+"method": "_event_set_player_direction"
+}, {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 6 ],
+"method": "_event_dialogue"
 } ]
 }
 tracks/1/type = "method"

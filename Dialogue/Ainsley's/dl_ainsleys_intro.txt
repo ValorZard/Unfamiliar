@@ -33,6 +33,9 @@ Well... I try my best to make this place look nice.
 5
 Rhona: So, what are you doing here, Cosmo?
 Have you found your witch?
+-
+
+6
 Cosmo: No.
 I'm not sure where to go.
 Paul: Oh, you're a familiar?
@@ -42,7 +45,7 @@ Paul: She'll definitely turn up. She's probably looking for you, too.
 Cosmo: Ugh...
 -
 
-6
+7
 Rhona: You're stressing out too much.
 You should take a break. Do something to take your mind off it.
 Cosmo: ...Like what?
