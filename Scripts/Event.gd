@@ -47,7 +47,17 @@ func _event_show_player(show: bool):
 	
 	
 func _event_set_player_direction(direction: int):
+	Player.set_sprite_override(false)
 	Player.set_direction(direction)
+	
+	
+func _event_player_sprite_override(value: bool):
+	Player.set_sprite_override(value)
+	
+	
+func _event_player_play_animation(anim: String):
+	Player.set_sprite_override(true)
+	Player.play_sprite_animation(anim)
 	
 
 func _event_move_player_sequence(positions: PoolVector2Array, times: PoolRealArray, directions: PoolIntArray):

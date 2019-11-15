@@ -9,7 +9,7 @@ export(bool) var auto_advance_set = false
 export(int) var set_limit = 0
 export(String) var set_flag
 
-var face: int = NPCDirection.Down
+export(NPCDirection) var face := NPCDirection.Down
 
 var in_range := false
 var can_talk_to := true

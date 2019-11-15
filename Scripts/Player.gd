@@ -16,6 +16,8 @@ var face: int = Direction.Down
 var walking := false
 var in_transition := false
 
+var sprite_override := false
+
 onready var spr := $Sprite as AnimatedSprite
 onready var sight := $Sight as Area2D
 onready var anim_player := $AnimationPlayer as AnimationPlayer
@@ -85,21 +87,30 @@ func set_in_transition(value: bool):
 	
 func stop_moving():
 	walking = false
-	match face:
-		Direction.Up:
-			spr.play("up")
-		Direction.Down:
-			spr.play("down")
-		Direction.Left:
-			spr.play("left")
-		Direction.Right:
-			spr.play("right")
+	if not sprite_override:
+		match face:
+			Direction.Up:
+				spr.play("up")
+			Direction.Down:
+				spr.play("down")
+			Direction.Left:
+				spr.play("left")
+			Direction.Right:
+				spr.play("right")
 	
 
 func scroll_offset(offset: Vector2):
 	anim_player.get_animation("ScrollOffset").track_set_key_value(0, 0, get_position())
 	anim_player.get_animation("ScrollOffset").track_set_key_value(0, 1, get_position() + offset)
 	anim_player.play("ScrollOffset")
+	
+	
+func set_sprite_override(value: bool):
+	sprite_override = value
+	
+	
+func play_sprite_animation(anim: String):
+	spr.play(anim)
 
 # =====================================================================
 
@@ -129,12 +140,13 @@ func direction_management():
 	
 
 func sprite_management():
-	match face:
-		Direction.Up:
-			spr.play("up_walk" if walking or in_transition else "up")
-		Direction.Down:
-			spr.play("down_walk" if walking or in_transition else "down")
-		Direction.Left:
-			spr.play("left_walk" if walking or in_transition else "left")
-		Direction.Right:
-			spr.play("right_walk" if walking or in_transition else "right")
+	if not sprite_override:
+		match face:
+			Direction.Up:
+				spr.play("up_walk" if walking or in_transition else "up")
+			Direction.Down:
+				spr.play("down_walk" if walking or in_transition else "down")
+			Direction.Left:
+				spr.play("left_walk" if walking or in_transition else "left")
+			Direction.Right:
+				spr.play("right_walk" if walking or in_transition else "right")
