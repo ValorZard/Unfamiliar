@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -7,6 +7,9 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 48 )
 
 [node name="Scene" type="Node2D"]
 
@@ -44,6 +47,14 @@ target_direction = 1
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
 shape = SubResource( 1 )
 
+[node name="Transition2" parent="Transitions" instance=ExtResource( 3 )]
+position = Vector2( 72, 98 )
+target_scene = "res://Scenes/Los Muertos/LM_Topstreet_R.tscn"
+target_direction = 2
+
+[node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
+shape = SubResource( 2 )
+
 [node name="Walls" type="StaticBody2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
@@ -64,3 +75,5 @@ centered = false
 polygon = PoolVector2Array( 0, 37, 12, 51, 38, 59, 58, 59, 84, 51, 96, 37, 95, 21, 73, 6, 23, 6, 1, 21 )
 
 [editable path="Transitions/Transition"]
+
+[editable path="Transitions/Transition2"]

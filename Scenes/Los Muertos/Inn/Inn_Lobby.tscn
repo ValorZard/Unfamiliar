@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Chip.png" type="Texture" id=7]
 [ext_resource path="res://Audio/Roar.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=10]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -139,6 +141,15 @@ anims/Event = SubResource( 3 )
 [node name="SoundRoar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 8 )
 
+[node name="Door" parent="." instance=ExtResource( 9 )]
+position = Vector2( 160, 160 )
+target_scene = "res://Scenes/Los Muertos/LM_Topstreet_R.tscn"
+target_position = Vector2( 144, 90 )
+target_direction = 1
+door_sound = ExtResource( 10 )
+
 [editable path="EventNPCChip"]
 
 [editable path="EventNPCChip/Event"]
+
+[editable path="Door"]

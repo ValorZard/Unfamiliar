@@ -5,8 +5,8 @@
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Rug.png" type="Texture" id=4]
 [ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_right.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_left.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_left.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_right.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_up.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_down.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Paul.png" type="Texture" id=10]
@@ -18,12 +18,12 @@
 animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
@@ -41,12 +41,12 @@ animations = [ {
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -258,7 +258,10 @@ offset = Vector2( 0, 0.5 )
 
 [node name="NPCRhona" parent="." instance=ExtResource( 5 )]
 position = Vector2( 200, 98 )
-set_flag = "npc_lm_rhona"
+dialogue_file = "res://Dialogue/Ainsley's/dl_ainsleys_rhona.txt"
+auto_advance_set = true
+set_limit = 2
+set_flag = "npc_ainsleys_rhona"
 face = 2
 
 [node name="Sprite" parent="NPCRhona" index="0"]
@@ -266,7 +269,7 @@ frames = SubResource( 1 )
 
 [node name="NPCPaul" parent="." instance=ExtResource( 5 )]
 position = Vector2( 176, 75 )
-set_flag = "npc_lm_paul"
+set_flag = "npc_ainsleys_paul"
 
 [node name="Sprite" parent="NPCPaul" index="0"]
 frames = SubResource( 2 )

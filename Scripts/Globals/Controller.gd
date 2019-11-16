@@ -33,12 +33,13 @@ var flags: Dictionary = {
 	"npc_train_rudeman": 0,
 	"npc_train_unsurewoman": 0,
 	"npc_train_rhona": 0,
-	"npc_motel_chip": 0,
 	# ----------------------------------------
 	"npc_lm_guide": 0,
 	"npc_lm_pace": 0,
-	"npc_lm_paul": 0,
-	"npc_lm_rhona": 0,
+	"npc_ainsleys_paul": 0,
+	"npc_ainsleys_rhona": 0,
+	# ----------------------------------------
+	"npc_motel_chip": 0,
 	# ========================================
 	# DIALOGUE CHOICES
 	# ========================================
