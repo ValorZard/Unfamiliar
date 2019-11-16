@@ -3,28 +3,17 @@
 [ext_resource path="res://Scripts/System/Flashback.gd" type="Script" id=1]
 [ext_resource path="res://Splash.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UI/Vignette.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/UI/Transition_Flashback.png" type="Texture" id=4]
-[ext_resource path="res://Instances/TextDisplay.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Audio/Flashback_new_TEMP.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Shaders/Transition.shader" type="Shader" id=4]
+[ext_resource path="res://Sprites/UI/Transition_Flashback.png" type="Texture" id=5]
+[ext_resource path="res://Instances/TextDisplay.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Audio/Flashback_new_TEMP.ogg" type="AudioStream" id=7]
 
-[sub_resource type="Shader" id=3]
-code = "shader_type canvas_item;
-
-uniform float cutoff : hint_range(0f, 1f);
-uniform sampler2D mask : hint_albedo;
-
-void fragment() {
-	float value = texture(mask, UV).r;
-	COLOR = value < cutoff ? vec4(COLOR.rgb, 0) : vec4(COLOR.rgb, 1);
-}
-"
-
-[sub_resource type="ShaderMaterial" id=4]
-shader = SubResource( 3 )
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 4 )
 shader_param/cutoff = 1.0
-shader_param/mask = ExtResource( 4 )
+shader_param/mask = ExtResource( 5 )
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "Anim"
 length = 2.0
 tracks/0/type = "value"
@@ -114,7 +103,7 @@ tracks/6/keys = {
 "values": [ false, true ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "Anim End"
 length = 2.0
 tracks/0/type = "value"
@@ -223,18 +212,18 @@ centered = false
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 visible = false
 self_modulate = Color( 1, 1, 1, 0.6 )
-material = SubResource( 4 )
+material = SubResource( 1 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
 color = Color( 1, 1, 1, 0.375 )
 
-[node name="TextDisplay" parent="CanvasLayer" instance=ExtResource( 5 )]
+[node name="TextDisplay" parent="CanvasLayer" instance=ExtResource( 6 )]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
-anims/Anim = SubResource( 5 )
-"anims/Anim End" = SubResource( 6 )
+anims/Anim = SubResource( 2 )
+"anims/Anim End" = SubResource( 3 )
 
 [node name="SoundFB" type="AudioStreamPlayer" parent="CanvasLayer"]
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 volume_db = 24.0

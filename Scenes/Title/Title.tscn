@@ -10,7 +10,8 @@
 [ext_resource path="res://Sprites/UI/Title Logo.png" type="Texture" id=8]
 [ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=10]
-[ext_resource path="res://Sprites/UI/Transition2.png" type="Texture" id=11]
+[ext_resource path="res://Shaders/Transition.shader" type="Shader" id=11]
+[ext_resource path="res://Sprites/UI/Transition2.png" type="Texture" id=12]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -1779,22 +1780,10 @@ void fragment() {
 shader = SubResource( 30 )
 shader_param/amount = 0.0
 
-[sub_resource type="Shader" id=32]
-code = "shader_type canvas_item;
-
-uniform float cutoff : hint_range(0f, 1f);
-uniform sampler2D mask : hint_albedo;
-
-void fragment() {
-	float value = texture(mask, UV).r;
-	COLOR = value < cutoff ? vec4(COLOR.rgb, 0) : vec4(COLOR.rgb, 1);
-}
-"
-
-[sub_resource type="ShaderMaterial" id=33]
-shader = SubResource( 32 )
+[sub_resource type="ShaderMaterial" id=32]
+shader = ExtResource( 11 )
 shader_param/cutoff = 1.0
-shader_param/mask = ExtResource( 11 )
+shader_param/mask = ExtResource( 12 )
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
@@ -2138,7 +2127,7 @@ __meta__ = {
 
 [node name="Fade2" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 33 )
+material = SubResource( 32 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
