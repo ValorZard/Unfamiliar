@@ -143,7 +143,7 @@ material = SubResource( 2 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
-color = Color( 0.0470588, 0.0745098, 0.137255, 1 )
+color = Color( 0.0235294, 0.0470588, 0.0941176, 1 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 autoplay = "Fadein"

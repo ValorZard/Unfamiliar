@@ -1,17 +1,18 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Title.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Particles/DiscourseBg.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UI/BG2.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UI/BG1.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_shadow.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Overlays/Cosmo_shadow_blink1.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Overlays/Cosmo_shadow_blink2.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/UI/Title Logo.png" type="Texture" id=8]
-[ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=10]
-[ext_resource path="res://Shaders/Transition.shader" type="Shader" id=11]
-[ext_resource path="res://Sprites/UI/Transition2.png" type="Texture" id=12]
+[ext_resource path="res://Shaders/Transition.shader" type="Shader" id=5]
+[ext_resource path="res://Sprites/UI/Transition_Title.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_shadow.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Overlays/Cosmo_shadow_blink1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Overlays/Cosmo_shadow_blink2.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/UI/Title Logo.png" type="Texture" id=10]
+[ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=12]
+[ext_resource path="res://Sprites/UI/Transition2.png" type="Texture" id=13]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -41,9 +42,14 @@ color_ramp = SubResource( 3 )
 anim_offset = 1.0
 anim_offset_random = 1.0
 
+[sub_resource type="ShaderMaterial" id=34]
+shader = ExtResource( 5 )
+shader_param/cutoff = 0.0
+shader_param/mask = ExtResource( 6 )
+
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "blink",
 "speed": 5.0
@@ -1190,6 +1196,228 @@ tracks/13/keys = {
 }
 
 [sub_resource type="Animation" id=24]
+resource_name = "Setup New"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Polygon2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 0.482968, 1 ),
+"update": 0,
+"values": [ Vector2( 80, -64 ), Vector2( 16, -8 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Polygon2D2:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.9 ),
+"transitions": PoolRealArray( 1, 0.482968, 1 ),
+"update": 0,
+"values": [ Vector2( 71, 34 ), Vector2( 71, 34 ), Vector2( 0, -6 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Polygon2D3:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.7, 1.3 ),
+"transitions": PoolRealArray( 1, 0.482968, 1 ),
+"update": 0,
+"values": [ Vector2( -48, 34 ), Vector2( -48, 34 ), Vector2( 0, 0 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Logo flyin", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("AnimationPlayer2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Background", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath("Button1")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 4.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear"
+} ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("Button2")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 4.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear"
+} ]
+}
+tracks/7/type = "method"
+tracks/7/path = NodePath("Button3")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 4.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear"
+} ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("Copyright:margin_top")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 4.2, 4.9 ),
+"transitions": PoolRealArray( 1, 0.482968, 1 ),
+"update": 0,
+"values": [ 280, 280, 169.0 ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("Fade:color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath("Cosmo:position")
+tracks/10/interp = 2
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0, 3, 4 ),
+"transitions": PoolRealArray( 1, 0.406126, 1 ),
+"update": 0,
+"values": [ Vector2( 350, 184 ), Vector2( 350, 184 ), Vector2( 272, 184 ) ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath("Fade2:visible")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/12/type = "method"
+tracks/12/path = NodePath("Button4")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 4.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear"
+} ]
+}
+tracks/13/type = "value"
+tracks/13/path = NodePath("PartsMask:material:shader_param/cutoff")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0, 4.2, 4.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/14/type = "method"
+tracks/14/path = NodePath("TimerBlink")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ -1 ],
+"method": "start"
+} ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("Cosmo/Blink:frame")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 4.1, 4.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("Cosmo/Blink:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 4.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=25]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1338,8 +1566,7 @@ tracks/11/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=25]
-resource_name = "Teardown Options"
+[sub_resource type="Animation" id=26]
 length = 2.5
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
@@ -1380,8 +1607,7 @@ tracks/2/keys = {
 "values": [ 0.0, 0.0, 2.5 ]
 }
 
-[sub_resource type="Animation" id=26]
-resource_name = "Teardown Options 2"
+[sub_resource type="Animation" id=27]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1458,7 +1684,7 @@ tracks/5/keys = {
 "values": [ 0.0, 0.0, 2.5 ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=28]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1619,8 +1845,7 @@ tracks/12/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=28]
-resource_name = "Unteardown"
+[sub_resource type="Animation" id=29]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1753,7 +1978,7 @@ tracks/9/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=30]
 length = 2.5
 loop = true
 tracks/0/type = "value"
@@ -1769,21 +1994,21 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1.015 ) ]
 }
 
-[sub_resource type="Shader" id=30]
+[sub_resource type="Shader" id=31]
 code = "shader_type canvas_item;
 uniform float amount : hint_range(0,10);
 void fragment() {
     COLOR.rgb = textureLod(SCREEN_TEXTURE,SCREEN_UV,amount).rgb;
 }"
 
-[sub_resource type="ShaderMaterial" id=31]
-shader = SubResource( 30 )
+[sub_resource type="ShaderMaterial" id=32]
+shader = SubResource( 31 )
 shader_param/amount = 0.0
 
-[sub_resource type="ShaderMaterial" id=32]
-shader = ExtResource( 11 )
+[sub_resource type="ShaderMaterial" id=33]
+shader = ExtResource( 5 )
 shader_param/cutoff = 1.0
-shader_param/mask = ExtResource( 12 )
+shader_param/mask = ExtResource( 13 )
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
@@ -1803,6 +2028,7 @@ position = Vector2( 160, 90 )
 emitting = false
 amount = 16
 lifetime = 3.0
+preprocess = 1.5
 process_material = SubResource( 4 )
 texture = ExtResource( 2 )
 __meta__ = {
@@ -1844,6 +2070,13 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="PartsMask" type="ColorRect" parent="."]
+material = SubResource( 34 )
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+color = Color( 0.0235294, 0.0470588, 0.0941176, 1 )
+
 [node name="Polygon2D" type="Polygon2D" parent="."]
 position = Vector2( 80, -64 )
 color = Color( 0.0784314, 0.145098, 0.278431, 1 )
@@ -1855,17 +2088,17 @@ __meta__ = {
 [node name="Cosmo" type="Sprite" parent="."]
 modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
 position = Vector2( 350, 184 )
-texture = ExtResource( 5 )
+texture = ExtResource( 7 )
 offset = Vector2( -30, -86.5 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Blink" type="AnimatedSprite" parent="Cosmo"]
-visible = false
 position = Vector2( -20, -129 )
 frames = SubResource( 5 )
 animation = "blink"
+frame = 1
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Cosmo"]
@@ -1874,7 +2107,7 @@ anims/Blink = SubResource( 6 )
 [node name="Logo1" type="Sprite" parent="."]
 position = Vector2( -50, 24 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 35, 43 )
@@ -1885,7 +2118,7 @@ __meta__ = {
 [node name="Logo2" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 35, 11, 21, 38 )
@@ -1896,7 +2129,7 @@ __meta__ = {
 [node name="Logo3" type="Sprite" parent="."]
 position = Vector2( -50, 25 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 59, 2, 17, 41 )
@@ -1907,7 +2140,7 @@ __meta__ = {
 [node name="Logo4" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 80, 11, 19, 32 )
@@ -1918,7 +2151,7 @@ __meta__ = {
 [node name="Logo5" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 104, 11, 32, 38 )
@@ -1929,7 +2162,7 @@ __meta__ = {
 [node name="Logo6" type="Sprite" parent="."]
 position = Vector2( -50, 23 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 143, 1, 8, 42 )
@@ -1940,7 +2173,7 @@ __meta__ = {
 [node name="Logo7" type="Sprite" parent="."]
 position = Vector2( -50, 24 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 157, 2, 8, 41 )
@@ -1951,7 +2184,7 @@ __meta__ = {
 [node name="Logo8" type="Sprite" parent="."]
 position = Vector2( -50, 23 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 171, 1, 8, 42 )
@@ -1962,7 +2195,7 @@ __meta__ = {
 [node name="Logo9" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 187, 11, 19, 32 )
@@ -1973,7 +2206,7 @@ __meta__ = {
 [node name="Logo10" type="Sprite" parent="."]
 position = Vector2( -50, 33 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 8 )
+texture = ExtResource( 10 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 211, 11, 16, 32 )
@@ -1981,7 +2214,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Button1" parent="." instance=ExtResource( 9 )]
+[node name="Button1" parent="." instance=ExtResource( 11 )]
 position = Vector2( 52, 88 )
 polygon = PoolVector2Array( 18, 24, 89, 25, 96, 5, 16, 8 )
 button_text = "New Game"
@@ -1996,7 +2229,7 @@ margin_bottom = 10.0
 focus_neighbour_top = NodePath("../../Button4/Button")
 focus_neighbour_bottom = NodePath("../../Button2/Button")
 
-[node name="Button2" parent="." instance=ExtResource( 9 )]
+[node name="Button2" parent="." instance=ExtResource( 11 )]
 position = Vector2( 103, 115 )
 polygon = PoolVector2Array( 15, 24, 106, 21, 93, 5, 10, 6 )
 button_text = "Load Game"
@@ -2020,7 +2253,7 @@ margin_bottom = 8.0
 focus_neighbour_top = NodePath("../../Button1/Button")
 focus_neighbour_bottom = NodePath("../../Button3/Button")
 
-[node name="Button3" parent="." instance=ExtResource( 9 )]
+[node name="Button3" parent="." instance=ExtResource( 11 )]
 position = Vector2( 148, 140 )
 polygon = PoolVector2Array( 20, 23, 92, 22, 86, 7, 23, 6 )
 button_text = "Options"
@@ -2044,7 +2277,7 @@ margin_bottom = 8.0
 focus_neighbour_top = NodePath("../../Button2/Button")
 focus_neighbour_bottom = NodePath("../../Button4/Button")
 
-[node name="Button4" parent="." instance=ExtResource( 9 )]
+[node name="Button4" parent="." instance=ExtResource( 11 )]
 position = Vector2( 196, 164 )
 polygon = PoolVector2Array( 31, 23, 89, 22, 95, 7, 21, 8 )
 button_text = "Exit"
@@ -2080,16 +2313,17 @@ anims/Background = SubResource( 22 )
 
 [node name="AnimationPlayerSetup" type="AnimationPlayer" parent="."]
 anims/Setup = SubResource( 23 )
-anims/Teardown = SubResource( 24 )
-"anims/Teardown Options" = SubResource( 25 )
-"anims/Teardown Options 2" = SubResource( 26 )
-"anims/Teardown Start" = SubResource( 27 )
-anims/Unteardown = SubResource( 28 )
+"anims/Setup New" = SubResource( 24 )
+anims/Teardown = SubResource( 25 )
+"anims/Teardown Options" = SubResource( 26 )
+"anims/Teardown Options 2" = SubResource( 27 )
+"anims/Teardown Start" = SubResource( 28 )
+anims/Unteardown = SubResource( 29 )
 
 [node name="AnimationPlayerCosmo" type="AnimationPlayer" parent="."]
 autoplay = "Cosmo Idle"
 playback_speed = 0.85
-"anims/Cosmo Idle" = SubResource( 29 )
+"anims/Cosmo Idle" = SubResource( 30 )
 
 [node name="TimerSetup" type="Timer" parent="."]
 one_shot = true
@@ -2100,7 +2334,7 @@ margin_left = 36.0
 margin_top = 280.0
 margin_right = 147.0
 margin_bottom = 183.0
-custom_fonts/font = ExtResource( 10 )
+custom_fonts/font = ExtResource( 12 )
 custom_colors/font_color = Color( 0.282353, 0.384314, 0.627451, 1 )
 text = "© 2019 Studio Fractal"
 __meta__ = {
@@ -2108,7 +2342,7 @@ __meta__ = {
 }
 
 [node name="Blur" type="ColorRect" parent="."]
-material = SubResource( 31 )
+material = SubResource( 32 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
@@ -2127,7 +2361,7 @@ __meta__ = {
 
 [node name="Fade2" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 32 )
+material = SubResource( 33 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
@@ -2158,14 +2392,13 @@ one_shot = true
 autostart = true
 
 [node name="TimerBlink" type="Timer" parent="."]
-wait_time = 4.6
+wait_time = 3.0
 one_shot = true
-autostart = true
 [connection signal="clicked" from="Button1" to="." method="_on_Button1_clicked"]
 [connection signal="clicked" from="Button2" to="." method="_on_Button2_clicked"]
 [connection signal="clicked" from="Button3" to="." method="_on_Button3_clicked"]
 [connection signal="clicked" from="Button4" to="." method="_on_Button4_clicked"]
-[connection signal="timeout" from="TimerSetup" to="AnimationPlayerSetup" method="play" binds= [ "Setup" ]]
+[connection signal="timeout" from="TimerSetup" to="AnimationPlayerSetup" method="play" binds= [ "Setup New" ]]
 [connection signal="timeout" from="TimerActive" to="." method="set_active"]
 [connection signal="timeout" from="TimerBlink" to="Cosmo/AnimationPlayer" method="play" binds= [ "Blink" ]]
 

@@ -85,7 +85,7 @@
 < Of $scourse $0it isn't!
 >> Then why did you spend all night looking for her?
 ========================
-[ I'm worried about her! (0, -60) R_1_1 | I have to apologize to her! (0, -60) R_1_2 | I don't trust myself to be alone! (0, -60) R_1_3
+[ I'm worried about her! (0, -60) R_1_1 | I have to apologize to her! (0, -60) R_1_2
 ------------------------
 : R_1_1
 < I'm worried about her!
@@ -127,15 +127,42 @@
 < I'm an idiot. Just like she always says.
 : B_PERSONALITY_01
 < At some point she's going to stop forgiving me.
+@< sad
 < But I'm not letting myself not apologize.
-< 
-^ BRANCH_2
-------------------------
-: R_1_3
-< I don't trust myself to be alone!
+< Even if she doesn't forgive me.
+< Even if she hates me forever.
+< I just want her to know I'm sorry.
+> ...
+> Cosmo, if you care this much about making things right, I don't think you're an awful familiar.
+< There's no need to make things right if you don't screw them up in the first place.
+> Cosmo, snap out of it!
+< ...What?
+> You forgot one day of the year. You made a human mistake.
+@< sad
+< I'm not-
+> I know you aren't human. But you have a body and a soul, so I'm calling you human.
+> Humans make mistakes. Your witch makes mistakes, too.
+> If she doesn't accept your apology and hates you forever, that's her problem.
+> Because, well... she's kind of stuck with you.
+@< idle
+> Tell her you're sorry, but don't let her knock you down for making a mistake.
+@< sad
+< ...
+@< idle
+< You're right.
+< I'm stuck with her, and she's stuck with me. We can't stay mad at each other forever.
+< We have to understand each other.
+< It's like the pact said: we're a part of each other.
+< I'm gonna go find her and tell her I'm sorry.
+< And then I'll give her a hug.
+< And if she doesn't hug me back... that's fine.
+< I'll just hug her even harder.
+> That's the spirit!
 ^ BRANCH_2
 ========================
 : BRANCH_2
+| 1.5
+@< idle
 >> So, why did you two come to Los Muertos, anyway?
 [ We're meeting a client. (0, -60) R_2_1 | She's meeting some friends. (0, -60) R_2_2 | She's shopping for occult materials. (0, -60) R_2_3
 ------------------------

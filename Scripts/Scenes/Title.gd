@@ -17,6 +17,8 @@ func _ready():
 	Controller.draw_overlay(false)
 	Controller.draw_overlay_map(false)
 	Player.hide()
+	
+	($PartsBg as Particles2D).set_emitting(true)
 
 # =====================================================================
 
