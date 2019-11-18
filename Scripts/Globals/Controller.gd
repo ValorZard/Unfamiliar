@@ -222,6 +222,10 @@ func fade(time: float, fadeout: bool, color: Color = Color(0, 0, 0), above_overl
 	anim_player_fade.play("Fadeout" if fadeout else "Fadein")
 	
 	
+func enable_dark_hour(enable: bool):
+	$CanvasLayerTint/Tint.set_visible(enable)
+	
+	
 func select_menu_button(buttons: Array, index: String, destroy: bool = true):
 	for but in buttons:
 		if but.get_name() == index:

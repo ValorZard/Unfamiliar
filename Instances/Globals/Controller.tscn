@@ -1,10 +1,24 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Globals/Controller.gd" type="Script" id=1]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
 
-[sub_resource type="Animation" id=1]
-resource_name = "CameraScroll"
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 tint : hint_color;
+
+void fragment() {
+	COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+	COLOR.rgb *= tint.rgb;
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/tint = Color( 0.862745, 1, 0.431373, 1 )
+
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("MainCamera:offset")
 tracks/0/interp = 1
@@ -18,8 +32,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "Fadein"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Fade:color")
 tracks/0/interp = 1
@@ -33,7 +46,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayer/Fade:color")
 tracks/0/interp = 1
@@ -68,11 +81,21 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="CanvasLayerTint" type="CanvasLayer" parent="."]
+layer = 4
+
+[node name="Tint" type="ColorRect" parent="CanvasLayerTint"]
+visible = false
+material = SubResource( 2 )
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/CameraScroll = SubResource( 1 )
+anims/CameraScroll = SubResource( 3 )
 
 [node name="AnimationPlayerFade" type="AnimationPlayer" parent="."]
-anims/Fadein = SubResource( 2 )
-anims/Fadeout = SubResource( 3 )
+anims/Fadein = SubResource( 4 )
+anims/Fadeout = SubResource( 5 )
 
 [editable path="Overlay"]

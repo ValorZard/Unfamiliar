@@ -1,49 +1,50 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Los Muertos/Scene_Inn_Lobby.gd" type="Script" id=1]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=3]
 [ext_resource path="res://Sprites/Props/Interiors/IN_Clock.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Props/Interiors/IN_InnGate.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Props/Interiors/IN_Radio.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Props/Interiors/IN_Ledger.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Props/Interiors/IN_Nameplate.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Props/Interiors/IN_Plant_Table.png" type="Texture" id=9]
-[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Chip.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Chip_roar1.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Chip_roar2.png" type="Texture" id=16]
-[ext_resource path="res://Audio/Roar.ogg" type="AudioStream" id=17]
-[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=19]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Stairs.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Props/Interiors/IN_InnGate.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Radio.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Ledger.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Nameplate.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Plant_Table.png" type="Texture" id=10]
+[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Chip.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Chip_roar1.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Chip_roar2.png" type="Texture" id=17]
+[ext_resource path="res://Audio/Roar.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=21]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 16 ) ],
+"frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
 "loop": true,
 "name": "roar",
 "speed": 6.0
@@ -400,37 +401,43 @@ __meta__ = {
 }
 
 [node name="Clock" type="Sprite" parent="."]
-position = Vector2( 115, 25 )
+position = Vector2( 115, 21 )
 z_index = 2050
 texture = ExtResource( 4 )
 centered = false
 
+[node name="Stairs" type="Sprite" parent="."]
+position = Vector2( 187, 25 )
+z_index = 2050
+texture = ExtResource( 5 )
+centered = false
+
 [node name="Gate" type="Sprite" parent="."]
 position = Vector2( 96, 85 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 centered = false
 
 [node name="Radio" type="Sprite" parent="."]
 position = Vector2( 117, 76 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 centered = false
 
 [node name="Ledger" type="Sprite" parent="."]
 position = Vector2( 145, 83 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 centered = false
 
 [node name="Nameplate" type="Sprite" parent="."]
 position = Vector2( 138, 86 )
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 centered = false
 
 [node name="Plant" type="Sprite" parent="."]
 position = Vector2( 161, 41 )
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 centered = false
 
-[node name="EventNPCChip" parent="." instance=ExtResource( 10 )]
+[node name="EventNPCChip" parent="." instance=ExtResource( 11 )]
 position = Vector2( 147, 73 )
 change_direction = false
 auto_advance_set = true
@@ -458,14 +465,14 @@ anims/Event2 = SubResource( 4 )
 anims/Event3 = SubResource( 5 )
 
 [node name="SoundRoar" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 17 )
+stream = ExtResource( 18 )
 
-[node name="Door" parent="." instance=ExtResource( 18 )]
+[node name="Door" parent="." instance=ExtResource( 19 )]
 position = Vector2( 160, 162 )
 target_scene = "res://Scenes/Los Muertos/LM_Topstreet_R.tscn"
 target_position = Vector2( 144, 90 )
 target_direction = 1
-door_sound = ExtResource( 19 )
+door_sound = ExtResource( 20 )
 
 [node name="CollisionShape2D" parent="Door" index="0"]
 shape = SubResource( 6 )
@@ -473,7 +480,7 @@ shape = SubResource( 6 )
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="Transitions" instance=ExtResource( 20 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 21 )]
 position = Vector2( 72, 130 )
 target_scene = "res://Scenes/Los Muertos/Inn/Inn_LobbyL1.tscn"
 target_direction = 2
