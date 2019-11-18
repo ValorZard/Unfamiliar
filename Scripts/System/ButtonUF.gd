@@ -16,6 +16,7 @@ const MoveLeniency = 30
 
 const SoundHover := preload("res://Audio/Hover_new.ogg")
 const SoundClick := preload("res://Audio/Click.ogg")
+const SoundClickDecisive := preload("res://Audio/Click 2.ogg")
 
 var index: int
 var target_line: int = -1
@@ -29,6 +30,7 @@ var hover := false
 var click := false
 var animate := false
 var destroy_after_disappear := false
+var sound := false
 
 var controller = null
 
@@ -38,6 +40,7 @@ onready var label := $Label as Label
 onready var spr := $Sprite as Sprite
 onready var anim_player := $AnimationPlayer as AnimationPlayer
 onready var anim_player_hover := $AnimationPlayerHover as AnimationPlayer
+onready var but := $Button as Button
 
 export(String) var button_text
 export(Texture) var button_image = null
@@ -94,19 +97,6 @@ func _process(delta):
 	else:
 		set_position((get_position() if not active and not click else pos_start))
 	
-#	if Input.is_action_just_pressed("sys_select") and active and hover:
-#		if decisive_click:
-#			Controller.play_sound_oneshot_from_path("res://Audio/Click 2.ogg", 1.0, 12)
-#		else:
-#			Controller.play_sound_oneshot(SoundClick, rand_range(0.95, 1.05), 12)
-#
-#		if choice_button:
-#			controller.click_choice(index)
-#			text_controller.fade_screen(false)
-#
-#		click = true
-#		emit_signal("clicked")
-	
 	update()
 
 
@@ -115,7 +105,6 @@ func _draw():
 	draw_polygon(PoolVector2Array([poly[0] + Vector2(-OutlineWidth, OutlineWidth), poly[1] + Vector2(OutlineWidth, OutlineWidth), poly[2] + Vector2(OutlineWidth, -OutlineWidth), poly[3] + Vector2(-OutlineWidth, -OutlineWidth)]), ColorsSelect if hover else ColorsWhite)
 	draw_polygon(poly, ColorsBlack)
 	
-
 # =====================================================================
 
 func appear():
@@ -157,15 +146,16 @@ func setup_animation(end_pos: Vector2):
 	
 	player.play("Appear")
 	
+	
 func anim_selected(destroy: bool = true):
-	$Button.set_disabled(true)
+	but.set_disabled(true)
 	active = false
 	destroy_after_disappear = destroy
 	anim_player.play("Select")
 	
 
 func anim_not_selected(destroy: bool = true):
-	$Button.set_disabled(true)
+	but.set_disabled(true)
 	active = false
 	destroy_after_disappear = destroy
 	anim_player.play("Disappear")
@@ -203,35 +193,43 @@ func set_target_line(target: int):
 func _on_AnimationPlayer_animation_finished(anim_name: String):
 	if anim_name == "Appear":
 		active = true
-		$Button.set_disabled(false)
+		but.set_disabled(false)
 	
 	if (anim_name == "Select" or anim_name == "Disappear") and destroy_after_disappear:
 		queue_free()
 
 
 func _button_get_focus():
-	if active and not $Button.has_focus():
-		$Button.grab_focus()
-		Controller.play_sound_oneshot(SoundHover, rand_range(0.95, 1.05))
+	if active:
+		but.grab_focus()
+		if sound:
+			Controller.play_sound_oneshot(SoundHover, rand_range(0.95, 1.05))
+			sound = false
 		if not anim_player_hover.is_playing():
 			anim_player_hover.play("Hover")
 			anim_player_hover.seek(0)
 			
 		hover = true
-		#emit_signal("hover_start")
+		
+		
+func _button_get_focus_kb():
+	sound = true
+	_button_get_focus()
+	
+	
+func _button_get_focus_mouse():
+	_button_get_focus()
 
 
 func _button_lose_focus():
-	$Button.release_focus()
+	but.release_focus()
 	if active:
 		hover = false
-		#emit_signal("hover_end")
 
 
 func _on_Button_pressed() -> void:
-	#$Button.set_disabled(true)
 	if decisive_click:
-		Controller.play_sound_oneshot_from_path("res://Audio/Click 2.ogg", 1.0, 12)
+		Controller.play_sound_oneshot(SoundClickDecisive, 1.0, 12)
 	else:
 		Controller.play_sound_oneshot(SoundClick, rand_range(0.95, 1.05), 12)
 
