@@ -72,7 +72,7 @@ func show_flashback_text():
 	
 
 func _display_text(text: String, name: String, show_name: bool = true):
-	text_controller.set_name_visible(show_name)
-	text_controller.set_name_text(name)
-	text_controller.show_box()
+	#text_controller.set_name_visible(show_name)
+	#text_controller.set_name_text(name)
+	text_controller.show_box(text_controller.BoxType.Neutral)
 	text_controller.display_text(text)

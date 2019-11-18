@@ -10,8 +10,8 @@
 [ext_resource path="res://Sprites/Props/Interiors/IN_Nameplate.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Props/Interiors/IN_Plant_Table.png" type="Texture" id=9]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Chip.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Chip_roar1.png" type="Texture" id=15]
@@ -25,12 +25,12 @@
 animations = [ {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -158,7 +158,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=4]
 resource_name = "Event2"
 length = 0.7
 tracks/0/type = "method"
@@ -241,7 +241,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=5]
 resource_name = "Event3"
 length = 0.7
 tracks/0/type = "method"
@@ -324,16 +324,16 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 20, 8 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 8, 16 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 38, 8 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 6, 20 )
 
 [sub_resource type="RectangleShape2D" id=10]
@@ -342,13 +342,13 @@ extents = Vector2( 10, 49 )
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 32, 4 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 24, 4 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 10, 72 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 20, 10 )
 
 [node name="Scene" type="Node2D"]
@@ -454,8 +454,8 @@ position = Vector2( 0, 4 )
 
 [node name="AnimationPlayer" parent="EventNPCChip/Event" index="0"]
 anims/Event = SubResource( 3 )
-anims/Event2 = SubResource( 13 )
-anims/Event3 = SubResource( 14 )
+anims/Event2 = SubResource( 4 )
+anims/Event3 = SubResource( 5 )
 
 [node name="SoundRoar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 17 )
@@ -468,7 +468,7 @@ target_direction = 1
 door_sound = ExtResource( 19 )
 
 [node name="CollisionShape2D" parent="Door" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 6 )
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
@@ -479,18 +479,18 @@ target_scene = "res://Scenes/Los Muertos/Inn/Inn_LobbyL1.tscn"
 target_direction = 2
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 12 )
+shape = SubResource( 7 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 z_index = 2100
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 133, 90 )
-shape = SubResource( 5 )
+shape = SubResource( 8 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 165, 62 )
-shape = SubResource( 6 )
+shape = SubResource( 9 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 86, 65 )
@@ -502,15 +502,15 @@ shape = SubResource( 11 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 200, 158 )
-shape = SubResource( 8 )
+shape = SubResource( 12 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 234, 90 )
-shape = SubResource( 7 )
+shape = SubResource( 13 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 160, 176 )
-shape = SubResource( 9 )
+shape = SubResource( 14 )
 
 [editable path="EventNPCChip"]
 

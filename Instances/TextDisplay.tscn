@@ -104,11 +104,13 @@ custom_fonts/font = ExtResource( 2 )
 text = "Name"
 
 [node name="BoxLeftStroke" type="Polygon2D" parent="."]
+visible = false
 z_index = -50
 color = Color( 0.168627, 0.270588, 0.501961, 1 )
 polygon = PoolVector2Array( 289, 116, 301, 169, 25, 173, 32, 120, 47, 119, 50, 100, 60, 119 )
 
 [node name="BoxLeft" type="Polygon2D" parent="."]
+visible = false
 z_index = -50
 color = Color( 0.0470588, 0.0745098, 0.137255, 1 )
 polygon = PoolVector2Array( 287, 118, 297, 167, 28, 171, 34, 122, 49, 121, 51, 105, 59, 121 )
@@ -124,6 +126,18 @@ visible = false
 z_index = -50
 color = Color( 0.0470588, 0.0745098, 0.137255, 1 )
 polygon = PoolVector2Array( 287, 118, 297, 167, 28, 171, 34, 122, 246, 118, 258, 104, 256, 118 )
+
+[node name="BoxNeutralStroke" type="Polygon2D" parent="."]
+visible = false
+z_index = -50
+color = Color( 0.168627, 0.270588, 0.501961, 1 )
+polygon = PoolVector2Array( 289, 116, 301, 169, 25, 173, 32, 120 )
+
+[node name="BoxNeutral" type="Polygon2D" parent="."]
+visible = false
+z_index = -50
+color = Color( 0.0470588, 0.0745098, 0.137255, 1 )
+polygon = PoolVector2Array( 287, 118, 297, 167, 28, 171, 34, 122 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 320.0

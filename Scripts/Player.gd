@@ -45,7 +45,9 @@ func _physics_process(delta):
 			walking = vel != Vector2.ZERO
 			
 			direction_management()
-			sprite_management()
+			
+			if not sprite_override:
+				sprite_management()
 			
 			move_and_slide(vel * Speed)
 			
@@ -55,8 +57,8 @@ func _physics_process(delta):
 			
 			move_and_slide(vel_override * speed_override)
 			
-	#if Input.is_action_just_pressed("debug_1"):
-		#Controller.flashback("res://Flashbacks/fb_contract.txt", load("res://Splash.png"))
+	if Input.is_action_just_pressed("debug_1"):
+		Controller.flashback("res://Flashbacks/fb_contract.txt", load("res://Splash.png"))
 
 # =====================================================================
 
@@ -155,13 +157,12 @@ func direction_management():
 	
 
 func sprite_management():
-	if not sprite_override:
-		match face:
-			Direction.Up:
-				spr.play("up_walk" if walking or in_transition else "up")
-			Direction.Down:
-				spr.play("down_walk" if walking or in_transition else "down")
-			Direction.Left:
-				spr.play("left_walk" if walking or in_transition else "left")
-			Direction.Right:
-				spr.play("right_walk" if walking or in_transition else "right")
+	match face:
+		Direction.Up:
+			spr.play("up_walk" if walking or in_transition else "up")
+		Direction.Down:
+			spr.play("down_walk" if walking or in_transition else "down")
+		Direction.Left:
+			spr.play("left_walk" if walking or in_transition else "left")
+		Direction.Right:
+			spr.play("right_walk" if walking or in_transition else "right")

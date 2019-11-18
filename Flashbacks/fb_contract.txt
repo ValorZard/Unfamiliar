@@ -1,12 +1,12 @@
 nil 0 0 $cLove lasts in the longest shadows.
-nil 0 0 $cAs the golden gaze of the sun falls#below the horizon, I awaken thee#from the dark and forge a contract.
-nil 0 0 $cA contract of mortal light and#hell's darkness.
-nil 0 0 $cI grant thee this vessel of life and#mortality.
-nil 0 0 $cGrant me thy heart, and I will grant#thee my soul.
-nil 0 0 $cPledge to me thy life, and I will#pledge to thee my regard.
-nil 0 0 $cThou art my metonym. Thou art my#heart and soul.
-nil 0 0 $cI warrant thy place in this world.#I grant thee the endowment of#familiarity.
-nil 0 5 $cTake leave of the dark and enter the#twilight.
+nil 0 0 $cAs the golden gaze of the sun falls below the horizon, I awaken thee from the dark and forge a contract.
+nil 0 0 $cA contract of mortal light and hell's darkness.
+nil 0 0 $cI grant thee this vessel of life and mortality.
+nil 0 0 $cGrant me thy heart, and I will grant thee my soul.
+nil 0 0 $cPledge to me thy life, and I will pledge to thee my regard.
+nil 0 0 $cThou art my metonym. Thou art my heart and soul.
+nil 0 0 $cI warrant thy place in this world. I grant thee the endowment of#familiarity.
+nil 0 5 $cTake leave of the dark and enter the twilight.
 nil 0 2 ...
 nil 0 1 Hello.
 nil 0 1 $sH-$0hello.
@@ -14,10 +14,10 @@ nil 0 1 You're my familiar now.
 Cosmo 0 0 ...
 Cosmo 0 2 Right.
 Cosmo 0 0.3 What's your name?
-nil 0 0 I'm your witch. I can't tell you my#name.
+nil 0 0 I'm your witch. I can't tell you my name.
 nil 0 0.5 It's too dangerous.
 Cosmo 0 1 Oh... okay.
-Cosmo 0 0.3 You're supposed to give me a name,#right?
+Cosmo 0 0.3 You're supposed to give me a name, right?
 nil 0 1 Yes.
 nil 0 0.3 $yCosmo$0.
 Cosmo 1 0 All right.

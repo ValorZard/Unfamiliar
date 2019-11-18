@@ -36,6 +36,8 @@ onready var box_left := $BoxLeft as Polygon2D
 onready var box_left_stroke := $BoxLeftStroke as Polygon2D
 onready var box_right := $BoxRight as Polygon2D
 onready var box_right_stroke := $BoxRightStroke as Polygon2D
+onready var box_neutral := $BoxNeutral as Polygon2D
+onready var box_neutral_stroke := $BoxNeutralStroke as Polygon2D
 
 enum Modifier { Normal, Red, Green, Blue, Yellow, Shake, Wave, Contract }
 enum BoxType { Left, Right, Neutral }
@@ -152,11 +154,22 @@ func show_box(type: int):
 			box_left.show()
 			box_right_stroke.hide()
 			box_right.hide()
+			box_neutral_stroke.hide()
+			box_neutral.hide()
 		BoxType.Right:
 			box_right_stroke.show()
 			box_right.show()
 			box_left_stroke.hide()
 			box_left.hide()
+			box_neutral_stroke.hide()
+			box_neutral.hide()
+		BoxType.Neutral:
+			box_neutral_stroke.show()
+			box_neutral.show()
+			box_left_stroke.hide()
+			box_left.hide()
+			box_right_stroke.hide()
+			box_right.hide()
 		
 	box_visible = true
 	
@@ -166,6 +179,8 @@ func hide_box():
 	box_left.hide()
 	box_right_stroke.hide()
 	box_right.hide()
+	box_neutral_stroke.hide()
+	box_neutral.hide()
 	box_visible = false
 	
 	
