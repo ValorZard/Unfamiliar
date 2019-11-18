@@ -1,0 +1,40 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Scripts/Scenes/Misc/Computer.gd" type="Script" id=1]
+[ext_resource path="res://Audio/Misc/Key1.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Audio/Misc/Key2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Audio/Misc/Key3.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Audio/Misc/Key4.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Audio/Misc/KeySpacebar.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Fonts/QuinqueFive.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 5
+font_data = ExtResource( 7 )
+
+[node name="Computer" type="Node2D"]
+script = ExtResource( 1 )
+key_sounds = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ]
+spacebar_sound = ExtResource( 6 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+margin_left = 80.0
+margin_top = 18.0
+margin_right = 240.0
+margin_bottom = 162.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Text" type="Label" parent="."]
+margin_left = 82.0
+margin_top = 18.0
+margin_right = 240.0
+margin_bottom = 162.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.505882, 0.654902, 1, 1 )
+text = "
+Disk Operating System v6.2
+Copyright (C) 198x
+
+C:\\>"
+autowrap = true
+percent_visible = -0.0232558

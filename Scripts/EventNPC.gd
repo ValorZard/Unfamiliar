@@ -17,6 +17,8 @@ var can_talk_to := true
 
 var dialogue_set: int = 0
 
+var sprite_override := false
+
 onready var spr: AnimatedSprite = $Sprite
 onready var interact: Sprite = $Interact
 onready var event: Event = $Event
@@ -32,7 +34,8 @@ func _ready():
 func _process(delta):
 	set_z_index(int(get_position().y))
 	
-	_sprite_management()
+	if not sprite_override:
+		_sprite_management()
 	
 	if Input.is_action_just_pressed("sys_action") and in_range and Player.get_state() == Player.PlayerState.Move:
 		interact.hide()
@@ -48,6 +51,10 @@ func _process(delta):
 		interact.show()
 		
 # =====================================================================
+
+func set_sprite_override(value: bool):
+	sprite_override = value
+	
 
 func increment_dialogue_set():
 	dialogue_set += 1

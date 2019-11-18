@@ -1,7 +1,7 @@
 0
 Witch: Oh, hello!
 Other Witch: Hi!
-Mother: Hello!
+Woman: Hello!
 Third Witch: You must be-
 Young Boy: Is that a demon?!
 Young Girl: Klaus, calm down.
@@ -37,8 +37,8 @@ Witch: Cosmo! That's right.
 I'm Hildred.
 Other Witch: Jay.
 Geoff: Geoff.
-Third Witch: Call me Kaz.
-Mother: I'm Penelope.
+Woman: Call me Kaz.
+Third Witch: I'm Penelope.
 -
 
 4
@@ -59,3 +59,12 @@ Cosmo: Yeah. No worries.
 7
 Jay: Why don't you sit down, Cosmo?
 We saved a seat for you and your witch.
+Kaz: Where is she, anyway?
+Cosmo: ...You haven't seen her yet?
+Kaz: Nope. We've been here for about half an hour, and she hasn't shown up.
+Cosmo: ...
+She must be running late.
+-
+
+8
+Cosmo: So, what have I missed?

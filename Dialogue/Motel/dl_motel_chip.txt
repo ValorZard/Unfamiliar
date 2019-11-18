@@ -17,7 +17,8 @@ Chip: Have a nice day.
 
 3
 Chip: Hello there.
-Hotel Los Muertos is on the other side of town. Your witch might be there.
+Hotel Los Muertos is on the other side of town.
+Your witch might be there.
 -
 
 4
