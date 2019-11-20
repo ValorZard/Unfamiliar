@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
 [ext_resource path="res://Sprites/Particles/Wave.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=4]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Deli_Sign.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_DeliDoor.png" type="Texture" id=5]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -19,7 +20,6 @@ flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 40.0
-angular_velocity = -1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 anim_speed = 10.0
@@ -66,7 +66,7 @@ position = Vector2( 80, 18 )
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, -1610612718, 0, 1, -1610612718, 0, 2, -1610612718, 0, 3, -1610612718, 0, 4, -1610612718, 0, 5, -1610612718, 0, 6, -1610612718, 0, 7, -1610612718, 0, 8, 536870940, 0, 9, 27, 0, 131071, -1610612718, 0, 65536, -1610612718, 0, 65537, -1610612718, 0, 65538, -1610612718, 0, 65539, -1610612718, 0, 65540, -1610612718, 0, 65541, -1610612718, 0, 65542, -1610612718, 0, 65543, -1610612718, 0, 65544, -2147483633, 0, 65545, 16, 0, 131072, -1610612718, 0, 131073, -1610612718, 0, 131074, -1610612718, 0, 131075, -1610612718, 0, 131076, -1610612718, 0, 131077, -1610612718, 0, 131078, -1610612718, 0, 131079, -1610612718, 0, 131080, -2147483632, 0, 131081, -1610612718, 0, 196608, -1610612717, 0, 196609, -1610612717, 0, 196610, -1610612717, 0, 196611, -1610612717, 0, 196612, -1610612717, 0, 196613, -1610612717, 0, 196614, -1610612717, 0, 196615, -1610612717, 0, 196616, -2147483631, 0, 196617, -1610612717, 0, 458752, 11, 0, 458753, 11, 0, 458754, 11, 0, 458755, 11, 0, 458756, 11, 0, 458757, 11, 0, 458758, 11, 0, 458759, 11, 0, 458760, 11, 0, 458761, 11, 0 )
+tile_data = PoolIntArray( 0, 27, 0, 1, 27, 0, 2, 27, 0, 3, 27, 0, 4, 27, 0, 5, 27, 0, 6, 27, 0, 7, 27, 0, 8, 536870940, 0, 9, 27, 0, 131071, -1610612718, 0, 65536, 16, 0, 65537, 16, 0, 65538, 16, 0, 65539, 16, 0, 65540, 16, 0, 65541, 16, 0, 65542, 16, 0, 65543, 16, 0, 65544, -2147483633, 0, 65545, 16, 0, 131072, -1610612718, 0, 131073, -1610612718, 0, 131074, -1610612718, 0, 131075, -1610612718, 0, 131076, -1610612718, 0, 131077, -1610612718, 0, 131078, -1610612718, 0, 131079, -1610612718, 0, 131080, -2147483632, 0, 131081, -1610612718, 0, 196608, -1610612717, 0, 196609, -1610612717, 0, 196610, -1610612717, 0, 196611, -1610612717, 0, 196612, -1610612717, 0, 196613, -1610612717, 0, 196614, -1610612717, 0, 196615, -1610612717, 0, 196616, -2147483631, 0, 196617, -1610612717, 0, 458752, 11, 0, 458753, 11, 0, 458754, 11, 0, 458755, 11, 0, 458756, 11, 0, 458757, 11, 0, 458758, 11, 0, 458759, 11, 0, 458760, 11, 0, 458761, 11, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -80,15 +80,20 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Door" type="Sprite" parent="."]
-position = Vector2( 103, 58 )
+[node name="Sign" type="Sprite" parent="."]
+position = Vector2( 86, 38 )
 texture = ExtResource( 4 )
+centered = false
+
+[node name="Door" type="Sprite" parent="."]
+position = Vector2( 137, 55 )
+texture = ExtResource( 5 )
 centered = false
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="Transitions" instance=ExtResource( 5 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 6 )]
 position = Vector2( 248, 106 )
 target_scene = "res://Scenes/Los Muertos/LM_Waterfront_L1.tscn"
 target_direction = 3
