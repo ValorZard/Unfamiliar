@@ -11,8 +11,8 @@
 < Yes. Witches and their familiars.
 @< idle
 < It's sort of an anniversary. It's the day a witch created their familiar.
-< Like I said, she created me eight years ago today.
-> Really? You don't look eight.
+< Like I said, she created me twelve years ago today.
+> Really? You don't look twelve.
 < We don't age like humans. It's complicated.
 > Oh... okay.
 > So, what happens on on Communion Day?

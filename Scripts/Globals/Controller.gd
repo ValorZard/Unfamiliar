@@ -427,13 +427,13 @@ func dialogue(file: String, set: int, text_size: int = 8, reset_state: bool = tr
 	return dlg
 	
 	
-func flashback(file: String, art: Texture) -> Flashback:
+func flashback(file: String, art: Texture, transition: bool = true) -> Flashback:
 	var fb: PackedScene = load(FlashbackRef) as PackedScene
 	var fb_i = fb.instance() as Flashback
 	fb_i.set_fb_file(file)
 	fb_i.set_art(art)
 	get_tree().get_root().add_child(fb_i)
-	fb_i.start()
+	fb_i.start(transition)
 	return fb_i
 
 

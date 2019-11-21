@@ -91,9 +91,9 @@ func _event_dialogue_conditional(file: String, flag_: String, table: Dictionary,
 	anim_player.play()
 	
 	
-func _event_flashback(file: String, texture: String):
+func _event_flashback(file: String, texture: String, transition: bool = true):
 	anim_player.stop(false)
-	yield(Controller.flashback(file, load(texture)), "flashback_finished")
+	yield(Controller.flashback(file, load(texture), transition), "flashback_finished")
 	anim_player.play()
 	
 

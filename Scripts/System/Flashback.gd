@@ -13,18 +13,27 @@ var fb_names: PoolStringArray = []
 var fb_bools: PoolIntArray = []
 var fb_waits: PoolRealArray = []
 
+var end_anim := true
+
 onready var text_controller := $CanvasLayer/TextDisplay
 
 func _ready():
 	regex.compile(regex_pattern)
 	
 	
-func start():
-	$CanvasLayer/ColorRect.get_material().set_shader_param("cutoff", 1)
-	$CanvasLayer/ColorRect.hide()
-	$CanvasLayer/ColorRect.set_self_modulate(Color(1, 1, 1, 1))
-	$CanvasLayer/AnimationPlayer.play("Anim")
-	
+func start(transition: bool = true):
+	if transition:
+		$CanvasLayer/ColorRect.get_material().set_shader_param("cutoff", 1)
+		$CanvasLayer/ColorRect.hide()
+		$CanvasLayer/ColorRect.set_self_modulate(Color(1, 1, 1, 1))
+		$CanvasLayer/AnimationPlayer.play("Anim")
+	else:
+		$CanvasLayer/Art.hide()
+		$CanvasLayer/Vignette.hide()
+		$CanvasLayer/ColorRect.hide()
+		end_anim = false
+		show_flashback_text()
+		
 	
 func end():
 	emit_signal("flashback_finished")
@@ -36,7 +45,8 @@ func set_fb_file(file: String):
 	
 	
 func set_art(art: Texture):
-	$CanvasLayer/Art.set_texture(art)
+	if art != null:
+		$CanvasLayer/Art.set_texture(art)
 
 
 func _load_file(path: String):
@@ -61,14 +71,17 @@ func show_flashback_text():
 		if fb_waits[i] > 0:
 			text_controller.hide_box()
 			yield(get_tree().create_timer(fb_waits[i]), "timeout")
-			
-	text_controller.hide_box()
-	yield(get_tree().create_timer(0.4), "timeout")
 	
-	$CanvasLayer/ColorRect.get_material().set_shader_param("cutoff", 1)
-	$CanvasLayer/ColorRect.hide()
-	$CanvasLayer/ColorRect.set_self_modulate(Color(1, 1, 1, 1))
-	$CanvasLayer/AnimationPlayer.play("Anim End")
+	if end_anim:
+		text_controller.hide_box()
+		yield(get_tree().create_timer(0.4), "timeout")
+		
+		$CanvasLayer/ColorRect.get_material().set_shader_param("cutoff", 1)
+		$CanvasLayer/ColorRect.hide()
+		$CanvasLayer/ColorRect.set_self_modulate(Color(1, 1, 1, 1))
+		$CanvasLayer/AnimationPlayer.play("Anim End")
+	else:
+		end()
 	
 
 func _display_text(text: String, name: String, show_name: bool = true):

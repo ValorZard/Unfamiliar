@@ -10,7 +10,7 @@
 
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 4 )
-shader_param/cutoff = 1.0
+shader_param/cutoff = 0.0
 shader_param/mask = ExtResource( 5 )
 
 [sub_resource type="Animation" id=2]
@@ -41,36 +41,24 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("SoundFB:playing")
+tracks/2/path = NodePath("ColorRect:self_modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("ColorRect:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
 "times": PoolRealArray( 1, 1.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
-tracks/4/type = "method"
-tracks/4/path = NodePath("..")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/keys = {
+tracks/3/type = "method"
+tracks/3/path = NodePath("..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
 "times": PoolRealArray( 2 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
@@ -78,8 +66,20 @@ tracks/4/keys = {
 "method": "show_flashback_text"
 } ]
 }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Art:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
 tracks/5/type = "value"
-tracks/5/path = NodePath("Art:visible")
+tracks/5/path = NodePath("Vignette:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
@@ -90,17 +90,19 @@ tracks/5/keys = {
 "update": 1,
 "values": [ false, true ]
 }
-tracks/6/type = "value"
-tracks/6/path = NodePath("Vignette:visible")
+tracks/6/type = "method"
+tracks/6/path = NodePath("SoundFB")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 0.7 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ false, true ]
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -200,18 +202,15 @@ script = ExtResource( 1 )
 layer = 10
 
 [node name="Art" type="Sprite" parent="CanvasLayer"]
-visible = false
 texture = ExtResource( 2 )
 centered = false
 
 [node name="Vignette" type="Sprite" parent="CanvasLayer"]
-visible = false
 texture = ExtResource( 3 )
 centered = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visible = false
-self_modulate = Color( 1, 1, 1, 0.6 )
+self_modulate = Color( 1, 1, 1, 0 )
 material = SubResource( 1 )
 margin_right = 320.0
 margin_bottom = 180.0
