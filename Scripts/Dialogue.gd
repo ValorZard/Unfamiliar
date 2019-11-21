@@ -26,7 +26,7 @@ var reset_state := true
 
 var name_regex := RegEx.new()
 
-onready var label := $TextNew as RichTextLabel
+onready var label := $Text as RichTextLabel
 
 # =====================================================================
 
@@ -70,8 +70,8 @@ func start(file: String, set: int, reset_state_: bool):
 	load_text_from_file(file, set)
 	page_length = len(text[page])
 	insert_bbcode_tags()
-	($TextNew as RichTextLabel).set_bbcode(text[page])
-	get_node("Text").get("custom_fonts/font").set_size(text_size)
+	($Text as RichTextLabel).set_bbcode(text[page])
+	get_node("Text").get("custom_fonts/normal_font").set_size(text_size)
 	$TimerRollText.start()
 	
 # =====================================================================
