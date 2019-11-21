@@ -7,26 +7,35 @@ Rhona: See you later, Cosmo!
 -
 
 2
-Cosmo: Um... hi.
-Commuter: Are you a familiar?
+Cosmo: Hi.
+Commuter: What's wrong? You look kinda down.
+Cosmo: ...
+My witch and I got separated. We had to get on different trains.
+Commuter: Your witch?
+Does that mean you're a familiar?
 Cosmo: Yes.
-I'm not sure where my witch is. She was on a different train.
 Commuter: Oh... do you need help finding her?
-Cosmo: I can probably find her myself.
+Cosmo: I don't think so. I can probably find her myself.
 Commuter: ...
 Well, before you leave, we should talk a bit!
 Cosmo: What?
 Commuter: I'm Rhona. What's your name?
-Cosmo: My name's... Cosmo.
+Cosmo: Cosmo.
 Rhona: Nice to meet you, Cosmo!
+-
+
+3
 Cosmo: Why do you want to talk to me?
 Rhona: Because you're a demon! Demons are cool!
-Cosmo: I can't remember the last time someone said that.
+Cosmo: ...You think so?
 Most people call us eldritch abominations.
-And they're probably right.
-Rhona: I don't care if you're an eldritch abomination!
-I still want to learn more about you!
-Cosmo: I'm not very good at talking.
+Rhona: Oh, brother...
+You just look like a human with horns to me.
+Cosmo: Yeah... I get that a lot.
+Rhona: And I don't care if you're an "abomination."
+You seem really nice. I want to learn more about you!
+Cosmo: ...
+I'm not very good at talking.
 Rhona: Oh, don't worry.
 I'll show you how it's done!
 -

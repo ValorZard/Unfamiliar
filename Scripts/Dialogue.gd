@@ -7,6 +7,9 @@ class_name Dialogue
 signal dialogue_ended
 
 const Interval := 0.02
+const name_regex_pat := "^(.+:).+$"
+const name_bbcode_start := "[color=#7ca3ff]"
+const name_bbcode_end := "[/color]"
 
 var text: PoolStringArray = []
 var page: int = 0
@@ -21,21 +24,25 @@ var buffer := false
 
 var reset_state := true
 
-onready var label: Label = $Text
+var name_regex := RegEx.new()
+
+onready var label := $TextNew as RichTextLabel
 
 # =====================================================================
 
 func _process(delta):
-	label.set_text(text[page])
 	label.set_visible_characters(disp)
 	
 	if Input.is_action_just_pressed("sys_action") and not buffer:
 		if allow_advance:
 			if page < len(text) - 1:
 				disp = 0
+				label.set_visible_characters(disp)
 				page += 1
-				page_length = len(text[page].replace(" ", ""))
+				page_length = len(text[page])
+				insert_bbcode_tags()
 				allow_advance = false
+				label.set_bbcode(text[page])
 				$TimerRollText.start()
 				buffer = true
 				$TimerBuffer.start()
@@ -56,11 +63,14 @@ func set_text_size(value: int):
 	
 
 func start(file: String, set: int, reset_state_: bool):
+	name_regex.compile(name_regex_pat)
 	Player.set_state(Player.PlayerState.NoInput)
 	reset_state = reset_state_
 	Player.stop_moving()
 	load_text_from_file(file, set)
-	page_length = len(text[0].replace(" ", ""))
+	page_length = len(text[page])
+	insert_bbcode_tags()
+	($TextNew as RichTextLabel).set_bbcode(text[page])
 	get_node("Text").get("custom_fonts/font").set_size(text_size)
 	$TimerRollText.start()
 	
@@ -83,6 +93,13 @@ func load_text_from_file(file: String, set: int):
 			read = true
 	if f.is_open():
 		f.close()
+		
+		
+func insert_bbcode_tags():
+	var mat := name_regex.search(text[page])
+	if mat != null:
+		text[page] = text[page].insert(mat.get_end(1), name_bbcode_end)
+		text[page] = text[page].insert(mat.get_start(1), name_bbcode_start)
 
 # =====================================================================
 
@@ -93,7 +110,6 @@ func _on_TimerRollText_timeout():
 	if disp >= len(text[page]):
 		roll = false
 		$TimerRollText.stop()
-		#$TimerSound.stop()
 		allow_advance = true
 
 

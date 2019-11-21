@@ -22,15 +22,33 @@ patch_margin_right = 2
 patch_margin_bottom = 2
 
 [node name="Text" type="Label" parent="."]
+visible = false
 margin_left = 6.0
 margin_top = 5.0
 margin_right = 142.0
 margin_bottom = 38.0
 custom_fonts/font = ExtResource( 4 )
 custom_constants/line_spacing = 2
-text = "Hello there, Cosmo! How are you doing on this fine summer afternoon?"
+text = "Rhona: Hello there, Cosmo! How are you doing this afternoon?"
 autowrap = true
-percent_visible = 0.0
+percent_visible = -0.0232558
+
+[node name="TextNew" type="RichTextLabel" parent="."]
+margin_left = 6.0
+margin_top = 5.0
+margin_right = 145.0
+margin_bottom = 38.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 4 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_constants/line_separation = 2
+bbcode_enabled = true
+bbcode_text = "Rhona: Hello there, Cosmo! How are you doing this afternoon?"
+visible_characters = 0
+meta_underlined = false
+text = "Rhona: Hello there, Cosmo! How are you doing this afternoon?"
+scroll_active = false
+override_selected_font_color = true
 
 [node name="TimerRollText" type="Timer" parent="."]
 wait_time = 0.03

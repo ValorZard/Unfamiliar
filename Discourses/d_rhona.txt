@@ -327,7 +327,7 @@
 @> aw
 > Aw... that's so sweet. It's almost like#you're her son.
 @< idle
-< Uh... no. That's not how it works.
+< Uh... I don't think I'd go that far.
 @> idle
 > Why not? You two are like a family.
 < ...I guess.
