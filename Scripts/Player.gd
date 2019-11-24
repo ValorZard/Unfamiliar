@@ -53,7 +53,9 @@ func _physics_process(delta):
 			
 		PlayerState.NoInput:
 			walking = speed_override > 0
-			sprite_management()
+			
+			if not sprite_override:
+				sprite_management()
 			
 			move_and_slide(vel_override * speed_override)
 			

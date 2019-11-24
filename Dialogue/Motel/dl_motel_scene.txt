@@ -1,5 +1,6 @@
 0
-Cosmo: It's getting late. I should probably go to bed soon.
+Cosmo: It's getting late.
+I should probably go to bed soon.
 -
 
 1
@@ -14,7 +15,7 @@ I hope she's all right.
 3
 She... probably got lost, too.
 She's probably staying in another hotel.
-She probably got here and went straight to bed because she was so stressed out.
+She probably went straight to bed because she was so stressed out.
 ...
 -
 
@@ -36,29 +37,32 @@ It's the 6th.
 7
 No.
 Oh, no...
-No, no, no, no, NO!
 -
 
 8
+No, no, no, no, NO!
+-
+
+9
 I forgot AGAIN!
 How can I be this stupid?!
 That's why she was acting that way at the station!
 -
 
-9
+10
 You IDIOT!
 You worthless eldritch ABOMINATION!
 Why are you so STUPID?!
 The last time you forgot, do you remember how furious she was?!
 -
 
-10
+11
 No...
 I have to fix this!
 I have to find her!
 -
 
-11
+12
 Come on! Let me OUT!
 -
 

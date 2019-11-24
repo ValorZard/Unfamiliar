@@ -24,4 +24,3 @@ func _input(event: InputEvent):
 				$Text.text += char(event.get_scancode())
 			#press_key = true
 			
-		

@@ -60,6 +60,13 @@ func _event_player_play_animation(anim: String):
 	Player.set_sprite_override(true)
 	Player.play_sprite_animation(anim)
 	
+	
+func _event_fade(time: float, fadeout: bool, color: Color = Color(0, 0, 0), above_overlay: bool = false):
+	anim_player.stop(false)
+	Controller.fade(time, fadeout, color, above_overlay)
+	yield(get_tree().create_timer(time), "timeout")
+	anim_player.play()
+	
 
 func _event_move_player_sequence(positions: PoolVector2Array, times: PoolRealArray, directions: PoolIntArray):
 	anim_player.stop(false)
@@ -77,6 +84,10 @@ func _event_move_player_to_position(pos: Vector2, time: float, direction: int):
 	yield(get_tree().create_timer(time), "timeout")
 	Player.set_speed_override(0)
 	anim_player.play()
+	
+	
+func _event_teleport_player(pos: Vector2):
+	Player.set_position(pos)
 	
 
 func _event_dialogue(file: String, set: int, text_size: int = 8):
