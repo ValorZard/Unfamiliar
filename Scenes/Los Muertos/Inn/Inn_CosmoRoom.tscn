@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -11,8 +11,9 @@
 [ext_resource path="res://Sprites/Props/Interiors/IN_Alarmclock.png" type="Texture" id=9]
 [ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Audio/Wind.ogg" type="AudioStream" id=11]
-[ext_resource path="res://Sprites/Particles/Wind.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Particles/Leaf1.png" type="Texture" id=13]
+[ext_resource path="res://Audio/Thud.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Sprites/Particles/Wind.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Particles/Leaf1.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 4 )
@@ -23,16 +24,16 @@ extents = Vector2( 32, 10 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10, 71 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 14, 25 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 6, 7 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 10, 17 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 resource_name = "Event"
 length = 20.0
 tracks/0/type = "method"
@@ -42,8 +43,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 1, 1.2, 1.3, 1.5, 2.5, 4.5, 5, 5.4, 6, 6.5, 8, 8.5, 10.5, 10.8, 12, 13, 13.8, 14.3, 15.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 1, 1.2, 1.3, 1.5, 2.5, 4.5, 5, 5.4, 6, 6.5, 8, 8.5, 10.5, 10.8, 12, 13, 13.8, 14.3, 14.5, 15.5, 16.2, 16.4, 16.5, 17.5, 18, 18.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ 1.0, true, Color( 0, 0, 0, 1 ), false ],
 "method": "_event_fade"
@@ -99,7 +100,28 @@ tracks/0/keys = {
 "args": [ "res://Dialogue/Motel/dl_motel_scene.txt", 8 ],
 "method": "_event_dialogue"
 }, {
+"args": [ "kneel" ],
+"method": "_event_player_play_animation"
+}, {
 "args": [ "res://Dialogue/Motel/dl_motel_scene.txt", 9 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Flashbacks/fb_motel.txt", "res://Sprites/Artwork/Art_temp.png", true ],
+"method": "_event_flashback"
+}, {
+"args": [ "res://Dialogue/Motel/dl_motel_scene.txt", 10 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Flashbacks/fb_motel2_bad.txt", "res://Sprites/Artwork/Art_temp.png", true ],
+"method": "_event_flashback"
+}, {
+"args": [ "res://Dialogue/Motel/dl_motel_scene.txt", 11 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "kneel2" ],
+"method": "_event_player_play_animation"
+}, {
+"args": [ "res://Dialogue/Motel/dl_motel_scene.txt", 12 ],
 "method": "_event_dialogue"
 } ]
 }
@@ -146,30 +168,80 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 14.7 ),
+"times": PoolRealArray( 0, 8.7 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ false, true ]
 }
+tracks/5/type = "method"
+tracks/5/path = NodePath("../SoundThud")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 14.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("../PartsWind2:process_material:initial_velocity")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 8.8, 10.8, 12.7, 13.1, 13.6, 14, 14.1, 14.5, 14.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 100.0, 100.0, 100.0, 160.0, 160.0, 250.0, 250.0, 320.0, 320.0, 400.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("../PartsWind2:process_material:angular_velocity")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 8.8, 10.8, 12.7, 13.1, 13.6, 14, 14.1, 14.5, 14.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 50.0, 50.0, 50.0, 80.0, 80.0, 120.0, 120.0, 160.0, 160.0, 200.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("../PartsWind2:lifetime")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 8.8, 10.8, 12.7, 13.1, 13.6, 14, 14.1, 14.5, 14.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 4.0, 4.0, 4.0, 3.0, 3.0, 2.0, 2.0, 1.5, 1.5, 1.0 ]
+}
 
-[sub_resource type="ParticlesMaterial" id=4]
+[sub_resource type="ParticlesMaterial" id=8]
 emission_shape = 2
 emission_box_extents = Vector3( 1, 96, 1 )
 flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 1200.0
-angular_velocity = -1.#QNAN
+angular_velocity = -1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 
-[sub_resource type="ParticlesMaterial" id=5]
+[sub_resource type="ParticlesMaterial" id=9]
 emission_shape = 2
 emission_box_extents = Vector3( 1, 94, 1 )
 flag_disable_z = true
-gravity = Vector3( 0, 98, 0 )
-initial_velocity = 400.0
-angular_velocity = 200.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 100.0
+angular_velocity = 50.0
 angular_velocity_random = 0.5
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
@@ -259,7 +331,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bed"]
 position = Vector2( 14, 25 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="Nightstand" type="StaticBody2D" parent="."]
 position = Vector2( 182, 45 )
@@ -273,7 +345,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nightstand"]
 position = Vector2( 6, 6 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="Wardrobe" type="StaticBody2D" parent="."]
 position = Vector2( 96, 74 )
@@ -288,7 +360,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Wardrobe"]
 position = Vector2( 2, 33 )
-shape = SubResource( 8 )
+shape = SubResource( 6 )
 
 [node name="Alarmclock" type="Sprite" parent="."]
 position = Vector2( 175, 44 )
@@ -300,7 +372,7 @@ position = Vector2( 160, 96 )
 autostart = true
 
 [node name="AnimationPlayer" parent="Event" index="0"]
-anims/Event = SubResource( 9 )
+anims/Event = SubResource( 7 )
 
 [node name="SoundWind" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 11 )
@@ -308,21 +380,25 @@ volume_db = -80.0
 pitch_scale = 0.5
 autoplay = true
 
+[node name="SoundThud" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
 [node name="PartsWind" type="Particles2D" parent="."]
 position = Vector2( 0, 90 )
 z_index = 3000
 emitting = false
 amount = 30
 lifetime = 0.5
-process_material = SubResource( 4 )
-texture = ExtResource( 12 )
+process_material = SubResource( 8 )
+texture = ExtResource( 13 )
 
 [node name="PartsWind2" type="Particles2D" parent="."]
 position = Vector2( 0, 90 )
 z_index = 2900
 emitting = false
 amount = 18
-process_material = SubResource( 5 )
-texture = ExtResource( 13 )
+lifetime = 4.0
+process_material = SubResource( 9 )
+texture = ExtResource( 14 )
 
 [editable path="Event"]

@@ -17,6 +17,7 @@ She... probably got lost, too.
 She's probably staying in another hotel.
 She probably went straight to bed because she was so stressed out.
 ...
+I'll find her tomorrow.
 -
 
 4
@@ -30,7 +31,7 @@ What day is it?
 -
 
 6
-It's Friday.
+It's Thursday.
 It's the 6th.
 -
 
@@ -58,49 +59,55 @@ The last time you forgot, do you remember how furious she was?!
 
 11
 No...
+-
+
+12
 I have to fix this!
 I have to find her!
 -
 
-12
+13
 Come on! Let me OUT!
 -
 
-12
+14
 Please, let me...
 Oh, God...
 -
 
-13
+15
 What's wrong with me...?
 Why do I screw up like this every time?
 ...
 Hah...
 I'm such an awful familiar.
+-
+
+16
 Why don't you just blow me away?
 Just bury me in leaves and make me disappear.
 -
 
 14
-Hotel guest: Hey! What's going on?
+Hotel Guest: Hey! What's going on?
 -
 
 15
-Hotel guest: Are you all right?
+Hotel Guest: Are you all right?
 Cosmo: No.
 Why is it so windy?
-Hotel guest: Just breathe. You're fine.
+Hotel Guest: Just breathe. You're fine.
 Everything's fine.
 -
 
 16
 Cosmo: Ah... Ugh...
-Hotel guest: You good?
+Hotel Guest: You good?
 -
 
 17
 Cosmo: Why am I such a screwup?
-Hotel guest: What's wrong? What happened?
+Hotel Guest: What's wrong? What happened?
 Cosmo: ...
 She created me on October sixth, twelve years ago.
 Today is our Communion Day.
@@ -108,9 +115,9 @@ I forgot.
 -
 
 18
-Hotel guest: Are you a familiar?
+Hotel Guest: Are you a familiar?
 Cosmo: Yes.
-Hotel guest: ...
+Hotel Guest: ...
 Do you want to talk about it?
 -
 

@@ -108,8 +108,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.5, 1, 1.1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.5, 1, 1.3, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ "res://Dialogue/Train/dl_train_rhona.txt", 0 ],
 "method": "_event_dialogue"
@@ -121,6 +121,9 @@ tracks/0/keys = {
 "method": "_event_move_player_to_position"
 }, {
 "args": [ "res://Dialogue/Train/dl_train_rhona.txt", 2 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Train/dl_train_rhona.txt", 3 ],
 "method": "_event_dialogue"
 }, {
 "args": [ "res://Discourses/d_rhona.txt", "Rhona", "res://Resources/Sprite Frames/SpriteFrames_Rhona.tres" ],
