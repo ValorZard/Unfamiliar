@@ -6,11 +6,16 @@
 < Not at all!
 > So, Cosmo...
 > I'm all about photography, but... what are you into?
-[ I like reading. (0, -60) R_1_1 | I play a few instruments. (0, -60) R_1_2 | (uhh) (0, -60) R_1_3
+[ I like cooking. (0, -60) R_1_1 | I play a few instruments. (0, -60) R_1_2 | (uhh) (0, -60) R_1_3
 : R_1_1
-< I like reading.
-> Oh. That's, uh... not exactly my thing, but I can appreciate it.
-< [uhh add more here]
+< I like cooking.
+@< explain2
+< I make dinner for me and my witch a lot of the time.
+> Wow. That must be nice. I can't cook to save my life.
+> Who taught you?
+< My witch. She's really good at cooking.
+> What's her favorite thing to make?
+< 
 ---------------------
 : R_2_2
 < I play a few instruments.
@@ -18,3 +23,70 @@
 < My favorite is my ocarina.
 < I'm carrying it in my pocket right now.
 > Huh...
+--------------------
+> Hey, Cosmo...
+< Yeah?
+> I have a question.
+> You're a demon, but...
+> Why do you look so much like a human?
+< $wWell...
+< This might take a bit of explanation.
+< On how familiars are created, I mean.
+> I'm listening!
+< Okay, so...
+@< explain
+< To create a familiar, you need three things.
+< First, you need to know the actual spell that does it.
+< I think it draws energy from the underworld, or something.
+> All right.
+< When she created me, my witch had been practicing witchcraft for about fifteen years.
+@< smile
+< And she says it took her...
+@< heh Four months to learn the spell.
+> What?!
+< It's $sreally $0complicated.
+> Yeah... must be.
+@< idle
+< Anyway.
+@< explain
+< Next, you need to actually give your familiar life.
+< And you do that with a piece of your own soul.
+> Your soul? You mean, like... give your familiar a piece of your soul?
+> How do you even do that?
+@< smile
+< You just tear out a piece of your own soul.
+> $sWhat?!
+@< idle
+< Yeah. My witch says it's... not pleasant.
+> ...
+@< explain2
+< And the last thing you need is a vessel.
+@< smile
+< Some kind of object or memento to act as a host for the familiar.
+@< idle
+< The vessel you use determines the appearance and form your familiar will take.
+> Oh... I see.
+@< explain
+< Yeah. If you use something like a pendant or trinket, they'll probably be a shapeless shadow.
+@< idle
+< But, in my case... my witch probably used a doll, or something. She hasn't actually told me.
+@< smile
+< So, that's why I look kinda like a human.
+> Interesting!
+@< idle
+> Can you make your cat your familiar, or something?
+@< angry2
+< $wNo!
+@< idle
+< The vessel you use has to be something without a soul.
+@< explain
+< Because you're giving part of your own soul to it to make it your familiar.
+@< idle
+> Okay. That makes sense.
+> Sort of.
+> Man, bein' a witch sounds $wcomplicated.
+< Mhm.
+< Being a familiar is even $wmore $0complicated.
+@< smile
+< It has its perks, though.
+--------------------
