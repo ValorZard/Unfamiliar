@@ -5,7 +5,8 @@
 > ...I hope you don't mind me taking a few more shots while we're talking.
 < Not at all!
 > So, Cosmo...
-> I'm all about photography, but... what are you into?
+========================
+>> I'm all about photography, but... what are you into?
 [ I like cooking. (0, -60) R_1_1 | I play a few instruments. (0, -60) R_1_2 | (uhh) (0, -60) R_1_3
 : R_1_1
 < I like cooking.
@@ -13,9 +14,25 @@
 < I make dinner for me and my witch a lot of the time.
 > Wow. That must be nice. I can't cook to save my life.
 > Who taught you?
+@< smile
 < My witch. She's really good at cooking.
 > What's her favorite thing to make?
-< 
+< Gumbo. She has her own recipe.
+> Wow, really?
+> I didn't think people ate gumbo around here.
+@< heh
+< We're probably the exception and not the rule.
+@< smile
+> What about you? What's your favorite thing to cook?
+@< explain2
+< I have this really great stuffed pepper recipe.
+@< satisfied
+< My witch always says it's one of the best things she's ever eaten.
+< Pretty impressive, right?
+> Yeah.
+@< smile
+> ...
+> Man, I wish I could cook...
 ---------------------
 : R_2_2
 < I play a few instruments.
@@ -72,7 +89,7 @@
 < But, in my case... my witch probably used a doll, or something. She hasn't actually told me.
 @< smile
 < So, that's why I look kinda like a human.
-> Interesting!
+> That's pretty cool!
 @< idle
 > Can you make your cat your familiar, or something?
 @< angry2
@@ -90,3 +107,24 @@
 @< smile
 < It has its perks, though.
 --------------------
+[STUFF]
+
+> What type of magic do you use?
+< Fire magic. The same as my witch.
+> Oh.
+> Isn't fire magic used for, like...
+> $wKilling people?
+@< idle
+< I mean... you $wcould.
+< If you wanted to be a horrible person and make everyone hate you.
+@< explain2
+< But fire magic also has a lot of more practical uses.
+< Like, for example... imagine never having to buy a box of matches in your life.
+< Need to light the fireplace? Just use fire magic.
+< Birthday candles? Fire magic.
+< Lost your flashlight? Make a flame in your hand and use it for light.
+@< smile
+> Huh... I never thought about it that way.
+@< idle
+< And... you can also use it for self-defense, of course.
+@< sad
