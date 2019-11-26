@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cosmo_smile_new2.png-620df2ef054330820440df70a3c8b2ee.stex"
+path="res://.import/IN_Table_Long.png-fd05f8aecad9f56e08442f0ffa8c1431.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_smile_new2.png"
-dest_files=[ "res://.import/Cosmo_smile_new2.png-620df2ef054330820440df70a3c8b2ee.stex" ]
+source_file="res://Sprites/Props/Interiors/IN_Table_Long.png"
+dest_files=[ "res://.import/IN_Table_Long.png-fd05f8aecad9f56e08442f0ffa8c1431.stex" ]
 
 [params]
 

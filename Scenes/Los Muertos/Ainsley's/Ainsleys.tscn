@@ -1,48 +1,65 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Rug.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Props/Interiors/IN_Computer.png" type="Texture" id=5]
-[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_left.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_right.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_up.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_down.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Paul.png" type="Texture" id=11]
-[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Socket.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Clock.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Rug.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Table_Long.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Tabletop_Misc2.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Cabinet.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Computer.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Cabinet_Side.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Strongbox.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Tabletop_Misc1.png" type="Texture" id=13]
+[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_left.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_right.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_up.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_down.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Paul.png" type="Texture" id=19]
+[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=22]
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 20, 8 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 6, 11 )
+
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12, 10 )
 
-[sub_resource type="SpriteFrames" id=1]
-animations = [ {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-} ]
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 5, 10 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
 "frames": [  ],
 "loop": true,
 "name": "left",
@@ -58,26 +75,25 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 19 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 48, 4 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 16, 4 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 8, 78 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 39, 4 )
 
-[sub_resource type="Animation" id=7]
-resource_name = "Event"
+[sub_resource type="Animation" id=8]
 length = 4.5
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -201,10 +217,10 @@ tracks/3/keys = {
 "values": [ 1, 2 ]
 }
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 16, 8 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 16, 8 )
 
 [node name="Scene" type="Node2D"]
@@ -229,6 +245,16 @@ __meta__ = {
 [node name="Door" type="Sprite" parent="."]
 position = Vector2( 136, 26 )
 texture = ExtResource( 3 )
+centered = false
+
+[node name="Socket" type="Sprite" parent="."]
+position = Vector2( 99, 42 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Clock" type="Sprite" parent="."]
+position = Vector2( 208, 21 )
+texture = ExtResource( 5 )
 centered = false
 
 [node name="TileMap3" type="TileMap" parent="."]
@@ -257,8 +283,44 @@ __meta__ = {
 
 [node name="Rug" type="Sprite" parent="."]
 position = Vector2( 192, 142 )
-texture = ExtResource( 4 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, 0.5 )
+
+[node name="Table" type="StaticBody2D" parent="."]
+position = Vector2( 181, 45 )
+z_index = 45
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Table"]
+texture = ExtResource( 7 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table"]
+position = Vector2( 19, 8 )
+shape = SubResource( 11 )
+
+[node name="Tabletop3" type="Sprite" parent="."]
+position = Vector2( 183, 46 )
+z_index = 46
+texture = ExtResource( 8 )
+centered = false
+
+[node name="Cabinet" type="StaticBody2D" parent="."]
+position = Vector2( 167, 38 )
+z_index = 38
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Cabinet"]
+texture = ExtResource( 9 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabinet"]
+position = Vector2( 6, 12 )
+shape = SubResource( 12 )
 
 [node name="Computer" type="StaticBody2D" parent="."]
 position = Vector2( 104, 34 )
@@ -267,14 +329,48 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Computer"]
-texture = ExtResource( 5 )
+position = Vector2( -6, 0 )
+texture = ExtResource( 10 )
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Computer"]
 position = Vector2( 12, 15 )
-shape = SubResource( 10 )
+shape = SubResource( 1 )
 
-[node name="NPCRhona" parent="." instance=ExtResource( 6 )]
+[node name="Cabinets" type="StaticBody2D" parent="."]
+position = Vector2( 96, 97 )
+z_index = 97
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Cabinets"]
+position = Vector2( 0, -5 )
+texture = ExtResource( 11 )
+centered = false
+
+[node name="Sprite2" type="Sprite" parent="Cabinets"]
+position = Vector2( 0, 3 )
+texture = ExtResource( 11 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cabinets"]
+position = Vector2( 5, 16 )
+shape = SubResource( 13 )
+
+[node name="Tabletop1" type="Sprite" parent="."]
+position = Vector2( 187, 81 )
+z_index = 90
+texture = ExtResource( 12 )
+centered = false
+
+[node name="Tabletop2" type="Sprite" parent="."]
+position = Vector2( 162, 84 )
+z_index = 90
+texture = ExtResource( 13 )
+centered = false
+
+[node name="NPCRhona" parent="." instance=ExtResource( 14 )]
 position = Vector2( 200, 98 )
 dialogue_file = "res://Dialogue/Ainsley's/dl_ainsleys_rhona.txt"
 auto_advance_set = true
@@ -283,14 +379,14 @@ set_flag = "npc_ainsleys_rhona"
 face = 2
 
 [node name="Sprite" parent="NPCRhona" index="0"]
-frames = SubResource( 1 )
+frames = SubResource( 2 )
 
-[node name="NPCPaul" parent="." instance=ExtResource( 6 )]
+[node name="NPCPaul" parent="." instance=ExtResource( 14 )]
 position = Vector2( 176, 75 )
 set_flag = "npc_ainsleys_paul"
 
 [node name="Sprite" parent="NPCPaul" index="0"]
-frames = SubResource( 2 )
+frames = SubResource( 3 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 z_index = 2500
@@ -301,29 +397,29 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 128, 158 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 224, 158 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 192, 170 )
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 88, 88 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 232, 88 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 185, 91 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
-[node name="Event" parent="." instance=ExtResource( 12 )]
+[node name="Event" parent="." instance=ExtResource( 20 )]
 position = Vector2( 192, 139 )
 autostart = true
 destroy = true
@@ -331,20 +427,20 @@ destroy_flag = "scn_ainsley's_intro"
 auto_set_destroy = true
 
 [node name="AnimationPlayer" parent="Event" index="0"]
-anims/Event = SubResource( 7 )
+anims/Event = SubResource( 8 )
 
 [node name="CollisionShape2D" parent="Event" index="1"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
-[node name="DoorExit" parent="." instance=ExtResource( 13 )]
+[node name="DoorExit" parent="." instance=ExtResource( 21 )]
 position = Vector2( 192, 162 )
-target_scene = "res://Scenes/Los Muertos/LM_Thoroughfare_M.tscn"
+target_scene = "res://Scenes/Los Muertos/LM_Thoroughfare_R.tscn"
 target_position = Vector2( 136, 102 )
 target_direction = 1
-door_sound = ExtResource( 14 )
+door_sound = ExtResource( 22 )
 
 [node name="CollisionShape2D" parent="DoorExit" index="0"]
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [editable path="NPCRhona"]
 

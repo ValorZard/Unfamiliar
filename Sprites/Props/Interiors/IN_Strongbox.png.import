@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Cosmo_idle_new2.png-f8842d2015c18dec56f6929d1558ab82.stex"
+path="res://.import/IN_Strongbox.png-c13e49346f6c4aaa721147518f0831be.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_idle_new2.png"
-dest_files=[ "res://.import/Cosmo_idle_new2.png-f8842d2015c18dec56f6929d1558ab82.stex" ]
+source_file="res://Sprites/Props/Interiors/IN_Strongbox.png"
+dest_files=[ "res://.import/IN_Strongbox.png-c13e49346f6c4aaa721147518f0831be.stex" ]
 
 [params]
 
