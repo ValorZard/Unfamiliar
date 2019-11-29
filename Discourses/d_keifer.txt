@@ -59,6 +59,7 @@
 < ...
 < Yeah.
 --------------------
+: R_1_3
 ========================
 : BRANCH_2
 > Hey, Cosmo...
@@ -83,7 +84,8 @@
 < When she created me, my witch had been practicing witchcraft for about fifteen years.
 @< smile
 < And she says it took her...
-@< heh Four months to learn the spell.
+@< heh
+< Four months to learn the spell.
 > What?!
 < It's $sreally $0complicated.
 > Yeah... must be.
@@ -129,12 +131,24 @@
 < Mhm.
 < Being a familiar is even $wmore $0complicated.
 > ...
-> Do you...
+| 2
+> Cosmo, do you...
 > ...
+< Hm?
 > Never mind.
 < No, go ahead!
 > ...
-> Do you 
+> Do you like being a demon?
+< ...
+@< smile
+< I mean... yeah!
+@< idle
+< It's not always easy, though.
+@< sad
+< A lot of people don't like demons.
+> What? Why?
+< I don't know.
+< 
 --------------------
 [STUFF]
 

@@ -108,9 +108,9 @@ func _event_flashback(file: String, texture: String, transition: bool = true):
 	anim_player.play()
 	
 
-func _event_discourse(file: String, right_name: String, right_sprite: String):
+func _event_discourse(full_name: String, file: String, right_name: String, right_sprite: String):
 	anim_player.stop(false)
-	Controller.start_discourse(file, right_name, load(right_sprite) as SpriteFrames)
+	Controller.start_discourse(full_name, file, right_name, load(right_sprite) as SpriteFrames)
 	
 
 func _event_play_sound(sound_path: String):

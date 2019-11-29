@@ -43,15 +43,15 @@
 @< smile
 < Heh. Yeah.
 @> idle
-< It's a small town in the middle of the#desert.
+< It's a small town in the middle of the desert.
 < The people there are pretty nice.
 @< idle
-< Although... $wweird $0people and#creatures pass through town#sometimes.
+< Although... $wweird $0people and creatures pass through town sometimes.
 @> serious
 < And it's $shot. $0In the 90s all the time.
 > Wow.
 @> think
-> Don't demons like it to be hot, or#something?
+> Don't demons like it to be hot, or something?
 < I could take it or leave it.
 @> idle
 ^ BRANCH_2
@@ -66,11 +66,12 @@
 < Yeah. We actually travel a lot.
 @< idle
 < Cottonwood is just so $wboring.
-< At least, I think so. I don't know if#my witch cares.
+< At least, I think so. I don't know if my witch cares.
 @> idle
 ^ BRANCH_2
 ========================
 : BRANCH_2
+| 1.5
 << Hey, Rhona...
 [ Where are you from? (-20, -60) R_2_1 | Why are you visiting Los Muertos? (20, -10) R_2_2 | Where are your parents? (0, 40) R_2_3
 ------------------------
@@ -80,12 +81,12 @@
 > I'm from Phoenix.
 @< smile
 < Wow, really? That's a big city.
-> Yep! I'm not sure how much I like it,#though.
+> Yep! I'm not sure how much I like it, though.
 @> serious
 @< idle
-> People aren't too nice in that city.#Everyone's always irritated about#something.
+> People aren't too nice in that city. Everyone's always irritated about something.
 @> think
-> I mean, it's pretty beautiful, but...#it also just $wfeels $0crummy.#I'm not sure why.
+> I mean, it's pretty beautiful, but... it also just $wfeels $0crummy. I'm not sure why.
 @> idle
 > I think Los Muertos is a lot more fun.
 @< smile
@@ -95,15 +96,15 @@
 : R_2_2
 < Why are you visiting Los Muertos?
 @> idle
-> I come here every few months to visit#my grandpa.
+> I come here every few months to visit my grandpa.
 @> explain2
-> He works here at Ainsley's#Knack and Craft. He repairs small#trinkets.
+> He works here at Ainsley's Knack and Craft. He repairs small trinkets.
 * choice_know_rhona's_grandpa 1
 @< smile
 @> idle
 < Sounds interesting!
 @> explain2
-> Yeah! You should stop by and#take a look while you're here.#The shop looks pretty incredible.
+> Yeah! You should stop by and take a look while you're here. The shop looks pretty incredible.
 > My grandpa is a wizard.
 @< smile
 < Really?
@@ -118,7 +119,7 @@
 @< idle
 < Where are your parents?
 @> serious
-> They're not here. I usually come to#Los Muertos by myself.
+> They're not here. I usually come to Los Muertos by myself.
 @> sad
 > My dad died a few years ago.
 @< sad
@@ -126,12 +127,12 @@
 > And my mom...
 @< idle
 @> serious
-> She really doesn't like to see my#grandpa.
+> She really doesn't like to see my grandpa.
 > They disagree on a lot of things.
 @< sad
 < That must be hard.
 > Yeah.
-> She also just doesn't like Los#Muertos.
+> She also just doesn't like Los Muertos.
 @< idle
 @> explain
 > She says it's too... $wesoteric $0for her.
@@ -147,13 +148,13 @@
 < Yeah.
 @> think
 > What does that mean, exactly?
-# @< whatnow
+  @< whatnow
 < Well, uh...
 @> serious
 @< explain
-< My witch just... $wcreated $0me, because#she wanted a personal assistant.
+< My witch just... $wcreated $0me, because she wanted a personal assistant.
 @> think
-> I thought all demons were from the...#underworld, or something?
+> I thought all demons were from the... underworld, or something?
 @> serious
 < Not exactly. It's complicated.
 > Oh. All right.
@@ -165,26 +166,26 @@
 * choice_witch_profession 0
 < She teaches people magic.
 @> shock
-> Wait... you can just $wteach $0people#magic?
+> Wait... you can just $wteach $0people magic?
 @> explain
-> I thought you had to be born a witch,#or something.
+> I thought you had to be born a witch, or something.
 @< smile
-< Nope! Anyone can become a witch#with enough training.
+< Nope! Anyone can become a witch with enough training.
 @> idle
 @< heh
 < Anyone human, that is.
 > Does she teach at a school?
 @< smile
-< Nope. She homeschools kids in our#town who want to learn magic.
+< Nope. She homeschools kids in our town who want to learn magic.
 @> explain2
-> And what about you? Has she taught#you magic?
+> And what about you? Has she taught you magic?
 @< satisfied
-< Oh, there's no need for that.#I already know magic.
+< Oh, there's no need for that. I already know magic.
 @< smile
 @> happy
 > Really?! Can you show me?
 @< heh
-< Uh... that might not be a great idea#in public.
+< Uh... that might not be a great idea in public.
 @> idle
 > Er... yeah. You're probably right.
 ^ BRANCH_4
@@ -196,7 +197,7 @@
 @> idle
 > Really? What kinds of potions?
 @< explain2
-< Oh, all sorts. Healing potions,#enhancement potions...
+< Oh, all sorts. Healing potions, enhancement potions...
 @> happy
 > $wLove $0potions?
 @< smile
@@ -205,8 +206,8 @@
 > Oh.
 > What does she make them with?
 @< think
-< Uh... lots of weird ingredients I#don't know anything about.
-< I don't even know if she gets all her#ingredients legally.
+< Uh... lots of weird ingredients I don't know anything about.
+< I don't even know if she gets all her ingredients legally.
 @< heh
 @> heh
 < ...Don't tell her I told you that.
@@ -218,22 +219,22 @@
 * choice_witch_profession 2
 < She writes books of hexes.
 @< explain2
-< You can't cast a spell without#knowing how, after all.
+< You can't cast a spell without knowing how, after all.
 @> explain2
 > So... books of magic words?
-< Not exactly. They're more like#pentagrams. Patterns you have to#know.
+< Not exactly. They're more like pentagrams. Patterns you have to know.
 @> explain
 > Do you... $wdraw $0them somewhere?
 @< explain
 < You can.
 @> serious
 @< think
-< Or you can think about them $wreally#$0hard. It takes practice to do that,#though.
+< Or you can think about them $wreally $0hard. It takes practice to do that, though.
 @< idle
 @> happy
 > Interesting!
 @< smile
-< She also talks all about the spells#in the books. You know... the history#of magic, and all.
+< She also talks all about the spells in the books. You know... the history of magic, and all.
 @> idle
 > Is she a good writer?
 < Yeah. She has a real way with words.
@@ -252,17 +253,17 @@
 @< smile
 < Really?
 @> explain2
-> Yeah! My dad was a programmer for#a big company.
+> Yeah! My dad was a programmer for a big company.
 @> idle
-> He always let me play around on his#computer.
+> He always let me play around on his computer.
 @> evil
-> It's super loud and beepy! And the#keyboard is even louder!#Like... $sCLACK CLACK CLACK!!
+> It's super loud and beepy! And the keyboard is even louder! Like... $sCLACK CLACK CLACK!!
 @> idle
-> Ever since he's been gone, I've been#trying to program my own stuff.
-> He had a bunch of old reference#guides that I've been reading.
+> Ever since he's been gone, I've been trying to program my own stuff.
+> He had a bunch of old reference guides that I've been reading.
 < Have you made anything yet?
 @>think
-> A few small things. I want to try#making a video game sometime.
+> A few small things. I want to try making a video game sometime.
 @< explain2
 @> idle
 < That would be amazing!
@@ -271,26 +272,26 @@
 @< think
 < Uh... sometimes we stop by arcades.
 @< smile
-< My witch is really good at that#game where you try to jump on all#the cubes.
+< My witch is really good at that game where you try to jump on all the cubes.
 ^ BRANCH_5
 ------------------------
 : R_4_2
 < What do you want to do for a living?
 @> serious
 > I'm not entirely sure.
-> My grandpa always tries to get me#to join the repair business with#him.
+> My grandpa always tries to get me to join the repair business with him.
 < Are you interested in that?
 @< idle
 > Not really.
 @> explain
-> My grandpa has taught me a bunch,#and he says I'm really good with my#hands.
-> He thinks I would make a great#craftsperson.
+> My grandpa has taught me a bunch, and he says I'm really good with my hands.
+> He thinks I would make a great craftsperson.
 @> annoyed
-> But... come on! Gluing, hammering, and#screwing stuff together?
-> That sounds like the most boring#job in the world.
+> But... come on! Gluing, hammering, and screwing stuff together?
+> That sounds like the most boring job in the world.
 @> explain
-> I mean, look at you! You get to help#a witch do magical stuff!
-> Why can't I have a job as interesting#as that?
+> I mean, look at you! You get to help a witch do magical stuff!
+> Why can't I have a job as interesting as that?
 @> serious
 < Uh...
 < Yeah.
@@ -299,10 +300,10 @@
 : BRANCH_5
 @> idle
 > So, Cosmo...
-> You normally wouldn't be apart from#your witch, right?
+> You normally wouldn't be apart from your witch, right?
 @< idle
 @> serious
-< Yeah. We got put on different trains,#but we normally wouldn't split up.
+< Yeah. We got put on different trains, but we normally wouldn't split up.
 < She doesn't trust me to be on my own.
 @> sad
 >  Oh.
@@ -316,16 +317,16 @@
 @< smile
 < She's actually really nice.
 @> idle
-< She doesn't usually treat me like an#assistant or a familiar.
+< She doesn't usually treat me like an assistant or a familiar.
 < She treats me more like a friend.
 @> happy
 > Really?
 @> idle
-< Yeah. I help her with her work, but#we also do things together.
-< We make things for each other's#birthdays. Sometimes we go on walks#and talk about life.
-< And she really likes to travel, so#we go a lot of neat places.
+< Yeah. I help her with her work, but we also do things together.
+< We make things for each other's birthdays. Sometimes we go on walks and talk about life.
+< And she really likes to travel, so we go a lot of neat places.
 @> aw
-> Aw... that's so sweet. It's almost like#you're her son.
+> Aw... that's so sweet. It's almost like you're her son.
 @< idle
 < Uh... I don't think I'd go that far.
 @> idle
@@ -336,15 +337,15 @@
 : R_5_2
 * choice_witch_personality 1
 < She's all right.
-< We don't talk too much. She just asks#me to do stuff for her, and I do it.
+< We don't talk too much. She just asks me to do stuff for her, and I do it.
 < Not much more than that.
 < I'm just a familiar, after all.
 @> worry
 > Is she nice, though?
 @< sad
 < Well, yeah, but...
-< It doesn't seem like she cares about#me too much.
-< It's not like I'm family to her, or#anything.
+< It doesn't seem like she cares about me too much.
+< It's not like I'm family to her, or anything.
 @> sad
 > That's so sad...
 @< smile
@@ -360,12 +361,12 @@
 < She isn't very nice.
 @> shock
 > What?!
-< Yeah. She yells at me a lot,#especially when I do things wrong.
+< Yeah. She yells at me a lot, especially when I do things wrong.
 @> angry
-< She calls me an "idiot" a lot of the#time.
+< She calls me an "idiot" a lot of the time.
 @> outrage
 > How does she think she can do that?!
-< I mean... I'm just her familiar. Her#assistant.#Nothing more than that.
+< I mean... I'm just her familiar. Her assistant. Nothing more than that.
 @> outrage
 > Yeah, but...!
 @> angry2
@@ -375,9 +376,9 @@
 @< heh
 < $sS-$0she's not all bad, though!
 @< smile
-< She still does nice things#sometimes.
+< She still does nice things sometimes.
 @> serious
-< We always make something for each#other's birthdays. And getting to#travel a lot is fun.
+< We always make something for each other's birthdays. And getting to travel a lot is fun.
 @< idle
 < That's about it, though.
 @< sad
@@ -393,37 +394,37 @@
 @< idle
 < Yeah?
 @> serious
-> Don't let other people tell you who#you are.
+> Don't let other people tell you who you are.
 > You may be a demon, but...
 @> idle
-> You're still smart, handsome, and#charming.
+> You're still smart, handsome, and charming.
 @> annoyed
-> Everyone calls demons "eldritch#abominations," but...
+> Everyone calls demons "eldritch abominations," but...
 @> idle
-> Even if you're an abomination,#I'll still talk with you.
+> Even if you're an abomination, I'll still talk with you.
 @< sad
 < ...
 @< smile
 < Thanks, Rhona.
-< And thanks for talking with me.#I feel a lot better now.
+< And thanks for talking with me. I feel a lot better now.
 @> happy
 > I'm glad you had a good time.
 @< heh
 @> ohyes
-> ($wI just had a conversation with a#DEMON! How awesome is that?! $0)
+> ($wI just had a conversation with a DEMON! How awesome is that?! $0)
 @< smile
 @> idle
-< Well... I should probably go find my#witch.
+< Well... I should probably go find my witch.
 @< idle
-< She's probably looking for me right#now.
+< She's probably looking for me right now.
 > Yeah.
 @> think
-> We're probably also going to get#thrown off this train if we stand#here any longer.
+> We're probably also going to get thrown off this train if we stand here any longer.
 @< heh
 < That's also true.
 @< smile
 @> happy
-> Say hi to your witch for me, all#right?
+> Say hi to your witch for me, all right?
 < Sure thing!
 @< explain2
 < See you around, Rhona!

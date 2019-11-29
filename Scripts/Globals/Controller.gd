@@ -437,7 +437,7 @@ func flashback(file: String, art: Texture, transition: bool = true) -> Flashback
 	return fb_i
 
 
-func start_discourse(file: String, right_name: String, right_sprite: SpriteFrames, left_name: String = "Cosmo", left_sprite: SpriteFrames = (load(CosmoSprite) as SpriteFrames)):
+func start_discourse(full_name: String, file: String, right_name: String, right_sprite: SpriteFrames, left_name: String = "Cosmo", left_sprite: SpriteFrames = (load(CosmoSprite) as SpriteFrames)):
 	Player.set_state(Player.PlayerState.NoInput)
 	
 	d_previous_scene = get_tree().get_root().get_node("Scene").get_filename()
@@ -453,7 +453,7 @@ func start_discourse(file: String, right_name: String, right_sprite: SpriteFrame
 	goto_scene(DiscourseScene, Vector2.ZERO, Player.Direction.Down, false)
 	yield(get_tree().create_timer(0.02), "timeout")
 	Player.hide()
-	get_tree().get_root().get_node("Scene").run_discourse(file, right_name, right_sprite, left_name, left_sprite)
+	get_tree().get_root().get_node("Scene").run_discourse(full_name, file, right_name, right_sprite, left_name, left_sprite)
 	
 	
 func draw_overlay(draw: bool):
