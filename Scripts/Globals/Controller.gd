@@ -343,15 +343,20 @@ func save_game(slot: int, datetime: Dictionary):
 	if f.file_exists(fname):
 		var dir := Directory.new()
 		dir.remove(fname)
+		
 	f.open(fname, File.WRITE)
-	f.store_line(to_json(datetime))
-	f.store_line(str(playtime))
-	f.store_line(get_node("/root/Scene").get_filename())
-	f.store_line(str(Player.get_position().x))
-	f.store_line(str(Player.get_position().y))
-	f.store_line(str(Player.get_direction()))
-	f.store_line(str(money))
-	f.store_line(to_json(flags))
+	var save_info: Dictionary = {}
+	
+	save_info["datetime"] = to_json(datetime)
+	save_info["playtime"] = playtime
+	save_info["current_scene"] = get_node("/root/Scene").get_filename()
+	save_info["player_x"] = Player.get_position().x
+	save_info["player_y"] = Player.get_position().y
+	save_info["player_dir"] = Player.get_direction()
+	save_info["money"] = money
+	save_info["flags"] = to_json(flags)
+	
+	f.store_line(to_json(save_info))
 	
 	if f.is_open():
 		f.close()
@@ -362,19 +367,14 @@ func load_game(slot: int):
 	var fname := "user://data_s" + str(slot + 1) + ".uf"
 	assert(f.file_exists(fname))
 	f.open(fname, File.READ)
-	var scn: String
-	var pos: Vector2 = Vector2(0, 0)
-	var dir: int
+	var load_info: Dictionary = parse_json(f.get_line())
 	
-	# warning-ignore:unused_variable
-	var buffer = f.get_line() # Skip date/time
-	playtime = float(f.get_line())
-	scn = f.get_line()
-	pos.x = float(f.get_line())
-	pos.y = float(f.get_line())
-	dir = int(f.get_line())
-	money = int(f.get_line())
-	flags = parse_json(f.get_line())
+	var scn: String = load_info["current_scene"]
+	var pos: Vector2 = Vector2(load_info["player_x"], load_info["player_y"])
+	var dir: int = load_info["player_dir"]
+	money = load_info["money"]
+	flags = parse_json(load_info["flags"])
+	playtime = load_info["playtime"]
 	
 	if f.is_open():
 		f.close()

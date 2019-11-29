@@ -8,13 +8,14 @@
 ========================
 >> I'm all about photography, but... what are you into?
 [ I like cooking. (0, -60) R_1_1 | I play a few instruments. (0, -60) R_1_2 | (uhh) (0, -60) R_1_3
+------------------------
 : R_1_1
 < I like cooking.
 @< explain2
 < I make dinner for me and my witch a lot of the time.
 > Wow. That must be nice. I can't cook to save my life.
-> Who taught you?
 @< smile
+> Who taught you?
 < My witch. She's really good at cooking.
 > What's her favorite thing to make?
 < Gumbo. She has her own recipe.
@@ -34,19 +35,42 @@
 > ...
 > Man, I wish I could cook...
 ---------------------
-: R_2_2
+: R_1_2
 < I play a few instruments.
 > Really? Which ones?
 < My favorite is my ocarina.
 < I'm carrying it in my pocket right now.
-> Huh...
+> Huh... that's not an instrument you see every day.
+> What else do you play?
+@< explain2
+< Mostly piano. We have one at home.
+> Have you taken piano lessons?
+< A few. I've also learned a bit from my witch.
+> Nice.
+> My mom wanted me to take piano lessons a while back.
+> I was never that interested, though.
+< I'm also in the process of learning flute.
+@< heh
+< I'm not very good, but I'm getting there.
+> Man... you sound talented!
+@< smile
+> Your witch must be proud of you.
+@< idle
+< ...
+< Yeah.
 --------------------
+========================
+: BRANCH_2
 > Hey, Cosmo...
+@< smile
 < Yeah?
 > I have a question.
+@< idle
 > You're a demon, but...
 > Why do you look so much like a human?
+@< think
 < $wWell...
+@< idle
 < This might take a bit of explanation.
 < On how familiars are created, I mean.
 > I'm listening!
@@ -104,8 +128,13 @@
 > Man, bein' a witch sounds $wcomplicated.
 < Mhm.
 < Being a familiar is even $wmore $0complicated.
-@< smile
-< It has its perks, though.
+> ...
+> Do you...
+> ...
+> Never mind.
+< No, go ahead!
+> ...
+> Do you 
 --------------------
 [STUFF]
 

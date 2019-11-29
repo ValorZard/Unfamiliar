@@ -53,17 +53,10 @@ func _load_save_info():
 		if f.file_exists(fname):
 			f.open(fname, File.READ)
 	
-			var slot_datetime = parse_json(f.get_line())
-			var slot_playtime := float(f.get_line())
-			
-			# Skip unnecessary lines
-			# warning-ignore:unused_variable
-			var buffer: String
-			# warning-ignore:unused_variable
-			for i in range(4):
-				buffer = f.get_line()
-
-			var slot_money := int(f.get_line())
+			var slot_info = parse_json(f.get_line())
+			var slot_datetime = parse_json(slot_info["datetime"])
+			var slot_playtime: float = slot_info["playtime"]
+			var slot_money: int = slot_info["money"]
 			
 			if f.is_open():
 				f.close()
