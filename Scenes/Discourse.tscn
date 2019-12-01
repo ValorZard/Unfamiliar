@@ -484,3 +484,7 @@ anims/Words = SubResource( 9 )
 [node name="AnimationPlayerBg" type="AnimationPlayer" parent="."]
 autoplay = "Bg"
 anims/Bg = SubResource( 10 )
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
+color = Color( 1, 0, 0, 1 )

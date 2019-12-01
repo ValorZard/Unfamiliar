@@ -361,10 +361,6 @@ anims/Event = SubResource( 13 )
 [node name="CollisionShape2D" parent="Event" index="1"]
 shape = SubResource( 14 )
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color( 0.862745, 1, 0.431373, 1 )
-
 [editable path="Transitions/Transition"]
 
 [editable path="Transitions/Transition2"]

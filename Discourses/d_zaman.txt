@@ -122,10 +122,7 @@
 : R_1_2
 < I have to apologize to her!
 < I feel awful. I'm so stupid.
-? choice_witch_personality 0 B_PERSONALITY_01
-? choice_witch_personality 1 B_PERSONALITY_01
 < I'm an idiot. Just like she always says.
-: B_PERSONALITY_01
 < At some point she's going to stop forgiving me.
 @< sad
 < But I'm not letting myself not apologize.
@@ -199,6 +196,7 @@
 
 ------------------------
 : END
+| 2
 @< idle
 < Thanks for talking some sense into me, Zaman.
 @< smile

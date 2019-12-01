@@ -7,12 +7,12 @@
 > So, Cosmo...
 ========================
 >> I'm all about photography, but... what are you into?
-[ I like cooking. (0, -60) R_1_1 | I play a few instruments. (0, -60) R_1_2 | (uhh) (0, -60) R_1_3
+[ I like cooking. (0, -60) R_1_1 | I play a few instruments. (0, -60) R_1_2 | I like to draw. (0, -60) R_1_3
 ------------------------
 : R_1_1
 < I like cooking.
 @< explain2
-< I make dinner for me and my witch a lot of the time.
+< I make dinner for my witch and me a lot of the time.
 > Wow. That must be nice. I can't cook to save my life.
 @< smile
 > Who taught you?
@@ -34,6 +34,7 @@
 @< smile
 > ...
 > Man, I wish I could cook...
+^ BRANCH_2
 ---------------------
 : R_1_2
 < I play a few instruments.
@@ -58,8 +59,35 @@
 @< idle
 < ...
 < Yeah.
+^ BRANCH_2
 --------------------
 : R_1_3
+< I like to draw.
+@< explain2
+< I've been teaching myself in my spare time.
+@< smile
+> What do you like to draw?
+@< heh
+< ...Demons.
+@< smile
+< Not just demons that look like me, though. All different types.
+< Demons from our world, demons from the underworld, demons that don't even exist...
+< You get the idea.
+@< explain2
+< I also like drawing dragons and other monsters.
+> I don't blame you. That kinda stuff is really cool.
+> Besides, have you $wtried $0drawing a normal human? It's really hard.
+@< heh
+< Yeah... I've tried doing a few self-portraits. They didn't turn out well.
+@< smile
+> Is your witch into art at all?
+< Not really. She's more of a music person. She plays piano.
+> Oh, nice.
+> So you've just been teaching yourself?
+< Yeah. We have a few books laying around the house that talk about art.
+> Well, if you ever get a chance to show me some of your art, I'd love to see it!
+< Sure thing!
+^ BRANCH_2
 ========================
 : BRANCH_2
 > Hey, Cosmo...
@@ -148,16 +176,31 @@
 < A lot of people don't like demons.
 > What? Why?
 < I don't know.
-< 
+< They always call us "eldritch abominations."
+> Man... why do people have to be like that?
+> There's nothing wrong with demons.
+@< smile
+< I'm glad you think so.
+@< explain2
+< And being a demon $wdoes $0have its perks.
+> I bet it does!
+@< smile
+>> What's your favorite part about being a demon?
+[ Being able to use magic. (0, -60) R_2_1 | Being able to travel with my witch. (0, -60) R_2_2 | (uhh) (0, -60) R_2_3
 --------------------
-[STUFF]
-
+: R_2_1
+< Being able to use magic.
+> Oh, yeah! Demons can use magic.
+@< explain2
+< Yep. Humans have to become witches to use magic, but demons can use it naturally.
+@< smile
+< Although... you still have to learn how to use it. My witch taught me a long time ago.
 > What type of magic do you use?
 < Fire magic. The same as my witch.
 > Oh.
 > Isn't fire magic used for, like...
-> $wKilling people?
 @< idle
+> $wKilling people?
 < I mean... you $wcould.
 < If you wanted to be a horrible person and make everyone hate you.
 @< explain2
@@ -171,3 +214,16 @@
 @< idle
 < And... you can also use it for self-defense, of course.
 @< sad
+< I hope I never have to go that far.
+< I've almost had to one or two times.
+> Wow... so you must really have to keep control of your temper, huh?
+@< idle
+< I mean... not exactly?
+@< explain
+< It's not like our emotions correlate with our magic.
+@< idle
+< And I'd prefer to think I have enough control over myself to not just attack someone I'm mad at.
+> Yeah. You're right.
+> Sorry I made that assumption.
+@< smile
+< No worries.

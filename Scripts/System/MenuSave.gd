@@ -51,7 +51,7 @@ func _load_save_info():
 		var f := File.new()
 		var fname := "user://data_s" + str(slot + 1) + ".uf"
 		if f.file_exists(fname):
-			f.open(fname, File.READ)
+			f.open_encrypted_with_pass(fname, File.READ, OS.get_unique_id())
 	
 			var slot_info = parse_json(f.get_line())
 			var slot_datetime = parse_json(slot_info["datetime"])

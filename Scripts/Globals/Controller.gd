@@ -344,7 +344,8 @@ func save_game(slot: int, datetime: Dictionary):
 		var dir := Directory.new()
 		dir.remove(fname)
 		
-	f.open(fname, File.WRITE)
+	#f.open(fname, File.WRITE)
+	f.open_encrypted_with_pass(fname, File.WRITE, OS.get_unique_id())
 	var save_info: Dictionary = {}
 	
 	save_info["datetime"] = to_json(datetime)
@@ -366,7 +367,7 @@ func load_game(slot: int):
 	var f := File.new()
 	var fname := "user://data_s" + str(slot + 1) + ".uf"
 	assert(f.file_exists(fname))
-	f.open(fname, File.READ)
+	f.open_encrypted_with_pass(fname, File.READ, OS.get_unique_id())
 	var load_info: Dictionary = parse_json(f.get_line())
 	
 	var scn: String = load_info["current_scene"]
