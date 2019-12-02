@@ -76,6 +76,7 @@
 @< explain2
 < I also like drawing dragons and other monsters.
 > I don't blame you. That kinda stuff is really cool.
+@< smile
 > Besides, have you $wtried $0drawing a normal human? It's really hard.
 @< heh
 < Yeah... I've tried doing a few self-portraits. They didn't turn out well.
@@ -89,7 +90,11 @@
 < Sure thing!
 ^ BRANCH_2
 ========================
-: BRANCH_2
+@< smile
+<< So, Keifer...
+[ What type of photography do you like? (0, -60) R_2_1 | 
+------------------------
+: BRANCH_3
 > Hey, Cosmo...
 @< smile
 < Yeah?
@@ -186,9 +191,9 @@
 > I bet it does!
 @< smile
 >> What's your favorite part about being a demon?
-[ Being able to use magic. (0, -60) R_2_1 | Being able to travel with my witch. (0, -60) R_2_2 | (uhh) (0, -60) R_2_3
+[ Being able to use magic. (0, -60) R_3_1 | Being able to travel with my witch. (0, -60) R_3_2 | (uhh) (0, -60) R_3_3
 --------------------
-: R_2_1
+: R_3_1
 < Being able to use magic.
 > Oh, yeah! Demons can use magic.
 @< explain2
