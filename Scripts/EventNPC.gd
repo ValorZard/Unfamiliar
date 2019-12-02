@@ -9,6 +9,7 @@ export(bool) var change_direction = true
 export(bool) var auto_advance_set = false
 export(int) var set_limit = 0
 export(String) var set_flag
+export(bool) var is_object = false
 
 var face: int = NPCDirection.Down
 
@@ -48,7 +49,10 @@ func _process(delta):
 		if auto_advance_set and dialogue_set < set_limit:
 			dialogue_set += 1
 		Controller.set_flag(set_flag, dialogue_set)
-		interact.show()
+		if is_object:
+			Player.show_interact(true)
+		else:
+			interact.show()
 		
 # =====================================================================
 
@@ -98,10 +102,16 @@ func _sprite_management():
 func _on_InteractArea_area_entered(area: Area2D):
 	if can_talk_to and area.is_in_group("PlayerSight"):
 		in_range = true
-		interact.show()
+		if is_object:
+			Player.show_interact(true)
+		else:
+			interact.show()
 
 
 func _on_InteractArea_area_exited(area: Area2D):
 	if area.is_in_group("PlayerSight"):
 		in_range = false
-		interact.hide()
+		if is_object:
+			Player.show_interact(false)
+		else:
+			interact.hide()

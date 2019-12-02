@@ -38,6 +38,7 @@ var flags: Dictionary = {
 	"npc_lm_pace": 0,
 	"npc_ainsleys_paul": 0,
 	"npc_ainsleys_rhona": 0,
+	"npc_ainsleys_computer": 0,
 	# ----------------------------------------
 	"npc_motel_chip": 0,
 	# ========================================

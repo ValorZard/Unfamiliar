@@ -1,13 +1,11 @@
-< Your name's Yaga, right?
-> How'd you know that, hamster hair?
-< It says on your sandwich wrapper.
-> ...
-> Figures.
+< Your name was Yaga, right?
+> Yes. I said it two minutes ago, hamster hair.
+| 1
 > Okay, familiar...
 @< glare
 < My name's Cosmo.
-@< idle
 > Fine. Cosmo.
+@< idle
 > Tell me about this witch of yours.
 < Why?
 > I know this city in and out. I know where people tend to end up.
@@ -126,20 +124,25 @@
 : R_2_2
 < Do you like being a witch?
 > Ugh...
+@< sad
 < Sorry. Should I not have-
+@< idle
 > I hate it! It was the worst choice I ever made!
 > What genius thought it should be a permanent decision?
 > I was a fifteen-year-old girl who was fascinated with demons and the underworld.
 > It was a fad. I chained myself to the underworld because of a fad.
 > And once I realized I'd thrown my life away, I couldn't go back.
 > You're a demon. You know what it's like. Everyone's terrified of you.
-> Can't even order a lousy sandwich without the cashier shaking a bit.
-< Yeah...
-> Although, it $wdoes $0have its perks.
-> Nobody'll bother you when you're eating dinner at the worst restaurant in town.
-> Except talkative demons, apparently.
-@< smile
-< Heh...
+> That's why I moved to Los Muertos. People are more used to it here.
+> It's a city of outcasts. Lots of witches, demons, and monsters end up here.
+< Do you like Los Muertos?
+> ...
+> It's a desperately mediocre city.
+> I mean... it's in the name. It's the city of the dead.
+| 1
+> But it's home.
+> It's a place for people like me.
+> So I have to give it credit for that.
 ^ BRANCH_3
 ------------------------
 : R_2_3
