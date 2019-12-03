@@ -78,6 +78,7 @@ config/name="Unfamiliar"
 run/main_scene="res://Scenes/Title/Start.tscn"
 boot_splash/image="res://Splash.png"
 boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://Icon.png"
 
 [audio]
 
