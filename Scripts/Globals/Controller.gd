@@ -16,6 +16,9 @@ const FlashbackRef := "res://Instances/System/Flashback.tscn"
 
 const SoundOneShotRef := preload("res://Instances/SoundOneShot.tscn")
 const ItemRef := preload("res://Instances/System/Item.tscn")
+const EmoteRef := preload("res://Instances/System/Emote.tscn")
+
+enum Emote {Exclamation, Question, Interrobang}
 
 #var inventory := []
 
@@ -209,6 +212,17 @@ func set_menu_open(value: bool):
 func post_discourse():
 	Player.set_state(Player.PlayerState.Move)
 	(get_node(d_previous_npc) as EventNPC).show_interact(true)
+	
+	
+func show_emote(type: int, target: Node2D, offset: Vector2 = Vector2(0, -16)):
+	var e: Node2D = EmoteRef.instance() as Node2D
+	e.set_position(target.get_position() + offset)
+	match type:
+		Emote.Exclamation:
+			(e.get_node("AnimationPlayer") as AnimationPlayer).play("Exclamation")
+		Emote.Question:
+			(e.get_node("AnimationPlayer") as AnimationPlayer).play("Question")
+	get_tree().get_root().add_child(e)
 	
 	
 func fade(time: float, fadeout: bool, color: Color = Color(0, 0, 0), above_overlay: bool = false):
