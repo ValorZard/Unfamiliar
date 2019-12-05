@@ -39,7 +39,11 @@ func _process(delta):
 		_sprite_management()
 	
 	if Input.is_action_just_pressed("sys_action") and in_range and Player.get_state() == Player.PlayerState.Move:
-		interact.hide()
+		if is_object:
+			Player.show_interact(false)
+		else:
+			interact.hide()
+			
 		if change_direction:
 			_face_player()
 		

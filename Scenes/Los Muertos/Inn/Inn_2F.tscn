@@ -1,16 +1,18 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Los Muertos/Scene_Inn_Lobby.gd" type="Script" id=1]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=3]
 [ext_resource path="res://Sprites/Props/Interiors/IN_Clock.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Props/Interiors/IN_Stairs.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Props/Interiors/IN_StairwellRails.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Props/Interiors/IN_StairwellRails2.png" type="Texture" id=7]
-[ext_resource path="res://Audio/Roar.ogg" type="AudioStream" id=8]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Audio/Stairs.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Roomnumber.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Props/Interiors/IN_StairwellRails.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Props/Interiors/IN_StairwellRails2.png" type="Texture" id=8]
+[ext_resource path="res://Audio/Roar.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Audio/Stairs.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 16 )
@@ -21,20 +23,46 @@ extents = Vector2( 10, 49 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 72, 4 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 32 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 10, 26 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 37, 19 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 0.5, 10 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 10, 8 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 6, 3 )
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
@@ -83,29 +111,34 @@ z_index = 2050
 texture = ExtResource( 4 )
 centered = false
 
-[node name="Stairs" type="Sprite" parent="."]
-position = Vector2( 187, 25 )
+[node name="Door" type="Sprite" parent="."]
+position = Vector2( 187, 26 )
 texture = ExtResource( 5 )
 centered = false
 
-[node name="Stairs2" type="Sprite" parent="."]
-position = Vector2( 95, 65 )
-z_index = 72
+[node name="RoomNumber" type="Sprite" parent="."]
+position = Vector2( 205, 32 )
 texture = ExtResource( 6 )
 centered = false
 
-[node name="Stairs3" type="Sprite" parent="."]
-position = Vector2( 96, 65 )
+[node name="Stairs" type="Sprite" parent="."]
+position = Vector2( 95, 65 )
+z_index = 72
 texture = ExtResource( 7 )
 centered = false
 
+[node name="Stairs2" type="Sprite" parent="."]
+position = Vector2( 96, 65 )
+texture = ExtResource( 8 )
+centered = false
+
 [node name="SoundRoar" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 8 )
+stream = ExtResource( 9 )
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="Transitions" instance=ExtResource( 9 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 10 )]
 position = Vector2( 72, 130 )
 target_scene = "res://Scenes/Los Muertos/Inn/Inn_LobbyL1.tscn"
 target_direction = 2
@@ -126,30 +159,46 @@ shape = SubResource( 3 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 234, 50 )
-shape = SubResource( 8 )
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 234, 148 )
-shape = SubResource( 9 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 132, 95 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 115.5, 76 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
-[node name="Door" parent="." instance=ExtResource( 10 )]
+[node name="DoorStairs" parent="." instance=ExtResource( 11 )]
 position = Vector2( 105, 76 )
 target_scene = "res://Scenes/Los Muertos/Inn/Inn_Lobby.tscn"
 target_position = Vector2( 198, 58 )
 target_direction = 1
-door_sound = ExtResource( 11 )
+door_sound = ExtResource( 12 )
 
-[node name="CollisionShape2D" parent="Door" index="0"]
-shape = SubResource( 7 )
+[node name="CollisionShape2D" parent="DoorStairs" index="0"]
+shape = SubResource( 8 )
+
+[node name="NPCRoomNumber" parent="." instance=ExtResource( 13 )]
+position = Vector2( 209, 35 )
+dialogue_file = "res://Dialogue/Motel/dl_motel_roomnumbers.txt"
+change_direction = false
+set_start = 4
+auto_set_flag = false
+is_object = true
+
+[node name="Sprite" parent="NPCRoomNumber" index="0"]
+frames = SubResource( 9 )
+
+[node name="CollisionShape2D" parent="NPCRoomNumber/InteractArea" index="0"]
+shape = SubResource( 10 )
 
 [editable path="Transitions/Transition"]
 
-[editable path="Door"]
+[editable path="DoorStairs"]
+
+[editable path="NPCRoomNumber"]

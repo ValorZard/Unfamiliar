@@ -6,8 +6,10 @@ export(String, FILE, "*.txt") var dialogue_file
 export(NPCDirection) var start_direction = NPCDirection.Down
 export(bool) var change_direction = true
 export(bool) var auto_advance_set = false
+export(int) var set_start = 0
 export(int) var set_limit = 0
 export(String) var set_flag
+export(bool) var auto_set_flag = true
 export(bool) var is_object = false
 
 export(NPCDirection) var face := NPCDirection.Down
@@ -25,7 +27,9 @@ onready var interact: Sprite = $Interact
 func _ready():
 	interact.hide()
 	face = start_direction
-	dialogue_set = Controller.flag(set_flag)
+	dialogue_set = set_start
+	if auto_set_flag:
+		dialogue_set = Controller.flag(set_flag)
 	
 func _process(delta):
 	set_z_index(int(get_position().y))
@@ -33,14 +37,20 @@ func _process(delta):
 	_sprite_management()
 	
 	if Input.is_action_just_pressed("sys_action") and in_range and Player.get_state() == Player.PlayerState.Move:
-		interact.hide()
+		if is_object:
+			Player.show_interact(false)
+		else:
+			interact.hide()
+			
 		if change_direction:
 			_face_player()
 		var d := Controller.dialogue(dialogue_file, dialogue_set)
 		yield(d, "dialogue_ended")
 		if auto_advance_set and dialogue_set < set_limit:
 			dialogue_set += 1
-		Controller.set_flag(set_flag, dialogue_set)
+		if auto_set_flag:
+			Controller.set_flag(set_flag, dialogue_set)
+			
 		if is_object:
 			Player.show_interact(true)
 		else:
