@@ -5,11 +5,13 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Fountain.png" type="Texture" id=4]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/ariad_ow_sit.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/ariad_ow_sit2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit2.png" type="Texture" id=10]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 8 )
@@ -21,12 +23,12 @@ extents = Vector2( 8, 48 )
 animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],

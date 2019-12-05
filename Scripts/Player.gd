@@ -61,7 +61,8 @@ func _physics_process(delta):
 			
 	if Input.is_action_just_pressed("debug_1"):
 		#Controller.flashback("res://Flashbacks/fb_contract.txt", load("res://Splash.png"))
-		Controller.show_emote(Controller.Emote.Question, self)
+		#Controller.show_emote(Controller.Emote.Question, self)
+		Controller.start_discourse("Ariad", "res://Discourses/d_ariad.txt", "Ariad", load("res://Resources/Sprite Frames/SpriteFrames_Ariad.tres") as SpriteFrames)
 
 # =====================================================================
 

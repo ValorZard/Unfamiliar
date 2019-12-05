@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ariad_ow_down.png-bf801c5a6678bfef411b819bb55e9b30.stex"
+path="res://.import/Ariad_smile.png-831cd4fd6ce5c13ae0251f6bbe44bd42.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters (Overworld)/Ariad/ariad_ow_down.png"
-dest_files=[ "res://.import/ariad_ow_down.png-bf801c5a6678bfef411b819bb55e9b30.stex" ]
+source_file="res://Sprites/Characters (Discourse)/Ariad/Ariad_smile.png"
+dest_files=[ "res://.import/Ariad_smile.png-831cd4fd6ce5c13ae0251f6bbe44bd42.stex" ]
 
 [params]
 
