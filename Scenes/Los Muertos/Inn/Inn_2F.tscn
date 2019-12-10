@@ -190,6 +190,7 @@ change_direction = false
 set_start = 4
 auto_set_flag = false
 is_object = true
+alt_text_box = true
 
 [node name="Sprite" parent="NPCRoomNumber" index="0"]
 frames = SubResource( 9 )

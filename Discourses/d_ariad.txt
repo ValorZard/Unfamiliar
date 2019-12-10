@@ -22,12 +22,21 @@
 < What did, uh...
 @< explain
 < What did your witch's niece think of him creating you?
+@< idle
 > Well...
 > The first time she saw me, she...
 @> smile
 > ...she gave me a huge hug.
 @< heh
 < Aw... that's really sweet.
+@< smile
+> $sY-$0yeah. I'm glad she's all right with me.
+@< idle
+@> idle
+> My witch has had to protect me from a lot of mean people.
+@< sad
+< Yeah... I know that feeling.
+
 ------------------------
 : R_1_2
 ------------------------

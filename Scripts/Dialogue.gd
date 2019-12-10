@@ -61,6 +61,11 @@ func _process(delta):
 func set_text_size(value: int):
 	text_size = value
 	
+	
+func set_alt_box_texture():
+	#($Box as NinePatchRect).set_texture(load("res://Sprites/UI/BoxNinePatch2.png") as Texture)
+	pass
+	
 
 func start(file: String, set: int, reset_state_: bool):
 	name_regex.compile(name_regex_pat)

@@ -92,7 +92,7 @@ func _event_teleport_player(pos: Vector2):
 
 func _event_dialogue(file: String, set: int, text_size: int = 8):
 	anim_player.stop(false)
-	yield(Controller.dialogue(file, set, text_size, false), "dialogue_ended")
+	yield(Controller.dialogue(file, set, false, text_size, false), "dialogue_ended")
 	anim_player.play()
 	
 	

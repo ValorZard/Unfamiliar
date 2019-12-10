@@ -11,6 +11,7 @@ export(int) var set_limit = 0
 export(String) var set_flag
 export(bool) var auto_set_flag = true
 export(bool) var is_object = false
+export(bool) var alt_text_box = false
 
 export(NPCDirection) var face := NPCDirection.Down
 
@@ -44,7 +45,7 @@ func _process(delta):
 			
 		if change_direction:
 			_face_player()
-		var d := Controller.dialogue(dialogue_file, dialogue_set)
+		var d := Controller.dialogue(dialogue_file, dialogue_set, alt_text_box)
 		yield(d, "dialogue_ended")
 		if auto_advance_set and dialogue_set < set_limit:
 			dialogue_set += 1

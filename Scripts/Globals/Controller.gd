@@ -436,9 +436,11 @@ func play_sound_oneshot_from_path(sound: String, pitch: float = 1.0, volume: flo
 	get_tree().get_root().add_child(i)
 	
 	
-func dialogue(file: String, set: int, text_size: int = 8, reset_state: bool = true) -> Dialogue:
+func dialogue(file: String, set: int, alt_box_type: bool = false, text_size: int = 8, reset_state: bool = true) -> Dialogue:
 	var dlg: Dialogue = (load(DialogueRef) as PackedScene).instance() as Dialogue
 	dlg.set_text_size(text_size)
+	if alt_box_type:
+		dlg.set_alt_box_texture()
 	dlg.start(file, set, reset_state)
 	get_tree().get_root().add_child(dlg)
 	return dlg

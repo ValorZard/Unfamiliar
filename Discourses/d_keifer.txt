@@ -92,7 +92,7 @@
 ========================
 @< smile
 << So, Keifer...
-[ What type of photography do you like? (0, -60) R_2_1 | 
+[ What type of photography do you like? (0, -60) R_2_1 | How do you like Los Muertos? (0, -60) R_2_2 | (uh) (0, -60) R_2_3
 ------------------------
 : BRANCH_3
 > Hey, Cosmo...
@@ -232,3 +232,34 @@
 > Sorry I made that assumption.
 @< smile
 < No worries.
+--------------------
+: R_3_2
+< Being able to travel with my witch.
+@< explain
+< Since I'm her familiar, I have to be with her at all times.
+@< explain2
+< But that means I get to go all kinds of cool places with her.
+@< smile
+> Does she travel a lot?
+< Yep! She really likes to travel.
+@< explain2
+< Her job also involves a lot of it.
+@< smile
+< And I really like getting to see different places.
+< It makes you realize how small your home city is compared to the rest of the world.
+> That's... really deep.
+> What's your favorite place you've been?
+@< explain2
+< A few years ago, we went all the way to the other end of the country for a few days.
+@< explain
+< We took a plane there.
+@< idle
+< That wasn't very fun.
+@< smile
+< But we got to visit a bunch of amazing places.
+< I hope we can go back sometime.
+> Yeah... I haven't really gotten around much.
+> I was hoping to go to college out of state, but that didn't end up working out.
+> Someday I'm gonna go on an epic road trip.
+> There are so many places I want to see. Especially out west.
+--------------------
