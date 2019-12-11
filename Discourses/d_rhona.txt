@@ -326,7 +326,7 @@
 < We make things for each other's birthdays. Sometimes we go on walks and talk about life.
 < And she really likes to travel, so we go a lot of neat places.
 @> aw
-> Aw... that's so sweet. It's almost like you're her son.
+> Aw... that's so sweet. It's almost like you're her child.
 @< idle
 < Uh... I don't think I'd go that far.
 @> idle

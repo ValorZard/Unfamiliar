@@ -146,6 +146,7 @@ func create_button(text: String, pos: Vector2, index: int, target_line: int):
 	but.set_target_line(target_line)
 	but.set_position(pos)
 	buttons_list.push_back(but)
+	but.connect("clicked", text_controller, "trigger_buffer")
 	but.connect("clicked", self, "emit_signal", ["choice_clicked"])
 	yield(get_tree().create_timer(0.02), "timeout")
 	get_tree().get_root().add_child(but)

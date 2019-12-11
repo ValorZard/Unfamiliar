@@ -10,7 +10,7 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/Characters (Overworld)/Train/Rudeman.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_down.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/Unsurewoman.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 28 )
@@ -43,12 +43,12 @@ extents = Vector2( 8, 30 )
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -292,7 +292,6 @@ set_flag = "npc_train_rudeman"
 frames = SubResource( 10 )
 
 [node name="NPCUnsurewoman" parent="." instance=ExtResource( 9 )]
-visible = false
 position = Vector2( 120, 89 )
 dialogue_file = "res://Dialogue/Train/dl_train_unsurewoman.txt"
 auto_advance_set = true

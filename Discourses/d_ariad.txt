@@ -1,3 +1,4 @@
+> This is a line full of short words and THIIIIIIIIIS ISSSSSSS FUUUUUUUUULLLLL OF LOOOOOOOOOOOONGER ONES
 > $sI-$0I'm not very good at making conversation.
 > Sorry if I end up making things awkward.
 @< smile
@@ -36,7 +37,6 @@
 > My witch has had to protect me from a lot of mean people.
 @< sad
 < Yeah... I know that feeling.
-
 ------------------------
 : R_1_2
 ------------------------

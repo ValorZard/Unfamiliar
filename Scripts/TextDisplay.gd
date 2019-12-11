@@ -9,11 +9,11 @@ export(DynamicFont) var font
 export(AudioStream) var sound_type
 
 const Interval := 0.02
-const XStart := 36#41
-const YStart := 136#132
+const XStart := 36 #41
+const YStart := 136 #132
 const LineSpacing := 14
-const LineEnd := 200
-const WordRegexPattern := "\\b\\w*\\b"
+const LineEnd := 246 #184#200
+const WordRegexPattern := "\\b[\\w'.?!]*\\b"
 
 var text: String = ""
 var text_length: int = 0
@@ -23,7 +23,7 @@ var roll := false
 
 var allow_advance := false
 var buffer := false
-var t: float = 0
+var t: float = 0.0
 var pause := false
 
 var finished := false
@@ -56,7 +56,7 @@ func _ready():
 	
 	
 func _process(delta):
-	t += 60.0 * delta
+	t = wrapf(t + 60.0 * delta, 0.0, 3600.0)
 	
 	if Input.is_action_just_pressed("sys_select") and not buffer:
 		if allow_advance:
@@ -74,45 +74,46 @@ func _process(delta):
 	
 func _draw():
 	if disp >= 0:
-		var mod: int = Modifier.Normal
+		var mod: int = int(Modifier.Normal)
 		
 		var i: int = 0
 		var line: int = 0
-		var char_spacing: float = 0
+		var char_spacing: float = 0.0
 		
 		while i < disp + 1:
-			if i > 0 and text[i] == " " and char_spacing + len(word_regex.search(text, i).get_string(1)) > LineEnd:
+			# Auto line break
+			if text[i] == " " and char_spacing + font.get_string_size(word_regex.search(text.substr(i, len(text) - i)).get_string(0)).x >= LineEnd:
 				char_spacing = 0
 				line += 1
 				i += 1
 				
 			match text[i]:
-				"#":
+				"#": # Manual line break
 					char_spacing = 0
 					line += 1
-				"|":
+				"|": # Pause? maybe later
 					if not pause:
 						pass
-				"$":
+				"$": # Modifiers
 					match text[i + 1]:
 						"0":
-							mod = Modifier.Normal
+							mod = int(Modifier.Normal)
 						"r":
-							mod = Modifier.Red
+							mod = int(Modifier.Red)
 						"b":
-							mod = Modifier.Blue
+							mod = int(Modifier.Blue)
 						"g":
-							mod = Modifier.Green
+							mod = int(Modifier.Green)
 						"y":
-							mod = Modifier.Yellow
+							mod = int(Modifier.Yellow)
 						"s":
-							mod = Modifier.Shake
+							mod = int(Modifier.Shake)
 						"w":
-							mod = Modifier.Wave
+							mod = int(Modifier.Wave)
 						"c":
-							mod = Modifier.Contract
+							mod = int(Modifier.Contract)
 						_:
-							mod = Modifier.Normal
+							mod = int(Modifier.Normal)
 			
 					i += 1
 				_:
@@ -182,6 +183,11 @@ func hide_box():
 	box_neutral_stroke.hide()
 	box_neutral.hide()
 	box_visible = false
+	
+	
+func trigger_buffer():
+	buffer = true
+	$TimerBuffer.start()
 	
 	
 func set_name_visible(visible: bool):

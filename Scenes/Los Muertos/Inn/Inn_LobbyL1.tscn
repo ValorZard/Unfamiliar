@@ -1,16 +1,49 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
 [ext_resource path="res://Audio/Roar.ogg" type="AudioStream" id=3]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=4]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Roomnumber.png" type="Texture" id=6]
+[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Resources/Sprite Frames (OW)/SpriteFramesOW_Empty.tres" type="SpriteFrames" id=8]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 8, 16 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 80, 4 )
+
+[sub_resource type="RectangleShape2D" id=13]
+extents = Vector2( 6, 3 )
+
+[sub_resource type="Animation" id=14]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Interact:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Interact:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0, -14 ), Vector2( 0, -16 ), Vector2( 0, -14 ) ]
+}
 
 [node name="Scene" type="Node2D"]
 
@@ -62,7 +95,7 @@ target_scene = "res://Scenes/Los Muertos/Inn/Inn_Lobby.tscn"
 target_direction = 3
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 11 )
 
 [node name="Transition2" parent="Transitions" instance=ExtResource( 5 )]
 position = Vector2( 72, 130 )
@@ -70,15 +103,61 @@ target_scene = "res://Scenes/Los Muertos/Inn/Inn_LobbyL2.tscn"
 target_direction = 2
 
 [node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 11 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 z_index = 2100
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 160, 158 )
-shape = SubResource( 2 )
+shape = SubResource( 12 )
+
+[node name="RoomNumber" type="Sprite" parent="."]
+position = Vector2( 215, 96 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="NPCRoomNumber" parent="." instance=ExtResource( 7 )]
+position = Vector2( 219, 99 )
+dialogue_file = "res://Dialogue/Motel/dl_motel_roomnumbers.txt"
+change_direction = false
+auto_set_flag = false
+is_object = true
+alt_text_box = true
+
+[node name="Sprite" parent="NPCRoomNumber" index="0"]
+frames = ExtResource( 8 )
+
+[node name="CollisionShape2D" parent="NPCRoomNumber/InteractArea" index="0"]
+shape = SubResource( 13 )
+
+[node name="RoomNumber2" type="Sprite" parent="."]
+position = Vector2( 121, 96 )
+texture = ExtResource( 6 )
+centered = false
+
+[node name="NPCRoomNumber2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 125, 99 )
+dialogue_file = "res://Dialogue/Motel/dl_motel_roomnumbers.txt"
+change_direction = false
+set_start = 1
+auto_set_flag = false
+is_object = true
+alt_text_box = true
+
+[node name="Sprite" parent="NPCRoomNumber2" index="0"]
+frames = ExtResource( 8 )
+
+[node name="CollisionShape2D" parent="NPCRoomNumber2/InteractArea" index="0"]
+shape = SubResource( 13 )
+
+[node name="AnimationPlayer" parent="NPCRoomNumber2" index="4"]
+anims/Interact = SubResource( 14 )
 
 [editable path="Transitions/Transition"]
 
 [editable path="Transitions/Transition2"]
+
+[editable path="NPCRoomNumber"]
+
+[editable path="NPCRoomNumber2"]
