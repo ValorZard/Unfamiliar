@@ -8,9 +8,9 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Fountain.png" type="Texture" id=7]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit2.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight_light.png" type="Texture" id=14]
@@ -26,7 +26,7 @@ extents = Vector2( 8, 48 )
 animations = [ {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "left",
+"name": "up",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -36,7 +36,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "up",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
@@ -244,56 +244,14 @@ frames = SubResource( 3 )
 [node name="AnimationPlayer" parent="EventNPCAriad/Event" index="0"]
 anims/Event = SubResource( 4 )
 
-[node name="Light" type="Sprite" parent="."]
-visible = false
-material = SubResource( 6 )
-position = Vector2( 111.5, 77 )
-texture = ExtResource( 14 )
-
-[node name="Lamp" type="StaticBody2D" parent="."]
-visible = false
-position = Vector2( 111.5, 59 )
-z_index = 58
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Lamp"]
-texture = ExtResource( 15 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp"]
-position = Vector2( 0, 16.5 )
-shape = SubResource( 7 )
-
-[node name="Light2" type="Sprite" parent="."]
-visible = false
-material = SubResource( 6 )
-position = Vector2( 207.5, 76 )
-texture = ExtResource( 14 )
-
-[node name="Lamp2" type="StaticBody2D" parent="."]
-visible = false
-position = Vector2( 207.5, 58 )
-z_index = 58
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Lamp2"]
-texture = ExtResource( 15 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp2"]
-position = Vector2( 0, 16.5 )
-shape = SubResource( 7 )
-
 [node name="Light3" type="Sprite" parent="."]
 material = SubResource( 6 )
-position = Vector2( 91.5, 141 )
+position = Vector2( 95.5, 141 )
 texture = ExtResource( 14 )
 
 [node name="Lamp3" type="StaticBody2D" parent="."]
-position = Vector2( 91.5, 123 )
-z_index = 123
+position = Vector2( 95.5, 123 )
+z_index = 125
 __meta__ = {
 "_edit_group_": true
 }
@@ -307,12 +265,12 @@ shape = SubResource( 7 )
 
 [node name="Light4" type="Sprite" parent="."]
 material = SubResource( 6 )
-position = Vector2( 228.5, 141 )
+position = Vector2( 224.5, 141 )
 texture = ExtResource( 14 )
 
 [node name="Lamp4" type="StaticBody2D" parent="."]
-position = Vector2( 228.5, 123 )
-z_index = 123
+position = Vector2( 224.5, 123 )
+z_index = 125
 __meta__ = {
 "_edit_group_": true
 }

@@ -1,4 +1,3 @@
-> This is a line full of short words and THIIIIIIIIIS ISSSSSSS FUUUUUUUUULLLLL OF LOOOOOOOOOOOONGER ONES
 > $sI-$0I'm not very good at making conversation.
 > Sorry if I end up making things awkward.
 @< smile
@@ -6,7 +5,7 @@
 | 1
 ========================
 << So, Ariad...
-[ How long have you been a familiar? (-20, -60) R_1_1 | Do you live in Los Muertos? (20, -10) R_1_2 | (uh) (0, 40) R_1_3
+[ How long have you been a familiar? (-20, -60) R_1_1 | What does your witch do? (20, -10) R_1_2 | Do you live in Los Muertos? (0, 40) R_1_3
 ------------------------
 : R_1_1
 < How long have you been a familiar?
@@ -39,6 +38,8 @@
 < Yeah... I know that feeling.
 ------------------------
 : R_1_2
+< What does your witch do?
+
 ------------------------
 : R_1_3
 ========================
