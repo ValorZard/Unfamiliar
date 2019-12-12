@@ -1,7 +1,7 @@
 > $sI-$0I'm not very good at making conversation.
 > Sorry if I end up making things awkward.
 @< smile
-< I'm not very good at talking, either. Don't worry about it.
+< I'm not the best at talking, either. Don't worry about it.
 | 1
 ========================
 << So, Ariad...
@@ -69,7 +69,7 @@
 > I hope it wasn't something I did...
 > I hate it when he's mad at me.
 @< sad
-< You're not alone.
+< Yeah. You're not alone.
 ^ BRANCH_2
 ------------------------
 : R_1_3
@@ -78,6 +78,7 @@
 > It's not a very big house, but... it's really cozy.
 @> awkward
 > Are $wyou $0from Los Muertos?
+@> smile
 < Nope. My witch and I are just visiting. We've got some business here tomorrow.
 @< idle
 @> idle

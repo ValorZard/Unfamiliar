@@ -244,6 +244,9 @@ func parse_discourse_command(command: String):
 				for but in buttons:
 					create_button(buttons_regex.search(but).get_string(1), Vector2(160 + int(buttons_regex.search(but).get_string(2)), 90 + int(buttons_regex.search(but).get_string(3))), i, label_table[buttons_regex.search(but).get_string(4)])
 					i += 1
+				#for n in range(3):
+				#	(buttons_list[n].get_node("Button") as Button).focus_neighbour_top = NodePath(buttons_list[wrapi(n - 1, 0, 2)].get_node("Button"))
+				#	(buttons_list[n].get_node("Button") as Button).focus_neighbour_bottom = NodePath(buttons_list[wrapi(n + 1, 0, 2)].get_node("Button"))
 
 			"^": # Jump to label - FORMAT: ^ `LABEL_NAME`
 				list_index = label_table[text]

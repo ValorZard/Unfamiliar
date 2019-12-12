@@ -1,20 +1,21 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_l_on.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_m_on.png" type="Texture" id=5]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Fountain.png" type="Texture" id=7]
-[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_JJ_Sign.png" type="Texture" id=6]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Fountain.png" type="Texture" id=8]
+[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit2.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight_light.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight_light.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight.png" type="Texture" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 8 )
@@ -24,11 +25,6 @@ extents = Vector2( 8, 48 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "up",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "right",
@@ -41,10 +37,15 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "down",
+"name": "up",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "down2",
 "speed": 5.0
@@ -195,10 +196,14 @@ position = Vector2( 222, 22 )
 texture = ExtResource( 5 )
 centered = false
 
+[node name="JJSign" type="Sprite" parent="."]
+position = Vector2( 177, 30 )
+texture = ExtResource( 6 )
+
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="Transitions" instance=ExtResource( 6 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 7 )]
 position = Vector2( 160, 170 )
 target_scene = "res://Scenes/Los Muertos/LM_Mainstreet_N.tscn"
 target_direction = 1
@@ -206,7 +211,7 @@ target_direction = 1
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
 shape = SubResource( 1 )
 
-[node name="Transition2" parent="Transitions" instance=ExtResource( 6 )]
+[node name="Transition2" parent="Transitions" instance=ExtResource( 7 )]
 position = Vector2( 72, 98 )
 target_scene = "res://Scenes/Los Muertos/LM_Topstreet_R.tscn"
 target_direction = 2
@@ -227,13 +232,13 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Fountain"]
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fountain"]
 polygon = PoolVector2Array( 0, 37, 12, 51, 38, 59, 58, 59, 84, 51, 96, 37, 95, 21, 73, 6, 23, 6, 1, 21 )
 
-[node name="EventNPCAriad" parent="." instance=ExtResource( 8 )]
+[node name="EventNPCAriad" parent="." instance=ExtResource( 9 )]
 position = Vector2( 183, 105 )
 z_index = 90
 set_flag = "npc_lm_ariad"
@@ -247,7 +252,7 @@ anims/Event = SubResource( 4 )
 [node name="Light3" type="Sprite" parent="."]
 material = SubResource( 6 )
 position = Vector2( 95.5, 141 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Lamp3" type="StaticBody2D" parent="."]
 position = Vector2( 95.5, 123 )
@@ -257,7 +262,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Lamp3"]
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp3"]
 position = Vector2( 0, 16.5 )
@@ -266,7 +271,7 @@ shape = SubResource( 7 )
 [node name="Light4" type="Sprite" parent="."]
 material = SubResource( 6 )
 position = Vector2( 224.5, 141 )
-texture = ExtResource( 14 )
+texture = ExtResource( 15 )
 
 [node name="Lamp4" type="StaticBody2D" parent="."]
 position = Vector2( 224.5, 123 )
@@ -276,7 +281,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Lamp4"]
-texture = ExtResource( 15 )
+texture = ExtResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp4"]
 position = Vector2( 0, 16.5 )
