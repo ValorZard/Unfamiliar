@@ -36,10 +36,67 @@
 > My witch has had to protect me from a lot of mean people.
 @< sad
 < Yeah... I know that feeling.
+^ BRANCH_2
 ------------------------
 : R_1_2
 < What does your witch do?
-
+> $sH-$0he does gardening. He grows a lot of strange things.
+< Oh, neat!
+> He uses some of it for himself, but he also sells a lot of it.
+> $sM-$0most of what I do is helping him out with the garden.
+< Do you like doing that?
+@< idle
+> It's $st-$0tiring.
+> I like seeing all the weird plants he grows, though.
+< What is...
+@< explain
+< What is your witch like? Do you like him?
+@< idle
+> ...
+@> smile
+> $sY-$0yeah! He's really nice.
+@< smile
+> He always gives me the weekends off. And we talk about a lot of things while we're working.
+> He also gives me lots of hugs.
+@< heh
+< Aw...
+@< smile
+< Sounds like you two make a great team.
+> Yeah.
+@> idle
+> He was really mad when he told me to wait here, though.
+@< idle
+> I hope it wasn't something I did...
+> I hate it when he's mad at me.
+@< sad
+< You're not alone.
+^ BRANCH_2
 ------------------------
 : R_1_3
+< Do you live in Los Muertos?
+> $sY-$0yeah. We live on the west side of town.
+> It's not a very big house, but... it's really cozy.
+@> awkward
+> Are $wyou $0from Los Muertos?
+< Nope. My witch and I are just visiting. We've got some business here tomorrow.
+@< idle
+@> idle
+< ...I don't know where she is, though.
+@< explain
+< We had to get on separate trains, because the one she got onto was full.
+< She got here a few hours before me.
+@< idle
+> Oh, no...
+> Have you been looking for her?
+< A bit. I haven't had any luck, though.
+< She was also in a really bad mood.
+@< sad
+< She didn't even want to talk to me.
+< I wish she'd told me what was wrong.
+< I don't even know if it was me.
+> ...
+@< idle
+< Hopefully I can find her soon.
+^ BRANCH_2
 ========================
+: BRANCH_2

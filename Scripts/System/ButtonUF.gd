@@ -116,8 +116,8 @@ func set_text_controller(value):
 	self.text_controller = value
 
 
-func set_controller(controller):
-	self.controller = controller
+func set_controller(contr):
+	self.controller = contr
 
 
 func setup_animation(end_pos: Vector2):
