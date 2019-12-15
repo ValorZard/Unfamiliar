@@ -194,7 +194,7 @@ func set_name_visible(visible: bool):
 	pass
 	
 	
-func set_name_text(text: String):
+func set_name_text(text_: String):
 	pass
 	
 	
@@ -202,17 +202,18 @@ func set_name_side(right: bool):
 	pass
 	
 
-func display_text(text: String):
+func display_text(text_: String):
 	disp = -1
 	finished = false
-	self.text = text
-	text_length = len(text.replace(" ", ""))
+	text = text_
+	text_length = len(text_.replace(" ", ""))
 	$TimerRollText.start()
 	roll = true
 	
 	
-func set_header_text(text: String):
-	$Header/HeaderText.set_text(text)
+func set_header_text(text_: String):
+	$Header/HeaderText.set_text(text_)
+	
 	
 func fade_screen(out: bool):
 	$AnimationPlayer.play("Fadeout" if out else "Fadein")

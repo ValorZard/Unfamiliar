@@ -33,7 +33,16 @@
 > Yeah.
 @< smile
 > ...
-> Man, I wish I could cook...
+> It's kinda interesting that you eat that sort of stuff.
+@< idle
+< Huh?
+> I thought demons had a taste for... $wraw meat, $0or something?
+< $wUh...
+@< explain
+< I $wthink $0you're thinking of vampires.
+@< idle
+< And that's only in movies.
+> ...Oh. Heh... right.
 ^ BRANCH_2
 ---------------------
 : R_1_2
@@ -68,10 +77,7 @@
 @< smile
 > What do you like to draw?
 @< heh
-< ...Demons.
-@< smile
-< Not just demons that look like me, though. All different types.
-< Demons from our world, demons from the underworld, demons that don't even exist...
+< ...Demons.^ BRANCH_2, demons from the underworld, demons that don't even exist...
 < You get the idea.
 @< explain2
 < I also like drawing dragons and other monsters.
@@ -90,11 +96,66 @@
 < Sure thing!
 ^ BRANCH_2
 ========================
+: BRANCH_2
+| 1.5
 @< smile
 << So, Keifer...
 [ What type of photography do you like? (0, -60) R_2_1 | How do you like Los Muertos? (0, -60) R_2_2 | (uh) (0, -60) R_2_3
 ------------------------
+: R_2_1
+< What type of photography do you like?
+> I'm mostly all about portraits.
+> I like drawing out people's true emotions. Their inner beauty.
+@< heh
+> ...And I also just like talking to people.
+> I shot a few yearbook photos for the senior class of my high school.
+< Oh, neat!
+> I'm hoping to get hired for studio or event photos in the future.
+@< explain2
+< Do you do any other photography?
+@< smile
+> I've tried shooting landscapes a few times.
+I just think it's too much of a hassle.
+> I'm not really a $wget up at 4 AM and drive ten miles to catch the perfect sunrise $0kind of person.
+> Also, you usually need tripods and filters for that sort of thing, and that's just not my thing.
+> Photography's complicated enough as it is.
+> Picking the right lens, picking the right film with the right speed, getting the right depth of field...
+@< heh
+< It $wsounds $0complicated.
+@< smile
+> Eh... it's not too hard to learn, though.
+> Mastering it is the hard part. And I'm $wdefinitely $0not a master.
+> I'm getting there, though.
+^ BRANCH_3
+------------------------
+: R_2_2
+< How do you like Los Muertos?
+> Well, uh...
+> It's definitely an $winteresting $0city. That's for sure.
+< Do you live here?
+> Nah. I'm just visiting with some university friends. They're off doing other stuff right now.
+> Let me tell you, though: this place is a photographer's $wgold mine!
+> There's so much interesting architecture and so many interesting people here.
+@< heh
+> Like you.
+@< smile
+> I can't wait to develop these when I get home.
+> What about you? Do you live in Los Muertos?
+< Nope. My witch and I are just visiting.
+@< explain
+< We have some business here tomorrow. We figured we'd come a day early to explore the city a bit.
+@< smile
+< We haven't had a vacation in a while.
+@< idle
+> Looks like $wthat $0didn't end up going according to plan.
+< Nope...
+< I'd imagine my witch isn't very fond of this city right now.
+^ BRANCH_3
+------------------------
+^ BRANCH_3
+========================
 : BRANCH_3
+| 1.5
 > Hey, Cosmo...
 @< smile
 < Yeah?
@@ -129,7 +190,7 @@
 < And you do that with a piece of your own soul.
 > Your soul? You mean, like... give your familiar a piece of your soul?
 > How do you even do that?
-@< smile
+@< heh
 < You just tear out a piece of your own soul.
 > $sWhat?!
 @< idle
@@ -232,6 +293,7 @@
 > Sorry I made that assumption.
 @< smile
 < No worries.
+^ BRANCH_4
 --------------------
 : R_3_2
 < Being able to travel with my witch.
@@ -262,4 +324,5 @@
 > I was hoping to go to college out of state, but that didn't end up working out.
 > Someday I'm gonna go on an epic road trip.
 > There are so many places I want to see. Especially out west.
+^ BRANCH_4
 --------------------

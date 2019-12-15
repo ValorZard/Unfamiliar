@@ -103,8 +103,11 @@ func load_text_from_file(file: String, set: int):
 func insert_bbcode_tags():
 	var mat := name_regex.search(text[page])
 	if mat != null:
-		text[page] = text[page].insert(mat.get_end(1), name_bbcode_end)
-		text[page] = text[page].insert(mat.get_start(1), name_bbcode_start)
+		if text[page][0] != "#":
+			text[page] = text[page].insert(mat.get_end(1), name_bbcode_end)
+			text[page] = text[page].insert(mat.get_start(1), name_bbcode_start)
+		else:
+			text[page] = text[page].replace("#", "")
 
 # =====================================================================
 

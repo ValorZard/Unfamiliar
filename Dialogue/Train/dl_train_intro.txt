@@ -1,6 +1,6 @@
 0
 Los Muertos.
-Now arriving at platform 6: Los Muertos.
+#Now arriving at platform 6: Los Muertos.
 -
 
 1
