@@ -46,8 +46,8 @@
 > $sM-$0most of what I do is helping him out with the garden.
 < Do you like doing that?
 @< idle
-> It's $st-$0tiring.
-> I like seeing all the weird plants he grows, though.
+> $sM-$0most of the time. It's tiring, though.
+> I do like seeing all the weird plants he grows.
 < What is...
 @< explain
 < What is your witch like? Do you like him?
