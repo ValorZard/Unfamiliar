@@ -1,5 +1,23 @@
-nil 0 0 I'm sorry, madam, but there's only one seat left on this train.
-nil 0 0.3 There's another train coming in an hour or so. The demon will need to get on that one.
+nil 0 0 Train 332, bound for Wickenburg, Cedar, Los Muertos, and Valentine, is departing shortly.
+nil 0 0 Please board immediately if you truly do intend to travel with us today.
+nil 0 0 Hah... hah... hah...#I can't believe we made it.
+nil 0 0 Hold it.
+nil 0 0 Only one of you can get on this train.
+nil 0 0.3 What?! Why?
+nil 0 0 You're late. There's only one seat left.
+nil 0 0 You sold more tickets than there are seats?
+nil 0 1.5 There was an error in the system somewhere.
+nil 0 0.5 One of you is going to have to get on the next train instead.
 nil 0 0 That's not going to work for me.
-nil 0 0.6 They're my familiar. They can't just stay here alone.
-nil 0 0 There's nothing we can do about it. I'm sorry.
+nil 0 0.6 They're my familiar. We can't be separated.
+nil 0 0 There's nothing we can do about it, ma'am. I'm sorry.
+nil 0 1 How long until the next train?
+nil 0 2 An hour.
+nil 0 0 Wait here. Get on the next train.
+nil 0 0.5 Make sure you don't miss it.
+nil 0 0.25 Would it be better if I-
+nil 0 0.5 I said $swait here! $0That's an order!
+nil 0 4 ...Okay.
+nil 0 0 Sorry, kid.
+nil 0 1 Why is she in such a bad mood?
+nil 0 0 I wish I knew.

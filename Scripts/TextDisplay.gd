@@ -13,7 +13,7 @@ const XStart := 36
 const YStart := 136
 const LineSpacing := 14
 const LineEnd := 246
-const WordRegexPattern := "\\b[\\w'.?!]*\\b"
+const WordRegexPattern := "\\b[\\w'.?!\\-]*\\b"
 
 var text: String = ""
 var text_length: int = 0

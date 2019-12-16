@@ -7,7 +7,7 @@
 > So, Cosmo...
 ========================
 >> I'm all about photography, but... what are you into?
-[ I like cooking. (0, -60) R_1_1 | I play a few instruments. (0, -60) R_1_2 | I like to draw. (0, -60) R_1_3
+[ I like cooking. (-20, -60) R_1_1 | I play a few instruments. (20, -10) R_1_2 | I like to draw. (20, 50) R_1_3
 ------------------------
 : R_1_1
 < I like cooking.
@@ -77,7 +77,10 @@
 @< smile
 > What do you like to draw?
 @< heh
-< ...Demons.^ BRANCH_2, demons from the underworld, demons that don't even exist...
+< ...Demons.
+@< smile
+< Not just demons that look like me, though. All different types.
+< Demons from our world, demons from the underworld, demons that don't even exist...
 < You get the idea.
 @< explain2
 < I also like drawing dragons and other monsters.
@@ -100,7 +103,7 @@
 | 1.5
 @< smile
 << So, Keifer...
-[ What type of photography do you like? (0, -60) R_2_1 | How do you like Los Muertos? (0, -60) R_2_2 | (uh) (0, -60) R_2_3
+[ What type of photography do you like? (-20, -60) R_2_1 | How do you like Los Muertos? (-20, -10) R_2_2 | (uh) (-20, 50) R_2_3
 ------------------------
 : R_2_1
 < What type of photography do you like?
@@ -253,7 +256,7 @@ I just think it's too much of a hassle.
 > I bet it does!
 @< smile
 >> What's your favorite part about being a demon?
-[ Being able to use magic. (0, -60) R_3_1 | Being able to travel with my witch. (0, -60) R_3_2 | (uhh) (0, -60) R_3_3
+[ Being able to use magic. (-20, -60) R_3_1 | Being able to travel with my witch. (-20, -10) R_3_2 | (uhh) (-20, 50) R_3_3
 --------------------
 : R_3_1
 < Being able to use magic.
@@ -327,3 +330,4 @@ I just think it's too much of a hassle.
 > There are so many places I want to see. Especially out west.
 ^ BRANCH_4
 --------------------
+: R_3_3

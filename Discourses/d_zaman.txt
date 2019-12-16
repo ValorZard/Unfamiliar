@@ -14,7 +14,7 @@
 < Like I said, she created me twelve years ago today.
 > Really? You don't look twelve.
 < We don't age like humans. It's complicated.
-> Oh... okay.
+> Oh. okay.
 > So, what happens on on Communion Day?
 > Is it sort of like a birthday?
 < No.
@@ -54,7 +54,6 @@
 < It's like telling them that you don't appreciate them.
 @< sad
 < That your eternal contract and bond means nothing.
-< Like you hate each other, even...
 < And I forgot! $sAGAIN!
 < I've forgotten so many times, and she's gotten so mad at me every time, and I $sSTILL $0managed to forget!
 < $sWhat's wrong with me...?
