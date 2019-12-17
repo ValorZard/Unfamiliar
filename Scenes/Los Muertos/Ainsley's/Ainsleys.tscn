@@ -448,7 +448,7 @@ set_flag = "npc_ainsleys_paul"
 frames = SubResource( 6 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
-z_index = 2500
+z_index = 2100
 __meta__ = {
 "_edit_group_": true,
 "_edit_lock_": true

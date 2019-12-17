@@ -18,7 +18,7 @@ var can_talk_to := true
 
 var dialogue_set: int = 0
 
-var sprite_override := false
+export(bool) var sprite_override := false
 
 onready var spr: AnimatedSprite = $Sprite
 onready var interact: Sprite = $Interact

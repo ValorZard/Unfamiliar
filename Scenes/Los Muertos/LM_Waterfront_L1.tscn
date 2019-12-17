@@ -2,14 +2,15 @@
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
-[ext_resource path="res://Sprites/Particles/Wave.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_l_off.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_s_off.png" type="Texture" id=6]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Pace_table.png" type="Texture" id=8]
-[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Pace.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Particles/Parts_Water.tres" type="Material" id=3]
+[ext_resource path="res://Sprites/Particles/Wave.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_l_off.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_s_off.png" type="Texture" id=7]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Pace_table.png" type="Texture" id=9]
+[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Pace.png" type="Texture" id=11]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -17,29 +18,16 @@ particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="ParticlesMaterial" id=2]
-emission_shape = 2
-emission_box_extents = Vector3( 2, 14, 1 )
-flag_disable_z = true
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 40.0
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-anim_speed = 10.0
-anim_offset = 1.0
-anim_offset_random = 1.0
-
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 32 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 24 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 12, 5 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=5]
 animations = [ {
 "frames": [  ],
 "loop": true,
@@ -56,7 +44,7 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
@@ -91,8 +79,8 @@ __meta__ = {
 material = SubResource( 1 )
 position = Vector2( 76, 162 )
 lifetime = 6.0
-process_material = SubResource( 2 )
-texture = ExtResource( 3 )
+process_material = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2( 80, 18 )
@@ -115,23 +103,23 @@ __meta__ = {
 
 [node name="Door" type="Sprite" parent="."]
 position = Vector2( 103, 58 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 
 [node name="Door2" type="Sprite" parent="."]
 position = Vector2( 232, 42 )
 scale = Vector2( -1, 1 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 
 [node name="Window" type="Sprite" parent="."]
 position = Vector2( 182, 38 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 centered = false
 
 [node name="Window2" type="Sprite" parent="."]
 position = Vector2( 237, 38 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 3, 16 )
@@ -139,21 +127,21 @@ region_rect = Rect2( 0, 0, 3, 16 )
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="Transitions" instance=ExtResource( 7 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 8 )]
 position = Vector2( 248, 98 )
 target_scene = "res://Scenes/Los Muertos/LM_Crossroads.tscn"
 target_direction = 3
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
-[node name="Transition2" parent="Transitions" instance=ExtResource( 7 )]
+[node name="Transition2" parent="Transitions" instance=ExtResource( 8 )]
 position = Vector2( 72, 106 )
 target_scene = "res://Scenes/Los Muertos/LM_Waterfront_L2.tscn"
 target_direction = 2
 
 [node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
@@ -164,14 +152,14 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Table"]
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Table"]
 position = Vector2( 12, 7 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
-[node name="NPCPace" parent="." instance=ExtResource( 9 )]
+[node name="NPCPace" parent="." instance=ExtResource( 10 )]
 position = Vector2( 159, 43 )
 dialogue_file = "res://Dialogue/Los Muertos/dl_lm_pace.txt"
 change_direction = false
@@ -179,7 +167,7 @@ auto_advance_set = true
 set_flag = "npc_lm_pace"
 
 [node name="Sprite" parent="NPCPace" index="0"]
-frames = SubResource( 6 )
+frames = SubResource( 5 )
 
 [editable path="Transitions/Transition"]
 

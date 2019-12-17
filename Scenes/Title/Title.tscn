@@ -1,18 +1,19 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Title.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Particles/DiscourseBg.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/UI/BG2.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/UI/BG1.png" type="Texture" id=4]
-[ext_resource path="res://Shaders/Transition.shader" type="Shader" id=5]
-[ext_resource path="res://Sprites/UI/Transition_Title.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_shadow.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Overlays/Cosmo_shadow_blink1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Overlays/Cosmo_shadow_blink2.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/UI/Title Logo.png" type="Texture" id=10]
-[ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=12]
-[ext_resource path="res://Sprites/UI/Transition2.png" type="Texture" id=13]
+[ext_resource path="res://Resources/Particles/Parts_Title.tres" type="Material" id=2]
+[ext_resource path="res://Sprites/Particles/DiscourseBg.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/BG2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/BG1.png" type="Texture" id=5]
+[ext_resource path="res://Shaders/Transition.shader" type="Shader" id=6]
+[ext_resource path="res://Sprites/UI/Transition_Title.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Cosmo_shadow.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Overlays/Cosmo_shadow_blink1.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters (Discourse)/Cosmo/Overlays/Cosmo_shadow_blink2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/UI/Title Logo.png" type="Texture" id=11]
+[ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=13]
+[ext_resource path="res://Sprites/UI/Transition2.png" type="Texture" id=14]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -20,36 +21,14 @@ particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 0, 0.19403, 0.783582, 1 )
-colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.784314, 1, 1, 1, 0.784314, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
-
-[sub_resource type="ParticlesMaterial" id=4]
-emission_shape = 2
-emission_box_extents = Vector3( 200, 90, 1 )
-flag_disable_z = true
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 80.0
-initial_velocity_random = 0.5
-angular_velocity = 2.53477e-009
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-color_ramp = SubResource( 3 )
-anim_offset = 1.0
-anim_offset_random = 1.0
-
 [sub_resource type="ShaderMaterial" id=5]
-shader = ExtResource( 5 )
+shader = ExtResource( 6 )
 shader_param/cutoff = 0.0
-shader_param/mask = ExtResource( 6 )
+shader_param/mask = ExtResource( 7 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "blink",
 "speed": 5.0
@@ -2015,9 +1994,9 @@ shader = SubResource( 32 )
 shader_param/amount = 0.0
 
 [sub_resource type="ShaderMaterial" id=34]
-shader = ExtResource( 5 )
+shader = ExtResource( 6 )
 shader_param/cutoff = 1.0
-shader_param/mask = ExtResource( 13 )
+shader_param/mask = ExtResource( 14 )
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
@@ -2038,43 +2017,43 @@ emitting = false
 amount = 16
 lifetime = 3.0
 preprocess = 1.5
-process_material = SubResource( 4 )
-texture = ExtResource( 2 )
+process_material = ExtResource( 2 )
+texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Sprite3" type="Sprite" parent="."]
 position = Vector2( 368, 168 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Sprite4" type="Sprite" parent="."]
 position = Vector2( 408, 168 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Sprite5" type="Sprite" parent="."]
 position = Vector2( 448, 168 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -152, 160 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( -96, 160 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -2097,7 +2076,7 @@ __meta__ = {
 [node name="Cosmo" type="Sprite" parent="."]
 modulate = Color( 0.501961, 0.501961, 0.501961, 1 )
 position = Vector2( 350, 184 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 offset = Vector2( -30, -86.5 )
 __meta__ = {
 "_edit_lock_": true
@@ -2116,7 +2095,7 @@ anims/Blink = SubResource( 7 )
 [node name="Logo1" type="Sprite" parent="."]
 position = Vector2( -50, 24 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 35, 43 )
@@ -2127,7 +2106,7 @@ __meta__ = {
 [node name="Logo2" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 35, 11, 21, 38 )
@@ -2138,7 +2117,7 @@ __meta__ = {
 [node name="Logo3" type="Sprite" parent="."]
 position = Vector2( -50, 25 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 59, 2, 17, 41 )
@@ -2149,7 +2128,7 @@ __meta__ = {
 [node name="Logo4" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 80, 11, 19, 32 )
@@ -2160,7 +2139,7 @@ __meta__ = {
 [node name="Logo5" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 104, 11, 32, 38 )
@@ -2171,7 +2150,7 @@ __meta__ = {
 [node name="Logo6" type="Sprite" parent="."]
 position = Vector2( -50, 23 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 143, 1, 8, 42 )
@@ -2182,7 +2161,7 @@ __meta__ = {
 [node name="Logo7" type="Sprite" parent="."]
 position = Vector2( -50, 24 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 157, 2, 8, 41 )
@@ -2193,7 +2172,7 @@ __meta__ = {
 [node name="Logo8" type="Sprite" parent="."]
 position = Vector2( -50, 23 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 171, 1, 8, 42 )
@@ -2204,7 +2183,7 @@ __meta__ = {
 [node name="Logo9" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 187, 11, 19, 32 )
@@ -2215,7 +2194,7 @@ __meta__ = {
 [node name="Logo10" type="Sprite" parent="."]
 position = Vector2( -50, 33 )
 scale = Vector2( 1e-005, 1 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 211, 11, 16, 32 )
@@ -2223,7 +2202,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Button1" parent="." instance=ExtResource( 11 )]
+[node name="Button1" parent="." instance=ExtResource( 12 )]
 position = Vector2( 52, 88 )
 polygon = PoolVector2Array( 18, 24, 89, 25, 96, 5, 16, 8 )
 button_text = "New Game"
@@ -2238,7 +2217,7 @@ margin_bottom = 10.0
 focus_neighbour_top = NodePath("../../Button4/Button")
 focus_neighbour_bottom = NodePath("../../Button2/Button")
 
-[node name="Button2" parent="." instance=ExtResource( 11 )]
+[node name="Button2" parent="." instance=ExtResource( 12 )]
 position = Vector2( 103, 115 )
 polygon = PoolVector2Array( 15, 24, 106, 21, 93, 5, 10, 6 )
 button_text = "Load Game"
@@ -2262,7 +2241,7 @@ margin_bottom = 8.0
 focus_neighbour_top = NodePath("../../Button1/Button")
 focus_neighbour_bottom = NodePath("../../Button3/Button")
 
-[node name="Button3" parent="." instance=ExtResource( 11 )]
+[node name="Button3" parent="." instance=ExtResource( 12 )]
 position = Vector2( 148, 140 )
 polygon = PoolVector2Array( 20, 23, 92, 22, 86, 7, 23, 6 )
 button_text = "Options"
@@ -2286,7 +2265,7 @@ margin_bottom = 8.0
 focus_neighbour_top = NodePath("../../Button2/Button")
 focus_neighbour_bottom = NodePath("../../Button4/Button")
 
-[node name="Button4" parent="." instance=ExtResource( 11 )]
+[node name="Button4" parent="." instance=ExtResource( 12 )]
 position = Vector2( 196, 164 )
 polygon = PoolVector2Array( 31, 23, 89, 22, 95, 7, 21, 8 )
 button_text = "Exit"
@@ -2343,7 +2322,7 @@ margin_left = 36.0
 margin_top = 280.0
 margin_right = 147.0
 margin_bottom = 183.0
-custom_fonts/font = ExtResource( 12 )
+custom_fonts/font = ExtResource( 13 )
 custom_colors/font_color = Color( 0.282353, 0.384314, 0.627451, 1 )
 text = "© 2019 Studio Fractal"
 __meta__ = {

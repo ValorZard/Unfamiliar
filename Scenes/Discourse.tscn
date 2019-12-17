@@ -1,12 +1,13 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Discourse.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Particles/DiscourseBg.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/UI/BG1.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/UI/BG2.png" type="Texture" id=4]
-[ext_resource path="res://Instances/TextDisplay.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Audio/Music/charlotte-nights (TEMP).ogg" type="AudioStream" id=6]
-[ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=7]
+[ext_resource path="res://Resources/Particles/Parts_Discourse.tres" type="Material" id=2]
+[ext_resource path="res://Sprites/Particles/DiscourseBg.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/BG1.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/BG2.png" type="Texture" id=5]
+[ext_resource path="res://Instances/TextDisplay.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Audio/Music/charlotte-nights (TEMP).ogg" type="AudioStream" id=7]
+[ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=8]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -14,28 +15,7 @@ particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="Gradient" id=2]
-offsets = PoolRealArray( 0, 0.19403, 0.783582, 1 )
-colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 0.784314, 1, 1, 1, 0.784314, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture" id=3]
-gradient = SubResource( 2 )
-
-[sub_resource type="ParticlesMaterial" id=4]
-emission_shape = 2
-emission_box_extents = Vector3( 160, 90, 1 )
-flag_disable_z = true
-spread = 180.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 15.0
-initial_velocity_random = 0.5
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-color_ramp = SubResource( 3 )
-anim_offset = 1.0
-anim_offset_random = 1.0
-
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("FadeBase/Fade:color")
@@ -62,7 +42,7 @@ tracks/1/keys = {
 "values": [ Vector2( -250, 0 ), Vector2( 0, 0 ), Vector2( 250, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=3]
 resource_name = "Fadeout"
 length = 2.0
 tracks/0/type = "value"
@@ -90,12 +70,12 @@ tracks/1/keys = {
 "values": [ 3.0, -80.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=4]
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=5]
 length = 1.25
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=6]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -219,7 +199,7 @@ tracks/9/keys = {
 "values": [ Vector2( 320, -270 ), Vector2( 320, -10 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=7]
 length = 8.0
 loop = true
 tracks/0/type = "value"
@@ -315,34 +295,34 @@ material = SubResource( 1 )
 position = Vector2( 160, 90 )
 amount = 12
 lifetime = 3.0
-process_material = SubResource( 4 )
-texture = ExtResource( 2 )
+process_material = ExtResource( 2 )
+texture = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( -100, 120 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Sprite3" type="Sprite" parent="."]
 position = Vector2( -150, 120 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Sprite5" type="Sprite" parent="."]
 position = Vector2( -200, 120 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="Sprite2" type="Sprite" parent="."]
 position = Vector2( 460, 120 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="Sprite4" type="Sprite" parent="."]
 position = Vector2( 510, 120 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
 [node name="Sprite6" type="Sprite" parent="."]
 position = Vector2( 560, 120 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 
-[node name="TextDisplay" parent="." instance=ExtResource( 5 )]
+[node name="TextDisplay" parent="." instance=ExtResource( 6 )]
 
 [node name="FadeBase" type="Node2D" parent="."]
 z_index = 1500
@@ -354,17 +334,17 @@ mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Fadein"
-anims/Fadein = SubResource( 5 )
-anims/Fadeout = SubResource( 6 )
+anims/Fadein = SubResource( 2 )
+anims/Fadeout = SubResource( 3 )
 
 [node name="AnimationPlayerLeftChar" type="AnimationPlayer" parent="."]
-anims/Movein = SubResource( 7 )
+anims/Movein = SubResource( 4 )
 
 [node name="AnimationPlayerRightChar" type="AnimationPlayer" parent="."]
-anims/Movein = SubResource( 8 )
+anims/Movein = SubResource( 5 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 6 )
+stream = ExtResource( 7 )
 volume_db = -80.0
 autoplay = true
 
@@ -373,7 +353,7 @@ position = Vector2( 0, 250 )
 
 [node name="Label" type="Label" parent="Word"]
 rect_rotation = 270.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
 text = "CONVERSATION TIME "
 
@@ -382,7 +362,7 @@ position = Vector2( 0, 380 )
 
 [node name="Label" type="Label" parent="Word2"]
 rect_rotation = 270.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
 text = "CONVERSATION TIME "
 
@@ -391,7 +371,7 @@ position = Vector2( 0, 120 )
 
 [node name="Label" type="Label" parent="Word3"]
 rect_rotation = 270.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
 text = "CONVERSATION TIME "
 
@@ -400,7 +380,7 @@ position = Vector2( 0, 510 )
 
 [node name="Label" type="Label" parent="Word4"]
 rect_rotation = 270.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
 text = "CONVERSATION TIME "
 
@@ -409,7 +389,7 @@ position = Vector2( 0, -10 )
 
 [node name="Label" type="Label" parent="Word5"]
 rect_rotation = 270.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
 text = "CONVERSATION TIME "
 
@@ -419,7 +399,7 @@ rotation = 3.14159
 
 [node name="Label" type="Label" parent="Word6"]
 rect_rotation = 270.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
 text = "CONVERSATION TIME "
 
@@ -429,7 +409,7 @@ rotation = 3.14159
 
 [node name="Label" type="Label" parent="Word7"]
 rect_rotation = 270.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
 text = "CONVERSATION TIME "
 
@@ -439,7 +419,7 @@ rotation = 3.14159
 
 [node name="Label" type="Label" parent="Word8"]
 rect_rotation = 270.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
 text = "CONVERSATION TIME "
 
@@ -449,7 +429,7 @@ rotation = 3.14159
 
 [node name="Label" type="Label" parent="Word9"]
 rect_rotation = 270.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
 text = "CONVERSATION TIME "
 
@@ -459,7 +439,7 @@ rotation = 3.14159
 
 [node name="Label" type="Label" parent="Word10"]
 rect_rotation = 270.0
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 custom_colors/font_color = Color( 0.168627, 0.270588, 0.501961, 1 )
 text = "CONVERSATION TIME "
 
@@ -471,18 +451,18 @@ margin_left = 79.0
 margin_top = 40.0001
 margin_right = 242.0
 margin_bottom = 54.0001
-custom_fonts/font = ExtResource( 7 )
+custom_fonts/font = ExtResource( 8 )
 text = "Rhona Ainsley"
 align = 1
 
 [node name="AnimationPlayerWords" type="AnimationPlayer" parent="."]
 autoplay = "Words"
 playback_speed = 0.15
-anims/Words = SubResource( 9 )
+anims/Words = SubResource( 6 )
 
 [node name="AnimationPlayerBg" type="AnimationPlayer" parent="."]
 autoplay = "Bg"
-anims/Bg = SubResource( 10 )
+anims/Bg = SubResource( 7 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false

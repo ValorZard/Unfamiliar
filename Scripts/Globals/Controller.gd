@@ -39,6 +39,7 @@ var flags: Dictionary = {
 	# ----------------------------------------
 	"npc_lm_guide": 0,
 	"npc_lm_pace": 0,
+	"npc_lm_keifer": 0,
 	"npc_lm_ariad": 0,
 	"npc_ainsleys_paul": 0,
 	"npc_ainsleys_rhona": 0,
@@ -446,13 +447,13 @@ func dialogue(file: String, set: int, alt_box_type: bool = false, text_size: int
 	return dlg
 	
 	
-func flashback(file: String, art: Texture, transition: bool = true) -> Flashback:
+func flashback(file: String, art: Texture, transition: bool = true, anim_player: AnimationPlayer = null) -> Flashback:
 	var fb: PackedScene = load(FlashbackRef) as PackedScene
 	var fb_i = fb.instance() as Flashback
 	fb_i.set_fb_file(file)
 	fb_i.set_art(art)
 	get_tree().get_root().add_child(fb_i)
-	fb_i.start(transition)
+	fb_i.start(transition, anim_player)
 	return fb_i
 
 

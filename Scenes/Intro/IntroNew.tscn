@@ -1,14 +1,17 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/Scenes/IntroNew.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=2]
 [ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Shaders/Transition.shader" type="Shader" id=4]
 [ext_resource path="res://Sprites/UI/Transition_Flashback.png" type="Texture" id=5]
-[ext_resource path="res://Audio/Music/Intro TEMP.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Audio/Music/Intro.ogg" type="AudioStream" id=6]
 [ext_resource path="res://Audio/Intro train 2.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Audio/Whoosh TEMP.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Audio/Train loop.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Audio/Bing bong.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Audio/Crowd.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Audio/Running.ogg" type="AudioStream" id=12]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Intro"
@@ -20,7 +23,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 8, 21.1, 22.1 ),
+"times": PoolRealArray( 0, 8, 15.1, 16.1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
@@ -32,7 +35,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 4, 6, 14, 21.1, 22.1 ),
+"times": PoolRealArray( 0, 4, 6, 14, 16.3, 17.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -44,7 +47,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 6.5, 8.6, 14, 21.1, 22.1 ),
+"times": PoolRealArray( 0, 6.5, 8.6, 14, 16.3, 17.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -56,7 +59,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 10, 12, 14, 21.1, 22.1 ),
+"times": PoolRealArray( 0, 10, 12, 14, 16.3, 17.3 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
@@ -80,7 +83,7 @@ tracks/5/path = NodePath("CanvasLayer/Fade2:material:shader_param/cutoff")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/keys = {
 "times": PoolRealArray( 0, 15, 15.2 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -92,7 +95,7 @@ tracks/6/path = NodePath("CanvasLayer/Fade2:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/imported = false
-tracks/6/enabled = true
+tracks/6/enabled = false
 tracks/6/keys = {
 "times": PoolRealArray( 0, 15 ),
 "transitions": PoolRealArray( 1, 1 ),
@@ -104,7 +107,7 @@ tracks/7/path = NodePath("SoundTrain")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/imported = false
-tracks/7/enabled = true
+tracks/7/enabled = false
 tracks/7/keys = {
 "times": PoolRealArray( 14 ),
 "transitions": PoolRealArray( 1 ),
@@ -118,7 +121,7 @@ tracks/8/path = NodePath("SoundWhoosh")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/imported = false
-tracks/8/enabled = true
+tracks/8/enabled = false
 tracks/8/keys = {
 "times": PoolRealArray( 14.5 ),
 "transitions": PoolRealArray( 1 ),
@@ -132,7 +135,7 @@ tracks/9/path = NodePath("SoundTrainLoop")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/imported = false
-tracks/9/enabled = true
+tracks/9/enabled = false
 tracks/9/keys = {
 "times": PoolRealArray( 15.2 ),
 "transitions": PoolRealArray( 1 ),
@@ -146,7 +149,7 @@ tracks/10/path = NodePath("CanvasLayer/Text4:self_modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/imported = false
-tracks/10/enabled = true
+tracks/10/enabled = false
 tracks/10/keys = {
 "times": PoolRealArray( 0, 17.9, 20, 24, 26 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
@@ -158,7 +161,7 @@ tracks/11/path = NodePath("CanvasLayer/Fade2:self_modulate")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/imported = false
-tracks/11/enabled = true
+tracks/11/enabled = false
 tracks/11/keys = {
 "times": PoolRealArray( 0, 24, 26 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
@@ -172,7 +175,7 @@ tracks/12/loop_wrap = true
 tracks/12/imported = false
 tracks/12/enabled = true
 tracks/12/keys = {
-"times": PoolRealArray( 23.7 ),
+"times": PoolRealArray( 15.1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [ "Scroll", -1, 1.0, false ],
@@ -186,7 +189,7 @@ tracks/13/loop_wrap = true
 tracks/13/imported = false
 tracks/13/enabled = true
 tracks/13/keys = {
-"times": PoolRealArray( 28.8 ),
+"times": PoolRealArray( 20.1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -198,15 +201,69 @@ tracks/14/path = NodePath("SoundTrainLoop:volume_db")
 tracks/14/interp = 1
 tracks/14/loop_wrap = true
 tracks/14/imported = false
-tracks/14/enabled = true
+tracks/14/enabled = false
 tracks/14/keys = {
 "times": PoolRealArray( 0, 24, 26 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ 12.0, 12.0, -2.0 ]
 }
+tracks/15/type = "method"
+tracks/15/path = NodePath("SoundNotice")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 18 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("SoundCrowd:volume_db")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 14, 16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -80.0, -80.0, -10.0 ]
+}
+tracks/17/type = "method"
+tracks/17/path = NodePath("SoundCrowd")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 13.7 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath("SoundRunning")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 21 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=2]
 resource_name = "Scroll"
 length = 10.0
 tracks/0/type = "value"
@@ -236,7 +293,7 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id=4]
 shader = SubResource( 3 )
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 4 )
 shader_param/cutoff = 1.0
 shader_param/mask = ExtResource( 5 )
@@ -245,7 +302,7 @@ shader_param/mask = ExtResource( 5 )
 script = ExtResource( 1 )
 
 [node name="Background" type="Sprite" parent="."]
-position = Vector2( -1289, 0 )
+position = Vector2( -1100, 0 )
 texture = ExtResource( 2 )
 centered = false
 region_enabled = true
@@ -256,7 +313,7 @@ autoplay = "Intro"
 anims/Intro = SubResource( 1 )
 
 [node name="AnimationPlayerBackground" type="AnimationPlayer" parent="."]
-anims/Scroll = SubResource( 5 )
+anims/Scroll = SubResource( 2 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 8
@@ -305,7 +362,7 @@ align = 1
 
 [node name="Fade2" type="ColorRect" parent="CanvasLayer"]
 visible = false
-material = SubResource( 2 )
+material = SubResource( 5 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
@@ -338,3 +395,16 @@ volume_db = 12.0
 [node name="SoundTrainLoop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
 volume_db = 12.0
+
+[node name="SoundNotice" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+volume_db = 8.0
+bus = "Reverb"
+
+[node name="SoundCrowd" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+volume_db = -80.0
+
+[node name="SoundRunning" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+volume_db = -4.0

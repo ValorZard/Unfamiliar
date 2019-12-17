@@ -1,17 +1,17 @@
 nil 0 0 Train 332, bound for Wickenburg, Cedar, Los Muertos, and Valentine, is departing shortly.
-nil 0 0 Please board immediately if you truly do intend to travel with us today.
-nil 0 0 Hah... hah... hah...#I can't believe we made it.
+nil 0 2 Please board immediately if you truly do intend to travel with us today.
+nil 0 2 $sHah... hah... hah...#$0I can't believe we made it.
 nil 0 0 Hold it.
-nil 0 0 Only one of you can get on this train.
+nil 0 0.3 Only one of you can get on this train.
 nil 0 0.3 What?! Why?
-nil 0 0 You're late. There's only one seat left.
-nil 0 0 You sold more tickets than there are seats?
+nil 0 0.3 You're late. There's only one seat left.
+nil 0 0.3 You sold more tickets than there are seats?
 nil 0 1.5 There was an error in the system somewhere.
 nil 0 0.5 One of you is going to have to get on the next train instead.
 nil 0 0 That's not going to work for me.
 nil 0 0.6 They're my familiar. We can't be separated.
-nil 0 0 There's nothing we can do about it, ma'am. I'm sorry.
-nil 0 1 How long until the next train?
+nil 0 1 There's nothing we can do about it, ma'am. I'm sorry.
+nil 0 0.4 How long until the next train?
 nil 0 2 An hour.
 nil 0 0 Wait here. Get on the next train.
 nil 0 0.5 Make sure you don't miss it.

@@ -2,10 +2,11 @@
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
-[ext_resource path="res://Sprites/Particles/Wave.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_s_off.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_s_on.png" type="Texture" id=5]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Resources/Particles/Parts_Water.tres" type="Material" id=3]
+[ext_resource path="res://Sprites/Particles/Wave.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_s_off.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_s_on.png" type="Texture" id=6]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -13,36 +14,22 @@ particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = true
 
-[sub_resource type="ParticlesMaterial" id=2]
-emission_shape = 2
-emission_box_extents = Vector3( 2, 14, 1 )
-flag_disable_z = true
-spread = 0.0
-gravity = Vector3( 0, 0, 0 )
-initial_velocity = 40.0
-angular_velocity = -1.51263e-023
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-anim_speed = 10.0
-anim_offset = 1.0
-anim_offset_random = 1.0
-
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 32 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 64, 8 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8, 24 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 20, 8 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 24, 10 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 40, 10 )
 
 [node name="Scene" type="Node2D"]
@@ -74,8 +61,8 @@ __meta__ = {
 material = SubResource( 1 )
 position = Vector2( 76, 162 )
 lifetime = 6.0
-process_material = SubResource( 2 )
-texture = ExtResource( 3 )
+process_material = ExtResource( 3 )
+texture = ExtResource( 4 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -92,60 +79,60 @@ __meta__ = {
 
 [node name="Window" type="Sprite" parent="."]
 position = Vector2( 80, 38 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 3, 0, 13, 16 )
 
 [node name="Window2" type="Sprite" parent="."]
 position = Vector2( 214, 50 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 centered = false
 region_rect = Rect2( 3, 0, 13, 16 )
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition2" parent="Transitions" instance=ExtResource( 6 )]
+[node name="Transition2" parent="Transitions" instance=ExtResource( 7 )]
 position = Vector2( 72, 98 )
 target_scene = "res://Scenes/Los Muertos/LM_Waterfront_L1.tscn"
 target_direction = 2
 
 [node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
-[node name="Transition3" parent="Transitions" instance=ExtResource( 6 )]
+[node name="Transition3" parent="Transitions" instance=ExtResource( 7 )]
 position = Vector2( 160, 10 )
 target_scene = "res://Scenes/Los Muertos/LM_Mainstreet_S.tscn"
 
 [node name="CollisionShape2D" parent="Transitions/Transition3" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
-[node name="Transition4" parent="Transitions" instance=ExtResource( 6 )]
+[node name="Transition4" parent="Transitions" instance=ExtResource( 7 )]
 position = Vector2( 248, 106 )
 target_scene = "res://Scenes/Los Muertos/LM_Waterfront_R1.tscn"
 target_direction = 3
 
 [node name="CollisionShape2D" parent="Transitions/Transition4" index="0"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
-[node name="Transition" parent="Transitions" instance=ExtResource( 6 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 7 )]
 position = Vector2( 144, 170 )
 target_scene = "res://Scenes/Los Muertos/LM_Trainstation.tscn"
 target_direction = 1
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 104, 152 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 200, 152 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [editable path="Transitions/Transition2"]
 

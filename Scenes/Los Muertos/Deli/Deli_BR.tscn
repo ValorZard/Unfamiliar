@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 40, 18 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 8, 68 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 40, 4 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 8 )
+
+[node name="Scene" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 144.0 ],
+"_edit_vertical_guides_": [ 176.0 ]
+}
+
+[node name="Overlay" parent="." instance=ExtResource( 1 )]
+is_preview = true
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 80, 18 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 13, 0, 1, 13, 0, 2, 13, 0, 3, 13, 0, 4, 13, 0, 5, 13, 0, 6, 13, 0, 7, 13, 0, 8, 13, 0, 9, 13, 0, 65536, 13, 0, 65537, 13, 0, 65538, 13, 0, 65539, 13, 0, 65540, 13, 0, 65541, 13, 0, 65542, 13, 0, 65543, 13, 0, 65544, 13, 0, 65545, 13, 0, 131072, 13, 0, 131073, 13, 0, 131074, 13, 0, 131075, 13, 0, 131076, 13, 0, 131077, 13, 0, 131078, 13, 0, 131079, 13, 0, 131080, 13, 0, 131081, 13, 0, 196608, 13, 0, 196609, 13, 0, 196610, 13, 0, 196611, 13, 0, 196612, 13, 0, 196613, 13, 0, 196614, 13, 0, 196615, 13, 0, 196616, 13, 0, 196617, 13, 0, 262144, 13, 0, 262145, 13, 0, 262146, 13, 0, 262147, 13, 0, 262148, 13, 0, 262149, 13, 0, 262150, 13, 0, 262151, 13, 0, 262152, 13, 0, 262153, 13, 0, 327680, 13, 0, 327681, 13, 0, 327682, 13, 0, 327683, 13, 0, 327684, 13, 0, 327685, 13, 0, 327686, 13, 0, 327687, 13, 0, 327688, 13, 0, 327689, 13, 0, 393216, 13, 0, 393217, 13, 0, 393218, 13, 0, 393219, 13, 0, 393220, 13, 0, 393221, 13, 0, 393222, 13, 0, 393223, 13, 0, 393224, 13, 0, 393225, 13, 0, 458752, 13, 0, 458753, 13, 0, 458754, 13, 0, 458755, 13, 0, 458756, 13, 0, 458757, 13, 0, 458758, 13, 0, 458759, 13, 0, 458760, 13, 0, 458761, 13, 0, 524288, 13, 0, 524289, 13, 0, 524290, 13, 0, 524291, 13, 0, 524292, 13, 0, 524293, 13, 0, 524294, 13, 0, 524295, 13, 0, 524296, 13, 0, 524297, 13, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap2" type="TileMap" parent="."]
+position = Vector2( 80, 18 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 3, 536870956, 0, 65539, 536870956, 0, 131075, 536870956, 0, 196611, 536870955, 0, 196612, 37, 0, 196613, 37, 0, 196614, 37, 0, 196615, 37, 0, 196616, 37, 0, 196617, 37, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap3" type="TileMap" parent="."]
+position = Vector2( 80, 18 )
+z_index = 2000
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 9, -536870882, 0, 65545, -536870882, 0, 131081, -536870882, 0, 196617, -536870882, 0, 262153, -536870882, 0, 327689, -536870882, 0, 393225, -536870882, 0, 458761, -536870882, 0, 524288, 1073741854, 0, 524289, 1073741854, 0, 524290, 1073741854, 0, 524291, 1073741854, 0, 524292, 1073741855, 0, 524295, 1610612767, 0, 524296, 1073741854, 0, 524297, 35, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Walls" type="StaticBody2D" parent="."]
+z_index = 2100
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 120, 172 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 232, 172 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 232, 86 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 176, 170 )
+shape = SubResource( 4 )
+
+[node name="Door" parent="." instance=ExtResource( 3 )]
+position = Vector2( 176, 162 )
+target_scene = "res://Scenes/Los Muertos/LM_Waterfront_L2.tscn"
+target_position = Vector2( 154, 92 )
+target_direction = 1
+door_sound = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="Door" index="0"]
+shape = SubResource( 3 )
+
+[editable path="Door"]
