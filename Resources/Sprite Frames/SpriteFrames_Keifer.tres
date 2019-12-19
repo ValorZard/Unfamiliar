@@ -1,11 +1,53 @@
-[gd_resource type="SpriteFrames" load_steps=2 format=2]
+[gd_resource type="SpriteFrames" load_steps=9 format=2]
 
-[ext_resource path="res://Sprites/Characters (Discourse)/Keifer/Keifer_TEMP.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Characters (Discourse)/Keifer/Keifer_Idle2.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/Characters (Discourse)/Keifer/Keifer_Edgy.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/Characters (Discourse)/Keifer/Keifer_Annoyed.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Characters (Discourse)/Keifer/Keifer_Serious.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Characters (Discourse)/Keifer/Keifer_Idle.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Characters (Discourse)/Keifer/Keifer_Talk.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Characters (Discourse)/Keifer/Keifer_Shock.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters (Discourse)/Keifer/Keifer_Talk2.png" type="Texture" id=8]
 
 [resource]
 animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "edgy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "annoyed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "serious",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "confident",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "talk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "shock",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "talk_confident",
 "speed": 5.0
 } ]

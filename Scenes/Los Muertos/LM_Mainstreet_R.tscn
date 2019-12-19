@@ -17,7 +17,7 @@ extents = Vector2( 8, 32 )
 [sub_resource type="Animation" id=3]
 resource_name = "Event"
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 resource_name = "Event"
 length = 5.0
 tracks/0/type = "method"
@@ -76,7 +76,7 @@ tracks/2/keys = {
 "values": [ "down_camera", "down_camera2", "down_camera3", "down_camera4", "down" ]
 }
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 1, 42 )
 
 [node name="Scene" type="Node2D"]
@@ -147,10 +147,10 @@ anims/Event = SubResource( 3 )
 position = Vector2( 128, 120 )
 
 [node name="AnimationPlayer" parent="Event" index="0"]
-anims/Event = SubResource( 5 )
+anims/Event = SubResource( 4 )
 
 [node name="CollisionShape2D" parent="Event" index="1"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="SoundCamera" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )

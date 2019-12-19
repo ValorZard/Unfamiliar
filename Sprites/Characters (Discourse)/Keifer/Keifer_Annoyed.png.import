@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Keifer_TEMP.png-bb5d5e74a039c6f81268e3022552fcb5.stex"
+path="res://.import/Keifer_Annoyed.png-27a65c381e869e6d2e345e7c9da97286.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Characters (Discourse)/Keifer/Keifer_TEMP.png"
-dest_files=[ "res://.import/Keifer_TEMP.png-bb5d5e74a039c6f81268e3022552fcb5.stex" ]
+source_file="res://Sprites/Characters (Discourse)/Keifer/Keifer_Annoyed.png"
+dest_files=[ "res://.import/Keifer_Annoyed.png-27a65c381e869e6d2e345e7c9da97286.stex" ]
 
 [params]
 

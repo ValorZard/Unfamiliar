@@ -1,9 +1,11 @@
-> $wNow $0we're following the street photographer's handbook!
 @< smile
+@> talk_confident
+> $wNow $0we're following the street photographer's handbook!
+@> confident
 > You can take candids of people on the street, but that's not really getting into the spirit of it.
-> If you want great portraits of a stranger, you've gotta connect with them!
-> ...I hope you don't mind me taking a few more shots while we're talking.
-< Not at all!
+> If you want great portraits of a stranger, you've got to connect with them!
+@> idle
+| 0.5
 > So, Cosmo...
 ========================
 >> I'm all about photography, but... what are you into?
@@ -13,17 +15,21 @@
 < I like cooking.
 @< explain2
 < I make dinner for my witch and me a lot of the time.
+@> talk
 > Wow. That must be nice. I can't cook to save my life.
 @< smile
 > Who taught you?
+@> idle
 < My witch. She's really good at cooking.
 > What's her favorite thing to make?
 < Gumbo. She has her own recipe.
+@> serious
 > Wow, really?
 > I didn't think people ate gumbo around here.
 @< heh
 < We're probably the exception and not the rule.
 @< smile
+@> idle
 > What about you? What's your favorite thing to cook?
 @< explain2
 < I have this really great stuffed pepper recipe.
@@ -32,37 +38,52 @@
 < Pretty impressive, right?
 > Yeah.
 @< smile
+@> serious
 > ...
 > It's kinda interesting that you eat that sort of stuff.
 @< idle
 < Huh?
+@> edgy
 > I thought demons had a taste for... $wraw meat, $0or something?
+@> serious
 < $wUh...
 @< explain
 < I $wthink $0you're thinking of vampires.
 @< idle
 < And that's only in movies.
+@> idle
 > ...Oh. Heh... right.
+@< smile
 ^ BRANCH_2
 ---------------------
 : R_1_2
 < I play a few instruments.
+@> talk
 > Really? Which ones?
+@> idle
 < My favorite is my ocarina.
 < I'm carrying it in my pocket right now.
+@> serious
 > Huh... that's not an instrument you see every day.
+@> idle
 > What else do you play?
 @< explain2
 < Mostly piano. We have one at home.
 > Have you taken piano lessons?
 < A few. I've also learned a bit from my witch.
+@> confident
 > Nice.
+@> idle
 > My mom wanted me to take piano lessons a while back.
+@> serious
 > I was never that interested, though.
 < I'm also in the process of learning flute.
 @< heh
+@> idle
 < I'm not very good, but I'm getting there.
+@> talk
 > Man... you sound talented!
+@> idle
 @< smile
 > Your witch must be proud of you.
 @< idle
@@ -78,16 +99,20 @@
 > What do you like to draw?
 @< heh
 < ...Demons.
+@> serious
 @< smile
 < Not just demons that look like me, though. All different types.
 < Demons from our world, demons from the underworld, demons that don't even exist...
 < You get the idea.
 @< explain2
+@> idle
 < I also like drawing dragons and other monsters.
 > I don't blame you. That kinda stuff is really cool.
 @< smile
+@> edgy
 > Besides, have you $wtried $0drawing a normal human? It's really hard.
 @< heh
+@> idle
 < Yeah... I've tried doing a few self-portraits. They didn't turn out well.
 @< smile
 > Is your witch into art at all?
@@ -100,7 +125,7 @@
 ^ BRANCH_2
 ========================
 : BRANCH_2
-| 1.5
+| 0.5
 @< smile
 << So, Keifer...
 [ What type of photography do you like? (-20, -60) R_2_1 | How do you like Los Muertos? (-20, -10) R_2_2 | (uh) (-20, 50) R_2_3
