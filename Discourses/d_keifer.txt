@@ -120,8 +120,10 @@
 > Oh, nice.
 > So you've just been teaching yourself?
 < Yeah. We have a few books laying around the house that talk about art.
+@> explain2
 > Well, if you ever get a chance to show me some of your art, I'd love to see it!
 < Sure thing!
+@> idle
 ^ BRANCH_2
 ========================
 : BRANCH_2
@@ -133,7 +135,9 @@
 : R_2_1
 < What type of photography do you like?
 > I'm mostly all about portraits.
+@> talk_confident
 > I like drawing out people's true emotions. Their inner beauty.
+@> idle
 @< heh
 > ...And I also just like talking to people.
 @< smile
@@ -144,14 +148,19 @@
 < Do you do any other photography?
 @< smile
 > I've tried shooting landscapes a few times.
+@> annoyed
 I just think it's too much of a hassle.
+@> serious
 > I'm not really a $wget up at 4 AM and drive ten miles to catch the perfect sunrise $0kind of person.
 > Also, you usually need tripods and filters for that sort of thing, and that's just not my thing.
+@> idle
 > Photography's complicated enough as it is.
+@> explain2
 > Picking the right lens, picking the right film with the right speed, getting the right depth of field...
 @< heh
 < It $wsounds $0complicated.
 @< smile
+@> idle
 > Eh... it's not too hard to learn, though.
 > Mastering it is the hard part. And I'm $wdefinitely $0not a master.
 > I'm getting there, though.
@@ -159,23 +168,31 @@ I just think it's too much of a hassle.
 ------------------------
 : R_2_2
 < How do you like Los Muertos?
+@> heh
 > Well, uh...
 > It's definitely an $winteresting $0city. That's for sure.
 < Do you live here?
+@> idle
 > Nah. I'm just visiting with some university friends. They're off doing other stuff right now.
+@> talk
 > Let me tell you, though: this place is a photographer's $wgold mine!
+@> explain2
 > There's so much interesting architecture and so many interesting people here.
+@> idle
 @< heh
 > Like you.
 @< smile
 > I can't wait to develop these when I get home.
+@> talk
 > What about you? Do you live in Los Muertos?
 < Nope. My witch and I are just visiting.
+@> idle
 @< explain
 < We have some business here tomorrow. We figured we'd come a day early to explore the city a bit.
 @< smile
 < We haven't had a vacation in a while.
 @< idle
+@> serious
 > Looks like $wthat $0didn't end up going according to plan.
 < Nope...
 < I'd imagine my witch isn't very fond of this city right now.
@@ -186,22 +203,27 @@ I just think it's too much of a hassle.
 ========================
 : BRANCH_3
 | 1.5
+@> serious
 > Hey, Cosmo...
 @< smile
 < Yeah?
 > I have a question.
 @< idle
 > You're a demon, but...
+@> explain
 > Why do you look so much like a human?
 @< think
 < $wWell...
+@> serious
 @< idle
 < This might take a bit of explanation.
 < On how familiars are created, I mean.
+@> idle
 > I'm listening!
 < Okay, so...
 @< explain
 < To create a familiar, you need three things.
+@> serious
 < First, you need to know the actual spell that does it.
 < I think it draws energy from the underworld, or something.
 > All right.
@@ -210,8 +232,10 @@ I just think it's too much of a hassle.
 < And she says it took her...
 @< heh
 < Four months to learn the spell.
+@> shock
 > What?!
 < It's $sreally $0complicated.
+@> serious
 > Yeah... must be.
 @< idle
 < Anyway.
@@ -222,9 +246,11 @@ I just think it's too much of a hassle.
 > How do you even do that?
 @< heh
 < You just tear out a piece of your own soul.
+@> shock
 > $sWhat?!
 @< idle
 < Yeah. My witch says it's... not pleasant.
+@> serious
 > ...
 @< explain2
 < And the last thing you need is a vessel.
@@ -239,10 +265,13 @@ I just think it's too much of a hassle.
 < But, in my case... my witch probably used a doll, or something. She hasn't actually told me.
 @< smile
 < So, that's why I look kinda like a human.
+@> talk
 > That's pretty cool!
 @< idle
+@> idle
 > Can you make your cat your familiar, or something?
 @< angry2
+@> serious
 < $wNo!
 @< idle
 < The vessel you use has to be something without a soul.
@@ -251,6 +280,7 @@ I just think it's too much of a hassle.
 @< idle
 > Okay. That makes sense.
 > Sort of.
+@> edgy
 > Man, bein' a witch sounds $wcomplicated.
 < Mhm.
 < Being a familiar is even $wmore $0complicated.

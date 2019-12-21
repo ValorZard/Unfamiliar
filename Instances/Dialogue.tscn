@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Dialogue.gd" type="Script" id=1]
 [ext_resource path="res://Audio/Dialogue type.ogg" type="AudioStream" id=2]
-[ext_resource path="res://Sprites/UI/BoxNinePatch.png" type="Texture" id=3]
-[ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Sprites/UI/Box.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/Box2.png" type="Texture" id=4]
+[ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=5]
 
 [node name="Dialogue" type="Node2D"]
 position = Vector2( 86, 116 )
@@ -11,17 +12,14 @@ z_index = 3200
 script = ExtResource( 1 )
 sound_type = ExtResource( 2 )
 
-[node name="Box" type="NinePatchRect" parent="."]
-margin_right = 148.0
-margin_bottom = 40.0
+[node name="Box" type="Sprite" parent="."]
+position = Vector2( 74, 20 )
 texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 6, 6 )
-patch_margin_left = 2
-patch_margin_top = 2
-patch_margin_right = 2
-patch_margin_bottom = 2
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
+
+[node name="Box2" type="Sprite" parent="."]
+visible = false
+position = Vector2( 74, 20 )
+texture = ExtResource( 4 )
 
 [node name="Text" type="RichTextLabel" parent="."]
 margin_left = 6.0
@@ -29,7 +27,7 @@ margin_top = 5.0
 margin_right = 145.0
 margin_bottom = 38.0
 mouse_filter = 2
-custom_fonts/normal_font = ExtResource( 4 )
+custom_fonts/normal_font = ExtResource( 5 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 custom_constants/line_separation = 2
 bbcode_enabled = true

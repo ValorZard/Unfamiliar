@@ -1,5 +1,5 @@
 Cosmo 1 0.3 What's wrong?
-nil 0 0.3 Don't talk to me right now. I'm in a bad mood.
+nil 0 0.3 Don't talk to me. I'm in a bad mood.
 Cosmo 1 0 ...
 Cosmo 1 0 Is there anything I can-
 nil 0 0 Shut up.

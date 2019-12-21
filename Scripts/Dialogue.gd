@@ -63,8 +63,8 @@ func set_text_size(value: int):
 	
 	
 func set_alt_box_texture():
-	#($Box as NinePatchRect).set_texture(load("res://Sprites/UI/BoxNinePatch2.png") as Texture)
-	pass
+	$Box.hide()
+	$Box2.show()
 	
 
 func start(file: String, set: int, reset_state_: bool):

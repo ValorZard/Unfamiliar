@@ -1,11 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/TextDisplay.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Audio/Dialogue type.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Sprites/UI/Box.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/UI/BoxNinePatch.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/UI/Box tail.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/UI/BoxNinePatch.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/UI/Box tail.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fadein"
@@ -117,19 +116,13 @@ __meta__ = {
 font = ExtResource( 2 )
 sound_type = ExtResource( 3 )
 
-[node name="Box" type="Sprite" parent="."]
-visible = false
-position = Vector2( 160, 143 )
-z_index = -50
-texture = ExtResource( 4 )
-
 [node name="Namebox" type="NinePatchRect" parent="."]
 visible = false
 margin_left = 36.0
 margin_top = 100.0
 margin_right = 110.0
 margin_bottom = 120.0
-texture = ExtResource( 5 )
+texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 6, 6 )
 patch_margin_left = 2
 patch_margin_top = 2
@@ -210,7 +203,7 @@ valign = 1
 visible = false
 position = Vector2( 249, 110 )
 z_index = -50
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
