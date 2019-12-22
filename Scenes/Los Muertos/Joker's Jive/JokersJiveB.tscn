@@ -1,27 +1,27 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
 [ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40, 18 )
+extents = Vector2( 48, 4 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 68 )
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 40, 4 )
-
 [sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 24, 4 )
+
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 8 )
 
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 64, 8 )
+
 [node name="Scene" type="Node2D"]
-__meta__ = {
-"_edit_horizontal_guides_": [ 144.0 ],
-"_edit_vertical_guides_": [ 176.0 ]
-}
 
 [node name="Overlay" parent="." instance=ExtResource( 1 )]
 is_preview = true
@@ -38,58 +38,60 @@ __meta__ = {
 
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2( 80, 18 )
-tile_set = ExtResource( 2 )
-cell_size = Vector2( 16, 16 )
-format = 1
-tile_data = PoolIntArray( 3, 536870956, 0, 65539, 536870956, 0, 131075, 536870956, 0, 196611, 536870955, 0, 196612, 37, 0, 196613, 37, 0, 196614, 37, 0, 196615, 37, 0, 196616, 37, 0, 196617, 37, 0 )
-__meta__ = {
-"_edit_lock_": true
-}
-
-[node name="TileMap3" type="TileMap" parent="."]
-position = Vector2( 80, 18 )
 z_index = 2000
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 collision_layer = 0
 collision_mask = 0
 format = 1
-tile_data = PoolIntArray( 9, -536870882, 0, 65545, -536870882, 0, 131081, -536870882, 0, 196617, -536870882, 0, 262153, -536870882, 0, 327689, -536870882, 0, 393225, -536870882, 0, 458761, -536870882, 0, 524288, 1073741854, 0, 524289, 1073741854, 0, 524290, 1073741854, 0, 524291, 1073741854, 0, 524292, 1073741855, 0, 524295, 1610612767, 0, 524296, 1073741854, 0, 524297, 35, 0 )
+tile_data = PoolIntArray( 0, -1073741794, 0, 9, -1610612706, 0, 65536, -1073741794, 0, 65545, -1610612706, 0, 131072, -1073741794, 0, 131081, -1610612706, 0, 196608, -1073741794, 0, 196617, -1610612706, 0, 262144, -1073741794, 0, 262153, -1610612706, 0, 327680, -1073741794, 0, 327689, -1610612706, 0, 393216, -1073741794, 0, 393225, -1610612706, 0, 458752, -1073741794, 0, 458761, -1610612706, 0, 524288, 536870947, 0, 524289, 1610612766, 0, 524290, 1610612766, 0, 524291, 1610612766, 0, 524292, 1610612766, 0, 524293, 1073741855, 0, 524296, 1610612767, 0, 524297, 35, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Walls" type="StaticBody2D" parent="."]
 z_index = 2100
-__meta__ = {
-"_edit_group_": true,
-"_edit_lock_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
-position = Vector2( 120, 172 )
+position = Vector2( 128, 158 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
-position = Vector2( 232, 172 )
+position = Vector2( 256, 158 )
 shape = SubResource( 1 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
-position = Vector2( 232, 86 )
+position = Vector2( 88, 86 )
 shape = SubResource( 2 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
-position = Vector2( 176, 170 )
-shape = SubResource( 3 )
+position = Vector2( 232, 86 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 192, 170 )
+shape = SubResource( 4 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
-position = Vector2( 176, 162 )
-target_scene = "res://Scenes/Los Muertos/LM_Waterfront_L2.tscn"
-target_position = Vector2( 154, 92 )
+position = Vector2( 192, 162 )
+target_scene = "res://Scenes/Los Muertos/LM_Square.tscn"
+target_position = Vector2( 202, 60 )
 target_direction = 1
 door_sound = ExtResource( 4 )
 
 [node name="CollisionShape2D" parent="Door" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
+
+[node name="Transitions" type="CanvasLayer" parent="."]
+layer = 6
+
+[node name="Transition" parent="Transitions" instance=ExtResource( 5 )]
+position = Vector2( 160, 10 )
+target_scene = "res://Scenes/Los Muertos/Joker's Jive/JokersJiveT.tscn"
+
+[node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
+shape = SubResource( 5 )
 
 [editable path="Door"]
+
+[editable path="Transitions/Transition"]

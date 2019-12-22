@@ -14,9 +14,9 @@
 [ext_resource path="res://Sprites/Props/Interiors/IN_Strongbox.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Props/Interiors/IN_Tabletop_Misc1.png" type="Texture" id=13]
 [ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_right.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_up.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_left.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_up.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_right.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_down.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Paul.png" type="Texture" id=19]
 [ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=20]
@@ -40,7 +40,7 @@ extents = Vector2( 5, 10 )
 animations = [ {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "right",
+"name": "up",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
@@ -50,7 +50,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 17 ) ],
 "loop": true,
-"name": "up",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 18 ) ],
@@ -63,7 +63,7 @@ animations = [ {
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "up",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -73,7 +73,7 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "up",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 19 ) ],
@@ -228,7 +228,7 @@ extents = Vector2( 16, 8 )
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "up",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -238,7 +238,7 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "up",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],

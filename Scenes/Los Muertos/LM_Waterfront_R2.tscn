@@ -1,15 +1,13 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
 [ext_resource path="res://Resources/Particles/Parts_Water.tres" type="Material" id=3]
 [ext_resource path="res://Sprites/Particles/Wave.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_s_on.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_l_on.png" type="Texture" id=7]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight_light.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_s_on.png" type="Texture" id=5]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight_light.png" type="Texture" id=8]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -21,12 +19,9 @@ particles_anim_loop = true
 extents = Vector2( 8, 32 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 8, 32 )
-
-[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 3.5, 3 )
 
-[sub_resource type="Shader" id=5]
+[sub_resource type="Shader" id=4]
 code = "shader_type canvas_item;
 uniform vec4 color : hint_color;
 
@@ -52,8 +47,8 @@ void fragment() {
 	}
 }"
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
 shader_param/color = Color( 1, 1, 1, 1 )
 
 [node name="Scene" type="Node2D"]
@@ -76,7 +71,7 @@ position = Vector2( 80, 19 )
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 393216, 1073741863, 0, 393217, 1073741863, 0, 393218, 1073741863, 0, 393219, 1073741863, 0, 393220, 1073741863, 0, 393221, 1073741863, 0, 393222, 1073741863, 0, 393223, 1073741863, 0, 393224, 1073741863, 0, 393225, 1073741863, 0 )
+tile_data = PoolIntArray( 393216, 1073741863, 0, 393217, 1073741863, 0, 393218, 1073741863, 0, 393219, 1073741863, 0, 393220, 1073741863, 0, 393221, 1073741863, 0, 393222, 1073741863, 0, 393223, 1073741863, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -93,89 +88,51 @@ position = Vector2( 80, 18 )
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, 30, 0, 1, 30, 0, 2, 31, 0, 3, 18, 0, 4, 18, 0, 5, 18, 0, 6, 18, 0, 7, 18, 0, 8, 18, 0, 9, 18, 0, 65536, 18, 0, 65537, 18, 0, 65538, 19, 0, 65539, 18, 0, 65540, 18, 0, 65541, 18, 0, 65542, 18, 0, 65543, 18, 0, 65544, 18, 0, 65545, 18, 0, 131072, 18, 0, 131073, 18, 0, 131074, 19, 0, 131075, 21, 0, 131076, 21, 0, 131077, 21, 0, 131078, 21, 0, 131079, 21, 0, 131080, 21, 0, 131081, 21, 0, 196608, 21, 0, 196609, 21, 0, 196610, 22, 0, 458752, 11, 0, 458753, 11, 0, 458754, 11, 0, 458755, 11, 0, 458756, 11, 0, 458757, 11, 0, 458758, 11, 0, 458759, 11, 0, 458760, 11, 0, 458761, 11, 0 )
+tile_data = PoolIntArray( 0, 18, 0, 1, 19, 0, 8, -536870882, 0, 9, 536870939, 0, 65536, 18, 0, 65537, 19, 0, 65544, -536870882, 0, 65545, 536870939, 0, 131072, 21, 0, 131073, 22, 0, 131080, -536870882, 0, 131081, 536870939, 0, 196616, -536870883, 0, 196617, 536870942, 0, 262152, 32, 0, 262153, 536870930, 0, 327688, 32, 0, 327689, 536870930, 0, 393224, 536870934, 0, 393225, 536870933, 0, 458752, 11, 0, 458753, 11, 0, 458754, 11, 0, 458755, 11, 0, 458756, 11, 0, 458757, 11, 0, 458758, 11, 0, 458759, 11, 0, 458760, 11, 0, 458761, 11, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Door" type="Sprite" parent="."]
-position = Vector2( 149, 42 )
-texture = ExtResource( 5 )
-centered = false
-
 [node name="Window" type="Sprite" parent="."]
-position = Vector2( 106, 50 )
-texture = ExtResource( 6 )
-centered = false
-
-[node name="Window3" type="Sprite" parent="."]
-position = Vector2( 80, 50 )
-texture = ExtResource( 6 )
-centered = false
-
-[node name="Window2" type="Sprite" parent="."]
-position = Vector2( 173, 34 )
-texture = ExtResource( 7 )
+position = Vector2( 82, 34 )
+texture = ExtResource( 5 )
 centered = false
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="Transitions" instance=ExtResource( 8 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 6 )]
 position = Vector2( 72, 98 )
-target_scene = "res://Scenes/Los Muertos/LM_Crossroads.tscn"
+target_scene = "res://Scenes/Los Muertos/LM_Waterfront_R1.tscn"
 target_direction = 2
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
 shape = SubResource( 2 )
 
-[node name="Transition2" parent="Transitions" instance=ExtResource( 8 )]
-position = Vector2( 248, 98 )
-target_scene = "res://Scenes/Los Muertos/LM_Waterfront_R2.tscn"
-target_direction = 3
-
-[node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
-shape = SubResource( 3 )
+[node name="Transition2" parent="Transitions" instance=ExtResource( 6 )]
+position = Vector2( 160, 10 )
+target_scene = "res://Scenes/Los Muertos/LM_Eastside_S.tscn"
 
 [node name="Walls" type="StaticBody2D" parent="."]
 
-[node name="Lamp" type="StaticBody2D" parent="."]
-position = Vector2( 208.5, 101 )
-z_index = 105
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Lamp"]
-texture = ExtResource( 9 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp"]
-position = Vector2( 0, 16.5 )
-shape = SubResource( 4 )
-
 [node name="Lamp2" type="StaticBody2D" parent="."]
-position = Vector2( 112.5, 101 )
+position = Vector2( 176.5, 101 )
 z_index = 105
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Lamp2"]
-texture = ExtResource( 9 )
+texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp2"]
 position = Vector2( 0, 16.5 )
-shape = SubResource( 4 )
-
-[node name="Light" type="Sprite" parent="."]
-material = SubResource( 6 )
-position = Vector2( 208.5, 119 )
-texture = ExtResource( 10 )
+shape = SubResource( 3 )
 
 [node name="Light2" type="Sprite" parent="."]
-material = SubResource( 6 )
-position = Vector2( 112.5, 119 )
-texture = ExtResource( 10 )
+material = SubResource( 5 )
+position = Vector2( 176.5, 119 )
+texture = ExtResource( 8 )
 
 [editable path="Transitions/Transition"]
 

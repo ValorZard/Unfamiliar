@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -9,13 +9,15 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Fountain.png" type="Texture" id=8]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit2.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight_light.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight.png" type="Texture" id=16]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 8 )
@@ -23,11 +25,14 @@ extents = Vector2( 48, 8 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 48 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8, 48 )
+
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "right",
+"name": "up",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
@@ -37,7 +42,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "up",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -51,8 +56,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=4]
-resource_name = "Event"
+[sub_resource type="Animation" id=5]
 length = 1.1
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -112,7 +116,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Shader" id=5]
+[sub_resource type="Shader" id=6]
 code = "shader_type canvas_item;
 uniform vec4 color : hint_color;
 
@@ -138,12 +142,15 @@ void fragment() {
 	}
 }"
 
-[sub_resource type="ShaderMaterial" id=6]
-shader = SubResource( 5 )
+[sub_resource type="ShaderMaterial" id=7]
+shader = SubResource( 6 )
 shader_param/color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 3.5, 3 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 9, 8 )
 
 [node name="Scene" type="Node2D"]
 
@@ -165,7 +172,7 @@ position = Vector2( 80, 18 )
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, 18, 0, 1, 18, 0, 2, -1073741803, 0, 3, 18, 0, 4, 18, 0, 5, 18, 0, 6, 18, 0, 7, 18, 0, 8, 18, 0, 9, 18, 0, 65536, 21, 0, 65537, 21, 0, 65538, 22, 0, 65539, 21, 0, 65540, 21, 0, 65541, 21, 0, 65542, 21, 0, 65543, 21, 0, 65544, 21, 0, 65545, 21, 0, 524288, 1073741854, 0, 524289, 1610612765, 0, 524296, 1073741853, 0, 524297, 1073741854, 0 )
+tile_data = PoolIntArray( 0, 18, 0, 1, 18, 0, 2, -1073741803, 0, 3, 18, 0, 4, 18, 0, 5, 18, 0, 6, 18, 0, 7, 18, 0, 8, 18, 0, 9, 18, 0, 65536, 21, 0, 65537, 21, 0, 65538, 22, 0, 65539, 21, 0, 65540, 21, 0, 65541, 21, 0, 65542, 21, 0, 65543, 21, 0, 65544, 21, 0, 65545, 21, 0, 458752, 1073741854, 0, 458753, 1610612765, 0, 458760, 1073741853, 0, 458761, 1073741854, 0, 524288, -536870885, 0, 524289, -2147483618, 0, 524296, -536870882, 0, 524297, -536870885, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -219,6 +226,14 @@ target_direction = 2
 [node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
 shape = SubResource( 2 )
 
+[node name="Transition3" parent="Transitions" instance=ExtResource( 7 )]
+position = Vector2( 248, 98 )
+target_scene = "res://Scenes/Los Muertos/LM_Square_R.tscn"
+target_direction = 3
+
+[node name="CollisionShape2D" parent="Transitions/Transition3" index="0"]
+shape = SubResource( 3 )
+
 [node name="Walls" type="StaticBody2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
@@ -244,19 +259,19 @@ z_index = 90
 set_flag = "npc_lm_ariad"
 
 [node name="Sprite" parent="EventNPCAriad" index="0"]
-frames = SubResource( 3 )
+frames = SubResource( 4 )
 
 [node name="AnimationPlayer" parent="EventNPCAriad/Event" index="0"]
-anims/Event = SubResource( 4 )
+anims/Event = SubResource( 5 )
 
 [node name="Light3" type="Sprite" parent="."]
-material = SubResource( 6 )
-position = Vector2( 95.5, 141 )
+material = SubResource( 7 )
+position = Vector2( 104.5, 73 )
 texture = ExtResource( 15 )
 
 [node name="Lamp3" type="StaticBody2D" parent="."]
-position = Vector2( 95.5, 123 )
-z_index = 125
+position = Vector2( 104.5, 55 )
+z_index = 58
 __meta__ = {
 "_edit_group_": true
 }
@@ -266,16 +281,16 @@ texture = ExtResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp3"]
 position = Vector2( 0, 16.5 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Light4" type="Sprite" parent="."]
-material = SubResource( 6 )
-position = Vector2( 224.5, 141 )
+material = SubResource( 7 )
+position = Vector2( 214.5, 73 )
 texture = ExtResource( 15 )
 
 [node name="Lamp4" type="StaticBody2D" parent="."]
-position = Vector2( 224.5, 123 )
-z_index = 125
+position = Vector2( 214.5, 55 )
+z_index = 58
 __meta__ = {
 "_edit_group_": true
 }
@@ -285,12 +300,25 @@ texture = ExtResource( 16 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp4"]
 position = Vector2( 0, 16.5 )
-shape = SubResource( 7 )
+shape = SubResource( 8 )
+
+[node name="Door3" parent="." instance=ExtResource( 17 )]
+position = Vector2( 203, 50 )
+target_scene = "res://Scenes/Los Muertos/Joker's Jive/JokersJiveB.tscn"
+target_position = Vector2( 192, 140 )
+door_sound = ExtResource( 18 )
+
+[node name="CollisionShape2D" parent="Door3" index="0"]
+shape = SubResource( 9 )
 
 [editable path="Transitions/Transition"]
 
 [editable path="Transitions/Transition2"]
 
+[editable path="Transitions/Transition3"]
+
 [editable path="EventNPCAriad"]
 
 [editable path="EventNPCAriad/Event"]
+
+[editable path="Door3"]
