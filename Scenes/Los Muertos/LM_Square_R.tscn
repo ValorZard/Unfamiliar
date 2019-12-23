@@ -7,10 +7,10 @@
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_m_on.png" type="Texture" id=5]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 48 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 8 )
 
 [node name="Scene" type="Node2D"]
@@ -33,7 +33,7 @@ position = Vector2( 80, 18 )
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 0, -1073741803, 0, 1, 18, 0, 2, 18, 0, 3, 18, 0, 4, 18, 0, 5, 18, 0, 6, 18, 0, 7, 18, 0, 8, -536870882, 0, 9, -536870885, 0, 65536, 22, 0, 65537, 21, 0, 65538, 21, 0, 65539, 21, 0, 65540, 21, 0, 65541, 21, 0, 65542, 21, 0, 65543, 21, 0, 65544, -536870882, 0, 65545, -536870885, 0, 131080, -536870882, 0, 131081, -536870885, 0, 196616, -536870882, 0, 196617, -536870885, 0, 262152, -536870882, 0, 262153, -536870885, 0, 327688, -536870882, 0, 327689, -536870885, 0, 393224, -536870882, 0, 393225, -536870885, 0, 458752, 1073741854, 0, 458753, 1073741854, 0, 458754, 1073741854, 0, 458755, 1610612765, 0, 458760, -536870882, 0, 458761, -536870885, 0, 524288, 1073741851, 0, 524289, 1610612771, 0, 524290, 536870942, 0, 524291, 536870941, 0, 524296, -536870882, 0, 524297, -536870885, 0 )
+tile_data = PoolIntArray( 0, -1073741803, 0, 1, 18, 0, 2, 18, 0, 3, 18, 0, 4, 18, 0, 5, 18, 0, 6, 18, 0, 7, 18, 0, 8, -536870882, 0, 9, -536870885, 0, 65536, 22, 0, 65537, 21, 0, 65538, 21, 0, 65539, 21, 0, 65540, 21, 0, 65541, 21, 0, 65542, 21, 0, 65543, 21, 0, 65544, 1073741853, 0, 65545, 1073741854, 0, 131080, -536870882, 0, 131081, -536870885, 0, 196616, -536870882, 0, 196617, -536870885, 0, 262152, -536870882, 0, 262153, -536870885, 0, 327688, -536870882, 0, 327689, -536870885, 0, 393224, -536870882, 0, 393225, -536870885, 0, 458752, 1073741854, 0, 458753, 1073741854, 0, 458754, 1073741854, 0, 458755, 1610612765, 0, 458760, -536870882, 0, 458761, -536870885, 0, 524288, 1073741851, 0, 524289, 1610612771, 0, 524290, 536870942, 0, 524291, 536870941, 0, 524296, -536870882, 0, 524297, -536870885, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -65,7 +65,7 @@ target_scene = "res://Scenes/Los Muertos/LM_Square.tscn"
 target_direction = 2
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Transition2" parent="Transitions" instance=ExtResource( 6 )]
 position = Vector2( 176, 170 )
@@ -73,7 +73,7 @@ target_scene = "res://Scenes/Los Muertos/LM_Mainstreet_R.tscn"
 target_direction = 1
 
 [node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
-shape = SubResource( 6 )
+shape = SubResource( 2 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 __meta__ = {

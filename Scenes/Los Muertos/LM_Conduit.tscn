@@ -1,11 +1,27 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_ConduitDoor.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Sign.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Props/Conduit/C_Barrel3.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Props/Conduit/C_Barrel4.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/Props/Conduit/C_Barrel2.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Props/Conduit/C_Barrel1.png" type="Texture" id=8]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Audio/Metal Door.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Resources/Sprite Frames (OW)/SpriteFramesOW_Empty.tres" type="SpriteFrames" id=13]
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 5, 4 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 8 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 8 )
 
 [node name="Scene" type="Node2D"]
 
@@ -32,10 +48,127 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Door" type="Sprite" parent="."]
+position = Vector2( 143, 56 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Sign" type="Sprite" parent="."]
+position = Vector2( 178, 62 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="Walls" type="StaticBody2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Barrel" type="StaticBody2D" parent="."]
+position = Vector2( 125, 81 )
+z_index = 81
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Barrel"]
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel"]
+position = Vector2( 0, 4 )
+shape = SubResource( 3 )
+
+[node name="Barrel2" type="StaticBody2D" parent="."]
+position = Vector2( 120, 85 )
+z_index = 85
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Barrel2"]
+texture = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel2"]
+position = Vector2( 0, 4 )
+shape = SubResource( 3 )
+
+[node name="Barrel3" type="StaticBody2D" parent="."]
+position = Vector2( 201, 137 )
+z_index = 137
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Barrel3"]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel3"]
+position = Vector2( 0, 4 )
+shape = SubResource( 3 )
+
+[node name="Barrel4" type="StaticBody2D" parent="."]
+position = Vector2( 209, 116 )
+z_index = 116
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Barrel4"]
+texture = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel4"]
+position = Vector2( 0, 4 )
+shape = SubResource( 3 )
+
+[node name="Barrel5" type="StaticBody2D" parent="."]
+position = Vector2( 215, 129 )
+z_index = 129
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Barrel5"]
+texture = ExtResource( 5 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel5"]
+position = Vector2( 0, 4 )
+shape = SubResource( 3 )
+
+[node name="Barrel6" type="StaticBody2D" parent="."]
+position = Vector2( 199, 82 )
+z_index = 82
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Barrel6"]
+texture = ExtResource( 7 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel6"]
+position = Vector2( 0, 4 )
+shape = SubResource( 3 )
+
+[node name="Barrel7" type="StaticBody2D" parent="."]
+position = Vector2( 211, 80 )
+z_index = 80
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Barrel7"]
+texture = ExtResource( 6 )
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel7"]
+position = Vector2( 0, 4 )
+shape = SubResource( 3 )
+
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="Transitions" instance=ExtResource( 3 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 9 )]
 position = Vector2( 160, 170 )
 target_scene = "res://Scenes/Los Muertos/LM_Eastside_N.tscn"
 target_direction = 1
@@ -43,9 +176,28 @@ target_direction = 1
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
 shape = SubResource( 1 )
 
-[node name="Walls" type="StaticBody2D" parent="."]
-__meta__ = {
-"_edit_lock_": true
-}
+[node name="Door2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 160, 82 )
+target_scene = "res://Scenes/The Conduit/C_Entrance1.tscn"
+target_position = Vector2( 160, 140 )
+door_sound = ExtResource( 11 )
+
+[node name="CollisionShape2D" parent="Door2" index="0"]
+shape = SubResource( 2 )
+
+[node name="NPCSign" parent="." instance=ExtResource( 12 )]
+position = Vector2( 184, 57 )
+dialogue_file = "res://Dialogue/Los Muertos/dl_lm_conduitsign.txt"
+change_direction = false
+auto_set_flag = false
+is_object = true
+alt_text_box = true
+
+[node name="Sprite" parent="NPCSign" index="0"]
+frames = ExtResource( 13 )
 
 [editable path="Transitions/Transition"]
+
+[editable path="Door2"]
+
+[editable path="NPCSign"]
