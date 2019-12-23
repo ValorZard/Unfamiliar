@@ -74,6 +74,7 @@
 @> confident
 > Nice.
 @> idle
+@< smile
 > My mom wanted me to take piano lessons a while back.
 @> serious
 > I was never that interested, though.

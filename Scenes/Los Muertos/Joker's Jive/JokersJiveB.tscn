@@ -12,10 +12,10 @@ extents = Vector2( 48, 4 )
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 68 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 24, 4 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 16, 8 )
 
 [sub_resource type="RectangleShape2D" id=5]
@@ -70,7 +70,7 @@ shape = SubResource( 2 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 192, 170 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Door" parent="." instance=ExtResource( 3 )]
 position = Vector2( 192, 162 )
@@ -80,7 +80,7 @@ target_direction = 1
 door_sound = ExtResource( 4 )
 
 [node name="CollisionShape2D" parent="Door" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6

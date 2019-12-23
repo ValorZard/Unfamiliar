@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Rummage.ogg-a640a075a35ae9e18ab60a9a54cb74a7.oggstr"
+
+[deps]
+
+source_file="res://Audio/Rummage.ogg"
+dest_files=[ "res://.import/Rummage.ogg-a640a075a35ae9e18ab60a9a54cb74a7.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

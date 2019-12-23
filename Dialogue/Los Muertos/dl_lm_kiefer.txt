@@ -1,8 +1,12 @@
 0
-Resident: Oh, yeah! Got the shot!
+Resident: ...
 -
 
 1
+Resident: Oh, yeah! Got the shot!
+-
+
+2
 Resident: O-oh. H-hi, demon.
 You, uh... weren't supposed to see that.
 Cosmo: Why'd you just take a picture of me?
@@ -18,7 +22,7 @@ Cosmo: What? No.
 I don't care that you took my picture.
 -
 
-2
+3
 Resident: Well, then what're you scaring me for?!
 Heh, heh... Anyway.
 I'm Keifer. Who're you?
