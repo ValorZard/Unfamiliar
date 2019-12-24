@@ -127,16 +127,7 @@ func _init():
 	
 
 func _ready():
-	#var f := File.new()
-	#if not f.file_exists("user://Hello.txt"):
-	#	f.open("user://Hello.txt", File.WRITE)
-	#	f.store_line("Hello. Please don't edit these files. You'll make Cosmo very upset. Thanks.")
-	#	if f.is_open():
-	#		f.close()
-	
-	#var rt := get_tree().get_root()
-	
-	#connect("scene_changed", self, "test")
+	randomize()
 	
 	controller_connected = len(Input.get_connected_joypads()) > 0
 	Input.connect("joy_connection_changed", self, "controller_connection")
@@ -291,7 +282,7 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		Player.set_in_transition(true)
 		var current_scene := get_tree().get_root().get_node("Scene")
 		var scn: PackedScene = load(path) as PackedScene
-		var scn_i := scn.instance()
+		var scn_i := scn.instance() as Node2D
 		
 		# Setup player movement
 		var target: Vector2
@@ -451,13 +442,13 @@ func dialogue(file: String, set: int, alt_box_type: bool = false, text_size: int
 	return dlg
 	
 	
-func flashback(file: String, art: Texture, transition: bool = true, anim_player: AnimationPlayer = null) -> Flashback:
+func flashback(file: String, art: Texture, transition: bool = true, anim_player_: AnimationPlayer = null) -> Flashback:
 	var fb: PackedScene = load(FlashbackRef) as PackedScene
 	var fb_i = fb.instance() as Flashback
 	fb_i.set_fb_file(file)
 	fb_i.set_art(art)
 	get_tree().get_root().add_child(fb_i)
-	fb_i.start(transition, anim_player)
+	fb_i.start(transition, anim_player_)
 	return fb_i
 
 

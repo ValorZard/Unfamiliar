@@ -41,8 +41,6 @@ onready var anim_player_right := $AnimationPlayerRightChar as AnimationPlayer
 # =====================================================================
 
 func _ready():
-	randomize()
-	
 	line_regex.compile(line_regex_p)
 	buttons_regex.compile(buttons_regex_p)
 	flag_regex.compile(flag_regex_p)

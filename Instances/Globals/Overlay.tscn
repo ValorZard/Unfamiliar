@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Overlay.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/UI/Overlay.png" type="Texture" id=2]
 [ext_resource path="res://Sprites/UI/Map.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UI/MapMarker.png" type="Texture" id=4]
 [ext_resource path="res://Fonts/small_pixel.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Sprites/Items/ItemTemp.png" type="Texture" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Blink"
@@ -73,3 +74,43 @@ mouse_filter = 2
 custom_constants/vseparation = 10
 custom_constants/hseparation = 10
 columns = 2
+
+[node name="Item1" type="TextureRect" parent="CanvasLayer/Inventory"]
+visible = false
+margin_right = 22.0
+margin_bottom = 22.0
+texture = ExtResource( 6 )
+
+[node name="Item2" type="TextureRect" parent="CanvasLayer/Inventory"]
+visible = false
+margin_right = 22.0
+margin_bottom = 22.0
+texture = ExtResource( 6 )
+
+[node name="Item3" type="TextureRect" parent="CanvasLayer/Inventory"]
+visible = false
+margin_left = 32.0
+margin_right = 54.0
+margin_bottom = 22.0
+texture = ExtResource( 6 )
+
+[node name="Item4" type="TextureRect" parent="CanvasLayer/Inventory"]
+visible = false
+margin_left = 32.0
+margin_top = 32.0
+margin_right = 54.0
+margin_bottom = 54.0
+texture = ExtResource( 6 )
+
+[node name="Item5" type="TextureRect" parent="CanvasLayer/Inventory"]
+visible = false
+margin_top = 32.0
+margin_right = 22.0
+margin_bottom = 54.0
+texture = ExtResource( 6 )
+
+[node name="Item6" type="TextureRect" parent="CanvasLayer/Inventory"]
+visible = false
+margin_right = 22.0
+margin_bottom = 22.0
+texture = ExtResource( 6 )
