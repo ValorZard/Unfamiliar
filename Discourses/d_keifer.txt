@@ -229,7 +229,7 @@ I just think it's too much of a hassle.
 < I think it draws energy from the underworld, or something.
 > All right.
 < When she created me, my witch had been practicing witchcraft for about fifteen years.
-@< smile
+@< think
 < And she says it took her...
 @< heh
 < Four months to learn the spell.
@@ -285,6 +285,7 @@ I just think it's too much of a hassle.
 > Man, bein' a witch sounds $wcomplicated.
 < Mhm.
 < Being a familiar is even $wmore $0complicated.
+@> serious
 > ...
 | 2
 > Cosmo, do you...
@@ -301,11 +302,17 @@ I just think it's too much of a hassle.
 < It's not always easy, though.
 @< sad
 < A lot of people don't like demons.
+@> shock
 > What? Why?
 < I don't know.
+@> serious
 < They always call us "eldritch abominations."
+@> edgy
 > Man... why do people have to be like that?
-> There's nothing wrong with demons.
+@> serious
+> Like, what's the big deal? Some horns and glowy eyes?
+@> idle
+> If anything, you're even more interesting than a human.
 @< smile
 < I'm glad you think so.
 @< explain2
@@ -317,43 +324,40 @@ I just think it's too much of a hassle.
 --------------------
 : R_3_1
 < Being able to use magic.
+@> talk
 > Oh, yeah! Demons can use magic.
 @< explain2
+@> idle
 < Yep. Humans have to become witches to use magic, but demons can use it naturally.
 @< smile
 < Although... you still have to learn how to use it. My witch taught me a long time ago.
 > What type of magic do you use?
 < Fire magic. The same as my witch.
+@> serious
 > Oh.
+@> explain
 > Isn't fire magic used for, like...
 @< idle
 > $wKilling people?
+@> serious
 < I mean... you $wcould.
 < If you wanted to be a horrible person and make everyone hate you.
 @< explain2
 < But fire magic also has a lot of more practical uses.
 < Like, for example... imagine never having to buy a box of matches in your life.
+@> idle
 < Need to light the fireplace? Just use fire magic.
 < Birthday candles? Fire magic.
 < Lost your flashlight? Make a flame in your hand and use it for light.
 @< smile
 > Huh... I never thought about it that way.
 @< idle
+@> serious
 < And... you can also use it for self-defense, of course.
 @< sad
 < I hope I never have to go that far.
 < I've almost had to one or two times.
-> Wow... so you must really have to keep control of your temper, huh?
 @< idle
-< I mean... not exactly?
-@< explain
-< It's not like our emotions correlate with our magic.
-@< idle
-< And I'd prefer to think I have enough control over myself to not just attack someone I'm mad at.
-> Yeah. You're right.
-> Sorry I made that assumption.
-@< smile
-< No worries.
 ^ BRANCH_4
 --------------------
 : R_3_2
@@ -363,14 +367,18 @@ I just think it's too much of a hassle.
 @< explain2
 < But that means I get to go all kinds of cool places with her.
 @< smile
+@> talk
 > Does she travel a lot?
 < Yep! She really likes to travel.
 @< explain2
+@> idle
 < Her job also involves a lot of it.
 @< smile
 < And I really like getting to see different places.
 < It makes you realize how small your home city is compared to the rest of the world.
+@> serious
 > That's... really deep.
+@> idle
 > What's your favorite place you've been?
 @< explain2
 < A few years ago, we went all the way to the other end of the country for a few days.
@@ -381,10 +389,51 @@ I just think it's too much of a hassle.
 @< smile
 < But we got to visit a bunch of amazing places.
 < I hope we can go back sometime.
+@> edgy
 > Yeah... I haven't really gotten around much.
+@> idle
 > I was hoping to go to college out of state, but that didn't end up working out.
+@> explain2
 > Someday I'm gonna go on an epic road trip.
+@> idle
 > There are so many places I want to see. Especially out west.
 ^ BRANCH_4
 --------------------
 : R_3_3
+^ BRANCH_4
+========================
+: BRANCH_4
+<< Hey, Keifer...
+[ What type of photography do you like? (-20, -60) R_4_1 | What does "UA" mean? (-20, -10) R_4_2 | (uh) (-20, 50) R_4_3
+--------------------
+--------------------
+: R_4_2
+@< explain
+< What does "UA" mean?
+@> serious
+> What?
+@> idle
+> Oh. The UA on the hat. Right.
+> University of Arizona.
+@< explain2
+< Oh, is that where you go to college?
+> Yeah.
+@> explain2
+@< smile
+> I just started my second year.
+> I'm majoring in graphic design.
+< Oh, cool!
+@> idle
+< Have you been enjoying college?
+@> talk
+> Yeah!
+@> idle
+> I've made tons of friends, and I've been loving dorm life.
+@< idle
+< Do you ever get homesick?
+> Not really. Sometimes it's really nice to get away from home for a while.
+< Oh.
+@> explain2
+> What has your school experience been like?
+@> idle
+< 

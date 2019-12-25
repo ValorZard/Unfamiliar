@@ -42,7 +42,6 @@ __meta__ = {
 position = Vector2( 136, 26 )
 texture = ExtResource( 3 )
 centered = false
-flip_h = true
 
 [node name="Window3" type="Sprite" parent="."]
 position = Vector2( 160, 22 )
