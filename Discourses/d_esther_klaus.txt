@@ -1,0 +1,101 @@
+@< smile
+< So...
+@< explain2
+< What do you two want to talk about?
+@< smile
+> Tell us about being a familiar!
+@< idle
+< What?
+> Klaus, be quiet!
+> ...
+< You two sound like you're dying to ask me something.
+> ...
+> Okay, look, demon...
+@< glare
+< My name is Cosmo.
+| 0.5
+> How does your witch treat you?
+@< idle
+> KLAUS!
+> ...
+> Yeah. How $wdoes $0your witch treat you?
+< ...
+< What do you mean?
+> Is she $wnice $0to you?
+< I mean... yeah.
+@< explain
+< I'm her familiar, but a lot of the time she treats me more like a friend.
+@< smile
+< I help her with her work, but we also do lots of other stuff together.
+> ...
+> I knew it.
+@< idle
+< What?
+> Ugh...
+> Okay... here's the thing, demon.
+@< angry
+< I said my name is Cosmo.
+> Our mom is thinking about creating her own familiar.
+@< idle
+< Really?
+> And we don't want her to.
+< ...Why not?
+> Because...
+| 0.5
+> We're worried that she would pay more attention to it than us.
+@< angry
+< Hey, would you mind not calling familiars "its?" Let alone to my face?
+< We aren't objects. We're demons.
+< We have souls, like you.
+> ...
+> Sorry.
+@< idle
+> We're just worried that our mom would start giving all her attention to her familiar.
+@< glare
+< And what makes you think she would do that?
+> $sYou!
+@< idle
+> Your witch is like your mom.
+@< angry
+< When did I say that?
+> You said she treats you more like her friend than her familiar!
+> It's like you're her son.
+| 0.5
+@< angry2
+< Okay, first off, don't call me a "son." I'm nonbinary.
+< Second, I'm not her child. I'm her $sfamiliar.
+@< angry
+> But you said she's really nice to you!
+@< angry2
+< That doesn't mean $sanything!
+@< angry
+< My witch isn't like a lot of other witches.
+< They treat their familiars like most people treat witches. Like trash.
+@< angry2
+< They do horrible things to them to make up for the horrible things that happen to them.
+@< angry
+> ...
+> But... our mom is really nice!
+<@ idle
+> She would never hurt anyone!
+> She loves us, and if she had a familiar, she would love them, too!
+< ...
+@< angry
+< That doesn't matter.
+@< sad
+< I don't even know if my witch loves me.
+> What?!
+> If she's so nice to you, why wouldn't she?
+@< angry2
+< $sBecause I'm just her FAMILIAR!
+@< cry
+< $sI'm supposed to help her, and all I ever do is screw everything up.
+< $sThis was supposed to be a nice trip, but instead we got separated and I can't find her,
+< $sand I forgot about Communion Day for the millionth time, and she probably hates me,
+< $sbut it doesn't even matter, because I'm just her familiar. I'm not real family.
+< $sHow can you be part of someone's family if you don't even know their name?
+< $sYou two have nothing to worry about. You're more family to your mom than any familiar would be.
+< $sAnd she'll never stop loving you, because you can't love a demon.
+< You can't love a $sstupid eldritch abomination $0and a $swaste of space $0like me.
+< $s...#...#...
+< $sI'm sorry.

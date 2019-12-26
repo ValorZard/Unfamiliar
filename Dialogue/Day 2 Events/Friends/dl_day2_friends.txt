@@ -94,3 +94,57 @@ It's such a pretty city, and I'd like to see more of it.
 Jay: I'm down.
 Kaz: Sounds good!
 Hildred: I'll come, too.
+Geoff: I... think I'll stay here.
+-
+
+12
+Jay: What's the matter, Geoff? Afraid of walking with the witches?
+Geoff: What? No! I'm just... really tired.
+...
+Oh, fine. I'll come, too.
+-
+
+13
+Esther: Do we have to come?
+Penelope: Yes, you two. Everyone else is going.
+Esther: But we've been walking all day!
+Klaus: Yeah!
+-
+
+14
+Cosmo: I can stay here and watch them.
+I was walking around town all of last night, anyway.
+Penelope: Oh, Cosmo, you'd be willing to do that?
+You're such a saint.
+-
+
+15
+Klaus: What?! You're gonna leave us alone with the demon?
+Esther: Klaus, shut up.
+-
+
+16
+Penelope: OK, I don't want to hear any of that from either of you.
+Cosmo is being nice enough to offer to stay here with you.
+So you can either stay here with them or come on a walk with us.
+Esther: ...
+Fine. We'll stay.
+-
+
+17
+Penelope: We'll be back in about half an hour.
+Be good.
+-
+
+18
+WHERE SHOULD WE GO FIRST?? LA LA LA
+-
+
+19
+Cosmo: ...
+Well... looks like we've got some time to kill.
+You two want to talk about anything?
+Klaus: ...
+Esther: ...
+Sure.
+-

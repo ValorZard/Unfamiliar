@@ -404,8 +404,10 @@ I just think it's too much of a hassle.
 ========================
 : BRANCH_4
 << Hey, Keifer...
-[ What type of photography do you like? (-20, -60) R_4_1 | What does "UA" mean? (-20, -10) R_4_2 | (uh) (-20, 50) R_4_3
+[ (uh) (-20, -60) R_4_1 | What does "UA" mean? (-20, -10) R_4_2 | (uh) (-20, 50) R_4_3
 --------------------
+: R_4_1
+^ BRANCH_5
 --------------------
 : R_4_2
 @< explain
@@ -436,4 +438,30 @@ I just think it's too much of a hassle.
 @> explain2
 > What has your school experience been like?
 @> idle
-< 
+< I never went to public school. My witch homeschooled me.
+@> serious
+> Really?
+@< explain
+< Yeah. She homeschooled me for about eight years. Just enough for a basic education.
+< I haven't gone to college, or anything.
+> Do all witches do that with their familiars?
+@< idle
+< No. Some of them enroll their familiars in public school.
+@< sad
+< And some of them don't educate their familiars at all.
+> Wow...
+@< idle
+> Do you have any $winterest $0in going to college?
+< I don't know.
+< I mean... it's not like I can.
+@< explain
+< I'm a familiar. I have to always be there to assist my witch when she needs it.
+> She can't give you time off to do stuff like that?
+< Most witches give their familiars weekends off, but no more than that.
+@< idle
+< It's part of our contract. There's really nothing either of us can do about it.
+> ...
+^ BRANCH_5
+--------------------
+: R_4_3
+^ BRANCH_5
