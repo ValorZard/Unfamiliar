@@ -90,7 +90,7 @@
 < $sBecause I'm just her FAMILIAR!
 @< cry
 < $sI'm supposed to help her, and all I ever do is screw everything up.
-< $sThis was supposed to be a nice trip, but instead we got separated and I can't find her,
+< $sThis was supposed to be a nice trip, but instead we got separated, and I can't find her,
 < $sand I forgot about Communion Day for the millionth time, and she probably hates me,
 < $sbut it doesn't even matter, because I'm just her familiar. I'm not real family.
 < $sHow can you be part of someone's family if you don't even know their name?

@@ -85,8 +85,12 @@ const map_marker_locs: Dictionary = {
 	"res://Scenes/Los Muertos/LM_Thoroughfare_R.tscn":  Vector2(2, 1),
 	"res://Scenes/Los Muertos/LM_Thoroughfare_M.tscn":  Vector2(1, 1),
 	"res://Scenes/Los Muertos/LM_Thoroughfare_L.tscn":  Vector2(0, 1),
+	"res://Scenes/Los Muertos/LM_Topstreet_L.tscn":     Vector2(0, 0),
 	"res://Scenes/Los Muertos/LM_Topstreet_M.tscn":     Vector2(1, 0),
 	"res://Scenes/Los Muertos/LM_Topstreet_R.tscn":     Vector2(2, 0),
+	"res://Scenes/Los Muertos/LM_Westside.tscn":        Vector2(0, 2),
+	"res://Scenes/Los Muertos/LM_Waterfront_L2.tscn":   Vector2(1, 3),
+	"res://Scenes/Los Muertos/LM_Waterfront_L3.tscn":   Vector2(0, 3)
 }
 
 var playtime: float = 0.0
