@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 4 )
@@ -14,6 +17,12 @@ extents = Vector2( 16, 4 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8, 78 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 16, 8 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 8, 48 )
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -69,3 +78,28 @@ shape = SubResource( 3 )
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 232, 88 )
 shape = SubResource( 4 )
+
+[node name="Door" parent="." instance=ExtResource( 3 )]
+position = Vector2( 144, 162 )
+target_scene = "res://Scenes/Los Muertos/LM_Topstreet_R.tscn"
+target_position = Vector2( 168, 80 )
+target_direction = 1
+door_sound = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="Door" index="0"]
+shape = SubResource( 5 )
+
+[node name="Transitions" type="CanvasLayer" parent="."]
+layer = 6
+
+[node name="Transition" parent="Transitions" instance=ExtResource( 5 )]
+position = Vector2( 72, 98 )
+target_scene = "res://Scenes/Los Muertos/Arcade/Arcade_L.tscn"
+target_direction = 2
+
+[node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
+shape = SubResource( 6 )
+
+[editable path="Door"]
+
+[editable path="Transitions/Transition"]

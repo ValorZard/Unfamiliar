@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/LM_Crate.png-7f86bd92aca598b0331ab9dec6cc9a62.stex"
+path="res://.import/LM_Crate_L.png-fdba5a9328c164faa1254792adbfa3b7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Props/Los Muertos/LM_Crate.png"
-dest_files=[ "res://.import/LM_Crate.png-7f86bd92aca598b0331ab9dec6cc9a62.stex" ]
+source_file="res://Sprites/Props/Los Muertos/LM_Crate_L.png"
+dest_files=[ "res://.import/LM_Crate_L.png-fdba5a9328c164faa1254792adbfa3b7.stex" ]
 
 [params]
 
