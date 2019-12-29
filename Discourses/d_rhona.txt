@@ -307,87 +307,85 @@
 < She doesn't trust me to be on my own.
 @> sad
 >  Oh.
+| 1
 @> serious
-> So... what is...
->> What is your witch... like?
-[ She's actually really nice. (-20, -60) R_5_1 | She's all right. (20, -10) R_5_2 | She isn't very nice. (0, 40) R_5_3
-------------------------
-: R_5_1
-* choice_witch_personality 0
-@< smile
-< She's actually really nice.
-@> idle
-< She doesn't usually treat me like an assistant or a familiar.
-< She treats me more like a friend.
-@> happy
-> Really?
-@> idle
-< Yeah. I help her with her work, but we also do things together.
-< We make things for each other's birthdays. Sometimes we go on walks and talk about life.
-< And she really likes to travel, so we go a lot of neat places.
-@> aw
-> Aw... that's so sweet. It's almost like you're her child.
-@< idle
-< Uh... I don't think I'd go that far.
-@> idle
-> Why not? You two are like a family.
-< ...I guess.
-^ END
-------------------------
-: R_5_2
-* choice_witch_personality 1
-< She's all right.
-< We don't talk too much. She just asks me to do stuff for her, and I do it.
-< Not much more than that.
-< I'm just a familiar, after all.
-@> worry
-> Is she nice, though?
-@< sad
-< Well, yeah, but...
-< It doesn't seem like she cares about me too much.
-< It's not like I'm family to her, or anything.
-@> sad
-> That's so sad...
-@< smile
-< We still do stuff together, though!
-@< idle
-< Just not very often.
-@> serious
-^ END
-------------------------
-: R_5_3
-* choice_witch_personality 2
-@< sad
-< She isn't very nice.
+> What's your witch's name?
+< I don't know.
 @> shock
 > What?!
-< Yeah. She yells at me a lot, especially when I do things wrong.
-@> angry
-< She calls me an "idiot" a lot of the time.
-@> outrage
-> How does she think she can do that?!
-< I mean... I'm just her familiar. Her assistant. Nothing more than that.
-@> outrage
-> Yeah, but...!
-@> angry2
-> Ugh.
-> That makes me so mad...
-@> angry
-@< heh
-< $sS-$0she's not all bad, though!
-@< smile
-< She still does nice things sometimes.
+@< explain
+< Familiars aren't allowed to know the names of their witches.
 @> serious
-< We always make something for each other's birthdays. And getting to travel a lot is fun.
+> Why not?
+< It would give us complete control over the contract.
+> ...Contract?
+< When a witch creates a familiar, there's an agreement created between them.
+< It's the familiar's obligation to follow all of their witch's orders,
+< and it's the witch's obligation to protect their familiar.
+< That's the contract. It's the bond they share.
 @< idle
-< That's about it, though.
+< Part of that contract requires the familiar to never learn the witch's name.
+@< explain
+< If the familiar does learn their witch's name, the contract loses its power.
+< The familiar can ignore the witch's orders, and the bond between them is broken.
+@< idle
+< Basically... if a familiar learns their witch's name, it screws everything up.
 @< sad
-> ...
+< I don't know why it works like that, but that's the way it is.
 @> sad
-> You poor thing...
-^ END
-========================
-: END
+> That's so sad...
+< Yeah.
+@> serious
+@< idle
+> You don't even call her by a pseudonym?
+< Neither of us liked that idea.
+< Some familiars might do it, though. I don't know.
+> Oh...
+| 1
+> So, Cosmo...
+>> Do you... think you and your witch are really close?
+[ Yeah. (-20, -60) R_5_1 | A little. (20, -10) R_5_2 | I don't know. (0, 40) R_5_3
+------------------------
+: R_5_1
+< Yeah.
+< Honestly... she treats me more like a friend than an assistant or familiar, a lot of the time.
+@> aw
+> Aw... really?
+@< smile
+< Yeah. I help her with her work, but we also do a lot of things together.
+@> idle
+@< explain2
+< She loves to travel, so we end up going a lot of neat places.
+@< smile
+< And she never makes me work on the weekends.
+< Most witches do that, too, but... it's still nice.
+@< idle
+< I still remember the night she created me.
+@< sad
+< It was... pretty scary for a while.
+@< smile
+< But over the next few days, she did her best to ease me into it and make me feel welcome.
+< I'm really glad she was willing to do that.
+@> aw
+> That's really sweet. You two are like a family.
+@< idle
+< Yeah... I guess that's what you could call it.
+| 1
+@< sad
+@> serious
+< I just hope she isn't mad at me.
+< She was in a really bad mood before she got on the other train.
+< I don't know if it's something I did.
+< I really hate it when she gets mad at me.
+> ...
+@> idle
+> Cosmo, you two sound really close.
+> I don't think she could stay mad at you for very long.
+< ...I guess you're right. She usually doesn't.
+> Besides... you're her familiar. She's kind of... stuck with you.
+@< idle
+> So staying mad at you isn't really in her best interest.
+< Heh... I guess that's true.
 | 1.5
 @> serious
 > Hey, Cosmo?
@@ -406,12 +404,79 @@
 < ...
 @< smile
 < Thanks, Rhona.
+^ END
+------------------------
+: R_5_2
+< MAYBE PUT SOMETHING HERE
+^ END
+------------------------
+: R_5_3
+@< sad
+< I don't know.
+< I want to think we are, but...
+< ...
+| 1
+< I'm just... always worried about it.
+< I always have this anxiety. This lingering worry in the back of my mind.
+@< idle
+@> shock
+> What are you worried about?
+@< sad
+@> serious
+< I'm worried that she doesn't really love me.
+@> sad
+< I'm worried I'm just her familiar and nothing more.
+< That all I'm good for is helping with the daily work.
+< That I'm just a waste of space otherwise.
+@> angry
+> Cosmo, don't think like that.
+> Being a familiar doesn't make you any less of a person.
+> You deserve to be loved like everyone else.
+@> serious
+@< cry
+< That's why I'm so worried!
+@< sad
+< What if she doesn't actually love me?
+< What if she's just faking it to make me feel better about myself?
+< All I want is to have a family. To be loved.
+< I don't understand why I'm always so hung up on it, but that's all I want.
+| 0.5
+@> angry
+> Cosmo, you $sare $0loved.
+> She $sdoes $0love you.
+> She wouldn't go to the trouble of creating you if she didn't want you in her family.
+@> serious
+@< sad2
+< ...
+@> idle
+> And I care about you, too.
+> I know we just met, but you seem like such a caring person.
+> And I want you to be happy.
+> So, please remember that people love you and care about you, all right?
+@< sad
+< ...
+< Okay.
+| 0.5
+@< sad2
+< Thank you, Rhona.
+< Sorry I'm being so negative.
+> You're fine. Everyone needs to vent.
+> You're gonna find your witch and everything'll be fine.
+> So, big smile, okay?
+< ...
+@< smile
+< All right.
+< I really appreciate the kind words, Rhona.
+> Any time.
+^ END
+========================
+: END
 < And thanks for talking with me. I feel a lot better now.
 @> happy
 > I'm glad you had a good time.
 @< heh
 @> ohyes
-> ($wI just had a conversation with a DEMON! How awesome is that?! $0)
+> ($wI just had a conversation with a DEMON! How awesome is that?!$0)
 @< smile
 @> idle
 < Well... I should probably go find my witch.
