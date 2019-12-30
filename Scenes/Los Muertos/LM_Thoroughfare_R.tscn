@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_m_on.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Ainsleys_Sign.png" type="Texture" id=5]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_l_on.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Ainsleys_Sign.png" type="Texture" id=6]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 40 )
@@ -49,10 +50,28 @@ position = Vector2( 127, 74 )
 texture = ExtResource( 3 )
 centered = false
 
+[node name="Door2" type="Sprite" parent="."]
+position = Vector2( 205, 58 )
+texture = ExtResource( 3 )
+centered = false
+flip_h = true
+
 [node name="Window" type="Sprite" parent="."]
 position = Vector2( 100, 70 )
 texture = ExtResource( 4 )
 centered = false
+
+[node name="Window3" type="Sprite" parent="."]
+position = Vector2( 170, 53 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="Window4" type="Sprite" parent="."]
+position = Vector2( 229, 53 )
+texture = ExtResource( 5 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 0, 0, 11, 16 )
 
 [node name="Window2" type="Sprite" parent="."]
 position = Vector2( 80, 70 )
@@ -63,13 +82,13 @@ region_rect = Rect2( 8, 0, 12, 16 )
 
 [node name="Sign" type="Sprite" parent="."]
 position = Vector2( 92, 51 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 centered = false
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="Transitions" instance=ExtResource( 6 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 7 )]
 position = Vector2( 248, 106 )
 target_scene = "res://Scenes/Los Muertos/LM_Mainstreet_N.tscn"
 target_direction = 3
@@ -77,7 +96,7 @@ target_direction = 3
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
 shape = SubResource( 1 )
 
-[node name="Transition2" parent="Transitions" instance=ExtResource( 6 )]
+[node name="Transition2" parent="Transitions" instance=ExtResource( 7 )]
 position = Vector2( 72, 122 )
 target_scene = "res://Scenes/Los Muertos/LM_Thoroughfare_M.tscn"
 target_direction = 2
@@ -90,11 +109,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="DoorAinsleys" parent="." instance=ExtResource( 7 )]
+[node name="DoorAinsleys" parent="." instance=ExtResource( 8 )]
 position = Vector2( 136, 98 )
 target_scene = "res://Scenes/Los Muertos/Ainsley's/Ainsleys.tscn"
 target_position = Vector2( 192, 150 )
-door_sound = ExtResource( 8 )
+door_sound = ExtResource( 9 )
 
 [editable path="Transitions/Transition"]
 

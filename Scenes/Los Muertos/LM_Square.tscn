@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -9,15 +9,14 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Fountain.png" type="Texture" id=8]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit2.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight_light.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight.png" type="Texture" id=16]
-[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Instances/Props/Prop_Streetlamp.tscn" type="PackedScene" id=17]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 8 )
@@ -32,12 +31,12 @@ extents = Vector2( 8, 48 )
 animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
@@ -115,39 +114,6 @@ tracks/2/keys = {
 "method": "play"
 } ]
 }
-
-[sub_resource type="Shader" id=6]
-code = "shader_type canvas_item;
-uniform vec4 color : hint_color;
-
-void fragment() {
-	COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
-	float sprAlpha = texture(TEXTURE, UV).a;
-	
-	if (sprAlpha > 0f) {
-		if (COLOR.r < 0.5)
-			COLOR.r *= 2f * color.r;
-		else
-			COLOR.r = 1f - (2f * (1f - COLOR.r) * (1f - color.r));
-		
-		if (COLOR.g < 0.5)
-			COLOR.g *= 2f * color.g;
-		else
-			COLOR.g = 1f - (2f * (1f - COLOR.g) * (1f - color.g));
-			
-		if (COLOR.b < 0.5)
-			COLOR.b *= 2f * color.b;
-		else
-			COLOR.b = 1f - (2f * (1f - COLOR.b) * (1f - color.b));
-	}
-}"
-
-[sub_resource type="ShaderMaterial" id=7]
-shader = SubResource( 6 )
-shader_param/color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="RectangleShape2D" id=8]
-extents = Vector2( 3.5, 3 )
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 9, 8 )
@@ -264,52 +230,22 @@ frames = SubResource( 4 )
 [node name="AnimationPlayer" parent="EventNPCAriad/Event" index="0"]
 anims/Event = SubResource( 5 )
 
-[node name="Light3" type="Sprite" parent="."]
-material = SubResource( 7 )
-position = Vector2( 104.5, 73 )
-texture = ExtResource( 15 )
-
-[node name="Lamp3" type="StaticBody2D" parent="."]
-position = Vector2( 104.5, 55 )
-z_index = 58
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Lamp3"]
-texture = ExtResource( 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp3"]
-position = Vector2( 0, 16.5 )
-shape = SubResource( 8 )
-
-[node name="Light4" type="Sprite" parent="."]
-material = SubResource( 7 )
-position = Vector2( 214.5, 73 )
-texture = ExtResource( 15 )
-
-[node name="Lamp4" type="StaticBody2D" parent="."]
-position = Vector2( 214.5, 55 )
-z_index = 58
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Lamp4"]
-texture = ExtResource( 16 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp4"]
-position = Vector2( 0, 16.5 )
-shape = SubResource( 8 )
-
-[node name="Door3" parent="." instance=ExtResource( 17 )]
+[node name="Door3" parent="." instance=ExtResource( 15 )]
 position = Vector2( 203, 50 )
 target_scene = "res://Scenes/Los Muertos/Joker's Jive/JokersJive_B.tscn"
 target_position = Vector2( 192, 140 )
-door_sound = ExtResource( 18 )
+door_sound = ExtResource( 16 )
 
 [node name="CollisionShape2D" parent="Door3" index="0"]
 shape = SubResource( 9 )
+
+[node name="Streetlamp" parent="." instance=ExtResource( 17 )]
+position = Vector2( 101, 34 )
+z_index = 58
+
+[node name="Streetlamp2" parent="." instance=ExtResource( 17 )]
+position = Vector2( 209, 34 )
+z_index = 58
 
 [editable path="Transitions/Transition"]
 

@@ -344,7 +344,7 @@
 | 1
 > So, Cosmo...
 >> Do you... think you and your witch are really close?
-[ Yeah. (-20, -60) R_5_1 | A little. (20, -10) R_5_2 | I don't know. (0, 40) R_5_3
+[ Yeah. (-20, -60) R_5_1 | I don't know. (0, 40) R_5_2
 ------------------------
 : R_5_1
 < Yeah.
@@ -407,10 +407,6 @@
 ^ END
 ------------------------
 : R_5_2
-< MAYBE PUT SOMETHING HERE
-^ END
-------------------------
-: R_5_3
 @< sad
 < I don't know.
 < I want to think we are, but...

@@ -1,13 +1,12 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
 [ext_resource path="res://Resources/Particles/Parts_Water.tres" type="Material" id=3]
 [ext_resource path="res://Sprites/Particles/Wave.png" type="Texture" id=4]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight_light.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Streetlight.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Timetable.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Timetable.png" type="Texture" id=6]
+[ext_resource path="res://Instances/Props/Prop_Streetlamp.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -33,40 +32,7 @@ extents = Vector2( 24, 8 )
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 8, 56 )
 
-[sub_resource type="Shader" id=8]
-code = "shader_type canvas_item;
-uniform vec4 color : hint_color;
-
-void fragment() {
-	COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
-	float sprAlpha = texture(TEXTURE, UV).a;
-	
-	if (sprAlpha > 0f) {
-		if (COLOR.r < 0.5)
-			COLOR.r *= 2f * color.r;
-		else
-			COLOR.r = 1f - (2f * (1f - COLOR.r) * (1f - color.r));
-		
-		if (COLOR.g < 0.5)
-			COLOR.g *= 2f * color.g;
-		else
-			COLOR.g = 1f - (2f * (1f - COLOR.g) * (1f - color.g));
-			
-		if (COLOR.b < 0.5)
-			COLOR.b *= 2f * color.b;
-		else
-			COLOR.b = 1f - (2f * (1f - COLOR.b) * (1f - color.b));
-	}
-}"
-
-[sub_resource type="ShaderMaterial" id=9]
-shader = SubResource( 8 )
-shader_param/color = Color( 1, 1, 1, 1 )
-
-[sub_resource type="RectangleShape2D" id=10]
-extents = Vector2( 3.5, 3 )
-
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 28, 4 )
 
 [node name="Scene" type="Node2D"]
@@ -166,44 +132,6 @@ target_direction = 3
 [node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
 shape = SubResource( 7 )
 
-[node name="Light" type="Sprite" parent="."]
-material = SubResource( 9 )
-position = Vector2( 112, 68 )
-texture = ExtResource( 6 )
-
-[node name="Lamp" type="StaticBody2D" parent="."]
-position = Vector2( 112, 50 )
-z_index = 54
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Lamp"]
-texture = ExtResource( 7 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp"]
-position = Vector2( 0, 16.5 )
-shape = SubResource( 10 )
-
-[node name="Light2" type="Sprite" parent="."]
-material = SubResource( 9 )
-position = Vector2( 208, 68 )
-texture = ExtResource( 6 )
-
-[node name="Lamp2" type="StaticBody2D" parent="."]
-position = Vector2( 208, 50 )
-z_index = 54
-__meta__ = {
-"_edit_group_": true
-}
-
-[node name="Sprite" type="Sprite" parent="Lamp2"]
-texture = ExtResource( 7 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lamp2"]
-position = Vector2( 0, 16.5 )
-shape = SubResource( 10 )
-
 [node name="Timetable" type="StaticBody2D" parent="."]
 position = Vector2( 160, 60 )
 z_index = 60
@@ -212,11 +140,19 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Timetable"]
-texture = ExtResource( 8 )
+texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Timetable"]
 position = Vector2( 0, 8 )
-shape = SubResource( 11 )
+shape = SubResource( 8 )
+
+[node name="Streetlamp" parent="." instance=ExtResource( 7 )]
+position = Vector2( 107, 31 )
+z_index = 55
+
+[node name="Streetlamp2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 204, 31 )
+z_index = 55
 
 [editable path="Transitions/Transition"]
 
