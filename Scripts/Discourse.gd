@@ -136,7 +136,7 @@ func click_choice(index: int):
 
 # =====================================================================
 
-func create_button(text: String, pos: Vector2, index: int, target_line: int):
+func create_button(text: String, pos: Vector2, index: int, target_line: int) -> ButtonUF:
 	var but := ChoiceButton.instance() as ButtonUF
 	but.set_text_controller($TextDisplay)
 	but.set_controller(self)
@@ -150,6 +150,7 @@ func create_button(text: String, pos: Vector2, index: int, target_line: int):
 	get_tree().get_root().add_child(but)
 	but.set_button_text(text)
 	but.appear()
+	return but
 
 
 func load_file(path: String):
@@ -242,9 +243,11 @@ func parse_discourse_command(command: String):
 				for but in buttons:
 					create_button(buttons_regex.search(but).get_string(1), Vector2(160 + int(buttons_regex.search(but).get_string(2)), 90 + int(buttons_regex.search(but).get_string(3))), i, label_table[buttons_regex.search(but).get_string(4)])
 					i += 1
-				#for n in range(3):
-				#	(buttons_list[n].get_node("Button") as Button).focus_neighbour_top = NodePath(buttons_list[wrapi(n - 1, 0, 2)].get_node("Button"))
-				#	(buttons_list[n].get_node("Button") as Button).focus_neighbour_bottom = NodePath(buttons_list[wrapi(n + 1, 0, 2)].get_node("Button"))
+				
+				# Link buttons together in Control focus
+				for n in range(3):
+					(buttons_list[n] as ButtonUF).set_neighbor_previous(buttons_list[wrapi(n - 1, 0, len(buttons_list) - 1)] as ButtonUF)
+					(buttons_list[n] as ButtonUF).set_neighbor_next(buttons_list[wrapi(n + 1, 0, len(buttons_list) - 1)] as ButtonUF)
 
 			"^": # Jump to label - FORMAT: ^ `LABEL_NAME`
 				list_index = label_table[text]

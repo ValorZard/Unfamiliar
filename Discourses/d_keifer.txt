@@ -131,7 +131,7 @@
 | 0.5
 @< smile
 << So, Keifer...
-[ What type of photography do you like? (-20, -60) R_2_1 | How do you like Los Muertos? (-20, -10) R_2_2 | (uh) (-20, 50) R_2_3
+[ What type of photography do you like? (-20, -60) R_2_1 | How do you like Los Muertos? (-20, -10) R_2_2 | What have you been up to? (-20, 50) R_2_3
 ------------------------
 : R_2_1
 < What type of photography do you like?
@@ -200,6 +200,32 @@ I just think it's too much of a hassle.
 ^ BRANCH_3
 ------------------------
 : R_2_3
+@< explain2
+< What have you been up to?
+@< smile
+> Oh, y'know... just walking around town and taking some photos.
+> I'm visiting here with some university friends.
+@< idle
+< Where are they?
+@> annoyed
+> They wanted to go shopping.
+@> serious
+> Not sure if you've seen it, but there's a huge mall on the other side of town.
+@> annoyed
+> Shopping really isn't my thing, so I told them to go on without me. We're meeting up again later.
+< Ah.
+@> serious
+> I've tried socializing with some of the locals, but...
+@> edgy
+> There are some $srude $0people here.
+@> annoyed
+> And... some $srude $wcreatures $0here.
+@> serious
+> Maybe I just can't strike a chord with witches, or something.
+@< heh
+> idle
+> I guess I can strike a cord with demons, though.
+@< smile
 ^ BRANCH_3
 ========================
 : BRANCH_3
