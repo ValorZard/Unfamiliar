@@ -36,9 +36,6 @@ var controller = null
 
 var text_controller = null
 
-var neighbor_previous: ButtonUF = null
-var neighbor_next: ButtonUF = null
-
 onready var label := $Label as Label
 onready var spr := $Sprite as Sprite
 onready var anim_player := $AnimationPlayer as AnimationPlayer
@@ -92,9 +89,6 @@ func _ready():
 	
 	if not idle_animation:
 		$AnimationPlayerIdle.stop()
-		
-	but.focus_neighbour_top = neighbor_previous.get_button_path()
-	but.focus_neighbour_bottom = neighbor_next.get_button_path()
 	
 	
 func _process(delta):
@@ -200,13 +194,11 @@ func get_button_path() -> NodePath:
 	
 	
 func set_neighbor_previous(value: ButtonUF):
-	#(get_node("Button") as Button).focus_neighbour_top = value
-	neighbor_previous = value
+	(get_node("Button") as Button).focus_neighbour_top = value.get_button_path()
 	
 	
 func set_neighbor_next(value: ButtonUF):
-	#(get_node("Button") as Button).focus_neighbour_bottom = value
-	neighbor_next = value
+	(get_node("Button") as Button).focus_neighbour_bottom = value.get_button_path()
 	
 # =====================================================================
 

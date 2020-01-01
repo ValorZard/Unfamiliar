@@ -5,7 +5,7 @@ extends Node
 signal scene_changed
 
 const DialogueRef := "res://Instances/Dialogue.tscn"
-const DiscourseStartRef := "res://Scenes/DiscourseStartNew.tscn"
+const DiscourseStartRef := "res://Scenes/DiscourseStart.tscn"
 const CosmoSprite := "res://Resources/Sprite Frames/SpriteFrames_Cosmo.tres"
 const DiscourseScene := "res://Scenes/Discourse.tscn"
 const MenuRef := "res://Instances/System/Menu.tscn"

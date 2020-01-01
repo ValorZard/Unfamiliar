@@ -21,7 +21,7 @@
 @> serious
 < I don't leave the house much, because walking through town isn't fun.
 @< sad
-< I'm glad my witch homeschools me. Public school would be a nightmare.
+< I'm glad my witch homeschooled me. Public school would have been a nightmare.
 > Wow... sounds like a pretty terrible place to live.
 @< idle
 < I mean... it's not the $wworst. $0It's nowhere near as hot there as some of the other places around here.
@@ -41,19 +41,26 @@
 @> happy
 > Z... $wZzyzx? $0That's a strange name.
 @< smile
-< Heh. Yeah.
+< Heh... yeah.
 @> idle
 < It's a small town in the middle of the desert.
 < The people there are pretty nice.
+@< think
+< Although... the people there are also pretty $wweird.
 @< idle
-< Although... $wweird $0people and creatures pass through town sometimes.
 @> serious
-< And it's $shot. $0In the 90s all the time.
+< I guess small desert towns tend to attract those types of people.
+< Also, as you'd expect, it's always $ssuper $0hot.
+< I think it was 90 degrees yesterday. In October.
 > Wow.
-@> think
-> Don't demons like it to be hot, or something?
-< I could take it or leave it.
+> Do you like that kind of weather?
+< Not really.
+@< explain2
+< This chilly weather we have right now is perfect.
 @> idle
+@< smile
+> Oh. I always thought demons liked it to be hot.
+< Only when we're in the mood.
 ^ BRANCH_2
 ------------------------
 : R_1_3
@@ -63,16 +70,32 @@
 > Oh, that's pretty close!
 @< smile
 @> idle
-< Yeah. We actually travel a lot.
+< Yeah.
 @< idle
-< Cottonwood is just so $wboring.
-< At least, I think so. I don't know if my witch cares.
+< It's a shame it's such a $sboring $0town, though.
+@> serious
+@< explain
+< I think my witch feels the same way, because we end up traveling a lot.
+< We have some business in Los Muertos, but we also thought it'd be an interesting place to visit.
+@< glare
+< Certainly more interesting than $wCottonwood.
+@< idle
+< I mean... Cottonwood's single biggest tourist attraction is a giant ball of paperclips.
+< It's not even the biggest ball of paperclips in the country.
+@> idle
+> Heh... sounds boring.
+@< explain2
+< Meanwhile, I'm not even a step into Los Muertos and I've already been dragged into a conversation!
+@< smile
+< I think this place is going to be a lot more interesting.
+@> aw
+> Uh... glad I could help with that!
 @> idle
 ^ BRANCH_2
 ========================
 : BRANCH_2
-| 1.5
-<< Hey, Rhona...
+| 1
+<< So, Rhona...
 [ Where are you from? (-20, -60) R_2_1 | Why are you visiting Los Muertos? (20, -10) R_2_2 | Where are your parents? (0, 40) R_2_3
 ------------------------
 : R_2_1
@@ -113,6 +136,7 @@
 @> laugh
 < Ha!
 @< smile
+@> idle
 ^ BRANCH_3
 ------------------------
 : R_2_3
@@ -141,6 +165,7 @@
 ^ BRANCH_3
 ========================
 : BRANCH_3
+| 1
 @> idle
 > Hey, Cosmo.
 > You said you were a familiar, right?
@@ -148,46 +173,71 @@
 < Yeah.
 @> think
 > What does that mean, exactly?
-  @< whatnow
 < Well, uh...
 @> serious
 @< explain
-< My witch just... $wcreated $0me, because she wanted a personal assistant.
+< My witch created me so she could have a personal assistant.
+< Her job requires a lot of help sometimes.
+> She just... $wcreated $0you?
 @> think
-> I thought all demons were from the... underworld, or something?
+> I thought all demons were from the underworld, or something?
 @> serious
-< Not exactly. It's complicated.
+< Only some of them are.
+< There are demons from the mortal realm, too. In addition to familiars.
+< It's complicated.
 > Oh. All right.
 @< idle
 >> So, what does your witch $wdo, $0exactly?
-[ She teaches people magic. (-20, -60) R_3_1 | She makes and sells potions. (20, -10) R_3_2 | She writes books of hexes. (0, 40) R_3_3
+[ She's a freelance demon summoner. (-20, -60) R_3_1 | She makes and sells potions. (20, -10) R_3_2 | She writes books of spells. (0, 40) R_3_3
 ------------------------
 : R_3_1
 * choice_witch_profession 0
-< She teaches people magic.
+< She's a freelance demon summoner.
 @> shock
-> Wait... you can just $wteach $0people magic?
+> $wExcuse $0me? A what?
+@< explain
+@> serious
+< So... in addition to creating a familiar, witches can also temporarily $wsummon $0demons.
+< $wReal $0demons. Demons from the underworld.
+> Oh.
+@< idle
+> Wait... you aren't a real demon?
+< $wWell... $0Familiars are created with energy from the underworld, but we also have human souls.
+@< explain
+< So, we're still demons, but less so than the ones from the underworld.
+> Okay.
 @> explain
-> I thought you had to be born a witch, or something.
-@< smile
-< Nope! Anyone can become a witch with enough training.
+> Why would she need to summon more demons if she already has you?
+@< idle
+< Sometimes four hands just aren't enough.
+@> serious
+> That's fair.
+< True demons are also $sway $0more powerful than familiars. Sometimes that's what you need.
+> Okay.
+@> explain
+> What do you mean by a "freelance" demon summoner, though?
+@< explain
+< So... people will contact her if they need work done that requires a demon's help.
+@> serious
+< She'll summon a demon for them and have it help with whatever they need.
+@< idle
+< Sometimes I end up helping, too.
+@> shock
+> People are okay with having demons from the underworld help them?
+< Well... it's better than summoning one yourself.
+@< explain
+@> serious
+< You definitely don't want to summon a demon without a witch's help.
+< It's $ssuper $0dangerous. My witch always has to take a bunch of precautions.
+< Because true demons can possess people.
+> Oh...
+< They can't possess other demons, like me, but they could possess our client, or even my witch.
+< So she has to take measures to prevent that from happening.
+@< idle
+> That's really scary.
+< Yeah. That's the sort of thing you sign up for if you become a witch.
 @> idle
-@< heh
-< Anyone human, that is.
-> Does she teach at a school?
-@< smile
-< Nope. She homeschools kids in our town who want to learn magic.
-@> explain2
-> And what about you? Has she taught you magic?
-@< satisfied
-< Oh, there's no need for that. I already know magic.
-@< smile
-@> happy
-> Really?! Can you show me?
-@< heh
-< Uh... that might not be a great idea in public.
-@> idle
-> Er... yeah. You're probably right.
+> Good thing I'm never doing that!
 ^ BRANCH_4
 ------------------------
 : R_3_2
@@ -197,50 +247,86 @@
 @> idle
 > Really? What kinds of potions?
 @< explain2
-< Oh, all sorts. Healing potions, enhancement potions...
+< Oh, all sorts. Mostly medicinal stuff, but also enhancement potions and the like.
 @> happy
-> $wLove $0potions?
-@< smile
-< No. Those are only in movies.
+> What about $wlove $0potions?
+@< heh
+< Those are only in movies.
 @> idle
 > Oh.
+@< smile
 > What does she make them with?
 @< think
 < Uh... lots of weird ingredients I don't know anything about.
-< I don't even know if she gets all her ingredients legally.
-@< heh
-@> heh
-< ...Don't tell her I told you that.
-@> happy
-> My lips are sealed!
+@< idle
+@> serious
+< I'm not exactly a chemist, so I don't help her with too much of the mixing and brewing.
+< Most of the time I just prepare the flasks and then clean everything up afterwards.
+@< sad2
+< And I'm usually the one who runs to the store and brings back a giant bag full of ingredients.
+@< think
+< Although... she gets some ingredients herself.
+@< idle
+< And sometimes she ends up getting them through some... $wdubious $0means.
+@< explain
+< Like... $wmeet in a dark alley wearing black coats, cash only $0dubious.
+> Sounds... scary.
+@< idle
+< Being a witch is scary business.
 ^ BRANCH_4
 ------------------------
 : R_3_3
 * choice_witch_profession 2
-< She writes books of hexes.
-@< explain2
-< You can't cast a spell without knowing how, after all.
-@> explain2
-> So... books of magic words?
-< Not exactly. They're more like pentagrams. Patterns you have to know.
-@> explain
-> Do you... $wdraw $0them somewhere?
-@< explain
-< You can.
-@> serious
-@< think
-< Or you can think about them $wreally $0hard. It takes practice to do that, though.
-@< idle
+< She writes books of spells.
 @> happy
-> Interesting!
+> Oh! Is that how people learn magic?
 @< smile
-< She also talks all about the spells in the books. You know... the history of magic, and all.
+< It's part of it.
 @> idle
+> What's in the books, exactly? Magic words and stuff?
+@< idle
+< Sort of.
+@< explain
+< Magic is really complicated. There are a lot of parts to it.
+< It's a combination of words, hand movements, and runes and symbols.
+< Sometimes you need to carve a rune into a surface. Sometimes you don't. It depends on the spell.
+@> serious
+> Okay.
+> Sounds complicated.
+@< heh
+< Oh, trust me: it is.
+@< smile
+< It's a bit easier for me, since I'm a demon.
+@> happy
+> Wait... you know magic?
+@< satisfied
+< Yep! All demons can naturally use magic.
+@< smile
+< We still have to learn how, though. My witch taught me.
+> That's super cool!
+@> idle
+> Have you read your witch's books?
+< Yeah. They're really interesting.
+@< explain2
+< She talks about the mechanisms behind all the spells, and the history of magic, and stuff like that.
+@< smile
 > Is she a good writer?
 < Yeah. She has a real way with words.
+@> happy
+> How do you help her with that?
+@> idle
+< She taught me all about editing, so I help her proofread and fix mistakes and things like that.
+@< heh
+< Sometimes she even lets me throw in a chapter or two of my own.
+@> happy
+> Really?
+@< smile
+< Yeah. They're never anywhere near as good as hers, but it's something.
+@> idle
 ^ BRANCH_4
 ========================
 : BRANCH_4
+| 0.5
 @< smile
 @> idle
 << What about you, Rhona?
@@ -298,6 +384,7 @@
 ^ BRANCH_5
 ========================
 : BRANCH_5
+| 1
 @> idle
 > So, Cosmo...
 > You normally wouldn't be apart from your witch, right?
@@ -344,10 +431,11 @@
 | 1
 > So, Cosmo...
 >> Do you... think you and your witch are really close?
-[ Yeah. (-20, -60) R_5_1 | I don't know. (0, 40) R_5_2
+[ Yeah. (-20, -35) R_5_1 | I don't know. (0, 25) R_5_2
 ------------------------
 : R_5_1
 < Yeah.
+@> idle
 < Honestly... she treats me more like a friend than an assistant or familiar, a lot of the time.
 @> aw
 > Aw... really?
@@ -460,10 +548,11 @@
 > You're gonna find your witch and everything'll be fine.
 > So, big smile, okay?
 < ...
-@< smile
+@< smile2
 < All right.
 < I really appreciate the kind words, Rhona.
 > Any time.
+@< smile
 ^ END
 ========================
 : END

@@ -245,9 +245,10 @@ func parse_discourse_command(command: String):
 					i += 1
 				
 				# Link buttons together in Control focus
-				for n in range(3):
-					(buttons_list[n] as ButtonUF).set_neighbor_previous(buttons_list[wrapi(n - 1, 0, len(buttons_list) - 1)] as ButtonUF)
-					(buttons_list[n] as ButtonUF).set_neighbor_next(buttons_list[wrapi(n + 1, 0, len(buttons_list) - 1)] as ButtonUF)
+				yield(get_tree().create_timer(0.03), "timeout")
+				for n in range(len(buttons_list)):
+					(buttons_list[n] as ButtonUF).set_neighbor_previous(buttons_list[wrapi(n - 1, 0, len(buttons_list))] as ButtonUF)
+					(buttons_list[n] as ButtonUF).set_neighbor_next(buttons_list[wrapi(n + 1, 0, len(buttons_list))] as ButtonUF)
 
 			"^": # Jump to label - FORMAT: ^ `LABEL_NAME`
 				list_index = label_table[text]

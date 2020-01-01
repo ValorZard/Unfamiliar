@@ -24,3 +24,43 @@ Your witch might be there.
 4
 Chip: You just really like hearing me roar, don't you?
 -
+
+5
+Chip: Welcome to the Styx Inn.
+Cosmo: Hi. Has a witch wearing a yellow coat checked into this hotel?
+Chip: Nope. It's been a pretty slow day.
+Cosmo: ...
+Chip: You looking to stay here tonight?
+Cosmo: Yeah.
+Chip: Sure thing. That'll be $10.
+-
+
+6
+Chip: Hello again.
+Had any luck finding your witch?
+Cosmo: No.
+Chip: Hm... that's not good.
+Cosmo: She still hasn't checked into here?
+Chip: Nope. Unfortunately not.
+Cosmo: ...
+Chip: I'm sure she'll turn up tomorrow.
+Cosmo: Hopefully.
+Chip: Well...
+You looking to stay here tonight?
+Cosmo: Yeah.
+Chip: Sure thing. That'll be $10.
+-
+
+7
+Chip: Thank you very much! Here's your room key.
+-
+
+8
+Chip: You'll be in room 208, upstairs and to the right.
+Your room's already ready for you.
+Cosmo: All right. Thanks.
+-
+
+9
+Chip: Have a good evening!
+-

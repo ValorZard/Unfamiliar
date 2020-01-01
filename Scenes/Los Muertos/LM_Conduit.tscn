@@ -14,13 +14,13 @@
 [ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Resources/Sprite Frames (OW)/SpriteFramesOW_Empty.tres" type="SpriteFrames" id=13]
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 5, 4 )
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32, 8 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 8 )
 
 [node name="Scene" type="Node2D"]
@@ -76,7 +76,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel"]
 position = Vector2( 0, 4 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Barrel2" type="StaticBody2D" parent="."]
 position = Vector2( 120, 85 )
@@ -90,7 +90,7 @@ texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel2"]
 position = Vector2( 0, 4 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Barrel3" type="StaticBody2D" parent="."]
 position = Vector2( 201, 137 )
@@ -104,7 +104,7 @@ texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel3"]
 position = Vector2( 0, 4 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Barrel4" type="StaticBody2D" parent="."]
 position = Vector2( 209, 116 )
@@ -118,7 +118,7 @@ texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel4"]
 position = Vector2( 0, 4 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Barrel5" type="StaticBody2D" parent="."]
 position = Vector2( 215, 129 )
@@ -133,7 +133,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel5"]
 position = Vector2( 0, 4 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Barrel6" type="StaticBody2D" parent="."]
 position = Vector2( 199, 82 )
@@ -148,7 +148,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel6"]
 position = Vector2( 0, 4 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Barrel7" type="StaticBody2D" parent="."]
 position = Vector2( 211, 80 )
@@ -163,7 +163,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Barrel7"]
 position = Vector2( 0, 4 )
-shape = SubResource( 3 )
+shape = SubResource( 1 )
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
@@ -174,7 +174,7 @@ target_scene = "res://Scenes/Los Muertos/LM_Eastside_N.tscn"
 target_direction = 1
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Door2" parent="." instance=ExtResource( 10 )]
 position = Vector2( 160, 82 )
@@ -183,7 +183,7 @@ target_position = Vector2( 160, 140 )
 door_sound = ExtResource( 11 )
 
 [node name="CollisionShape2D" parent="Door2" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="NPCSign" parent="." instance=ExtResource( 12 )]
 position = Vector2( 184, 57 )

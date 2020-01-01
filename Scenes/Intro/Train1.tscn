@@ -77,8 +77,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 20, 22, 23, 23.8, 38, 38.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 20, 22, 23.8, 38, 38.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ false ],
 "method": "_event_show_player"
@@ -88,9 +88,6 @@ tracks/0/keys = {
 }, {
 "args": [ "res://Dialogue/Train/dl_train_intro.txt", 0 ],
 "method": "_event_dialogue"
-}, {
-"args": [ "res://Flashbacks/fb_opening.txt", "res://Sprites/Artwork/Art_temp.png" ],
-"method": "_event_flashback"
 }, {
 "args": [ "res://Dialogue/Train/dl_train_intro.txt", 1 ],
 "method": "_event_dialogue"

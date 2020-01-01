@@ -1,6 +1,8 @@
 < Your name was Yaga, right?
 > Yes. I said it two minutes ago, hamster hair.
+@< glare
 | 1
+@< idle
 > Okay, familiar...
 @< glare
 < My name's Cosmo.
@@ -130,7 +132,8 @@
 > I hate it! It was the worst choice I ever made!
 > What genius thought it should be a permanent decision?
 > I was a fifteen-year-old girl who was fascinated with demons and the underworld.
-> It was a fad. I chained myself to the underworld because of a fad.
+> It was a fad.
+> I chained myself to the underworld because of a $sfad.
 > And once I realized I'd thrown my life away, I couldn't go back.
 > You're a demon. You know what it's like. Everyone's terrified of you.
 > That's why I moved to Los Muertos. People are more used to it here.

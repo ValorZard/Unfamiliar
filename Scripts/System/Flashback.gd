@@ -24,8 +24,8 @@ func _ready():
 	
 	
 func start(transition: bool = true, anim_player: AnimationPlayer = null):
-	animation_player = anim_player
-	anim_player.stop(false)
+	#animation_player = anim_player
+	#anim_player.stop(false)
 	if transition:
 		$CanvasLayer/ColorRect.get_material().set_shader_param("cutoff", 1)
 		$CanvasLayer/ColorRect.hide()
@@ -74,9 +74,9 @@ func show_flashback_text():
 		
 		if fb_waits[i] > 0:
 			text_controller.hide_box()
-			animation_player.play()
+			#animation_player.play()
 			yield(get_tree().create_timer(fb_waits[i]), "timeout")
-			animation_player.stop(false)
+			#animation_player.stop(false)
 	
 	if end_anim:
 		text_controller.hide_box()
