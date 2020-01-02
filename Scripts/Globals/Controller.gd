@@ -4,6 +4,7 @@ extends Node
 
 signal scene_changed
 signal fullscreen_toggled(fullscreen)
+signal windowsize_changed(size)
 
 const DialogueRef := "res://Instances/Dialogue.tscn"
 const DiscourseStartRef := "res://Scenes/DiscourseStart.tscn"
@@ -155,8 +156,24 @@ func _process(delta: float):
 		save_settings()
 		emit_signal("fullscreen_toggled", OS.is_window_fullscreen())
 		
-	if Input.is_action_just_pressed("debug_2"):
-		save_game(0, OS.get_datetime())
+	if Input.is_action_just_pressed("sys_windowsize"):
+		match int(settings["window_size"]):
+			0:
+				OS.set_window_size(Vector2(1920, 1080))
+				settings["window_size"] = 1
+			1:
+				OS.set_window_size(Vector2(2560, 1440))
+				settings["window_size"] = 2
+			2:
+				OS.set_window_size(Vector2(1280, 720))
+				settings["window_size"] = 0
+		OS.center_window()
+		save_settings()
+		emit_signal("windowsize_changed", int(settings["window_size"]))
+				
+		
+	#if Input.is_action_just_pressed("debug_2"):
+	#	save_game(0, OS.get_datetime())
 
 # =====================================================================
 

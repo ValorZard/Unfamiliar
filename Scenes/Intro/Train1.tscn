@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Scene_Train1.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=2]
@@ -14,8 +14,12 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_down.png" type="Texture" id=12]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=14]
-[ext_resource path="res://Audio/Train loop.ogg" type="AudioStream" id=15]
-[ext_resource path="res://Audio/Train stop.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Sprites/UI/Tutorial1.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/UI/Tutorial3.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/UI/Tutorial4.png" type="Texture" id=18]
+[ext_resource path="res://Audio/Train loop.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Audio/Train stop.ogg" type="AudioStream" id=20]
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
@@ -233,6 +237,84 @@ tracks/11/keys = {
 "method": "play"
 } ]
 }
+tracks/12/type = "method"
+tracks/12/path = NodePath("../Tutorial1")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear"
+} ]
+}
+tracks/13/type = "method"
+tracks/13/path = NodePath("../Tutorial2")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear"
+} ]
+}
+tracks/14/type = "method"
+tracks/14/path = NodePath("../Tutorial3")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "appear"
+} ]
+}
+tracks/15/type = "value"
+tracks/15/path = NodePath("../Tutorial1:modulate")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/keys = {
+"times": PoolRealArray( 0, 37, 38.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/16/type = "value"
+tracks/16/path = NodePath("../Tutorial2:modulate")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/keys = {
+"times": PoolRealArray( 0, 37, 38.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/17/type = "value"
+tracks/17/path = NodePath("../Tutorial3:modulate")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/keys = {
+"times": PoolRealArray( 0, 37, 38.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 8, 30 )
@@ -262,7 +344,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "New Anim"
-playback_speed = -2.00497
+playback_speed = -2.0
 "anims/New Anim" = SubResource( 1 )
 
 [node name="TileMap4" type="TileMap" parent="."]
@@ -497,13 +579,37 @@ custom_fonts/font = ExtResource( 14 )
 text = "Unfamiliar"
 align = 1
 
+[node name="Tutorial1" parent="." instance=ExtResource( 15 )]
+position = Vector2( 216, 49 )
+button_text = ""
+button_image = ExtResource( 16 )
+choice_button = false
+selection_animation = false
+image_only = true
+
+[node name="Tutorial2" parent="." instance=ExtResource( 15 )]
+position = Vector2( 106, 38 )
+button_text = ""
+button_image = ExtResource( 17 )
+choice_button = false
+selection_animation = false
+image_only = true
+
+[node name="Tutorial3" parent="." instance=ExtResource( 15 )]
+position = Vector2( 165, 33 )
+button_text = ""
+button_image = ExtResource( 18 )
+choice_button = false
+selection_animation = false
+image_only = true
+
 [node name="BGSTrain" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 15 )
-volume_db = -61.5
+stream = ExtResource( 19 )
+volume_db = -80.0
 autoplay = true
 
 [node name="SoundTrainStop" type="AudioStreamPlayer" parent="."]
-stream = ExtResource( 16 )
+stream = ExtResource( 20 )
 volume_db = -80.0
 
 [editable path="Event"]

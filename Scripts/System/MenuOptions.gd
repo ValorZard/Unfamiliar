@@ -67,6 +67,7 @@ var active := false
 
 func _ready():
 	Controller.connect("fullscreen_toggled", self, "fullscreen_changed")
+	Controller.connect("windowsize_changed", self, "windowsize_changed")
 	yield(get_tree().create_timer(0.8), "timeout")
 	
 	load_settings()
@@ -159,6 +160,12 @@ func load_settings():
 	
 func fullscreen_changed(value: bool):
 	fullscreen_value = value
+	update_controller_settings()
+	update_shading()
+	
+	
+func windowsize_changed(value: int):
+	windowsize_value = value
 	update_controller_settings()
 	update_shading()
 

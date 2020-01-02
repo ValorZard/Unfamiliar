@@ -60,10 +60,11 @@ export(float) var idle_y = 0
 
 export(bool) var decisive_click = false
 
-export(bool) var choice_button = true
-export(bool) var idle_animation = true
-export(bool) var selection_animation = true
-export(bool) var fast_fade = false
+export(bool) var choice_button := true
+export(bool) var idle_animation := true
+export(bool) var selection_animation := true
+export(bool) var fast_fade := false
+export(bool) var image_only := false
 #export(NodePath) var manager = null
 
 # =====================================================================
@@ -76,6 +77,10 @@ func _ready():
 	label.show()
 	if button_image != null:
 		spr.set_texture(button_image)
+		
+	#if image_only:
+	#	label.hide()
+	#	set_self_modulate(Color(1, 1, 1, 0))
 
 	for point in polygon:
 		var xx = rand_range(-Variance, Variance) if choice_button else 0.0
@@ -108,10 +113,10 @@ func _process(delta):
 
 
 func _draw():
-	var col: Color = Color(0.17, 0.27, 0.5, hover_alpha)
+	var col: Color = Color(0.17, 0.27, 0.5, hover_alpha if not image_only else 0.0)
 	draw_polygon(PoolVector2Array([poly[0] + Vector2(-OutlineWidth, OutlineWidth) + Vector2(-hover_offset, hover_offset), poly[1] + Vector2(OutlineWidth, OutlineWidth) + Vector2(hover_offset, hover_offset), poly[2] + Vector2(OutlineWidth, -OutlineWidth) + Vector2(hover_offset, -hover_offset), poly[3] + Vector2(-OutlineWidth, -OutlineWidth) + Vector2(-hover_offset, -hover_offset)]), PoolColorArray([col, col, col, col]))
-	draw_polygon(PoolVector2Array([poly[0] + Vector2(-OutlineWidth, OutlineWidth), poly[1] + Vector2(OutlineWidth, OutlineWidth), poly[2] + Vector2(OutlineWidth, -OutlineWidth), poly[3] + Vector2(-OutlineWidth, -OutlineWidth)]), ColorsSelect if hover else ColorsWhite)
-	draw_polygon(poly, ColorsShaded if shaded else ColorsBlack)
+	draw_polygon(PoolVector2Array([poly[0] + Vector2(-OutlineWidth, OutlineWidth), poly[1] + Vector2(OutlineWidth, OutlineWidth), poly[2] + Vector2(OutlineWidth, -OutlineWidth), poly[3] + Vector2(-OutlineWidth, -OutlineWidth)]), PoolColorArray([Color(1, 1, 1, 0)]) if image_only else (ColorsSelect if hover else ColorsWhite))
+	draw_polygon(poly, PoolColorArray([Color(1, 1, 1, 0)]) if image_only else (ColorsShaded if shaded else ColorsBlack))
 	
 # =====================================================================
 
@@ -157,6 +162,8 @@ func setup_animation(end_pos: Vector2):
 	player.remove_animation("__temp3")
 	
 	player.play("Appear")
+	if image_only:
+		player.seek(0.9)
 	
 	
 func anim_selected(destroy: bool = true):
@@ -217,14 +224,14 @@ func set_neighbor_next(value: ButtonUF):
 func _on_AnimationPlayer_animation_finished(anim_name: String):
 	if anim_name == "Appear":
 		active = true
-		but.set_disabled(false)
+		but.set_disabled(image_only)
 	
 	if (anim_name == "Select" or anim_name == "Select Fast" or anim_name == "Disappear") and destroy_after_disappear:
 		queue_free()
 
 
 func _button_get_focus():
-	if active:
+	if active and not image_only:
 		but.grab_focus()
 		if sound:
 			Controller.play_sound_oneshot(SoundHover, rand_range(0.95, 1.05))
