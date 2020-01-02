@@ -212,11 +212,11 @@ func get_button_path() -> NodePath:
 	return get_node("Button").get_path()
 	
 	
-func set_neighbor_previous(value: ButtonUF):
+func set_neighbor_previous(value):
 	(get_node("Button") as Button).focus_neighbour_top = value.get_button_path()
 	
 	
-func set_neighbor_next(value: ButtonUF):
+func set_neighbor_next(value):
 	(get_node("Button") as Button).focus_neighbour_bottom = value.get_button_path()
 	
 # =====================================================================

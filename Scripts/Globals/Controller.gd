@@ -335,7 +335,7 @@ func open_options_menu(use_background: bool = true):
 	return menu
 
 
-func open_exit_menu(parent_menu: Menu):
+func open_exit_menu(parent_menu):
 	var menu := (load(ExitMenuRef) as PackedScene).instance()
 	menu.set_parent_menu(parent_menu)
 	get_tree().get_root().add_child(menu)
