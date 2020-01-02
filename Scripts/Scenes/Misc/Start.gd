@@ -1,8 +1,10 @@
 extends Node2D
 
 export(bool) var skip_logos := false
+export(bool) var editor_mode := false
 
 func _ready():
+	Controller.set_editor_mode(editor_mode)
 	Controller.draw_overlay(false)
 	Controller.draw_overlay_map(false)
 	Player.hide()

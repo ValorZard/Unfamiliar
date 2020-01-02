@@ -22,6 +22,8 @@ const EmoteRef := preload("res://Instances/System/Emote.tscn")
 
 enum Emote {Exclamation, Question, Interrobang}
 
+var editor_mode := false
+
 #var inventory := []
 
 var flags: Dictionary = {
@@ -153,7 +155,8 @@ func _process(delta: float):
 	if Input.is_action_just_pressed("sys_fullscreen"):
 		OS.set_window_fullscreen(not OS.is_window_fullscreen())
 		settings["fullscreen"] = 1 if OS.is_window_fullscreen() else 0
-		save_settings()
+		if not editor_mode:
+			save_settings()
 		emit_signal("fullscreen_toggled", OS.is_window_fullscreen())
 		
 	if Input.is_action_just_pressed("sys_windowsize"):
@@ -168,7 +171,8 @@ func _process(delta: float):
 				OS.set_window_size(Vector2(1280, 720))
 				settings["window_size"] = 0
 		OS.center_window()
-		save_settings()
+		if not editor_mode:
+			save_settings()
 		emit_signal("windowsize_changed", int(settings["window_size"]))
 				
 		
@@ -176,6 +180,9 @@ func _process(delta: float):
 	#	save_game(0, OS.get_datetime())
 
 # =====================================================================
+
+func set_editor_mode(value: bool):
+	editor_mode = value
 
 func flag(key: String) -> int:
 	return flags[key]
