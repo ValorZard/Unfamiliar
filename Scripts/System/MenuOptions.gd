@@ -63,9 +63,10 @@ var speed_d_value: int = 2
 
 var active := false
 
+# =====================================================================
 
 func _ready():
-	Controller.connect("toggle_fullscreen", self, "fullscreen_changed")
+	Controller.connect("fullscreen_toggled", self, "fullscreen_changed")
 	yield(get_tree().create_timer(0.8), "timeout")
 	
 	load_settings()
@@ -73,6 +74,14 @@ func _ready():
 	
 	for but in buttons:
 		but.appear()
+		
+# =====================================================================
+
+func start(use_background: bool):
+	if not use_background:
+		$CanvasLayerSettings/ColorRect.hide()
+		
+	$AnimationPlayer.play("Appear")
 		
 		
 func set_volume(value: float):

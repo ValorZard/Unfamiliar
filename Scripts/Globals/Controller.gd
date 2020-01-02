@@ -3,7 +3,7 @@ extends Node
 #class_name Controller
 
 signal scene_changed
-signal toggle_fullscreen(fullscreen)
+signal fullscreen_toggled(fullscreen)
 
 const DialogueRef := "res://Instances/Dialogue.tscn"
 const DiscourseStartRef := "res://Scenes/DiscourseStart.tscn"
@@ -153,7 +153,7 @@ func _process(delta: float):
 		OS.set_window_fullscreen(not OS.is_window_fullscreen())
 		settings["fullscreen"] = 1 if OS.is_window_fullscreen() else 0
 		save_settings()
-		emit_signal("toggle_fullscreen", OS.is_window_fullscreen())
+		emit_signal("fullscreen_toggled", OS.is_window_fullscreen())
 		
 	if Input.is_action_just_pressed("debug_2"):
 		save_game(0, OS.get_datetime())
@@ -314,6 +314,7 @@ func open_save_menu(load_: bool, use_background: bool = true):
 func open_options_menu(use_background: bool = true):
 	var menu := (load(OptionsMenuRef) as PackedScene).instance()
 	get_tree().get_root().add_child(menu)
+	menu.start(use_background)
 	return menu
 
 
@@ -483,6 +484,7 @@ func play_sound_oneshot_from_path(sound: String, pitch: float = 1.0, volume: flo
 func dialogue(file: String, set: int, alt_box_type: bool = false, text_size: int = 8, reset_state: bool = true) -> Dialogue:
 	var dlg: Dialogue = (load(DialogueRef) as PackedScene).instance() as Dialogue
 	dlg.set_text_size(text_size)
+	dlg.set_text_speed(text_speed_ow)
 	if alt_box_type:
 		dlg.set_alt_box_texture()
 	dlg.start(file, set, reset_state)
@@ -516,7 +518,7 @@ func start_discourse(full_name: String, file: String, right_name: String, right_
 	goto_scene(DiscourseScene, Vector2.ZERO, Player.Direction.Down, false)
 	yield(get_tree().create_timer(0.02), "timeout")
 	Player.hide()
-	get_tree().get_root().get_node("Scene").run_discourse(full_name, file, right_name, right_sprite, left_name, left_sprite)
+	get_tree().get_root().get_node("Scene").run_discourse(full_name, file, right_name, right_sprite, left_name, left_sprite, text_speed_d)
 	
 	
 func draw_overlay(draw: bool):

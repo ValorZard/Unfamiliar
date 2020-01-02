@@ -8,7 +8,6 @@ signal text_ended_button
 export(DynamicFont) var font
 export(AudioStream) var sound_type
 
-const Interval := 0.02
 const XStart := 38
 const YStart := 136
 const LineSpacing := 14
@@ -201,6 +200,16 @@ func set_name_text(text_: String):
 func set_name_side(right: bool):
 	pass
 	
+
+func set_text_speed(value: int):
+	match value:
+		0:
+			$TimerRollText.set_wait_time(0.04)
+		1:
+			$TimerRollText.set_wait_time(0.03)
+		2:
+			$TimerRollText.set_wait_time(0.02)
+
 
 func display_text(text_: String):
 	disp = -1

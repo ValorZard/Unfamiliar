@@ -6,7 +6,6 @@ class_name Dialogue
 
 signal dialogue_ended
 
-const Interval := 0.02
 const name_regex_pat := "^(.+:).+$"
 const name_bbcode_start := "[color=#7ca3ff]"
 const name_bbcode_end := "[/color]"
@@ -65,6 +64,16 @@ func set_text_size(value: int):
 func set_alt_box_texture():
 	$Box.hide()
 	$Box2.show()
+	
+	
+func set_text_speed(value: int):
+	match value:
+		0:
+			$TimerRollText.set_wait_time(0.04)
+		1:
+			$TimerRollText.set_wait_time(0.03)
+		2:
+			$TimerRollText.set_wait_time(0.02)
 	
 
 func start(file: String, set: int, reset_state_: bool):

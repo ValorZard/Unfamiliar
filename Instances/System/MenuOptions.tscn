@@ -3104,6 +3104,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [ -200, -200, 14.0 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayerSettings/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0470588, 0.0745098, 0.137255, 0 ), Color( 0.0470588, 0.0745098, 0.137255, 1 ) ]
+}
 
 [sub_resource type="Animation" id=93]
 resource_name = "Disappear"
@@ -3132,14 +3144,36 @@ tracks/1/keys = {
 "update": 0,
 "values": [ 14.0, -200 ]
 }
+tracks/2/type = "value"
+tracks/2/path = NodePath("CanvasLayerSettings/ColorRect:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.6, 1.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.0470588, 0.0745098, 0.137255, 1 ), Color( 0.0470588, 0.0745098, 0.137255, 0 ) ]
+}
 
 [node name="MenuOptions" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="CanvasLayerSettings" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayerSettings"]
+margin_right = 320.0
+margin_bottom = 180.0
+mouse_filter = 2
+color = Color( 0.0470588, 0.0745098, 0.137255, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Settings" type="VBoxContainer" parent="CanvasLayerSettings"]
-margin_left = 14.0
+margin_left = -200.0
 margin_top = 20.0
 mouse_filter = 2
 custom_constants/separation = 14
@@ -3148,7 +3182,7 @@ __meta__ = {
 }
 
 [node name="Volume" type="Label" parent="CanvasLayerSettings/Settings"]
-margin_right = 159.0
+margin_right = 200.0
 margin_bottom = 14.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.486275, 0.639216, 1, 1 )
@@ -3156,7 +3190,7 @@ text = "Volume"
 
 [node name="TextSpeed1" type="Label" parent="CanvasLayerSettings/Settings"]
 margin_top = 28.0
-margin_right = 159.0
+margin_right = 200.0
 margin_bottom = 42.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.486275, 0.639216, 1, 1 )
@@ -3164,7 +3198,7 @@ text = "Overworld Text Speed"
 
 [node name="TextSpeed2" type="Label" parent="CanvasLayerSettings/Settings"]
 margin_top = 56.0
-margin_right = 159.0
+margin_right = 200.0
 margin_bottom = 70.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.486275, 0.639216, 1, 1 )
@@ -3172,7 +3206,7 @@ text = "Conversation Text Speed"
 
 [node name="WindowSize" type="Label" parent="CanvasLayerSettings/Settings"]
 margin_top = 84.0
-margin_right = 159.0
+margin_right = 200.0
 margin_bottom = 98.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.486275, 0.639216, 1, 1 )
@@ -3180,7 +3214,7 @@ text = "Window Size"
 
 [node name="Fullscreen" type="Label" parent="CanvasLayerSettings/Settings"]
 margin_top = 112.0
-margin_right = 159.0
+margin_right = 200.0
 margin_bottom = 126.0
 custom_fonts/font = ExtResource( 2 )
 custom_colors/font_color = Color( 0.486275, 0.639216, 1, 1 )
@@ -3681,6 +3715,7 @@ margin_right = 22.0
 margin_bottom = 11.0
 
 [node name="CanvasLayerMisc" type="CanvasLayer" parent="."]
+layer = 3
 
 [node name="ButtonSettings" parent="CanvasLayerMisc" instance=ExtResource( 3 )]
 visible = false
@@ -3721,7 +3756,7 @@ margin_right = 25.0
 margin_bottom = 6.0
 
 [node name="Polygon2D" type="Polygon2D" parent="CanvasLayerMisc"]
-position = Vector2( 8, 190 )
+position = Vector2( 80, 300 )
 color = Color( 0.109804, 0.188235, 0.352941, 1 )
 polygon = PoolVector2Array( 185, -7, 315, -82, 316, -8 )
 
@@ -3737,7 +3772,6 @@ text = "Options"
 align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "Appear"
 anims/Appear = SubResource( 92 )
 anims/Disappear = SubResource( 93 )
 [connection signal="clicked" from="CanvasLayerSettings/ButtonVolume1" to="." method="set_volume" binds= [ 0.1 ]]

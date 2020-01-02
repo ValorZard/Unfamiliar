@@ -36,6 +36,12 @@ func _on_Button_clicked():
 
 func _on_Button2_clicked():
 	Controller.select_menu_button(buttons, but2.get_name(), false)
+	yield(get_tree().create_timer(0.8), "timeout")
+	yield(Controller.open_options_menu(true), "menu_closed")
+	but2.set_clicked(false)
+	but2.set_hover(false)
+	for but in buttons:
+		but.appear()
 	
 
 func _on_Button3_clicked():

@@ -48,8 +48,9 @@ func _ready():
 
 # =====================================================================
 
-func run_discourse(full_name: String, file: String, right_name: String, right_sprite: SpriteFrames, left_name: String = "Cosmo", left_sprite: SpriteFrames = CosmoSprite):
+func run_discourse(full_name: String, file: String, right_name: String, right_sprite: SpriteFrames, left_name: String = "Cosmo", left_sprite: SpriteFrames = CosmoSprite, text_speed: int = 2):
 	$Name/Label.set_text(full_name)
+	text_controller.set_text_speed(text_speed)
 	
 	var cl := DiscourseCharacterRef.instance()
 	cl.set_spriteframes(left_sprite)

@@ -4,7 +4,7 @@
 [ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=3]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "Disappear"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -29,49 +29,49 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1.51572, 1 ),
 "update": 0,
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Select"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
 [sub_resource type="Animation" id=3]
-resource_name = "Select"
-length = 2.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Label:self_modulate")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1.2, 2.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-
-[sub_resource type="Animation" id=4]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -99,7 +99,7 @@ tracks/1/keys = {
 "values": [ -1.0, 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:hover_alpha")
 tracks/0/interp = 1
@@ -125,7 +125,7 @@ tracks/1/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=5]
 resource_name = "Disappear"
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
@@ -152,7 +152,7 @@ tracks/1/keys = {
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
 }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=6]
 resource_name = "Select"
 length = 2.5
 tracks/0/type = "value"
@@ -192,7 +192,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=7]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -220,7 +220,7 @@ tracks/1/keys = {
 "values": [ -1.0, 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=8]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:hover_alpha")
 tracks/0/interp = 1
@@ -246,7 +246,7 @@ tracks/1/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=9]
 length = 1.5
 tracks/0/type = "method"
 tracks/0/path = NodePath("CanvasLayer/Button1")
@@ -327,7 +327,7 @@ tracks/5/keys = {
 "values": [ Vector2( -50, -50 ), Vector2( -50, -50 ), Vector2( 0, 0 ) ]
 }
 
-[sub_resource type="Animation" id=13]
+[sub_resource type="Animation" id=10]
 resource_name = "Disappear"
 length = 1.5
 tracks/0/type = "method"
@@ -462,14 +462,14 @@ button_text = "Options"
 choice_button = false
 
 [node name="AnimationPlayer" parent="CanvasLayer/Button2" index="2"]
-anims/Disappear = SubResource( 2 )
-anims/Select = SubResource( 3 )
+anims/Disappear = SubResource( 1 )
+anims/Select = SubResource( 2 )
 
 [node name="AnimationPlayerIdle" parent="CanvasLayer/Button2" index="3"]
-anims/Idle = SubResource( 4 )
+anims/Idle = SubResource( 3 )
 
 [node name="AnimationPlayerHover" parent="CanvasLayer/Button2" index="4"]
-anims/Hover = SubResource( 5 )
+anims/Hover = SubResource( 4 )
 
 [node name="Button" parent="CanvasLayer/Button2" index="5"]
 margin_left = -30.0
@@ -486,14 +486,14 @@ button_text = "Exit"
 choice_button = false
 
 [node name="AnimationPlayer" parent="CanvasLayer/Button3" index="2"]
-anims/Disappear = SubResource( 7 )
-anims/Select = SubResource( 8 )
+anims/Disappear = SubResource( 5 )
+anims/Select = SubResource( 6 )
 
 [node name="AnimationPlayerIdle" parent="CanvasLayer/Button3" index="3"]
-anims/Idle = SubResource( 9 )
+anims/Idle = SubResource( 7 )
 
 [node name="AnimationPlayerHover" parent="CanvasLayer/Button3" index="4"]
-anims/Hover = SubResource( 10 )
+anims/Hover = SubResource( 8 )
 
 [node name="Button" parent="CanvasLayer/Button3" index="5"]
 margin_left = -21.0
@@ -505,8 +505,8 @@ focus_neighbour_bottom = NodePath("../../Button1/Button")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Appear"
-anims/Appear = SubResource( 12 )
-anims/Disappear = SubResource( 13 )
+anims/Appear = SubResource( 9 )
+anims/Disappear = SubResource( 10 )
 [connection signal="clicked" from="CanvasLayer/Button1" to="." method="_on_Button_clicked"]
 [connection signal="clicked" from="CanvasLayer/Button2" to="." method="_on_Button2_clicked"]
 [connection signal="clicked" from="CanvasLayer/Button3" to="." method="_on_Button3_clicked"]
