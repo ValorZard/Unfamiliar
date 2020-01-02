@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/System/MenuExit.gd" type="Script" id=1]
 [ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=2]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=1]
 tracks/0/type = "method"
 tracks/0/path = NodePath("CanvasLayer/Button1")
 tracks/0/interp = 1
@@ -63,20 +63,39 @@ polygon = PoolVector2Array( 18.4504, 24.925, 96.7935, 24.7104, 90.9983, 6.68072,
 button_text = "To Title"
 choice_button = false
 
+[node name="Button" parent="CanvasLayer/Button1" index="5"]
+margin_left = -36.0
+margin_top = -11.0
+margin_right = 40.0
+margin_bottom = 10.0
+
 [node name="Button2" parent="CanvasLayer" instance=ExtResource( 2 )]
 position = Vector2( 172.13, 97.7257 )
 polygon = PoolVector2Array( 8.03457, 26.8422, 92.3876, 25.125, 97.9682, 7.95394, 17.264, 3.01725 )
 button_text = "To Desktop"
 choice_button = false
 
+[node name="Button" parent="CanvasLayer/Button2" index="5"]
+margin_left = -46.0
+margin_top = -10.0
+margin_right = 42.0
+margin_bottom = 11.0
+
 [node name="Button3" parent="CanvasLayer" instance=ExtResource( 2 )]
 position = Vector2( 115.873, 146.521 )
 polygon = PoolVector2Array( 28.5201, 23.5488, 83.253, 22.9049, 83.253, 4.446, 23.5834, 6.59239 )
 button_text = "Cancel"
 choice_button = false
+fast_fade = true
+
+[node name="Button" parent="CanvasLayer/Button3" index="5"]
+margin_left = -30.0
+margin_top = -9.0
+margin_right = 28.0
+margin_bottom = 8.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Appear = SubResource( 4 )
+anims/Appear = SubResource( 1 )
 [connection signal="clicked" from="CanvasLayer/Button1" to="." method="_on_Button_clicked"]
 [connection signal="clicked" from="CanvasLayer/Button2" to="." method="_on_Button2_clicked"]
 [connection signal="clicked" from="CanvasLayer/Button3" to="." method="_on_Button3_clicked"]

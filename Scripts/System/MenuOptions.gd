@@ -165,7 +165,7 @@ func fullscreen_changed(value: bool):
 
 func _on_ButtonBack_clicked():
 	Controller.select_menu_button(buttons, button_back.get_name())
-	yield(get_tree().create_timer(1.0), "timeout")
+	yield(get_tree().create_timer(0.6), "timeout")
 	$AnimationPlayer.play("Disappear")
 	
 	

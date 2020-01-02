@@ -53,7 +53,7 @@ func _on_Button2_clicked() -> void:
 	active = false
 	Controller.select_menu_button(buttons, but2.get_name(), false)
 	yield(get_tree().create_timer(0.5), "timeout")
-	$AnimationPlayerSetup.play("Teardown Options 2")
+	$AnimationPlayerSetup.play("Teardown Options 2a")
 	yield($AnimationPlayerSetup, "animation_finished")
 	yield(Controller.open_save_menu(true, false), "menu_closed")
 	but2.set_clicked(false)
@@ -65,7 +65,7 @@ func _on_Button3_clicked() -> void:
 	active = false
 	Controller.select_menu_button(buttons, but3.get_name(), false)
 	yield(get_tree().create_timer(0.5), "timeout")
-	$AnimationPlayerSetup.play("Teardown Options 2")
+	$AnimationPlayerSetup.play("Teardown Options 2a")
 	yield($AnimationPlayerSetup, "animation_finished")
 	yield(Controller.open_options_menu(false), "menu_closed")
 	but3.set_clicked(false)

@@ -63,6 +63,7 @@ export(bool) var decisive_click = false
 export(bool) var choice_button = true
 export(bool) var idle_animation = true
 export(bool) var selection_animation = true
+export(bool) var fast_fade = false
 #export(NodePath) var manager = null
 
 # =====================================================================
@@ -162,7 +163,7 @@ func anim_selected(destroy: bool = true):
 	but.set_disabled(true)
 	active = false
 	destroy_after_disappear = destroy
-	anim_player.play("Select")
+	anim_player.play("Select Fast" if fast_fade else "Select")
 	
 
 func anim_not_selected(destroy: bool = true):
@@ -218,7 +219,7 @@ func _on_AnimationPlayer_animation_finished(anim_name: String):
 		active = true
 		but.set_disabled(false)
 	
-	if (anim_name == "Select" or anim_name == "Disappear") and destroy_after_disappear:
+	if (anim_name == "Select" or anim_name == "Select Fast" or anim_name == "Disappear") and destroy_after_disappear:
 		queue_free()
 
 

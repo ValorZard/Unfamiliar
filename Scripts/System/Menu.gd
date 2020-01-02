@@ -26,7 +26,7 @@ func _process(delta):
 
 func _on_Button_clicked():
 	Controller.select_menu_button(buttons, but1.get_name(), false)
-	yield(get_tree().create_timer(0.8), "timeout")
+	yield(get_tree().create_timer(0.5), "timeout")
 	yield(Controller.open_save_menu(false), "menu_closed")
 	but1.set_clicked(false)
 	but1.set_hover(false)
@@ -36,7 +36,7 @@ func _on_Button_clicked():
 
 func _on_Button2_clicked():
 	Controller.select_menu_button(buttons, but2.get_name(), false)
-	yield(get_tree().create_timer(0.8), "timeout")
+	yield(get_tree().create_timer(0.5), "timeout")
 	yield(Controller.open_options_menu(true), "menu_closed")
 	but2.set_clicked(false)
 	but2.set_hover(false)
@@ -46,7 +46,7 @@ func _on_Button2_clicked():
 
 func _on_Button3_clicked():
 	Controller.select_menu_button(buttons, but3.get_name(), false)
-	yield(get_tree().create_timer(0.8), "timeout")
+	yield(get_tree().create_timer(0.5), "timeout")
 	yield(Controller.open_exit_menu(self), "menu_closed")
 	but3.set_clicked(false)
 	but3.set_hover(false)

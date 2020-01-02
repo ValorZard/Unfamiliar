@@ -47,6 +47,6 @@ func _on_Button2_clicked():
 
 func _on_Button3_clicked():
 	Controller.select_menu_button(buttons, button3.get_name())
-	yield(get_tree().create_timer(1.5), "timeout")
+	yield(get_tree().create_timer(1.0), "timeout")
 	emit_signal("menu_closed")
 	queue_free()

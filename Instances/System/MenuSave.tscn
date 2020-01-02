@@ -474,7 +474,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1.2 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -488,7 +488,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 1.2 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -502,7 +502,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 1.2 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -516,7 +516,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 1.2 ),
+"times": PoolRealArray( 1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -530,7 +530,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.9 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -737,6 +737,7 @@ position = Vector2( 71, 147 )
 polygon = PoolVector2Array( 27, 25, 82, 24, 81, 6, 27, 8 )
 button_text = "Cancel"
 choice_button = false
+fast_fade = true
 
 [node name="Button" parent="CanvasLayer/Button5" index="5"]
 margin_left = -28.0

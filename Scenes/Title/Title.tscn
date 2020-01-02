@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Title.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Particles/Parts_Title.tres" type="Material" id=2]
@@ -1673,6 +1673,84 @@ tracks/5/keys = {
 }
 
 [sub_resource type="Animation" id=26]
+resource_name = "Teardown Options 2a"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Polygon2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 2, 1 ),
+"update": 0,
+"values": [ Vector2( 16, -8 ), Vector2( 80, -64 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Polygon2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.7 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -6 ), Vector2( 0, -6 ), Vector2( 71, 34 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Polygon2D3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 0.9 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( -48, 34 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("AnimationPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "Logo flyout", -1, 1.0, false ],
+"method": "play"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Copyright:margin_top")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.3, 0.8 ),
+"transitions": PoolRealArray( 1, 2, 1 ),
+"update": 0,
+"values": [ 169.0, 169, 280 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Blur:material:shader_param/amount")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.9, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 2.5 ]
+}
+
+[sub_resource type="Animation" id=27]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1833,7 +1911,7 @@ tracks/12/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=28]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1966,7 +2044,7 @@ tracks/9/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=29]
 length = 2.5
 loop = true
 tracks/0/type = "value"
@@ -1982,18 +2060,18 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1.015 ) ]
 }
 
-[sub_resource type="Shader" id=29]
+[sub_resource type="Shader" id=30]
 code = "shader_type canvas_item;
 uniform float amount : hint_range(0,10);
 void fragment() {
     COLOR.rgb = textureLod(SCREEN_TEXTURE,SCREEN_UV,amount).rgb;
 }"
 
-[sub_resource type="ShaderMaterial" id=30]
-shader = SubResource( 29 )
+[sub_resource type="ShaderMaterial" id=31]
+shader = SubResource( 30 )
 shader_param/amount = 0.0
 
-[sub_resource type="ShaderMaterial" id=31]
+[sub_resource type="ShaderMaterial" id=32]
 shader = ExtResource( 6 )
 shader_param/cutoff = 1.0
 shader_param/mask = ExtResource( 14 )
@@ -2305,13 +2383,14 @@ anims/Setup = SubResource( 21 )
 anims/Teardown = SubResource( 23 )
 "anims/Teardown Options" = SubResource( 24 )
 "anims/Teardown Options 2" = SubResource( 25 )
-"anims/Teardown Start" = SubResource( 26 )
-anims/Unteardown = SubResource( 27 )
+"anims/Teardown Options 2a" = SubResource( 26 )
+"anims/Teardown Start" = SubResource( 27 )
+anims/Unteardown = SubResource( 28 )
 
 [node name="AnimationPlayerCosmo" type="AnimationPlayer" parent="."]
 autoplay = "Cosmo Idle"
 playback_speed = 0.85
-"anims/Cosmo Idle" = SubResource( 28 )
+"anims/Cosmo Idle" = SubResource( 29 )
 
 [node name="TimerSetup" type="Timer" parent="."]
 one_shot = true
@@ -2330,7 +2409,7 @@ __meta__ = {
 }
 
 [node name="Blur" type="ColorRect" parent="."]
-material = SubResource( 30 )
+material = SubResource( 31 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
@@ -2349,7 +2428,7 @@ __meta__ = {
 
 [node name="Fade2" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 31 )
+material = SubResource( 32 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2

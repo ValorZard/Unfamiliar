@@ -247,7 +247,6 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id=9]
-length = 1.5
 tracks/0/type = "method"
 tracks/0/path = NodePath("CanvasLayer/Button1")
 tracks/0/interp = 1
@@ -255,7 +254,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.3 ),
+"times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -269,7 +268,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0.3 ),
+"times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -283,7 +282,7 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.3 ),
+"times": PoolRealArray( 0.1 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
 "args": [  ],
@@ -297,7 +296,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.6 ),
+"times": PoolRealArray( 0, 0.4 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 0.0823529, 0.156863, 0.333333, 0 ), Color( 0.0823529, 0.156863, 0.333333, 0.784314 ) ]
@@ -309,7 +308,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.2, 0.8 ),
+"times": PoolRealArray( 0, 0.2, 0.6 ),
 "transitions": PoolRealArray( 1, 0.420448, 1 ),
 "update": 0,
 "values": [ Vector2( 180, 100 ), Vector2( 130, 50 ), Vector2( 80, 18 ) ]
@@ -321,7 +320,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.5, 1.1 ),
+"times": PoolRealArray( 0, 0.3, 0.9 ),
 "transitions": PoolRealArray( 1, 0.420448, 1 ),
 "update": 0,
 "values": [ Vector2( -50, -50 ), Vector2( -50, -50 ), Vector2( 0, 0 ) ]
@@ -329,7 +328,6 @@ tracks/5/keys = {
 
 [sub_resource type="Animation" id=10]
 resource_name = "Disappear"
-length = 1.5
 tracks/0/type = "method"
 tracks/0/path = NodePath("CanvasLayer/Button1")
 tracks/0/interp = 1
@@ -379,7 +377,7 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 0, 0.9, 1.5 ),
+"times": PoolRealArray( 0, 0.4, 0.9 ),
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 0.0823529, 0.156863, 0.333333, 0.784314 ), Color( 0.0823529, 0.156863, 0.333333, 0.784314 ), Color( 0.0823529, 0.156863, 0.333333, 0 ) ]
@@ -391,7 +389,7 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 0, 0.8, 1.4 ),
+"times": PoolRealArray( 0, 0.4, 0.9 ),
 "transitions": PoolRealArray( 1, 2.07053, 1 ),
 "update": 0,
 "values": [ Vector2( 80, 18 ), Vector2( 80, 18 ), Vector2( 180, 100 ) ]
@@ -403,7 +401,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 0, 0.6, 1.2 ),
+"times": PoolRealArray( 0, 0.3, 0.8 ),
 "transitions": PoolRealArray( 1, 2.07053, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 0, 0 ), Vector2( -50, -50 ) ]
