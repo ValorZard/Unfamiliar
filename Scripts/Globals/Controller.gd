@@ -422,7 +422,6 @@ func save_game(slot: int, datetime: Dictionary):
 		var dir := Directory.new()
 		dir.remove(fname)
 		
-	#f.open(fname, File.WRITE)
 	f.open_encrypted_with_pass(fname, File.WRITE, OS.get_unique_id())
 	var save_info: Dictionary = {}
 	
