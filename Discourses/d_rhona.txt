@@ -2,7 +2,7 @@
 @< glare
 < Why are we doing this, again?
 @> happy
-> Because you're a $wdemon! $0How cool is that?
+> Because you're a $wdemon! $0I mean, how cool is that?
 @< idle
 @> idle
 > I've never talked to a demon before, and I want to learn more about you!

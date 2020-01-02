@@ -7,9 +7,12 @@ signal hover_end
 signal clicked
 
 const ColorsBlack := PoolColorArray([Color("#0c1323"), Color("#0c1323"), Color("#0c1323"), Color("#0c1323")])
+const ColorsShaded := PoolColorArray([Color("#3d5999"), Color("#3d5999"), Color("#3d5999"), Color("#3d5999")])
+
 const ColorsWhite := PoolColorArray([Color("#2b4580"), Color("#2b4580"), Color("#2b4580"), Color("#2b4580")])
 const ColorsSelect := PoolColorArray([Color("#4776e1"), Color("#4776e1"), Color("#4776e1"), Color("#4776e1")])
 const ColorsTransparent := PoolColorArray([Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 0)])
+
 const OutlineWidth: float = 1.5
 const Variance: int = 5
 const MoveLeniency = 30
@@ -20,6 +23,8 @@ const SoundClickDecisive := preload("res://Audio/Click 2.ogg")
 
 var index: int
 var target_line: int = -1
+
+var shaded := false
 
 var initial_position: Vector2
 var pos_start: Vector2
@@ -57,6 +62,7 @@ export(bool) var decisive_click = false
 
 export(bool) var choice_button = true
 export(bool) var idle_animation = true
+export(bool) var selection_animation = true
 #export(NodePath) var manager = null
 
 # =====================================================================
@@ -101,9 +107,10 @@ func _process(delta):
 
 
 func _draw():
-	draw_polygon(PoolVector2Array([poly[0] + Vector2(-OutlineWidth, OutlineWidth) + Vector2(-hover_offset, hover_offset), poly[1] + Vector2(OutlineWidth, OutlineWidth) + Vector2(hover_offset, hover_offset), poly[2] + Vector2(OutlineWidth, -OutlineWidth) + Vector2(hover_offset, -hover_offset), poly[3] + Vector2(-OutlineWidth, -OutlineWidth) + Vector2(-hover_offset, -hover_offset)]), PoolColorArray([Color(0.17, 0.27, 0.5, hover_alpha), Color(0.17, 0.27, 0.5, hover_alpha), Color(0.17, 0.27, 0.5, hover_alpha), Color(0.17, 0.27, 0.5, hover_alpha)]))
+	var col: Color = Color(0.17, 0.27, 0.5, hover_alpha)
+	draw_polygon(PoolVector2Array([poly[0] + Vector2(-OutlineWidth, OutlineWidth) + Vector2(-hover_offset, hover_offset), poly[1] + Vector2(OutlineWidth, OutlineWidth) + Vector2(hover_offset, hover_offset), poly[2] + Vector2(OutlineWidth, -OutlineWidth) + Vector2(hover_offset, -hover_offset), poly[3] + Vector2(-OutlineWidth, -OutlineWidth) + Vector2(-hover_offset, -hover_offset)]), PoolColorArray([col, col, col, col]))
 	draw_polygon(PoolVector2Array([poly[0] + Vector2(-OutlineWidth, OutlineWidth), poly[1] + Vector2(OutlineWidth, OutlineWidth), poly[2] + Vector2(OutlineWidth, -OutlineWidth), poly[3] + Vector2(-OutlineWidth, -OutlineWidth)]), ColorsSelect if hover else ColorsWhite)
-	draw_polygon(poly, ColorsBlack)
+	draw_polygon(poly, ColorsShaded if shaded else ColorsBlack)
 	
 # =====================================================================
 
@@ -118,6 +125,10 @@ func set_text_controller(value):
 
 func set_controller(contr):
 	self.controller = contr
+	
+	
+func set_shaded(value: bool):
+	shaded = value
 
 
 func setup_animation(end_pos: Vector2):
@@ -249,5 +260,5 @@ func _on_Button_pressed() -> void:
 		controller.click_choice(index)
 		text_controller.fade_screen(false)
 
-	click = true
+	click = selection_animation
 	emit_signal("clicked")

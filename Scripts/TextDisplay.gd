@@ -9,10 +9,10 @@ export(DynamicFont) var font
 export(AudioStream) var sound_type
 
 const Interval := 0.02
-const XStart := 36
+const XStart := 38
 const YStart := 136
 const LineSpacing := 14
-const LineEnd := 246
+const LineEnd := 244
 const WordRegexPattern := "\\b[\\w'.?!\\-]*\\b"
 
 var text: String = ""

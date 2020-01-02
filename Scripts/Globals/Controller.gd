@@ -3,6 +3,7 @@ extends Node
 #class_name Controller
 
 signal scene_changed
+signal toggle_fullscreen(fullscreen)
 
 const DialogueRef := "res://Instances/Dialogue.tscn"
 const DiscourseStartRef := "res://Scenes/DiscourseStart.tscn"
@@ -58,9 +59,9 @@ var flags: Dictionary = {
 }
 
 var settings: Dictionary = {
+	"volume": 7,
 	"window_size": 0, # 0 = 1x, 1 = 2x, 2 = 3x
 	"fullscreen": 0, # 0 = No, 1 = Yes
-	"controller_buttons": 0, # 0 = XB, 1 = PS, 2 = Switch
 	"text_speed_overworld": 1, # 0 = Slow, 1 = Medium, 2 = Fast
 	"text_speed_discourse": 2 # 0 = Slow, 1 = Medium, 2 = Fast
 }
@@ -99,6 +100,9 @@ var track_playtime := false
 var money: int = 20
 var money_disp: int = 20
 
+var text_speed_ow: int = 1
+var text_speed_d: int = 2
+
 var menu_open := false
 
 var d_previous_scene: String
@@ -115,27 +119,23 @@ onready var map_marker := $Overlay/CanvasLayer/Map/Marker as Sprite
 
 # =====================================================================
 
-func _init():
-	#match settings["window_size"]:
-	#	0:
-	#		OS.set_window_size(Vector2(1280, 720))
-	#	1:
-	#		OS.set_window_size(Vector2(1920, 1080))
-	#	2:
-	#		OS.set_window_size(Vector2(2560, 1440))
-		
-	#OS.center_window()
-	
-	if settings["fullscreen"] == 1:
-		OS.set_window_fullscreen(true)
-	
-
 func _ready():
 	randomize()
 	
 	controller_connected = len(Input.get_connected_joypads()) > 0
 	Input.connect("joy_connection_changed", self, "controller_connection")
-
+	
+	var f := File.new()
+	var fname := "user://config.uf"
+	if f.file_exists(fname):
+		f.open(fname, File.READ)
+		var data: Dictionary = parse_json(f.get_line())
+		
+		update_settings(int(data["volume"]), int(data["window_size"]), int(data["fullscreen"]), int(data["text_speed_overworld"]), int(data["text_speed_discourse"]))
+		
+		if f.is_open():
+			f.close()
+		
 
 func _process(delta: float):
 	if track_playtime:
@@ -151,6 +151,9 @@ func _process(delta: float):
 		
 	if Input.is_action_just_pressed("sys_fullscreen"):
 		OS.set_window_fullscreen(not OS.is_window_fullscreen())
+		settings["fullscreen"] = 1 if OS.is_window_fullscreen() else 0
+		save_settings()
+		emit_signal("toggle_fullscreen", OS.is_window_fullscreen())
 		
 	if Input.is_action_just_pressed("debug_2"):
 		save_game(0, OS.get_datetime())
@@ -208,6 +211,47 @@ func set_previous_npc(npc: NodePath):
 func set_menu_open(value: bool):
 	menu_open = value
 	
+	
+func update_settings(volume: int, window_size: int, fullscreen: int, text_speed_overworld: int, text_speed_discourse: int):
+	# Volume
+	AudioServer.set_bus_volume_db(0, -80 + 80 * (volume / 10.0))
+	settings["volume"] = volume
+	
+	# Fullscreen
+	OS.set_window_fullscreen(fullscreen == 1)
+	settings["fullscreen"] = fullscreen
+	
+	# Window size
+	match window_size:
+		0:
+			OS.set_window_size(Vector2(1280, 720))
+		1:
+			OS.set_window_size(Vector2(1920, 1080))
+		2:
+			OS.set_window_size(Vector2(2560, 1440))
+	OS.center_window()
+	settings["window_size"] = window_size
+	
+	# Text speed
+	text_speed_ow = text_speed_overworld
+	settings["text_speed_overworld"] = text_speed_overworld
+	text_speed_d = text_speed_discourse
+	settings["text_speed_discourse"] = text_speed_discourse
+	
+	
+func save_settings():
+	var f := File.new()
+	var fname := "user://config.uf"
+	if f.file_exists(fname):
+		var dir := Directory.new()
+		dir.remove(fname)
+		
+	f.open(fname, File.WRITE)
+	f.store_line(to_json(settings))
+	
+	if f.is_open():
+		f.close()	
+
 	
 func post_discourse():
 	Player.set_state(Player.PlayerState.Move)

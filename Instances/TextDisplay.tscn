@@ -7,7 +7,6 @@
 [ext_resource path="res://Sprites/UI/Box tail.png" type="Texture" id=5]
 
 [sub_resource type="Animation" id=1]
-resource_name = "Fadein"
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
@@ -22,7 +21,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=2]
-resource_name = "Fadeout"
 tracks/0/type = "value"
 tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
@@ -37,7 +35,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=3]
-resource_name = "Fadein"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Header:scale")
 tracks/0/interp = 1
@@ -52,7 +49,6 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=4]
-resource_name = "Fadeout"
 tracks/0/type = "value"
 tracks/0/path = NodePath("Header:scale")
 tracks/0/interp = 2
@@ -67,44 +63,43 @@ tracks/0/keys = {
 }
 
 [sub_resource type="Animation" id=5]
-resource_name = "Pulse"
 length = 4.0
 loop = true
 tracks/0/type = "value"
-tracks/0/path = NodePath("BoxLeftStroke:color")
-tracks/0/interp = 2
+tracks/0/path = NodePath("BoxLeftStroke:texture_offset")
+tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.5, 1 ),
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0.352941, 0.505882, 0.858824, 1 ), Color( 0.192157, 0.321569, 0.619608, 1 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -64, -64 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("BoxRightStroke:color")
-tracks/1/interp = 2
+tracks/1/path = NodePath("BoxRightStroke:texture_offset")
+tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.5, 1 ),
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0.352941, 0.505882, 0.858824, 1 ), Color( 0.192157, 0.321569, 0.619608, 1 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -64, -64 ) ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("BoxNeutralStroke:color")
+tracks/2/path = NodePath("BoxNeutralStroke:texture_offset")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 0.5, 1 ),
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Color( 0.352941, 0.505882, 0.858824, 1 ), Color( 0.192157, 0.321569, 0.619608, 1 ) ]
+"values": [ Vector2( 0, 0 ), Vector2( -64, -64 ) ]
 }
 
 [node name="TextDisplay" type="Node2D"]
@@ -140,7 +135,7 @@ text = "Name"
 [node name="BoxLeftStroke" type="Polygon2D" parent="."]
 visible = false
 z_index = -50
-color = Color( 0.352941, 0.505882, 0.858824, 1 )
+color = Color( 0.572549, 0.701961, 1, 1 )
 polygon = PoolVector2Array( 289, 116, 301, 169, 25, 173, 32, 120, 47, 119, 50, 100, 60, 119 )
 
 [node name="BoxLeft" type="Polygon2D" parent="."]
@@ -152,7 +147,7 @@ polygon = PoolVector2Array( 287, 118, 297, 167, 28, 171, 34, 122, 49, 121, 51, 1
 [node name="BoxRightStroke" type="Polygon2D" parent="."]
 visible = false
 z_index = -50
-color = Color( 0.352941, 0.505882, 0.858824, 1 )
+color = Color( 0.572549, 0.701961, 1, 1 )
 polygon = PoolVector2Array( 289, 116, 301, 169, 25, 173, 32, 120, 244, 116, 260, 101, 258, 116 )
 
 [node name="BoxRight" type="Polygon2D" parent="."]
@@ -164,7 +159,7 @@ polygon = PoolVector2Array( 287, 118, 297, 167, 28, 171, 34, 122, 246, 118, 258,
 [node name="BoxNeutralStroke" type="Polygon2D" parent="."]
 visible = false
 z_index = -50
-color = Color( 0.352941, 0.505882, 0.858824, 1 )
+color = Color( 0.572549, 0.701961, 1, 1 )
 polygon = PoolVector2Array( 289, 116, 301, 169, 25, 173, 32, 120 )
 
 [node name="BoxNeutral" type="Polygon2D" parent="."]
@@ -215,8 +210,7 @@ anims/Fadein = SubResource( 3 )
 anims/Fadeout = SubResource( 4 )
 
 [node name="AnimationPlayerStroke" type="AnimationPlayer" parent="."]
-autoplay = "Pulse"
-playback_speed = 1.5
+playback_speed = 0.5
 anims/Pulse = SubResource( 5 )
 
 [node name="TimerRollText" type="Timer" parent="."]
