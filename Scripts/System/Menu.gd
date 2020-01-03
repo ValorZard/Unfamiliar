@@ -20,10 +20,6 @@ func _process(delta):
 		
 # =====================================================================
 
-
-
-# =====================================================================
-
 func _on_Button_clicked():
 	Controller.select_menu_button(buttons, but1.get_name(), false)
 	yield(get_tree().create_timer(0.5), "timeout")
