@@ -52,6 +52,7 @@ func run_discourse(full_name: String, file: String, right_name: String, right_sp
 	$Name/Label.set_text(full_name)
 	text_controller.set_text_speed(text_speed)
 	
+	# Instance character sprites
 	var cl := DiscourseCharacterRef.instance()
 	cl.set_spriteframes(left_sprite)
 	get_tree().get_root().add_child(cl)
@@ -68,6 +69,7 @@ func run_discourse(full_name: String, file: String, right_name: String, right_sp
 	
 	load_file(file)
 	
+	# Animate character sprites
 	character_left.hide()
 	character_right.hide()
 	
@@ -97,12 +99,14 @@ func run_discourse(full_name: String, file: String, right_name: String, right_sp
 	
 	yield(get_tree().create_timer(2.5), "timeout")
 	
+	# Run discourse
 	list_index = 0
 	while list_index < len(script_list):
 		parse_discourse_command(script_list[list_index])
 		yield(co_target, co_signal)
 		list_index += 1
-			
+	
+	# End discourse
 	text_controller.hide()
 	$AnimationPlayer.play("Fadeout")
 	yield($AnimationPlayer, "animation_finished")
