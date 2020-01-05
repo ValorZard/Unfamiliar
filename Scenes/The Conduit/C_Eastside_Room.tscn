@@ -1,0 +1,247 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Tilesets/Tileset_Conduit.tres" type="TileSet" id=2]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Scripts/System/DepthProp.gd" type="Script" id=5]
+[ext_resource path="res://Sprites/Props/Conduit/C_TV.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Textures/TVNoise1.tres" type="Texture" id=7]
+[ext_resource path="res://Resources/Textures/TVNoise2.tres" type="Texture" id=8]
+[ext_resource path="res://Resources/Textures/TVNoise3.tres" type="Texture" id=9]
+[ext_resource path="res://Resources/Textures/TVNoise4.tres" type="Texture" id=10]
+[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Resources/Sprite Frames (OW)/SpriteFramesOW_Empty.tres" type="SpriteFrames" id=12]
+[ext_resource path="res://Sprites/Props/Conduit/C_TV_shadow.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Props/Conduit/C_Mattress.png" type="Texture" id=14]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 72 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 48, 8 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 16, 24 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8, 16 )
+
+[sub_resource type="Shader" id=5]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+void fragment() {
+	vec4 tint = vec4(vec3(0.44), 1f);
+	COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+	COLOR = max(COLOR * tint, float(COLOR.g >= COLOR.b || COLOR.r >= COLOR.b) * COLOR);
+}
+"
+
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 8, 16 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 10, 6 )
+
+[sub_resource type="Animation" id=15]
+resource_name = "Static"
+
+[sub_resource type="SpriteFrames" id=16]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 15.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 7, 12 )
+
+[sub_resource type="Animation" id=12]
+length = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Conduit/dl_c_tv.txt", 0 ],
+"method": "_event_dialogue"
+} ]
+}
+
+[sub_resource type="Animation" id=13]
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Shadow:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0.75 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 12, 16 )
+
+[node name="Scene" type="Node2D"]
+
+[node name="Overlay" parent="." instance=ExtResource( 1 )]
+is_preview = true
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 80, 18 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 2, 1073741833, 0, 3, 1073741833, 0, 4, 1073741833, 0, 5, 1073741833, 0, 6, 1073741833, 0, 7, 1073741833, 0, 65538, 1073741833, 0, 65539, 1073741833, 0, 65540, 1073741833, 0, 65541, 1073741833, 0, 65542, 1073741833, 0, 65543, 1073741833, 0, 131074, -536870906, 0, 131075, -536870906, 0, 131076, -536870906, 0, 131077, -536870906, 0, 131078, -536870906, 0, 131079, -536870906, 0, 131080, 1073741830, 0, 131081, -536870903, 0, 196610, -536870902, 0, 196611, -536870902, 0, 196612, -536870902, 0, 196613, -536870902, 0, 196614, -536870902, 0, 196615, -536870902, 0, 196616, 1073741830, 0, 196617, -536870903, 0, 262146, -536870902, 0, 262147, -536870902, 0, 262148, -536870902, 0, 262149, -536870902, 0, 262150, -536870902, 0, 262151, -536870902, 0, 262152, 1073741829, 0, 262153, -536870906, 0, 327682, -536870902, 0, 327683, -536870902, 0, 327684, -536870902, 0, 327685, -536870902, 0, 327686, -536870902, 0, 327687, -536870902, 0, 327688, -536870902, 0, 327689, -536870902, 0, 393218, -536870902, 0, 393219, -536870902, 0, 393220, -536870902, 0, 393221, -536870902, 0, 393222, -536870902, 0, 393223, -536870902, 0, 393224, -536870902, 0, 393225, -536870902, 0, 458754, -536870902, 0, 458755, -536870902, 0, 458756, -536870902, 0, 458757, -536870902, 0, 458758, -536870902, 0, 458759, -536870902, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap2" type="TileMap" parent="."]
+position = Vector2( 80, 18 )
+z_index = 2000
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 0, -1073741816, 0, 1, 1610612739, 0, 8, 1073741827, 0, 9, -1073741816, 0, 65536, -1073741816, 0, 65537, 1610612739, 0, 65544, -1073741824, 0, 65545, -1073741821, 0, 131072, -1073741816, 0, 131073, 1610612739, 0, 196608, -1073741816, 0, 196609, 1610612739, 0, 262144, -1073741816, 0, 262145, 1610612739, 0, 327680, -1073741816, 0, 327681, 1610612739, 0, 393216, -1073741816, 0, 393217, 1610612739, 0, 393224, -2147483648, 0, 393225, -1610612733, 0, 458752, -1073741816, 0, 458753, 1610612739, 0, 458760, 1073741827, 0, 458761, -1073741816, 0, 524288, -1073741816, 0, 524289, 536870916, 0, 524290, -1610612733, 0, 524291, -1610612733, 0, 524292, -1610612733, 0, 524293, -1610612733, 0, 524294, -1610612733, 0, 524295, -1610612733, 0, 524296, 4, 0, 524297, -1073741816, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Walls" type="StaticBody2D" parent="."]
+z_index = 2100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 96, 90 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 160, 162 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 224, 146 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 248, 114 )
+shape = SubResource( 4 )
+
+[node name="Tint" type="Node2D" parent="."]
+z_index = 3400
+
+[node name="ColorRect" type="ColorRect" parent="Tint"]
+material = SubResource( 6 )
+margin_right = 320.0
+margin_bottom = 180.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Transitions" type="CanvasLayer" parent="."]
+layer = 6
+
+[node name="Door" parent="." instance=ExtResource( 3 )]
+position = Vector2( 240, 114 )
+target_scene = "res://Scenes/The Conduit/C_Eastside_2.tscn"
+target_position = Vector2( 112, 110 )
+target_direction = 3
+door_sound = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="Door" index="0"]
+shape = SubResource( 7 )
+
+[node name="TV" type="StaticBody2D" parent="."]
+position = Vector2( 168, 51 )
+z_index = 51
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="TV"]
+texture = ExtResource( 6 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TV"]
+position = Vector2( 10, 20 )
+shape = SubResource( 8 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TV"]
+anims/Static = SubResource( 15 )
+
+[node name="Static" type="AnimatedSprite" parent="TV"]
+position = Vector2( 6, 9 )
+frames = SubResource( 16 )
+playing = true
+centered = false
+
+[node name="EventNPCTV" parent="." instance=ExtResource( 11 )]
+position = Vector2( 178, 45 )
+change_direction = false
+auto_set_flag = false
+is_object = true
+
+[node name="Sprite" parent="EventNPCTV" index="0"]
+frames = ExtResource( 12 )
+
+[node name="CollisionShape2D" parent="EventNPCTV/InteractArea" index="0"]
+shape = SubResource( 11 )
+
+[node name="AnimationPlayer" parent="EventNPCTV/Event" index="0"]
+anims/Event = SubResource( 12 )
+
+[node name="Shadow" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( 174, 60 )
+z_index = 52
+texture = ExtResource( 13 )
+centered = false
+
+[node name="AnimationPlayerShadow" type="AnimationPlayer" parent="."]
+anims/Fadein = SubResource( 13 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 12.0
+one_shot = true
+
+[node name="Mattress" type="StaticBody2D" parent="."]
+position = Vector2( 115, 87 )
+z_index = 77
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+height_add = -10
+
+[node name="Sprite" type="Sprite" parent="Mattress"]
+texture = ExtResource( 14 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Mattress"]
+position = Vector2( 12, 18 )
+shape = SubResource( 14 )
+[connection signal="dialogue_finished" from="EventNPCTV" to="Timer" method="start"]
+[connection signal="timeout" from="Timer" to="AnimationPlayerShadow" method="play" binds= [ "Fadein" ]]
+
+[editable path="Door"]
+
+[editable path="EventNPCTV"]
+
+[editable path="EventNPCTV/Event"]

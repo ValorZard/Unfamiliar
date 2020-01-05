@@ -200,7 +200,7 @@ shape = SubResource( 8 )
 
 [node name="Barrel" type="StaticBody2D" parent="."]
 position = Vector2( 185, 84 )
-z_index = 81
+z_index = 84
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
@@ -216,7 +216,7 @@ shape = SubResource( 9 )
 
 [node name="Barrel2" type="StaticBody2D" parent="."]
 position = Vector2( 136, 144 )
-z_index = 85
+z_index = 144
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
@@ -232,7 +232,7 @@ shape = SubResource( 9 )
 
 [node name="Barrel3" type="StaticBody2D" parent="."]
 position = Vector2( 201, 141 )
-z_index = 137
+z_index = 141
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
@@ -247,7 +247,7 @@ shape = SubResource( 9 )
 
 [node name="Barrel4" type="StaticBody2D" parent="."]
 position = Vector2( 196, 136 )
-z_index = 116
+z_index = 136
 script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true

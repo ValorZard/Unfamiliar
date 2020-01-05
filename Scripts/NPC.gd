@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal dialogue_finished
+
 enum NPCDirection { Up, Down, Left, Right }
 
 export(String, FILE, "*.txt") var dialogue_file
@@ -56,6 +58,8 @@ func _process(delta):
 			Player.show_interact(true)
 		else:
 			interact.show()
+			
+		emit_signal("dialogue_finished")
 		
 # =====================================================================
 

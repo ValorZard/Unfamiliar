@@ -2,14 +2,17 @@ extends KinematicBody2D
 
 class_name EventNPC
 
+signal dialogue_finished
+
 enum NPCDirection { Up, Down, Left, Right }
 
 export(NPCDirection) var start_direction = NPCDirection.Down
-export(bool) var change_direction = true
-export(bool) var auto_advance_set = false
-export(int) var set_limit = 0
+export(bool) var change_direction := true
+export(bool) var auto_advance_set := false
+export(int) var set_limit := 0
 export(String) var set_flag
-export(bool) var is_object = false
+export(bool) var auto_set_flag := true
+export(bool) var is_object := false
 
 var face: int = NPCDirection.Down
 
@@ -29,7 +32,8 @@ onready var event: Event = $Event
 func _ready():
 	interact.hide()
 	face = start_direction
-	dialogue_set = Controller.flag(set_flag)
+	if auto_set_flag:
+		dialogue_set = Controller.flag(set_flag)
 	
 	
 func _process(delta):
@@ -52,11 +56,14 @@ func _process(delta):
 		yield(event, "event_ended")
 		if auto_advance_set and dialogue_set < set_limit:
 			dialogue_set += 1
-		Controller.set_flag(set_flag, dialogue_set)
+		if auto_set_flag:
+			Controller.set_flag(set_flag, dialogue_set)
 		if is_object:
 			Player.show_interact(true)
 		else:
 			interact.show()
+			
+		emit_signal("dialogue_finished")
 		
 # =====================================================================
 
