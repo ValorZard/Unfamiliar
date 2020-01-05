@@ -15,7 +15,7 @@ var fb_waits: PoolRealArray = []
 
 var end_anim := true
 
-var animation_player: AnimationPlayer = null
+#var animation_player: AnimationPlayer = null
 
 onready var text_controller := $CanvasLayer/TextDisplay
 

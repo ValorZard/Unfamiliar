@@ -8,7 +8,7 @@
 
 [node name="Dialogue" type="Node2D"]
 position = Vector2( 86, 116 )
-z_index = 3200
+z_index = 3600
 script = ExtResource( 1 )
 sound_type = ExtResource( 2 )
 

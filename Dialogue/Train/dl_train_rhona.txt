@@ -7,7 +7,7 @@ Rhona: See you later, Cosmo!
 -
 
 2
-Cosmo: Hi.
+Cosmo: ...Hi.
 Commuter: What's wrong? You look kinda down.
 Cosmo: ...
 My witch and I got separated. We had to get on different trains.
@@ -30,9 +30,7 @@ Rhona: Because you're a demon! Demons are cool!
 Cosmo: ...You think so?
 Most people call us eldritch abominations.
 Rhona: Oh, brother...
-You just look like a human with horns to me.
-Cosmo: Yeah... I get that a lot.
-Rhona: And I don't care if you're an "abomination."
+You don't look like an "abomination" to me.
 You seem really nice. I want to learn more about you!
 Cosmo: ...
 I'm not very good at talking.

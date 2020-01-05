@@ -50,6 +50,9 @@ var flags: Dictionary = {
 	"npc_ainsleys_computer": 0,
 	# ----------------------------------------
 	"npc_motel_chip": 0,
+	# ----------------------------------------
+	"npc_conduit_greeter": 0,
+	"npc_conduit_dealer": 0,
 	# ========================================
 	# DIALOGUE CHOICES
 	# ========================================
@@ -124,6 +127,8 @@ onready var map_marker := $Overlay/CanvasLayer/Map/Marker as Sprite
 
 func _ready():
 	randomize()
+	if editor_mode:
+		print("GAME IS IN EDITOR MODE")
 	
 	controller_connected = len(Input.get_connected_joypads()) > 0
 	Input.connect("joy_connection_changed", self, "controller_connection")

@@ -1,9 +1,5 @@
 0
 Dweller: GAH!
-You scared me, demon...
-How'd you even see me? It's pitch black down here.
-Cosmo: Demons can see in the dark really well.
-Dweller: Oh. Well, aren't you special.
 -
 
 1
@@ -11,4 +7,11 @@ Dweller: Go away! I'm busy.
 Cosmo: Doing what?
 Dweller: Enjoying the dark.
 Cosmo: ...
+-
+
+2
+Dweller: You scared me, demon...
+How'd you even see me? It's pitch black down here.
+Cosmo: Demons can see in the dark really well.
+Dweller: Oh. Well, aren't you special.
 -
