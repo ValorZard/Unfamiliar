@@ -17,7 +17,7 @@ export(bool) var is_object := false
 var face: int = NPCDirection.Down
 
 var in_range := false
-var can_talk_to := true
+export(bool) var can_talk_to := true
 
 var dialogue_set: int = 0
 

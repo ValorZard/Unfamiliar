@@ -7,6 +7,6 @@ func _ready():
 		get_node("AnimationPlayer").stop()
 		get_node("AnimationPlayer").seek(0)
 		get_node("Bg").position.x += 80
-		(get_node("Tutorial1") as ButtonUF).appear()
-		(get_node("Tutorial2") as ButtonUF).appear()
-		(get_node("Tutorial3") as ButtonUF).appear()
+		(get_node("Tutorial1") as ButtonUF).appear(true)
+		(get_node("Tutorial2") as ButtonUF).appear(true)
+		(get_node("Tutorial3") as ButtonUF).appear(true)

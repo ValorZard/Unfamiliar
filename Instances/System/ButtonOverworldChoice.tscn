@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=1]
+
+[node name="Button" instance=ExtResource( 1 )]
+polygon = PoolVector2Array( 39, 23, 71, 23, 71, 7, 39, 7 )
+choice_button = false
+
+[node name="Button" parent="." index="5"]
+margin_left = -16.0
+margin_top = -8.0
+margin_right = 16.0
+margin_bottom = 8.0

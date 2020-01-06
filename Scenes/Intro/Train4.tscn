@@ -239,7 +239,7 @@ button_image = ExtResource( 11 )
 choice_button = false
 selection_animation = false
 image_only = true
-[connection signal="ready" from="Tutorial" to="Tutorial" method="appear"]
+[connection signal="ready" from="Tutorial" to="Tutorial" method="appear" binds= [ true ]]
 
 [editable path="Transitions/Transition"]
 

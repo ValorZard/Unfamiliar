@@ -120,9 +120,9 @@ func _draw():
 	
 # =====================================================================
 
-func appear():
+func appear(instant: bool = false):
 	animate = true
-	setup_animation(initial_position)
+	setup_animation(initial_position, instant)
 
 
 func set_text_controller(value):
@@ -137,7 +137,7 @@ func set_shaded(value: bool):
 	shaded = value
 
 
-func setup_animation(end_pos: Vector2):
+func setup_animation(end_pos: Vector2, instant: bool):
 	var player := $AnimationPlayer as AnimationPlayer
 	pos_start = end_pos
 	
@@ -162,7 +162,7 @@ func setup_animation(end_pos: Vector2):
 	player.remove_animation("__temp3")
 	
 	player.play("Appear")
-	if image_only:
+	if instant:
 		player.seek(0.9)
 	
 	

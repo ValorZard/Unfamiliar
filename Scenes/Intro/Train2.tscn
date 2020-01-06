@@ -45,12 +45,12 @@ extents = Vector2( 8, 30 )
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -310,7 +310,7 @@ button_image = ExtResource( 13 )
 choice_button = false
 selection_animation = false
 image_only = true
-[connection signal="ready" from="Tutorial" to="Tutorial" method="appear"]
+[connection signal="ready" from="Tutorial" to="Tutorial" method="appear" binds= [ true ]]
 
 [editable path="Transitions/Transition"]
 
