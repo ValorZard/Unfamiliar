@@ -32,8 +32,9 @@ func _process(delta):
 
 func _on_Door_body_entered(body: PhysicsBody2D):
 	if body != null:
-		if body.is_in_group("Player") and Player.get_state() == Player.PlayerState.Move:
+		if body.is_in_group("Player") and Player.get_state() == Player.PlayerState.Move and not Player.is_in_an_area():
 			Player.show_interact(true)
+			Player.set_in_an_area(true)
 			in_area = true
 
 
@@ -41,4 +42,6 @@ func _on_Door_body_exited(body: PhysicsBody2D):
 	if body != null:
 		if body.is_in_group("Player"):
 			Player.show_interact(false)
+			if Player.is_in_an_area():
+				Player.set_in_an_area(false)
 			in_area = false

@@ -16,6 +16,7 @@ var face: int = Direction.Down
 var walking := false
 var in_transition := false
 var in_event := false
+var in_an_area := false
 
 var sprite_override := false
 
@@ -82,6 +83,14 @@ func is_in_event() -> bool:
 	
 func set_in_event(value: bool):
 	in_event = value
+	
+	
+func is_in_an_area() -> bool:
+	return in_an_area
+	
+	
+func set_in_an_area(value: bool):
+	in_an_area = value
 	
 	
 func get_direction() -> int:

@@ -11,6 +11,7 @@ const ButtonRef := preload("res://Instances/System/ButtonOverworldChoice.tscn")
 
 const name_regex_pat := "^(.+:).+$"
 const choice_regex_pat := "^\\s*(\\w+)\\((\\w+)\\)\\s*$"
+const flag_regex_pat := "^\\s*(\\w+)\\s+(\\d+)\\s*$"
 
 const name_bbcode_start := "[color=#7ca3ff]"
 const name_bbcode_end := "[/color]"
@@ -39,6 +40,7 @@ var reset_state := true
 
 var name_regex := RegEx.new()
 var choice_regex := RegEx.new()
+var flag_regex := RegEx.new()
 
 onready var label := $Text as RichTextLabel
 
@@ -48,17 +50,14 @@ func _process(delta):
 	label.set_visible_characters(disp)
 	
 	if Input.is_action_just_pressed("sys_action") and not buffer:
-		if allow_advance:
+		if allow_advance and not choice:
 			if page < len(text) - 1:
 				refresh_text()
 				page += 1
 				
 				skip_labels()
-				
-				# Jumps
-				if text[page][0] == "^":
-					goto_label(text[page].substr(2, len(text[page]) - 2))
 					
+				operation_handling()	
 				choice_handling()
 				
 				start_roll()
@@ -96,6 +95,7 @@ func set_text_speed(value: int):
 func start(file: String, set: int, reset_state_: bool):
 	name_regex.compile(name_regex_pat)
 	choice_regex.compile(choice_regex_pat)
+	flag_regex.compile(flag_regex_pat)
 	Player.set_state(Player.PlayerState.NoInput)
 	reset_state = reset_state_
 	Player.stop_moving()
@@ -188,14 +188,22 @@ func goto_label(label_name: String, button_index: int = -1):
 				(buttons_list[i] as ButtonUF).anim_not_selected()
 		
 		buttons_list.clear()
-	
-	refresh_text()
-	page = label_table[label_name] + 1
-	
-	skip_labels()	
-	choice_handling()
-	
-	start_roll()
+		
+	if page < len(text) - 1:
+		refresh_text()
+		page = label_table[label_name] + 1
+		
+		skip_labels()
+		
+		operation_handling()
+		choice_handling()
+		
+		start_roll()
+	else:
+		if reset_state:
+			Player.set_state(Player.PlayerState.Move)
+			emit_signal("dialogue_ended")
+			queue_free()
 	
 	
 func refresh_text():
@@ -207,6 +215,23 @@ func skip_labels():
 	while text[page][0] == ":":
 		page += 1
 		
+		
+func operation_handling():
+	# Jumps
+	if text[page][0] == "^":
+		goto_label(text[page].substr(2, len(text[page]) - 2))
+			
+	# Money
+	if text[page][0] == "$":
+		Controller.add_money(int(text[page].substr(2, len(text[page]) - 2)))
+		page += 1
+		
+	# Set flag
+	if text[page][0] == "*":
+		var result := flag_regex.search(text[page].substr(2, len(text[page]) - 2))
+		Controller.set_flag(result.get_string(1), int(result.get_string(2)))
+		page += 1
+	
 
 func start_roll():
 	page_length = len(text[page])

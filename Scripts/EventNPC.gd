@@ -111,8 +111,9 @@ func _sprite_management():
 # =====================================================================
 
 func _on_InteractArea_area_entered(area: Area2D):
-	if can_talk_to and area.is_in_group("PlayerSight"):
+	if can_talk_to and area.is_in_group("PlayerSight") and not Player.is_in_an_area():
 		in_range = true
+		Player.set_in_an_area(true)
 		if is_object:
 			Player.show_interact(true)
 		else:
@@ -122,6 +123,8 @@ func _on_InteractArea_area_entered(area: Area2D):
 func _on_InteractArea_area_exited(area: Area2D):
 	if area.is_in_group("PlayerSight"):
 		in_range = false
+		if Player.is_in_an_area():
+			Player.set_in_an_area(false)
 		if is_object:
 			Player.show_interact(false)
 		else:

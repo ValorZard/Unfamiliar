@@ -40,6 +40,7 @@ var flags: Dictionary = {
 	"npc_train_rudeman": 0,
 	"npc_train_unsurewoman": 0,
 	"npc_train_rhona": 0,
+	"npc_train_conductor": 0,
 	# ----------------------------------------
 	"npc_lm_guide": 0,
 	"npc_lm_pace": 0,
@@ -62,6 +63,10 @@ var flags: Dictionary = {
 	"choice_witch_personality": 0, # 0 = Good, 1 = Okay, 2 = Bad
 	# ----------------------------------------
 	"choice_witch_socialness": 0, # 0 = Social, 1 = Sort of, 2 = Recluse
+	# ========================================
+	# MISCELLANEOUS STUFF
+	# ========================================
+	"gave_conductor_tip": 0,
 }
 
 var settings: Dictionary = {
@@ -104,7 +109,7 @@ var playtime: float = 0.0
 var track_playtime := false
 
 var money: int = 20
-var money_disp: int = 20
+var money_disp: float = 20
 
 var text_speed_ow: int = 1
 var text_speed_d: int = 2
@@ -150,9 +155,9 @@ func _process(delta: float):
 		playtime += delta
 	
 	if money_disp != money:
-		money_disp = lerp(money_disp, money, 0.15)
+		money_disp = lerp(money_disp, float(money), 0.025)
 	
-	money_text.text = str(money_disp)
+	money_text.text = str(round(money_disp))
 	
 	if Input.is_action_just_pressed("sys_menu") and not menu_open and Player.get_state() != Player.PlayerState.NoInput:
 		open_menu()

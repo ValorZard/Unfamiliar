@@ -1,0 +1,20 @@
+0
+Conductor: Thanks for riding with us.
+-
+
+1
+Give a $5 tip?
+[ Yes(YES) | No(NO)
+: YES
+$ -5
+* gave_conductor_tip 1
+Conductor: Oh, thank you, demon!
+^ END
+: NO
+: END
+Have a good evening.
+-
+
+2
+Conductor: Have a good evening.
+-

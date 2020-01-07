@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Tilesets/TilesTrain.png" type="Texture" id=2]
@@ -6,11 +6,12 @@
 [ext_resource path="res://Sprites/Props/Train_rail.png" type="Texture" id=4]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Props/Train_door.png" type="Texture" id=6]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Audio/Metal Door.ogg" type="AudioStream" id=9]
-[ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Sprites/UI/Tutorial2.png" type="Texture" id=11]
+[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Audio/Metal Door.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sprites/UI/Tutorial2.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 28 )
@@ -32,6 +33,45 @@ extents = Vector2( 2, 6 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 10, 28 )
+
+[sub_resource type="Animation" id=10]
+resource_name = "Event"
+length = 0.3
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Train/dl_train_conductor.txt", 0 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Train/dl_train_conductor.txt", 1 ],
+"method": "_event_dialogue"
+} ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Event2"
+length = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Train/dl_train_conductor.txt", 2 ],
+"method": "_event_dialogue"
+} ]
+}
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8, 30 )
@@ -212,10 +252,20 @@ shape = SubResource( 6 )
 position = Vector2( 70, 118 )
 shape = SubResource( 7 )
 
+[node name="EventNPCConductor" parent="." instance=ExtResource( 7 )]
+position = Vector2( 187, 89 )
+auto_advance_set = true
+set_limit = 1
+set_flag = "npc_train_conductor"
+
+[node name="AnimationPlayer" parent="EventNPCConductor/Event" index="0"]
+anims/Event = SubResource( 10 )
+anims/Event2 = SubResource( 11 )
+
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="Transitions" instance=ExtResource( 7 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 8 )]
 position = Vector2( 248, 120 )
 target_scene = "res://Scenes/Intro/Train3.tscn"
 target_direction = 3
@@ -223,23 +273,27 @@ target_direction = 3
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
 shape = SubResource( 8 )
 
-[node name="Door" parent="." instance=ExtResource( 8 )]
+[node name="Door" parent="." instance=ExtResource( 9 )]
 position = Vector2( 160, 82 )
 target_scene = "res://Scenes/Los Muertos/LM_Trainstation.tscn"
 target_position = Vector2( 128, 146 )
-door_sound = ExtResource( 9 )
+door_sound = ExtResource( 10 )
 
 [node name="CollisionShape2D" parent="Door" index="0"]
 shape = SubResource( 9 )
 
-[node name="Tutorial" parent="." instance=ExtResource( 10 )]
+[node name="Tutorial" parent="." instance=ExtResource( 11 )]
 position = Vector2( 208, 50 )
 button_text = ""
-button_image = ExtResource( 11 )
+button_image = ExtResource( 12 )
 choice_button = false
 selection_animation = false
 image_only = true
 [connection signal="ready" from="Tutorial" to="Tutorial" method="appear" binds= [ true ]]
+
+[editable path="EventNPCConductor"]
+
+[editable path="EventNPCConductor/Event"]
 
 [editable path="Transitions/Transition"]
 
