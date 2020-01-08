@@ -3479,7 +3479,6 @@ focus_neighbour_top = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 focus_neighbour_right = NodePath("../../ButtonSpeed1/Button")
 
 [node name="ButtonWindowSize1" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
-editor/display_folded = true
 position = Vector2( 106, 111 )
 polygon = PoolVector2Array( 43, 23, 68, 23, 67, 6, 45, 6 )
 button_text = "1X"
@@ -3491,9 +3490,12 @@ margin_left = -12.0
 margin_top = -9.0
 margin_right = 13.0
 margin_bottom = 8.0
+focus_neighbour_left = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
+focus_neighbour_top = NodePath("../../ButtonSpeed4/Button")
+focus_neighbour_right = NodePath("../../ButtonWindowSize2/Button")
+focus_neighbour_bottom = NodePath("../../ButtonFullscreen2/Button")
 
 [node name="ButtonWindowSize2" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
-editor/display_folded = true
 position = Vector2( 138, 111 )
 polygon = PoolVector2Array( 42, 24, 68, 23, 64, 5, 45, 6 )
 button_text = "2X"
@@ -3516,9 +3518,12 @@ margin_left = -13.0
 margin_top = -10.0
 margin_right = 13.0
 margin_bottom = 9.0
+focus_neighbour_left = NodePath("../../ButtonWindowSize1/Button")
+focus_neighbour_top = NodePath("../../ButtonSpeed4/Button")
+focus_neighbour_right = NodePath("../../ButtonWindowSize3/Button")
+focus_neighbour_bottom = NodePath("../../ButtonFullscreen1/Button")
 
 [node name="ButtonWindowSize3" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
-editor/display_folded = true
 position = Vector2( 170, 110 )
 polygon = PoolVector2Array( 43, 23, 65, 25, 67, 6, 46, 7 )
 button_text = "3X"
@@ -3541,9 +3546,12 @@ margin_left = -12.0
 margin_top = -9.0
 margin_right = 12.0
 margin_bottom = 10.0
+focus_neighbour_left = NodePath("../../ButtonWindowSize2/Button")
+focus_neighbour_top = NodePath("../../ButtonSpeed4/Button")
+focus_neighbour_right = NodePath("../../ButtonSpeed4/Button")
+focus_neighbour_bottom = NodePath("../../ButtonFullscreen1/Button")
 
 [node name="ButtonFullscreen1" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
-editor/display_folded = true
 position = Vector2( 142, 138 )
 polygon = PoolVector2Array( 43, 23, 65, 23, 67, 6, 43, 7 )
 button_text = "On"
@@ -3566,9 +3574,12 @@ margin_left = -12.0
 margin_top = -9.0
 margin_right = 12.0
 margin_bottom = 8.0
+focus_neighbour_left = NodePath("../../ButtonFullscreen2/Button")
+focus_neighbour_top = NodePath("../../ButtonWindowSize2/Button")
+focus_neighbour_right = NodePath("../../ButtonWindowSize3/Button")
+focus_neighbour_bottom = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 
 [node name="ButtonFullscreen2" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
-editor/display_folded = true
 position = Vector2( 107, 138 )
 polygon = PoolVector2Array( 41, 23, 68, 23, 67, 6, 43, 8 )
 button_text = "Off"
@@ -3591,6 +3602,10 @@ margin_left = -14.0
 margin_top = -9.0
 margin_right = 13.0
 margin_bottom = 8.0
+focus_neighbour_left = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
+focus_neighbour_top = NodePath("../../ButtonWindowSize1/Button")
+focus_neighbour_right = NodePath("../../ButtonFullscreen1/Button")
+focus_neighbour_bottom = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 
 [node name="ButtonSpeed1" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
 position = Vector2( 178, 55 )
@@ -3792,6 +3807,10 @@ margin_left = -22.0
 margin_top = -9.0
 margin_right = 25.0
 margin_bottom = 6.0
+focus_neighbour_left = NodePath("../../../CanvasLayerSettings/ButtonSpeed3/Button")
+focus_neighbour_top = NodePath("../../../CanvasLayerSettings/ButtonFullscreen2/Button")
+focus_neighbour_right = NodePath("../../../CanvasLayerSettings/ButtonFullscreen2/Button")
+focus_neighbour_bottom = NodePath("../../../CanvasLayerSettings/ButtonVolume1/Button")
 
 [node name="Polygon2D" type="Polygon2D" parent="CanvasLayerMisc"]
 position = Vector2( 80, 300 )
