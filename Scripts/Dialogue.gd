@@ -126,7 +126,7 @@ func load_text_from_file(file: String, set: int):
 			# If this is a label, add it to the lookup table
 			if line[0] == ":":
 				label_table[line.substr(2, len(line) - 2)] = len(text) - 1
-		if len(line) > 0 and int(line) == set:
+		if len(line) > 0 and line[0].is_valid_integer() and int(line) == set:
 			read = true
 	if f.is_open():
 		f.close()

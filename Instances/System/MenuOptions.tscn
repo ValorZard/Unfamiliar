@@ -3234,6 +3234,7 @@ margin_bottom = 8.0
 focus_neighbour_left = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 focus_neighbour_top = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 focus_neighbour_right = NodePath("../../ButtonVolume2/Button")
+focus_neighbour_bottom = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 
 [node name="ButtonVolume2" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
 position = Vector2( 76, 27 )
@@ -3261,6 +3262,7 @@ margin_bottom = 8.0
 focus_neighbour_left = NodePath("../../ButtonVolume1/Button")
 focus_neighbour_top = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 focus_neighbour_right = NodePath("../../ButtonVolume3/Button")
+focus_neighbour_bottom = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 
 [node name="ButtonVolume3" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
 position = Vector2( 88, 27 )
@@ -3288,6 +3290,7 @@ margin_bottom = 8.0
 focus_neighbour_left = NodePath("../../ButtonVolume2/Button")
 focus_neighbour_top = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 focus_neighbour_right = NodePath("../../ButtonVolume4/Button")
+focus_neighbour_bottom = NodePath("../../ButtonWindowSize1/Button")
 
 [node name="ButtonVolume4" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
 position = Vector2( 100, 27 )
@@ -3315,6 +3318,7 @@ margin_bottom = 8.0
 focus_neighbour_left = NodePath("../../ButtonVolume3/Button")
 focus_neighbour_top = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 focus_neighbour_right = NodePath("../../ButtonVolume5/Button")
+focus_neighbour_bottom = NodePath("../../ButtonWindowSize1/Button")
 
 [node name="ButtonVolume5" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
 position = Vector2( 112, 27 )
@@ -3342,6 +3346,7 @@ margin_bottom = 8.0
 focus_neighbour_left = NodePath("../../ButtonVolume4/Button")
 focus_neighbour_top = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 focus_neighbour_right = NodePath("../../ButtonVolume6/Button")
+focus_neighbour_bottom = NodePath("../../ButtonWindowSize1/Button")
 
 [node name="ButtonVolume6" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
 position = Vector2( 124, 27 )
@@ -3369,6 +3374,7 @@ margin_bottom = 8.0
 focus_neighbour_left = NodePath("../../ButtonVolume5/Button")
 focus_neighbour_top = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 focus_neighbour_right = NodePath("../../ButtonVolume7/Button")
+focus_neighbour_bottom = NodePath("../../ButtonWindowSize2/Button")
 
 [node name="ButtonVolume7" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
 position = Vector2( 136, 27 )
@@ -3396,6 +3402,7 @@ margin_bottom = 8.0
 focus_neighbour_left = NodePath("../../ButtonVolume6/Button")
 focus_neighbour_top = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 focus_neighbour_right = NodePath("../../ButtonVolume8/Button")
+focus_neighbour_bottom = NodePath("../../ButtonWindowSize2/Button")
 
 [node name="ButtonVolume8" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
 position = Vector2( 148, 27 )
@@ -3423,6 +3430,7 @@ margin_bottom = 8.0
 focus_neighbour_left = NodePath("../../ButtonVolume7/Button")
 focus_neighbour_top = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 focus_neighbour_right = NodePath("../../ButtonVolume9/Button")
+focus_neighbour_bottom = NodePath("../../ButtonSpeed1/Button")
 
 [node name="ButtonVolume9" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
 position = Vector2( 160, 27 )
@@ -3450,6 +3458,7 @@ margin_bottom = 8.0
 focus_neighbour_left = NodePath("../../ButtonVolume8/Button")
 focus_neighbour_top = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 focus_neighbour_right = NodePath("../../ButtonVolume10/Button")
+focus_neighbour_bottom = NodePath("../../ButtonSpeed1/Button")
 
 [node name="ButtonVolume10" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
 position = Vector2( 172, 27 )
@@ -3477,6 +3486,7 @@ margin_bottom = 8.0
 focus_neighbour_left = NodePath("../../ButtonVolume9/Button")
 focus_neighbour_top = NodePath("../../../CanvasLayerMisc/ButtonBack/Button")
 focus_neighbour_right = NodePath("../../ButtonSpeed1/Button")
+focus_neighbour_bottom = NodePath("../../ButtonSpeed1/Button")
 
 [node name="ButtonWindowSize1" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
 position = Vector2( 106, 111 )

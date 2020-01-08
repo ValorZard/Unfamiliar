@@ -40,7 +40,7 @@
 ------------------------
 : R_1_2
 < What does your witch do?
-> $sH-$0he does gardening. He grows a lot of strange things.
+> $sH-$0he's a gardener. He grows a lot of strange things.
 < Oh, neat!
 > He uses some of it for himself, but he also sells a lot of it.
 > $sM-$0most of what I do is helping him out with the garden.

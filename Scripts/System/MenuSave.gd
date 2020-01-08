@@ -26,7 +26,7 @@ func _ready():
 
 func start(use_background: bool):
 	if not use_background:
-		$CanvasLayer/ColorRect.hide()
+		($CanvasLayer/ColorRect as ColorRect).hide()
 	
 	var player := $AnimationPlayer as AnimationPlayer
 	player.play("Appear")
@@ -37,7 +37,7 @@ func start(use_background: bool):
 func set_load_mode(value: bool):
 	load_mode = value
 	if value:
-		$CanvasLayer/Polygon2D/Label.set_text("Load Game")
+		($CanvasLayer/Polygon2D/Label as Label).set_text("Load Game")
 		
 # =====================================================================
 
