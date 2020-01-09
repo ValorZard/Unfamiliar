@@ -166,13 +166,13 @@ func show_choices():
 		index += 1
 		
 		
-func create_button(text: String, target_label: String, index: int):
+func create_button(text_: String, target_label: String, index: int):
 	var but := ButtonRef.instance() as ButtonUF
 	but.set_position(Vector2(ChoiceStartX + ChoiceSep * index, ChoiceStartY))
 	get_tree().get_root().add_child(but)
 	buttons_list.push_back(but)
 	yield(get_tree().create_timer(0.02), "timeout")
-	but.set_button_text(text)
+	but.set_button_text(text_)
 	but.connect("clicked", self, "goto_label", [target_label, index])
 	but.connect("clicked", but, "anim_selected")
 	but.appear()

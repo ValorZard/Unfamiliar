@@ -444,7 +444,7 @@ I just think it's too much of a hassle.
 ========================
 : BRANCH_4
 << Hey, Keifer...
-[ Are you friends with any witches? (-20, -60) R_4_1 | What does "UA" mean? (-20, -10) R_4_2 | (uh) (-20, 50) R_4_3
+[ Are you friends with any witches? (-20, -60) R_4_1 | What does "UA" mean? (-20, -10) R_4_2 | What are your college friends like? (-20, 50) R_4_3
 --------------------
 : R_4_1
 < Are you friends with any witches?
@@ -457,7 +457,39 @@ I just think it's too much of a hassle.
 > Although, I've seen a few witches around at college.
 @> idle
 > I haven't gotten to talk to any of them, but they seem like really nice people.
-
+@< smile
+< That's good.
+@< idle
+@> serious
+< There's so much negative stigma around witches.
+@< explain
+< Because, y'know... demons and contracts with the underworld and all that.
+@< smile
+< But there are a lot of really nice witches out there.
+@> idle
+< Like mine.
+@> explain
+> Why did your witch decide to become a witch, exactly?
+@> serious
+> Do the descendents of witches usually become witches, too?
+@< idle
+< Most of the time.
+< My witch's parents weren't witches, though.
+@< explain
+< She hasn't actually told me why she became a witch.
+< Everyone has their own reason.
+@< sad
+< Some of them are a lot more morbid than others.
+> ...
+@< idle
+< A lot of witches have had really hard lives because of all that stigma.
+@< smile2
+< So, try to be nice to any witches you meet at college.
+@> idle
+> I will.
+> I'll be nice to any others demons or familiars I meet, too.
+@< smile
+< Thank you.
 ^ BRANCH_5
 --------------------
 : R_4_2
@@ -515,4 +547,35 @@ I just think it's too much of a hassle.
 ^ BRANCH_5
 --------------------
 : R_4_3
+< What are your college friends like?
+> They're pretty cool.
+@< idle
+< Whose idea was it to visit Los Muertos?
+@> serious
+> Uh...
+> It wasn't mine. I'll say that much.
+@< smile
+@> idle
+> I'm glad he talked the rest of us into it, though. This has been a really fun trip.
+< How are the rest of your friends enjoying it?
+@> serious
+> Uh... I don't think they're as enthusiastic.
+@< idle
+@> explain
+> They wanted to go somewhere $wspectacular, $0like the Grand Canyon or someplace like that.
+> Not to a small city full of witches, demons, and monsters.
+@> serious
+> Come to think of it, a lot of my college friends are like that.
+> They aren't huge fans of experimenting. They just want to go places they know will be fun.
+@> idle
+> Me, though? I'm a photographer. I want to take pictures of new stuff.
+@< smile
+@> explain2
+> I want to find all the angles no one has found before.
+> And if that means coming to a place like this, I'll come to a place like this!
+< That's a great attitude to have.
+@> idle
+> Yep! It's how I get to meet people like you.
 ^ BRANCH_5
+========================
+: BRANCH_5
