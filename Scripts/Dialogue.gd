@@ -49,7 +49,7 @@ onready var label := $Text as RichTextLabel
 func _process(delta):
 	label.set_visible_characters(disp)
 	
-	if Input.is_action_just_pressed("sys_action") and not buffer:
+	if Input.is_action_just_pressed("sys_select") and not buffer:
 		if allow_advance and not choice:
 			if page < len(text) - 1:
 				refresh_text()

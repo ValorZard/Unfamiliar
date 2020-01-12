@@ -530,12 +530,8 @@ I just think it's too much of a hassle.
 > Do all witches do that with their familiars?
 @< idle
 < No. Some of them enroll their familiars in public school.
-@< sad
-< And some of them don't educate their familiars at all.
-> Wow...
 @< idle
 > Do you have any $winterest $0in going to college?
-< I don't know.
 < I mean... it's not like I can.
 @< explain
 < I'm a familiar. I have to always be there to assist my witch when she needs it.

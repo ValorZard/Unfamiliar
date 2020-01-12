@@ -5,7 +5,7 @@
 > Because you're a $wdemon! $0I mean, how cool is that?
 @< idle
 @> idle
-> I've never talked to a demon before, and I want to learn more about you!
+> I've never had a conversation with a demon before. I want to learn more about you!
 # @< whatnow
 < ...
 @< idle
