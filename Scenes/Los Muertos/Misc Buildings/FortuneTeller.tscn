@@ -1,0 +1,154 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
+[ext_resource path="res://Sprites/Props/Interiors/IN_PentagramRug.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/UI/DarkOverlay.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Bookcase.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/System/DepthProp.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/Props/Interiors/IN_RoundTable.png" type="Texture" id=7]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=9]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+render_mode unshaded;
+
+//uniform sampler2D darkness;
+
+void fragment() {
+	vec4 tint = vec4(vec3(0.44), 1f);
+	COLOR = texture(SCREEN_TEXTURE, SCREEN_UV);
+	COLOR = max(COLOR * tint, float(COLOR.g >= COLOR.b || COLOR.r >= COLOR.b) * COLOR);
+	//COLOR += texture(darkness, UV);
+}
+"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 32, 8 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 16, 64 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 18, 8 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 13, 7 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 16, 8 )
+
+[node name="Scene" type="Node2D"]
+
+[node name="Overlay" parent="." instance=ExtResource( 1 )]
+is_preview = true
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( 80, 18 )
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65538, 18, 0, 65539, 18, 0, 65540, 18, 0, 65541, 18, 0, 65542, 18, 0, 65543, 18, 0, 131074, 18, 0, 131075, 18, 0, 131076, 18, 0, 131077, 18, 0, 131078, 18, 0, 131079, 18, 0, 196610, 21, 0, 196611, 21, 0, 196612, 21, 0, 196613, 21, 0, 196614, 21, 0, 196615, 21, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 327682, 0, 0, 327683, 0, 0, 327684, 0, 0, 327685, 0, 0, 327686, 0, 0, 327687, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0 )
+
+[node name="Rug" type="Sprite" parent="."]
+position = Vector2( 134, 91 )
+texture = ExtResource( 3 )
+centered = false
+
+[node name="TileMap2" type="TileMap" parent="."]
+position = Vector2( 80, 18 )
+z_index = 2000
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+collision_layer = 0
+collision_mask = 0
+format = 1
+tile_data = PoolIntArray( 0, 27, 0, 1, 1610612771, 0, 2, -1610612708, 0, 3, -1610612708, 0, 4, -1610612708, 0, 5, -1610612708, 0, 6, -1610612708, 0, 7, -1610612708, 0, 8, 1073741859, 0, 9, 27, 0, 65536, 27, 0, 65537, 28, 0, 65544, 26, 0, 65545, 27, 0, 131072, 27, 0, 131073, 28, 0, 131080, 26, 0, 131081, 27, 0, 196608, 27, 0, 196609, 28, 0, 196616, 26, 0, 196617, 27, 0, 262144, 27, 0, 262145, 28, 0, 262152, 26, 0, 262153, 27, 0, 327680, 27, 0, 327681, 28, 0, 327688, 26, 0, 327689, 27, 0, 393216, 27, 0, 393217, 28, 0, 393224, 26, 0, 393225, 27, 0, 458752, 27, 0, 458753, 28, 0, 458760, 26, 0, 458761, 27, 0, 524288, 27, 0, 524289, 536870947, 0, 524290, 23, 0, 524291, 25, 0, 524294, 24, 0, 524295, 23, 0, 524296, 35, 0, 524297, 27, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Tint" type="Node2D" parent="."]
+z_index = 3400
+
+[node name="Darkness" type="Sprite" parent="Tint"]
+position = Vector2( 80, 18 )
+texture = ExtResource( 4 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="Tint"]
+material = SubResource( 2 )
+margin_right = 320.0
+margin_bottom = 180.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Walls" type="StaticBody2D" parent="."]
+z_index = 2100
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 112, 162 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 160, 174 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 208, 162 )
+shape = SubResource( 3 )
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 224, 90 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 96, 90 )
+shape = SubResource( 4 )
+
+[node name="Bookcase" type="StaticBody2D" parent="."]
+position = Vector2( 142, 58 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Bookcase"]
+texture = ExtResource( 5 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bookcase"]
+position = Vector2( 18, 22 )
+shape = SubResource( 5 )
+
+[node name="Table" type="StaticBody2D" parent="."]
+position = Vector2( 147, 94 )
+z_index = 94
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Table"]
+texture = ExtResource( 7 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table"]
+position = Vector2( 13, 13 )
+shape = SubResource( 6 )
+
+[node name="Door" parent="." instance=ExtResource( 8 )]
+position = Vector2( 160, 162 )
+target_scene = "res://Scenes/Los Muertos/LM_Waterfront_R2.tscn"
+target_position = Vector2( 92, 84 )
+target_direction = 1
+door_sound = ExtResource( 9 )
+
+[node name="CollisionShape2D" parent="Door" index="0"]
+shape = SubResource( 7 )
+
+[editable path="Door"]

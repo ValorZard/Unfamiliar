@@ -14,8 +14,8 @@
 [ext_resource path="res://Sprites/Props/Interiors/IN_Strongbox.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Props/Interiors/IN_Tabletop_Misc1.png" type="Texture" id=13]
 [ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_left.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_right.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_right.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_left.png" type="Texture" id=16]
 [ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_up.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/Characters (Overworld)/Rhona/Rhona_ow_down.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Paul.png" type="Texture" id=19]
@@ -40,12 +40,12 @@ extents = Vector2( 5, 10 )
 animations = [ {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ) ],
@@ -63,12 +63,12 @@ animations = [ {
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -228,12 +228,12 @@ extents = Vector2( 16, 8 )
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],

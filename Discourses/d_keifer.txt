@@ -321,9 +321,9 @@ I just think it's too much of a hassle.
 < No, go ahead!
 > ...
 > Do you like being a demon?
-< ...
+< What?
 @< smile
-< I mean... yeah!
+< Of course I like being a demon!
 @< idle
 < It's not always easy, though.
 @< sad
@@ -439,7 +439,7 @@ I just think it's too much of a hassle.
 > But you think you two are pretty trusting of each other?
 < Yeah.
 @< smile
-< 
+< TODO FINISH THIS
 ^ BRANCH_4
 ========================
 : BRANCH_4
@@ -471,7 +471,7 @@ I just think it's too much of a hassle.
 @> explain
 > Why did your witch decide to become a witch, exactly?
 @> serious
-> Do the descendents of witches usually become witches, too?
+> Do the descendants of witches usually become witches, too?
 @< idle
 < Most of the time.
 < My witch's parents weren't witches, though.
@@ -579,3 +579,67 @@ I just think it's too much of a hassle.
 ^ BRANCH_5
 ========================
 : BRANCH_5
+| 1
+@> serious
+> Cosmo...
+@> explain
+> How long have you been a familiar?
+@> serious
+@< idle
+< Seven years.
+@> shock
+> What?
+> You, uh... don't look seven years old.
+@> serious
+@< heh
+< Yeah... familiars don't age like humans do.
+@< idle
+< Demons from the underworld are immortal, of course.
+@< think
+< But since familiars are basically a mix between a demon and a human... it gets messy.
+@< explain
+< I think I was about eight in human years when my witch created me.
+< I'm the equivalent of about nineteen now.
+@> shock
+> Wait... you $wstarted off $0physically eight years old?
+@< idle
+< Yeah. That's usually what happens.
+@< explain
+< It depends on the vessel a witch uses, and even on how old the witch is.
+@> serious
+> You weren't kidding about familiars bein' complicated.
+@< idle
+< Mhm.
+< Being a demon with a human soul does all sorts of weird things.
+< For example, we stop aging $wway $0sooner than humans.
+< This is probably about how I'm going to look for the rest of my life.
+> Wow...
+< Yeah.
+< Speaking of which... familiars actually have shorter lifespans than humans.
+@< sad
+< We usually live about half as long as they do.
+> $sR-$0really?
+< Yeah. It's a weird side effect of mixing mortality with immortality.
+@< idle
+> And you're gonna be helping your witch for the rest of your life, aren't you?
+< Yeah.
+< Such is the life a familiar lives.
+> ...
+> I'm just speaking hypothetically here, but...
+@> explain
+>> If you weren't a familiar, what would you want to do with your life?
+[ Go to college. (-20, -60) R_5_1 | Get a job. (20, -10) R_5_2 | Become a witch. (20, 50) R_5_3
+------------------------
+: R_5_1
+< Go to college.
+^ END
+------------------------
+: R_5_2
+< Get a job.
+^ END
+------------------------
+: R_5_3
+< Become a witch.
+^ END
+------------------------
+: END
