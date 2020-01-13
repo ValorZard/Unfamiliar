@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 class_name PlayerClass
 
-const Speed := 65
+const Speed := 75
 
 var vel := Vector2(0, 0)
 var vel_override := Vector2(0, 0)
@@ -50,7 +50,7 @@ func _physics_process(delta):
 			if not sprite_override:
 				sprite_management()
 			
-			move_and_slide(vel * Speed)
+			move_and_slide(vel.normalized() * Speed)
 			
 		PlayerState.NoInput:
 			walking = speed_override > 0

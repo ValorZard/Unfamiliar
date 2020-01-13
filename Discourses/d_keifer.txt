@@ -628,6 +628,33 @@ I just think it's too much of a hassle.
 ------------------------
 : R_5_1
 < Go to college.
+@> idle
+> Oh, really?
+@< smile
+< Yeah. I actually think I'd really enjoy it.
+> What would you want to major in?
+@< idle
+< I'm not sure.
+@< explain
+< There's just a lot more I'd like to learn, y'know?
+@< idle
+@> serious
+< My witch did a good job homeschooling me, but she can't teach me everything.
+< Also...
+< I feel like going to college would be a benefit to my social skills.
+@< explain
+< My social skills really aren't great.
+< I'm usually pretty terrible at talking to other people.
+@< idle
+< Especially humans.
+> Really? I think you're talking to me just fine.
+@< smile2
+< I think that says more about you than it does about me.
+@> heh
+> Heh... maybe you're right.
+@> idle
+@< idle
+< 
 ^ END
 ------------------------
 : R_5_2
@@ -639,3 +666,4 @@ I just think it's too much of a hassle.
 ^ END
 ------------------------
 : END
+< 
