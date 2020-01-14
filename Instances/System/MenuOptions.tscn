@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=2]
+[gd_scene load_steps=104 format=2]
 
 [ext_resource path="res://Scripts/System/MenuOptions.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=2]
@@ -2007,6 +2007,46 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id=59]
+resource_name = "Select Fast"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6, 1.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=60]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -2034,7 +2074,7 @@ tracks/1/keys = {
 "values": [ -1.0, 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=60]
+[sub_resource type="Animation" id=61]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:hover_alpha")
 tracks/0/interp = 1
@@ -2058,56 +2098,6 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 0.0, 10.0 ]
-}
-
-[sub_resource type="Animation" id=61]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 0.517632, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath(".:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("Label:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0, 0.05 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
 [sub_resource type="Animation" id=62]
@@ -2119,125 +2109,6 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1.51572, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1.51572, 1 ),
-"update": 0,
-"values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
-}
-
-[sub_resource type="Animation" id=63]
-length = 2.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Label:self_modulate")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1.2, 2.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-
-[sub_resource type="Animation" id=64]
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:idle_x")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0, -1.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:idle_y")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ -1.0, 1.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=65]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:hover_alpha")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 1.0, 1.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:hover_offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 10.0 ]
-}
-
-[sub_resource type="Animation" id=66]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 0.517632, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
@@ -2277,6 +2148,125 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=63]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.51572, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.51572, 1 ),
+"update": 0,
+"values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
+}
+
+[sub_resource type="Animation" id=64]
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=65]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:idle_x")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, -1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:idle_y")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -1.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=66]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:hover_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:hover_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0 ]
 }
 
 [sub_resource type="Animation" id=67]
@@ -2288,125 +2278,6 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1.51572, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1.51572, 1 ),
-"update": 0,
-"values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
-}
-
-[sub_resource type="Animation" id=68]
-length = 2.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Label:self_modulate")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1.2, 2.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-
-[sub_resource type="Animation" id=69]
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:idle_x")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0, -1.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:idle_y")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ -1.0, 1.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=70]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:hover_alpha")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 1.0, 1.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:hover_offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 10.0 ]
-}
-
-[sub_resource type="Animation" id=71]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 0.517632, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
@@ -2446,6 +2317,125 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=68]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.51572, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.51572, 1 ),
+"update": 0,
+"values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
+}
+
+[sub_resource type="Animation" id=69]
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=70]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:idle_x")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, -1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:idle_y")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -1.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=71]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:hover_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:hover_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0 ]
 }
 
 [sub_resource type="Animation" id=72]
@@ -2457,125 +2447,6 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1.51572, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1.51572, 1 ),
-"update": 0,
-"values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
-}
-
-[sub_resource type="Animation" id=73]
-length = 2.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Label:self_modulate")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1.2, 2.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-
-[sub_resource type="Animation" id=74]
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:idle_x")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0, -1.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:idle_y")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ -1.0, 1.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=75]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:hover_alpha")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 1.0, 1.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:hover_offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 10.0 ]
-}
-
-[sub_resource type="Animation" id=76]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 0.517632, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
@@ -2615,6 +2486,125 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=73]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.51572, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.51572, 1 ),
+"update": 0,
+"values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
+}
+
+[sub_resource type="Animation" id=74]
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=75]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:idle_x")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, -1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:idle_y")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -1.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=76]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:hover_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:hover_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0 ]
 }
 
 [sub_resource type="Animation" id=77]
@@ -2626,125 +2616,6 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1.51572, 1 ),
-"update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1.51572, 1 ),
-"update": 0,
-"values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
-}
-
-[sub_resource type="Animation" id=78]
-length = 2.5
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:self_modulate")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray(  ),
-"transitions": PoolRealArray(  ),
-"update": 0,
-"values": [  ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Label:self_modulate")
-tracks/2/interp = 2
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 1.2, 2.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
-}
-
-[sub_resource type="Animation" id=79]
-length = 2.0
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:idle_x")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 0.0, 1.0, -1.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:idle_y")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.7, 1.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ -1.0, 1.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=80]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:hover_alpha")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 1.0, 1.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:hover_offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 10.0 ]
-}
-
-[sub_resource type="Animation" id=81]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:scale")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 0.517632, 1 ),
 "update": 0,
 "values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
@@ -2784,6 +2655,125 @@ tracks/3/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=78]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.51572, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.51572, 1 ),
+"update": 0,
+"values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
+}
+
+[sub_resource type="Animation" id=79]
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=80]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:idle_x")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, -1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:idle_y")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -1.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=81]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:hover_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:hover_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0 ]
 }
 
 [sub_resource type="Animation" id=82]
@@ -2795,6 +2785,56 @@ tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.517632, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Label:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=83]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1.51572, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
@@ -2812,7 +2852,7 @@ tracks/1/keys = {
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
 }
 
-[sub_resource type="Animation" id=83]
+[sub_resource type="Animation" id=84]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -2851,7 +2891,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=84]
+[sub_resource type="Animation" id=85]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -2879,7 +2919,7 @@ tracks/1/keys = {
 "values": [ -1.0, 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=85]
+[sub_resource type="Animation" id=86]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:hover_alpha")
 tracks/0/interp = 1
@@ -2905,7 +2945,7 @@ tracks/1/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[sub_resource type="Animation" id=86]
+[sub_resource type="Animation" id=87]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
@@ -2955,7 +2995,7 @@ tracks/3/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=87]
+[sub_resource type="Animation" id=88]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
@@ -2981,7 +3021,7 @@ tracks/1/keys = {
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
 }
 
-[sub_resource type="Animation" id=88]
+[sub_resource type="Animation" id=89]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -3020,7 +3060,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=89]
+[sub_resource type="Animation" id=90]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -3048,7 +3088,7 @@ tracks/1/keys = {
 "values": [ -1.0, 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=90]
+[sub_resource type="Animation" id=91]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:hover_alpha")
 tracks/0/interp = 1
@@ -3074,11 +3114,180 @@ tracks/1/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[sub_resource type="DynamicFont" id=91]
+[sub_resource type="Animation" id=92]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.517632, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Label:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.05 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=93]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.51572, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1.51572, 1 ),
+"update": 0,
+"values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
+}
+
+[sub_resource type="Animation" id=94]
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 0,
+"values": [  ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Label:self_modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1.2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=95]
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:idle_x")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0, -1.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:idle_y")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.7, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ -1.0, 1.0, 0.0 ]
+}
+
+[sub_resource type="Animation" id=96]
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:hover_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:hover_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0 ]
+}
+
+[sub_resource type="DynamicFont" id=97]
 size = 32
 font_data = ExtResource( 4 )
 
-[sub_resource type="Animation" id=92]
+[sub_resource type="Animation" id=98]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayerMisc/Polygon2D:position")
@@ -3117,8 +3326,7 @@ tracks/2/keys = {
 "values": [ Color( 0.0470588, 0.0745098, 0.137255, 0 ), Color( 0.0470588, 0.0745098, 0.137255, 1 ) ]
 }
 
-[sub_resource type="Animation" id=93]
-resource_name = "Disappear"
+[sub_resource type="Animation" id=99]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasLayerMisc/Polygon2D:position")
 tracks/0/interp = 1
@@ -3561,6 +3769,35 @@ focus_neighbour_top = NodePath("../../ButtonSpeed4/Button")
 focus_neighbour_right = NodePath("../../ButtonSpeed4/Button")
 focus_neighbour_bottom = NodePath("../../ButtonFullscreen1/Button")
 
+[node name="ButtonWindowSize4" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
+position = Vector2( 201, 110 )
+polygon = PoolVector2Array( 43, 25, 71, 22, 67, 6, 46, 7 )
+button_text = "4X"
+choice_button = false
+selection_animation = false
+
+[node name="AnimationPlayer" parent="CanvasLayerSettings/ButtonWindowSize4" index="2"]
+anims/Appear = SubResource( 56 )
+anims/Disappear = SubResource( 57 )
+anims/Select = SubResource( 58 )
+"anims/Select Fast" = SubResource( 59 )
+
+[node name="AnimationPlayerIdle" parent="CanvasLayerSettings/ButtonWindowSize4" index="3"]
+anims/Idle = SubResource( 60 )
+
+[node name="AnimationPlayerHover" parent="CanvasLayerSettings/ButtonWindowSize4" index="4"]
+anims/Hover = SubResource( 61 )
+
+[node name="Button" parent="CanvasLayerSettings/ButtonWindowSize4" index="5"]
+margin_left = -12.0
+margin_top = -9.0
+margin_right = 12.0
+margin_bottom = 10.0
+focus_neighbour_left = NodePath("../../ButtonWindowSize2/Button")
+focus_neighbour_top = NodePath("../../ButtonSpeed4/Button")
+focus_neighbour_right = NodePath("../../ButtonSpeed4/Button")
+focus_neighbour_bottom = NodePath("../../ButtonFullscreen1/Button")
+
 [node name="ButtonFullscreen1" parent="CanvasLayerSettings" instance=ExtResource( 3 )]
 position = Vector2( 142, 138 )
 polygon = PoolVector2Array( 43, 23, 65, 23, 67, 6, 43, 7 )
@@ -3569,15 +3806,15 @@ choice_button = false
 selection_animation = false
 
 [node name="AnimationPlayer" parent="CanvasLayerSettings/ButtonFullscreen1" index="2"]
-anims/Appear = SubResource( 56 )
-anims/Disappear = SubResource( 57 )
-anims/Select = SubResource( 58 )
+anims/Appear = SubResource( 62 )
+anims/Disappear = SubResource( 63 )
+anims/Select = SubResource( 64 )
 
 [node name="AnimationPlayerIdle" parent="CanvasLayerSettings/ButtonFullscreen1" index="3"]
-anims/Idle = SubResource( 59 )
+anims/Idle = SubResource( 65 )
 
 [node name="AnimationPlayerHover" parent="CanvasLayerSettings/ButtonFullscreen1" index="4"]
-anims/Hover = SubResource( 60 )
+anims/Hover = SubResource( 66 )
 
 [node name="Button" parent="CanvasLayerSettings/ButtonFullscreen1" index="5"]
 margin_left = -12.0
@@ -3597,15 +3834,15 @@ choice_button = false
 selection_animation = false
 
 [node name="AnimationPlayer" parent="CanvasLayerSettings/ButtonFullscreen2" index="2"]
-anims/Appear = SubResource( 61 )
-anims/Disappear = SubResource( 62 )
-anims/Select = SubResource( 63 )
+anims/Appear = SubResource( 67 )
+anims/Disappear = SubResource( 68 )
+anims/Select = SubResource( 69 )
 
 [node name="AnimationPlayerIdle" parent="CanvasLayerSettings/ButtonFullscreen2" index="3"]
-anims/Idle = SubResource( 64 )
+anims/Idle = SubResource( 70 )
 
 [node name="AnimationPlayerHover" parent="CanvasLayerSettings/ButtonFullscreen2" index="4"]
-anims/Hover = SubResource( 65 )
+anims/Hover = SubResource( 71 )
 
 [node name="Button" parent="CanvasLayerSettings/ButtonFullscreen2" index="5"]
 margin_left = -14.0
@@ -3625,15 +3862,15 @@ choice_button = false
 selection_animation = false
 
 [node name="AnimationPlayer" parent="CanvasLayerSettings/ButtonSpeed1" index="2"]
-anims/Appear = SubResource( 66 )
-anims/Disappear = SubResource( 67 )
-anims/Select = SubResource( 68 )
+anims/Appear = SubResource( 72 )
+anims/Disappear = SubResource( 73 )
+anims/Select = SubResource( 74 )
 
 [node name="AnimationPlayerIdle" parent="CanvasLayerSettings/ButtonSpeed1" index="3"]
-anims/Idle = SubResource( 69 )
+anims/Idle = SubResource( 75 )
 
 [node name="AnimationPlayerHover" parent="CanvasLayerSettings/ButtonSpeed1" index="4"]
-anims/Hover = SubResource( 70 )
+anims/Hover = SubResource( 76 )
 
 [node name="Button" parent="CanvasLayerSettings/ButtonSpeed1" index="5"]
 margin_left = -20.0
@@ -3654,15 +3891,15 @@ choice_button = false
 selection_animation = false
 
 [node name="AnimationPlayer" parent="CanvasLayerSettings/ButtonSpeed2" index="2"]
-anims/Appear = SubResource( 71 )
-anims/Disappear = SubResource( 72 )
-anims/Select = SubResource( 73 )
+anims/Appear = SubResource( 77 )
+anims/Disappear = SubResource( 78 )
+anims/Select = SubResource( 79 )
 
 [node name="AnimationPlayerIdle" parent="CanvasLayerSettings/ButtonSpeed2" index="3"]
-anims/Idle = SubResource( 74 )
+anims/Idle = SubResource( 80 )
 
 [node name="AnimationPlayerHover" parent="CanvasLayerSettings/ButtonSpeed2" index="4"]
-anims/Hover = SubResource( 75 )
+anims/Hover = SubResource( 81 )
 
 [node name="Button" parent="CanvasLayerSettings/ButtonSpeed2" index="5"]
 margin_left = -26.0
@@ -3699,15 +3936,15 @@ choice_button = false
 selection_animation = false
 
 [node name="AnimationPlayer" parent="CanvasLayerSettings/ButtonSpeed4" index="2"]
-anims/Appear = SubResource( 76 )
-anims/Disappear = SubResource( 77 )
-anims/Select = SubResource( 78 )
+anims/Appear = SubResource( 82 )
+anims/Disappear = SubResource( 83 )
+anims/Select = SubResource( 84 )
 
 [node name="AnimationPlayerIdle" parent="CanvasLayerSettings/ButtonSpeed4" index="3"]
-anims/Idle = SubResource( 79 )
+anims/Idle = SubResource( 85 )
 
 [node name="AnimationPlayerHover" parent="CanvasLayerSettings/ButtonSpeed4" index="4"]
-anims/Hover = SubResource( 80 )
+anims/Hover = SubResource( 86 )
 
 [node name="Button" parent="CanvasLayerSettings/ButtonSpeed4" index="5"]
 margin_left = -20.0
@@ -3728,15 +3965,15 @@ choice_button = false
 selection_animation = false
 
 [node name="AnimationPlayer" parent="CanvasLayerSettings/ButtonSpeed5" index="2"]
-anims/Appear = SubResource( 81 )
-anims/Disappear = SubResource( 82 )
-anims/Select = SubResource( 83 )
+anims/Appear = SubResource( 87 )
+anims/Disappear = SubResource( 88 )
+anims/Select = SubResource( 89 )
 
 [node name="AnimationPlayerIdle" parent="CanvasLayerSettings/ButtonSpeed5" index="3"]
-anims/Idle = SubResource( 84 )
+anims/Idle = SubResource( 90 )
 
 [node name="AnimationPlayerHover" parent="CanvasLayerSettings/ButtonSpeed5" index="4"]
-anims/Hover = SubResource( 85 )
+anims/Hover = SubResource( 91 )
 
 [node name="Button" parent="CanvasLayerSettings/ButtonSpeed5" index="5"]
 margin_left = -26.0
@@ -3756,15 +3993,15 @@ choice_button = false
 selection_animation = false
 
 [node name="AnimationPlayer" parent="CanvasLayerSettings/ButtonSpeed6" index="2"]
-anims/Appear = SubResource( 86 )
-anims/Disappear = SubResource( 87 )
-anims/Select = SubResource( 88 )
+anims/Appear = SubResource( 92 )
+anims/Disappear = SubResource( 93 )
+anims/Select = SubResource( 94 )
 
 [node name="AnimationPlayerIdle" parent="CanvasLayerSettings/ButtonSpeed6" index="3"]
-anims/Idle = SubResource( 89 )
+anims/Idle = SubResource( 95 )
 
 [node name="AnimationPlayerHover" parent="CanvasLayerSettings/ButtonSpeed6" index="4"]
-anims/Hover = SubResource( 90 )
+anims/Hover = SubResource( 96 )
 
 [node name="Button" parent="CanvasLayerSettings/ButtonSpeed6" index="5"]
 margin_left = -19.0
@@ -3833,14 +4070,14 @@ margin_top = -24.0
 margin_right = 326.0
 margin_bottom = 7.62939e-006
 rect_rotation = -25.0
-custom_fonts/font = SubResource( 91 )
+custom_fonts/font = SubResource( 97 )
 custom_colors/font_color = Color( 0.486275, 0.639216, 1, 1 )
 text = "Options"
 align = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Appear = SubResource( 92 )
-anims/Disappear = SubResource( 93 )
+anims/Appear = SubResource( 98 )
+anims/Disappear = SubResource( 99 )
 [connection signal="clicked" from="CanvasLayerSettings/ButtonVolume1" to="." method="set_volume" binds= [ 0.1 ]]
 [connection signal="clicked" from="CanvasLayerSettings/ButtonVolume2" to="." method="set_volume" binds= [ 0.2 ]]
 [connection signal="clicked" from="CanvasLayerSettings/ButtonVolume3" to="." method="set_volume" binds= [ 0.3 ]]
@@ -3854,6 +4091,7 @@ anims/Disappear = SubResource( 93 )
 [connection signal="clicked" from="CanvasLayerSettings/ButtonWindowSize1" to="." method="set_windowsize" binds= [ 0 ]]
 [connection signal="clicked" from="CanvasLayerSettings/ButtonWindowSize2" to="." method="set_windowsize" binds= [ 1 ]]
 [connection signal="clicked" from="CanvasLayerSettings/ButtonWindowSize3" to="." method="set_windowsize" binds= [ 2 ]]
+[connection signal="clicked" from="CanvasLayerSettings/ButtonWindowSize4" to="." method="set_windowsize" binds= [ 3 ]]
 [connection signal="clicked" from="CanvasLayerSettings/ButtonFullscreen1" to="." method="set_fullscreen" binds= [ 1 ]]
 [connection signal="clicked" from="CanvasLayerSettings/ButtonFullscreen2" to="." method="set_fullscreen" binds= [ 0 ]]
 [connection signal="clicked" from="CanvasLayerSettings/ButtonSpeed1" to="." method="set_speed_ow" binds= [ 0 ]]
@@ -3890,6 +4128,8 @@ anims/Disappear = SubResource( 93 )
 [editable path="CanvasLayerSettings/ButtonWindowSize2"]
 
 [editable path="CanvasLayerSettings/ButtonWindowSize3"]
+
+[editable path="CanvasLayerSettings/ButtonWindowSize4"]
 
 [editable path="CanvasLayerSettings/ButtonFullscreen1"]
 

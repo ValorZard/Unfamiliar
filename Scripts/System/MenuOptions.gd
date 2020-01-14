@@ -29,6 +29,8 @@ onready var button_windowsize_1 := $CanvasLayerSettings/ButtonWindowSize1 as But
 onready var button_windowsize_2 := $CanvasLayerSettings/ButtonWindowSize2 as ButtonUF
 # warning-ignore:unused_class_variable
 onready var button_windowsize_3 := $CanvasLayerSettings/ButtonWindowSize3 as ButtonUF
+# warning-ignore:unused_class_variable
+onready var button_windowsize_4 := $CanvasLayerSettings/ButtonWindowSize4 as ButtonUF
 
 # warning-ignore:unused_class_variable
 onready var button_fullscreen_1 := $CanvasLayerSettings/ButtonFullscreen1 as ButtonUF
@@ -51,7 +53,7 @@ onready var button_speed_6 := $CanvasLayerSettings/ButtonSpeed6 as ButtonUF
 onready var button_back := $CanvasLayerMisc/ButtonBack as ButtonUF
 
 onready var buttons: Array = [	button_volume_1, button_volume_2, button_volume_3, button_volume_4, button_volume_5, button_volume_6, button_volume_7, 
-								button_volume_8, button_volume_9, button_volume_10, button_windowsize_1, button_windowsize_2, button_windowsize_3,
+								button_volume_8, button_volume_9, button_volume_10, button_windowsize_1, button_windowsize_2, button_windowsize_3, button_windowsize_4,
 								button_fullscreen_1, button_fullscreen_2, button_speed_1, button_speed_2, button_speed_3, button_speed_4,
 								button_speed_5, button_speed_6, button_back	]
 
@@ -126,20 +128,20 @@ func update_shading():
 		(buttons[i] as ButtonUF).set_shaded(i < volume_value)
 	
 	# Windowsize
-	for i in range(3):
+	for i in range(4):
 		(buttons[i + 10] as ButtonUF).set_shaded(i == windowsize_value)
 		
 	# Fullscreen
 	for i in range(2):
-		(buttons[i + 13] as ButtonUF).set_shaded(i != fullscreen_value)
+		(buttons[i + 14] as ButtonUF).set_shaded(i != fullscreen_value)
 		
 	# Overworld speed
 	for i in range(3):
-		(buttons[i + 15] as ButtonUF).set_shaded(i == speed_ow_value)
+		(buttons[i + 16] as ButtonUF).set_shaded(i == speed_ow_value)
 		
 	# Discourse speed
 	for i in range(3):
-		(buttons[i + 18] as ButtonUF).set_shaded(i == speed_d_value)
+		(buttons[i + 19] as ButtonUF).set_shaded(i == speed_d_value)
 		
 		
 func update_controller_settings():

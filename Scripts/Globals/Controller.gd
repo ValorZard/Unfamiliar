@@ -71,11 +71,16 @@ var flags: Dictionary = {
 
 var settings: Dictionary = {
 	"volume": 7,
-	"window_size": 0, # 0 = 1x, 1 = 2x, 2 = 3x
+	"window_size": 1, # 0 = 1x, 1 = 2x, 2 = 3x
 	"fullscreen": 0, # 0 = No, 1 = Yes
 	"text_speed_overworld": 1, # 0 = Slow, 1 = Medium, 2 = Fast
 	"text_speed_discourse": 2 # 0 = Slow, 1 = Medium, 2 = Fast
 }
+
+const Windowsize1 := Vector2(960, 540)
+const Windowsize2 := Vector2(1280, 720)
+const Windowsize3 := Vector2(1920, 1080)
+const Windowsize4 := Vector2(2560, 1440)
 
 const map_marker_locs: Dictionary = {
 	"res://Scenes/Los Muertos/LM_Trainstation.tscn":    Vector2(3, 4),
@@ -172,13 +177,16 @@ func _process(delta: float):
 	if Input.is_action_just_pressed("sys_windowsize"):
 		match int(settings["window_size"]):
 			0:
-				OS.set_window_size(Vector2(1920, 1080))
+				OS.set_window_size(Windowsize2)
 				settings["window_size"] = 1
 			1:
-				OS.set_window_size(Vector2(2560, 1440))
+				OS.set_window_size(Windowsize3)
 				settings["window_size"] = 2
 			2:
-				OS.set_window_size(Vector2(1280, 720))
+				OS.set_window_size(Windowsize4)
+				settings["window_size"] = 3
+			3:
+				OS.set_window_size(Windowsize1)
 				settings["window_size"] = 0
 		OS.center_window()
 		if not editor_mode:
@@ -258,11 +266,13 @@ func update_settings(volume: int, window_size: int, fullscreen: int, text_speed_
 	# Window size
 	match window_size:
 		0:
-			OS.set_window_size(Vector2(1280, 720))
+			OS.set_window_size(Windowsize1)
 		1:
-			OS.set_window_size(Vector2(1920, 1080))
+			OS.set_window_size(Windowsize2)
 		2:
-			OS.set_window_size(Vector2(2560, 1440))
+			OS.set_window_size(Windowsize3)
+		3:
+			OS.set_window_size(Windowsize4)
 	OS.center_window()
 	settings["window_size"] = window_size
 	
