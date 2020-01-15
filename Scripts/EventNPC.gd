@@ -93,8 +93,8 @@ func set_can_talk_to(value: bool):
 
 # =====================================================================
 
-func _refresh_range_check(face: int):
-	if in_range and require_direction and face == required_direction:
+func _refresh_range_check(face_: int):
+	if in_range and require_direction and face_ == required_direction:
 		can_interact = true
 		if is_object:
 			Player.show_interact(true)
