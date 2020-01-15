@@ -2,6 +2,8 @@ extends KinematicBody2D
 
 class_name PlayerClass
 
+signal direction_changed(dir)
+
 const Speed := 75
 
 var vel := Vector2(0, 0)
@@ -147,6 +149,8 @@ func play_sprite_animation(anim: String):
 # =====================================================================
 
 func direction_management():
+	var prev_face := face
+	
 	if vel.x == 0:
 		match vel.y:
 			-1.0:
@@ -169,6 +173,9 @@ func direction_management():
 			sight.set_rotation_degrees(90)
 		Direction.Right:
 			sight.set_rotation_degrees(270)
+			
+	if face != prev_face:
+		emit_signal("direction_changed", face)
 	
 
 func sprite_management():

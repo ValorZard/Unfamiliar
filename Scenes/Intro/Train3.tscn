@@ -42,12 +42,12 @@ extents = Vector2( 8, 30 )
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -344,7 +344,6 @@ shape = SubResource( 9 )
 position = Vector2( 136, 82 )
 set_limit = 1
 set_flag = "npc_train_rhona"
-can_talk_to = false
 
 [node name="Sprite" parent="EventNPCRhona" index="0"]
 frames = SubResource( 10 )

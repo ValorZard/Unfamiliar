@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -29,6 +29,9 @@ extents = Vector2( 16, 8 )
 extents = Vector2( 24, 8 )
 
 [sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 7, 72 )
+
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8, 56 )
 
 [node name="Scene" type="Node2D"]
@@ -98,6 +101,10 @@ shape = SubResource( 5 )
 position = Vector2( 200, 180 )
 shape = SubResource( 6 )
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 247, 90 )
+shape = SubResource( 7 )
+
 [node name="TileMap3" type="TileMap" parent="."]
 position = Vector2( 80, 18 )
 z_index = 3000
@@ -118,7 +125,7 @@ target_scene = "res://Scenes/Los Muertos/LM_Trainstation_R1.tscn"
 target_direction = 2
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [node name="Streetlamp" parent="." instance=ExtResource( 6 )]
 position = Vector2( 108, 31 )

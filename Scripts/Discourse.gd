@@ -116,6 +116,7 @@ func run_discourse(full_name: String, file: String, right_name: String, right_sp
 	character_left.queue_free()
 	character_right.queue_free()
 	Controller.draw_overlay(true)
+	Controller.draw_overlay_map(true)
 	Player.show()
 	Controller.goto_scene(Controller.get_previous_scene(), Controller.get_previous_pos(), Controller.get_previous_dir(), false, false)
 	yield(get_tree(), "tree_changed")

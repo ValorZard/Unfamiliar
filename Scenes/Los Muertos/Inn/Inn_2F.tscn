@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Los Muertos/Scene_Inn_Lobby.gd" type="Script" id=1]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
@@ -37,6 +37,9 @@ extents = Vector2( 37, 19 )
 extents = Vector2( 0.5, 10 )
 
 [sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 8, 24 )
+
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 10, 8 )
 
 [sub_resource type="RectangleShape2D" id=10]
@@ -151,6 +154,10 @@ shape = SubResource( 6 )
 position = Vector2( 115.5, 76 )
 shape = SubResource( 7 )
 
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 248, 100 )
+shape = SubResource( 8 )
+
 [node name="DoorStairs" parent="." instance=ExtResource( 11 )]
 position = Vector2( 105, 76 )
 target_scene = "res://Scenes/Los Muertos/Inn/Inn_Lobby.tscn"
@@ -159,7 +166,7 @@ target_direction = 1
 door_sound = ExtResource( 12 )
 
 [node name="CollisionShape2D" parent="DoorStairs" index="0"]
-shape = SubResource( 8 )
+shape = SubResource( 9 )
 
 [node name="NPCRoomNumber" parent="." instance=ExtResource( 13 )]
 position = Vector2( 209, 35 )

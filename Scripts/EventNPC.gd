@@ -17,11 +17,16 @@ export(bool) var is_object := false
 var face: int = NPCDirection.Down
 
 var in_range := false
+var can_interact := false
+
 export(bool) var can_talk_to := true
 
 var dialogue_set: int = 0
 
 export(bool) var sprite_override := false
+
+export(bool) var require_direction := false
+export(int, "Up", "Down", "Left", "Right") var required_direction := 0
 
 onready var spr: AnimatedSprite = $Sprite
 onready var interact: Sprite = $Interact
@@ -34,6 +39,9 @@ func _ready():
 	face = start_direction
 	if auto_set_flag:
 		dialogue_set = Controller.flag(set_flag)
+		
+	if require_direction:
+		Player.connect("direction_changed", self, "_refresh_range_check")
 	
 	
 func _process(delta):
@@ -42,7 +50,7 @@ func _process(delta):
 	if not sprite_override:
 		_sprite_management()
 	
-	if Input.is_action_just_pressed("sys_action") and in_range and Player.get_state() == Player.PlayerState.Move:
+	if Input.is_action_just_pressed("sys_action") and in_range and can_interact and Player.get_state() == Player.PlayerState.Move:
 		if is_object:
 			Player.show_interact(false)
 		else:
@@ -85,6 +93,21 @@ func set_can_talk_to(value: bool):
 
 # =====================================================================
 
+func _refresh_range_check(face: int):
+	if in_range and require_direction and face == required_direction:
+		can_interact = true
+		if is_object:
+			Player.show_interact(true)
+		else:
+			interact.show()
+	else:
+		can_interact = false
+		if is_object:
+			Player.show_interact(false)
+		else:
+			interact.hide()
+
+
 func _face_player():
 	match Player.get_direction():
 		Player.Direction.Up:
@@ -114,15 +137,18 @@ func _on_InteractArea_area_entered(area: Area2D):
 	if can_talk_to and area.is_in_group("PlayerSight") and not Player.is_in_an_area():
 		in_range = true
 		Player.set_in_an_area(true)
-		if is_object:
-			Player.show_interact(true)
-		else:
-			interact.show()
+		if not require_direction or (require_direction and Player.get_direction() == required_direction):
+			can_interact = true
+			if is_object:
+				Player.show_interact(true)
+			else:
+				interact.show()
 
 
 func _on_InteractArea_area_exited(area: Area2D):
 	if area.is_in_group("PlayerSight"):
 		in_range = false
+		can_interact = false
 		if Player.is_in_an_area():
 			Player.set_in_an_area(false)
 		if is_object:

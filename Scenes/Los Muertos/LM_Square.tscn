@@ -1,22 +1,21 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_l_on.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_m_on.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_JJ_Sign.png" type="Texture" id=6]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Fountain.png" type="Texture" id=8]
-[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_JJ_Sign.png" type="Texture" id=5]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Fountain.png" type="Texture" id=7]
+[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit2.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit2.png" type="Texture" id=14]
-[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=16]
-[ext_resource path="res://Instances/Props/Prop_Streetlamp.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Instances/Props/Prop_Streetlamp.tscn" type="PackedScene" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 8 )
@@ -29,34 +28,34 @@ extents = Vector2( 8, 48 )
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "left",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "down2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "down2",
-"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=5]
-length = 1.1
+length = 1.5
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -64,8 +63,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.6, 1 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.6, 1, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ "res://Dialogue/Los Muertos/dl_lm_ariad.txt", 0 ],
 "method": "_event_dialogue"
@@ -78,6 +77,9 @@ tracks/0/keys = {
 }, {
 "args": [ "res://Dialogue/Los Muertos/dl_lm_ariad.txt", 3 ],
 "method": "_event_dialogue"
+}, {
+"args": [ "Ariad", "res://Discourses/d_ariad.txt", "Ariad", "res://Resources/Sprite Frames/SpriteFrames_Ariad.tres" ],
+"method": "_event_discourse"
 } ]
 }
 tracks/1/type = "method"
@@ -115,7 +117,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 9, 8 )
 
 [node name="Scene" type="Node2D"]
@@ -164,19 +166,14 @@ position = Vector2( 91, 22 )
 texture = ExtResource( 4 )
 centered = false
 
-[node name="Window2" type="Sprite" parent="."]
-position = Vector2( 222, 22 )
-texture = ExtResource( 5 )
-centered = false
-
 [node name="JJSign" type="Sprite" parent="."]
 position = Vector2( 177, 30 )
-texture = ExtResource( 6 )
+texture = ExtResource( 5 )
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="Transitions" instance=ExtResource( 7 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 6 )]
 position = Vector2( 160, 170 )
 target_scene = "res://Scenes/Los Muertos/LM_Mainstreet_N.tscn"
 target_direction = 1
@@ -184,7 +181,7 @@ target_direction = 1
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
 shape = SubResource( 1 )
 
-[node name="Transition2" parent="Transitions" instance=ExtResource( 7 )]
+[node name="Transition2" parent="Transitions" instance=ExtResource( 6 )]
 position = Vector2( 72, 98 )
 target_scene = "res://Scenes/Los Muertos/LM_Topstreet_R.tscn"
 target_direction = 2
@@ -192,7 +189,7 @@ target_direction = 2
 [node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
 shape = SubResource( 2 )
 
-[node name="Transition3" parent="Transitions" instance=ExtResource( 7 )]
+[node name="Transition3" parent="Transitions" instance=ExtResource( 6 )]
 position = Vector2( 248, 98 )
 target_scene = "res://Scenes/Los Muertos/LM_Square_R.tscn"
 target_direction = 3
@@ -213,13 +210,13 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Fountain"]
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 centered = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fountain"]
 polygon = PoolVector2Array( 0, 37, 12, 51, 38, 59, 58, 59, 84, 51, 96, 37, 95, 21, 73, 6, 23, 6, 1, 21 )
 
-[node name="EventNPCAriad" parent="." instance=ExtResource( 9 )]
+[node name="EventNPCAriad" parent="." instance=ExtResource( 8 )]
 position = Vector2( 183, 105 )
 z_index = 90
 set_flag = "npc_lm_ariad"
@@ -230,20 +227,20 @@ frames = SubResource( 4 )
 [node name="AnimationPlayer" parent="EventNPCAriad/Event" index="0"]
 anims/Event = SubResource( 5 )
 
-[node name="Door3" parent="." instance=ExtResource( 15 )]
+[node name="Door3" parent="." instance=ExtResource( 14 )]
 position = Vector2( 203, 50 )
 target_scene = "res://Scenes/Los Muertos/Joker's Jive/JokersJive_B.tscn"
 target_position = Vector2( 192, 140 )
-door_sound = ExtResource( 16 )
+door_sound = ExtResource( 15 )
 
 [node name="CollisionShape2D" parent="Door3" index="0"]
-shape = SubResource( 9 )
+shape = SubResource( 6 )
 
-[node name="Streetlamp" parent="." instance=ExtResource( 17 )]
+[node name="Streetlamp" parent="." instance=ExtResource( 16 )]
 position = Vector2( 101, 34 )
 z_index = 58
 
-[node name="Streetlamp2" parent="." instance=ExtResource( 17 )]
+[node name="Streetlamp2" parent="." instance=ExtResource( 16 )]
 position = Vector2( 209, 34 )
 z_index = 58
 
