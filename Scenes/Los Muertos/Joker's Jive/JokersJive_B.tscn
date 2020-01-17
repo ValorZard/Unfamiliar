@@ -1,10 +1,18 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
 [ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scripts/System/DepthProp.gd" type="Script" id=6]
+[ext_resource path="res://Sprites/Props/Interiors/IN_CafeTable.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Props/Interiors/IN_CafeCards.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Props/Interiors/IN_PlateSilverware.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Plate.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Mug.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Props/Interiors/IN_CafeChair.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Props/Interiors/IN_CafeRepository.png" type="Texture" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 4 )
@@ -20,6 +28,15 @@ extents = Vector2( 16, 8 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 64, 8 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 9, 7 )
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 5, 5 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 7, 15 )
 
 [node name="Scene" type="Node2D"]
 
@@ -91,6 +108,175 @@ target_scene = "res://Scenes/Los Muertos/Joker's Jive/JokersJive_T.tscn"
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
 shape = SubResource( 5 )
+
+[node name="Table" type="StaticBody2D" parent="."]
+position = Vector2( 130, 113 )
+z_index = 113
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Table"]
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Cards" type="Sprite" parent="Table"]
+position = Vector2( 3, 3 )
+texture = ExtResource( 8 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table"]
+position = Vector2( 9, 14 )
+shape = SubResource( 6 )
+
+[node name="Table2" type="StaticBody2D" parent="."]
+position = Vector2( 113, 59 )
+z_index = 59
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Table2"]
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Plate" type="Sprite" parent="Table2"]
+position = Vector2( 10, 2 )
+texture = ExtResource( 9 )
+centered = false
+flip_h = true
+flip_v = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table2"]
+position = Vector2( 9, 14 )
+shape = SubResource( 6 )
+
+[node name="Table3" type="StaticBody2D" parent="."]
+position = Vector2( 199, 83 )
+z_index = 83
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Table3"]
+texture = ExtResource( 7 )
+centered = false
+
+[node name="Plate" type="Sprite" parent="Table3"]
+position = Vector2( 3, 5 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="Mug" type="Sprite" parent="Table3"]
+position = Vector2( 9, 2 )
+texture = ExtResource( 11 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table3"]
+position = Vector2( 9, 14 )
+shape = SubResource( 6 )
+
+[node name="Chair" type="StaticBody2D" parent="."]
+position = Vector2( 189, 85 )
+z_index = 85
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Chair"]
+texture = ExtResource( 12 )
+centered = false
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair"]
+position = Vector2( 5, 14 )
+shape = SubResource( 7 )
+
+[node name="Chair2" type="StaticBody2D" parent="."]
+position = Vector2( 132, 61 )
+z_index = 61
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Chair2"]
+texture = ExtResource( 12 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair2"]
+position = Vector2( 4, 14 )
+shape = SubResource( 7 )
+
+[node name="Chair5" type="StaticBody2D" parent="."]
+position = Vector2( 149, 115 )
+z_index = 115
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Chair5"]
+texture = ExtResource( 12 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair5"]
+position = Vector2( 4, 14 )
+shape = SubResource( 7 )
+
+[node name="Chair3" type="StaticBody2D" parent="."]
+position = Vector2( 103, 61 )
+z_index = 61
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Chair3"]
+texture = ExtResource( 12 )
+centered = false
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair3"]
+position = Vector2( 5, 14 )
+shape = SubResource( 7 )
+
+[node name="Chair4" type="StaticBody2D" parent="."]
+position = Vector2( 120, 115 )
+z_index = 115
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Chair4"]
+texture = ExtResource( 12 )
+centered = false
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair4"]
+position = Vector2( 5, 14 )
+shape = SubResource( 7 )
+
+[node name="Repository" type="StaticBody2D" parent="."]
+position = Vector2( 212, 35 )
+z_index = 35
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Repository"]
+texture = ExtResource( 13 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Repository"]
+position = Vector2( 7, 20 )
+shape = SubResource( 8 )
 
 [editable path="Door"]
 

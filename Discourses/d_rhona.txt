@@ -431,10 +431,10 @@
 | 1
 > So, Cosmo...
 >> Do you... think you and your witch are really close?
-[ Yeah. (-20, -35) R_5_1 | I don't know. (0, 25) R_5_2
+[ I think so. (-20, -35) R_5_1 | I don't know. (0, 25) R_5_2
 ------------------------
 : R_5_1
-< Yeah.
+< I think so.
 @> idle
 < Honestly... she treats me more like a friend than an assistant or familiar, a lot of the time.
 @> aw

@@ -5,6 +5,7 @@ class_name PlayerClass
 signal direction_changed(dir)
 
 const Speed := 75
+const RunMult := 1.4
 
 var vel := Vector2(0, 0)
 var vel_override := Vector2(0, 0)
@@ -16,6 +17,7 @@ enum Direction { Up, Down, Left, Right }
 var state: int = PlayerState.Move
 var face: int = Direction.Down
 var walking := false
+var run_mode := false
 var in_transition := false
 var in_event := false
 var in_an_area := false
@@ -46,13 +48,14 @@ func _physics_process(delta):
 			vel.y = yy
 			
 			walking = vel != Vector2.ZERO
+			run_mode = Input.is_action_pressed("move_run")
 			
 			direction_management()
 			
 			if not sprite_override:
 				sprite_management()
 			
-			move_and_slide(vel.normalized() * Speed)
+			move_and_slide(vel.normalized() * Speed * (RunMult if run_mode else 1.0))
 			
 		PlayerState.NoInput:
 			walking = speed_override > 0
@@ -185,6 +188,6 @@ func sprite_management():
 		Direction.Down:
 			spr.play("down_walk" if walking or in_transition else "down")
 		Direction.Left:
-			spr.play("left_walk" if walking or in_transition else "left")
+			spr.play("left_run" if run_mode and walking else "left_walk" if walking or in_transition else "left")
 		Direction.Right:
 			spr.play("right_walk" if walking or in_transition else "right")

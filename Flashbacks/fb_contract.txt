@@ -5,7 +5,7 @@ nil 0 0 $cI grant thee this vessel of life and mortality.
 nil 0 0 $cGrant me thy heart, and I will grant thee my soul.
 nil 0 0 $cPledge to me thy life, and I will pledge to thee my regard.
 nil 0 0 $cThou art my metonym. Thou art my heart and soul.
-nil 0 0 $cI warrant thy place in this world. I grant thee the endowment of#familiarity.
+nil 0 0 $cI warrant thy place in this world. I grant thee the endowment of familiarity.
 nil 0 5 $cTake leave of the dark and enter the twilight.
 nil 0 2 ...
 nil 0 1 Hello.
