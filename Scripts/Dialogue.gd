@@ -28,6 +28,8 @@ var page_length: int = 0
 var disp: int = 0
 var roll := false
 
+var current_name: String = ""
+
 var text_size: int = 8
 
 var allow_advance := false
@@ -138,6 +140,13 @@ func insert_bbcode_tags():
 		if text[page][0] != "#":
 			text[page] = text[page].insert(mat.get_end(1), name_bbcode_end)
 			text[page] = text[page].insert(mat.get_start(1), name_bbcode_start)
+			
+			# Keep displaying current name if it's the same as the last page
+			var this_name: String = mat.get_string(1)
+			if current_name == this_name:
+				disp = len(this_name) + 1
+			else:
+				current_name = this_name
 		else:
 			text[page] = text[page].replace("#", "")
 			

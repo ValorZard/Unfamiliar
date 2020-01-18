@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -6,16 +6,20 @@
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_l_on.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_JJ_Sign.png" type="Texture" id=5]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/Props/Los Muertos/LM_Fountain.png" type="Texture" id=7]
-[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit2.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit.png" type="Texture" id=13]
-[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=15]
-[ext_resource path="res://Instances/Props/Prop_Streetlamp.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_FountainNew.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_FountainSpout1.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_FountainSpout1a.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_FountainSpout2.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_FountainSpout2a.png" type="Texture" id=11]
+[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit2.png" type="Texture" id=17]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=19]
+[ext_resource path="res://Instances/Props/Prop_Streetlamp.tscn" type="PackedScene" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 8 )
@@ -26,31 +30,65 @@ extents = Vector2( 8, 48 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 48 )
 
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 8 ), ExtResource( 9 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "default",
+"speed": 8.0
+} ]
+
+[sub_resource type="Gradient" id=9]
+colors = PoolColorArray( 0.552941, 0.67451, 0.956863, 1, 0.552941, 0.67451, 0.956863, 0 )
+
+[sub_resource type="GradientTexture" id=10]
+gradient = SubResource( 9 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 2
+emission_box_extents = Vector3( 3, 3, 1 )
+flag_disable_z = true
+spread = 60.0
+gravity = Vector3( -150, 0, 0 )
+initial_velocity = 40.0
+initial_velocity_random = 0.3
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 10 )
+
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ) ],
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "down2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "down2",
 "speed": 5.0
 } ]
 
@@ -210,13 +248,56 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Fountain"]
+position = Vector2( 0, -15 )
 texture = ExtResource( 7 )
 centered = false
+
+[node name="Spout" type="AnimatedSprite" parent="Fountain"]
+position = Vector2( 45, -9 )
+frames = SubResource( 7 )
+frame = 1
+playing = true
+centered = false
+
+[node name="Spout2" type="AnimatedSprite" parent="Fountain"]
+position = Vector2( 26, -11 )
+frames = SubResource( 11 )
+playing = true
+centered = false
+
+[node name="Spout3" type="AnimatedSprite" parent="Fountain"]
+position = Vector2( 51, -11 )
+frames = SubResource( 11 )
+frame = 1
+playing = true
+centered = false
+flip_h = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Fountain"]
 polygon = PoolVector2Array( 0, 37, 12, 51, 38, 59, 58, 59, 84, 51, 96, 37, 95, 21, 73, 6, 23, 6, 1, 21 )
 
-[node name="EventNPCAriad" parent="." instance=ExtResource( 8 )]
+[node name="PartsSplash" type="Particles2D" parent="."]
+position = Vector2( 160, 103 )
+rotation = -1.5708
+z_index = 102
+lifetime = 0.5
+process_material = SubResource( 8 )
+
+[node name="PartsSplash2" type="Particles2D" parent="."]
+position = Vector2( 140, 91 )
+rotation = -1.5708
+z_index = 90
+lifetime = 0.5
+process_material = SubResource( 8 )
+
+[node name="PartsSplash3" type="Particles2D" parent="."]
+position = Vector2( 181, 91 )
+rotation = -1.5708
+z_index = 90
+lifetime = 0.5
+process_material = SubResource( 8 )
+
+[node name="EventNPCAriad" parent="." instance=ExtResource( 12 )]
 position = Vector2( 183, 105 )
 z_index = 90
 set_flag = "npc_lm_ariad"
@@ -227,20 +308,20 @@ frames = SubResource( 4 )
 [node name="AnimationPlayer" parent="EventNPCAriad/Event" index="0"]
 anims/Event = SubResource( 5 )
 
-[node name="Door3" parent="." instance=ExtResource( 14 )]
+[node name="Door3" parent="." instance=ExtResource( 18 )]
 position = Vector2( 203, 50 )
 target_scene = "res://Scenes/Los Muertos/Joker's Jive/JokersJive_B.tscn"
 target_position = Vector2( 192, 140 )
-door_sound = ExtResource( 15 )
+door_sound = ExtResource( 19 )
 
 [node name="CollisionShape2D" parent="Door3" index="0"]
 shape = SubResource( 6 )
 
-[node name="Streetlamp" parent="." instance=ExtResource( 16 )]
+[node name="Streetlamp" parent="." instance=ExtResource( 20 )]
 position = Vector2( 101, 34 )
 z_index = 58
 
-[node name="Streetlamp2" parent="." instance=ExtResource( 16 )]
+[node name="Streetlamp2" parent="." instance=ExtResource( 20 )]
 position = Vector2( 209, 34 )
 z_index = 58
 

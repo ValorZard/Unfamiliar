@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -10,21 +10,22 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scripts/System/DepthProp.gd" type="Script" id=9]
 [ext_resource path="res://Sprites/Props/Interiors/IN_CafeTable.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Props/Interiors/IN_CafeChair.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Plate.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Props/Interiors/IN_CafeChair.png" type="Texture" id=12]
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 8 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 31, 48 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 64, 8 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 9, 7 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 5, 5 )
 
 [node name="Scene" type="Node2D"]
@@ -93,11 +94,11 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 200, 122 )
-shape = SubResource( 8 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 196, 82 )
-shape = SubResource( 11 )
+shape = SubResource( 2 )
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
@@ -108,7 +109,7 @@ target_scene = "res://Scenes/Los Muertos/Joker's Jive/JokersJive_B.tscn"
 target_direction = 1
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="Table" type="StaticBody2D" parent="."]
 position = Vector2( 105, 115 )
@@ -124,7 +125,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Table"]
 position = Vector2( 9, 14 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="Table2" type="StaticBody2D" parent="."]
 position = Vector2( 105, 83 )
@@ -138,9 +139,14 @@ __meta__ = {
 texture = ExtResource( 10 )
 centered = false
 
+[node name="Plate" type="Sprite" parent="Table2"]
+position = Vector2( 8, 2 )
+texture = ExtResource( 11 )
+centered = false
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Table2"]
 position = Vector2( 9, 14 )
-shape = SubResource( 6 )
+shape = SubResource( 4 )
 
 [node name="Chair" type="StaticBody2D" parent="."]
 position = Vector2( 124, 117 )
@@ -151,12 +157,12 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Chair"]
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair"]
 position = Vector2( 4, 14 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="Chair2" type="StaticBody2D" parent="."]
 position = Vector2( 124, 85 )
@@ -167,11 +173,11 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="Chair2"]
-texture = ExtResource( 11 )
+texture = ExtResource( 12 )
 centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair2"]
 position = Vector2( 4, 14 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [editable path="Transitions/Transition"]

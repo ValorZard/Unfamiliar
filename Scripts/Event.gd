@@ -98,7 +98,7 @@ func _event_dialogue(file: String, set: int, text_size: int = 8):
 	
 func _event_dialogue_conditional(file: String, flag_: String, table: Dictionary, text_size: int = 8):
 	anim_player.stop(false)
-	yield(Controller.dialogue(file, table[Controller.flag(flag_)], text_size, false), "dialogue_ended")
+	yield(Controller.dialogue(file, table[Controller.flag(flag_)], false, text_size, false), "dialogue_ended")
 	anim_player.play()
 	
 	

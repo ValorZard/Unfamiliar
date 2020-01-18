@@ -1,12 +1,12 @@
 0
-Shop owner: Hello!
+Shop Owner: Hello!
 Rhona: Oh, hey! It's Cosmo!
 -
 
 1
 Cosmo: Hey, Rhona!
 Rhona: Good to see you again!
-Shop owner: Is this the demon you told me about, Rhona?
+Shop Owner: Is this the demon you told me about, Rhona?
 Rhona: Yeah, Grandpa! They're the one I met on the train.
 -
 
@@ -14,8 +14,8 @@ Rhona: Yeah, Grandpa! They're the one I met on the train.
 Rhona's Grandpa: What was your name? Cosmo?
 Cosmo: Yeah.
 Rhona's Grandpa: I'm Paul, Rhona's grandfather. Nice to meet you.
-Rhona told me a lot about you.
-She seemed very excited that she got to talk to you.
+Paul: Rhona told me a lot about you.
+Paul: She seemed very excited that she got to talk to you.
 -
 
 3
@@ -24,20 +24,20 @@ Cosmo: Heh... yeah.
 
 4
 Cosmo: Heh... yeah.
-Rhona told me a bit about you, too.
-She told me you're an amazing interior decorator.
+Cosmo: Rhona told me a bit about you, too.
+Cosmo: She told me you're an amazing interior decorator.
 Paul: Ha! Did she?
-Well... I try my best to make this place look nice.
+Paul: Well... I try my best to make this place look nice.
 -
 
 5
 Rhona: So, what are you doing here, Cosmo?
-Have you found your witch?
+Rhona: Have you found your witch?
 -
 
 6
 Cosmo: No.
-I'm not sure where to go.
+Cosmo: I'm not sure where to go.
 Paul: Oh, you're a familiar?
 -
 
@@ -46,16 +46,16 @@ Cosmo: Yeah. My witch and I got separated.
 -
 
 8
-She's not going to be happy if I take too long to find her.
-I don't know what to do.
+Cosmo: She's not going to be happy if I take too long to find her.
+Cosmo: I don't know what to do.
 Paul: I wouldn't worry. She'll definitely turn up.
-She's probably looking for you, too.
+Paul: She's probably looking for you, too.
 Cosmo: Ugh...
 -
 
 9
 Rhona: You're stressing out too much.
-You should take a break. Do something to take your mind off it.
+Rhona: You should take a break. Do something to take your mind off it.
 Cosmo: ...Like what?
 Rhona: Help us fix some stuff!
 Cosmo: What?
@@ -63,26 +63,28 @@ Cosmo: What?
 
 10
 Rhona: This is a repair shop. My grandpa repairs small trinkets.
-I always help him out a bit when I come and visit. He pays me for it.
-And six hands are always better than four!
+Rhona: I always help him out a bit when I come and visit.
+Rhona: He pays me for it.
+Rhona: And six hands are always better than four!
 Cosmo: I, uh...
-I'd probably be pretty hopeless at that.
+Cosmo: I'd probably be pretty hopeless at that.
 -
 
 11
 Rhona: I told you my grandpa repairs small trinkets, right?
-I always help him out a bit when I come and visit. He pays me for it.
-And six hands are always better than four!
+Rhona: I always help him out a bit when I come and visit.
+Rhona: He pays me for it.
+Rhona: And six hands are always better than four!
 Cosmo: I, uh...
-I'd probably be pretty hopeless at that.
+Cosmo: I'd probably be pretty hopeless at that.
 -
 
 12
 Rhona: Don't worry! We can teach you!
 Cosmo: ...
-Well... I do know a bit of magic.
+Cosmo: Well... I do know a bit of magic.
 Rhona: Oh, really?! That's even better!
-And I'm sure if you helped out, Grandpa would give you some money, too!
+Rhona: And I'm sure if you helped out, Grandpa would give you some money, too!
 Paul: I sure will!
 Cosmo: Hm...
 Rhona: Think about it, okay? Let us know if you want to give it a try!
@@ -90,7 +92,7 @@ Rhona: Think about it, okay? Let us know if you want to give it a try!
 
 13
 Rhona: Don't worry! We can teach you!
-Besides, you know magic, right? That'll be helpful!
+Rhona: Besides, you know magic, right? That'll be helpful!
 Cosmo: ...
 Paul: If you're willing to help, there'll be some money in it for you!
 Cosmo: Hm...

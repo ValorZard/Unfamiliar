@@ -12,7 +12,7 @@ Conductor: Oh, thank you, demon!
 ^ END
 : NO
 : END
-Have a good evening.
+Conductor: Have a good evening.
 -
 
 2
