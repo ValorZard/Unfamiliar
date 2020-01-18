@@ -6,8 +6,10 @@ RAWR
 Chip: Welcome to the Styx Inn.
 Cosmo: Hi. Has a witch wearing a yellow coat checked into this hotel?
 Chip: Nope. It's been a pretty slow day.
-You might try looking at Hotel Los Muertos. They usually get more traffic.
-It's on the other side of town.
+Chip: Are you a familiar? Is she your witch?
+Cosmo: Yes.
+Chip: Oh. That's a problem.
+Chip: Try coming back later. She might still be out doing things.
 Cosmo: Okay. Thanks.
 -
 
@@ -17,8 +19,7 @@ Chip: Have a nice day.
 
 3
 Chip: Hello there.
-Hotel Los Muertos is on the other side of town.
-Your witch might be there.
+Chip: Come back later. I'll let you know if I see your witch.
 -
 
 4

@@ -55,7 +55,7 @@ __meta__ = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-layer = 2
+layer = 3
 
 [node name="Button1" parent="CanvasLayer" instance=ExtResource( 2 )]
 position = Vector2( 147.607, 55.1525 )
