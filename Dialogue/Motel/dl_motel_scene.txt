@@ -1,6 +1,6 @@
 0
 Cosmo: It's getting late.
-I should probably go to bed soon.
+Cosmo: I should probably go to bed soon.
 -
 
 1
@@ -9,84 +9,84 @@ Cosmo: Just a branch hitting the window.
 
 2
 Cosmo: I couldn't find her.
-I hope she's all right.
+Cosmo: I hope she's all right.
 -
 
 3
-She... probably got lost, too.
-She's probably staying in another hotel.
-She probably went straight to bed because she was so stressed out.
-...
-I'll find her tomorrow.
+Cosmo: She... probably got lost, too.
+Cosmo: She's probably staying in another hotel.
+Cosmo: She probably went straight to bed because she was so stressed out.
+Cosmo: ...
+Cosmo: I'll find her tomorrow.
 -
 
 4
-I hope we can leave on time tomorrow.
-We have to get back and-
+Cosmo: I hope we can leave on time tomorrow.
+Cosmo: We have to get back and-
 -
 
 5
-Wait a minute.
-What day is it?
+Cosmo: Wait a minute.
+Cosmo: What day is it?
 -
 
 6
-It's Thursday.
-It's the 6th.
+Cosmo: It's Thursday.
+Cosmo: It's the 10th.
 -
 
 7
-No.
-Oh, no...
+Cosmo: No.
+Cosmo: Oh, no...
 -
 
 8
-No, no, no, no, NO!
+Cosmo: No, no, no, no, NO!
 -
 
 9
-I forgot AGAIN!
-How can I be this stupid?!
-That's why she was in such a bad mood at the station!
+Cosmo: I forgot AGAIN!
+Cosmo: How can I be this stupid?!
+Cosmo: That's why she was in such a bad mood at the station!
 -
 
 10
-You IDIOT!
-You worthless eldritch ABOMINATION!
-Why are you so STUPID?!
-The last time you forgot, do you remember how furious she was?!
+Cosmo: You IDIOT!
+Cosmo: You worthless eldritch ABOMINATION!
+Cosmo: Why are you so STUPID?!
+Cosmo: The last time you forgot, do you remember how furious she was?!
 -
 
 11
-No...
+Cosmo: No...
 -
 
 12
-I have to fix this!
-I have to find her!
+Cosmo: I have to fix this!
+Cosmo: I have to find her!
 -
 
 13
-Come on! Let me OUT!
+Cosmo: Come on! Let me OUT!
 -
 
 14
-Please, let me... out...
-Please... let me fix... this...
-Oh, God...
+Cosmo: Please, let me... out...
+Cosmo: Please... let me fix... this...
+Cosmo: Oh, God...
 -
 
 15
-What's wrong with me...?
-Why do I screw up like this every time?
-...
-Hah...
-I'm such an awful familiar.
+Cosmo: What's wrong with me...?
+Cosmo: Why do I screw up like this every time?
+Cosmo: ...
+Cosmo: Hah...
+Cosmo: I'm such an awful familiar.
 -
 
 16
-Why don't you just blow me away?
-Just bury me in leaves and make me disappear.
+Cosmo: Why don't you just blow me away?
+Cosmo: Just bury me in leaves and make me disappear.
 -
 
 14
@@ -96,9 +96,9 @@ Hotel Guest: Hey! What's going on?
 15
 Hotel Guest: Are you all right?
 Cosmo: No.
-Why is it so windy?
+Cosmo: Why is it so windy?
 Hotel Guest: Just breathe. You're fine.
-Everything's fine.
+Hotel Guest: Everything's fine.
 -
 
 16
@@ -110,16 +110,16 @@ Hotel Guest: You good?
 Cosmo: Why am I such a screwup?
 Hotel Guest: What's wrong? What happened?
 Cosmo: ...
-She created me on October sixth, twelve years ago.
-Today is our Communion Day.
-I forgot.
+Cosmo: She created me on November tenth, twelve years ago.
+Cosmo: Today is our Communion Day.
+Cosmo: I forgot.
 -
 
 18
 Hotel Guest: Are you a familiar?
 Cosmo: Yes.
 Hotel Guest: ...
-Do you want to talk about it?
+Hotel Guest: Do you want to talk about it?
 -
 
 19

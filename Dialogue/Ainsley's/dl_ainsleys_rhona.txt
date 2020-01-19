@@ -1,6 +1,6 @@
 0
 Rhona: If you really feel like you should keep looking, we won't stop you.
-But I think it would be good for you if you took a break.
+Rhona: But I think it would be good for you if you took a break.
 Cosmo: ...
 Rhona: Just let my grandpa know if you're interested in helping!
 -
@@ -8,11 +8,12 @@ Rhona: Just let my grandpa know if you're interested in helping!
 1
 Rhona: My grandpa really likes demons.
 Cosmo: Really?
-Rhona: Yeah! Apparently lots of demons come into his shop.
-He says there's this one demon he sees a lot who's really into small gadgets.
-She always comes in to talk with him about it.
-He says she can really talk his ear off... but he doesn't mind.
-He'd happily talk with her all day. He loves talking about his craft.
+Rhona: Yeah! Apparently lots of demons come into the shop.
+Rhona: He says there's this one young demon he sees a lot.
+Rhona: She's really into small gadgets, and she always comes in to talk with him about it.
+Rhona: He says she can really talk his ear off... 
+Rhona: He doesn't mind, though.
+Rhona: He'd happily talk with her all day. He loves talking about his craft.
 Cosmo: That's really nice of him.
 Rhona: Yeah. My grandpa's great.
 -

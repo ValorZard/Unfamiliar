@@ -6,22 +6,22 @@ Zaman: Anything to help a friend out.
 1
 Zaman: It's really late. You look exhausted.
 Cosmo: I am exhausted.
-Today was too much.
+Cosmo: Today was too much.
 -
 
 2
 Zaman: Everything'll be better tomorrow.
-You can go meet your witch first thing in the morning.
+Zaman: You can go meet your witch first thing in the morning.
 Cosmo: I hope so.
 Zaman: Come on! Stop worrying!
 Cosmo: ...
-Yeah.
-I'm... gonna go to bed.
+Cosmo: Yeah.
+Cosmo: I'm... gonna go to bed.
 -
 
 3
 Zaman: I'll be downstairs in the morning.
-If you need to talk, just let me know!
+Zaman: If you need to talk, just let me know!
 Cosmo: All right.
 -
 
@@ -32,23 +32,23 @@ Cosmo: Night.
 
 5
 Cosmo: I met so many nice people tonight.
-I hope it's the same tomorrow.
+Cosmo: I hope it's the same tomorrow.
 -
 
 6
-...
-...
-...
-Please, just...
-Don't be mad.
-I'll give you a hug, and everything'll be fine.
+Cosmo: ...
+Cosmo: ...
+Cosmo: ...
+Cosmo: Please, just...
+Cosmo: Don't be mad.
+Cosmo: I'll give you a hug, and everything'll be fine.
 -
 
 7
-Please hug me back.
-I promise
-I
-won't
-forget
-again...
+Cosmo: Please hug me back.
+Cosmo: I promise
+Cosmo: I
+Cosmo: won't
+Cosmo: forget
+Cosmo: again...
 -

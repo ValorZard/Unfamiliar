@@ -14,15 +14,15 @@ Ariad: I-I'm s-sorry. P-please don't-
 
 3
 Ariad's Witch: It's okay. I'm not mad.
-I got everything at the bank sorted out.
+Ariad's Witch: I got everything at the bank sorted out.
 Ariad: ...
 -
 
 4
 Ariad's Witch: Is everything all right?
-Were people mean to you?
+Ariad's Witch: Were people mean to you?
 Ariad: N-no! I was just talking to Cosmo, here.
-They kept me company. They're a familiar, too.
+Ariad: They kept me company. They're a familiar, too.
 -
 
 5
@@ -31,47 +31,47 @@ Ariad's Witch: Really?
 
 6
 Cosmo: Yeah.
-I've been looking for my witch. We got separated.
+Cosmo: I've been looking for my witch. We got separated.
 Ariad's Witch: Oh...
 Cosmo: And she was in such a bad mood before we got here.
-I'm just as worried as Ariad was.
-I'm worried she's mad at me. That it was something I did.
+Cosmo: I'm just as worried as Ariad was.
+Cosmo: I'm worried she's mad at me. That it was something I did.
 -
 
 7
 Ariad's Witch: Cosmo... I wouldn't worry about it.
-If you don't know why she was mad, it probably isn't your fault.
+Ariad's Witch: If you don't know why she was mad, it probably isn't your fault.
 Cosmo: ...
-Yeah. You're right.
+Cosmo: Yeah. You're right.
 -
 
 8
 Ariad's Witch: Well... we should get going.
-We have some things to do tonight, right, Ariad?
+Ariad's Witch: some things to do tonight, right, Ariad?
 Ariad: Y-yeah.
 -
 
 9
 Ariad's Witch: Hey...
-Thanks for keeping him company.
-He's... really clingy.
-But he's so friendly. He really loves hugs.
+Ariad's Witch: Thanks for keeping him company.
+Ariad's Witch: He's... really clingy.
+Ariad's Witch: But he's so friendly. He really loves hugs.
 Cosmo: I noticed.
 Ariad's Witch: I don't know why he's like that.
 -
 
 10
 Cosmo: I mean... familiars inherit a lot from their witches.
-Maybe you were like that at one point.
+Cosmo: Maybe you were like that at one point.
 Ariad's Witch: If I was... it was a long time ago.
 -
 
 11
 Ariad's Witch: If you'd like to come and visit later, feel free.
-We live on the west side of Los Muertos.
+Ariad's Witch: We live on the west side of Los Muertos.
 Cosmo: All right.
 Ariad's Witch: My name is Clive, by the way.
-Just don't say that in front of Ariad.
+Clive: Just don't say that in front of Ariad.
 Cosmo: Of course.
 -
 

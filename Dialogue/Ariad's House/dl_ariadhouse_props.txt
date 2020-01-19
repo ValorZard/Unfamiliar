@@ -1,7 +1,7 @@
 0
 Cosmo: A pot of soup.
 Clive: That's homemade tomato soup, made with garden-grown tomatoes.
-We still have some left over if you want some.
+Clive: We still have some left over if you want some.
 Cosmo: I'm good, thanks!
 -
 
@@ -15,6 +15,6 @@ Cosmo: The fireplace is nice and warm.
 
 3
 Cosmo: It's a picture frame.
-Looks like a photo of Ariad and a little girl hugging.
-Aw...
+Cosmo:Looks like a photo of Ariad and a little girl hugging.
+Cosmo: Aw...
 -

@@ -4,7 +4,7 @@ Cosmo: Okay, I guess.
 Card Player B: Want to play cards with us?
 Cosmo: Uh...
 Card Player C: Come on. It'll be fun.
-We're about to play 99. My favorite game.
+Card Player C: We're about to play 99. My favorite game.
 Cosmo: Hm...
 -
 
@@ -21,6 +21,6 @@ Card Player B: You can have that chair.
 3
 Cosmo: I think I'll pass for now.
 Card Player A: Aw... all right.
-Feel free to come back if you change your mind.
+Card Player A: Feel free to come back if you change your mind.
 Card Player C: We'll be here. All night.
 -

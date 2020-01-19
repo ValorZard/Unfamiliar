@@ -6,13 +6,13 @@ Dweller: GAH!
 Dweller: Go away! I'm busy.
 Cosmo: Doing what?
 Dweller: Enjoying the dark.
-It's simply breathtaking.
+Dweller: It's simply breathtaking.
 Cosmo: ...
 -
 
 2
 Dweller: You scared me, demon...
-How'd you even see me? It's pitch black in here.
+Dweller: How'd you even see me? It's pitch black in here.
 Cosmo: Demons can see in the dark really well.
 Dweller: Oh. Well, aren't you special.
 -

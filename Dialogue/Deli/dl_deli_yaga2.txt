@@ -5,8 +5,8 @@ Cosmo: Yeah.
 
 1
 Yaga: Y'know... you're all right, kid.
-I'm starting to see why your witch created you.
-Maybe familiars aren't as overrated as I thought.
+Yaga: I'm starting to see why your witch created you.
+Yaga: Maybe familiars aren't as overrated as I thought.
 -
 
 2
@@ -23,9 +23,9 @@ Cosmo: I... uh...
 Yaga: Have you eaten dinner yet?
 Cosmo: No.
 Yaga: Then take the 'wich, honeybucket!
-Demons have to eat, too.
+Yaga: Demons have to eat, too.
 Cosmo: ...
-All right.
+Cosmo: All right.
 -
 
 5
@@ -34,7 +34,7 @@ Cosmo: Thanks.
 
 6
 Cosmo: That is...
-...pretty terrible.
+Cosmo: ...pretty terrible.
 Yaga: See? Even demons agree this place's sandwiches suck!
 Cosmo: ...
 -
@@ -47,11 +47,11 @@ Cosmo: What? I was hungry!
 
 8
 Yaga: Anyway...
-I should be going.
-Got an important TV premiere to see tonight.
+Yaga: I should be going.
+Yaga: Got an important TV premiere to see tonight.
 Cosmo: What show?
 Yaga: Lady Maude's Menagerie. It's a show about the usual witch stuff.
-Don't watch it. It's way above your age range.
+Yaga: Don't watch it. It's way above your age range.
 Cosmo: I'm 19.
 Yaga: In human years, hamster hair.
 Cosmo: ...Okay. Got me there.
@@ -59,9 +59,9 @@ Cosmo: ...Okay. Got me there.
 
 9
 Yaga: Well, I'm off.
-Take care, Cosmo. Good luck finding your witch.
+Yaga: Take care, Cosmo. Good luck finding your witch.
 Cosmo: Thanks!
-And thanks for the conversation, Yaga.
+Cosmo; And thanks for the conversation, Yaga.
 Yaga: Any time, honeybucket. See you.
 Cosmo: See you!
 -

@@ -1,10 +1,10 @@
 0
 Zaman: Morning, Cosmo!
-You doing better?
+Zaman: You doing better?
 Cosmo: Yeah.
-I think I just needed some sleep.
-I should get going. I've got stuff to do today.
-Zaman: Later!
+Cosmo: I think I just needed some sleep.
+Cosmo: I should get going. I've got stuff to do today.
+Zaman: All right. Later!
 -
 
 1

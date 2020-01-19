@@ -1,26 +1,26 @@
 0
 Cosmo: Oh...
-It's kind of breezy today.
+Cosmo: It's kind of breezy today.
 -
 
 1
-Calm down. It's fine.
-Nothing to worry about.
+Cosmo: Calm down. It's fine.
+Cosmo: Nothing to worry about.
 -
 
 2
-Okay...
-Our meeting with the extracurricular coordinator is soon.
-I should head over to the school.
+Cosmo: Okay...
+Cosmo: Our meeting with the extracurricular coordinator is soon.
+Cosmo: I should head over to the school.
 -
 
 3
-Okay...
-There's some time before we're supposed to meet with her friends.
-Might as well look around a bit.
+Cosmo: Okay...
+Cosmo: There's some time before we're supposed to meet with her friends.
+Cosmo: Might as well look around a bit.
 -
 
 4
-Okay...
+Cosmo: Okay...
 [uh.]
 -
