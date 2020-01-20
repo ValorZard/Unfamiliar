@@ -1,0 +1,110 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Instances/Arcade Games/Cue Ball/CueBallTile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/Arcade Games/Cue Ball/CueBall_UI.png" type="Texture" id=3]
+
+[node name="Scene" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 90.0 ],
+"_edit_vertical_guides_": [ 93.0, 229.0 ]
+}
+
+[node name="Overlay" parent="." instance=ExtResource( 1 )]
+is_preview = true
+
+[node name="CueBallTile" parent="." instance=ExtResource( 2 )]
+position = Vector2( 93, 34 )
+
+[node name="CueBallTile10" parent="." instance=ExtResource( 2 )]
+position = Vector2( 93, 58 )
+
+[node name="CueBallTile16" parent="." instance=ExtResource( 2 )]
+position = Vector2( 93, 82 )
+
+[node name="CueBallTile21" parent="." instance=ExtResource( 2 )]
+position = Vector2( 93, 106 )
+
+[node name="CueBallTile30" parent="." instance=ExtResource( 2 )]
+position = Vector2( 93, 130 )
+
+[node name="CueBallTile2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 117, 34 )
+
+[node name="CueBallTile8" parent="." instance=ExtResource( 2 )]
+position = Vector2( 117, 58 )
+
+[node name="CueBallTile13" parent="." instance=ExtResource( 2 )]
+position = Vector2( 117, 82 )
+
+[node name="CueBallTile22" parent="." instance=ExtResource( 2 )]
+position = Vector2( 117, 106 )
+
+[node name="CueBallTile29" parent="." instance=ExtResource( 2 )]
+position = Vector2( 117, 130 )
+
+[node name="CueBallTile3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 141, 34 )
+
+[node name="CueBallTile9" parent="." instance=ExtResource( 2 )]
+position = Vector2( 141, 58 )
+
+[node name="CueBallTile14" parent="." instance=ExtResource( 2 )]
+position = Vector2( 141, 82 )
+
+[node name="CueBallTile23" parent="." instance=ExtResource( 2 )]
+position = Vector2( 141, 106 )
+
+[node name="CueBallTile28" parent="." instance=ExtResource( 2 )]
+position = Vector2( 141, 130 )
+
+[node name="CueBallTile4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 165, 34 )
+
+[node name="CueBallTile12" parent="." instance=ExtResource( 2 )]
+position = Vector2( 165, 58 )
+
+[node name="CueBallTile18" parent="." instance=ExtResource( 2 )]
+position = Vector2( 165, 82 )
+
+[node name="CueBallTile20" parent="." instance=ExtResource( 2 )]
+position = Vector2( 165, 106 )
+
+[node name="CueBallTile26" parent="." instance=ExtResource( 2 )]
+position = Vector2( 165, 130 )
+
+[node name="CueBallTile5" parent="." instance=ExtResource( 2 )]
+position = Vector2( 189, 34 )
+
+[node name="CueBallTile11" parent="." instance=ExtResource( 2 )]
+position = Vector2( 189, 58 )
+
+[node name="CueBallTile17" parent="." instance=ExtResource( 2 )]
+position = Vector2( 189, 82 )
+
+[node name="CueBallTile19" parent="." instance=ExtResource( 2 )]
+position = Vector2( 189, 106 )
+
+[node name="CueBallTile25" parent="." instance=ExtResource( 2 )]
+position = Vector2( 189, 130 )
+
+[node name="CueBallTile6" parent="." instance=ExtResource( 2 )]
+position = Vector2( 213, 34 )
+
+[node name="CueBallTile7" parent="." instance=ExtResource( 2 )]
+position = Vector2( 213, 58 )
+
+[node name="CueBallTile15" parent="." instance=ExtResource( 2 )]
+position = Vector2( 213, 82 )
+
+[node name="CueBallTile24" parent="." instance=ExtResource( 2 )]
+position = Vector2( 213, 106 )
+
+[node name="CueBallTile27" parent="." instance=ExtResource( 2 )]
+position = Vector2( 213, 130 )
+
+[node name="UIBack" type="Sprite" parent="."]
+position = Vector2( 80, 150 )
+scale = Vector2( 80, 1 )
+texture = ExtResource( 3 )
+centered = false

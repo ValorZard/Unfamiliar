@@ -90,9 +90,9 @@ func _event_teleport_player(pos: Vector2):
 	Player.set_position(pos)
 	
 
-func _event_dialogue(file: String, set: int, text_size: int = 8):
+func _event_dialogue(file: String, set: int, text_size: int = 8, alt_box: bool = false):
 	anim_player.stop(false)
-	yield(Controller.dialogue(file, set, false, text_size, false), "dialogue_ended")
+	yield(Controller.dialogue(file, set, alt_box, text_size, false), "dialogue_ended")
 	anim_player.play()
 	
 	

@@ -28,6 +28,10 @@ export(bool) var editor_mode := false
 
 var flags: Dictionary = {
 	# ========================================
+	# STORY PROGRESS
+	# ========================================
+	"story_day1_discourses_finished": 0,
+	# ========================================
 	# SCENES
 	# ========================================
 	"scn_intro": 0,
@@ -49,6 +53,8 @@ var flags: Dictionary = {
 	"npc_ainsleys_paul": 0,
 	"npc_ainsleys_rhona": 0,
 	"npc_ainsleys_computer": 0,
+	"npc_jj_jenet": 0,
+	"npc_jj_dartguy": 0,
 	# ----------------------------------------
 	"npc_motel_chip": 0,
 	# ----------------------------------------

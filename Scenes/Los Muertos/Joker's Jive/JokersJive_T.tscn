@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -12,6 +12,13 @@
 [ext_resource path="res://Sprites/Props/Interiors/IN_CafeTable.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Props/Interiors/IN_Plate.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Props/Interiors/IN_CafeChair.png" type="Texture" id=12]
+[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Jenet.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Dartguy_right.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Dartguy_up.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 8 )
@@ -27,6 +34,52 @@ extents = Vector2( 9, 7 )
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 5, 5 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
 
 [node name="Scene" type="Node2D"]
 
@@ -48,7 +101,18 @@ position = Vector2( 80, 18 )
 tile_set = ExtResource( 2 )
 cell_size = Vector2( 16, 16 )
 format = 1
-tile_data = PoolIntArray( 65541, 536870957, 0, 131077, 536870956, 0, 196613, 536870956, 0, 262149, 536870956, 0, 327685, 536870956, 0, 393221, 536870955, 0, 393222, 37, 0, 393223, 37, 0, 393224, 37, 0 )
+tile_data = PoolIntArray( 65541, 536870957, 0, 131077, 536870956, 0, 196613, 536870956, 0, 262149, 536870956, 0, 327685, 536870956, 0, 393221, 536870955, 0 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="TileMap4" type="TileMap" parent="."]
+position = Vector2( 80, 18 )
+z_index = 122
+tile_set = ExtResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 393222, 37, 0, 393223, 37, 0, 393224, 37, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -180,4 +244,35 @@ centered = false
 position = Vector2( 4, 14 )
 shape = SubResource( 5 )
 
+[node name="NPCJenet" parent="." instance=ExtResource( 13 )]
+position = Vector2( 199, 108 )
+dialogue_file = "res://Dialogue/Joker's Jive/dl_jj_jenet.txt"
+auto_advance_set = true
+set_limit = 3
+set_flag = "npc_jj_jenet"
+require_direction = true
+
+[node name="Sprite" parent="NPCJenet" index="0"]
+frames = SubResource( 6 )
+
+[node name="Interact" parent="NPCJenet" index="1"]
+position = Vector2( 0, -15 )
+
+[node name="NPCDartGuy" parent="." instance=ExtResource( 13 )]
+position = Vector2( 114, 63 )
+dialogue_file = "res://Dialogue/Joker's Jive/dl_jj_dartguy.txt"
+start_direction = 0
+revert_direction = true
+auto_advance_set = true
+set_limit = 2
+set_flag = "npc_jj_dartguy"
+face = 0
+
+[node name="Sprite" parent="NPCDartGuy" index="0"]
+frames = SubResource( 7 )
+
 [editable path="Transitions/Transition"]
+
+[editable path="NPCJenet"]
+
+[editable path="NPCDartGuy"]

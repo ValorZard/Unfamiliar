@@ -1,0 +1,29 @@
+0
+Employee: Hi there. Welcome to the Joker's Jive.
+Employee: I'm Jenet. I own the place.
+Jenet: Can I get you anything?
+Cosmo: I think I'm good for now, thanks.
+-
+
+1
+Jenet: Weather's nice tonight, isn't it?
+Cosmo: Mhm.
+Jenet: This is the calmest I've seen Los Muertos in a while.
+Jenet: Perfect night to take a walk around town.
+Cosmo: Yep... That's what I've been doing.
+Cosmo: It's a really nice city.
+Jenet: Yeah. Once you get used to all the oddities, it's a great place.
+-
+
+2
+Jenet: The holidays are coming up soon.
+Jenet: Any plans?
+Cosmo: Yeah. My witch and I celebrate Maypole Day.
+Jenet: Oh. I'm not familiar with that one.
+Cosmo: It's a holiday celebrated by witches.
+Cosmo: I won't bore you with the details.
+-
+
+3
+PUT SOMETHING HERE
+-

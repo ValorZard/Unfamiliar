@@ -1,19 +1,21 @@
 extends KinematicBody2D
 
+signal dialogue_started
 signal dialogue_finished
 
 enum NPCDirection { Up, Down, Left, Right }
 
 export(String, FILE, "*.txt") var dialogue_file
 export(NPCDirection) var start_direction = NPCDirection.Down
-export(bool) var change_direction = true
-export(bool) var auto_advance_set = false
-export(int) var set_start = 0
-export(int) var set_limit = 0
+export(bool) var change_direction := true
+export(bool) var revert_direction := false
+export(bool) var auto_advance_set := false
+export(int) var set_start := 0
+export(int) var set_limit := 0
 export(String) var set_flag
-export(bool) var auto_set_flag = true
-export(bool) var is_object = false
-export(bool) var alt_text_box = false
+export(bool) var auto_set_flag := true
+export(bool) var is_object := false
+export(bool) var alt_text_box := false
 
 export(NPCDirection) var face := NPCDirection.Down
 
@@ -27,8 +29,8 @@ var can_talk_to := true
 
 var dialogue_set: int = 0
 
-onready var spr: AnimatedSprite = $Sprite
-onready var interact: Sprite = $Interact
+onready var spr: AnimatedSprite = $Sprite as AnimatedSprite
+onready var interact: Sprite = $Interact as Sprite
 
 # =====================================================================
 
@@ -53,14 +55,21 @@ func _process(delta):
 		else:
 			interact.hide()
 			
+		emit_signal("dialogue_started")
+			
+		var previous_face := face
 		if change_direction:
 			_face_player()
+			
 		var d := Controller.dialogue(dialogue_file, dialogue_set, alt_text_box)
 		yield(d, "dialogue_ended")
 		if auto_advance_set and dialogue_set < set_limit:
 			dialogue_set += 1
 		if auto_set_flag:
 			Controller.set_flag(set_flag, dialogue_set)
+			
+		if revert_direction:
+			face = previous_face
 			
 		if is_object:
 			Player.show_interact(true)

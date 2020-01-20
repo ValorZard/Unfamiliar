@@ -229,7 +229,7 @@ I just think it's too much of a hassle.
 ^ BRANCH_3
 ========================
 : BRANCH_3
-| 1.5
+| 1
 @> serious
 > Hey, Cosmo...
 @< smile
@@ -313,7 +313,7 @@ I just think it's too much of a hassle.
 < Being a familiar is even $wmore $0complicated.
 @> serious
 > ...
-| 2
+| 1
 > Cosmo, do you...
 > ...
 < Hm?
@@ -443,6 +443,7 @@ I just think it's too much of a hassle.
 ^ BRANCH_4
 ========================
 : BRANCH_4
+| 1
 << Hey, Keifer...
 [ Are you friends with any witches? (-20, -60) R_4_1 | What does "UA" mean? (-20, -10) R_4_2 | What are your college friends like? (-20, 50) R_4_3
 --------------------

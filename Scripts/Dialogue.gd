@@ -142,11 +142,11 @@ func insert_bbcode_tags():
 			text[page] = text[page].insert(mat.get_start(1), name_bbcode_start)
 			
 			# Keep displaying current name if it's the same as the last page
-			var this_name: String = mat.get_string(1)
-			if current_name == this_name:
-				disp = len(this_name) + 1
-			else:
-				current_name = this_name
+#			var this_name: String = mat.get_string(1)
+#			if current_name == this_name:
+#				disp = len(this_name) + 1
+#			else:
+#				current_name = this_name
 		else:
 			text[page] = text[page].replace("#", "")
 			

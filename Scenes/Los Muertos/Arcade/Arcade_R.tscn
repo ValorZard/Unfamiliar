@@ -1,10 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
-[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=4]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sprites/Props/Interiors/IN_ArcadeCabinet_On.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/Props/Interiors/IN_ArcadeCabinet.png" type="Texture" id=4]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Resources/Sprite Frames (OW)/SpriteFramesOW_Empty.tres" type="SpriteFrames" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 4 )
@@ -18,11 +22,54 @@ extents = Vector2( 16, 4 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8, 78 )
 
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 10, 17 )
+
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 16, 8 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 8, 48 )
+
+[sub_resource type="Animation" id=8]
+resource_name = "Event"
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Arcade/dl_arcade_machines.txt", 1, 8, true ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Arcade/dl_arcade_machines.txt", 0, 8, true ],
+"method": "_event_dialogue"
+} ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "Event"
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Arcade/dl_arcade_machines.txt", 3, 8, true ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Arcade/dl_arcade_machines.txt", 0, 8, true ],
+"method": "_event_dialogue"
+} ]
+}
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -79,12 +126,71 @@ shape = SubResource( 3 )
 position = Vector2( 232, 88 )
 shape = SubResource( 4 )
 
-[node name="Door" parent="." instance=ExtResource( 3 )]
+[node name="Machine" type="StaticBody2D" parent="."]
+position = Vector2( 152, 29 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Machine"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine"]
+position = Vector2( 10, 19 )
+shape = SubResource( 7 )
+
+[node name="Machine4" type="StaticBody2D" parent="."]
+position = Vector2( 200, 29 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Machine4"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine4"]
+position = Vector2( 10, 19 )
+shape = SubResource( 7 )
+
+[node name="Machine2" type="StaticBody2D" parent="."]
+position = Vector2( 130, 29 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Machine2"]
+texture = ExtResource( 3 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine2"]
+position = Vector2( 10, 19 )
+shape = SubResource( 7 )
+
+[node name="Machine3" type="StaticBody2D" parent="."]
+position = Vector2( 73, 29 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Machine3"]
+position = Vector2( 7, 0 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 7, 0, 13, 36 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Machine3"]
+position = Vector2( 10, 19 )
+shape = SubResource( 7 )
+
+[node name="Door" parent="." instance=ExtResource( 5 )]
 position = Vector2( 144, 162 )
 target_scene = "res://Scenes/Los Muertos/LM_Topstreet_R.tscn"
 target_position = Vector2( 168, 80 )
 target_direction = 1
-door_sound = ExtResource( 4 )
+door_sound = ExtResource( 6 )
 
 [node name="CollisionShape2D" parent="Door" index="0"]
 shape = SubResource( 5 )
@@ -92,7 +198,7 @@ shape = SubResource( 5 )
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="Transitions" instance=ExtResource( 5 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 7 )]
 position = Vector2( 72, 98 )
 target_scene = "res://Scenes/Los Muertos/Arcade/Arcade_L.tscn"
 target_direction = 2
@@ -100,6 +206,40 @@ target_direction = 2
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
 shape = SubResource( 6 )
 
+[node name="EventNPC" parent="." instance=ExtResource( 8 )]
+position = Vector2( 162, 41 )
+change_direction = false
+auto_set_flag = false
+is_object = true
+require_direction = true
+
+[node name="Sprite" parent="EventNPC" index="0"]
+frames = ExtResource( 9 )
+
+[node name="AnimationPlayer" parent="EventNPC/Event" index="0"]
+anims/Event = SubResource( 8 )
+
+[node name="EventNPC2" parent="." instance=ExtResource( 8 )]
+position = Vector2( 210, 41 )
+change_direction = false
+auto_set_flag = false
+is_object = true
+require_direction = true
+
+[node name="Sprite" parent="EventNPC2" index="0"]
+frames = ExtResource( 9 )
+
+[node name="AnimationPlayer" parent="EventNPC2/Event" index="0"]
+anims/Event = SubResource( 9 )
+
 [editable path="Door"]
 
 [editable path="Transitions/Transition"]
+
+[editable path="EventNPC"]
+
+[editable path="EventNPC/Event"]
+
+[editable path="EventNPC2"]
+
+[editable path="EventNPC2/Event"]
