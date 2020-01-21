@@ -530,7 +530,7 @@ func play_sound_oneshot_from_path(sound: String, pitch: float = 1.0, volume: flo
 	get_tree().get_root().add_child(i)
 	
 	
-func dialogue(file: String, set: int, alt_box_type: bool = false, text_size: int = 8, reset_state: bool = true) -> Dialogue:
+func dialogue(file: String, set: int, alt_box_type: bool = false, text_size: int = 8, reset_state: bool = true):
 	var dlg: Dialogue = (load(DialogueRef) as PackedScene).instance() as Dialogue
 	dlg.set_text_size(text_size)
 	dlg.set_text_speed(text_speed_ow)
@@ -541,7 +541,7 @@ func dialogue(file: String, set: int, alt_box_type: bool = false, text_size: int
 	return dlg
 	
 	
-func flashback(file: String, art: Texture, transition: bool = true, anim_player_: AnimationPlayer = null) -> Flashback:
+func flashback(file: String, art: Texture, transition: bool = true, anim_player_: AnimationPlayer = null):
 	var fb: PackedScene = load(FlashbackRef) as PackedScene
 	var fb_i = fb.instance() as Flashback
 	fb_i.set_fb_file(file)
