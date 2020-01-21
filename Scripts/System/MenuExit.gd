@@ -25,9 +25,9 @@ func set_parent_menu(menu):
 
 func _on_Button_clicked():
 	Controller.select_menu_button(buttons, button1.get_name())
-	yield(get_tree().create_timer(1.5), "timeout")
+	yield(Controller.wait(1.5), "timeout")
 	Controller.fade(1, true, Color(0, 0, 0), true)
-	yield(get_tree().create_timer(1.8), "timeout")
+	yield(Controller.wait(1.8), "timeout")
 	Controller.goto_scene("res://Scenes/Title/Title.tscn", Vector2.ZERO, 0, false)
 	Controller.draw_overlay(false)
 	Controller.draw_overlay_map(false)
@@ -40,13 +40,13 @@ func _on_Button_clicked():
 
 func _on_Button2_clicked():
 	Controller.select_menu_button(buttons, button2.get_name())
-	yield(get_tree().create_timer(1.5), "timeout")
+	yield(Controller.wait(1.5), "timeout")
 	Controller.fade(true, 1.5, Color(0, 0, 0), true)
-	yield(get_tree().create_timer(1.8), "timeout")
+	yield(Controller.wait(1.8), "timeout")
 	get_tree().quit()
 
 func _on_Button3_clicked():
 	Controller.select_menu_button(buttons, button3.get_name())
-	yield(get_tree().create_timer(1.0), "timeout")
+	yield(Controller.wait(1.0), "timeout")
 	emit_signal("menu_closed")
 	queue_free()

@@ -17,6 +17,6 @@ func _process(delta):
 func set_shake(value: bool, time: float = 0):
 	shake = value
 	if time != 0:
-		yield(get_tree().create_timer(time), "timeout")
+		yield(Controller.wait(time), "timeout")
 		shake = false
 		viewport.set_canvas_transform(Transform2D(0, Vector2.ZERO))

@@ -180,7 +180,7 @@ func create_button(text_: String, target_label: String, index: int):
 	but.set_position(Vector2(ChoiceStartX + ChoiceSep * index, ChoiceStartY))
 	get_tree().get_root().add_child(but)
 	buttons_list.push_back(but)
-	yield(get_tree().create_timer(0.02), "timeout")
+	yield(Controller.wait(0.02), "timeout")
 	but.set_button_text(text_)
 	but.connect("clicked", self, "goto_label", [target_label, index])
 	but.connect("clicked", but, "anim_selected")

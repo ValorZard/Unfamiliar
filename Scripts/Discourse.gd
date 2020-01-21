@@ -19,7 +19,7 @@ var co_target = null
 var co_signal: String = ""
 
 const ChoiceButton := preload("res://Instances/System/Button.tscn")
-const CosmoSprite := preload("res://Resources/Sprite Frames/SpriteFrames_Cosmo.tres")
+#const CosmoSprite := preload("res://Resources/Sprite Frames/SpriteFrames_Cosmo.tres")
 const DiscourseCharacterRef := preload("res://Instances/DiscourseCharacter.tscn")
 
 var script_list := []
@@ -48,18 +48,18 @@ func _ready():
 
 # =====================================================================
 
-func run_discourse(full_name: String, file: String, right_name: String, right_sprite: SpriteFrames, left_name: String = "Cosmo", left_sprite: SpriteFrames = CosmoSprite, text_speed: int = 2):
+func run_discourse(full_name: String, file: String, right_name: String, right_sprite: String, left_name: String, left_sprite: String, text_speed: int = 2):
 	$Name/Label.set_text(full_name)
 	text_controller.set_text_speed(text_speed)
 	
 	# Instance character sprites
 	var cl := DiscourseCharacterRef.instance()
-	cl.set_spriteframes(left_sprite)
+	cl.set_spriteframes(load(left_sprite) as SpriteFrames)
 	get_tree().get_root().add_child(cl)
 	character_left = cl
 	
 	var cr = DiscourseCharacterRef.instance()
-	cr.set_spriteframes(right_sprite)
+	cr.set_spriteframes(load(right_sprite) as SpriteFrames)
 	get_tree().get_root().add_child(cr)
 	cr.position.x += 152
 	character_right = cr
@@ -92,12 +92,12 @@ func run_discourse(full_name: String, file: String, right_name: String, right_sp
 	anim_player_right.get_animation("Movein").track_set_path(1, NodePath(str(character_right.get_path()) + ":visible"))
 	anim_player_right.get_animation("Movein").track_insert_key(1, 0, true)
 	
-	yield(get_tree().create_timer(1.0), "timeout")
+	yield(Controller.wait(1.0), "timeout")
 	
 	anim_player_left.play("Movein")
 	anim_player_right.play("Movein")
 	
-	yield(get_tree().create_timer(2.5), "timeout")
+	yield(Controller.wait(2.5), "timeout")
 	
 	# Run discourse
 	list_index = 0
@@ -111,7 +111,7 @@ func run_discourse(full_name: String, file: String, right_name: String, right_sp
 	$AnimationPlayer.play("Fadeout")
 	yield($AnimationPlayer, "animation_finished")
 	Controller.fade(0.05, true, Color(1, 1, 1))
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield(Controller.wait(0.5), "timeout")
 	
 	character_left.queue_free()
 	character_right.queue_free()
@@ -122,9 +122,9 @@ func run_discourse(full_name: String, file: String, right_name: String, right_sp
 	yield(get_tree(), "tree_changed")
 
 	(get_node(Controller.get_previous_npc()) as EventNPC).increment_dialogue_set()
-	(get_tree().create_timer(0.05)).connect("timeout", get_node(Controller.get_previous_npc()) as EventNPC, "show_interact", [false])
+	(Controller.wait(0.05)).connect("timeout", get_node(Controller.get_previous_npc()) as EventNPC, "show_interact", [false])
 	Controller.fade(1.0, false, Color(1, 1, 1), true)
-	(get_tree().create_timer(1.0)).connect("timeout", Controller, "post_discourse")
+	(Controller.wait(1.0)).connect("timeout", Controller, "post_discourse")
 			
 
 func click_choice(index: int):
@@ -152,7 +152,7 @@ func create_button(text: String, pos: Vector2, index: int, target_line: int) -> 
 	buttons_list.push_back(but)
 	but.connect("clicked", text_controller, "trigger_buffer")
 	but.connect("clicked", self, "emit_signal", ["choice_clicked"])
-	yield(get_tree().create_timer(0.02), "timeout")
+	yield(Controller.wait(0.02), "timeout")
 	get_tree().get_root().add_child(but)
 	but.set_button_text(text)
 	but.appear()
@@ -223,21 +223,21 @@ func parse_discourse_command(command: String):
 				
 			"|": # Pause - FORMAT: | `Time in sec`
 				text_controller.hide_box()
-				co_target = get_tree().create_timer(float(text))
+				co_target = Controller.wait(float(text))
 				co_signal = "timeout"
 				
 			"@<": # Change sprite left - FORMAT: @< `Animation name`
 				co_target = self
 				co_signal = "ignore_line"
 				character_left.set_sprite(text)
-				yield(get_tree().create_timer(0.02), "timeout")
+				yield(Controller.wait(0.02), "timeout")
 				emit_signal("ignore_line")
 				
 			"@>": # Change sprite right - FORMAT: @> `Animation name`
 				co_target = self
 				co_signal = "ignore_line"
 				character_right.set_sprite(text)
-				yield(get_tree().create_timer(0.02), "timeout")
+				yield(Controller.wait(0.02), "timeout")
 				emit_signal("ignore_line")
 				
 			"[": # Choice - FORMAT: [ `Choice text` (`x coord of choice`, `y coord of choice`) `LABEL_AT_START_OF_BRANCH` | for each choice
@@ -251,7 +251,7 @@ func parse_discourse_command(command: String):
 					i += 1
 				
 				# Link buttons together in Control focus
-				yield(get_tree().create_timer(0.03), "timeout")
+				yield(Controller.wait(0.03), "timeout")
 				for n in range(len(buttons_list)):
 					(buttons_list[n] as ButtonUF).set_neighbor_previous(buttons_list[wrapi(n - 1, 0, len(buttons_list))] as ButtonUF)
 					(buttons_list[n] as ButtonUF).set_neighbor_next(buttons_list[wrapi(n + 1, 0, len(buttons_list))] as ButtonUF)
@@ -260,14 +260,14 @@ func parse_discourse_command(command: String):
 				list_index = label_table[text]
 				co_target = self
 				co_signal = "ignore_line"
-				yield(get_tree().create_timer(0.02), "timeout")
+				yield(Controller.wait(0.02), "timeout")
 				emit_signal("ignore_line")
 				
 			"*": # Set flag - FORMAT: * `Flag` `Value`
 				Controller.set_flag(flag_regex.search(text).get_string(1), int(flag_regex.search(text).get_string(2)))
 				co_target = self
 				co_signal = "ignore_line"
-				yield(get_tree().create_timer(0.02), "timeout")
+				yield(Controller.wait(0.02), "timeout")
 				emit_signal("ignore_line")
 				
 			"?": # Jump to label if flag is set - FORMAT: ? `Flag` `Value` `TARGET_LABEL`
@@ -275,16 +275,16 @@ func parse_discourse_command(command: String):
 					list_index = label_table[flag_regex_2.search(text).get_string(3)]
 				co_target = self
 				co_signal = "ignore_line"
-				yield(get_tree().create_timer(0.02), "timeout")
+				yield(Controller.wait(0.02), "timeout")
 				emit_signal("ignore_line")
 				
 			_:
 				co_target = self
 				co_signal = "ignore_line"
-				yield(get_tree().create_timer(0.02), "timeout")
+				yield(Controller.wait(0.02), "timeout")
 				emit_signal("ignore_line")
 	else:
 		co_target = self
 		co_signal = "ignore_line"
-		yield(get_tree().create_timer(0.02), "timeout")
+		yield(Controller.wait(0.02), "timeout")
 		emit_signal("ignore_line")

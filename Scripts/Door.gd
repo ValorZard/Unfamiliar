@@ -21,7 +21,7 @@ func _process(delta):
 		Player.show_interact(false)
 		var transition := (load(DoorTransitionRef) as PackedScene).instance()
 		get_tree().get_root().add_child(transition)
-		yield(get_tree().create_timer(0.6), "timeout")
+		yield(Controller.wait(0.6), "timeout")
 		Controller.goto_scene(target_scene, target_position, target_direction, false, false)
 		var ap: AnimationPlayer = transition.get_node("AnimationPlayer") as AnimationPlayer
 		ap.play("Fadein")

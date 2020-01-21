@@ -75,12 +75,12 @@ func show_flashback_text():
 		if fb_waits[i] > 0:
 			text_controller.hide_box()
 			#animation_player.play()
-			yield(get_tree().create_timer(fb_waits[i]), "timeout")
+			yield(Controller.wait(fb_waits[i]), "timeout")
 			#animation_player.stop(false)
 	
 	if end_anim:
 		text_controller.hide_box()
-		yield(get_tree().create_timer(0.4), "timeout")
+		yield(Controller.wait(0.4), "timeout")
 		
 		$CanvasLayer/ColorRect.get_material().set_shader_param("cutoff", 1)
 		$CanvasLayer/ColorRect.hide()

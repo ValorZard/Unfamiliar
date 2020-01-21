@@ -64,7 +64,7 @@ func _event_player_play_animation(anim: String):
 func _event_fade(time: float, fadeout: bool, color: Color = Color(0, 0, 0), above_overlay: bool = false):
 	anim_player.stop(false)
 	Controller.fade(time, fadeout, color, above_overlay)
-	yield(get_tree().create_timer(time), "timeout")
+	yield(Controller.wait(time), "timeout")
 	anim_player.play()
 	
 
@@ -73,7 +73,7 @@ func _event_move_player_sequence(positions: PoolVector2Array, times: PoolRealArr
 	#assert len(positions) == len(times) == len(directions)
 	for i in range(len(positions)):
 		__move_player(positions[i], times[i], directions[i])
-		yield(get_tree().create_timer(times[i]), "timeout")
+		yield(Controller.wait(times[i]), "timeout")
 	Player.set_speed_override(0)
 	anim_player.play()
 
@@ -81,7 +81,7 @@ func _event_move_player_sequence(positions: PoolVector2Array, times: PoolRealArr
 func _event_move_player_to_position(pos: Vector2, time: float, direction: int):
 	anim_player.stop(false)
 	__move_player(pos, time, direction)
-	yield(get_tree().create_timer(time), "timeout")
+	yield(Controller.wait(time), "timeout")
 	Player.set_speed_override(0)
 	anim_player.play()
 	
@@ -110,7 +110,7 @@ func _event_flashback(file: String, texture: String, transition: bool = true):
 
 func _event_discourse(full_name: String, file: String, right_name: String, right_sprite: String):
 	anim_player.stop(false)
-	Controller.start_discourse(full_name, file, right_name, load(right_sprite) as SpriteFrames)
+	Controller.start_discourse(full_name, file, right_name, right_sprite)
 	
 
 func _event_play_sound(sound_path: String):

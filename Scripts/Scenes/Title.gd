@@ -38,7 +38,7 @@ func reset_anim_player_speed():
 func _on_Button1_clicked() -> void:
 	active = false
 	Controller.select_menu_button(buttons, but1.get_name())
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield(Controller.wait(0.5), "timeout")
 	$AnimationPlayerSetup.play("Teardown Start")
 	yield($AnimationPlayerSetup, "animation_finished")
 	Controller.draw_overlay(true)
@@ -52,7 +52,7 @@ func _on_Button1_clicked() -> void:
 func _on_Button2_clicked() -> void:
 	active = false
 	Controller.select_menu_button(buttons, but2.get_name(), false)
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield(Controller.wait(0.5), "timeout")
 	$AnimationPlayerSetup.play("Teardown Options 2a")
 	yield($AnimationPlayerSetup, "animation_finished")
 	yield(Controller.open_save_menu(true, false), "menu_closed")
@@ -64,7 +64,7 @@ func _on_Button2_clicked() -> void:
 func _on_Button3_clicked() -> void:
 	active = false
 	Controller.select_menu_button(buttons, but3.get_name(), false)
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield(Controller.wait(0.5), "timeout")
 	$AnimationPlayerSetup.play("Teardown Options 2a")
 	yield($AnimationPlayerSetup, "animation_finished")
 	yield(Controller.open_options_menu(false), "menu_closed")
@@ -76,7 +76,7 @@ func _on_Button3_clicked() -> void:
 func _on_Button4_clicked() -> void:
 	active = false
 	Controller.select_menu_button(buttons, but4.get_name())
-	yield(get_tree().create_timer(0.5), "timeout")
+	yield(Controller.wait(0.5), "timeout")
 	$AnimationPlayerSetup.play("Teardown")
 	yield($AnimationPlayerSetup, "animation_finished")
 	get_tree().quit()

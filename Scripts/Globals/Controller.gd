@@ -530,7 +530,7 @@ func play_sound_oneshot_from_path(sound: String, pitch: float = 1.0, volume: flo
 	get_tree().get_root().add_child(i)
 	
 	
-func dialogue(file: String, set: int, alt_box_type: bool = false, text_size: int = 8, reset_state: bool = true):
+func dialogue(file: String, set: int, alt_box_type: bool = false, text_size: int = 8, reset_state: bool = true) -> Dialogue:
 	var dlg: Dialogue = (load(DialogueRef) as PackedScene).instance() as Dialogue
 	dlg.set_text_size(text_size)
 	dlg.set_text_speed(text_speed_ow)
@@ -541,7 +541,7 @@ func dialogue(file: String, set: int, alt_box_type: bool = false, text_size: int
 	return dlg
 	
 	
-func flashback(file: String, art: Texture, transition: bool = true, anim_player_: AnimationPlayer = null):
+func flashback(file: String, art: Texture, transition: bool = true, anim_player_: AnimationPlayer = null) -> Flashback:
 	var fb: PackedScene = load(FlashbackRef) as PackedScene
 	var fb_i = fb.instance() as Flashback
 	fb_i.set_fb_file(file)
@@ -551,7 +551,7 @@ func flashback(file: String, art: Texture, transition: bool = true, anim_player_
 	return fb_i
 
 
-func start_discourse(full_name: String, file: String, right_name: String, right_sprite: SpriteFrames, left_name: String = "Cosmo", left_sprite: SpriteFrames = (load(CosmoSprite) as SpriteFrames)):
+func start_discourse(full_name: String, file: String, right_name: String, right_sprite: String, left_name: String = "Cosmo", left_sprite: String = CosmoSprite):
 	Player.set_state(Player.PlayerState.NoInput)
 	
 	d_previous_scene = get_tree().get_root().get_node("Scene").get_filename()
@@ -561,11 +561,11 @@ func start_discourse(full_name: String, file: String, right_name: String, right_
 	var start := (load(DiscourseStartRef) as PackedScene).instance()
 	start.set_position(Vector2.ZERO)
 	get_tree().get_root().add_child(start)
-	yield(get_tree().create_timer(4.5), "timeout")
+	yield(Controller.wait(4.5), "timeout")
 	draw_overlay(false)
 	draw_overlay_map(false)
 	goto_scene(DiscourseScene, Vector2.ZERO, Player.Direction.Down, false)
-	yield(get_tree().create_timer(0.02), "timeout")
+	yield(Controller.wait(0.02), "timeout")
 	Player.hide()
 	get_tree().get_root().get_node("Scene").run_discourse(full_name, file, right_name, right_sprite, left_name, left_sprite, text_speed_d)
 	
@@ -577,6 +577,15 @@ func draw_overlay(draw: bool):
 
 func draw_overlay_map(draw: bool):
 	$Overlay/CanvasLayer/Map.set_visible(draw)
+	
+	
+func wait(time: float) -> Timer:
+	var timer: Timer = Timer.new()
+	timer.set_wait_time(time)
+	timer.connect("timeout", timer, "queue_free")
+	timer.start()
+	get_tree().get_root().call_deferred("add_child", timer)
+	return timer
 	
 	
 func get_month_str(month: int, short: bool = true) -> String:

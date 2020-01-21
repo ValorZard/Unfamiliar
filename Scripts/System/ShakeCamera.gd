@@ -19,5 +19,5 @@ func unset_current(anim: String):
 func set_shake(value: bool, time: float = 0):
 	shake = value
 	if time != 0:
-		yield(get_tree().create_timer(time), "timeout")
+		yield(Controller.wait(time), "timeout")
 		shake = false

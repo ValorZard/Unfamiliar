@@ -70,7 +70,7 @@ var active := false
 func _ready():
 	Controller.connect("fullscreen_toggled", self, "fullscreen_changed")
 	Controller.connect("windowsize_changed", self, "windowsize_changed")
-	yield(get_tree().create_timer(0.8), "timeout")
+	yield(Controller.wait(0.8), "timeout")
 	
 	load_settings()
 	update_shading()
@@ -174,7 +174,7 @@ func windowsize_changed(value: int):
 
 func _on_ButtonBack_clicked():
 	Controller.select_menu_button(buttons, button_back.get_name())
-	yield(get_tree().create_timer(0.6), "timeout")
+	yield(Controller.wait(0.6), "timeout")
 	$AnimationPlayer.play("Disappear")
 	
 	

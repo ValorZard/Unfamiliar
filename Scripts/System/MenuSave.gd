@@ -75,18 +75,18 @@ func _click_slot(slot: int):
 		Controller.save_game(slot, dt)
 		(buttons[slot] as ButtonUF).set_button_text(_get_info_str(dt.day, dt.month, dt.year, Controller.get_money(), dt.hour, dt.minute, Controller.get_playtime()))
 		$AnimationPlayerText.play("Disappear")
-		yield(get_tree().create_timer(1.4), "timeout")
+		yield(Controller.wait(1.4), "timeout")
 		anim_player.play("Disappear")
 	else: # Load game
 		$AnimationPlayerText.play("Disappear")
-		yield(get_tree().create_timer(2.5), "timeout")
+		yield(Controller.wait(2.5), "timeout")
 		anim_player.play("Disappear Load")
 		yield(anim_player, "animation_finished")
 		Controller.fade(0.5, true, Color(0, 0, 0), true)
-		yield(get_tree().create_timer(0.5), "timeout")
+		yield(Controller.wait(0.5), "timeout")
 		Controller.load_game(slot)
 		Controller.fade(0.1, false, Color(0, 0, 0), true)
-		yield(get_tree().create_timer(0.5), "timeout")
+		yield(Controller.wait(0.5), "timeout")
 		$CanvasLayer/ColorRect.hide()
 		anim_player.play("Finish Load")
 		yield(anim_player, "animation_finished")
@@ -122,7 +122,7 @@ func _on_Button4_clicked():
 func _on_Button5_clicked():
 	Controller.select_menu_button(buttons, button_cancel.get_name())
 	$AnimationPlayerText.play("Disappear")
-	yield(get_tree().create_timer(0.3), "timeout")
+	yield(Controller.wait(0.3), "timeout")
 	anim_player.play("Disappear")
 
 

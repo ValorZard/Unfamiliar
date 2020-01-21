@@ -11,5 +11,5 @@ func _ready():
 	if skip_logos:
 		get_tree().change_scene("res://Scenes/Title/Title.tscn")
 	else:
-		yield(get_tree().create_timer(1.0), "timeout")
+		yield(Controller.wait(1.0), "timeout")
 		get_tree().change_scene("res://Scenes/Title/Logos.tscn")
