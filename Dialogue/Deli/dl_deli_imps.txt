@@ -14,3 +14,18 @@ Imp B: Maybe you should talk to her.
 Imp A: That witch is giving us the jeebies.
 Imp B: T-try not to make her mad. She looks really mean!
 -
+
+2
+Imp A: Wow... that conversation sounded like it got tense!
+Imp B: You two sure talked up a storm.
+Imp A: You're definitely braver than us!
+Imp B: It sounds like you two are friends now, though.
+Cosmo: Mhm!
+Imp A: Maybe that witch isn't as mean as we thought.
+Imp A: ...She still gives me the jeebies, though.
+-
+
+3
+Imp A: That witch comes here the same time every week.
+Imp B: Yeah. I don't know why. This place's food is terrible!
+-
