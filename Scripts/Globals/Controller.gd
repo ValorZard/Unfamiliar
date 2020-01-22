@@ -512,20 +512,22 @@ func add_item(name: String, desc: String, picture: Texture):
 	$Overlay/CanvasLayer/Inventory.add_child(t)
 	
 
-func play_sound_oneshot(sound: AudioStream, pitch: float = 1.0, volume: float = 0.0):
+func play_sound_oneshot(sound: AudioStream, pitch: float = 1.0, volume: float = 0.0, bus: String = "Master"):
 	var i := SoundOneShotRef.instance() as AudioStreamPlayer
 	i.set_stream(sound)
 	i.set_pitch_scale(pitch)
 	i.set_volume_db(volume)
+	i.set_bus(bus)
 	i.play()
 	get_tree().get_root().add_child(i)
 	
 
-func play_sound_oneshot_from_path(sound: String, pitch: float = 1.0, volume: float = 0.0):
+func play_sound_oneshot_from_path(sound: String, pitch: float = 1.0, volume: float = 0.0, bus: String = "Master"):
 	var i := SoundOneShotRef.instance() as AudioStreamPlayer
 	i.set_stream(load(sound) as AudioStream)
 	i.set_pitch_scale(pitch)
 	i.set_volume_db(volume)
+	i.set_bus(bus)
 	i.play()
 	get_tree().get_root().add_child(i)
 	

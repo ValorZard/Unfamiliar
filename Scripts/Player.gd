@@ -7,6 +7,8 @@ signal direction_changed(dir)
 const Speed := 75
 const RunMult := 1.4
 
+export(Array, AudioStream) var step_sounds_conc
+
 var vel := Vector2(0, 0)
 var vel_override := Vector2(0, 0)
 var speed_override: float = 0.0
@@ -47,6 +49,9 @@ func _physics_process(delta):
 			vel.x = xx
 			vel.y = yy
 			
+			if vel != Vector2.ZERO and not walking:
+				_play_footstep_sound()
+			
 			walking = vel != Vector2.ZERO
 			run_mode = Input.is_action_pressed("move_run")
 			
@@ -58,7 +63,10 @@ func _physics_process(delta):
 			move_and_slide(vel.normalized() * Speed * (RunMult if run_mode else 1.0))
 			
 		PlayerState.NoInput:
-			walking = speed_override > 0
+			if (speed_override > 0 or in_transition) and not walking:
+				_play_footstep_sound()
+				
+			walking = speed_override > 0 or in_transition
 			
 			if not sprite_override:
 				sprite_management()
@@ -191,3 +199,13 @@ func sprite_management():
 			spr.play("left_run" if run_mode and walking else "left_walk" if walking or in_transition else "left")
 		Direction.Right:
 			spr.play("right_walk" if walking or in_transition else "right")
+			
+
+func _play_footstep_sound():
+	Controller.play_sound_oneshot(step_sounds_conc[int(round(rand_range(0, len(step_sounds_conc) - 1)))], rand_range(0.95, 1.05), -4)
+
+# =====================================================================
+
+func _on_Sprite_frame_changed():
+	if walking and (spr.get_frame() % 2 == 0):
+		_play_footstep_sound()

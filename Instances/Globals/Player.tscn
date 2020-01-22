@@ -1,88 +1,93 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=2]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_runleft3.png" type="Texture" id=5]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_runleft1.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_runleft2.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkright1.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkright2.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkdown1.png" type="Texture" id=10]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_down.png" type="Texture" id=11]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkdown2.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_stand1.png" type="Texture" id=13]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_kneel3.png" type="Texture" id=14]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_kneel4.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkup1.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkup2.png" type="Texture" id=17]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkleft1.png" type="Texture" id=18]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkleft2.png" type="Texture" id=19]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_kneel4a.png" type="Texture" id=20]
-[ext_resource path="res://Sprites/UI/Interact2.png" type="Texture" id=21]
+[ext_resource path="res://Audio/Footsteps/Step1.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Audio/Footsteps/Step2.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Audio/Footsteps/Step3.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Audio/Footsteps/Step4.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Audio/Footsteps/Step5.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_runleft3.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_runleft1.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_runleft2.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkup1.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkup2.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkleft1.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkleft2.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkdown1.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_down.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkdown2.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_stand1.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_kneel3.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_kneel4.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_kneel4a.png" type="Texture" id=23]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkright1.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkright2.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/UI/Interact2.png" type="Texture" id=26]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
 "name": "left",
-"speed": 5.0
+"speed": 0.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "right",
-"speed": 5.0
+"speed": 0.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "up",
-"speed": 5.0
+"speed": 0.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 6 ) ],
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "left_run",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 8 ), ExtResource( 3 ), ExtResource( 9 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "right_walk",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "down_walk",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ],
-"loop": false,
-"name": "kneel",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 4 ), ExtResource( 17 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "up_walk",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ), ExtResource( 2 ), ExtResource( 19 ), ExtResource( 2 ) ],
+"frames": [ ExtResource( 15 ), ExtResource( 7 ), ExtResource( 16 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "left_walk",
 "speed": 7.0
 }, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "down_walk",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "kneel",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "down_sad",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "down",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 23 ) ],
 "loop": true,
 "name": "kneel2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 24 ), ExtResource( 8 ), ExtResource( 25 ), ExtResource( 8 ) ],
 "loop": true,
-"name": "down_sad",
-"speed": 5.0
+"name": "right_walk",
+"speed": 7.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -127,6 +132,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+step_sounds_conc = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ]
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
@@ -135,7 +141,7 @@ playing = true
 
 [node name="Interact" type="Sprite" parent="."]
 position = Vector2( 0, -17 )
-texture = ExtResource( 21 )
+texture = ExtResource( 26 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8 )
@@ -154,3 +160,4 @@ anims/ScrollOffset = SubResource( 3 )
 [node name="AnimationPlayerInteract" type="AnimationPlayer" parent="."]
 autoplay = "Interact"
 anims/Interact = SubResource( 4 )
+[connection signal="frame_changed" from="Sprite" to="." method="_on_Sprite_frame_changed"]
