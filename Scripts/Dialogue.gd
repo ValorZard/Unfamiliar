@@ -95,12 +95,21 @@ func set_text_speed(value: int):
 	
 
 func start(file: String, set: int, reset_state_: bool):
+	# Compile regexes
 	name_regex.compile(name_regex_pat)
 	choice_regex.compile(choice_regex_pat)
 	flag_regex.compile(flag_regex_pat)
+	
+	# Move box	
+	#if Player.get_position().y > 90:
+	#	set_position(Vector2(86, 24))
+
+	# Stop player
 	Player.set_state(Player.PlayerState.NoInput)
 	reset_state = reset_state_
 	Player.stop_moving()
+	
+	# Load text
 	load_text_from_file(file, set)
 	page_length = len(text[page])
 	insert_bbcode_tags()

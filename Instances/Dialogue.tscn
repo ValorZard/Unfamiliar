@@ -10,6 +10,9 @@
 position = Vector2( 86, 116 )
 z_index = 3600
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_horizontal_guides_": [  ]
+}
 sound_type = ExtResource( 2 )
 
 [node name="Box" type="Sprite" parent="."]

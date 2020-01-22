@@ -9,16 +9,16 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 72 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8, 56 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 72, 8 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 10, 21 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 10, 13 )
 
 [node name="Scene" type="Node2D"]
@@ -73,7 +73,7 @@ target_scene = "res://Scenes/Los Muertos/Deli/Deli_TR.tscn"
 target_direction = 3
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Transition2" parent="Transitions" instance=ExtResource( 3 )]
 position = Vector2( 168, 170 )
@@ -81,7 +81,7 @@ target_scene = "res://Scenes/Los Muertos/Deli/Deli_BL.tscn"
 target_direction = 1
 
 [node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="Booth" type="StaticBody2D" parent="."]
 position = Vector2( 95, 27 )
@@ -95,7 +95,21 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Booth"]
 position = Vector2( 11, 20 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
+
+[node name="Booth6" type="StaticBody2D" parent="."]
+position = Vector2( 190, 119 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Booth6"]
+texture = ExtResource( 4 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Booth6"]
+position = Vector2( 11, 20 )
+shape = SubResource( 4 )
 
 [node name="Booth3" type="StaticBody2D" parent="."]
 position = Vector2( 154, 27 )
@@ -109,7 +123,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Booth3"]
 position = Vector2( 11, 20 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Booth2" type="StaticBody2D" parent="."]
 position = Vector2( 139, 27 )
@@ -124,7 +138,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Booth2"]
 position = Vector2( 11, 20 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Booth4" type="StaticBody2D" parent="."]
 position = Vector2( 198, 27 )
@@ -139,7 +153,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Booth4"]
 position = Vector2( 11, 20 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="Booth5" type="StaticBody2D" parent="."]
 position = Vector2( 213, 27 )
@@ -153,7 +167,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Booth5"]
 position = Vector2( 11, 20 )
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="BoothTable" type="StaticBody2D" parent="."]
 position = Vector2( 118, 42 )
@@ -167,7 +181,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoothTable"]
 position = Vector2( 9, 13 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="BoothTable2" type="StaticBody2D" parent="."]
 position = Vector2( 177, 42 )
@@ -181,7 +195,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoothTable2"]
 position = Vector2( 9, 13 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="BoothTable3" type="StaticBody2D" parent="."]
 position = Vector2( 236, 42 )
@@ -197,7 +211,7 @@ region_rect = Rect2( 0, 0, 4, 26 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoothTable3"]
 position = Vector2( 9, 13 )
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [editable path="Transitions/Transition"]
 
