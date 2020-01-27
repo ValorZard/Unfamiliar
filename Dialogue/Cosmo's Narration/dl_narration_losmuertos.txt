@@ -1,4 +1,4 @@
-TRAINSTATION BOARD
+TRAIN STATION BOARD
 0
 Cosmo: Looks like a community bulletin board.
 Cosmo: There are also a few train timetables on here.

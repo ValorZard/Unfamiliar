@@ -1,18 +1,17 @@
 0
-Imp A: Are you all right, mister?
+Imp: Are you all right, mister?
 Cosmo: Please don't call me that.
-Imp A: Oh, sorry!
-Imp A: Are you all right, though?
-Imp B: You look upset.
+Imp: Oh, sorry!
+Imp: Are you all right, though? You look upset.
 Cosmo: I'm fine. I'm just looking for my witch.
-Imp A: Oh...
-Imp B: That scary witch sitting over there might know something.
-Imp B: Maybe you should talk to her.
+Imp: Oh...
+Imp: That scary witch sitting over there might know something.
+Imp: Maybe you should talk to her.
 -
 
 1
-Imp A: That witch is giving us the jeebies.
-Imp B: T-try not to make her mad. She looks really mean!
+Imp: That witch is giving us the jeebies.
+Imp: T-try not to make her mad. She looks really mean!
 -
 
 2

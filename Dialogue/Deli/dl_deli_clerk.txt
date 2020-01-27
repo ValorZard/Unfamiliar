@@ -10,4 +10,5 @@ Cosmo: Okay. Thanks.
 Deli Clerk: Let me know if you want to order something!
 Deli Clerk: We have the best sandwiches in town!
 Deli Clerk: ...Maybe.
+Deli Clerk: ...Probably not.
 -

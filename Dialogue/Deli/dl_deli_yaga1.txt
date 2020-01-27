@@ -1,36 +1,47 @@
 0
 Witch: ...
 Cosmo: ...
+-
+
+1
 Witch: Can I HELP YOU, honeybucket?
 Cosmo: Uh...
-You're a witch, right?
+Cosmo: You're a witch, right?
 Witch: ...
 Witch: Don't I look like one, newt nose?
 Witch: Everyone else knows I'm a witch. And I never hear the end of it.
-Witch: I thought a demon would be able to figure it out instantly.
+Witch: I'd think a demon would realize it.
 Cosmo: Sorry...
 Cosmo: What's your name?
 Witch: Yaga.
 Yaga: What do you want? I'm very busy.
 Cosmo: Doing what?
-Yaga: Waiting for my 'wich.
-Cosmo: What?
-Cosmo: Waiting for your witch?
-Yaga: Yes! My 'wich! My sandwich?
-Yaga: Look at the stupid menu! It has a section right there that says "'wiches!"
-Cosmo: Oh.
-Cosmo: Didn't notice that.
--
-
-1
-Yaga: Why are you still here?
-Cosmo: I'm sorry. I just wanted to ask you if-
-Deli Clerk: NUMBER 26!
-Yaga: Oh. Great. My order's ready.
-Yaga: This was a wonderful conversation, but I'm getting my 'wich now.
+Yaga: Waiting for my dinner.
+Cosmo: ...What are you eating for dinner?
+Yaga: Why do you care?
+Cosmo: ...
+Yaga: ...
+Yaga: A sandwich. Happy?
 -
 
 2
+Yaga: Why are you still here?
+Cosmo: I'm sorry. I just wanted to ask you if-
+-
+
+3
+Deli Clerk: NUMBER 26!
+-
+
+4
+Yaga: Oh. Great. My order's ready.
+-
+
+5
+Yaga: This was a wonderful talk, but I'm getting my sandwich now.
+-
+
+3
 Yaga: Man... you're really persistent, kid.
 Cosmo: ...
 Cosmo: Have you seen my witch?
@@ -49,7 +60,7 @@ Cosmo: I've been her familiar for over seven years!
 Cosmo: We got separated because we had to get on different trains!
 -
 
-3
+4
 Yaga: Look, honeybucket. I don't have time to help you.
 Cosmo: Why not?
 Yaga: I'm busy, snake breath!
@@ -59,12 +70,12 @@ Yaga: At least I'm not an inconsiderate demon jerk walking around and butting in
 other people's conversations because he couldn't be bothered to stay with his witch!
 -
 
-4
+5
 Cosmo: It's "they."
 Cosmo: That's the least you could get right if you're going to insult me.
 -
 
-5
+6
 Yaga: ...
 Yaga: Ugh...
 Yaga: Sorry.
@@ -72,7 +83,7 @@ Yaga: I didn't mean to make you upset.
 Cosmo: I'm sure you didn't.
 -
 
-6
+7
 Yaga: OK, don't get snide on me, hamster hair.
 Yaga: Just tell me about your witch. I might be able to help.
 Yaga: This place's sandwiches are garbage, anyway. I can wait on eating dinner.

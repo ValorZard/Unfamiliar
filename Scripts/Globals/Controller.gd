@@ -55,6 +55,9 @@ var flags: Dictionary = {
 	"npc_ainsleys_computer": 0,
 	"npc_jj_jenet": 0,
 	"npc_jj_dartguy": 0,
+	"npc_jj_witch": 0,
+	"npc_deli_imp1": 0,
+	"npc_deli_imp2": 0,
 	# ----------------------------------------
 	"npc_motel_chip": 0,
 	# ----------------------------------------

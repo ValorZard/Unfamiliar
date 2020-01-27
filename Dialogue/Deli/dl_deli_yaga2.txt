@@ -10,7 +10,7 @@ Yaga: Maybe familiars aren't as overrated as I thought.
 -
 
 2
-Yaga: Here. Have my 'wich.
+Yaga: Here. Have my sandwich.
 -
 
 3
@@ -22,7 +22,7 @@ Cosmo: I... uh...
 4
 Yaga: Have you eaten dinner yet?
 Cosmo: No.
-Yaga: Then take the 'wich, honeybucket!
+Yaga: Then take the sandwich, honeybucket!
 Yaga: Demons have to eat, too.
 Cosmo: ...
 Cosmo: All right.
@@ -53,7 +53,7 @@ Cosmo: What show?
 Yaga: Lady Maude's Menagerie. It's a show about the usual witch stuff.
 Yaga: Don't watch it. It's way above your age range.
 Cosmo: I'm 19.
-Yaga: In human years, hamster hair.
+Yaga: You're 19 in human years, hamster hair.
 Cosmo: ...Okay. Got me there.
 -
 

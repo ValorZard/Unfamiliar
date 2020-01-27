@@ -31,12 +31,12 @@ extents = Vector2( 12, 5 )
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -168,6 +168,9 @@ set_flag = "npc_lm_pace"
 
 [node name="Sprite" parent="NPCPace" index="0"]
 frames = SubResource( 5 )
+
+[node name="Interact" parent="NPCPace" index="1"]
+position = Vector2( 0, -10 )
 
 [editable path="Transitions/Transition"]
 

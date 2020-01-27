@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Scene_Train1.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=2]
@@ -20,6 +20,7 @@
 [ext_resource path="res://Sprites/UI/Tutorial4.png" type="Texture" id=18]
 [ext_resource path="res://Audio/Train loop.ogg" type="AudioStream" id=19]
 [ext_resource path="res://Audio/Train stop.ogg" type="AudioStream" id=20]
+[ext_resource path="res://Audio/Land.ogg" type="AudioStream" id=21]
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
@@ -314,6 +315,20 @@ tracks/17/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/18/type = "method"
+tracks/18/path = NodePath("../SoundLand")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/keys = {
+"times": PoolRealArray( 37.9 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
 }
 
 [sub_resource type="RectangleShape2D" id=10]
@@ -611,6 +626,9 @@ autoplay = true
 [node name="SoundTrainStop" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 20 )
 volume_db = -80.0
+
+[node name="SoundLand" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 21 )
 
 [editable path="Event"]
 

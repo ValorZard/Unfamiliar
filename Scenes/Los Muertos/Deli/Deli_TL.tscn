@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -8,41 +8,203 @@
 [ext_resource path="res://Sprites/Props/Interiors/IN_DeliBooth.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/System/DepthProp.gd" type="Script" id=7]
 [ext_resource path="res://Sprites/Props/Interiors/IN_DeliBoothTable.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Props/Interiors/IN_DeliNumber.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Plate.png" type="Texture" id=10]
+[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=14]
+[ext_resource path="res://Sprites/Characters (Overworld)/Yaga/Yaga_ow_sit.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters (Overworld)/Yaga/Yaga_ow_sit_look.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters (Overworld)/Yaga/Yaga_ow_down.png" type="Texture" id=17]
+[ext_resource path="res://Audio/Bell.ogg" type="AudioStream" id=18]
+[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Deli_Imp.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Deli_Imp_look.png" type="Texture" id=21]
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 72 )
 
-[sub_resource type="RectangleShape2D" id=17]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 45, 4 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 56 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 72, 8 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 10, 21 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 10, 16 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 10, 16 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 10, 16 )
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 10, 16 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 10, 13 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "sit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "sit_look",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=12]
+resource_name = "Event"
+length = 12.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5, 1, 3, 3.5, 3.8, 4.2, 4.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Deli/dl_deli_yaga1.txt", 0 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Deli/dl_deli_yaga1.txt", 1 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Deli/dl_deli_yaga1.txt", 2 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Deli/dl_deli_yaga1.txt", 3 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Deli/dl_deli_yaga1.txt", 4 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Deli/dl_deli_yaga1.txt", 5 ],
+"method": "_event_dialogue"
+}, {
+"args": [ Vector2( 116, 82 ), 0.4, 0 ],
+"method": "_event_move_player_to_position"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../Sprite")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.9, 3.7, 4.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ "sit_look", false ],
+"method": "play"
+}, {
+"args": [ "sit", false ],
+"method": "play"
+}, {
+"args": [ "sit_look", false ],
+"method": "play"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../../SoundBell")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 3.1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+
+[sub_resource type="SpriteFrames" id=13]
+animations = [ {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=14]
+animations = [ {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
-"_edit_horizontal_guides_": [ 144.0 ],
-"_edit_vertical_guides_": [ 176.0 ]
+"_edit_horizontal_guides_": [ 144.0, 86.0 ],
+"_edit_vertical_guides_": [ 176.0, 116.0 ]
 }
 
 [node name="Overlay" parent="." instance=ExtResource( 1 )]
@@ -80,11 +242,11 @@ __meta__ = {
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 88, 90 )
-shape = SubResource( 9 )
+shape = SubResource( 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 190, 110 )
-shape = SubResource( 17 )
+shape = SubResource( 2 )
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
@@ -95,7 +257,7 @@ target_scene = "res://Scenes/Los Muertos/Deli/Deli_TR.tscn"
 target_direction = 3
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 3 )
 
 [node name="Transition2" parent="Transitions" instance=ExtResource( 3 )]
 position = Vector2( 168, 170 )
@@ -103,7 +265,7 @@ target_scene = "res://Scenes/Los Muertos/Deli/Deli_BL.tscn"
 target_direction = 1
 
 [node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
-shape = SubResource( 11 )
+shape = SubResource( 4 )
 
 [node name="WallCorner" type="Sprite" parent="."]
 position = Vector2( 127, 92 )
@@ -130,7 +292,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Booth"]
 position = Vector2( 11, 20 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="Booth6" type="StaticBody2D" parent="."]
 position = Vector2( 127, 97 )
@@ -146,7 +308,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Booth6"]
 position = Vector2( 11, 25 )
-shape = SubResource( 13 )
+shape = SubResource( 6 )
 
 [node name="Booth8" type="StaticBody2D" parent="."]
 position = Vector2( 186, 97 )
@@ -163,7 +325,7 @@ region_rect = Rect2( 0, 0, 13, 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Booth8"]
 position = Vector2( 11, 25 )
-shape = SubResource( 14 )
+shape = SubResource( 7 )
 
 [node name="Booth3" type="StaticBody2D" parent="."]
 position = Vector2( 154, 27 )
@@ -177,7 +339,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Booth3"]
 position = Vector2( 11, 20 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="Booth2" type="StaticBody2D" parent="."]
 position = Vector2( 139, 27 )
@@ -192,7 +354,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Booth2"]
 position = Vector2( 11, 20 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="Booth7" type="StaticBody2D" parent="."]
 position = Vector2( 171, 97 )
@@ -209,7 +371,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Booth7"]
 position = Vector2( 11, 25 )
-shape = SubResource( 15 )
+shape = SubResource( 8 )
 
 [node name="Booth9" type="StaticBody2D" parent="."]
 position = Vector2( 230, 97 )
@@ -228,7 +390,7 @@ region_rect = Rect2( 11, 0, 10, 41 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Booth9"]
 position = Vector2( 11, 25 )
-shape = SubResource( 16 )
+shape = SubResource( 9 )
 
 [node name="Booth4" type="StaticBody2D" parent="."]
 position = Vector2( 198, 27 )
@@ -243,7 +405,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Booth4"]
 position = Vector2( 11, 20 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="Booth5" type="StaticBody2D" parent="."]
 position = Vector2( 213, 27 )
@@ -257,7 +419,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Booth5"]
 position = Vector2( 11, 20 )
-shape = SubResource( 8 )
+shape = SubResource( 5 )
 
 [node name="BoothTable" type="StaticBody2D" parent="."]
 position = Vector2( 118, 42 )
@@ -271,7 +433,12 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoothTable"]
 position = Vector2( 9, 13 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
+
+[node name="Number" type="Sprite" parent="BoothTable"]
+position = Vector2( 4, -2 )
+texture = ExtResource( 9 )
+centered = false
 
 [node name="BoothTable4" type="StaticBody2D" parent="."]
 position = Vector2( 150, 112 )
@@ -287,7 +454,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoothTable4"]
 position = Vector2( 9, 13 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
 
 [node name="BoothTable5" type="StaticBody2D" parent="."]
 position = Vector2( 209, 112 )
@@ -303,7 +470,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoothTable5"]
 position = Vector2( 9, 13 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
 
 [node name="BoothTable2" type="StaticBody2D" parent="."]
 position = Vector2( 177, 42 )
@@ -317,7 +484,22 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoothTable2"]
 position = Vector2( 9, 13 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
+
+[node name="Plate" type="Sprite" parent="BoothTable2"]
+position = Vector2( 2, 7 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="Plate2" type="Sprite" parent="BoothTable2"]
+position = Vector2( 11, 11 )
+texture = ExtResource( 10 )
+centered = false
+
+[node name="Number" type="Sprite" parent="BoothTable2"]
+position = Vector2( 7, -6 )
+texture = ExtResource( 9 )
+centered = false
 
 [node name="BoothTable3" type="StaticBody2D" parent="."]
 position = Vector2( 236, 42 )
@@ -333,8 +515,63 @@ region_rect = Rect2( 0, 0, 4, 26 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoothTable3"]
 position = Vector2( 9, 13 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
+
+[node name="EventNPCYaga" parent="." instance=ExtResource( 11 )]
+position = Vector2( 112, 48 )
+auto_set_flag = false
+sprite_override = true
+require_direction = true
+
+[node name="Sprite" parent="EventNPCYaga" index="0"]
+frames = SubResource( 11 )
+animation = "sit"
+
+[node name="Interact" parent="EventNPCYaga" index="1"]
+frame = 3
+
+[node name="AnimationPlayer" parent="EventNPCYaga/Event" index="0"]
+anims/Event = SubResource( 12 )
+
+[node name="SoundBell" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 18 )
+
+[node name="NPCImpA" parent="." instance=ExtResource( 19 )]
+position = Vector2( 171, 48 )
+dialogue_file = "res://Dialogue/Deli/dl_deli_imp1.txt"
+start_direction = 3
+revert_direction = true
+auto_advance_set = true
+set_limit = 1
+set_flag = "npc_deli_imp1"
+face = 3
+require_direction = true
+
+[node name="Sprite" parent="NPCImpA" index="0"]
+frames = SubResource( 13 )
+
+[node name="NPCImpB" parent="." instance=ExtResource( 19 )]
+position = Vector2( 201, 48 )
+dialogue_file = "res://Dialogue/Deli/dl_deli_imp2.txt"
+start_direction = 2
+revert_direction = true
+set_flag = "npc_deli_imp2"
+auto_set_flag = false
+face = 2
+require_direction = true
+
+[node name="Sprite" parent="NPCImpB" index="0"]
+frames = SubResource( 14 )
+flip_h = true
 
 [editable path="Transitions/Transition"]
 
 [editable path="Transitions/Transition2"]
+
+[editable path="EventNPCYaga"]
+
+[editable path="EventNPCYaga/Event"]
+
+[editable path="NPCImpA"]
+
+[editable path="NPCImpB"]
