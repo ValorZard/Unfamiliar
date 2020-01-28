@@ -1,4 +1,11 @@
 0
-Imp: Uh...
-Imp: Put some actual dialogue here later.
+Imp: Have you tried the sandwiches here?
+Cosmo: No.
+Imp: Don't. They're terrible.
+Cosmo: Then why are you eating here?
+Imp: It's the only place you can eat for pocket money.
+-
+
+1
+Imp: I wish I could afford to eat at Raine's Steakhouse...
 -

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/IN_Clock.png-b15f69b075cf8d9ce03268f71076b381.stex"
+path="res://.import/IN_Clock_8.png-4089f5fb4285ad97930e69247dd643af.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Props/Interiors/IN_Clock.png"
-dest_files=[ "res://.import/IN_Clock.png-b15f69b075cf8d9ce03268f71076b381.stex" ]
+source_file="res://Sprites/Props/Interiors/IN_Clock_8.png"
+dest_files=[ "res://.import/IN_Clock_8.png-4089f5fb4285ad97930e69247dd643af.stex" ]
 
 [params]
 

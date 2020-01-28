@@ -4,7 +4,7 @@
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Props/Interiors/IN_Socket.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Props/Interiors/IN_Clock.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Clock_8.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Rug.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Props/Interiors/IN_Table_Long.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Props/Interiors/IN_Tabletop_Misc2.png" type="Texture" id=8]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=22]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=23]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 8 )

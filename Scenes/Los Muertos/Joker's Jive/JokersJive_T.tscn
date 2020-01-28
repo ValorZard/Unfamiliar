@@ -4,7 +4,7 @@
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/Props/Interiors/IN_Sign_Restroom.png" type="Texture" id=4]
-[ext_resource path="res://Sprites/Props/Interiors/IN_Clock.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Clock_8.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Props/Interiors/IN_Dartboard.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Props/Interiors/IN_CafeMenu.png" type="Texture" id=7]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=8]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Jenet.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Dartguy_right.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Dartguy_up.png" type="Texture" id=19]
+
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 8 )

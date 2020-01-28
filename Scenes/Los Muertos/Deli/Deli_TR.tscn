@@ -1,15 +1,16 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Props/Interiors/IN_Clock.png" type="Texture" id=4]
-[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Sprites/Props/Interiors/IN_DeliBoothTable.png" type="Texture" id=6]
-[ext_resource path="res://Sprites/Props/Interiors/IN_DeliBooth.png" type="Texture" id=7]
-[ext_resource path="res://Sprites/Props/Interiors/IN_DeliWallCorner.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Props/Interiors/IN_DeliWall.png" type="Texture" id=9]
-[ext_resource path="res://Scripts/System/DepthProp.gd" type="Script" id=10]
+[ext_resource path="res://Sprites/Props/Interiors/IN_Clock_8.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/System/Clock.gd" type="Script" id=5]
+[ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Sprites/Props/Interiors/IN_DeliBoothTable.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Props/Interiors/IN_DeliBooth.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Props/Interiors/IN_DeliWallCorner.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Props/Interiors/IN_DeliWall.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/System/DepthProp.gd" type="Script" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 72 )
@@ -87,6 +88,7 @@ flip_h = true
 position = Vector2( 139, 20 )
 texture = ExtResource( 4 )
 centered = false
+script = ExtResource( 5 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 z_index = 2100
@@ -110,7 +112,7 @@ shape = SubResource( 3 )
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
-[node name="Transition" parent="Transitions" instance=ExtResource( 5 )]
+[node name="Transition" parent="Transitions" instance=ExtResource( 6 )]
 position = Vector2( 160, 170 )
 target_scene = "res://Scenes/Los Muertos/Deli/Deli_BR.tscn"
 target_direction = 1
@@ -118,7 +120,7 @@ target_direction = 1
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
 shape = SubResource( 4 )
 
-[node name="Transition2" parent="Transitions" instance=ExtResource( 5 )]
+[node name="Transition2" parent="Transitions" instance=ExtResource( 6 )]
 position = Vector2( 72, 106 )
 target_scene = "res://Scenes/Los Muertos/Deli/Deli_TL.tscn"
 target_direction = 2
@@ -133,7 +135,7 @@ __meta__ = {
 }
 
 [node name="Sprite" type="Sprite" parent="BoothTable3"]
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 4, 0, 15, 26 )
@@ -150,7 +152,7 @@ __meta__ = {
 
 [node name="Sprite" type="Sprite" parent="Booth"]
 position = Vector2( 2, 0 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 centered = false
 flip_h = true
 
@@ -161,7 +163,7 @@ shape = SubResource( 7 )
 [node name="WallCorner" type="Sprite" parent="."]
 position = Vector2( 86, 92 )
 z_index = 96
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 centered = false
 flip_h = true
 
@@ -169,20 +171,20 @@ flip_h = true
 position = Vector2( 80, 92 )
 scale = Vector2( 3, 1 )
 z_index = 96
-texture = ExtResource( 9 )
+texture = ExtResource( 10 )
 centered = false
 
 [node name="Booth9" type="StaticBody2D" parent="."]
 position = Vector2( 71, 97 )
 z_index = 97
-script = ExtResource( 10 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="Sprite" type="Sprite" parent="Booth9"]
 position = Vector2( 9, 0 )
-texture = ExtResource( 7 )
+texture = ExtResource( 8 )
 centered = false
 flip_h = true
 region_enabled = true

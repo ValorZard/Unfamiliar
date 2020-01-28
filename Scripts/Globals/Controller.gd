@@ -122,6 +122,9 @@ const map_marker_locs: Dictionary = {
 var playtime: float = 0.0
 var track_playtime := false
 
+enum GameTime { SixThirty, Seven, SevenThirty, Eight, Nine, Twelve, Three, Five }
+var game_time: int = GameTime.SixThirty
+
 var money: int = 20
 var money_disp: float = 20
 
@@ -233,6 +236,14 @@ func get_playtime_str(playtime_value: float) -> String:
 	
 func set_tracking_playtime(value: bool):
 	track_playtime = value
+	
+	
+func get_game_time() -> int:
+	return game_time
+	
+	
+func set_game_time(value: int):
+	game_time = value
 	
 	
 func get_scene_map_marker(scene: String) -> Vector2:
