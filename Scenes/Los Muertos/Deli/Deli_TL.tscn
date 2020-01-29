@@ -11,12 +11,12 @@
 [ext_resource path="res://Sprites/Props/Interiors/IN_DeliNumber.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Props/Interiors/IN_Plate.png" type="Texture" id=10]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=12]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Characters (Overworld)/Yaga/Yaga_ow_down.png" type="Texture" id=15]
-[ext_resource path="res://Sprites/Characters (Overworld)/Yaga/Yaga_ow_sit.png" type="Texture" id=16]
-[ext_resource path="res://Sprites/Characters (Overworld)/Yaga/Yaga_ow_sit_look.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters (Overworld)/Yaga/Yaga_ow_sit_look.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters (Overworld)/Yaga/Yaga_ow_sit.png" type="Texture" id=17]
 [ext_resource path="res://Audio/Bell.ogg" type="AudioStream" id=18]
 [ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Deli_Imp.png" type="Texture" id=20]
@@ -56,12 +56,12 @@ extents = Vector2( 10, 13 )
 animations = [ {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -76,12 +76,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "sit",
+"name": "sit_look",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ) ],
 "loop": true,
-"name": "sit_look",
+"name": "sit",
 "speed": 5.0
 } ]
 
@@ -157,14 +157,14 @@ tracks/2/keys = {
 
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "right",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -180,14 +180,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
