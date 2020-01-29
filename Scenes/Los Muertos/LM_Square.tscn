@@ -59,7 +59,6 @@ spread = 60.0
 gravity = Vector3( -150, 0, 0 )
 initial_velocity = 40.0
 initial_velocity_random = 0.3
-angular_velocity = 0.000169926
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 color_ramp = SubResource( 7 )
@@ -81,14 +80,14 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "down2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "down",
 "speed": 5.0
 } ]
 

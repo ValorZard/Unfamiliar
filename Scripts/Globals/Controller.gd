@@ -67,7 +67,7 @@ var flags: Dictionary = {
 	# DIALOGUE CHOICES
 	# ========================================
 	"choice_hometown": 0, # 0 = Salem, 1 = Zzyzx, 2 = Cottonwood
-	"choice_know_rhona's_grandpa": 0, # 0 = No, 1 = Yes
+	"choice_know_rhonas_grandpa": 0, # 0 = No, 1 = Yes
 	"choice_witch_profession": 0, # 0 = Teacher, 1 = Potions, 2 = Books
 	"choice_witch_personality": 0, # 0 = Good, 1 = Okay, 2 = Bad
 	# ----------------------------------------
@@ -204,15 +204,12 @@ func _process(delta: float):
 		if not editor_mode:
 			save_settings()
 		emit_signal("windowsize_changed", int(settings["window_size"]))
-				
-		
-	#if Input.is_action_just_pressed("debug_2"):
-	#	save_game(0, OS.get_datetime())
 
 # =====================================================================
 
 func set_editor_mode(value: bool):
 	editor_mode = value
+
 
 func flag(key: String) -> int:
 	return flags[key]
@@ -454,7 +451,7 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		
 		
 func update_map_marker(path: String):
-	var loc: Vector2 = map_marker_locs.get(path)
+	var loc = map_marker_locs.get(path)
 	if loc != null:
 		map_marker.set_position(Vector2(4 + 8 * loc.x, 3 + 6 * loc.y))
 		map_marker.show()
@@ -599,7 +596,7 @@ func wait(time: float) -> Timer:
 	var timer: Timer = Timer.new()
 	timer.set_wait_time(time)
 	timer.connect("timeout", timer, "queue_free")
-	timer.start()
+	timer.set_autostart(true)
 	get_tree().get_root().call_deferred("add_child", timer)
 	return timer
 	
@@ -630,6 +627,8 @@ func get_month_str(month: int, short: bool = true) -> String:
 			return "Nov" if short else "November"
 		12:
 			return "Dec" if short else "December"
+		_:
+			return "Error"
 
 # =====================================================================
 

@@ -122,7 +122,7 @@
 > I come here every few months to visit my grandpa.
 @> explain2
 > He works here at Ainsley's Knack and Craft. He repairs small trinkets.
-* choice_know_rhona's_grandpa 1
+* choice_know_rhonas_grandpa 1
 @< smile
 @> idle
 < Sounds interesting!

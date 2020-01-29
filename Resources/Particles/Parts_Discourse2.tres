@@ -1,10 +1,10 @@
 [gd_resource type="ParticlesMaterial" load_steps=3 format=2]
 
-[sub_resource type="Curve" id=33]
+[sub_resource type="Curve" id=1]
 _data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.496709, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=34]
-curve = SubResource( 33 )
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
 
 [resource]
 emission_shape = 2
@@ -14,6 +14,6 @@ gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 scale = 7.0
-scale_curve = SubResource( 34 )
+scale_curve = SubResource( 2 )
 anim_offset = 1.0
 anim_offset_random = 1.0

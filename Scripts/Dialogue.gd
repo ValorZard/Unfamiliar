@@ -12,6 +12,7 @@ const ButtonRef := preload("res://Instances/System/ButtonOverworldChoice.tscn")
 const name_regex_pat := "^(.+:).+$"
 const choice_regex_pat := "^\\s*(\\w+)\\((\\w+)\\)\\s*$"
 const flag_regex_pat := "^\\s*(\\w+)\\s+(\\d+)\\s*$"
+const conditional_regex_pat := "^\\s*(\\w+)\\s+(\\d+)\\s+(\\w+)\\s*$"
 
 const name_bbcode_start := "[color=#7ca3ff]"
 const name_bbcode_end := "[/color]"
@@ -38,15 +39,21 @@ var buffer := false
 
 var buttons_list := []
 
+var ended := false
 var reset_state := true
 
 var name_regex := RegEx.new()
 var choice_regex := RegEx.new()
 var flag_regex := RegEx.new()
+var conditional_regex := RegEx.new()
 
 onready var label := $Text as RichTextLabel
 
 # =====================================================================
+
+func _ready():
+	$TimerRollText.start()
+	
 
 func _process(delta):
 	label.set_visible_characters(disp)
@@ -58,16 +65,14 @@ func _process(delta):
 				page += 1
 				
 				skip_labels()
+
+				if not ended:
+					operation_handling()
+					choice_handling()
 					
-				operation_handling()	
-				choice_handling()
-				
-				start_roll()
+					start_roll()
 			else:
-				if reset_state:
-					Player.set_state(Player.PlayerState.Move)
-				emit_signal("dialogue_ended")
-				queue_free()
+				end()
 		elif not choice:
 			disp = len(text[page])
 			buffer = true
@@ -99,6 +104,7 @@ func start(file: String, set: int, reset_state_: bool):
 	name_regex.compile(name_regex_pat)
 	choice_regex.compile(choice_regex_pat)
 	flag_regex.compile(flag_regex_pat)
+	conditional_regex.compile(conditional_regex_pat)
 	
 	# Move box	
 	#if Player.get_position().y > 90:
@@ -115,8 +121,9 @@ func start(file: String, set: int, reset_state_: bool):
 	insert_bbcode_tags()
 	($Text as RichTextLabel).set_bbcode(text[page])
 	get_node("Text").get("custom_fonts/normal_font").set_size(text_size)
+	operation_handling()
 	choice_handling()
-	$TimerRollText.start()
+	#$TimerRollText.start()
 	
 # =====================================================================
 
@@ -207,7 +214,7 @@ func goto_label(label_name: String, button_index: int = -1):
 		
 		buttons_list.clear()
 		
-	if page < len(text) - 1:
+	if page < len(text) - 1 and label_table[label_name] + 1 < len(text) - 1:
 		refresh_text()
 		page = label_table[label_name] + 1
 		
@@ -216,28 +223,42 @@ func goto_label(label_name: String, button_index: int = -1):
 		operation_handling()
 		choice_handling()
 		
-		start_roll()
+		page_length = len(text[page])
+		insert_bbcode_tags()
+		allow_advance = false
+		($Text as RichTextLabel).set_bbcode(text[page])
 	else:
-		if reset_state:
-			Player.set_state(Player.PlayerState.Move)
-			emit_signal("dialogue_ended")
-			queue_free()
+		end()
 	
 	
 func refresh_text():
 	disp = 0
-	label.set_visible_characters(disp)
+	($Text as RichTextLabel).set_visible_characters(disp)
 	
 
 func skip_labels():
-	while text[page][0] == ":":
+	while page < len(text) and text[page][0] == ":":
 		page += 1
+		if page >= len(text):
+			end()
 		
 		
 func operation_handling():
 	# Jumps
 	if text[page][0] == "^":
 		goto_label(text[page].substr(2, len(text[page]) - 2))
+		
+	# Conditional jumps
+	if text[page][0] == "?":
+		var result := conditional_regex.search(text[page].substr(2, len(text[page]) - 2))
+		if Controller.flag(result.get_string(1)) == int(result.get_string(2)):
+			goto_label(result.get_string(3))
+		else:
+			page += 1
+			page_length = len(text[page])
+			insert_bbcode_tags()
+			allow_advance = false
+			($Text as RichTextLabel).set_bbcode(text[page])
 			
 	# Money
 	if text[page][0] == "$":
@@ -255,10 +276,18 @@ func start_roll():
 	page_length = len(text[page])
 	insert_bbcode_tags()
 	allow_advance = false
-	label.set_bbcode(text[page])
+	($Text as RichTextLabel).set_bbcode(text[page])
 	$TimerRollText.start()
 	buffer = true
 	$TimerBuffer.start()
+	
+	
+func end():
+	if reset_state:
+		Player.set_state(Player.PlayerState.Move)
+	ended = true
+	emit_signal("dialogue_ended")
+	queue_free()
 	
 # =====================================================================
 

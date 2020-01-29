@@ -61,7 +61,7 @@ func _process(delta):
 		if change_direction:
 			_face_player()
 			
-		var d := Controller.dialogue(dialogue_file, dialogue_set, alt_text_box)
+		var d: Dialogue = Controller.dialogue(dialogue_file, dialogue_set, alt_text_box)
 		yield(d, "dialogue_ended")
 		if auto_advance_set and dialogue_set < set_limit:
 			dialogue_set += 1

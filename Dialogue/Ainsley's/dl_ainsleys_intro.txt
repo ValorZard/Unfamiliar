@@ -20,32 +20,30 @@ Paul: She seemed very excited that she got to talk to you.
 
 3
 Cosmo: Heh... yeah.
--
-
-4
-Cosmo: Heh... yeah.
+? choice_know_rhonas_grandpa 0 END
 Cosmo: Rhona told me a bit about you, too.
 Cosmo: She told me you're an amazing interior decorator.
 Paul: Ha! Did she?
 Paul: Well... I try my best to make this place look nice.
+: END
 -
 
-5
+4
 Rhona: So, what are you doing here, Cosmo?
 Rhona: Have you found your witch?
 -
 
-6
+5
 Cosmo: No.
 Cosmo: I'm not sure where to go.
 Paul: Oh, you're a familiar?
 -
 
-7
+6
 Cosmo: Yeah. My witch and I got separated.
 -
 
-8
+7
 Cosmo: She's not going to be happy if I take too long to find her.
 Cosmo: I don't know what to do.
 Paul: I wouldn't worry. She'll definitely turn up.
@@ -53,7 +51,7 @@ Paul: She's probably looking for you, too.
 Cosmo: Ugh...
 -
 
-9
+8
 Rhona: You're stressing out too much.
 Rhona: You should take a break. Do something to take your mind off it.
 Cosmo: ...Like what?
@@ -61,17 +59,13 @@ Rhona: Help us fix some stuff!
 Cosmo: What?
 -
 
-10
+9
+? choice_know_rhonas_grandpa 1 BRANCH_1
 Rhona: This is a repair shop. My grandpa repairs small trinkets.
-Rhona: I always help him out a bit when I come and visit.
-Rhona: He pays me for it.
-Rhona: And six hands are always better than four!
-Cosmo: I, uh...
-Cosmo: I'd probably be pretty hopeless at that.
--
-
-11
+^ BRANCH_END
+: BRANCH_1
 Rhona: I told you my grandpa repairs small trinkets, right?
+: BRANCH_END
 Rhona: I always help him out a bit when I come and visit.
 Rhona: He pays me for it.
 Rhona: And six hands are always better than four!
@@ -79,22 +73,14 @@ Cosmo: I, uh...
 Cosmo: I'd probably be pretty hopeless at that.
 -
 
-12
+
+10
 Rhona: Don't worry! We can teach you!
 Cosmo: ...
 Cosmo: Well... I do know a bit of magic.
-Rhona: Oh, really?! That's even better!
+Rhona: Oh, really? That's even better!
 Rhona: And I'm sure if you helped out, Grandpa would give you some money, too!
 Paul: I sure will!
-Cosmo: Hm...
-Rhona: Think about it, okay? Let us know if you want to give it a try!
--
-
-13
-Rhona: Don't worry! We can teach you!
-Rhona: Besides, you know magic, right? That'll be helpful!
-Cosmo: ...
-Paul: If you're willing to help, there'll be some money in it for you!
 Cosmo: Hm...
 Rhona: Think about it, okay? Let us know if you want to give it a try!
 -
