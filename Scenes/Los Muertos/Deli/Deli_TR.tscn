@@ -181,6 +181,7 @@ script = ExtResource( 11 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Booth9"]
 position = Vector2( 9, 0 )

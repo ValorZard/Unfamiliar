@@ -1,0 +1,21 @@
+0
+Shopowner: Pass me that roll of adhesive, would you?
+Woman: Sure thing.
+Shopowner: And then hand me a feather.
+Woman: Mhm.
+Shopowner: No, no, no, no. A red one. I already cut those.
+Woman: ...
+-
+
+1
+Shopowner: Perfect. Now we just need to-
+-
+
+2
+Shopowner: Oh, is that a customer?
+Shopowner: Ravia, I have to help this person.
+Shopowner: Glue that fletch to the shaft like I showed you.
+Ravia: What? You didn't even-
+-
+
+3

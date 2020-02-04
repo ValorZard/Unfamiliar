@@ -301,6 +301,7 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Booth6"]
 texture = ExtResource( 6 )
@@ -317,6 +318,7 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Booth8"]
 texture = ExtResource( 6 )
@@ -363,6 +365,7 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Booth7"]
 texture = ExtResource( 6 )
@@ -380,6 +383,7 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Booth9"]
 texture = ExtResource( 6 )
@@ -447,6 +451,7 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="BoothTable4"]
 texture = ExtResource( 8 )
@@ -463,6 +468,7 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="BoothTable5"]
 texture = ExtResource( 8 )
@@ -555,8 +561,9 @@ position = Vector2( 201, 48 )
 dialogue_file = "res://Dialogue/Deli/dl_deli_imp2.txt"
 start_direction = 2
 revert_direction = true
+auto_advance_set = true
+set_limit = 1
 set_flag = "npc_deli_imp2"
-auto_set_flag = false
 face = 2
 require_direction = true
 
