@@ -463,7 +463,17 @@
 < But over the next few days, she did her best to ease me into it and make me feel welcome.
 < I'm really glad she was willing to do that.
 @> aw
-> That's really sweet. You two are like a family.
+> That's really sweet.
+< Yeah.
+@< idle
+< And when I...
+< ...
+< When I told her that I'm nonbinary, she said she would support me all the way.
+@< smile2
+< That was the biggest relief of my life.
+@> idle
+> That's really wonderful.
+> You two really are like a family.
 @< idle
 < Yeah... I guess that's what you could call it.
 | 1
@@ -514,26 +524,26 @@
 < I really don't think I'm a great familiar. I get a lot of things wrong.
 @> angry
 > Cosmo-
-???????????????????????
-< I'm worried I'm just her familiar and nothing more.
-< That all I'm good for is helping with the daily work.
-< That I'm just a waste of space otherwise.
-@> angry
-> Cosmo, don't think like that.
-> Being a familiar doesn't make you any less of a person.
-> You deserve to be loved like everyone else.
-@> serious
+< It took me forever to learn everything I needed to learn to help my witch.
+< And I $sstill $0screw up all the time.
+< I have a terrible memory. I always forget things.
+< And she gets mad at me every time.
 @< cry
-< That's why I'm so worried!
+< It's hard not to think I'm not good enough for her.
+< That I'm just a waste of space.
+< Sometimes I wonder why she even keeps me around.
+< It might be because she just needs someone to help with the daily work.
+< But that's it. That's all.
+< I don't even know if I'm family to her.
 @< sad
-< All I want is to have a family.
-< I don't understand why I'm always so hung up on it, but that's all I want.
-< But what if she doesn't actually love me?
-< What if she's just faking it to make me feel better about myself?
-
-| 0.5
+< I don't even know if she loves me.
+@> outrage
+> $sCOSMO!
+@< sad2
+< ...
+> Stop talking like that!
 @> angry
-> She $sdoes $0love you.
+> Of course she loves you.
 > She wouldn't go to the trouble of creating you if she didn't want you in her family.
 @> serious
 @< sad2
