@@ -19,3 +19,66 @@ Ravia: What? You didn't even-
 -
 
 3
+Shopowner: Welcome to Pascal's Fletching. How can I help you?
+Cosmo: Uh... I don't need to buy anytihng. I'm just looking around.
+Pascal: Are you a demon?
+Cosmo: Yeah. I'm a familiar.
+Cosmo: I'm looking for my witch.
+Pascal: Really?
+-
+
+4
+Pascal: Oh, great...
+Pascal: Ravia, I have to go take that.
+Pascal: Keep the demon company for me.
+Ravia: Uh, I-
+-
+
+5
+Ravia: Okay, then.
+-
+
+6
+Ravia: Sorry about my uncle. He's... extremely on top of things.
+Ravia: He's trying to teach me about fletching. It's not going well.
+-
+
+7
+Ravia: Not fond of talking, huh?
+-
+
+8
+Cosmo: Sorry. I'm not great at talking.
+Ravia: Me neither. I'm probably even worse.
+Ravia: What's your name?
+Cosmo: I'm Cosmo.
+Ravia: I'm Ravia.
+-
+
+9
+Ravia: So... you lost your witch, huh?
+Cosmo: Yeah. We got separated at the train station.
+-
+
+10
+Ravia: Must be scary to be alone in an unfamiliar city.
+Ravia: That's pretty much how I feel right now.
+Ravia: I have my uncle, but... he's not much reassurance.
+Cosmo: You aren't from Los Muertos either?
+Ravia: Nope.
+Cosmo: Why are you here helping him?
+-
+
+11
+Ravia: It's a long story.
+-
+
+12
+Cosmo: Want to talk about it?
+-
+
+13
+Ravia: ...
+Ravia: Sure.
+Ravia: I've seen him on the phone before. We've got some time.
+-
