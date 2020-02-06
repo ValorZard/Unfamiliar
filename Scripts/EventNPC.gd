@@ -16,6 +16,10 @@ export(bool) var is_object := false
 
 var face: int = NPCDirection.Down
 
+var vel_override := Vector2(0, 0)
+var speed_override: float = 0.0
+var walking := false
+
 var in_range := false
 var can_interact := false
 
@@ -27,6 +31,8 @@ export(bool) var sprite_override := false
 
 export(bool) var require_direction := false
 export(int, "Up", "Down", "Left", "Right") var required_direction := 0
+
+export(Array, AudioStream) var step_sounds_conc
 
 onready var spr: AnimatedSprite = $Sprite
 onready var interact: Sprite = $Interact
@@ -73,10 +79,34 @@ func _process(delta):
 			
 		emit_signal("dialogue_finished")
 		
+		
+func _physics_process(delta):
+	if speed_override > 0 and not walking:
+		_play_footstep_sound()
+		
+	walking = speed_override > 0
+		
+	if not sprite_override:
+		_sprite_management()
+		
+	move_and_slide(vel_override * speed_override)
+		
 # =====================================================================
+
+func set_direction(value: int):
+	face = value
+
 
 func set_sprite_override(value: bool):
 	sprite_override = value
+	
+	
+func set_vel_override(value: Vector2):
+	vel_override = value
+	
+	
+func set_speed_override(value: float):
+	speed_override = value
 	
 
 func increment_dialogue_set():
@@ -121,15 +151,25 @@ func _face_player():
 			
 
 func _sprite_management():
+	var anim: String
 	match face:
 		NPCDirection.Up:
-			spr.play("up")
+			anim = "up"
 		NPCDirection.Down:
-			spr.play("down")
+			anim = "down"
 		NPCDirection.Left:
-			spr.play("left")
+			anim = "left"
 		NPCDirection.Right:
-			spr.play("right")
+			anim = "right"
+			
+	if walking:
+		anim += "_walk"
+			
+	spr.play(anim)
+	
+	
+func _play_footstep_sound():
+	Controller.play_sound_oneshot(step_sounds_conc[int(round(rand_range(0, len(step_sounds_conc) - 1)))], rand_range(0.95, 1.05), -4)
 	
 # =====================================================================
 
@@ -155,3 +195,8 @@ func _on_InteractArea_area_exited(area: Area2D):
 			Player.show_interact(false)
 		else:
 			interact.hide()
+
+
+func _on_Sprite_frame_changed():
+	if walking and (spr.get_frame() % 2 == 0):
+		_play_footstep_sound()

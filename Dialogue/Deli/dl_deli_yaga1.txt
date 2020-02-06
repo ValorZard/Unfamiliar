@@ -10,7 +10,7 @@ Cosmo: You're a witch, right?
 Witch: ...
 Witch: Don't I look like one, newt nose?
 Witch: Everyone else knows I'm a witch. And I never hear the end of it.
-Witch: I'd think a demon would realize it.
+Witch: I'd think a demon would figure it out.
 Cosmo: Sorry...
 Cosmo: What's your name?
 Witch: Yaga.
@@ -41,41 +41,44 @@ Yaga: Oh. Great. My order's ready.
 Yaga: This was a wonderful talk, but I'm getting my sandwich now.
 -
 
-3
+6
 Yaga: Man... you're really persistent, kid.
 Cosmo: ...
 Cosmo: Have you seen my witch?
 Yaga: Excuse me?
-Yaga: You ordered one too?
-Cosmo: What?
-Cosmo: ...No. Not my sandwich. My witch... witch.
 Cosmo: She's wearing a bright yellow coat.
 Cosmo: If I don't find her soon, she'll be-
 Yaga: Wait. You're a familiar?
 Yaga: What are you doing away from your witch, hamster hair?
-Yaga: That's the first rule familiars should know. Attend your witch at all times.
+Yaga: That's one of the first rules familiars should know.
+Yaga: Attend your witch at all times.
 Yaga: Your witch must be pretty stupid if she didn't tell you that.
-Cosmo: She's not STUPID! I know I'm not supposed to be away from her!
+-
+
+7
+Cosmo: She's not STUPID!
+Cosmo: I know I'm not supposed to be away from her!
 Cosmo: I've been her familiar for over seven years!
 Cosmo: We got separated because we had to get on different trains!
 -
 
-4
+8
 Yaga: Look, honeybucket. I don't have time to help you.
 Cosmo: Why not?
-Yaga: I'm busy, snake breath!
+Yaga: I said I'm busy, snake breath!
 Cosmo: All you're doing is eating dinner!
-Yaga: I haven't eaten all day, halibut head! Can't a witch enjoy something for once?
-Yaga: At least I'm not an inconsiderate demon jerk walking around and butting into
-other people's conversations because he couldn't be bothered to stay with his witch!
 -
 
-5
-Cosmo: It's "they."
-Cosmo: That's the least you could get right if you're going to insult me.
+9
+Yaga: I haven't eaten all day, halibut head!
+Yaga: Can't a witch enjoy something for once?
+Yaga: Everyone always tries to make me care about their stupid problems!
+Yaga: If you need a shoulder to cry on, then find your damn witch!
+Yaga: I've got much better things to do than help some demon jerk!
 -
 
-6
+
+10
 Yaga: ...
 Yaga: Ugh...
 Yaga: Sorry.
@@ -83,8 +86,22 @@ Yaga: I didn't mean to make you upset.
 Cosmo: I'm sure you didn't.
 -
 
-7
+11
 Yaga: OK, don't get snide on me, hamster hair.
-Yaga: Just tell me about your witch. I might be able to help.
+-
+
+12
+Cosmo: What's your problem?!
+-
+
+13
+Yaga: ...
+Yaga: I've got a lot of them.
+-
+
+14
+Yaga: Look...
+Yaga: I might be able to help.
+Yaga: Just tell me about your witch.
 Yaga: This place's sandwiches are garbage, anyway. I can wait on eating dinner.
 -

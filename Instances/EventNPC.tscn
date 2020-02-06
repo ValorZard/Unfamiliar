@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scripts/EventNPC.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=2]
@@ -7,17 +7,22 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_down.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/UI/Interact.png" type="Texture" id=6]
 [ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Audio/Footsteps/Step1.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Audio/Footsteps/Step3.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Audio/Footsteps/Step4.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Audio/Footsteps/Step2.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Audio/Footsteps/Step5.ogg" type="AudioStream" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
@@ -72,6 +77,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+step_sounds_conc = [ ExtResource( 8 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ) ]
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
@@ -101,6 +107,7 @@ in_npc = true
 
 [node name="CollisionShape2D" parent="Event" index="1"]
 shape = SubResource( 5 )
+[connection signal="frame_changed" from="Sprite" to="." method="_on_Sprite_frame_changed"]
 [connection signal="area_entered" from="InteractArea" to="." method="_on_InteractArea_area_entered"]
 [connection signal="area_exited" from="InteractArea" to="." method="_on_InteractArea_area_exited"]
 

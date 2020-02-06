@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Audio/Footsteps/Step1.ogg" type="AudioStream" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkright1.png" type="Texture" id=24]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_walkright2.png" type="Texture" id=25]
 [ext_resource path="res://Sprites/UI/Interact2.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right_angry.png" type="Texture" id=27]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -49,15 +50,35 @@ animations = [ {
 "name": "left_run",
 "speed": 7.0
 }, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "down_sad",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 13 ), ExtResource( 9 ), ExtResource( 14 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "up_walk",
 "speed": 7.0
 }, {
+"frames": [ ExtResource( 24 ), ExtResource( 8 ), ExtResource( 25 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "right_walk",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "down",
+"speed": 0.0
+}, {
 "frames": [ ExtResource( 15 ), ExtResource( 7 ), ExtResource( 16 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "left_walk",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "kneel2",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 18 ) ],
 "loop": true,
@@ -69,25 +90,10 @@ animations = [ {
 "name": "kneel",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 20 ) ],
+"frames": [ ExtResource( 27 ) ],
 "loop": true,
-"name": "down_sad",
+"name": "right_angry",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "down",
-"speed": 0.0
-}, {
-"frames": [ ExtResource( 23 ) ],
-"loop": true,
-"name": "kneel2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ), ExtResource( 8 ), ExtResource( 25 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "right_walk",
-"speed": 7.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]

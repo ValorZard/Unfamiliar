@@ -38,14 +38,14 @@ extents = Vector2( 5, 10 )
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ) ],
@@ -63,12 +63,12 @@ animations = [ {
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -218,12 +218,12 @@ extents = Vector2( 16, 8 )
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -440,6 +440,7 @@ dialogue_file = "res://Dialogue/Ainsley's/dl_ainsleys_rhona.txt"
 auto_advance_set = true
 set_limit = 2
 set_flag = "npc_ainsleys_rhona"
+face = 2
 
 [node name="Sprite" parent="NPCRhona" index="0"]
 frames = SubResource( 5 )
@@ -514,6 +515,9 @@ is_object = true
 
 [node name="Sprite" parent="EventNPCComputer" index="0"]
 frames = SubResource( 14 )
+
+[node name="Interact" parent="EventNPCComputer" index="1"]
+frame = 3
 
 [node name="CollisionShape2D" parent="EventNPCComputer/InteractArea" index="0"]
 shape = SubResource( 15 )

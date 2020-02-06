@@ -72,7 +72,7 @@ func _event_move_player_sequence(positions: PoolVector2Array, times: PoolRealArr
 	anim_player.stop(false)
 	#assert len(positions) == len(times) == len(directions)
 	for i in range(len(positions)):
-		__move_player(positions[i], times[i], directions[i])
+		__move_character(Player, positions[i], times[i], directions[i])
 		yield(Controller.wait(times[i]), "timeout")
 	Player.set_speed_override(0)
 	anim_player.play()
@@ -80,9 +80,18 @@ func _event_move_player_sequence(positions: PoolVector2Array, times: PoolRealArr
 	
 func _event_move_player_to_position(pos: Vector2, time: float, direction: int):
 	anim_player.stop(false)
-	__move_player(pos, time, direction)
+	__move_character(Player, pos, time, direction)
 	yield(Controller.wait(time), "timeout")
 	Player.set_speed_override(0)
+	anim_player.play()
+	
+	
+func _event_move_npc_to_position(npc: NodePath, pos: Vector2, time: float, direction: int):
+	anim_player.stop(false)
+	var npc_ref := get_node(npc)# as EventNPC
+	__move_character(npc_ref, pos, time, direction)
+	yield(Controller.wait(time), "timeout")
+	npc_ref.set_speed_override(0)
 	anim_player.play()
 	
 	
@@ -125,46 +134,45 @@ func _event_intro_replace_player(old_player: NodePath):
 
 # =====================================================================
 
-func __move_player(pos: Vector2, time: float, direction: int):
-	Player.set_direction(direction)
-	var dir = Player.get_position().direction_to(pos)
+func __move_character(character: Node2D, pos: Vector2, time: float, direction: int):
+	character.set_direction(direction)
+	var dir = character.get_position().direction_to(pos)
 	if dir.x < 0:
 		if dir.y < 0:
 			match direction:
 				Player.Direction.Up:
-					Player.set_vel_override(Vector2(0, -1))
+					character.set_vel_override(Vector2(0, -1))
 				Player.Direction.Left:
-					Player.set_vel_override(Vector2(-1, 0))
+					character.set_vel_override(Vector2(-1, 0))
 				_:
-					Player.set_vel_override(Vector2(0, -1))
+					character.set_vel_override(Vector2(0, -1))
 		else:
 			match direction:
 				Player.Direction.Down:
-					Player.set_vel_override(Vector2(0, 1))
+					character.set_vel_override(Vector2(0, 1))
 				Player.Direction.Left:
-					Player.set_vel_override(Vector2(-1, 0))
+					character.set_vel_override(Vector2(-1, 0))
 				_:
-					Player.set_vel_override(Vector2(0, 1))
+					character.set_vel_override(Vector2(0, 1))
 	else:
 		if dir.y < 0:
 			match direction:
 				Player.Direction.Up:
-					Player.set_vel_override(Vector2(0, -1))
+					character.set_vel_override(Vector2(0, -1))
 				Player.Direction.Right:
-					Player.set_vel_override(Vector2(1, 0))
+					character.set_vel_override(Vector2(1, 0))
 				_:
-					Player.set_vel_override(Vector2(0, -1))
+					character.set_vel_override(Vector2(0, -1))
 		else:
 			match direction:
 				Player.Direction.Down:
-					Player.set_vel_override(Vector2(0, 1))
+					character.set_vel_override(Vector2(0, 1))
 				Player.Direction.Right:
-					Player.set_vel_override(Vector2(1, 0))
+					character.set_vel_override(Vector2(1, 0))
 				_:
-					Player.set_vel_override(Vector2(0, 1))
+					character.set_vel_override(Vector2(0, 1))
 					
-	Player.set_speed_override(Player.get_position().distance_to(pos) / time)
-	
+	character.set_speed_override(character.get_position().distance_to(pos) / time)
 
 # =====================================================================
 
