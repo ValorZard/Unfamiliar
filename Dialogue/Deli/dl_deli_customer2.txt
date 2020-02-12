@@ -1,0 +1,24 @@
+0
+Customer: Nice day today.
+-
+
+1
+Customer: Mhm. Exceptionally good day today.
+-
+
+2
+Customer: Yes, indeed. WONDERFUL day today.
+-
+
+3
+Customer: But of course. Spectacularly above-average day today.
+-
+
+4
+Customer: Seriously, though. Really quite great day today.
+-
+
+5
+Customer: Hm...
+Customer: Maybe today isn't actually that great.
+-

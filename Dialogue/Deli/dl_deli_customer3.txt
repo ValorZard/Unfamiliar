@@ -1,0 +1,6 @@
+0
+Customer A: Any plans for tomorrow?
+Customer B: Mhm. Book club at the library.
+Customer A: Oh, right. Tomorrow's Friday.
+Customer A: What book are you reading this time?
+Customer B: 

@@ -80,14 +80,14 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "down2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "down2",
 "speed": 5.0
 } ]
 
@@ -254,19 +254,20 @@ centered = false
 [node name="Spout" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 45, -9 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 centered = false
 
 [node name="Spout2" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 26, -11 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 centered = false
 
 [node name="Spout3" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 51, -11 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 centered = false
 flip_h = true
@@ -307,6 +308,9 @@ animation = "down2"
 
 [node name="Interact" parent="EventNPCAriad" index="1"]
 frame = 3
+
+[node name="CollisionShape2D" parent="EventNPCAriad" index="3"]
+disabled = true
 
 [node name="AnimationPlayer" parent="EventNPCAriad/Event" index="0"]
 anims/Event = SubResource( 10 )
