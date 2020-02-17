@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=22]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Scripts/System/Clock.gd" type="Script" id=24]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 8 )
@@ -38,14 +39,14 @@ extents = Vector2( 5, 10 )
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ) ],
@@ -63,12 +64,12 @@ animations = [ {
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -218,12 +219,12 @@ extents = Vector2( 16, 8 )
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -305,6 +306,7 @@ centered = false
 position = Vector2( 208, 21 )
 texture = ExtResource( 5 )
 centered = false
+script = ExtResource( 24 )
 
 [node name="TileMap3" type="TileMap" parent="."]
 position = Vector2( 80, 18 )

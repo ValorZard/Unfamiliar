@@ -13,21 +13,24 @@ Shopowner: Perfect. Now we just need to-
 
 2
 Shopowner: Oh, is that a customer?
+-
+
+3
 Shopowner: Ravia, I have to help this person.
 Shopowner: Glue that fletch to the shaft like I showed you.
 Ravia: What? You didn't even-
 -
 
-3
+4
 Shopowner: Welcome to Pascal's Fletching. How can I help you?
-Cosmo: Uh... I don't need to buy anytihng. I'm just looking around.
+Cosmo: Uh... I don't need to buy anything. I'm just looking around.
 Pascal: Are you a demon?
 Cosmo: Yeah. I'm a familiar.
 Cosmo: I'm looking for my witch.
 Pascal: Really?
 -
 
-4
+5
 Pascal: Oh, great...
 Pascal: Ravia, I have to go take that.
 Pascal: Keep the demon company for me.

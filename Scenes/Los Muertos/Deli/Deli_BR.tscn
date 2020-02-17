@@ -164,6 +164,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Chair"]
 texture = ExtResource( 7 )
@@ -180,6 +181,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Chair2"]
 texture = ExtResource( 7 )
@@ -196,6 +198,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Chair3"]
 texture = ExtResource( 7 )
@@ -230,6 +233,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="BoothTable3"]
 texture = ExtResource( 9 )

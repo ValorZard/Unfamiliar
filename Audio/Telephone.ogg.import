@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Telephone.ogg-5d0360e791ed7a5aed90b083514ea89e.oggstr"
+
+[deps]
+
+source_file="res://Audio/Telephone.ogg"
+dest_files=[ "res://.import/Telephone.ogg-5d0360e791ed7a5aed90b083514ea89e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

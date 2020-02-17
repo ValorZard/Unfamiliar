@@ -17,24 +17,24 @@
 [ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=15]
 [ext_resource path="res://Sprites/UI/Transition2.png" type="Texture" id=16]
 
-[sub_resource type="CanvasItemMaterial" id=36]
-particles_animation = true
-particles_anim_h_frames = 4
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
 particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="CanvasItemMaterial" id=2]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 8 )
 shader_param/cutoff = 0.0
 shader_param/mask = ExtResource( 9 )
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=4]
 animations = [ {
 "frames": [ ExtResource( 11 ), ExtResource( 12 ) ],
 "loop": true,
@@ -42,7 +42,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=5]
 length = 2.5
 loop = true
 tracks/0/type = "value"
@@ -87,7 +87,7 @@ tracks/2/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
@@ -98,7 +98,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1.51572, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:position")
@@ -113,7 +113,7 @@ tracks/1/keys = {
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=7]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -152,7 +152,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=8]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -178,36 +178,36 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ -1.0, 1.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=8]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:hover_alpha")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 1.0, 1.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:hover_offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 10.0 ]
 }
 
 [sub_resource type="Animation" id=9]
 tracks/0/type = "value"
+tracks/0/path = NodePath(".:hover_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:hover_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
@@ -217,7 +217,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1.51572, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:position")
@@ -232,7 +232,7 @@ tracks/1/keys = {
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=11]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -271,7 +271,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -297,36 +297,36 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
 "values": [ -1.0, 1.0, 0.0 ]
-}
-
-[sub_resource type="Animation" id=12]
-tracks/0/type = "value"
-tracks/0/path = NodePath(".:hover_alpha")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
-"update": 0,
-"values": [ 1.0, 1.0, 0.0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath(".:hover_offset")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 1 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ 0.0, 10.0 ]
 }
 
 [sub_resource type="Animation" id=13]
 tracks/0/type = "value"
+tracks/0/path = NodePath(".:hover_alpha")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 1.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:hover_offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 10.0 ]
+}
+
+[sub_resource type="Animation" id=14]
+tracks/0/type = "value"
 tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
@@ -336,7 +336,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1.51572, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 1e-005, 1e-005 ) ]
+"values": [ Vector2( 1, 1 ), Vector2( 1e-05, 1e-05 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath(".:position")
@@ -351,7 +351,7 @@ tracks/1/keys = {
 "values": [ Vector2( 55, 15 ), Vector2( 55, 15 ) ]
 }
 
-[sub_resource type="Animation" id=14]
+[sub_resource type="Animation" id=15]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:self_modulate")
@@ -390,7 +390,7 @@ tracks/2/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
-[sub_resource type="Animation" id=15]
+[sub_resource type="Animation" id=16]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -418,7 +418,7 @@ tracks/1/keys = {
 "values": [ -1.0, 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=16]
+[sub_resource type="Animation" id=17]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:hover_alpha")
 tracks/0/interp = 1
@@ -444,7 +444,7 @@ tracks/1/keys = {
 "values": [ 0.0, 10.0 ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=18]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Logo1:position")
@@ -687,7 +687,7 @@ tracks/19/keys = {
 "values": [ Vector2( 0, 1 ), Vector2( 0, 1 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=19]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Logo1:position")
@@ -810,7 +810,7 @@ tracks/9/keys = {
 "values": [ Vector2( 226, 33 ), Vector2( 226, 33 ), Vector2( 226, -50 ) ]
 }
 
-[sub_resource type="Animation" id=19]
+[sub_resource type="Animation" id=20]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Logo1:position")
@@ -933,7 +933,7 @@ tracks/9/keys = {
 "values": [ Vector2( 226, -50 ), Vector2( 226, -50 ), Vector2( 226, 33 ) ]
 }
 
-[sub_resource type="Animation" id=20]
+[sub_resource type="Animation" id=21]
 length = 8.0
 loop = true
 tracks/0/type = "value"
@@ -997,7 +997,7 @@ tracks/4/keys = {
 "values": [ Vector2( 448, 168 ), Vector2( -280, 168 ) ]
 }
 
-[sub_resource type="Animation" id=21]
+[sub_resource type="Animation" id=22]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1180,7 +1180,7 @@ tracks/13/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=22]
+[sub_resource type="Animation" id=23]
 length = 5.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1413,7 +1413,7 @@ tracks/17/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="Animation" id=23]
+[sub_resource type="Animation" id=24]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1562,7 +1562,7 @@ tracks/11/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[sub_resource type="Animation" id=24]
+[sub_resource type="Animation" id=25]
 length = 2.5
 tracks/0/type = "method"
 tracks/0/path = NodePath("AnimationPlayer")
@@ -1603,7 +1603,7 @@ tracks/2/keys = {
 "values": [ 0.0, 0.0, 2.5 ]
 }
 
-[sub_resource type="Animation" id=25]
+[sub_resource type="Animation" id=26]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1680,8 +1680,7 @@ tracks/5/keys = {
 "values": [ 0.0, 0.0, 2.5 ]
 }
 
-[sub_resource type="Animation" id=26]
-resource_name = "Teardown Options 2a"
+[sub_resource type="Animation" id=27]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1758,7 +1757,7 @@ tracks/5/keys = {
 "values": [ 0.0, 0.0, 2.5 ]
 }
 
-[sub_resource type="Animation" id=27]
+[sub_resource type="Animation" id=28]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -1919,7 +1918,7 @@ tracks/12/keys = {
 "values": [ 1.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=28]
+[sub_resource type="Animation" id=29]
 length = 2.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("Polygon2D:position")
@@ -2052,7 +2051,7 @@ tracks/9/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=29]
+[sub_resource type="Animation" id=30]
 length = 2.5
 loop = true
 tracks/0/type = "value"
@@ -2068,18 +2067,18 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1.015 ) ]
 }
 
-[sub_resource type="Shader" id=30]
+[sub_resource type="Shader" id=31]
 code = "shader_type canvas_item;
 uniform float amount : hint_range(0,10);
 void fragment() {
     COLOR.rgb = textureLod(SCREEN_TEXTURE,SCREEN_UV,amount).rgb;
 }"
 
-[sub_resource type="ShaderMaterial" id=31]
-shader = SubResource( 30 )
+[sub_resource type="ShaderMaterial" id=32]
+shader = SubResource( 31 )
 shader_param/amount = 0.0
 
-[sub_resource type="ShaderMaterial" id=32]
+[sub_resource type="ShaderMaterial" id=33]
 shader = ExtResource( 8 )
 shader_param/cutoff = 1.0
 shader_param/mask = ExtResource( 16 )
@@ -2097,7 +2096,7 @@ __meta__ = {
 }
 
 [node name="PartsBg2" type="Particles2D" parent="."]
-material = SubResource( 36 )
+material = SubResource( 1 )
 position = Vector2( 160, 90 )
 lifetime = 1.5
 explosiveness = 0.3
@@ -2106,7 +2105,7 @@ process_material = ExtResource( 2 )
 texture = ExtResource( 3 )
 
 [node name="PartsBg" type="Particles2D" parent="."]
-material = SubResource( 1 )
+material = SubResource( 2 )
 position = Vector2( 160, 90 )
 emitting = false
 amount = 16
@@ -2154,7 +2153,7 @@ __meta__ = {
 }
 
 [node name="PartsMask" type="ColorRect" parent="."]
-material = SubResource( 2 )
+material = SubResource( 3 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
@@ -2179,17 +2178,17 @@ __meta__ = {
 
 [node name="Blink" type="AnimatedSprite" parent="Cosmo"]
 position = Vector2( -20, -129 )
-frames = SubResource( 3 )
+frames = SubResource( 4 )
 animation = "blink"
 frame = 1
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Cosmo"]
-anims/Blink = SubResource( 4 )
+anims/Blink = SubResource( 5 )
 
 [node name="Logo1" type="Sprite" parent="."]
 position = Vector2( -50, 24 )
-scale = Vector2( 1e-005, 1 )
+scale = Vector2( 1e-05, 1 )
 texture = ExtResource( 13 )
 centered = false
 region_enabled = true
@@ -2200,7 +2199,7 @@ __meta__ = {
 
 [node name="Logo2" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
-scale = Vector2( 1e-005, 1 )
+scale = Vector2( 1e-05, 1 )
 texture = ExtResource( 13 )
 centered = false
 region_enabled = true
@@ -2211,7 +2210,7 @@ __meta__ = {
 
 [node name="Logo3" type="Sprite" parent="."]
 position = Vector2( -50, 25 )
-scale = Vector2( 1e-005, 1 )
+scale = Vector2( 1e-05, 1 )
 texture = ExtResource( 13 )
 centered = false
 region_enabled = true
@@ -2222,7 +2221,7 @@ __meta__ = {
 
 [node name="Logo4" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
-scale = Vector2( 1e-005, 1 )
+scale = Vector2( 1e-05, 1 )
 texture = ExtResource( 13 )
 centered = false
 region_enabled = true
@@ -2233,7 +2232,7 @@ __meta__ = {
 
 [node name="Logo5" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
-scale = Vector2( 1e-005, 1 )
+scale = Vector2( 1e-05, 1 )
 texture = ExtResource( 13 )
 centered = false
 region_enabled = true
@@ -2244,7 +2243,7 @@ __meta__ = {
 
 [node name="Logo6" type="Sprite" parent="."]
 position = Vector2( -50, 23 )
-scale = Vector2( 1e-005, 1 )
+scale = Vector2( 1e-05, 1 )
 texture = ExtResource( 13 )
 centered = false
 region_enabled = true
@@ -2255,7 +2254,7 @@ __meta__ = {
 
 [node name="Logo7" type="Sprite" parent="."]
 position = Vector2( -50, 24 )
-scale = Vector2( 1e-005, 1 )
+scale = Vector2( 1e-05, 1 )
 texture = ExtResource( 13 )
 centered = false
 region_enabled = true
@@ -2266,7 +2265,7 @@ __meta__ = {
 
 [node name="Logo8" type="Sprite" parent="."]
 position = Vector2( -50, 23 )
-scale = Vector2( 1e-005, 1 )
+scale = Vector2( 1e-05, 1 )
 texture = ExtResource( 13 )
 centered = false
 region_enabled = true
@@ -2277,7 +2276,7 @@ __meta__ = {
 
 [node name="Logo9" type="Sprite" parent="."]
 position = Vector2( -50, 34 )
-scale = Vector2( 1e-005, 1 )
+scale = Vector2( 1e-05, 1 )
 texture = ExtResource( 13 )
 centered = false
 region_enabled = true
@@ -2288,7 +2287,7 @@ __meta__ = {
 
 [node name="Logo10" type="Sprite" parent="."]
 position = Vector2( -50, 33 )
-scale = Vector2( 1e-005, 1 )
+scale = Vector2( 1e-05, 1 )
 texture = ExtResource( 13 )
 centered = false
 region_enabled = true
@@ -2319,14 +2318,14 @@ button_text = "Load Game"
 choice_button = false
 
 [node name="AnimationPlayer" parent="Button2" index="2"]
-anims/Disappear = SubResource( 5 )
-anims/Select = SubResource( 6 )
+anims/Disappear = SubResource( 6 )
+anims/Select = SubResource( 7 )
 
 [node name="AnimationPlayerIdle" parent="Button2" index="3"]
-anims/Idle = SubResource( 7 )
+anims/Idle = SubResource( 8 )
 
 [node name="AnimationPlayerHover" parent="Button2" index="4"]
-anims/Hover = SubResource( 8 )
+anims/Hover = SubResource( 9 )
 
 [node name="Button" parent="Button2" index="5"]
 margin_left = -42.0
@@ -2343,14 +2342,14 @@ button_text = "Options"
 choice_button = false
 
 [node name="AnimationPlayer" parent="Button3" index="2"]
-anims/Disappear = SubResource( 9 )
-anims/Select = SubResource( 10 )
+anims/Disappear = SubResource( 10 )
+anims/Select = SubResource( 11 )
 
 [node name="AnimationPlayerIdle" parent="Button3" index="3"]
-anims/Idle = SubResource( 11 )
+anims/Idle = SubResource( 12 )
 
 [node name="AnimationPlayerHover" parent="Button3" index="4"]
-anims/Hover = SubResource( 12 )
+anims/Hover = SubResource( 13 )
 
 [node name="Button" parent="Button3" index="5"]
 margin_left = -32.0
@@ -2367,14 +2366,14 @@ button_text = "Exit"
 choice_button = false
 
 [node name="AnimationPlayer" parent="Button4" index="2"]
-anims/Disappear = SubResource( 13 )
-anims/Select = SubResource( 14 )
+anims/Disappear = SubResource( 14 )
+anims/Select = SubResource( 15 )
 
 [node name="AnimationPlayerIdle" parent="Button4" index="3"]
-anims/Idle = SubResource( 15 )
+anims/Idle = SubResource( 16 )
 
 [node name="AnimationPlayerHover" parent="Button4" index="4"]
-anims/Hover = SubResource( 16 )
+anims/Hover = SubResource( 17 )
 
 [node name="Button" parent="Button4" index="5"]
 margin_left = -30.0
@@ -2386,28 +2385,28 @@ focus_neighbour_bottom = NodePath("../../Button1/Button")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 playback_speed = 1.5
-"anims/Logo flyin" = SubResource( 17 )
-"anims/Logo flyout" = SubResource( 18 )
-"anims/Logo unflyout" = SubResource( 19 )
+"anims/Logo flyin" = SubResource( 18 )
+"anims/Logo flyout" = SubResource( 19 )
+"anims/Logo unflyout" = SubResource( 20 )
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
 playback_speed = 0.7
-anims/Background = SubResource( 20 )
+anims/Background = SubResource( 21 )
 
 [node name="AnimationPlayerSetup" type="AnimationPlayer" parent="."]
-anims/Setup = SubResource( 21 )
-"anims/Setup New" = SubResource( 22 )
-anims/Teardown = SubResource( 23 )
-"anims/Teardown Options" = SubResource( 24 )
-"anims/Teardown Options 2" = SubResource( 25 )
-"anims/Teardown Options 2a" = SubResource( 26 )
-"anims/Teardown Start" = SubResource( 27 )
-anims/Unteardown = SubResource( 28 )
+anims/Setup = SubResource( 22 )
+"anims/Setup New" = SubResource( 23 )
+anims/Teardown = SubResource( 24 )
+"anims/Teardown Options" = SubResource( 25 )
+"anims/Teardown Options 2" = SubResource( 26 )
+"anims/Teardown Options 2a" = SubResource( 27 )
+"anims/Teardown Start" = SubResource( 28 )
+anims/Unteardown = SubResource( 29 )
 
 [node name="AnimationPlayerCosmo" type="AnimationPlayer" parent="."]
 autoplay = "Cosmo Idle"
 playback_speed = 0.85
-"anims/Cosmo Idle" = SubResource( 29 )
+"anims/Cosmo Idle" = SubResource( 30 )
 
 [node name="TimerSetup" type="Timer" parent="."]
 one_shot = true
@@ -2420,13 +2419,13 @@ margin_right = 147.0
 margin_bottom = 183.0
 custom_fonts/font = ExtResource( 15 )
 custom_colors/font_color = Color( 0.282353, 0.384314, 0.627451, 1 )
-text = "© 2019 Studio Fractal"
+text = "© 2020 Studio Fractal"
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Blur" type="ColorRect" parent="."]
-material = SubResource( 31 )
+material = SubResource( 32 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
@@ -2445,7 +2444,7 @@ __meta__ = {
 
 [node name="Fade2" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 32 )
+material = SubResource( 33 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2

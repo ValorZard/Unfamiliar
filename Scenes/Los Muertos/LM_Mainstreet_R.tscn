@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Audio/Camera Shutter.ogg" type="AudioStream" id=7]
 [ext_resource path="res://Audio/Camera Wind.ogg" type="AudioStream" id=8]
 [ext_resource path="res://Instances/Props/Prop_Streetlamp.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 24 )
@@ -192,6 +193,12 @@ anims/Event = SubResource( 5 )
 
 [node name="CollisionShape2D" parent="Event" index="1"]
 shape = SubResource( 6 )
+
+[node name="Door" type="Sprite" parent="."]
+position = Vector2( 84, 58 )
+texture = ExtResource( 10 )
+centered = false
+flip_h = true
 
 [node name="SoundCamera" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 7 )
