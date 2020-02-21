@@ -4,14 +4,14 @@ class_name Event
 
 signal event_ended
 
-export(bool) var in_npc = false
-export(bool) var autostart = false
+export(bool) var in_npc := false
+export(bool) var autostart := false
 export(bool) var destroy
 export(String) var destroy_flag
-export(bool) var auto_set_destroy = false
-export(NodePath) var discourse_npc = null
+export(bool) var auto_set_destroy := false
 
 var started := false
+var current_index: int = 0
 
 onready var anim_player := $AnimationPlayer as AnimationPlayer
 
@@ -25,16 +25,16 @@ func _ready():
 	
 # =====================================================================
 	
-func start_event(index: int = 0):
+func start_event(index: int = 0, position: float = 0.0):
 	if not started:
 		Player.set_state(Player.PlayerState.NoInput)
 		Player.show_interact(false)
 		Player.set_in_event(true)
+		
 		anim_player.play("Event" + (str(index + 1) if index != 0 else ""))
-		if discourse_npc != null:
-			Controller.set_previous_npc(get_node(discourse_npc).get_path())
-		if auto_set_destroy:
-			Controller.set_flag(destroy_flag, 1)
+		anim_player.seek(position)
+
+		current_index = index
 		started = true
 	
 # =====================================================================
@@ -119,6 +119,9 @@ func _event_flashback(file: String, texture: String, transition: bool = true):
 
 func _event_discourse(full_name: String, file: String, right_name: String, right_sprite: String):
 	anim_player.stop(false)
+	Controller.set_previous_event(get_path())
+	Controller.set_previous_event_index(current_index)
+	Controller.set_previous_event_pos(anim_player.get_current_animation_position())
 	Controller.start_discourse(full_name, file, right_name, right_sprite)
 	
 
@@ -187,6 +190,9 @@ func _on_AnimationPlayer_animation_finished(anim_name: String):
 		Player.set_state(Player.PlayerState.Move)
 		Player.set_in_event(false)
 		emit_signal("event_ended")
+		
+		if auto_set_destroy:
+			Controller.set_flag(destroy_flag, 1)
 		
 		started = false
 		if not in_npc:

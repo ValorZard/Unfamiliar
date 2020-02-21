@@ -136,7 +136,11 @@ var menu_open := false
 var d_previous_scene: String
 var d_previous_pos: Vector2
 var d_previous_dir: int
-var d_previous_npc: NodePath
+#var d_previous_npc: NodePath
+
+var d_previous_event: NodePath
+var d_previous_event_index: int
+var d_previous_event_pos: float
 
 var controller_connected: bool = false
 
@@ -259,12 +263,36 @@ func get_previous_dir() -> int:
 	return d_previous_dir
 	
 	
-func get_previous_npc() -> NodePath:
-	return d_previous_npc
+#func get_previous_npc() -> NodePath:
+#	return d_previous_npc
 	
 	
-func set_previous_npc(npc: NodePath):
-	d_previous_npc = npc
+#func set_previous_npc(npc: NodePath):
+#	d_previous_npc = npc
+
+
+func get_previous_event() -> NodePath:
+	return d_previous_event
+	
+	
+func set_previous_event(event: NodePath):
+	d_previous_event = event
+	
+	
+func get_previous_event_index() -> int:
+	return d_previous_event_index
+	
+	
+func set_previous_event_index(index: int):
+	d_previous_event_index = index
+	
+	
+func get_previous_event_pos() -> float:
+	return d_previous_event_pos
+	
+	
+func set_previous_event_pos(pos: float):
+	d_previous_event_pos = pos
 	
 	
 func set_menu_open(value: bool):
@@ -315,8 +343,9 @@ func save_settings():
 
 	
 func post_discourse():
-	Player.set_state(Player.PlayerState.Move)
-	(get_node(d_previous_npc) as EventNPC).show_interact(true)
+	#Player.set_state(Player.PlayerState.Move)
+	#(get_node(d_previous_npc) as EventNPC).show_interact(true)
+	(get_tree().get_root().get_node(d_previous_event) as Event).start_event(d_previous_event_index, d_previous_event_pos)
 	
 	
 func show_emote(type: int, target: Node2D, offset: Vector2 = Vector2(0, -16)):

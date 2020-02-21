@@ -45,6 +45,11 @@ func _ready():
 	buttons_regex.compile(buttons_regex_p)
 	flag_regex.compile(flag_regex_p)
 	flag_regex_2.compile(flag_regex_2_p)
+	
+	
+func _process(delta):
+	if Input.is_action_just_pressed("debug_3"):
+		list_index = len(script_list) - 1
 
 # =====================================================================
 
@@ -121,8 +126,6 @@ func run_discourse(full_name: String, file: String, right_name: String, right_sp
 	Controller.goto_scene(Controller.get_previous_scene(), Controller.get_previous_pos(), Controller.get_previous_dir(), false, false)
 	yield(get_tree(), "tree_changed")
 
-	(get_node(Controller.get_previous_npc()) as EventNPC).increment_dialogue_set()
-	(Controller.wait(0.05)).connect("timeout", get_node(Controller.get_previous_npc()) as EventNPC, "show_interact", [false])
 	Controller.fade(1.0, false, Color(1, 1, 1), true)
 	(Controller.wait(1.0)).connect("timeout", Controller, "post_discourse")
 			

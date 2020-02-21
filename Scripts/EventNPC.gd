@@ -64,8 +64,7 @@ func _process(delta):
 			
 		if change_direction:
 			_face_player()
-		
-		Controller.set_previous_npc(get_path())
+
 		event.start_event(dialogue_set)
 		yield(event, "event_ended")
 		if auto_advance_set and dialogue_set < set_limit:

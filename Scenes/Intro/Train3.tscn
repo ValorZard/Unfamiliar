@@ -100,7 +100,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=13]
 resource_name = "Event"
-length = 2.1
+length = 2.2
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -357,7 +357,6 @@ position = Vector2( 164, 122 )
 destroy = true
 destroy_flag = "scn_rhona"
 auto_set_destroy = true
-discourse_npc = NodePath("../EventNPCRhona")
 
 [node name="AnimationPlayer" parent="Event" index="0"]
 anims/Event = SubResource( 13 )
