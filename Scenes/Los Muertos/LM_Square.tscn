@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -19,6 +19,11 @@
 [ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=18]
 [ext_resource path="res://Instances/Props/Prop_Streetlamp.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Clive_right.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Clive_left.png" type="Texture" id=21]
+[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Clive.png" type="Texture" id=22]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=23]
+[ext_resource path="res://Scripts/Scenes/Los Muertos/Scene_LM_Square.gd" type="Script" id=24]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 8 )
@@ -65,14 +70,14 @@ color_ramp = SubResource( 7 )
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -80,19 +85,19 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "down2",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=10]
-length = 1.5
+length = 6.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -100,8 +105,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.6, 1, 1.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.6, 1, 1.4, 2, 2.2, 2.4, 2.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ "res://Dialogue/Los Muertos/dl_lm_ariad.txt", 0 ],
 "method": "_event_dialogue"
@@ -117,6 +122,18 @@ tracks/0/keys = {
 }, {
 "args": [ "Ariad", "res://Discourses/d_ariad.txt", "Ariad", "res://Resources/Sprite Frames/SpriteFrames_Ariad.tres" ],
 "method": "_event_discourse"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_ariad2.txt", 0 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_ariad2.txt", 1 ],
+"method": "_event_dialogue"
+}, {
+"args": [ 3 ],
+"method": "_event_set_player_direction"
+}, {
+"args": [ NodePath("../../EventNPCClive"), Vector2( 212, 108 ), 1.4, 2 ],
+"method": "_event_move_npc_to_position"
 } ]
 }
 tracks/1/type = "method"
@@ -126,8 +143,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.8 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.8, 2.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "values": [ {
 "args": [ false ],
 "method": "set_sprite_override"
@@ -136,6 +153,9 @@ tracks/1/keys = {
 "method": "set_sprite_override"
 }, {
 "args": [ false ],
+"method": "set_sprite_override"
+}, {
+"args": [ true ],
 "method": "set_sprite_override"
 } ]
 }
@@ -146,10 +166,13 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0.2, 2.4 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [ "down2", false ],
+"method": "play"
+}, {
+"args": [ "right", false ],
 "method": "play"
 } ]
 }
@@ -157,7 +180,40 @@ tracks/2/keys = {
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 9, 8 )
 
+[sub_resource type="SpriteFrames" id=12]
+animations = [ {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "left_walk",
+"speed": 5.0
+} ]
+
 [node name="Scene" type="Node2D"]
+script = ExtResource( 24 )
+__meta__ = {
+"_edit_vertical_guides_": [ 216.0 ]
+}
+clive_npc = NodePath("EventNPCClive")
 
 [node name="Overlay" parent="." instance=ExtResource( 1 )]
 is_preview = true
@@ -254,20 +310,19 @@ centered = false
 [node name="Spout" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 45, -9 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 centered = false
 
 [node name="Spout2" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 26, -11 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 centered = false
 
 [node name="Spout3" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 51, -11 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 centered = false
 flip_h = true
@@ -332,6 +387,19 @@ z_index = 58
 position = Vector2( 209, 34 )
 z_index = 58
 
+[node name="EventNPCClive" parent="." instance=ExtResource( 12 )]
+position = Vector2( 286, 108 )
+start_direction = 2
+change_direction = false
+auto_set_flag = false
+can_talk_to = false
+
+[node name="Sprite" parent="EventNPCClive" index="0"]
+frames = SubResource( 12 )
+
+[node name="Interact" parent="EventNPCClive" index="1"]
+frame = 3
+
 [editable path="Transitions/Transition"]
 
 [editable path="Transitions/Transition2"]
@@ -343,3 +411,5 @@ z_index = 58
 [editable path="EventNPCAriad/Event"]
 
 [editable path="Door3"]
+
+[editable path="EventNPCClive"]

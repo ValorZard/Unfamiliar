@@ -121,11 +121,6 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "sit",
@@ -134,6 +129,11 @@ animations = [ {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "sit_look",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "down",
 "speed": 5.0
 } ]
 
@@ -287,11 +287,6 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 23 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "right_walk",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "down",
@@ -300,6 +295,11 @@ animations = [ {
 "frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "left_walk",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "right_walk",
 "speed": 7.0
 } ]
 
@@ -678,7 +678,7 @@ anims/Event = SubResource( 14 )
 
 [node name="EventNPCYaga2" parent="." instance=ExtResource( 11 )]
 visible = false
-position = Vector2( 256, 82 )
+position = Vector2( 112, 66 )
 change_direction = false
 auto_set_flag = false
 can_talk_to = false
@@ -690,9 +690,6 @@ frames = SubResource( 15 )
 disabled = true
 
 [node name="CollisionShape2D" parent="EventNPCYaga2" index="3"]
-disabled = true
-
-[node name="CollisionShape2D" parent="EventNPCYaga2/Event" index="1"]
 disabled = true
 
 [node name="SoundBell" type="AudioStreamPlayer" parent="."]

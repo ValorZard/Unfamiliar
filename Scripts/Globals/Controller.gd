@@ -30,6 +30,7 @@ var flags: Dictionary = {
 	# ========================================
 	# STORY PROGRESS
 	# ========================================
+	"story_day1_d_ariad_1": 0,
 	"story_day1_discourses_finished": 0,
 	# ========================================
 	# SCENES

@@ -107,6 +107,7 @@ in_npc = true
 
 [node name="CollisionShape2D" parent="Event" index="1"]
 shape = SubResource( 5 )
+disabled = true
 [connection signal="frame_changed" from="Sprite" to="." method="_on_Sprite_frame_changed"]
 [connection signal="area_entered" from="InteractArea" to="." method="_on_InteractArea_area_entered"]
 [connection signal="area_exited" from="InteractArea" to="." method="_on_InteractArea_area_exited"]

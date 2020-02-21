@@ -1,6 +1,6 @@
 0
 Ariad: Thanks, Cosmo.
-Cosmo: Hey, like I said: Anything to help a fellow familiar out.
+Cosmo: Hey, like I said. Anything to help out a fellow familiar.
 -
 
 1
@@ -8,65 +8,64 @@ There you are!
 -
 
 2
-Ariad's Witch: I didn't think you'd walk off.
-Ariad: I-I'm s-sorry. P-please don't-
+Ariad's Witch: Sorry that took so long.
+Ariad: W-what happened at the bank?
+Ariad's Witch: I got everything sorted out.
+Ariad: Oh...
 -
 
 3
-Ariad's Witch: It's okay. I'm not mad.
-Ariad's Witch: I got everything at the bank sorted out.
-Ariad: ...
--
-
-4
-Ariad's Witch: Is everything all right?
-Ariad's Witch: Were people mean to you?
+Ariad's Witch: Did anything happen while I was gone?
 Ariad: N-no! I was just talking to Cosmo, here.
 Ariad: They kept me company. They're a familiar, too.
 -
 
-5
+4
 Ariad's Witch: Really?
 -
 
-6
+5
 Cosmo: Yeah.
 Cosmo: I've been looking for my witch. We got separated.
 Ariad's Witch: Oh...
-Cosmo: And she was in such a bad mood before we got here.
-Cosmo: I'm just as worried as Ariad was.
-Cosmo: I'm worried she's mad at me. That it was something I did.
+Cosmo: She was... also in a bad mood before we got here.
+Cosmo: I just hope it wasn't something I did.
+-
+
+6
+Ariad's Witch: Well... if you don't know why she was mad, it probably wasn't you.
+Cosmo: ...I guess not.
+Cosmo: I really worry too much.
+Ariad's Witch: Nothing wrong with worrying.
+Ariad's Witch: Just don't beat yourself up over it.
+Cosmo: ...Yeah.
 -
 
 7
-Ariad's Witch: Cosmo... I wouldn't worry about it.
-Ariad's Witch: If you don't know why she was mad, it probably isn't your fault.
-Cosmo: ...
-Cosmo: Yeah. You're right.
--
-
-8
 Ariad's Witch: Well... we should get going.
 Ariad's Witch: some things to do tonight, right, Ariad?
 Ariad: Y-yeah.
 -
 
-9
+8
 Ariad's Witch: Hey...
 Ariad's Witch: Thanks for keeping him company.
-Ariad's Witch: He's... really clingy.
+Cosmo: No problem.
+Cosmo: He's a pretty interesting character.
+Ariad's Witch: Yeah. He's... really clingy.
 Ariad's Witch: But he's so friendly. He really loves hugs.
 Cosmo: I noticed.
 Ariad's Witch: I don't know why he's like that.
 -
 
-10
+9
 Cosmo: I mean... familiars inherit a lot from their witches.
 Cosmo: Maybe you were like that at one point.
 Ariad's Witch: If I was... it was a long time ago.
 -
 
-11
+10
+Ariad's Witch: Well...
 Ariad's Witch: If you'd like to come and visit later, feel free.
 Ariad's Witch: We live on the west side of Los Muertos.
 Cosmo: All right.
@@ -75,7 +74,7 @@ Clive: Just don't say that in front of Ariad.
 Cosmo: Of course.
 -
 
-12
+11
 Clive: See you around. Good luck finding your witch.
 Cosmo: Thanks. See you later!
 -
