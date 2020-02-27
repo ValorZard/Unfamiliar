@@ -10,30 +10,31 @@ There you are!
 2
 Ariad's Witch: Sorry that took so long.
 Ariad: W-what happened at the bank?
-Ariad's Witch: I got everything sorted out.
+Ariad's Witch: Don't worry. I got everything sorted out.
 Ariad: Oh...
+Ariad's Witch: I'm sorry I was in such a bad mood earlier.
+Ariad: I-it's fine! I'm just glad everything's okay...
 -
 
 3
 Ariad's Witch: Did anything happen while I was gone?
 Ariad: N-no! I was just talking to Cosmo, here.
 Ariad: They kept me company. They're a familiar, too.
--
-
-4
 Ariad's Witch: Really?
 -
 
-5
+
+4
 Cosmo: Yeah.
 Cosmo: I've been looking for my witch. We got separated.
 Ariad's Witch: Oh...
-Cosmo: She was... also in a bad mood before we got here.
+Cosmo: She was also in a bad mood before we got here.
 Cosmo: I just hope it wasn't something I did.
 -
 
-6
-Ariad's Witch: Well... if you don't know why she was mad, it probably wasn't you.
+5
+Ariad's Witch: Well...
+Ariad's Witch: If you don't know why she was mad, it probably wasn't you.
 Cosmo: ...I guess not.
 Cosmo: I really worry too much.
 Ariad's Witch: Nothing wrong with worrying.
@@ -41,13 +42,13 @@ Ariad's Witch: Just don't beat yourself up over it.
 Cosmo: ...Yeah.
 -
 
-7
+6
 Ariad's Witch: Well... we should get going.
-Ariad's Witch: some things to do tonight, right, Ariad?
+Ariad's Witch: We have some things to do tonight, right, Ariad?
 Ariad: Y-yeah.
 -
 
-8
+7
 Ariad's Witch: Hey...
 Ariad's Witch: Thanks for keeping him company.
 Cosmo: No problem.
@@ -58,7 +59,7 @@ Cosmo: I noticed.
 Ariad's Witch: I don't know why he's like that.
 -
 
-9
+8
 Cosmo: I mean... familiars inherit a lot from their witches.
 Cosmo: Maybe you were like that at one point.
 Ariad's Witch: If I was... it was a long time ago.

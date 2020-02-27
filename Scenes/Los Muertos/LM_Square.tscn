@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -12,7 +12,7 @@
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_FountainSpout2.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_FountainSpout2a.png" type="Texture" id=11]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit2_right.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit2_right2.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit2_left.png" type="Texture" id=14]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit2.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_sit.png" type="Texture" id=16]
@@ -24,6 +24,13 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Clive.png" type="Texture" id=22]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=23]
 [ext_resource path="res://Scripts/Scenes/Los Muertos/Scene_LM_Square.gd" type="Script" id=24]
+[ext_resource path="res://Audio/Land.ogg" type="AudioStream" id=25]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_stand1.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_down.png" type="Texture" id=27]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_stand2.png" type="Texture" id=28]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_right.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_walkright1.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_walkright2.png" type="Texture" id=31]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 8 )
@@ -70,14 +77,14 @@ color_ramp = SubResource( 7 )
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -85,19 +92,29 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
+"frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 29 ) ],
 "loop": true,
-"name": "down2",
-"speed": 5.0
+"name": "right_walk",
+"speed": 7.0
 }, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 27 ) ],
+"loop": false,
+"name": "stand",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "down2",
+"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=10]
-length = 6.0
+length = 14.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -105,8 +122,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.6, 1, 1.4, 2, 2.2, 2.4, 2.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.6, 1, 1.4, 2, 2.2, 2.4, 2.6, 3, 3.8, 4.2, 4.8, 5.8, 7.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ "res://Dialogue/Los Muertos/dl_lm_ariad.txt", 0 ],
 "method": "_event_dialogue"
@@ -134,6 +151,24 @@ tracks/0/keys = {
 }, {
 "args": [ NodePath("../../EventNPCClive"), Vector2( 212, 108 ), 1.4, 2 ],
 "method": "_event_move_npc_to_position"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_ariad2.txt", 2 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_ariad2.txt", 3 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_ariad2.txt", 4 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_ariad2.txt", 5 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_ariad2.txt", 6 ],
+"method": "_event_dialogue"
+}, {
+"args": [ NodePath(".."), Vector2( 220, 130 ), 1.8, 3 ],
+"method": "_event_move_npc_to_position"
 } ]
 }
 tracks/1/type = "method"
@@ -143,8 +178,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.8, 2.3 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.1, 0.8, 2.3, 7.3, 7.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ false ],
 "method": "set_sprite_override"
@@ -156,6 +191,12 @@ tracks/1/keys = {
 "method": "set_sprite_override"
 }, {
 "args": [ true ],
+"method": "set_sprite_override"
+}, {
+"args": [ 3 ],
+"method": "set_direction"
+}, {
+"args": [ false ],
 "method": "set_sprite_override"
 } ]
 }
@@ -166,15 +207,47 @@ tracks/2/loop_wrap = true
 tracks/2/imported = false
 tracks/2/enabled = true
 tracks/2/keys = {
-"times": PoolRealArray( 0.2, 2.4 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 0.2, 2.4, 6.6, 7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "values": [ {
 "args": [ "down2", false ],
 "method": "play"
 }, {
 "args": [ "right", false ],
 "method": "play"
+}, {
+"args": [ "stand", false ],
+"method": "play"
+}, {
+"args": [ "right", false ],
+"method": "play"
 } ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("../../SoundLand")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 6.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("..:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6.6, 6.7 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 183, 105 ), Vector2( 183, 105 ), Vector2( 183, 107 ) ]
 }
 
 [sub_resource type="RectangleShape2D" id=11]
@@ -182,14 +255,14 @@ extents = Vector2( 9, 8 )
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ ExtResource( 21 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 23 ) ],
@@ -197,14 +270,14 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 22 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "left_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "down",
 "speed": 5.0
 } ]
 
@@ -310,19 +383,20 @@ centered = false
 [node name="Spout" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 45, -9 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 centered = false
 
 [node name="Spout2" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 26, -11 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 centered = false
 
 [node name="Spout3" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 51, -11 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 centered = false
 flip_h = true
@@ -361,9 +435,6 @@ sprite_override = true
 frames = SubResource( 9 )
 animation = "down2"
 
-[node name="Interact" parent="EventNPCAriad" index="1"]
-frame = 3
-
 [node name="CollisionShape2D" parent="EventNPCAriad" index="3"]
 disabled = true
 
@@ -397,8 +468,8 @@ can_talk_to = false
 [node name="Sprite" parent="EventNPCClive" index="0"]
 frames = SubResource( 12 )
 
-[node name="Interact" parent="EventNPCClive" index="1"]
-frame = 3
+[node name="SoundLand" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 25 )
 
 [editable path="Transitions/Transition"]
 
