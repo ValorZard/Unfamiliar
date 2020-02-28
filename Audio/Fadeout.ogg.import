@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Fadeout.ogg-0d579d157df3a56e70fc4c0b29022544.oggstr"
+
+[deps]
+
+source_file="res://Audio/Fadeout.ogg"
+dest_files=[ "res://.import/Fadeout.ogg-0d579d157df3a56e70fc4c0b29022544.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

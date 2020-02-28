@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -31,6 +31,10 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_right.png" type="Texture" id=29]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_walkright1.png" type="Texture" id=30]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_walkright2.png" type="Texture" id=31]
+[ext_resource path="res://Audio/Footsteps/StepBarefoot3.ogg" type="AudioStream" id=32]
+[ext_resource path="res://Audio/Footsteps/StepBarefoot4.ogg" type="AudioStream" id=33]
+[ext_resource path="res://Audio/Footsteps/StepBarefoot1.ogg" type="AudioStream" id=34]
+[ext_resource path="res://Audio/Footsteps/StepBarefoot2.ogg" type="AudioStream" id=35]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 8 )
@@ -77,7 +81,7 @@ color_ramp = SubResource( 7 )
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 29 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
@@ -92,16 +96,6 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 29 ) ],
-"loop": true,
-"name": "right_walk",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 27 ) ],
 "loop": false,
 "name": "stand",
@@ -110,6 +104,21 @@ animations = [ {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "down2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "sit_right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "right_walk",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "down",
 "speed": 5.0
 } ]
 
@@ -122,8 +131,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.6, 1, 1.4, 2, 2.2, 2.4, 2.6, 3, 3.8, 4.2, 4.8, 5.8, 7.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.6, 1, 1.4, 2, 2.2, 2.4, 2.6, 3, 3.8, 4.2, 4.8, 5.8, 6.2, 7.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ "res://Dialogue/Los Muertos/dl_lm_ariad.txt", 0 ],
 "method": "_event_dialogue"
@@ -149,7 +158,7 @@ tracks/0/keys = {
 "args": [ 3 ],
 "method": "_event_set_player_direction"
 }, {
-"args": [ NodePath("../../EventNPCClive"), Vector2( 212, 108 ), 1.4, 2 ],
+"args": [ NodePath("../../EventNPCClive"), Vector2( 212, 104 ), 1.4, 2 ],
 "method": "_event_move_npc_to_position"
 }, {
 "args": [ "res://Dialogue/Los Muertos/dl_lm_ariad2.txt", 2 ],
@@ -167,7 +176,10 @@ tracks/0/keys = {
 "args": [ "res://Dialogue/Los Muertos/dl_lm_ariad2.txt", 6 ],
 "method": "_event_dialogue"
 }, {
-"args": [ NodePath(".."), Vector2( 220, 130 ), 1.8, 3 ],
+"args": [ Vector2( 182, 130 ), 0.5, 0 ],
+"method": "_event_move_player_to_position"
+}, {
+"args": [ NodePath(".."), Vector2( 250, 130 ), 1.8, 3 ],
 "method": "_event_move_npc_to_position"
 } ]
 }
@@ -213,7 +225,7 @@ tracks/2/keys = {
 "args": [ "down2", false ],
 "method": "play"
 }, {
-"args": [ "right", false ],
+"args": [ "sit_right", false ],
 "method": "play"
 }, {
 "args": [ "stand", false ],
@@ -249,6 +261,20 @@ tracks/4/keys = {
 "update": 1,
 "values": [ Vector2( 183, 105 ), Vector2( 183, 105 ), Vector2( 183, 107 ) ]
 }
+tracks/5/type = "method"
+tracks/5/path = NodePath("../../EventNPCClive")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 7.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 1 ],
+"method": "set_direction"
+} ]
+}
 
 [sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 9, 8 )
@@ -270,14 +296,19 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ) ],
+"frames": [  ],
 "loop": true,
-"name": "left_walk",
+"name": "right_walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 22 ) ],
 "loop": true,
 "name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "left_walk",
 "speed": 5.0
 } ]
 
@@ -383,20 +414,19 @@ centered = false
 [node name="Spout" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 45, -9 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 centered = false
 
 [node name="Spout2" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 26, -11 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 centered = false
 
 [node name="Spout3" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 51, -11 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 centered = false
 flip_h = true
@@ -430,6 +460,8 @@ position = Vector2( 183, 105 )
 z_index = 90
 set_flag = "npc_lm_ariad"
 sprite_override = true
+require_direction = true
+step_sounds_conc = [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 32 ), ExtResource( 33 ) ]
 
 [node name="Sprite" parent="EventNPCAriad" index="0"]
 frames = SubResource( 9 )
@@ -459,7 +491,7 @@ position = Vector2( 209, 34 )
 z_index = 58
 
 [node name="EventNPCClive" parent="." instance=ExtResource( 12 )]
-position = Vector2( 286, 108 )
+position = Vector2( 286, 104 )
 start_direction = 2
 change_direction = false
 auto_set_flag = false
