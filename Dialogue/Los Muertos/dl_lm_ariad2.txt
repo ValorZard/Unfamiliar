@@ -49,7 +49,10 @@ Ariad: Y-yeah.
 -
 
 7
-Ariad's Witch: Hey...
+Ariad's Witch: Hey, Cosmo.
+-
+
+8
 Ariad's Witch: Thanks for keeping him company.
 Cosmo: No problem.
 Cosmo: He's a pretty interesting character.
@@ -59,7 +62,7 @@ Cosmo: I noticed.
 Ariad's Witch: I don't know why he's like that.
 -
 
-8
+9
 Cosmo: I mean... familiars inherit a lot from their witches.
 Cosmo: Maybe you were like that at one point.
 Ariad's Witch: If I was... it was a long time ago.
