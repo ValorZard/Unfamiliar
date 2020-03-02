@@ -115,6 +115,10 @@ func increment_dialogue_set():
 	dialogue_set += 1
 	Controller.set_flag(set_flag, dialogue_set)
 	
+
+func set_dialogue_set(value: int):
+	dialogue_set = value
+	
 	
 func show_interact(show: bool):
 	interact.set_visible(show)

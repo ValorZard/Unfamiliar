@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Los Muertos/Scene_Inn_Lobby.gd" type="Script" id=1]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
@@ -41,15 +41,15 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "roar",
-"speed": 6.0
-}, {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "roar",
+"speed": 6.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -327,6 +327,187 @@ tracks/4/keys = {
 } ]
 }
 
+[sub_resource type="Animation" id=17]
+resource_name = "Event4"
+length = 2.2
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.6, 1, 1.5, 2, 2.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Motel/dl_motel_chip.txt", 0, 16 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Motel/dl_motel_chip.txt", 5 ],
+"method": "_event_dialogue"
+}, {
+"args": [ -10 ],
+"method": "_event_add_money"
+}, {
+"args": [ "res://Dialogue/Motel/dl_motel_chip.txt", 6 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Motel/dl_motel_chip.txt", 7 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "scn_inn_chip", 1 ],
+"method": "_event_set_flag"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../../SoundRoar")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_sprite_override"
+}, {
+"args": [ false ],
+"method": "set_sprite_override"
+}, {
+"args": [ 4 ],
+"method": "set_dialogue_set"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("../Sprite")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "roar", false ],
+"method": "play"
+}, {
+"args": [  ],
+"method": "stop"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("../..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true, 0.6 ],
+"method": "set_shake"
+} ]
+}
+
+[sub_resource type="Animation" id=18]
+resource_name = "Event5"
+length = 0.7
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Motel/dl_motel_chip.txt", 0, 16 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Motel/dl_motel_chip.txt", 8 ],
+"method": "_event_dialogue"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../../SoundRoar")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ true ],
+"method": "set_sprite_override"
+}, {
+"args": [ false ],
+"method": "set_sprite_override"
+} ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("../Sprite")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "roar", false ],
+"method": "play"
+}, {
+"args": [  ],
+"method": "stop"
+} ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath("../..")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ true, 0.6 ],
+"method": "set_shake"
+} ]
+}
+
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 20, 8 )
 
@@ -365,6 +546,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
+npc_chip = NodePath("EventNPCChip")
 
 [node name="Overlay" parent="." instance=ExtResource( 2 )]
 is_preview = true
@@ -448,7 +630,7 @@ position = Vector2( 147, 73 )
 change_direction = false
 auto_advance_set = true
 set_limit = 2
-set_flag = "npc_motel_chip"
+set_flag = "npc_inn_chip"
 require_direction = true
 
 [node name="Sprite" parent="EventNPCChip" index="0"]
@@ -471,6 +653,8 @@ disabled = true
 anims/Event = SubResource( 3 )
 anims/Event2 = SubResource( 4 )
 anims/Event3 = SubResource( 5 )
+anims/Event4 = SubResource( 17 )
+anims/Event5 = SubResource( 18 )
 
 [node name="SoundRoar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )

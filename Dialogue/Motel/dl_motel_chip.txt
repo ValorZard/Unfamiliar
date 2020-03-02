@@ -27,16 +27,7 @@ Chip: You just really like hearing me roar, don't you?
 -
 
 5
-Chip: Welcome to the Styx Inn.
-Cosmo: Hi. Has a witch wearing a yellow coat checked into this hotel?
-Chip: Nope. It's been a pretty slow day.
-Cosmo: ...
-Chip: You looking to stay here tonight?
-Cosmo: Yeah.
-Chip: Sure thing. That'll be $10.
--
-
-6
+? npc_inn_chip 0 BRANCH_START
 Chip: Hello again.
 Chip: Had any luck finding your witch?
 Cosmo: No.
@@ -47,21 +38,41 @@ Cosmo: ...
 Chip: I'm sure she'll turn up tomorrow.
 Cosmo: Hopefully.
 Chip: Well...
+^ BRANCH_END
+: BRANCH_START
+Chip: Welcome to the Styx Inn.
+Cosmo: Hi. Has a witch wearing a yellow coat checked into this hotel?
+Chip: Nope. It's been a pretty slow day.
+Cosmo: ...
+: BRANCH_END
 Chip: You looking to stay here tonight?
 Cosmo: Yeah.
 Chip: Sure thing. That'll be $10.
 -
 
-7
+6
 Chip: Thank you very much! Here's your room key.
 -
 
-8
+7
 Chip: You'll be in room 208, upstairs and to the right.
 Chip: Your room's already ready for you.
 Cosmo: All right. Thanks.
 -
 
-9
+8
 Chip: Have a good evening!
+-
+
+9
+Chip: Good morning.
+Chip: Did you sleep well?
+Cosmo: ...Yeah.
+Chip: Good! Thanks for staying with us.
+Chip: Have a positively outrageous day.
+-
+
+10
+Cosmo: Doesn't your throat ever get tired from doing that?
+Chip: No.
 -

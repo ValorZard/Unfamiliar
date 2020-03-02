@@ -1,7 +1,7 @@
 extends Node2D
 
-export(NodePath) var clive_npc
-export(NodePath) var ariad_npc
+export(NodePath) var clive_npc: NodePath
+export(NodePath) var ariad_npc: NodePath
 
 func _ready():
 	if Controller.flag("story_day1_d_ariad_1") == 0:

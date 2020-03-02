@@ -127,6 +127,10 @@ func _event_discourse(full_name: String, file: String, right_name: String, right
 
 func _event_play_sound(sound_path: String):
 	Controller.play_sound_oneshot_from_path(sound_path)
+	
+
+func _event_add_money(amount: int):
+	Controller.add_money(amount)
 
 # =====================================================================
 

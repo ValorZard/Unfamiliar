@@ -1,6 +1,5 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Scripts/Scenes/Los Muertos/Scene_Inn_Lobby.gd" type="Script" id=1]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=3]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
@@ -18,7 +17,6 @@ extents = Vector2( 80, 24 )
 extents = Vector2( 6, 3 )
 
 [node name="Scene" type="Node2D"]
-script = ExtResource( 1 )
 __meta__ = {
 "_edit_vertical_guides_": [  ]
 }

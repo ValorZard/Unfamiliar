@@ -5,7 +5,7 @@
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=3]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=4]
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 26 )
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -56,7 +56,7 @@ target_scene = "res://Scenes/Los Muertos/Inn/Inn_2F_L2.tscn"
 target_direction = 3
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 z_index = 2100

@@ -40,6 +40,7 @@ var flags: Dictionary = {
 	"scn_rhona": 0,
 	"scn_lm_intro": 0,
 	"scn_ainsley's_intro": 0,
+	"scn_inn_chip": 0,
 	# ========================================
 	# NPCS
 	# ========================================
@@ -61,7 +62,7 @@ var flags: Dictionary = {
 	"npc_deli_imp1": 0,
 	"npc_deli_imp2": 0,
 	# ----------------------------------------
-	"npc_motel_chip": 0,
+	"npc_inn_chip": 0,
 	# ----------------------------------------
 	"npc_conduit_greeter": 0,
 	"npc_conduit_dealer": 0,
