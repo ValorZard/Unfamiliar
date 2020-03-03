@@ -45,7 +45,7 @@ Cosmo: No, no, no, no, NO!
 -
 
 9
-Cosmo: I forgot AGAIN!
+Cosmo: I FORGOT!
 Cosmo: How can I be this stupid?!
 Cosmo: That's why she was in such a bad mood at the station!
 -
@@ -54,29 +54,42 @@ Cosmo: That's why she was in such a bad mood at the station!
 Cosmo: You IDIOT!
 Cosmo: You worthless eldritch ABOMINATION!
 Cosmo: Why are you so STUPID?!
-Cosmo: The last time you forgot, do you remember how furious she was?!
+Cosmo: You've screwed up plenty of times, but forgetting Communion Day?!
+Cosmo: Do you know how furious she's going to be?!
 -
 
 11
-Cosmo: No...
+Cosmo: She'll never talk to you again.
 -
 
 12
+Cosmo: She's going to HATE you. 
+-
+
+13
+Cosmo: She might even KILL you.
+-
+
+14
+Cosmo: No...
+-
+
+15
 Cosmo: I have to fix this!
 Cosmo: I have to find her!
 -
 
-13
+16
 Cosmo: Come on! Let me OUT!
 -
 
-14
+17
 Cosmo: Please, let me... out...
-Cosmo: Please... let me fix... this...
+Cosmo: Please... let me... fix this...
 Cosmo: Oh, God...
 -
 
-15
+18
 Cosmo: What's wrong with me...?
 Cosmo: Why do I screw up like this every time?
 Cosmo: ...
@@ -84,44 +97,59 @@ Cosmo: Hah...
 Cosmo: I'm such an awful familiar.
 -
 
-16
+19
 Cosmo: Why don't you just blow me away?
-Cosmo: Just bury me in leaves and make me disappear.
+Cosmo: I don't deserve to be here.
+Cosmo: I don't deserve anything.
 -
 
-14
+20
 Hotel Guest: Hey! What's going on?
 -
 
-15
+21
 Hotel Guest: Are you all right?
 Cosmo: No.
 Cosmo: Why is it so windy?
-Hotel Guest: Just breathe. You're fine.
-Hotel Guest: Everything's fine.
+Hotel Guest: ...What?
 -
 
-16
+22
+Cosmo: It's too much.
+Cosmo: I feel like I'm going to die.
+Hotel Guest: Just calm down. Everything's fine.
+Hotel Guest: You're going to be fine.
+Hotel Guest: Take a deep breath, okay?
+Cosmo: ...
+Cosmo: Okay.
+-
+
+23
 Cosmo: Ah... Ugh...
 Hotel Guest: You good?
+Cosmo: ...
+Cosmo: No.
 -
 
-17
+24
 Cosmo: Why am I such a screwup?
 Hotel Guest: What's wrong? What happened?
 Cosmo: ...
+-
+
+25
 Cosmo: She created me on November tenth, twelve years ago.
 Cosmo: Today is our Communion Day.
 Cosmo: I forgot.
 -
 
-18
+26
 Hotel Guest: Are you a familiar?
 Cosmo: Yes.
 Hotel Guest: ...
 Hotel Guest: Do you want to talk about it?
 -
 
-19
+27
 Cosmo: Yes.
 -
