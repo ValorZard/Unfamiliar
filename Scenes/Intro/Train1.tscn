@@ -359,7 +359,7 @@ __meta__ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "New Anim"
-playback_speed = -2.04432
+playback_speed = -2.0
 "anims/New Anim" = SubResource( 1 )
 
 [node name="TileMap4" type="TileMap" parent="."]
@@ -551,6 +551,7 @@ __meta__ = {
 }
 
 [node name="Text1" type="Label" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 113.0
 margin_top = 61.0
 margin_right = 207.0
@@ -560,6 +561,7 @@ text = "Duncan Sparks"
 align = 1
 
 [node name="Text2" type="Label" parent="CanvasLayer"]
+self_modulate = Color( 1, 1, 1, 0 )
 margin_left = 110.0
 margin_top = 73.0
 margin_right = 210.0
@@ -617,7 +619,7 @@ image_only = true
 
 [node name="BGSTrain" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
-volume_db = -18.95
+volume_db = -80.0
 autoplay = true
 
 [node name="SoundTrainStop" type="AudioStreamPlayer" parent="."]
