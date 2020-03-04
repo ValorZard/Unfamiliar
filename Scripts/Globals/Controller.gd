@@ -41,6 +41,7 @@ var flags: Dictionary = {
 	"scn_lm_intro": 0,
 	"scn_ainsley's_intro": 0,
 	"scn_inn_chip": 0,
+	"scn_inn_crisis": 0,
 	# ========================================
 	# NPCS
 	# ========================================

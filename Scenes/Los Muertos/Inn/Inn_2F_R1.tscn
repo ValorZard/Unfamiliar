@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Los Muertos/Scene_Inn_2F_R1.gd" type="Script" id=1]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=7]
 [ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Sprites/Particles/Wind.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Particles/Leaf1.png" type="Texture" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 20 )
@@ -18,6 +20,30 @@ extents = Vector2( 80, 24 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 6, 3 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 96, 1 )
+flag_disable_z = true
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1200.0
+angular_velocity = -1.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 94, 1 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 400.0
+angular_velocity = 200.0
+angular_velocity_random = 0.5
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 0.6
+scale_random = 0.5
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
@@ -110,6 +136,25 @@ position = Vector2( 206, 81 )
 target_scene = "res://Scenes/Los Muertos/Inn/Inn_CosmoRoom.tscn"
 target_position = Vector2( 160, 152 )
 door_sound = ExtResource( 9 )
+
+[node name="PartsWind" type="Particles2D" parent="."]
+position = Vector2( 0, 90 )
+z_index = 3000
+emitting = false
+amount = 30
+lifetime = 0.5
+preprocess = 4.0
+process_material = SubResource( 4 )
+texture = ExtResource( 10 )
+
+[node name="PartsWind2" type="Particles2D" parent="."]
+position = Vector2( 0, 90 )
+z_index = 2900
+emitting = false
+amount = 18
+preprocess = 4.0
+process_material = SubResource( 5 )
+texture = ExtResource( 11 )
 
 [editable path="Transitions/Transition"]
 

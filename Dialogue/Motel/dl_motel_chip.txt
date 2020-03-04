@@ -4,12 +4,15 @@ RAWR
 
 1
 Chip: Welcome to the Styx Inn.
-Cosmo: Hi. Has a witch wearing a yellow coat checked into this hotel?
+Cosmo: Hi. Has a witch checked into this hotel tonight?
 Chip: Nope. It's been a pretty slow day.
 Chip: Are you a familiar? Is she your witch?
 Cosmo: Yes.
-Chip: Oh. That's a problem.
-Chip: Try coming back later. She might still be out doing things.
+Chip: Oh.
+Chip: Well.
+Chip: Maybe she's still out doing things.
+Chip: I would try coming back later.
+Chip: I'll let you know if I see her.
 Cosmo: Okay. Thanks.
 -
 
@@ -41,7 +44,7 @@ Chip: Well...
 ^ BRANCH_END
 : BRANCH_START
 Chip: Welcome to the Styx Inn.
-Cosmo: Hi. Has a witch wearing a yellow coat checked into this hotel?
+Cosmo: Hi. Has a witch checked into this hotel tonight?
 Chip: Nope. It's been a pretty slow day.
 Cosmo: ...
 : BRANCH_END
@@ -55,7 +58,7 @@ Chip: Thank you very much! Here's your room key.
 -
 
 7
-Chip: You'll be in room 208, upstairs and to the right.
+Chip: You'll be in room 207, upstairs and to the right.
 Chip: Your room's already ready for you.
 Cosmo: All right. Thanks.
 -
@@ -73,6 +76,6 @@ Chip: Have a positively outrageous day.
 -
 
 10
-Cosmo: Doesn't your throat ever get tired from doing that?
+Cosmo: Doesn't your voice ever get tired from doing that?
 Chip: No.
 -

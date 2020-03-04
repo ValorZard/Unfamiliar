@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Los Muertos/Scene_Inn_Lobby.gd" type="Script" id=1]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=21]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Audio/Stairs.ogg" type="AudioStream" id=23]
+[ext_resource path="res://Scripts/System/Clock.gd" type="Script" id=24]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -327,7 +328,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=6]
 resource_name = "Event4"
 length = 2.2
 tracks/0/type = "method"
@@ -425,7 +426,7 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="Animation" id=18]
+[sub_resource type="Animation" id=7]
 resource_name = "Event5"
 length = 0.7
 tracks/0/type = "method"
@@ -508,37 +509,37 @@ tracks/4/keys = {
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 20, 8 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 8, 24 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 38, 8 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 6, 20 )
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 10, 49 )
 
-[sub_resource type="RectangleShape2D" id=11]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 32, 4 )
 
-[sub_resource type="RectangleShape2D" id=12]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 24, 4 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 10, 20 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 20, 10 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=17]
 extents = Vector2( 32, 18 )
 
-[sub_resource type="RectangleShape2D" id=16]
+[sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 11, 8 )
 
 [node name="Scene" type="Node2D"]
@@ -589,6 +590,7 @@ position = Vector2( 115, 21 )
 z_index = 2050
 texture = ExtResource( 4 )
 centered = false
+script = ExtResource( 24 )
 
 [node name="Stairs" type="Sprite" parent="."]
 position = Vector2( 187, 25 )
@@ -653,8 +655,8 @@ disabled = true
 anims/Event = SubResource( 3 )
 anims/Event2 = SubResource( 4 )
 anims/Event3 = SubResource( 5 )
-anims/Event4 = SubResource( 17 )
-anims/Event5 = SubResource( 18 )
+anims/Event4 = SubResource( 6 )
+anims/Event5 = SubResource( 7 )
 
 [node name="SoundRoar" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 19 )
@@ -667,7 +669,7 @@ target_direction = 1
 door_sound = ExtResource( 21 )
 
 [node name="CollisionShape2D" parent="Door" index="0"]
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
@@ -678,7 +680,7 @@ target_scene = "res://Scenes/Los Muertos/Inn/Inn_LobbyL1.tscn"
 target_direction = 2
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="Transition2" parent="Transitions" instance=ExtResource( 22 )]
 position = Vector2( 248, 98 )
@@ -686,7 +688,7 @@ target_scene = "res://Scenes/Los Muertos/Inn/Inn_LobbyR1.tscn"
 target_direction = 3
 
 [node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 z_index = 2100
@@ -696,35 +698,35 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 133, 90 )
-shape = SubResource( 8 )
+shape = SubResource( 10 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 165, 62 )
-shape = SubResource( 9 )
+shape = SubResource( 11 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 86, 65 )
-shape = SubResource( 10 )
+shape = SubResource( 12 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 112, 158 )
-shape = SubResource( 11 )
+shape = SubResource( 13 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 200, 158 )
-shape = SubResource( 12 )
+shape = SubResource( 14 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 234, 142 )
-shape = SubResource( 13 )
+shape = SubResource( 15 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 160, 176 )
-shape = SubResource( 14 )
+shape = SubResource( 16 )
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 127, 64 )
-shape = SubResource( 15 )
+shape = SubResource( 17 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -736,7 +738,7 @@ target_position = Vector2( 106, 52 )
 door_sound = ExtResource( 23 )
 
 [node name="CollisionShape2D" parent="Door2" index="0"]
-shape = SubResource( 16 )
+shape = SubResource( 18 )
 
 [editable path="EventNPCChip"]
 

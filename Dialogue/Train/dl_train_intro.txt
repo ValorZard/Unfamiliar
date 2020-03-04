@@ -1,9 +1,9 @@
 0
 Los Muertos.
-#Now arriving at platform 6: Los Muertos.
+Now arriving at Los Muertos.
+Please prepare to depart if this is your destination.
 -
 
 1
-Please remain seated until the train has come to a complete stop.
 We hope your journey with us was better than average.
 -

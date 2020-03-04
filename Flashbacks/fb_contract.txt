@@ -1,5 +1,5 @@
 nil 0 0 $cLove lasts in the longest shadows.
-nil 0 0 $cAs the golden gaze of the sun falls below the horizon, I awaken thee from the dark and forge a contract.
+nil 0 0 $cAs the sun leaves us in twilight, I awaken thee from the dark and forge a contract.
 nil 0 0 $cA contract of mortal light and hell's darkness.
 nil 0 0 $cI grant thee this vessel of life and mortality.
 nil 0 0 $cGrant me thy heart, and I will grant thee my soul.
