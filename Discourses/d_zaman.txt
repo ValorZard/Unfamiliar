@@ -18,16 +18,13 @@
 > So, what happens on on Communion Day?
 > Is it sort of like a birthday?
 < No.
-< There's a tradition for it that most witches follow.
 @< explain
 < It's supposed to be a celebration of the bond between a witch and their familiar.
-< It's always started by the familiar.
-< The familiar gives a gift to their witch.
+< It starts with the two of them giving each other a gift.
 @< idle
 < It doesn't have to be anything special. Just a little token of gratitude.
-< It's to show their witch thanks for summoning them into this world and granting them life.
-< Then the witch gives their familiar a gift, too.
-< It's to say thanks to their familiar for serving them and being their companion.
+< The familiar shows their witch thanks for summoning them into this world and granting them life.
+< And the witch shows their familiar thanks for serving them and being their companion.
 @< sad
 < Then they spend the rest of the day doing their favorite activities together.
 < The witch isn't supposed to give their familiar any orders throughout the day.
@@ -37,45 +34,62 @@
 > That's... really wonderful.
 @< sad
 < Yeah. Not all witches practice Communion Day, though.
-< And, of course... you can't practice Communion Day if the familiar doesn't acknowledge it.
-> The witch can't remind them, or anything?
-< Nope. That's part of the tradition.
-< And I ruined it. I forgot.
-< I've ruined it multiple times.
-< I'm such an awful familiar.
-> Cosmo... Everyone makes mistakes. Everyone forgets things.
-> It's not the end of the world.
+< And, of course... you can't celebrate Communion Day if you just forget about it.
+> Wait... couldn't your $wwitch $0have forgotten about it?
+> Was she really busy today? Maybe she forgot, too.
+@< angry
+< No.
+< She wouldn't forget.
+< She never forgets.
+@< sad
+< Every single year, she's done something wonderful for me on Communion Day.
+< And I've never been able to live up to it on my end.
+< I have a feeling she's tired of that.
+< I bet she was testing me.
+< She wanted me to acknowledge Communion Day myself this time.
+< She wanted to make sure I wasn't forgetting about it.
+< And I DID!
+@< sad2
+< I FORGOT!
+@< sad
+> Cosmo, I hate to ask, but...
+> Is it $wreally $0that big a deal that you forgot about it?
 @< angry2
-< Yes it $sIS!
+< YES! It is!
 < You don't understand!
 @< angry
-< It's not like forgetting to wish someone a happy birthday, Zaman.
-< If you're a familiar, forgetting to acknowledge Communion Day is one of the most disrespectful things you can do to your witch.
-< It's like telling them that you don't appreciate them.
+< Forgetting about Communion Day is one of the most disrespectful things you can do.
+< It's like telling your witch that you don't appreciate them.
+< That your eternal bond means nothing.
+< She wanted to make sure that I knew that. And I couldn't even show it.
 @< sad
-< That your eternal contract and bond means nothing.
-< And I forgot! $sAGAIN!
-< I've forgotten so many times, and she's gotten so mad at me every time, and I $sSTILL $0managed to forget!
+< I've screwed so many things up, but at least I'd never forgotten about Communion Day.
+< And now I've screwed that up, too.
+@< sad2
+< $s...
 < $sWhat's wrong with me...?
-< $sIt's bad enough that we got separated at the train station.
-< $sNow we've missed Communion Day again.
-< $sAnd it's all my fault.
+@< sad
+< It's bad enough that we got separated at the train station.
+< Now we didn't even get to celebrate our most important tradition.
+< And it's all my fault.
+< God, I'm such an awful familiar...
 > Wait... you two got separated?
 < Yeah.
 < The train was full. I had to wait for a later one.
 < I looked for her all night. I looked all over the city.
 < I never found her.
 > Cosmo-
-< Maybe she doesn't even want me to find her.
-< I've forgotten so many times, she probably wants nothing to do with me anymore.
+< She probably doesn't even want me to find her.
+< She has to stop forgiving me at some point.
 > Cosmo...
-> It sure sounds to me like you appreciate your witch.
+> You sure don't sound like an awful familiar to me.
 < Why?
 > You've been searching for her all night.
 > That sounds to me like you care.
+< That doesn't make me a good person.
 @< angry
-< I'm her familiar.
-< I have to care about her. I'm bound to serve her for eternity.
+< I don't have a choice. I have to care about her.
+< I'm bound to serve her for eternity.
 > Are you saying you're only searching for her because you have to?
 > If you weren't her familiar, would you even be looking for her?
 > Is that the only reason you care?
@@ -97,7 +111,20 @@
 < They treat me like trash, too, but that's beyond the point.
 < Nothing too horrible has ever happened, but that's because we can protect each other.
 @< sad
-< Now she's alone. And neither of us have been to Los Muertos before.
+< Now she's alone. And we $scan't $0protect each other.
+> Wait... witches don't usually dress any different than non-witches, do they?
+< No.
+> But people can still tell she's a witch?
+@< angry2
+< Yes!
+< It's just a thing that people can figure out.
+< I'm the same way.
+< You could take these horns off me, and people would still know I'm a demon.
+< Witches and demons just have an $sair $0to them.
+< We're horrifying fountains of darkness and despair.
+@< sad
+< And people hate us for it.
+< We've never been to Los Muertos before. I don't know what kind of people are here.
 < There could be people here who will kill her.
 < And if that happens, I...
 < $s...
@@ -113,16 +140,22 @@
 > And, I mean... she's a $wwitch. $0She can defend herself, right?
 < Well... yeah.
 > I think you should stop worrying.
-> Everything's going to be fine. Take a deep breath, all right?
+> Everything's going to be fine.
 < ...
 < Okay.
 ^ BRANCH_2
 ------------------------
 : R_1_2
 < I have to apologize to her!
+@< sad
 < I feel awful. I'm so stupid.
-< I'm an idiot. Just like she always says.
-< At some point she's going to stop forgiving me.
+< I'm an idiot. An abomination.
+> Cosmo, stop it!
+@< angry2
+< No! It's who I am!
+@< angry
+< And my witch knows it just as well as I do.
+< If she hasn't already stopped forgiving me, she's going to at some point.
 @< sad
 < But I'm not letting myself not apologize.
 < Even if she doesn't forgive me.
@@ -167,28 +200,7 @@
 ? choice_witch_profession 0 B_JOB_1
 ? choice_witch_profession 1 B_JOB_2
 ? choice_witch_profession 2 B_JOB_3
-: B_JOB_1
-< She's meeting with an extracurricular coordinator at the school here.
-< He's interested in starting a program that teaches kids about witchcraft.
-@< explain
-< My witch is a magic teacher, so she knows all about that stuff.
-> Wow...
-> That would be crazy for any other school to do.
-> I guess they're more accepting of witchcraft in Los Muertos.
-< Yeah.
-> What time are you meeting the coordinator?
-< Tomorrow morning. Right after school starts.
-> Well... your witch $whas $0to be there, right?
-> It's for her work. She wouldn't miss it.
-< Yeah. She definitely wouldn't miss it.
-@< sad
-< If she isn't there...
-< ...
-< Then something definitely happened to her.
-> I wouldn't worry about it until tomorrow.
-> She'll probably be there, and everything will be fine.
-< ...
-< You're right.
+
 ------------------------
 : R_2_2
 < She's meeting some friends.
@@ -196,13 +208,19 @@
 ------------------------
 : END
 | 2
-@< idle
+@< sad
 < Thanks for talking some sense into me, Zaman.
-@< smile
 < I appreciate it.
 > Any time.
-> I don't think I've ever seen a demon smile before.
-@< heh
-< Well, uh... you're welcome, I guess?
+@< idle
+> You're not an abomination, Cosmo.
+> You're one of the most caring people I've met.
+> Your witch is really lucky to have you.
+@< sad
+< ...
+< Thank you.
+> Everything's going to be fine.
+> So, try to keep smiling, all right?
+< ...
 @< smile
-> 
+< All right.
