@@ -86,6 +86,17 @@ func _event_move_player_to_position(pos: Vector2, time: float, direction: int):
 	anim_player.play()
 	
 	
+func _event_move_npc_sequence(npc: NodePath, positions: PoolVector2Array, times: PoolRealArray, directions: PoolIntArray):
+	anim_player.stop(false)
+	#assert len(positions) == len(times) == len(directions)
+	var npc_ref := get_node(npc)
+	for i in range(len(positions)):
+		__move_character(npc_ref, positions[i], times[i], directions[i])
+		yield(Controller.wait(times[i]), "timeout")
+	npc_ref.set_speed_override(0)
+	anim_player.play()
+	
+	
 func _event_move_npc_to_position(npc: NodePath, pos: Vector2, time: float, direction: int):
 	anim_player.stop(false)
 	var npc_ref := get_node(npc)# as EventNPC

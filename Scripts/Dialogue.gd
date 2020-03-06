@@ -36,6 +36,7 @@ var text_size: int = 8
 var allow_advance := false
 var choice := false
 var buffer := false
+var buffer_choice := false
 
 var buttons_list := []
 
@@ -53,7 +54,7 @@ onready var label := $Text as RichTextLabel
 
 func _ready():
 	$TimerRollText.start()
-	
+
 
 func _process(delta):
 	label.set_visible_characters(disp)
@@ -73,22 +74,25 @@ func _process(delta):
 					start_roll()
 			else:
 				end()
-		elif not choice:
+		elif not choice and not buffer_choice:
 			disp = len(text[page])
 			buffer = true
 			$TimerBuffer.start()
+			
+	if Input.is_action_just_pressed("debug_3"):
+		page = len(text) - 1
 
 # =====================================================================
 
 func set_text_size(value: int):
 	text_size = value
-	
-	
+
+
 func set_alt_box_texture():
 	$Box.hide()
 	$Box2.show()
-	
-	
+
+
 func set_text_speed(value: int):
 	match value:
 		0:
@@ -98,6 +102,7 @@ func set_text_speed(value: int):
 		2:
 			$TimerRollText.set_wait_time(0.02)
 	
+
 
 func start(file: String, set: int, reset_state_: bool):
 	# Compile regexes
@@ -165,8 +170,8 @@ func insert_bbcode_tags():
 #				current_name = this_name
 		else:
 			text[page] = text[page].replace("#", "")
-			
-			
+
+
 func choice_handling():
 	var sig := "text_roll_ended"
 	var funct := "show_choices"
@@ -178,8 +183,8 @@ func choice_handling():
 		choice = false
 		if is_connected(sig, self, funct):
 			disconnect(sig, self, funct)
-		
-		
+
+
 func show_choices():
 	var template: String = text[page + 1].substr(2, len(text[page + 1]) - 2)
 	var buts: PoolStringArray = template.split("|")
@@ -189,8 +194,8 @@ func show_choices():
 		var result := choice_regex.search(String(but))
 		create_button(result.get_string(1), result.get_string(2), index)
 		index += 1
-		
-		
+
+
 func create_button(text_: String, target_label: String, index: int):
 	var but := ButtonRef.instance() as ButtonUF
 	but.set_position(Vector2(ChoiceStartX + ChoiceSep * index, ChoiceStartY))
@@ -201,8 +206,8 @@ func create_button(text_: String, target_label: String, index: int):
 	but.connect("clicked", self, "goto_label", [target_label, index])
 	but.connect("clicked", but, "anim_selected")
 	but.appear()
-	
-	
+
+
 func goto_label(label_name: String, button_index: int = -1):
 	# Remove buttons if from choice
 	if button_index >= 0:
@@ -223,26 +228,23 @@ func goto_label(label_name: String, button_index: int = -1):
 		operation_handling()
 		choice_handling()
 		
-		page_length = len(text[page])
-		insert_bbcode_tags()
-		allow_advance = false
-		($Text as RichTextLabel).set_bbcode(text[page])
+		start_roll()
 	else:
 		end()
-	
-	
+
+
 func refresh_text():
 	disp = 0
 	($Text as RichTextLabel).set_visible_characters(disp)
-	
+
 
 func skip_labels():
 	while page < len(text) and text[page][0] == ":":
 		page += 1
 		if page >= len(text):
 			end()
-		
-		
+
+
 func operation_handling():
 	# Jumps
 	if text[page][0] == "^":
@@ -270,7 +272,7 @@ func operation_handling():
 		var result := flag_regex.search(text[page].substr(2, len(text[page]) - 2))
 		Controller.set_flag(result.get_string(1), int(result.get_string(2)))
 		page += 1
-	
+
 
 func start_roll():
 	page_length = len(text[page])
@@ -280,8 +282,8 @@ func start_roll():
 	$TimerRollText.start()
 	buffer = true
 	$TimerBuffer.start()
-	
-	
+
+
 func end():
 	if reset_state:
 		Player.set_state(Player.PlayerState.Move)

@@ -583,16 +583,11 @@
 < Well... I should probably go find my witch.
 @< idle
 < She's probably looking for me right now.
-> Yeah.
+> Yeah. My grandpa will be waiting for me. I should go see him.
 @> think
-> We're probably also going to get thrown off this train if we stand here any longer.
+> The train's also probably going to leave if we stand here any longer.
 @< heh
 < That's also true.
 @< smile
-@> happy
-> Say hi to your witch for me, all right?
-< Sure thing!
-@< explain2
-< See you around, Rhona!
-@> explain2
-> Later, Cosmo!
+@> idle
+> Let's call this conversation a success.
