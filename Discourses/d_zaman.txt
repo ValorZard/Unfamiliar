@@ -49,7 +49,7 @@
 < She wanted me to acknowledge Communion Day myself this time.
 < She wanted to make sure I wasn't forgetting about it.
 < And I DID!
-@< sad2
+@< cry
 < I FORGOT!
 @< sad
 > Cosmo, I hate to ask, but...
@@ -65,7 +65,7 @@
 @< sad
 < I've screwed so many things up, but at least I'd never forgotten about Communion Day.
 < And now I've screwed that up, too.
-@< sad2
+@< cry
 < $s...
 < $sWhat's wrong with me...?
 @< sad
@@ -221,6 +221,7 @@
 < Thank you.
 > Everything's going to be fine.
 > So, try to keep smiling, all right?
+< sad2
 < ...
 @< smile
 < All right.
