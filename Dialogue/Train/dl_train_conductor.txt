@@ -3,8 +3,7 @@ Conductor: Thanks for riding with us.
 -
 
 1
-Give a $5 tip?
-[ Yes(YES) | No(NO)
+] Give a $5 tip? > Yes(YES) | No(NO)
 : YES
 $ -5
 * gave_conductor_tip 1

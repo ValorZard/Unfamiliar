@@ -11,6 +11,7 @@ const ButtonRef := preload("res://Instances/System/ButtonOverworldChoice.tscn")
 
 const name_regex_pat := "^(.+:).+$"
 const choice_regex_pat := "^\\s*(\\w+)\\((\\w+)\\)\\s*$"
+const choice_regex_2_pat := "^]\\s*(.+) >\\s*(.+)\\s*$"
 const flag_regex_pat := "^\\s*(\\w+)\\s+(\\d+)\\s*$"
 const conditional_regex_pat := "^\\s*(\\w+)\\s+(\\d+)\\s+(\\w+)\\s*$"
 
@@ -45,6 +46,7 @@ var reset_state := true
 
 var name_regex := RegEx.new()
 var choice_regex := RegEx.new()
+var choice_regex_2 := RegEx.new()
 var flag_regex := RegEx.new()
 var conditional_regex := RegEx.new()
 
@@ -62,18 +64,12 @@ func _process(delta):
 	if Input.is_action_just_pressed("sys_select") and not buffer:
 		if allow_advance and not choice:
 			if page < len(text) - 1:
-				refresh_text()
-				page += 1
-				
-				skip_labels()
-
-				if not ended:
-					operation_handling()
-					choice_handling()
-					
-					start_roll()
+				advance_page()
 			else:
 				end()
+			
+			if not ended:
+				start_roll()
 		elif not choice and not buffer_choice:
 			disp = len(text[page])
 			buffer = true
@@ -108,10 +104,11 @@ func start(file: String, set: int, reset_state_: bool):
 	# Compile regexes
 	name_regex.compile(name_regex_pat)
 	choice_regex.compile(choice_regex_pat)
+	choice_regex_2.compile(choice_regex_2_pat)
 	flag_regex.compile(flag_regex_pat)
 	conditional_regex.compile(conditional_regex_pat)
 	
-	# Move box	
+	# Move box
 	#if Player.get_position().y > 90:
 	#	set_position(Vector2(86, 24))
 
@@ -127,9 +124,7 @@ func start(file: String, set: int, reset_state_: bool):
 	($Text as RichTextLabel).set_bbcode(text[page])
 	get_node("Text").get("custom_fonts/normal_font").set_size(text_size)
 	operation_handling()
-	choice_handling()
-	#$TimerRollText.start()
-	
+
 # =====================================================================
 
 func load_text_from_file(file: String, set: int):
@@ -153,8 +148,8 @@ func load_text_from_file(file: String, set: int):
 			read = true
 	if f.is_open():
 		f.close()
-		
-		
+
+
 func insert_bbcode_tags():
 	var mat := name_regex.search(text[page])
 	if mat != null:
@@ -172,23 +167,20 @@ func insert_bbcode_tags():
 			text[page] = text[page].replace("#", "")
 
 
-func choice_handling():
-	var sig := "text_roll_ended"
-	var funct := "show_choices"
+func advance_page():
+	refresh_text()
+	page += 1
 	
-	if page + 1 < len(text) - 1 and text[page + 1][0] == "[":
-		choice = true
-		connect(sig, self, funct)
-	else:
-		choice = false
-		if is_connected(sig, self, funct):
-			disconnect(sig, self, funct)
+	skip_labels()
+	if ended:
+		return
+
+	operation_handling()
 
 
 func show_choices():
-	var template: String = text[page + 1].substr(2, len(text[page + 1]) - 2)
+	var template: String = choice_regex_2.search(text[page]).get_string(2)
 	var buts: PoolStringArray = template.split("|")
-	#buts.invert()
 	var index := 0
 	for but in buts:
 		var result := choice_regex.search(String(but))
@@ -218,16 +210,15 @@ func goto_label(label_name: String, button_index: int = -1):
 				(buttons_list[i] as ButtonUF).anim_not_selected()
 		
 		buttons_list.clear()
+	
+	choice = false
+	if is_connected("text_roll_ended", self, "show_choices"):
+		disconnect("text_roll_ended", self, "show_choices")
 		
-	if page < len(text) - 1 and label_table[label_name] + 1 < len(text) - 1:
-		refresh_text()
-		page = label_table[label_name] + 1
-		
-		skip_labels()
-		
-		operation_handling()
-		choice_handling()
-		
+	var target: int = label_table[label_name]
+	if target < len(text) - 1:
+		page = label_table[label_name]
+		advance_page()
 		start_roll()
 	else:
 		end()
@@ -246,32 +237,29 @@ func skip_labels():
 
 
 func operation_handling():
-	# Jumps
-	if text[page][0] == "^":
-		goto_label(text[page].substr(2, len(text[page]) - 2))
-		
-	# Conditional jumps
-	if text[page][0] == "?":
-		var result := conditional_regex.search(text[page].substr(2, len(text[page]) - 2))
-		if Controller.flag(result.get_string(1)) == int(result.get_string(2)):
-			goto_label(result.get_string(3))
-		else:
-			page += 1
-			page_length = len(text[page])
-			insert_bbcode_tags()
-			allow_advance = false
-			($Text as RichTextLabel).set_bbcode(text[page])
+	match text[page][0]:
+		"^": # Jump
+			goto_label(text[page].substr(2, len(text[page]) - 2))
+		"?": # Conditional jump
+			var result := conditional_regex.search(text[page].substr(2, len(text[page]) - 2))
+			if Controller.flag(result.get_string(1)) == int(result.get_string(2)):
+				goto_label(result.get_string(3))
+			else:
+				advance_page()
+		"$": # Money
+			Controller.add_money(int(text[page].substr(2, len(text[page]) - 2)))
+			advance_page()
+		"*": # Set flag
+			var result := flag_regex.search(text[page].substr(2, len(text[page]) - 2))
+			Controller.set_flag(result.get_string(1), int(result.get_string(2)))
+			advance_page()
+		"]": # Choice
+			var stripped_text: String = choice_regex_2.search(text[page]).get_string(1)
+			($Text as RichTextLabel).set_bbcode(stripped_text)
+			page_length = len(stripped_text)
 			
-	# Money
-	if text[page][0] == "$":
-		Controller.add_money(int(text[page].substr(2, len(text[page]) - 2)))
-		page += 1
-		
-	# Set flag
-	if text[page][0] == "*":
-		var result := flag_regex.search(text[page].substr(2, len(text[page]) - 2))
-		Controller.set_flag(result.get_string(1), int(result.get_string(2)))
-		page += 1
+			choice = true
+			connect("text_roll_ended", self, "show_choices")
 
 
 func start_roll():
@@ -290,7 +278,7 @@ func end():
 	ended = true
 	emit_signal("dialogue_ended")
 	queue_free()
-	
+
 # =====================================================================
 
 func _on_TimerRollText_timeout():
