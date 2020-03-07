@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Tilesets/TilesTrain.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Train/Unsurewoman.png" type="Texture" id=11]
 [ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Sprites/UI/Tutorial5.png" type="Texture" id=13]
+[ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 28 )
@@ -45,7 +46,7 @@ extents = Vector2( 8, 30 )
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "up",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -55,7 +56,7 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "up",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -293,6 +294,10 @@ set_flag = "npc_train_rudeman"
 [node name="Sprite" parent="NPCRudeman" index="0"]
 frames = SubResource( 10 )
 
+[node name="DestroyOnFlag" parent="NPCRudeman" instance=ExtResource( 14 )]
+flag = "scn_rhona"
+value = 1
+
 [node name="NPCUnsurewoman" parent="." instance=ExtResource( 9 )]
 position = Vector2( 120, 89 )
 dialogue_file = "res://Dialogue/Train/dl_train_unsurewoman.txt"
@@ -302,6 +307,10 @@ set_flag = "npc_train_unsurewoman"
 
 [node name="Sprite" parent="NPCUnsurewoman" index="0"]
 frames = SubResource( 11 )
+
+[node name="DestroyOnFlag" parent="NPCUnsurewoman" instance=ExtResource( 14 )]
+flag = "scn_rhona"
+value = 1
 
 [node name="Tutorial" parent="." instance=ExtResource( 12 )]
 position = Vector2( 164, 48 )

@@ -190,7 +190,7 @@ func _play_footstep_sound():
 # =====================================================================
 
 func _on_InteractArea_area_entered(area: Area2D):
-	if can_talk_to and area.is_in_group("PlayerSight") and not Player.is_in_an_area():
+	if can_talk_to and area.is_in_group("PlayerSight") and not Player.is_in_an_area() and Player.get_state() == Player.PlayerState.Move:
 		in_range = true
 		Player.set_in_an_area(true)
 		if not require_direction or (require_direction and Player.get_direction() == required_direction):
@@ -202,7 +202,7 @@ func _on_InteractArea_area_entered(area: Area2D):
 
 
 func _on_InteractArea_area_exited(area: Area2D):
-	if area.is_in_group("PlayerSight"):
+	if area.is_in_group("PlayerSight") and Player.get_state() == Player.PlayerState.Move:
 		in_range = false
 		can_interact = false
 		if Player.is_in_an_area():
