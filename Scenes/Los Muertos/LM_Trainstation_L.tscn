@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Sprites/Particles/Wave.png" type="Texture" id=4]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Instances/Props/Prop_Streetlamp.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=7]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -108,6 +109,11 @@ tile_data = PoolIntArray( 524288, 4, 0, 524289, 4, 0, 524290, 4, 0, 524291, 4, 0
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="DestroyOnFlag" parent="TileMap3" instance=ExtResource( 7 )]
+flag = "story_day1_discourses_finished"
+condition = 5
+value = 1
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6

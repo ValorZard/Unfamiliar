@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=26 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Train/Rudeman.png" type="Texture" id=7]
 [ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Instances/Props/Prop_Streetlamp.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=10]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -23,7 +24,6 @@ flag_disable_z = true
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
 initial_velocity = 40.0
-angular_velocity = 1.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 anim_speed = 10.0
@@ -67,12 +67,12 @@ extents = Vector2( 16, 8 )
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -95,8 +95,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 2, 3, 4.5 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 2, 3, 4.5, 5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "values": [ {
 "args": [ Vector2( 128, 112 ), 2.0, 0 ],
 "method": "_event_move_player_to_position"
@@ -106,6 +106,9 @@ tracks/0/keys = {
 }, {
 "args": [ "res://Dialogue/Los Muertos/dl_lm_intro.txt", 1 ],
 "method": "_event_dialogue"
+}, {
+"args": [ "scn_lm_intro", 1 ],
+"method": "_event_set_flag"
 } ]
 }
 
@@ -217,6 +220,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="DestroyOnFlag" parent="TileMap3" instance=ExtResource( 10 )]
+flag = "story_day1_discourses_finished"
+condition = 5
+value = 1
+
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6
 
@@ -256,12 +264,13 @@ frames = SubResource( 14 )
 [node name="Event" parent="." instance=ExtResource( 8 )]
 position = Vector2( 128, 138 )
 autostart = true
-destroy = true
-destroy_flag = "scn_lm_intro"
-auto_set_destroy = true
 
 [node name="AnimationPlayer" parent="Event" index="0"]
 anims/Event = SubResource( 15 )
+
+[node name="DestroyOnFlag" parent="Event" instance=ExtResource( 10 )]
+flag = "scn_lm_intro"
+value = 1
 
 [node name="Streetlamp" parent="." instance=ExtResource( 9 )]
 position = Vector2( 103, 22 )

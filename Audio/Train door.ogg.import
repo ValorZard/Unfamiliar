@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Train door.ogg-98f39c0f3b49af098f080bd6e9b229df.oggstr"
+
+[deps]
+
+source_file="res://Audio/Train door.ogg"
+dest_files=[ "res://.import/Train door.ogg-98f39c0f3b49af098f080bd6e9b229df.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

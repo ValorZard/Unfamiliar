@@ -23,7 +23,6 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Clive_left.png" type="Texture" id=21]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Clive.png" type="Texture" id=22]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=23]
-[ext_resource path="res://Scripts/Scenes/Los Muertos/Scene_LM_Square.gd" type="Script" id=24]
 [ext_resource path="res://Audio/Land.ogg" type="AudioStream" id=25]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_stand1.png" type="Texture" id=26]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ariad/Ariad_ow_down.png" type="Texture" id=27]
@@ -35,6 +34,7 @@
 [ext_resource path="res://Audio/Footsteps/StepBarefoot4.ogg" type="AudioStream" id=33]
 [ext_resource path="res://Audio/Footsteps/StepBarefoot1.ogg" type="AudioStream" id=34]
 [ext_resource path="res://Audio/Footsteps/StepBarefoot2.ogg" type="AudioStream" id=35]
+[ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=36]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 8 )
@@ -338,16 +338,6 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 22 ) ],
-"loop": true,
-"name": "down_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 21 ) ],
-"loop": true,
-"name": "left_walk",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "right_walk",
@@ -357,15 +347,22 @@ animations = [ {
 "loop": true,
 "name": "down",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "left_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "down_walk",
+"speed": 5.0
 } ]
 
 [node name="Scene" type="Node2D"]
-script = ExtResource( 24 )
 __meta__ = {
 "_edit_vertical_guides_": [ 216.0 ]
 }
-clive_npc = NodePath("EventNPCClive")
-ariad_npc = NodePath("EventNPCAriad")
 
 [node name="Overlay" parent="." instance=ExtResource( 1 )]
 is_preview = true
@@ -462,19 +459,20 @@ centered = false
 [node name="Spout" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 45, -9 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 centered = false
 
 [node name="Spout2" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 26, -11 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 centered = false
 
 [node name="Spout3" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 51, -11 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 centered = false
 flip_h = true
@@ -524,6 +522,10 @@ disabled = true
 [node name="AnimationPlayer" parent="EventNPCAriad/Event" index="0"]
 anims/Event = SubResource( 10 )
 
+[node name="DestroyOnFlag" parent="EventNPCAriad" instance=ExtResource( 36 )]
+flag = "story_day1_d_ariad_2"
+value = 1
+
 [node name="Door3" parent="." instance=ExtResource( 17 )]
 position = Vector2( 203, 50 )
 target_scene = "res://Scenes/Los Muertos/Joker's Jive/JokersJive_B.tscn"
@@ -553,6 +555,13 @@ frames = SubResource( 12 )
 
 [node name="Interact" parent="EventNPCClive" index="1"]
 frame = 3
+
+[node name="DestroyOnFlag" parent="EventNPCClive" instance=ExtResource( 36 )]
+flag = "story_day1_d_ariad_1"
+
+[node name="DestroyOnFlag2" parent="EventNPCClive" instance=ExtResource( 36 )]
+flag = "story_day1_d_ariad_2"
+value = 1
 
 [node name="SoundLand" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 25 )

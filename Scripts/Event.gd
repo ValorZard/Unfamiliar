@@ -6,9 +6,9 @@ signal event_ended
 
 export(bool) var in_npc := false
 export(bool) var autostart := false
-export(bool) var destroy
-export(String) var destroy_flag
-export(bool) var auto_set_destroy := false
+#export(bool) var destroy
+#export(String) var destroy_flag
+#export(bool) var auto_set_destroy := false
 
 var started := false
 var current_index: int = 0
@@ -18,9 +18,10 @@ onready var anim_player := $AnimationPlayer as AnimationPlayer
 # =====================================================================
 
 func _ready():
-	if destroy and Controller.flag(destroy_flag) == 1:
-		queue_free()
-	elif autostart:
+	#if destroy and Controller.flag(destroy_flag) == 1:
+	#	queue_free()
+	#elif autostart:
+	if autostart:
 		start_event()
 	
 # =====================================================================
@@ -206,8 +207,8 @@ func _on_AnimationPlayer_animation_finished(anim_name: String):
 		Player.set_in_event(false)
 		emit_signal("event_ended")
 		
-		if auto_set_destroy:
-			Controller.set_flag(destroy_flag, 1)
+		#if auto_set_destroy:
+		#	Controller.set_flag(destroy_flag, 1)
 		
 		started = false
 		if not in_npc:
