@@ -419,12 +419,18 @@ func open_exit_menu(parent_menu):
 	return menu
 
 
-func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, relative_coords: bool = true):
+func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, relative_coords: bool = true, from_async: bool = false, async_scene: PackedScene = null):
 	if transition:
 		Player.set_state(Player.PlayerState.NoInput)
 		Player.set_in_transition(true)
 		var current_scene := get_tree().get_root().get_node("Scene")
-		var scn: PackedScene = load(path) as PackedScene
+		var scn: PackedScene
+		
+		if not from_async:
+			scn = load(path) as PackedScene
+		else:
+			scn = async_scene
+			
 		var scn_i := scn.instance() as Node2D
 		
 		# Setup player movement
