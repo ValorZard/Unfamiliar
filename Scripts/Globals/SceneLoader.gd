@@ -10,7 +10,8 @@ onready var mutex := Mutex.new()
 # =====================================================================
 
 func _exit_tree():
-	thread.wait_to_finish()
+	if thread.is_active():
+		thread.wait_to_finish()
 
 # =====================================================================
 

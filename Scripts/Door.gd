@@ -39,6 +39,11 @@ func _process(delta):
 		ap.connect("animation_finished", transition, "destroy")
 		ap.connect("animation_finished", transition, "restore_player_movement")
 		
+		
+func _exit_tree():
+	if loaded_scene != null and not loaded_scene.is_inside_tree():
+		loaded_scene.free()
+		
 # =====================================================================
 
 func set_loaded_scene(scene: Node2D, path: String):

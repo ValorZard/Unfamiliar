@@ -3,9 +3,7 @@ extends Area2D
 export(String, FILE, "*.tscn") var target_scene
 export(Player.Direction) var target_direction
 
-#var loader: ResourceInteractiveLoader
 var loaded_scene: Node2D = null
-var loaded := false
 
 onready var thread := Thread.new()
 
@@ -14,6 +12,11 @@ onready var thread := Thread.new()
 func _ready():
 	SceneLoader.queue_scene(target_scene)
 	SceneLoader.connect("scene_loaded", self, "set_loaded_scene", [], CONNECT_REFERENCE_COUNTED)
+	
+
+func _exit_tree():
+	if loaded_scene != null and not loaded_scene.is_inside_tree():
+		loaded_scene.free()
 
 # =====================================================================	
 
