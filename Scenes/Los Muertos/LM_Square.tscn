@@ -96,16 +96,6 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 29 ) ],
-"loop": true,
-"name": "right_walk",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 27 ) ],
 "loop": false,
 "name": "stand",
@@ -120,6 +110,16 @@ animations = [ {
 "loop": true,
 "name": "sit_right",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "right_walk",
+"speed": 7.0
 } ]
 
 [sub_resource type="Animation" id=10]
@@ -338,11 +338,6 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 20 ) ],
-"loop": true,
-"name": "right_walk",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 22 ) ],
 "loop": true,
 "name": "down",
@@ -351,6 +346,11 @@ animations = [ {
 "frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "left_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "right_walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 22 ) ],
@@ -459,20 +459,19 @@ centered = false
 [node name="Spout" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 45, -9 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 centered = false
 
 [node name="Spout2" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 26, -11 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 centered = false
 
 [node name="Spout3" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 51, -11 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 centered = false
 flip_h = true
@@ -513,9 +512,6 @@ step_sounds_conc = [ ExtResource( 34 ), ExtResource( 35 ), ExtResource( 32 ), Ex
 frames = SubResource( 9 )
 animation = "down2"
 
-[node name="Interact" parent="EventNPCAriad" index="1"]
-frame = 3
-
 [node name="CollisionShape2D" parent="EventNPCAriad" index="3"]
 disabled = true
 
@@ -552,9 +548,6 @@ can_talk_to = false
 
 [node name="Sprite" parent="EventNPCClive" index="0"]
 frames = SubResource( 12 )
-
-[node name="Interact" parent="EventNPCClive" index="1"]
-frame = 3
 
 [node name="DestroyOnFlag" parent="EventNPCClive" instance=ExtResource( 36 )]
 flag = "story_day1_d_ariad_1"

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=54 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Scene_Train1.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=2]
@@ -22,6 +22,19 @@
 [ext_resource path="res://Audio/Train stop.ogg" type="AudioStream" id=20]
 [ext_resource path="res://Audio/Land.ogg" type="AudioStream" id=21]
 [ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=22]
+[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/SleepingWoman.png" type="Texture" id=24]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=25]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=26]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=27]
+[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/SittingDude_sit.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/SittingDude.png" type="Texture" id=30]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/SittingDude_stand.png" type="Texture" id=31]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/SittingDude_left.png" type="Texture" id=32]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/SittingDude_walkleft1.png" type="Texture" id=33]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/SittingDude_walkleft2.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Particles/Z.png" type="Texture" id=35]
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
@@ -55,26 +68,112 @@ tracks/1/keys = {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 3, 28 )
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 40, 4 )
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 32 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ) ],
+"loop": true,
+"name": "sit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 30 ) ],
+"loop": false,
+"name": "stand",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 32 ), ExtResource( 34 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "left_walk",
+"speed": 7.0
+} ]
 
-[sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 24, 4 )
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 12, 7 )
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.795053, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.415033, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+flag_disable_z = true
+gravity = Vector3( 0, -20, 0 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+tangential_accel = 15.0
+tangential_accel_random = 0.5
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
+
+[sub_resource type="RectangleShape2D" id=11]
+extents = Vector2( 40, 4 )
+
+[sub_resource type="RectangleShape2D" id=12]
+extents = Vector2( 24, 4 )
+
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 22, 4 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 38, 4 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=15]
 extents = Vector2( 2, 6 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=16]
 extents = Vector2( 2, 43 )
 
-[sub_resource type="Animation" id=9]
-resource_name = "Event"
+[sub_resource type="Animation" id=17]
 length = 35.8
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -83,8 +182,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 20, 22, 23.8, 35.3, 35.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 20, 22, 23.8, 34, 35.3, 35.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ false ],
 "method": "_event_show_player"
@@ -97,6 +196,9 @@ tracks/0/keys = {
 }, {
 "args": [ "res://Dialogue/Train/dl_train_intro.txt", 1 ],
 "method": "_event_dialogue"
+}, {
+"args": [ NodePath("../EventNPCSittingDude"), Vector2( 56, 85 ), 1.2, 2 ],
+"method": "_event_move_npc_to_position"
 }, {
 "args": [ "scn_intro", 1 ],
 "method": "_event_set_flag"
@@ -324,22 +426,68 @@ tracks/18/loop_wrap = true
 tracks/18/imported = false
 tracks/18/enabled = true
 tracks/18/keys = {
-"times": PoolRealArray( 35.2 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 33.4, 35.2 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
+"args": [ 0.0 ],
+"method": "play"
+}, {
 "args": [ 0.0 ],
 "method": "play"
 } ]
 }
+tracks/19/type = "value"
+tracks/19/path = NodePath("../EventNPCSittingDude:position")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/keys = {
+"times": PoolRealArray( 0, 33.5, 33.6 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 100, 81 ), Vector2( 100, 81 ), Vector2( 100, 85 ) ]
+}
+tracks/20/type = "method"
+tracks/20/path = NodePath("../EventNPCSittingDude/Sprite")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/keys = {
+"times": PoolRealArray( 33.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "stand", false ],
+"method": "play"
+} ]
+}
+tracks/21/type = "method"
+tracks/21/path = NodePath("../EventNPCSittingDude")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/keys = {
+"times": PoolRealArray( 33.8, 35.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "set_sprite_override"
+}, {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
 
-[sub_resource type="RectangleShape2D" id=10]
+[sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 8, 30 )
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ 90.0 ],
-"_edit_vertical_guides_": [ 160.0 ]
+"_edit_vertical_guides_": [ 160.0, 56.0 ]
 }
 
 [node name="Bg" type="Sprite" parent="."]
@@ -480,6 +628,52 @@ shape = SubResource( 2 )
 position = Vector2( 176, 58 )
 texture = ExtResource( 7 )
 
+[node name="EventNPCSittingDude" parent="." instance=ExtResource( 28 )]
+position = Vector2( 100, 81 )
+change_direction = false
+auto_set_flag = false
+can_talk_to = false
+sprite_override = true
+
+[node name="Sprite" parent="EventNPCSittingDude" index="0"]
+frames = SubResource( 3 )
+animation = "sit"
+
+[node name="CollisionShape2D" parent="EventNPCSittingDude" index="3"]
+disabled = true
+
+[node name="DestroyOnFlag" parent="EventNPCSittingDude" instance=ExtResource( 22 )]
+flag = "scn_intro"
+value = 1
+
+[node name="NPCSleepingWoman" parent="." instance=ExtResource( 23 )]
+position = Vector2( 137, 83 )
+dialogue_file = "res://Dialogue/Train/dl_train_misc.txt"
+change_direction = false
+auto_set_flag = false
+require_direction = true
+
+[node name="Sprite" parent="NPCSleepingWoman" index="0"]
+frames = SubResource( 4 )
+
+[node name="Interact" parent="NPCSleepingWoman" index="1"]
+position = Vector2( 6, -14 )
+
+[node name="CollisionShape2D" parent="NPCSleepingWoman/InteractArea" index="0"]
+shape = SubResource( 5 )
+
+[node name="CollisionShape2D" parent="NPCSleepingWoman" index="3"]
+disabled = true
+
+[node name="PartsSleep" type="Particles2D" parent="."]
+position = Vector2( 144, 80 )
+z_index = 85
+amount = 2
+lifetime = 2.0
+preprocess = 2.0
+process_material = SubResource( 10 )
+texture = ExtResource( 35 )
+
 [node name="SeatCollision" type="StaticBody2D" parent="."]
 __meta__ = {
 "_edit_group_": true,
@@ -488,31 +682,31 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 120, 84 )
-shape = SubResource( 3 )
+shape = SubResource( 11 )
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 216, 84 )
-shape = SubResource( 4 )
+shape = SubResource( 12 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 218, 150 )
-shape = SubResource( 5 )
+shape = SubResource( 13 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 118, 150 )
-shape = SubResource( 6 )
+shape = SubResource( 14 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 158, 149 )
-shape = SubResource( 7 )
+shape = SubResource( 15 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 194, 149 )
-shape = SubResource( 7 )
+shape = SubResource( 15 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="SeatCollision"]
 position = Vector2( 242, 119 )
-shape = SubResource( 8 )
+shape = SubResource( 16 )
 
 [node name="PlayerStart" type="Sprite" parent="."]
 position = Vector2( 200, 69 )
@@ -524,7 +718,7 @@ position = Vector2( 176, 98 )
 autostart = true
 
 [node name="AnimationPlayer" parent="Event" index="0"]
-anims/Event = SubResource( 9 )
+anims/Event = SubResource( 17 )
 
 [node name="DestroyOnFlag" parent="Event" instance=ExtResource( 22 )]
 flag = "scn_intro"
@@ -539,7 +733,7 @@ target_scene = "res://Scenes/Intro/Train2.tscn"
 target_direction = 2
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 10 )
+shape = SubResource( 18 )
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 8
@@ -562,6 +756,10 @@ margin_bottom = 75.0
 custom_fonts/font = ExtResource( 14 )
 text = "Duncan Sparks"
 align = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
 [node name="Text2" type="Label" parent="CanvasLayer"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -572,6 +770,9 @@ margin_bottom = 87.0
 custom_fonts/font = ExtResource( 14 )
 text = "Studio Fractal"
 align = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Text3" type="Label" parent="CanvasLayer"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -582,6 +783,10 @@ margin_bottom = 117.0
 custom_fonts/font = ExtResource( 14 )
 text = "Presents"
 align = 1
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": false
+}
 
 [node name="Text4" type="Label" parent="CanvasLayer"]
 self_modulate = Color( 1, 1, 1, 0 )
@@ -592,6 +797,9 @@ margin_bottom = 97.0
 custom_fonts/font = ExtResource( 14 )
 text = "Unfamiliar"
 align = 1
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Tutorial1" parent="." instance=ExtResource( 15 )]
 modulate = Color( 1, 1, 1, 0 )
@@ -631,6 +839,10 @@ volume_db = -80.0
 
 [node name="SoundLand" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
+
+[editable path="EventNPCSittingDude"]
+
+[editable path="NPCSleepingWoman"]
 
 [editable path="Event"]
 
