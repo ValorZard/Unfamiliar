@@ -3,40 +3,25 @@ extends Area2D
 export(String, FILE, "*.tscn") var target_scene
 export(Player.Direction) var target_direction
 
-const TimeMax: int = 5
+#var loader: ResourceInteractiveLoader
+var loaded_scene: Node2D = null
+var loaded := false
 
-var loader: ResourceInteractiveLoader
-var loaded_scene: PackedScene = null
+onready var thread := Thread.new()
 
 # =====================================================================
 
 func _ready():
-	loader = ResourceLoader.load_interactive(target_scene, "PackedScene")
-	if loader == null:
-		push_error("Failed to load scene %s" % target_scene)
-		set_process(false)
-		return
-	
-	
-func _process(delta):
-	if loader == null:
-		set_process(false)
-		
-	var t = OS.get_ticks_msec()
-	while OS.get_ticks_msec() < t + TimeMax:
-		var err := loader.poll()
-		
-		if err == ERR_FILE_EOF:
-			loaded_scene = loader.get_resource() as PackedScene
-			loader = null
-			set_process(false)
-			break
-		elif err != OK:
-			push_error("Failed to load scene %s" % target_scene)
-			loader = null
-			break
+	SceneLoader.queue_scene(target_scene)
+	SceneLoader.connect("scene_loaded", self, "set_loaded_scene", [], CONNECT_REFERENCE_COUNTED)
 
-# =====================================================================
+# =====================================================================	
+
+func set_loaded_scene(scene: Node2D, path: String):
+	if path == target_scene:
+		loaded_scene = scene
+	
+# =====================================================================	
 
 func _on_Transition_body_entered(body: PhysicsBody2D):
 	if body != null:

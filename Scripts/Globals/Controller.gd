@@ -419,20 +419,19 @@ func open_exit_menu(parent_menu):
 	return menu
 
 
-func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, relative_coords: bool = true, from_async: bool = false, async_scene: PackedScene = null):
+func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, relative_coords: bool = true, from_async: bool = false, async_scene: Node2D = null):
 	if transition:
 		Player.set_state(Player.PlayerState.NoInput)
 		Player.set_in_transition(true)
 		var current_scene := get_tree().get_root().get_node("Scene")
-		var scn: PackedScene
+		var scn_i: Node2D
 		
 		if not from_async:
-			scn = load(path) as PackedScene
+			var scn = load(path) as PackedScene
+			scn_i = scn.instance() as Node2D
 		else:
-			scn = async_scene
+			scn_i = async_scene
 			
-		var scn_i := scn.instance() as Node2D
-		
 		# Setup player movement
 		var target: Vector2
 		var player_offset: Vector2
@@ -476,8 +475,14 @@ func goto_scene(path: String, pos: Vector2, direction: int, transition: bool, re
 		emit_signal("scene_changed")
 	else:
 		var current_scene := get_tree().get_root().get_node("Scene")
-		var scn: PackedScene = load(path) as PackedScene
-		var scn_i := scn.instance()
+		var scn_i: Node2D
+		
+		if not from_async:
+			var scn = load(path) as PackedScene
+			scn_i = scn.instance() as Node2D
+		else:
+			scn_i = async_scene
+			
 		get_tree().get_root().add_child(scn_i)
 		update_map_marker(path)
 		Player.set_position(pos)

@@ -88,6 +88,7 @@ mix_rate=48000
 
 Controller="*res://Instances/Globals/Controller.tscn"
 Player="*res://Instances/Globals/Player.tscn"
+SceneLoader="*res://Instances/Globals/SceneLoader.tscn"
 
 [debug]
 

@@ -6,11 +6,17 @@ export(String, FILE, "*.tscn") var target_scene
 export(Vector2) var target_position
 export(Player.Direction) var target_direction
 export(AudioStream) var door_sound = null
-#export(bool) var restore_control = true
+
+var loaded_scene: Node2D = null
 
 var in_area := false
 
 # =====================================================================
+
+func _ready():
+	SceneLoader.queue_scene(target_scene)
+	SceneLoader.connect("scene_loaded", self, "set_loaded_scene", [], CONNECT_REFERENCE_COUNTED)
+	
 
 func _process(delta):
 	if Input.is_action_just_pressed("sys_action") and in_area and Player.get_state() == Player.PlayerState.Move:
@@ -22,12 +28,23 @@ func _process(delta):
 		var transition := (load(DoorTransitionRef) as PackedScene).instance()
 		get_tree().get_root().add_child(transition)
 		yield(Controller.wait(0.6), "timeout")
-		Controller.goto_scene(target_scene, target_position, target_direction, false, false)
+		
+		if loaded_scene == null:
+			Controller.goto_scene(target_scene, target_position, target_direction, false, false)
+		else:
+			Controller.goto_scene("", target_position, target_direction, false, false, true, loaded_scene)
+			
 		var ap: AnimationPlayer = transition.get_node("AnimationPlayer") as AnimationPlayer
 		ap.play("Fadein")
 		ap.connect("animation_finished", transition, "destroy")
 		ap.connect("animation_finished", transition, "restore_player_movement")
 		
+# =====================================================================
+
+func set_loaded_scene(scene: Node2D, path: String):
+	if path == target_scene:
+		loaded_scene = scene
+
 # =====================================================================
 
 func _on_Door_body_entered(body: PhysicsBody2D):
