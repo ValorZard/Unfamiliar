@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=2]
+[gd_scene load_steps=56 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Scene_Train1.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=2]
@@ -35,6 +35,8 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Train/SittingDude_walkleft1.png" type="Texture" id=33]
 [ext_resource path="res://Sprites/Characters (Overworld)/Train/SittingDude_walkleft2.png" type="Texture" id=34]
 [ext_resource path="res://Sprites/Particles/Z.png" type="Texture" id=35]
+[ext_resource path="res://Audio/Music/Intro.ogg" type="AudioStream" id=36]
+[ext_resource path="res://Audio/Ambient/Train.ogg" type="AudioStream" id=37]
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
@@ -70,14 +72,14 @@ extents = Vector2( 3, 28 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 32 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ) ],
+"loop": true,
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 26 ) ],
@@ -108,14 +110,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 25 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 26 ) ],
@@ -182,11 +184,14 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 20, 22, 23.8, 34, 35.3, 35.8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 18, 20, 22, 23.8, 34, 35.3, 35.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ false ],
 "method": "_event_show_player"
+}, {
+"args": [ ExtResource( 37 ) ],
+"method": "_event_play_ambient"
 }, {
 "args": [ "res://Audio/Bing bong.ogg" ],
 "method": "_event_play_sound"
@@ -478,6 +483,32 @@ tracks/21/keys = {
 "args": [  ],
 "method": "queue_free"
 } ]
+}
+tracks/22/type = "method"
+tracks/22/path = NodePath("../SoundOpening")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/keys = {
+"times": PoolRealArray( 0.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
+tracks/23/type = "value"
+tracks/23/path = NodePath("../SoundOpening:volume_db")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/keys = {
+"times": PoolRealArray( 0, 3.5, 20.4, 21.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, -30.0, -80.0 ]
 }
 
 [sub_resource type="RectangleShape2D" id=18]
@@ -839,6 +870,9 @@ volume_db = -80.0
 
 [node name="SoundLand" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 21 )
+
+[node name="SoundOpening" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 36 )
 
 [editable path="EventNPCSittingDude"]
 

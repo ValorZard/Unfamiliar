@@ -12,6 +12,7 @@ export(bool) var autostart := false
 
 var started := false
 var current_index: int = 0
+var jump_point: float = NAN
 
 onready var anim_player := $AnimationPlayer as AnimationPlayer
 
@@ -113,7 +114,12 @@ func _event_teleport_player(pos: Vector2):
 
 func _event_dialogue(file: String, set: int, text_size: int = 8, alt_box: bool = false):
 	anim_player.stop(false)
-	yield(Controller.dialogue(file, set, alt_box, text_size, false), "dialogue_ended")
+	var dlg: Dialogue = Controller.dialogue(file, set, alt_box, text_size, false)
+	dlg.connect("dialogue_ended_jump", self, "__set_jump_point")
+	yield(dlg, "dialogue_ended")
+	
+	if not is_nan(jump_point):
+		anim_player.seek(jump_point)
 	anim_player.play()
 	
 	
@@ -139,6 +145,14 @@ func _event_discourse(full_name: String, file: String, right_name: String, right
 
 func _event_play_sound(sound_path: String):
 	Controller.play_sound_oneshot_from_path(sound_path)
+	
+	
+func _event_play_music(music: AudioStream, pitch: float = 1.0, volume: int = 0):
+	Controller.play_music(music)
+	
+	
+func _event_play_ambient(amb: AudioStream, pitch: float = 1.0, volume: int = 0):
+	Controller.play_ambient(amb, pitch, volume)
 	
 
 func _event_add_money(amount: int):
@@ -192,6 +206,10 @@ func __move_character(character: Node2D, pos: Vector2, time: float, direction: i
 					character.set_vel_override(Vector2(0, 1))
 					
 	character.set_speed_override(character.get_position().distance_to(pos) / time)
+	
+	
+func __set_jump_point(value: float):
+	jump_point = value
 
 # =====================================================================
 

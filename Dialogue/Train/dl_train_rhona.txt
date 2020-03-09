@@ -3,7 +3,7 @@ Commuter: Oh, it's a demon! Hi, demon!
 -
 
 1
-Rhona: See you later, Cosmo!
+UNUSED
 -
 
 2
@@ -34,6 +34,5 @@ Rhona: You don't look like an "abomination" to me.
 Rhona: You seem really nice. I want to learn more about you!
 Cosmo: ...
 Cosmo: I'm not very good at talking.
-Rhona: Oh, don't worry.
-Rhona: I'll show you how it's done!
+Rhona: Oh, don't worry. I'll show you how it's done!
 -

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -11,6 +11,13 @@
 [ext_resource path="res://Instances/Props/Prop_Streetlamp.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Library_Sign.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Library_ReturnBox.png" type="Texture" id=11]
+[ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Flyer.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=18]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -24,10 +31,37 @@ extents = Vector2( 8, 32 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8, 32 )
 
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8, 10 )
 
 [node name="Scene" type="Node2D"]
+__meta__ = {
+"_edit_horizontal_guides_": [ 78.0 ],
+"_edit_vertical_guides_": [ 158.0 ]
+}
 
 [node name="Overlay" parent="." instance=ExtResource( 1 )]
 is_preview = true
@@ -69,7 +103,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Door" type="Sprite" parent="."]
+[node name="DoorProp" type="Sprite" parent="."]
 position = Vector2( 149, 42 )
 texture = ExtResource( 5 )
 centered = false
@@ -124,6 +158,21 @@ position = Vector2( 131, 28 )
 texture = ExtResource( 10 )
 centered = false
 
+[node name="NPCFlyer" parent="." instance=ExtResource( 14 )]
+position = Vector2( 140, 48 )
+dialogue_file = "res://Dialogue/Los Muertos/dl_lm_misc.txt"
+change_direction = false
+auto_set_flag = false
+is_object = true
+alt_text_box = true
+require_direction = true
+
+[node name="Sprite" parent="NPCFlyer" index="0"]
+frames = SubResource( 5 )
+
+[node name="CollisionShape2D" parent="NPCFlyer" index="3"]
+disabled = true
+
 [node name="ReturnBox" type="StaticBody2D" parent="."]
 position = Vector2( 206, 52 )
 __meta__ = {
@@ -138,6 +187,14 @@ centered = false
 position = Vector2( 8, 11 )
 shape = SubResource( 4 )
 
+[node name="Door" parent="." instance=ExtResource( 12 )]
+position = Vector2( 158, 66 )
+target_scene = "res://Scenes/Los Muertos/Library/LibraryEntrance.tscn"
+target_position = Vector2( 160, 142 )
+door_sound = ExtResource( 13 )
+
 [editable path="Transitions/Transition"]
 
 [editable path="Transitions/Transition2"]
+
+[editable path="NPCFlyer"]

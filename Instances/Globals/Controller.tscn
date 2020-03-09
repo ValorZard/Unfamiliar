@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Globals/Controller.gd" type="Script" id=1]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
@@ -60,6 +60,36 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=6]
+resource_name = "Fadeout"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Music:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "Fadeout"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Ambient:volume_db")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -80.0 ]
+}
+
 [node name="Controller" type="Node"]
 script = ExtResource( 1 )
 editor_mode = true
@@ -98,5 +128,19 @@ anims/CameraScroll = SubResource( 3 )
 [node name="AnimationPlayerFade" type="AnimationPlayer" parent="."]
 anims/Fadein = SubResource( 4 )
 anims/Fadeout = SubResource( 5 )
+
+[node name="AnimationPlayerMusic" type="AnimationPlayer" parent="."]
+anims/Fadeout = SubResource( 6 )
+
+[node name="AnimationPlayerAmbient" type="AnimationPlayer" parent="."]
+anims/Fadeout = SubResource( 7 )
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0
+bus = "Music"
+
+[node name="Ambient" type="AudioStreamPlayer" parent="."]
+volume_db = -80.0
+bus = "Ambient"
 
 [editable path="Overlay"]

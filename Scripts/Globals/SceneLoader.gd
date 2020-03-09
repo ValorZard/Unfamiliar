@@ -17,12 +17,13 @@ func _exit_tree():
 
 func queue_scene(path: String):
 	mutex.lock()
-	if queue.empty():
+	var empty := queue.empty()
+	mutex.unlock()
+	if empty:
 		if thread.is_active():
 			thread.wait_to_finish()
 		thread.start(self, "load_scene_from_queue")
 	queue.push_back(path)
-	mutex.unlock()
 		
 		
 func load_scene_from_queue(userdata):

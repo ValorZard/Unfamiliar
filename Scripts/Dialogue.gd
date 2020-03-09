@@ -6,6 +6,7 @@ class_name Dialogue
 
 signal dialogue_ended
 signal text_roll_ended
+signal dialogue_ended_jump(jump_point)
 
 const ButtonRef := preload("res://Instances/System/ButtonOverworldChoice.tscn")
 
@@ -43,6 +44,8 @@ var buttons_list := []
 
 var ended := false
 var reset_state := true
+
+var event_jump_point: float = NAN
 
 var name_regex := RegEx.new()
 var choice_regex := RegEx.new()
@@ -217,9 +220,10 @@ func goto_label(label_name: String, button_index: int = -1):
 		
 	var target: int = label_table[label_name]
 	if target < len(text) - 1:
-		page = label_table[label_name]
+		page = target
 		advance_page()
-		start_roll()
+		if not ended:
+			start_roll()
 	else:
 		end()
 
@@ -253,6 +257,9 @@ func operation_handling():
 			var result := flag_regex.search(text[page].substr(2, len(text[page]) - 2))
 			Controller.set_flag(result.get_string(1), int(result.get_string(2)))
 			advance_page()
+		"@": # Set jump point
+			event_jump_point = float(text[page].substr(2, len(text[page]) - 2))
+			advance_page()
 		"]": # Choice
 			var stripped_text: String = choice_regex_2.search(text[page]).get_string(1)
 			($Text as RichTextLabel).set_bbcode(stripped_text)
@@ -276,6 +283,7 @@ func end():
 	if reset_state:
 		Player.set_state(Player.PlayerState.Move)
 	ended = true
+	emit_signal("dialogue_ended_jump", event_jump_point)
 	emit_signal("dialogue_ended")
 	queue_free()
 

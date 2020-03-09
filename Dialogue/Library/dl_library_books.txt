@@ -1,5 +1,8 @@
 0
-Read this passage?
+] Read this passage? > Yes(YES) | No(NO)
+: NO
+@ 0.4
+: YES
 -
 
 1
@@ -7,20 +10,23 @@ Read this passage?
 -
 
 2
-In May of 1952, ambassadors of the underworld came to the mortal realm.
+In May of 1952,
+ambassadors of the underworld came to the mortal realm.
 These demonic representatives brought with them a deal.
 The sinful souls of their world had not received sufficient punishment.
 Or so they and their overseer said.
 So they proposed to the mortal humans a simple contract.
 The humans would summon demons from the underworld to assist them.
 It was a suitable form of punishment for the dwellers of their realm.
-In return, they would grant the humans the magical powers of the underworld.
+In return,
+they would grant the humans the magical powers of the underworld.
 They would give them the power to practice witchcraft.
-And, the demons hoped, they would pass the knowledge to their offspring.
-They would keep the practice alive indefinitely.
+And, the demons hoped, they would pass the knowledge on.
+To their friends, their offspring, and anyone else interested.
+They hoped to keep the practice alive indefinitely.
 The humans accepted the deal, and a contract was formed.
 They have since earned the hatred of the demons they summon.
-And they have earned the hatred of the humans who would turn down the contract.
+And they have earned the hatred of the humans who would turn down the deal.
 -
 
 3

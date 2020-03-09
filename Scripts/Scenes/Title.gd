@@ -41,6 +41,7 @@ func _on_Button1_clicked() -> void:
 	yield(Controller.wait(0.5), "timeout")
 	$AnimationPlayerSetup.play("Teardown Start")
 	yield($AnimationPlayerSetup, "animation_finished")
+	yield(Controller.wait(3.0), "timeout")
 	Controller.draw_overlay(true)
 	Controller.draw_overlay_map(true)
 	get_tree().change_scene("res://Scenes/Intro/Train1.tscn")
