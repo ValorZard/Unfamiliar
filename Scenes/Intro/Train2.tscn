@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Tilesets/TilesTrain.png" type="Texture" id=2]
@@ -14,6 +14,11 @@
 [ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Sprites/UI/Tutorial5.png" type="Texture" id=13]
 [ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/Unsurewoman_up.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/Unsurewoman_right.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/Unsurewoman_left.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/Rudeman_right.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/Rudeman_left.png" type="Texture" id=19]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 28 )
@@ -44,17 +49,17 @@ extents = Vector2( 8, 30 )
 
 [sub_resource type="SpriteFrames" id=10]
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 19 ) ],
 "loop": true,
 "name": "left",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
@@ -67,6 +72,21 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "down",
@@ -285,7 +305,7 @@ target_direction = 2
 shape = SubResource( 9 )
 
 [node name="NPCRudeman" parent="." instance=ExtResource( 9 )]
-position = Vector2( 192, 82 )
+position = Vector2( 192, 78 )
 dialogue_file = "res://Dialogue/Train/dl_train_rudeman.txt"
 auto_advance_set = true
 set_limit = 1

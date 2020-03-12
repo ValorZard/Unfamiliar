@@ -7,9 +7,9 @@
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Sprites/Props/Train_door.png" type="Texture" id=6]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/Conductor_up.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/Conductor_right.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/Conductor_left.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Characters (Overworld)/Train/Conductor.png" type="Texture" id=11]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=13]
@@ -40,7 +40,7 @@ extents = Vector2( 10, 28 )
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "left",
 "speed": 5.0
@@ -50,7 +50,7 @@ animations = [ {
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0

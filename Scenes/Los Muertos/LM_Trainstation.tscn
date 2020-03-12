@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -6,10 +6,13 @@
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Popsign.png" type="Texture" id=4]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/Characters (Overworld)/Train/Rudeman.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/SittingDude.png" type="Texture" id=7]
 [ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Instances/Props/Prop_Streetlamp.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/SittingDude_left.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/SittingDude_up.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Characters (Overworld)/Train/SittingDude_right.png" type="Texture" id=13]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -65,17 +68,17 @@ extents = Vector2( 16, 8 )
 
 [sub_resource type="SpriteFrames" id=14]
 animations = [ {
-"frames": [  ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "left",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
