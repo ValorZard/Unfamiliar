@@ -240,13 +240,38 @@ I just think it's too much of a hassle.
 @> explain
 > Why do you look so much like a human?
 @< think
-< $wWell...
+< Uh, well...
 @> serious
 @< idle
-< This might take a bit of explanation.
-< On how familiars are created, I mean.
+< I'm not a $wreal $0demon. I'm a familiar.
+< Familiars are pretty much half-demon, half-human.
+@< explain
+< The magic powers of a demon mixed with the soul of a human.
+< And a body... $wsomewhere $0in-between.
+@< idle
+> So, all familiars look like humans?
+< Not exactly.
+< Some of us fall more on one end than the other.
+@< explain
+< I'm obviously more on the human side.
+< But some familiars... you'd have no idea they were half-human.
+@< idle
+> Hm... interesting.
+@> idle
+> Anything else you can tell me about familiars?
+> I'm really interested.
+< Hm...
+<< I can tell you about...
+[ How familiars are created. (-20, -60) R_3_1 | The powers familiars have. (-20, -10) R_3_2 | (uh) (-20, 50) R_3_3
+------------------------
+: R_3_1
+< How familiars are created.
+> Oh, $wyes! $0That sounds super interesting.
+@< smile
+< This is gonna take a $sbit $0of explanation.
 @> idle
 > I'm listening!
+@< idle
 < Okay, so...
 @< explain
 < To create a familiar, you need three things.
@@ -284,30 +309,59 @@ I just think it's too much of a hassle.
 @< smile
 < Some kind of object or memento to act as a host for the familiar.
 @< idle
-< The vessel you use determines the appearance and form your familiar will take.
-> Oh... I see.
-@< explain
-< Yeah. If you use something like a pendant or trinket, they'll probably be a shapeless shadow.
+< It has to be something that's really important to you. Otherwise the spell won't work.
+@< glare
+< I'm not sure why it works that way. I guess it helps bind your soul to it, or something.
 @< idle
-< But, in my case... my witch probably used a doll, or something. She hasn't actually told me.
-@< smile
-< So, that's why I look kinda like a human.
-@> talk
-> That's pretty cool!
+< So, basically, to create a familiar, you have to give up both a part of your soul and a memento that's important to you.
+@< sad
+< It's a lot.
+> ...Yeah. Wow.
 @< idle
-@> idle
-> Can you make your cat your familiar, or something?
-@< angry2
+> What did your witch use to create you?
+< I'm honestly not sure. She never told me.
+> Oh...
+@> explain2
+> Does the vessel determine the appearance a familiar takes?
+< Uh... maybe a $wlittle $0bit.
 @> serious
-< $wNo!
-@< idle
-< The vessel you use has to be something without a soul.
+< It's mostly dependent on the witch and their personality.
+< I mean, they're infusing the vessel with their own soul.
+@> idle
+> That's pretty cool.
+> Can you make your cat your familiar, or something?
+< No.
+@> serious
 @< explain
-< Because you're giving part of your own soul to it to make it your familiar.
-@< idle
-> Okay. That makes sense.
-> Sort of.
+< The vessel you use has to be something without a soul.
+> Oh.
+> ...
 @> edgy
+> What if your cat was...
+@> serious
+@< angry2
+< $sNo! $0Of course not!
+@< idle
+< Even dead things are going to have remnants of a soul still in them.
+@< angry
+< Besides, that would be $wextremely $0screwed up.
+> ...Yeah. You're right.
+@< idle
+------------------------
+: R_3_2
+< The powers familiars have.
+> Oh, yeah! You're all demons, so you must have... demonic powers.
+@< heh
+< Uh... yeah.
+@< smile
+< 
+
+
+< We also have lightning-fast reflexes, and we're super quick with our hands.
+< I've buttoned this sweater in under a second before.
+> Wow...
+------------------------
+------------------------
 > Man, bein' a witch sounds $wcomplicated.
 < Mhm.
 < Being a familiar is even $wmore $0complicated.
