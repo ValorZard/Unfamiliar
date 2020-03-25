@@ -12,7 +12,7 @@ onready var thread := Thread.new()
 func _ready():
 	SceneLoader.queue_scene(target_scene)
 	SceneLoader.connect("scene_loaded", self, "set_loaded_scene", [], CONNECT_REFERENCE_COUNTED)
-	
+
 
 func _exit_tree():
 	if loaded_scene != null and not loaded_scene.is_inside_tree():

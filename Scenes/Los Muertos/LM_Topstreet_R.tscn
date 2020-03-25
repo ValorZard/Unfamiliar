@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -7,6 +7,11 @@
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Arcade_Sign.png" type="Texture" id=5]
 [ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Kid1.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 40 )
@@ -33,6 +38,29 @@ tracks/0/keys = {
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 9, 8 )
+
+[sub_resource type="SpriteFrames" id=5]
+animations = [ {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -117,8 +145,20 @@ door_sound = ExtResource( 7 )
 [node name="CollisionShape2D" parent="Door3" index="0"]
 shape = SubResource( 4 )
 
+[node name="NPCKid" parent="." instance=ExtResource( 8 )]
+position = Vector2( 137, 63 )
+dialogue_file = "res://Dialogue/Los Muertos/dl_lm_kid1.txt"
+auto_advance_set = true
+set_limit = 1
+set_flag = "npc_lm_kid1"
+
+[node name="Sprite" parent="NPCKid" index="0"]
+frames = SubResource( 5 )
+
 [editable path="Transitions/Transition"]
 
 [editable path="Transitions/Transition2"]
 
 [editable path="Door3"]
+
+[editable path="NPCKid"]

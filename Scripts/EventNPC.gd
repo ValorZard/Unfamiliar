@@ -34,8 +34,8 @@ export(int, "Up", "Down", "Left", "Right") var required_direction := 0
 
 export(Array, AudioStream) var step_sounds_conc
 
-var idle_sprites: PoolStringArray = ["up", "down", "left", "right"]
-var walk_sprites: PoolStringArray = ["up_walk", "down_walk", "left_walk", "right_walk"]
+var idle_sprites: Array = ["up", "down", "left", "right"]
+var walk_sprites: Array = ["up_walk", "down_walk", "left_walk", "right_walk"]
 
 onready var spr: AnimatedSprite = $Sprite
 onready var interact: Sprite = $Interact

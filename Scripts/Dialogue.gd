@@ -23,7 +23,7 @@ const ChoiceStartX := 106
 const ChoiceStartY := 104
 const ChoiceSep := 40
 
-var text: PoolStringArray = []
+var text: Array = []
 var label_table := {}
 
 var page: int = 0
@@ -71,7 +71,7 @@ func _process(delta):
 			else:
 				end()
 			
-			if not ended:
+			if not ended and not roll:
 				start_roll()
 		elif not choice and not buffer_choice:
 			disp = len(text[page])
@@ -183,7 +183,7 @@ func advance_page():
 
 func show_choices():
 	var template: String = choice_regex_2.search(text[page]).get_string(2)
-	var buts: PoolStringArray = template.split("|")
+	var buts: Array = template.split("|")
 	var index := 0
 	for but in buts:
 		var result := choice_regex.search(String(but))
@@ -271,12 +271,15 @@ func operation_handling():
 
 func start_roll():
 	page_length = len(text[page])
-	insert_bbcode_tags()
+	if text[page][0] != "[":
+		insert_bbcode_tags()
+		
 	allow_advance = false
 	($Text as RichTextLabel).set_bbcode(text[page])
 	$TimerRollText.start()
 	buffer = true
 	$TimerBuffer.start()
+	roll = true
 
 
 func end():

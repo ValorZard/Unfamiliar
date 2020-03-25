@@ -11,19 +11,19 @@
 [ext_resource path="res://Audio/Music/charlotte-nights (TEMP).ogg" type="AudioStream" id=9]
 [ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=10]
 
-[sub_resource type="CanvasItemMaterial" id=36]
+[sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
 particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="CanvasItemMaterial" id=37]
+[sub_resource type="CanvasItemMaterial" id=2]
 particles_animation = true
 particles_anim_h_frames = 4
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="Animation" id=38]
+[sub_resource type="Animation" id=3]
 length = 4.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("FadeBase/Fade:color")
@@ -50,7 +50,7 @@ tracks/1/keys = {
 "values": [ Vector2( -250, 0 ), Vector2( 0, 0 ), Vector2( 250, 0 ) ]
 }
 
-[sub_resource type="Animation" id=39]
+[sub_resource type="Animation" id=4]
 resource_name = "Fadeout"
 length = 2.0
 tracks/0/type = "value"
@@ -78,12 +78,12 @@ tracks/1/keys = {
 "values": [ 3.0, -80.0 ]
 }
 
-[sub_resource type="Animation" id=40]
+[sub_resource type="Animation" id=5]
 
-[sub_resource type="Animation" id=41]
+[sub_resource type="Animation" id=6]
 length = 1.25
 
-[sub_resource type="Animation" id=42]
+[sub_resource type="Animation" id=7]
 length = 2.0
 loop = true
 tracks/0/type = "value"
@@ -207,7 +207,7 @@ tracks/9/keys = {
 "values": [ Vector2( 320, -270 ), Vector2( 320, -10 ) ]
 }
 
-[sub_resource type="Animation" id=43]
+[sub_resource type="Animation" id=8]
 length = 8.0
 loop = true
 tracks/0/type = "value"
@@ -299,7 +299,7 @@ __meta__ = {
 }
 
 [node name="PartsBg2" type="Particles2D" parent="."]
-material = SubResource( 36 )
+material = SubResource( 1 )
 position = Vector2( 160, 90 )
 lifetime = 1.5
 explosiveness = 0.3
@@ -308,7 +308,7 @@ process_material = ExtResource( 2 )
 texture = ExtResource( 3 )
 
 [node name="PartsBg" type="Particles2D" parent="."]
-material = SubResource( 37 )
+material = SubResource( 2 )
 position = Vector2( 160, 90 )
 amount = 12
 lifetime = 3.0
@@ -351,14 +351,14 @@ mouse_filter = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Fadein"
-anims/Fadein = SubResource( 38 )
-anims/Fadeout = SubResource( 39 )
+anims/Fadein = SubResource( 3 )
+anims/Fadeout = SubResource( 4 )
 
 [node name="AnimationPlayerLeftChar" type="AnimationPlayer" parent="."]
-anims/Movein = SubResource( 40 )
+anims/Movein = SubResource( 5 )
 
 [node name="AnimationPlayerRightChar" type="AnimationPlayer" parent="."]
-anims/Movein = SubResource( 41 )
+anims/Movein = SubResource( 6 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
@@ -475,11 +475,11 @@ align = 1
 [node name="AnimationPlayerWords" type="AnimationPlayer" parent="."]
 autoplay = "Words"
 playback_speed = 0.15
-anims/Words = SubResource( 42 )
+anims/Words = SubResource( 7 )
 
 [node name="AnimationPlayerBg" type="AnimationPlayer" parent="."]
 autoplay = "Bg"
-anims/Bg = SubResource( 43 )
+anims/Bg = SubResource( 8 )
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false

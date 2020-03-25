@@ -1,0 +1,45 @@
+> You're the first demon that's come into the store in a while.
+< Really?
+> Yeah. We don't see a lot of witches or familiars.
+@< sad2
+< What do you even $wsell $0in this shop? Arrows?
+> Well... the sign says "fletcher," but... that's just a name that's stuck around.
+@< idle
+> My uncle makes and sells a lot more than arrows now.
+> Of course, he's still making me start with fletching, because that's where it all began.
+< Hm...
+| 1
+========================
+<< So, Ravia...
+[ Why are you here with your uncle? (-20, -55) R_1_1 | What do you think of Los Muertos? (20, -5) R_1_2
+------------------------
+: R_1_1
+< Why are you here with your uncle?
+> ...
+> My parents sent me here.
+> They said I wasn't doing enough with my life.
+> I mean... I spent five years in college getting a bachelor's in anthropology, but that hasn't amounted to anything.
+> So they made me come and work under my uncle in Los Muertos until I can find a better job.
+> I think they just wanted me out of the house more than anything.
+@< sad
+< So you don't get along with your parents?
+> Not really. There's a lot of hot water between us.
+> Getting out of the house for a while might not have been the worst thing.
+@< idle
+< How's your uncle?
+> He's... all right?
+> He's kind of weird sometimes.
+> And he's $sextremely $0dedicated to his work.
+> Living up to his expectations isn't gonna be any easier than with my parents.
+> But he's nice enough. A lot more patient than my parents, that's for sure.
+> Still, though... this is gonna be a $wlong $0few months.
+------------------------
+: R_1_2
+< What do you think of Los Muertos?
+> I'm... not a fan.
+> I know some people like small, strange towns like this, but it's not my thing.
+> I don't have anything against witches or demons, though.
+> There's something really neat about seeing them walking around every day.
+> I just... kinda miss the big city.
+< Where are you from?
+> St. George. It's up north a ways.

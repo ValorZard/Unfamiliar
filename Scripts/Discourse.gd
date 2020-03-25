@@ -246,7 +246,7 @@ func parse_discourse_command(command: String):
 			"[": # Choice - FORMAT: [ `Choice text` (`x coord of choice`, `y coord of choice`) `LABEL_AT_START_OF_BRANCH` | for each choice
 				co_target = self
 				co_signal = "choice_clicked"
-				var buttons: PoolStringArray = text.split("|")
+				var buttons: Array = text.split("|")
 				text_controller.fade_screen(true)
 				var i: int = 0
 				for but in buttons:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -11,6 +11,8 @@
 [ext_resource path="res://Instances/Props/Prop_Streetlamp.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Mat.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Lamp.png" type="Texture" id=13]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -60,6 +62,16 @@ lifetime = 6.0
 process_material = ExtResource( 3 )
 texture = ExtResource( 4 )
 
+[node name="Lamp2" type="Sprite" parent="."]
+position = Vector2( 203, 84 )
+texture = ExtResource( 13 )
+centered = false
+
+[node name="Lamp3" type="Sprite" parent="."]
+position = Vector2( 203, 44 )
+texture = ExtResource( 13 )
+centered = false
+
 [node name="TileMap2" type="TileMap" parent="."]
 position = Vector2( 80, 18 )
 tile_set = ExtResource( 2 )
@@ -69,6 +81,17 @@ tile_data = PoolIntArray( 0, 18, 0, 1, 19, 0, 8, -536870882, 0, 9, 536870939, 0,
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Mat" type="Sprite" parent="."]
+position = Vector2( 194, 65 )
+texture = ExtResource( 12 )
+centered = false
+
+[node name="Mat2" type="Sprite" parent="."]
+position = Vector2( 100, 67 )
+rotation = 1.5708
+texture = ExtResource( 12 )
+centered = false
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6

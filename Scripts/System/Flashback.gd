@@ -8,8 +8,8 @@ var regex_pattern := "^(\\w+)\\s+(\\d)\\s+([0-9\\.]+)\\s+(.+)$"
 var regex := RegEx.new()
 
 var fb_file: String
-var fb_text: PoolStringArray = []
-var fb_names: PoolStringArray = []
+var fb_text: Array = []
+var fb_names: Array = []
 var fb_bools: PoolIntArray = []
 var fb_waits: PoolRealArray = []
 

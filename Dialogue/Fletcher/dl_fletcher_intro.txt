@@ -33,37 +33,38 @@ Pascal: Really?
 5
 Pascal: Oh, great...
 Pascal: Ravia, I have to go take that.
-Pascal: Keep the demon company for me.
+Pascal: Keep the demon company for me, would you?
 Ravia: Uh, I-
 -
 
-5
+6
 Ravia: Okay, then.
 -
 
-6
+7
 Ravia: Sorry about my uncle. He's... extremely on top of things.
 Ravia: He's trying to teach me about fletching. It's not going well.
 -
 
-7
+8
 Ravia: Not fond of talking, huh?
 -
 
-8
+9
 Cosmo: Sorry. I'm not great at talking.
-Ravia: Me neither. I'm probably even worse.
+Ravia: I'm not much better.
 Ravia: What's your name?
 Cosmo: I'm Cosmo.
 Ravia: I'm Ravia.
 -
 
-9
+10
 Ravia: So... you lost your witch, huh?
 Cosmo: Yeah. We got separated at the train station.
+Ravia: Oh.
 -
 
-10
+11
 Ravia: Must be scary to be alone in an unfamiliar city.
 Ravia: That's pretty much how I feel right now.
 Ravia: I have my uncle, but... he's not much reassurance.
@@ -72,15 +73,15 @@ Ravia: Nope.
 Cosmo: Why are you here helping him?
 -
 
-11
+12
 Ravia: It's a long story.
 -
 
-12
+13
 Cosmo: Want to talk about it?
 -
 
-13
+14
 Ravia: ...
 Ravia: Sure.
 Ravia: I've seen him on the phone before. We've got some time.

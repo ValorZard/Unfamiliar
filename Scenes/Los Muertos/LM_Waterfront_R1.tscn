@@ -190,7 +190,7 @@ shape = SubResource( 5 )
 [node name="Door" parent="." instance=ExtResource( 12 )]
 position = Vector2( 158, 66 )
 target_scene = "res://Scenes/Los Muertos/Library/LibraryEntrance.tscn"
-target_position = Vector2( 160, 142 )
+target_position = Vector2( 160, 138 )
 door_sound = ExtResource( 13 )
 
 [editable path="Transitions/Transition"]

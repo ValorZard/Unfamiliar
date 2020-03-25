@@ -24,6 +24,9 @@ enum Emote {Exclamation, Question, Interrobang}
 
 export(bool) var editor_mode := false
 
+export(float) var music_volume := 1.0
+export(float) var ambient_volume := 1.0
+
 #var inventory := []
 
 var flags: Dictionary = {
@@ -54,6 +57,7 @@ var flags: Dictionary = {
 	"npc_lm_pace": 0,
 	"npc_lm_keifer": 0,
 	"npc_lm_ariad": 0,
+	"npc_lm_kid1": 0,
 	"npc_ainsleys_paul": 0,
 	"npc_ainsleys_rhona": 0,
 	"npc_ainsleys_computer": 0,
@@ -215,6 +219,20 @@ func _process(delta: float):
 		if not editor_mode:
 			save_settings()
 		emit_signal("windowsize_changed", int(settings["window_size"]))
+		
+	music.set_volume_db(System.percent_to_db(music_volume))
+	ambient.set_volume_db(System.percent_to_db(ambient_volume))
+		
+#	if Input.is_action_just_pressed("sound_1"):
+#		play_sound_oneshot_from_path("res://Audio/Bell.ogg", 1.0, System.percent_to_db(0.05))
+#	if Input.is_action_just_pressed("sound_2"):
+#		play_sound_oneshot_from_path("res://Audio/Bell.ogg", 1.0, System.percent_to_db(0.8))
+#	if Input.is_action_just_pressed("sound_3"):
+#		play_sound_oneshot_from_path("res://Audio/Bell.ogg", 1.0, System.percent_to_db(0.6))
+#	if Input.is_action_just_pressed("sound_4"):
+#		play_sound_oneshot_from_path("res://Audio/Bell.ogg", 1.0, System.percent_to_db(0.4))
+#	if Input.is_action_just_pressed("sound_5"):
+#		play_sound_oneshot_from_path("res://Audio/Bell.ogg", 1.0, System.percent_to_db(0.2))
 
 # =====================================================================
 
