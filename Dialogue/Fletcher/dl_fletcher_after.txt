@@ -11,4 +11,27 @@ Pascal: Oh... the demon is still here?
 -
 
 2
-Ravia: 
+Ravia: Yeah.
+Ravia: Their name's Cosmo. We've been talking.
+Pascal: Oh. I should introduce myself.
+Pascal: I'm Pascal. Nice to meet you, Cosmo.
+-
+
+3
+Ravia: Who was that on the phone?
+Pascal: It was your parents.
+Ravia: ...
+Ravia: ...Really?
+Pascal: Yes.
+Pascal: They wanted to talk to you, but I heard you already talking to Cosmo.
+Pascal: So I told them you were busy.
+-
+
+4
+Ravia: Ugh...
+Ravia: What did they say?
+-
+
+5
+Pascal: They were just checking in.
+Pascal: They wanted to make sure you were doing all right.

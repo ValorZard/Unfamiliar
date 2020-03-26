@@ -23,7 +23,7 @@
 < It starts with the two of them giving each other a gift.
 @< idle
 < It doesn't have to be anything special. Just a little token of gratitude.
-< The familiar shows their witch thanks for summoning them into this world and granting them life.
+< The familiar shows their witch thanks for granting them life and protecting them.
 < And the witch shows their familiar thanks for serving them and being their companion.
 @< sad
 < Then they spend the rest of the day doing their favorite activities together.
@@ -118,6 +118,7 @@
 @< angry2
 < Yes!
 < It's just a thing that people can figure out.
+@< angry
 < I'm the same way.
 < You could take these horns off me, and people would still know I'm a demon.
 < Witches and demons just have an $sair $0to them.
@@ -136,7 +137,7 @@
 > And I'm sure she's fine.
 > I've visited Los Muertos a few times.
 > There are obviously some bad people here, but...
-> It's a city full of monsters, demons, and lots of witches. Most people here are probably fine with them.
+> It's a city $wfull $0of demons and witches. Most people here are probably fine with them.
 > And, I mean... she's a $wwitch. $0She can defend herself, right?
 < Well... yeah.
 > I think you should stop worrying.
@@ -157,6 +158,7 @@
 < And my witch knows it just as well as I do.
 < If she hasn't already stopped forgiving me, she's going to at some point.
 @< sad
+< ...
 < But I'm not letting myself not apologize.
 < Even if she doesn't forgive me.
 < Even if she hates me forever.
@@ -165,6 +167,7 @@
 > Cosmo, if you care this much about making things right, I don't think you're an awful familiar.
 < There's no need to make things right if you don't screw them up in the first place.
 > Cosmo, snap out of it!
+@< sad2
 < ...What?
 > You forgot one day of the year. You made a human mistake.
 @< sad
@@ -214,7 +217,7 @@
 > Any time.
 @< idle
 > You're not an abomination, Cosmo.
-> You're one of the most caring people I've met.
+> You're one of the most caring people I've ever met.
 > Your witch is really lucky to have you.
 @< sad
 < ...
