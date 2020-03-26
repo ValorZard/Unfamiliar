@@ -17,11 +17,6 @@ Witch: Yaga.
 Yaga: What do you want? I'm very busy.
 Cosmo: Doing what?
 Yaga: Waiting for my dinner.
-Cosmo: ...What are you eating for dinner?
-Yaga: Why do you care?
-Cosmo: ...
-Yaga: ...
-Yaga: A sandwich. Happy?
 -
 
 2
@@ -46,10 +41,11 @@ Yaga: Man... you're really persistent, kid.
 -
 
 7
+Yaga: Oh my god. WHAT do you want?
 Cosmo: ...
 Cosmo: Have you seen my witch?
 Yaga: Excuse me?
-Cosmo: She's wearing a bright yellow coat.
+Cosmo: I don't know where she is.
 Cosmo: If I don't find her soon, she'll be-
 Yaga: Wait. You're a familiar?
 Yaga: What are you doing away from your witch, hamster hair?

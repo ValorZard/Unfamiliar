@@ -6,6 +6,8 @@ signal event_ended
 
 export(bool) var in_npc := false
 export(bool) var autostart := false
+export(int,"None,Zero,Nonzero") var start_condition: int = 0
+export(String) var start_flag: String
 #export(bool) var destroy
 #export(String) var destroy_flag
 #export(bool) var auto_set_destroy := false
@@ -23,7 +25,15 @@ func _ready():
 	#	queue_free()
 	#elif autostart:
 	if autostart:
-		start_event()
+		match start_condition:
+			0:
+				start_event()
+			1:
+				if Controller.flag(start_flag) == 0:
+					start_event()
+			2:
+				if Controller.flag(start_flag) >= 0:
+					start_event()
 	
 # =====================================================================
 	

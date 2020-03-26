@@ -81,14 +81,14 @@ color_ramp = SubResource( 7 )
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 29 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -101,25 +101,25 @@ animations = [ {
 "name": "stand",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "down2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "sit_right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "down",
+"name": "down2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 29 ) ],
 "loop": true,
 "name": "right_walk",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=10]
@@ -323,24 +323,19 @@ extents = Vector2( 9, 8 )
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ ExtResource( 21 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "right",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 23 ) ],
 "loop": true,
 "name": "up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 22 ) ],
-"loop": true,
-"name": "down",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 21 ) ],
@@ -356,6 +351,11 @@ animations = [ {
 "frames": [ ExtResource( 22 ) ],
 "loop": true,
 "name": "down_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "down",
 "speed": 5.0
 } ]
 
@@ -459,19 +459,20 @@ centered = false
 [node name="Spout" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 45, -9 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 centered = false
 
 [node name="Spout2" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 26, -11 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 centered = false
 
 [node name="Spout3" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 51, -11 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 centered = false
 flip_h = true

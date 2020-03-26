@@ -21,8 +21,6 @@ Pascal: I'm Pascal. Nice to meet you, Cosmo.
 Ravia: Who was that on the phone?
 Pascal: It was your parents.
 Ravia: ...
-Ravia: ...Really?
-Pascal: Yes.
 Pascal: They wanted to talk to you, but I heard you already talking to Cosmo.
 Pascal: So I told them you were busy.
 -
@@ -35,3 +33,32 @@ Ravia: What did they say?
 5
 Pascal: They were just checking in.
 Pascal: They wanted to make sure you were doing all right.
+Ravia: ...
+Ravia: Oh.
+-
+
+6
+Pascal: Do you want to call them back?
+-
+
+7
+Ravia: Maybe later.
+-
+
+8
+Pascal: Well... should we get back to fletching?
+Ravia: ...Sure.
+-
+
+9
+Ravia: Looks like we're getting back to work.
+Ravia: Sorry we couldn't talk any longer.
+Cosmo: No worries.
+Ravia: I guess I'll see you around, then?
+Cosmo: Yeah.
+Ravia: Thanks again for the talk.
+Ravia: Good luck finding your witch.
+Cosmo: Thanks.
+Ravia: See you later.
+Cosmo: See you!
+-
