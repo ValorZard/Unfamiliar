@@ -41,7 +41,7 @@ Yaga: Man... you're really persistent, kid.
 -
 
 7
-Yaga: Oh my god. WHAT do you want?
+Yaga: What do you want?
 Cosmo: ...
 Cosmo: Have you seen my witch?
 Yaga: Excuse me?
@@ -64,40 +64,50 @@ Cosmo: We got separated because we had to get on different trains!
 9
 Yaga: Look, honeybucket. I don't have time to help you.
 Cosmo: Why not?
+-
+
+10
 Yaga: I said I'm busy, snake breath!
 Cosmo: All you're doing is eating dinner!
 -
 
-10
+11
 Yaga: I haven't eaten all day, halibut head!
 Yaga: Can't a witch enjoy something for once?
-Yaga: Everyone always tries to make me care about their stupid problems!
+-
+
+12
+Yaga: Everyone always tries to drag me into something stupid!
+Yaga: Guess what? I don't care about your stupid problems!
 Yaga: If you need a shoulder to cry on, then find your damn witch!
 Yaga: I've got much better things to do than help some demon jerk!
 -
 
-11
+13
 Yaga: ...
+-
+
+14
 Yaga: Ugh...
 Yaga: Sorry.
 Yaga: I didn't mean to make you upset.
 Cosmo: I'm sure you didn't.
 -
 
-12
+15
 Yaga: OK, don't get snide on me, hamster hair.
 -
 
-12
+16
 Cosmo: What's your problem?
 -
 
-13
+16
 Yaga: ...
 Yaga: I've got a lot of them.
 -
 
-14
+17
 Yaga: Look...
 Yaga: I might be able to help.
 Yaga: Just tell me about your witch.
