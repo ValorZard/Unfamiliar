@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Audio/Footsteps/Step1.ogg" type="AudioStream" id=2]
@@ -29,17 +29,18 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right_angry.png" type="Texture" id=27]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_stand1_look.png" type="Texture" id=28]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right_sad.png" type="Texture" id=29]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_crossarms.png" type="Texture" id=30]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "left",
-"speed": 0.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "right",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "left",
 "speed": 0.0
 }, {
 "frames": [ ExtResource( 9 ) ],
@@ -77,11 +78,6 @@ animations = [ {
 "name": "up_walk",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 29 ) ],
-"loop": true,
-"name": "right_sad",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "down_sad",
@@ -92,10 +88,10 @@ animations = [ {
 "name": "down",
 "speed": 0.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"frames": [ ExtResource( 29 ) ],
 "loop": true,
-"name": "down_walk",
-"speed": 7.0
+"name": "right_sad",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 23 ) ],
 "loop": true,
@@ -106,6 +102,16 @@ animations = [ {
 "loop": true,
 "name": "left_run",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "down_walk",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "down_crossarms",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]

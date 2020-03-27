@@ -78,7 +78,7 @@ Yaga: Can't a witch enjoy something for once?
 
 12
 Yaga: Everyone always tries to drag me into something stupid!
-Yaga: Guess what? I don't care about your stupid problems!
+Yaga: Well, guess what? I don't care about your stupid problems!
 Yaga: If you need a shoulder to cry on, then find your damn witch!
 Yaga: I've got much better things to do than help some demon jerk!
 -
@@ -91,25 +91,34 @@ Yaga: ...
 Yaga: Ugh...
 Yaga: Sorry.
 Yaga: I didn't mean to make you upset.
-Cosmo: I'm sure you didn't.
 -
 
 15
+Cosmo: I'm sure you didn't.
+-
+
+16
 Yaga: OK, don't get snide on me, hamster hair.
 -
 
-16
-Cosmo: What's your problem?
--
-
-16
-Yaga: ...
-Yaga: I've got a lot of them.
--
-
 17
+Cosmo: You know what? Forget it.
+Cosmo: I'll find my witch myself.
+Cosmo: I'm sorry I bothered you.
+-
+
+18
+Yaga: Wait, honeybucket.
+-
+
+19
+Cosmo: ...
+-
+
+20
 Yaga: Look...
 Yaga: I might be able to help.
 Yaga: Just tell me about your witch.
-Yaga: This place's sandwiches are garbage, anyway. I can wait on eating dinner.
+Yaga: This place's sandwiches are garbage, anyway.
+Yaga: I can wait on eating dinner.
 -
