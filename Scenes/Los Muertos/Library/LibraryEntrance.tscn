@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -12,23 +12,24 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=11]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Instances/Props/Prop_Clock.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 8 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 16, 12 )
 
-[sub_resource type="RectangleShape2D" id=15]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 16, 40 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 18, 8 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 16, 8 )
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=6]
 animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
@@ -51,35 +52,8 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 6, 3 )
-
-[sub_resource type="Animation" id=7]
-loop = true
-tracks/0/type = "value"
-tracks/0/path = NodePath("Interact:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 0, 1, 2, 3 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Interact:position")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5, 1 ),
-"transitions": PoolRealArray( 1, 1, 0.5 ),
-"update": 0,
-"values": [ Vector2( 0, -14 ), Vector2( 0, -16 ), Vector2( 0, -14 ) ]
-}
 
 [sub_resource type="Animation" id=8]
 loop = true
@@ -243,7 +217,34 @@ tracks/1/keys = {
 "values": [ Vector2( 0, -14 ), Vector2( 0, -16 ), Vector2( 0, -14 ) ]
 }
 
-[sub_resource type="SpriteFrames" id=16]
+[sub_resource type="Animation" id=14]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Interact:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Interact:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 0.5 ),
+"update": 0,
+"values": [ Vector2( 0, -14 ), Vector2( 0, -16 ), Vector2( 0, -14 ) ]
+}
+
+[sub_resource type="SpriteFrames" id=15]
 animations = [ {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
@@ -266,7 +267,7 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=17]
+[sub_resource type="Animation" id=16]
 resource_name = "Event"
 length = 0.5
 tracks/0/type = "method"
@@ -323,6 +324,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Clock" parent="." instance=ExtResource( 13 )]
+position = Vector2( 99, 20 )
+
 [node name="Walls" type="StaticBody2D" parent="."]
 z_index = 2100
 
@@ -340,19 +344,19 @@ shape = SubResource( 1 )
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 240, 142 )
-shape = SubResource( 14 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 80, 142 )
-shape = SubResource( 14 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 80, 58 )
-shape = SubResource( 15 )
+shape = SubResource( 3 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Walls"]
 position = Vector2( 240, 58 )
-shape = SubResource( 15 )
+shape = SubResource( 3 )
 
 [node name="Bookcase" type="StaticBody2D" parent="."]
 position = Vector2( 185, 30 )
@@ -366,7 +370,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bookcase"]
 position = Vector2( 18, 22 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Bookcase2" type="StaticBody2D" parent="."]
 position = Vector2( 185, 142 )
@@ -381,7 +385,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bookcase2"]
 position = Vector2( 18, 22 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Bookcase3" type="StaticBody2D" parent="."]
 position = Vector2( 104, 142 )
@@ -396,7 +400,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Bookcase3"]
 position = Vector2( 18, 22 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Door" parent="." instance=ExtResource( 8 )]
 position = Vector2( 160, 162 )
@@ -406,7 +410,7 @@ target_direction = 1
 door_sound = ExtResource( 9 )
 
 [node name="CollisionShape2D" parent="Door" index="0"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="NPCPoem1" parent="." instance=ExtResource( 4 )]
 position = Vector2( 120, 77 )
@@ -419,11 +423,11 @@ alt_text_box = true
 require_direction = true
 
 [node name="Sprite" parent="NPCPoem1" index="0"]
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="NPCPoem1/InteractArea" index="0"]
 position = Vector2( 1, -6 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D" parent="NPCPoem1" index="3"]
 position = Vector2( 1, 8 )
@@ -439,17 +443,17 @@ alt_text_box = true
 require_direction = true
 
 [node name="Sprite" parent="NPCPoem2" index="0"]
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="NPCPoem2/InteractArea" index="0"]
 position = Vector2( 1, -6 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D" parent="NPCPoem2" index="3"]
 position = Vector2( 1, 8 )
 
 [node name="AnimationPlayer" parent="NPCPoem2" index="4"]
-anims/Interact = SubResource( 7 )
+anims/Interact = SubResource( 8 )
 
 [node name="NPCPoem3" parent="." instance=ExtResource( 4 )]
 position = Vector2( 175, 77 )
@@ -462,17 +466,17 @@ alt_text_box = true
 require_direction = true
 
 [node name="Sprite" parent="NPCPoem3" index="0"]
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="NPCPoem3/InteractArea" index="0"]
 position = Vector2( 1, -6 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D" parent="NPCPoem3" index="3"]
 position = Vector2( 1, 8 )
 
 [node name="AnimationPlayer" parent="NPCPoem3" index="4"]
-anims/Interact = SubResource( 8 )
+anims/Interact = SubResource( 9 )
 
 [node name="NPCPoem4" parent="." instance=ExtResource( 4 )]
 position = Vector2( 199, 77 )
@@ -485,17 +489,17 @@ alt_text_box = true
 require_direction = true
 
 [node name="Sprite" parent="NPCPoem4" index="0"]
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="NPCPoem4/InteractArea" index="0"]
 position = Vector2( 1, -6 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D" parent="NPCPoem4" index="3"]
 position = Vector2( 1, 8 )
 
 [node name="AnimationPlayer" parent="NPCPoem4" index="4"]
-anims/Interact = SubResource( 9 )
+anims/Interact = SubResource( 10 )
 
 [node name="NPCPoem8" parent="." instance=ExtResource( 4 )]
 position = Vector2( 120, 117 )
@@ -508,17 +512,17 @@ alt_text_box = true
 require_direction = true
 
 [node name="Sprite" parent="NPCPoem8" index="0"]
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="NPCPoem8/InteractArea" index="0"]
 position = Vector2( 1, -6 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D" parent="NPCPoem8" index="3"]
 position = Vector2( 1, 8 )
 
 [node name="AnimationPlayer" parent="NPCPoem8" index="4"]
-anims/Interact = SubResource( 10 )
+anims/Interact = SubResource( 11 )
 
 [node name="NPCPoem7" parent="." instance=ExtResource( 4 )]
 position = Vector2( 144, 117 )
@@ -531,17 +535,17 @@ alt_text_box = true
 require_direction = true
 
 [node name="Sprite" parent="NPCPoem7" index="0"]
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="NPCPoem7/InteractArea" index="0"]
 position = Vector2( 1, -6 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D" parent="NPCPoem7" index="3"]
 position = Vector2( 1, 8 )
 
 [node name="AnimationPlayer" parent="NPCPoem7" index="4"]
-anims/Interact = SubResource( 11 )
+anims/Interact = SubResource( 12 )
 
 [node name="NPCPoem6" parent="." instance=ExtResource( 4 )]
 position = Vector2( 175, 117 )
@@ -554,17 +558,17 @@ alt_text_box = true
 require_direction = true
 
 [node name="Sprite" parent="NPCPoem6" index="0"]
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="NPCPoem6/InteractArea" index="0"]
 position = Vector2( 1, -6 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D" parent="NPCPoem6" index="3"]
 position = Vector2( 1, 8 )
 
 [node name="AnimationPlayer" parent="NPCPoem6" index="4"]
-anims/Interact = SubResource( 12 )
+anims/Interact = SubResource( 13 )
 
 [node name="NPCPoem5" parent="." instance=ExtResource( 4 )]
 position = Vector2( 199, 117 )
@@ -577,17 +581,17 @@ alt_text_box = true
 require_direction = true
 
 [node name="Sprite" parent="NPCPoem5" index="0"]
-frames = SubResource( 5 )
+frames = SubResource( 6 )
 
 [node name="CollisionShape2D" parent="NPCPoem5/InteractArea" index="0"]
 position = Vector2( 1, -6 )
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="CollisionShape2D" parent="NPCPoem5" index="3"]
 position = Vector2( 1, 8 )
 
 [node name="AnimationPlayer" parent="NPCPoem5" index="4"]
-anims/Interact = SubResource( 13 )
+anims/Interact = SubResource( 14 )
 
 [node name="EventNPCBook" parent="." instance=ExtResource( 12 )]
 position = Vector2( 213, 43 )
@@ -597,13 +601,13 @@ is_object = true
 require_direction = true
 
 [node name="Sprite" parent="EventNPCBook" index="0"]
-frames = SubResource( 16 )
+frames = SubResource( 15 )
 
 [node name="CollisionShape2D" parent="EventNPCBook" index="3"]
 disabled = true
 
 [node name="AnimationPlayer" parent="EventNPCBook/Event" index="0"]
-anims/Event = SubResource( 17 )
+anims/Event = SubResource( 16 )
 
 [editable path="Door"]
 

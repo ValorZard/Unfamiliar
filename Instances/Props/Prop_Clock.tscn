@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Sprites/Props/Interiors/IN_Clock_7.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/System/Clock.gd" type="Script" id=2]
+
+[node name="Clock" type="Sprite"]
+position = Vector2( 112, 21 )
+texture = ExtResource( 1 )
+centered = false
+script = ExtResource( 2 )

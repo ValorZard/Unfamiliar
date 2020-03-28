@@ -167,6 +167,10 @@ func _event_play_ambient(amb: AudioStream, pitch: float = 1.0, volume: int = 0):
 
 func _event_add_money(amount: int):
 	Controller.add_money(amount)
+	
+	
+func _event_advance_game_time():
+	Controller.advance_game_time()
 
 # =====================================================================
 

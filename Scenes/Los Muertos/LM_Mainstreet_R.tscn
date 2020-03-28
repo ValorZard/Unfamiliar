@@ -46,9 +46,12 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0.7, 0.9, 1.4, 1.6, 2, 2.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.7, 0.9, 1.4, 1.6, 2, 2.2 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
+"args": [  ],
+"method": "_event_advance_game_time"
+}, {
 "args": [ "res://Dialogue/Los Muertos/dl_lm_kiefer.txt", 1 ],
 "method": "_event_dialogue"
 }, {
