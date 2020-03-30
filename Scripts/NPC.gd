@@ -7,6 +7,7 @@ enum NPCDirection { Up, Down, Left, Right }
 
 export(String, FILE, "*.txt") var dialogue_file
 export(NPCDirection) var start_direction = NPCDirection.Down
+export(bool) var can_talk_to := true
 export(bool) var change_direction := true
 export(bool) var revert_direction := false
 export(bool) var auto_advance_set := false
@@ -19,13 +20,13 @@ export(bool) var alt_text_box := false
 
 export(NPCDirection) var face := NPCDirection.Down
 
+var sprite_override := false
+
 export(bool) var require_direction := false
 export(int, "Up", "Down", "Left", "Right") var required_direction := 0
 
 var in_range := false
 var can_interact := false
-
-var can_talk_to := true
 
 var dialogue_set: int = 0
 
@@ -47,7 +48,8 @@ func _ready():
 func _process(delta):
 	set_z_index(int(get_position().y))
 	
-	_sprite_management()
+	if not sprite_override:
+		_sprite_management()
 	
 	if Input.is_action_just_pressed("sys_action") and in_range and can_interact and Player.get_state() == Player.PlayerState.Move:
 		if is_object:
@@ -82,6 +84,10 @@ func _process(delta):
 
 func set_can_talk_to(value: bool):
 	can_talk_to = value
+	
+	
+func set_sprite_override(value: bool):
+	sprite_override = value
 		
 # =====================================================================
 
