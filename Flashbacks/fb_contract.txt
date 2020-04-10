@@ -15,7 +15,7 @@ Cosmo 0 0 ...
 Cosmo 0 2 Right.
 Cosmo 0 0.3 What's your name?
 nil 0 0 I'm your witch. I can't tell you my name.
-nil 0 0.5 It's too dangerous.
+nil 0 0.5 That's not how it works.
 Cosmo 0 1 Oh... okay.
 Cosmo 0 0.3 You're supposed to give me a name, right?
 nil 0 1 Yes.

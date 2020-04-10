@@ -1,0 +1,20 @@
+0
+Cosmo: ...
+Cosmo: Wow... it's this late already?
+-
+
+1
+Cosmo: ...
+-
+
+2
+? npc_inn_chip 0 BRANCH_2
+: BRANCH_1
+Cosmo: I should head back to the inn.
+Cosmo: Maybe she'll be there by now.
+^ BRANCH_END
+: BRANCH_2
+Cosmo: I should find the inn.
+Cosmo: Maybe that's where she is.
+: BRANCH_END
+-

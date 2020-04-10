@@ -414,16 +414,32 @@
 < Part of that contract requires the familiar to never learn the witch's name.
 @< explain
 < If the familiar does learn their witch's name, that contract is instantly dissolved.
-@< idle
-< Then the familiar can ignore the witch's orders, and the bond between them is broken.
-@< explain
-< Oh, and another thing: When the contract is dissolved, the familiar loses their ability to use magic.
-@> shock
-> Really?
-@> serious
-@< idle
-< Yeah. The same thing happens when a witch dies. The contract is what gives a familiar their power.
 @< sad
+< And when that happens...
+< ...
+< It kills the familiar.
+@> shock
+> $sWhat?!
+@< idle
+@> serious
+< If a witch dies or breaks the contract voluntarily, that doesn't happen.
+< Although... instead, the familiar loses their ability to use magic.
+< The contract is what gives them their power.
+@< sad
+< But if the contract is broken incorrectly, the magic holding a familiar together can't handle it.
+@> sad
+< And so the familiar's physical form dissolves.
+< All that's left is the fragment of the witch's soul they were created from.
+> ...
+@> angry
+> That's ridiculous.
+> That sounds like something someone made up.
+@< angry
+< It's not made up!
+@> serious
+< It's stupid and it makes no sense, but it's true!
+@< sad
+< And there's nothing I can do about it.
 < So... I'm never going to get to learn my witch's name.
 < I don't know why it works like that, but that's the way it is.
 @> sad
@@ -527,7 +543,7 @@
 < It took me forever to learn everything I needed to learn to help my witch.
 < And I $sstill $0screw up all the time.
 < I have a terrible memory. I always forget things.
-< And she gets mad at me every time.
+< I don't know why. I'm just terrible at doing the things a familiar does.
 @< cry
 < It's hard not to think I'm not good enough for her.
 < That I'm just a waste of space.

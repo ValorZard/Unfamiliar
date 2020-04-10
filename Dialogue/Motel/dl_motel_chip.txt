@@ -54,7 +54,7 @@ Chip: Sure thing. That'll be $10.
 -
 
 6
-Chip: Thank you very much! Here's your room key.
+Chip: Thank you very much. Here's your room key.
 -
 
 7
@@ -64,14 +64,15 @@ Cosmo: All right. Thanks.
 -
 
 8
-Chip: Have a good evening!
+Chip: Have a good evening.
 -
 
 9
 Chip: Good morning.
 Chip: Did you sleep well?
 Cosmo: ...Yeah.
-Chip: Good! Thanks for staying with us.
+Chip: That's good.
+Chip: Thanks for staying with us.
 Chip: Have a positively outrageous day.
 -
 
