@@ -35,6 +35,7 @@ var flags: Dictionary = {
 	# ========================================
 	"story_day1_d_ariad_1": 0,
 	"story_day1_d_ariad_2": 0,
+	"story_day1_discourses": 0,
 	"story_day1_discourses_finished": 0,
 	# ========================================
 	# SCENES
@@ -659,8 +660,8 @@ func dialogue(file: String, set: int, alt_box_type: bool = false, text_size: int
 	dlg.set_text_speed(text_speed_ow)
 	if alt_box_type:
 		dlg.set_alt_box_texture()
-	dlg.start(file, set, reset_state)
 	get_tree().get_root().add_child(dlg)
+	dlg.start(file, set, reset_state)
 	return dlg
 	
 	

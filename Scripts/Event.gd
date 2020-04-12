@@ -53,11 +53,22 @@ func start_event(index: int = 0, position: float = 0.0):
 
 func _event_set_flag(key: String, value: int):
 	Controller.set_flag(key, value)
+	
+	
+func _event_increment_flag(key: String):
+	var val: int = Controller.flag(key)
+	Controller.set_flag(key, val + 1)
+	
+	
+func _event_conditional_jump(flag: String, value: int, time: float, not_equal: bool = false):
+	if not_equal and Controller.flag(flag) != value:
+		anim_player.seek(time)
+	elif not not_equal and Controller.flag(flag) == value:
+		anim_player.seek(time)
 
 
 func _event_show_player(show: bool):
 	Player.set_visible(show)
-	
 	
 func _event_set_player_direction(direction: int):
 	Player.set_sprite_override(false)

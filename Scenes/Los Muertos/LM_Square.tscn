@@ -81,14 +81,14 @@ color_ramp = SubResource( 7 )
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ ExtResource( 29 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -101,29 +101,29 @@ animations = [ {
 "name": "sit_right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "down2",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 27 ) ],
 "loop": false,
 "name": "stand",
 "speed": 10.0
 }, {
-"frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 29 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "right_walk",
-"speed": 7.0
+"name": "down2",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "right_walk",
+"speed": 7.0
 } ]
 
 [sub_resource type="Animation" id=10]
-length = 16.0
+length = 18.2
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -131,8 +131,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2, 0.6, 1, 1.4, 2, 2.2, 2.4, 2.6, 3, 3.8, 4.2, 4.8, 5.8, 6.2, 7.5, 8, 9.5, 10, 10.2, 11, 11.6, 13.3, 14, 14.5, 15.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.2, 0.6, 1, 1.4, 2, 2.2, 2.4, 2.6, 3, 3.8, 4.2, 4.8, 5.8, 6.2, 7.5, 8, 9.5, 10, 10.2, 11, 11.6, 13.3, 14, 14.5, 15.9, 16.2, 16.5, 16.7, 17.1, 17.7, 17.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ "res://Dialogue/Los Muertos/dl_lm_ariad.txt", 0 ],
 "method": "_event_dialogue"
@@ -211,6 +211,24 @@ tracks/0/keys = {
 }, {
 "args": [ "story_day1_d_ariad_2", 1 ],
 "method": "_event_set_flag"
+}, {
+"args": [ "story_day1_discourses", 4, 18.0, true ],
+"method": "_event_conditional_jump"
+}, {
+"args": [ 1 ],
+"method": "_event_set_player_direction"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_day1end.txt", 0 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_day1end.txt", 1 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_day1end.txt", 2 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "story_day1_discourses_finished", 1 ],
+"method": "_event_set_flag"
 } ]
 }
 tracks/1/type = "method"
@@ -220,7 +238,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.8, 2.3, 7.3, 7.4, 16 ),
+"times": PoolRealArray( 0, 0.1, 0.8, 2.3, 7.3, 7.4, 18.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ false ],
@@ -301,7 +319,7 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 7.3, 8.9, 10.3, 16 ),
+"times": PoolRealArray( 7.3, 8.9, 10.3, 18.2 ),
 "transitions": PoolRealArray( 1, 1, 1, 1 ),
 "values": [ {
 "args": [ 1 ],
@@ -324,11 +342,20 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 16, 17, 17.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "_event_advance_game_time"
+}, {
+"args": [ "story_day1_discourses" ],
+"method": "_event_increment_flag"
+}, {
+"args": [ "down_sad" ],
+"method": "_event_player_play_animation"
+}, {
+"args": [ false ],
+"method": "_event_player_sprite_override"
 } ]
 }
 
@@ -337,14 +364,14 @@ extents = Vector2( 9, 8 )
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ ExtResource( 20 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 23 ) ],
@@ -357,9 +384,9 @@ animations = [ {
 "name": "down_walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 20 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
-"name": "right_walk",
+"name": "left_walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 22 ) ],
@@ -367,9 +394,9 @@ animations = [ {
 "name": "down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ) ],
+"frames": [ ExtResource( 20 ) ],
 "loop": true,
-"name": "left_walk",
+"name": "right_walk",
 "speed": 5.0
 } ]
 
@@ -473,20 +500,19 @@ centered = false
 [node name="Spout" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 45, -9 )
 frames = SubResource( 4 )
-frame = 1
 playing = true
 centered = false
 
 [node name="Spout2" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 26, -11 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 centered = false
 
 [node name="Spout3" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 51, -11 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 centered = false
 flip_h = true
