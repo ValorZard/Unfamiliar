@@ -513,19 +513,9 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 33 ) ],
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "left_angry",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 28 ) ],
-"loop": true,
-"name": "left_walk_sandwich",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
-"loop": false,
-"name": "left_tableslam",
+"name": "down",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 27 ) ],
@@ -533,20 +523,30 @@ animations = [ {
 "name": "left_walk",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 23 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 22 ) ],
 "loop": true,
 "name": "right_walk",
 "speed": 7.0
 }, {
+"frames": [ ExtResource( 33 ) ],
+"loop": true,
+"name": "left_angry",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": false,
+"name": "left_tableslam",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 28 ) ],
 "loop": true,
 "name": "left_sandwich",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "left_walk_sandwich",
+"speed": 7.0
 } ]
 
 [node name="Scene" type="Node2D"]

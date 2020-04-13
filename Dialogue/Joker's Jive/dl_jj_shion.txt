@@ -1,0 +1,62 @@
+0
+Familiar: Um... hi!
+? met_shion 1 BRANCH_1
+Cosmo: Hey. How's it going?
+Familiar: Fine. You?
+Cosmo: Could be worse.
+^ BRANCH_END
+: BRANCH_1
+Cosmo: Oh, hey! You're the person I saw at the train station.
+Familiar: ...Am I? I don't recognize you.
+Cosmo: Oh. Maybe you didn't notice me.
+Cosmo: You were kinda... staring off over the river.
+Familiar: Oh... yeah. Don't worry about that.
+Familiar: I was just thinking about some stuff.
+: BRANCH_END
+Cosmo: What's your name?
+Familiar: Shion.
+Cosmo: Hey. I'm Cosmo.
+-
+
+1
+Cosmo: Are you a familiar?
+Shion: Yep.
+Shion: Are you?
+Cosmo: Yep!
+Shion: Oh, wow. There are a lot of familiars in this town.
+Shion: Makes sense, I guess.
+-
+
+2
+Cosmo: Where's your witch?
+Shion: At home. I went out by myself tonight.
+Shion: I needed some time away from her.
+Cosmo: Oh...
+-
+
+3
+Cosmo: I don't know where my witch is.
+Cosmo: She got here way before me. I've been looking for her.
+Shion: Oh.
+Shion: I can help you find her, if you want.
+Cosmo: No... that's fine. I wouldn't want to drag you into it.
+Shion: All right. If you say so.
+-
+
+4
+Shion: I'll probably be here for a while.
+Shion: I'm still thinking about some things.
+Shion: Good luck finding your witch, though!
+Cosmo: Thanks.
+-
+
+5
+Shion: ...
+Shion: What do they remind me of?
+Cosmo: Huh?
+Shion: Oh! Nothing. Just talking to myself.
+-
+
+6
+Shion: Hm...
+-

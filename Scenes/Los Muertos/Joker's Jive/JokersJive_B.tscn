@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -13,6 +13,11 @@
 [ext_resource path="res://Sprites/Props/Interiors/IN_Mug.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Props/Interiors/IN_CafeChair.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Props/Interiors/IN_CafeRepository.png" type="Texture" id=13]
+[ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Sprites/Props/Interiors/IN_CafeChair2.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/Characters (Overworld)/Shion/Shion_ow_down.png" type="Texture" id=16]
+[ext_resource path="res://Sprites/Characters (Overworld)/Shion/Shion_ow_down_lookleft.png" type="Texture" id=17]
+[ext_resource path="res://Sprites/Characters (Overworld)/Shion/Shion_ow_down_lookright.png" type="Texture" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 4 )
@@ -37,6 +42,95 @@ extents = Vector2( 5, 5 )
 
 [sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 7, 15 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="Animation" id=10]
+resource_name = "Event"
+length = 1.5
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.7, 1, 1.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Joker's Jive/dl_jj_shion.txt", 0 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Joker's Jive/dl_jj_shion.txt", 1 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Joker's Jive/dl_jj_shion.txt", 2 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Joker's Jive/dl_jj_shion.txt", 3 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Joker's Jive/dl_jj_shion.txt", 4 ],
+"method": "_event_dialogue"
+} ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "Event2"
+length = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Joker's Jive/dl_jj_shion.txt", 5 ],
+"method": "_event_dialogue"
+} ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "Event3"
+length = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Joker's Jive/dl_jj_shion.txt", 6 ],
+"method": "_event_dialogue"
+} ]
+}
 
 [node name="Scene" type="Node2D"]
 
@@ -116,6 +210,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Table"]
 texture = ExtResource( 7 )
@@ -137,6 +232,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Table2"]
 texture = ExtResource( 7 )
@@ -160,6 +256,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Table3"]
 texture = ExtResource( 7 )
@@ -186,6 +283,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Chair"]
 texture = ExtResource( 12 )
@@ -203,6 +301,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Chair2"]
 texture = ExtResource( 12 )
@@ -219,6 +318,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Chair5"]
 texture = ExtResource( 12 )
@@ -235,6 +335,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Chair3"]
 texture = ExtResource( 12 )
@@ -245,6 +346,24 @@ flip_h = true
 position = Vector2( 5, 14 )
 shape = SubResource( 7 )
 
+[node name="Chair6" type="StaticBody2D" parent="."]
+position = Vector2( 117, 46 )
+z_index = 46
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_group_": true
+}
+height_add = 0
+
+[node name="Sprite" type="Sprite" parent="Chair6"]
+texture = ExtResource( 15 )
+centered = false
+flip_h = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Chair6"]
+position = Vector2( 5, 14 )
+shape = SubResource( 7 )
+
 [node name="Chair4" type="StaticBody2D" parent="."]
 position = Vector2( 120, 115 )
 z_index = 115
@@ -252,6 +371,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Chair4"]
 texture = ExtResource( 12 )
@@ -269,6 +389,7 @@ script = ExtResource( 6 )
 __meta__ = {
 "_edit_group_": true
 }
+height_add = 0
 
 [node name="Sprite" type="Sprite" parent="Repository"]
 texture = ExtResource( 13 )
@@ -278,6 +399,26 @@ centered = false
 position = Vector2( 7, 20 )
 shape = SubResource( 8 )
 
+[node name="EventNPCShion" parent="." instance=ExtResource( 14 )]
+position = Vector2( 122, 56 )
+set_limit = 2
+set_flag = "npc_jj_shion"
+
+[node name="Sprite" parent="EventNPCShion" index="0"]
+frames = SubResource( 9 )
+
+[node name="CollisionShape2D" parent="EventNPCShion" index="3"]
+disabled = true
+
+[node name="AnimationPlayer" parent="EventNPCShion/Event" index="0"]
+anims/Event = SubResource( 10 )
+anims/Event2 = SubResource( 11 )
+anims/Event3 = SubResource( 12 )
+
 [editable path="Door"]
 
 [editable path="Transitions/Transition"]
+
+[editable path="EventNPCShion"]
+
+[editable path="EventNPCShion/Event"]

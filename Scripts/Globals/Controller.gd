@@ -57,6 +57,7 @@ var flags: Dictionary = {
 	"npc_train_conductor": 0,
 	# ----------------------------------------
 	"npc_lm_guide": 0,
+	"npc_lm_shion": 0,
 	"npc_lm_pace": 0,
 	"npc_lm_keifer": 0,
 	"npc_lm_ariad": 0,
@@ -70,6 +71,7 @@ var flags: Dictionary = {
 	"npc_jj_jenet": 0,
 	"npc_jj_dartguy": 0,
 	"npc_jj_witch": 0,
+	"npc_jj_shion": 0,
 	"npc_deli_imp1": 0,
 	"npc_deli_imp2": 0,
 	# ----------------------------------------
@@ -90,6 +92,7 @@ var flags: Dictionary = {
 	# MISCELLANEOUS STUFF
 	# ========================================
 	"gave_conductor_tip": 0,
+	"met_shion": 0,
 }
 
 var settings: Dictionary = {
