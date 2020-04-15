@@ -8,6 +8,7 @@ enum NPCDirection { Up, Down, Left, Right }
 
 export(NPCDirection) var start_direction = NPCDirection.Down
 export(bool) var change_direction := true
+export(bool) var revert_direction := false
 export(bool) var auto_advance_set := false
 export(int) var set_limit := 0
 export(String) var set_flag
@@ -65,6 +66,7 @@ func _process(delta):
 		else:
 			interact.hide()
 			
+		var previous_face := face
 		if change_direction:
 			_face_player()
 
@@ -74,6 +76,10 @@ func _process(delta):
 			dialogue_set += 1
 		if auto_set_flag:
 			Controller.set_flag(set_flag, dialogue_set)
+			
+		if revert_direction:
+			face = previous_face
+			
 		if is_object:
 			Player.show_interact(true)
 		else:

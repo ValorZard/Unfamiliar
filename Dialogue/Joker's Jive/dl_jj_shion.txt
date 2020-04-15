@@ -29,6 +29,9 @@ Shion: Makes sense, I guess.
 
 2
 Cosmo: Where's your witch?
+-
+
+7
 Shion: At home. I went out by myself tonight.
 Shion: I needed some time away from her.
 Cosmo: Oh...
@@ -54,6 +57,9 @@ Cosmo: Thanks.
 Shion: ...
 Shion: What do they remind me of?
 Cosmo: Huh?
+-
+
+8
 Shion: Oh! Nothing. Just talking to myself.
 -
 

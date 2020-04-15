@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Sewer.ogg-630bd7e6c66e03eb6f3ce55b87f7791a.oggstr"
+
+[deps]
+
+source_file="res://Audio/Ambient/Sewer.ogg"
+dest_files=[ "res://.import/Sewer.ogg-630bd7e6c66e03eb6f3ce55b87f7791a.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

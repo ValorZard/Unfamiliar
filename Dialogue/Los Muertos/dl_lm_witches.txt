@@ -24,7 +24,7 @@ Witch A: Is she interested in being a witch?
 Witch B: To be honest, I've hardly asked her.
 Witch B: I think she likes the idea of having a familiar.
 Witch B: She isn't great at making friends...
-Witch B: She's said that a familiar could be her best friend.
+Witch B: She said she thinks a familiar could be her best friend.
 Witch A: Is that... healthy for her?
 Witch B: What?
 Witch A: To make friends with her familiar instead of other people?
