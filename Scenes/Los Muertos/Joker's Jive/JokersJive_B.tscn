@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Shion/Shion_ow_down_lookleft.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/Characters (Overworld)/Shion/Shion_ow_down_lookright.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Characters (Overworld)/Shion/Shion_ow_down2.png" type="Texture" id=19]
+[ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 48, 4 )
@@ -500,6 +501,11 @@ disabled = true
 anims/Event = SubResource( 10 )
 anims/Event2 = SubResource( 11 )
 anims/Event3 = SubResource( 12 )
+
+[node name="DestroyOnFlag" parent="EventNPCShion" instance=ExtResource( 20 )]
+flag = "story_day1_discourses"
+condition = 2
+value = 1
 
 [editable path="Door"]
 
