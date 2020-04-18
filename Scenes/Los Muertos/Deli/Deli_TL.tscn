@@ -133,6 +133,11 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "sit",
@@ -142,15 +147,10 @@ animations = [ {
 "loop": true,
 "name": "sit_look",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
 } ]
 
 [sub_resource type="Animation" id=14]
-length = 32.0
+length = 34.0
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -158,8 +158,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 1, 3, 3.5, 3.8, 4.2, 4.4, 5.4, 6.8, 8, 9.6, 9.9, 10, 10.2, 10.3, 10.4, 10.5, 11.7, 12.2, 12.8, 12.9, 13, 14.5, 14.6, 14.7, 15.8, 16.2, 16.4, 16.5, 16.8, 17.2, 17.4, 17.7, 18.1, 18.2, 18.8, 18.9, 19.6, 20.5, 21.5, 22.7, 24.9, 25.1, 25.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 1, 3, 3.5, 3.8, 4.2, 4.4, 5.4, 6.8, 8, 9.6, 9.9, 10, 10.2, 10.3, 10.4, 10.5, 11.7, 12.2, 12.8, 12.9, 13, 14.5, 14.6, 14.7, 15.8, 16.2, 16.4, 16.5, 16.8, 17.2, 17.4, 17.7, 18.1, 18.2, 18.8, 18.9, 19.6, 20.5, 21.5, 22.7, 24.9, 25.1, 25.6, 26, 26.3, 26.7, 27.3, 27.4, 28, 29, 29.4, 29.7, 29.8, 30.1, 30.4, 31, 31.4, 31.8, 31.9, 32.1, 32.3, 32.5, 32.9, 33.5, 33.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ "scn_deli_yaga", 1 ],
 "method": "_event_set_flag"
@@ -295,6 +295,72 @@ tracks/0/keys = {
 }, {
 "args": [ "res://Dialogue/Deli/dl_deli_yaga2.txt", 4 ],
 "method": "_event_dialogue"
+}, {
+"args": [ Vector2( 120, 66 ), 0.5, 3 ],
+"method": "_event_move_player_to_position"
+}, {
+"args": [ "right_reach" ],
+"method": "_event_player_play_animation"
+}, {
+"args": [ "right_sandwich" ],
+"method": "_event_player_play_animation"
+}, {
+"args": [ "res://Dialogue/Deli/dl_deli_yaga2.txt", 5 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "down_sandwich" ],
+"method": "_event_player_play_animation"
+}, {
+"args": [ "res://Dialogue/Deli/dl_deli_yaga2.txt", 6 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "down_2" ],
+"method": "_event_player_play_animation"
+}, {
+"args": [ "res://Dialogue/Deli/dl_deli_yaga2.txt", 7 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "down_sad2" ],
+"method": "_event_player_play_animation"
+}, {
+"args": [ "res://Dialogue/Deli/dl_deli_yaga2.txt", 8 ],
+"method": "_event_dialogue"
+}, {
+"args": [ 3 ],
+"method": "_event_set_player_direction"
+}, {
+"args": [ "res://Dialogue/Deli/dl_deli_yaga2.txt", 9 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Deli/dl_deli_yaga2.txt", 10 ],
+"method": "_event_dialogue"
+}, {
+"args": [ NodePath("../../EventNPCYaga2"), Vector2( 256, 66 ), 3.0, 3 ],
+"method": "_event_move_npc_to_position"
+}, {
+"args": [ "scn_deli_yaga", 2 ],
+"method": "_event_set_flag"
+}, {
+"args": [ "story_day1_discourses" ],
+"method": "_event_increment_flag"
+}, {
+"args": [ "story_day1_discourses", 4, 33.8, true ],
+"method": "_event_conditional_jump"
+}, {
+"args": [ 1 ],
+"method": "_event_set_player_direction"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_day1end.txt", 0 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_day1end.txt", 1 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_day1end.txt", 2 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "story_day1_discourses_finished", 1 ],
+"method": "_event_set_flag"
 } ]
 }
 tracks/1/type = "method"
@@ -338,11 +404,14 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 4.8 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 4.8, 34 ),
+"transitions": PoolRealArray( 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "hide"
+}, {
+"args": [  ],
+"method": "queue_free"
 } ]
 }
 tracks/4/type = "method"
@@ -352,8 +421,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 4.8, 5, 7.5, 8.1, 9, 10, 11.9, 14.6, 15.8, 18.3, 23.5, 23.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 4.8, 5, 7.5, 8.1, 9, 10, 11.9, 14.6, 15.8, 18.3, 23.5, 23.9, 26.6, 26.7, 34 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "show"
@@ -390,6 +459,15 @@ tracks/4/keys = {
 }, {
 "args": [ true ],
 "method": "set_sprite_override"
+}, {
+"args": [ 2 ],
+"method": "set_direction"
+}, {
+"args": [ false ],
+"method": "set_sprite_override"
+}, {
+"args": [  ],
+"method": "queue_free"
 } ]
 }
 tracks/5/type = "method"
@@ -453,8 +531,8 @@ tracks/8/loop_wrap = true
 tracks/8/imported = false
 tracks/8/enabled = true
 tracks/8/keys = {
-"times": PoolRealArray( 0, 14.5, 18.8, 18.9 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 14.5, 18.8, 18.9, 32.8, 33.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "_event_advance_game_time"
@@ -467,6 +545,12 @@ tracks/8/keys = {
 }, {
 "args": [ "right_angry" ],
 "method": "_event_player_play_animation"
+}, {
+"args": [ "down_sad" ],
+"method": "_event_player_play_animation"
+}, {
+"args": [ false ],
+"method": "_event_player_sprite_override"
 } ]
 }
 tracks/9/type = "method"
@@ -513,31 +597,6 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 28 ) ],
-"loop": true,
-"name": "left_sandwich",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 33 ) ],
-"loop": true,
-"name": "left_angry",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
-"loop": false,
-"name": "left_tableslam",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 28 ) ],
-"loop": true,
-"name": "left_walk_sandwich",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "left_walk",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "down",
@@ -547,6 +606,31 @@ animations = [ {
 "loop": true,
 "name": "right_walk",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "left_walk",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": false,
+"name": "left_tableslam",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ) ],
+"loop": true,
+"name": "left_angry",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "left_walk_sandwich",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "left_sandwich",
+"speed": 5.0
 } ]
 
 [node name="Scene" type="Node2D"]
@@ -557,6 +641,7 @@ __meta__ = {
 }
 npc_yaga1 = NodePath("EventNPCYaga")
 npc_yaga2 = NodePath("EventNPCYaga2")
+plate = NodePath("BoothTable/Plate")
 
 [node name="Overlay" parent="." instance=ExtResource( 1 )]
 is_preview = true

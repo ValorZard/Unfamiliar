@@ -41,11 +41,14 @@ Cosmo: ...
 
 7
 Cosmo: Okay, maybe not the worst thing.
+-
+
+8
 Yaga: ...
 Cosmo: What? I was hungry!
 -
 
-8
+9
 Yaga: Anyway...
 Yaga: I should be going.
 Yaga: Got an important TV premiere to see tonight.
@@ -57,11 +60,11 @@ Yaga: You're 19 in human years, hamster hair.
 Cosmo: ...Okay. Got me there.
 -
 
-9
+10
 Yaga: Well, I'm off.
 Yaga: Take care, Cosmo. Good luck finding your witch.
 Cosmo: Thanks!
-Cosmo; And thanks for the conversation, Yaga.
+Cosmo: And thanks for the conversation, Yaga.
 Yaga: Any time, honeybucket. See you.
 Cosmo: See you!
 -

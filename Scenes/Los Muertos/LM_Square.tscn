@@ -101,15 +101,15 @@ animations = [ {
 "name": "sit_right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 27 ) ],
-"loop": false,
-"name": "stand",
-"speed": 10.0
-}, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
 "name": "down2",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 28 ), ExtResource( 27 ) ],
+"loop": false,
+"name": "stand",
+"speed": 10.0
 }, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
@@ -384,11 +384,6 @@ animations = [ {
 "name": "down_walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ) ],
-"loop": true,
-"name": "left_walk",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 22 ) ],
 "loop": true,
 "name": "down",
@@ -397,6 +392,11 @@ animations = [ {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "right_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "left_walk",
 "speed": 5.0
 } ]
 
@@ -500,19 +500,20 @@ centered = false
 [node name="Spout" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 45, -9 )
 frames = SubResource( 4 )
+frame = 1
 playing = true
 centered = false
 
 [node name="Spout2" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 26, -11 )
 frames = SubResource( 5 )
-frame = 1
 playing = true
 centered = false
 
 [node name="Spout3" type="AnimatedSprite" parent="Fountain"]
 position = Vector2( 51, -11 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 centered = false
 flip_h = true
@@ -542,7 +543,7 @@ lifetime = 0.5
 process_material = SubResource( 8 )
 
 [node name="EventNPCAriad" parent="." instance=ExtResource( 12 )]
-position = Vector2( 183, 105 )
+position = Vector2( 183, 107 )
 z_index = 90
 set_flag = "npc_lm_ariad"
 sprite_override = true
