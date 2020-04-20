@@ -6,11 +6,6 @@ signal event_ended
 
 export(bool) var in_npc := false
 export(bool) var autostart := false
-export(int,"None,Zero,Nonzero") var start_condition: int = 0
-export(String) var start_flag: String
-#export(bool) var destroy
-#export(String) var destroy_flag
-#export(bool) var auto_set_destroy := false
 
 var started := false
 var current_index: int = 0
