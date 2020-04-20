@@ -32,7 +32,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "values": [ {
-"args": [ "res://Dialogue/Los Muertos/dl_lm_kiefer.txt", 0 ],
+"args": [ "res://Dialogue/Los Muertos/dl_lm_keifer.txt", 0 ],
 "method": "_event_dialogue"
 } ]
 }
@@ -52,7 +52,7 @@ tracks/0/keys = {
 "args": [  ],
 "method": "_event_advance_game_time"
 }, {
-"args": [ "res://Dialogue/Los Muertos/dl_lm_kiefer.txt", 1 ],
+"args": [ "res://Dialogue/Los Muertos/dl_lm_keifer.txt", 1 ],
 "method": "_event_dialogue"
 }, {
 "args": [ 0 ],
@@ -61,10 +61,10 @@ tracks/0/keys = {
 "args": [ Vector2( 128, 86 ), 1.0, 0 ],
 "method": "_event_move_player_to_position"
 }, {
-"args": [ "res://Dialogue/Los Muertos/dl_lm_kiefer.txt", 2 ],
+"args": [ "res://Dialogue/Los Muertos/dl_lm_keifer.txt", 2 ],
 "method": "_event_dialogue"
 }, {
-"args": [ "res://Dialogue/Los Muertos/dl_lm_kiefer.txt", 3 ],
+"args": [ "res://Dialogue/Los Muertos/dl_lm_keifer.txt", 3 ],
 "method": "_event_dialogue"
 }, {
 "args": [ "Keifer", "res://Discourses/d_keifer.txt", "Keifer", "res://Resources/Sprite Frames/SpriteFrames_Keifer.tres" ],
