@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -19,6 +19,7 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Jenet.png" type="Texture" id=17]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Dartguy_right.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Dartguy_up.png" type="Texture" id=19]
+[ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 8 )
@@ -272,6 +273,11 @@ face = 0
 
 [node name="Sprite" parent="NPCDartGuy" index="0"]
 frames = SubResource( 7 )
+
+[node name="DestroyOnFlag" parent="NPCDartGuy" instance=ExtResource( 20 )]
+flag = "story_day1_discourses_finished"
+condition = 5
+value = 4
 
 [editable path="Transitions/Transition"]
 

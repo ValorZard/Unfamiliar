@@ -9,7 +9,8 @@ func _ready():
 	if Controller.flag("scn_fletcher") == 1:
 		var ravia := get_node(npc_ravia) as EventNPC
 		ravia.set_position(Vector2(182, 76))
-		(ravia.get_node("Sprite") as AnimatedSprite).play("left")
+		ravia.set_sprite_override(false)
+		ravia.set_direction(2)
 		var pascal := get_node(npc_pascal) as EventNPC
 		pascal.set_position(Vector2(196, 46))
 		pascal.hide()

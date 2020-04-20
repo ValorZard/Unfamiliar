@@ -1,14 +1,15 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=41 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Door.png" type="Texture" id=3]
 [ext_resource path="res://Instances/Props/Prop_Clock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ravia/Ravia_ow_up.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ravia/Ravia_ow_down.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/Props/Interiors/IN_Table_Long.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Props/Interiors/IN_Tabletop_Misc2.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ravia/Ravia_ow_left.png" type="Texture" id=9]
-[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_up.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/Characters (Overworld)/Ravia/Ravia_ow_right_angry.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Props/Interiors/IN_Cabinet_Side.png" type="Texture" id=11]
 [ext_resource path="res://Sprites/Characters (Overworld)/Ravia/Ravia_ow_right.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Pascal.png" type="Texture" id=13]
@@ -60,19 +61,14 @@ animations = [ {
 "name": "right",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "down_look",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 29 ) ],
-"loop": true,
-"name": "down_sad",
+"name": "right_angry",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
@@ -80,14 +76,24 @@ animations = [ {
 "name": "right_walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 29 ) ],
 "loop": true,
-"name": "left_walk",
+"name": "down_sad",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
 "name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "left_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "down_look",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 26 ) ],
@@ -113,19 +119,9 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "down_look",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 25 ) ],
 "loop": true,
 "name": "right_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 19 ) ],
-"loop": true,
-"name": "left_walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 24 ) ],
@@ -135,12 +131,22 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "down_walk",
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "left_walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "down",
+"name": "down_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "down_look",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 27 ) ],
@@ -164,7 +170,7 @@ extents = Vector2( 8, 16 )
 
 [sub_resource type="Animation" id=10]
 resource_name = "Event"
-length = 24.0
+length = 24.5
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
 tracks/0/interp = 1
@@ -172,8 +178,8 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5, 0.8, 1.4, 1.8, 2, 2.3, 2.4, 2.7, 3.6, 3.8, 5.2, 6.1, 6.4, 8.2, 8.3, 8.4, 8.5, 10.1, 10.3, 10.4, 11.1, 11.6, 12.5, 13.5, 14.5, 16.2, 17, 17.5, 18, 18.5, 18.9, 20, 21.5, 22.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 0.5, 0.8, 1.4, 1.8, 2, 2.3, 2.4, 2.7, 3.6, 3.8, 5.2, 6.1, 6.4, 8.2, 8.3, 8.4, 8.5, 10.1, 10.3, 10.4, 11.1, 11.6, 12.5, 13.5, 14.5, 16.2, 17, 17.5, 18, 18.5, 18.9, 20, 21.5, 22.5, 23.5, 23.7, 24, 24.2, 24.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "_event_advance_game_time"
@@ -279,6 +285,21 @@ tracks/0/keys = {
 }, {
 "args": [ "res://Dialogue/Fletcher/dl_fletcher_after.txt", 9 ],
 "method": "_event_dialogue"
+}, {
+"args": [ NodePath("../EventNPCRavia"), Vector2( 208, 76 ), 1.0, 3 ],
+"method": "_event_move_npc_to_position"
+}, {
+"args": [ NodePath("../EventNPCPascal"), Vector2( 194, 76 ), 1.0, 1 ],
+"method": "_event_move_npc_to_position"
+}, {
+"args": [ "scn_fletcher", 2 ],
+"method": "_event_set_flag"
+}, {
+"args": [ "story_day1_discourses" ],
+"method": "_event_increment_flag"
+}, {
+"args": [  ],
+"method": "queue_free"
 } ]
 }
 tracks/1/type = "method"
@@ -288,8 +309,8 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 1.2, 1.6, 1.9, 3.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 1.2, 1.6, 1.9, 3.5, 16.6, 23.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ "down_look2", false ],
 "method": "play"
@@ -301,6 +322,12 @@ tracks/1/keys = {
 "method": "play"
 }, {
 "args": [ "left_look", false ],
+"method": "play"
+}, {
+"args": [ "down_look3", false ],
+"method": "play"
+}, {
+"args": [ "down_look", false ],
 "method": "play"
 } ]
 }
@@ -325,8 +352,8 @@ tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
-"times": PoolRealArray( 2.2, 3.4, 3.7, 3.9, 15.2, 15.3, 15.4 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 2.2, 3.4, 3.7, 3.9, 15.2, 15.3, 15.4, 16.5, 17.4, 23.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ false ],
 "method": "set_sprite_override"
@@ -348,6 +375,15 @@ tracks/3/keys = {
 }, {
 "args": [  ],
 "method": "show"
+}, {
+"args": [ true ],
+"method": "set_sprite_override"
+}, {
+"args": [ false ],
+"method": "set_sprite_override"
+}, {
+"args": [ true ],
+"method": "set_sprite_override"
 } ]
 }
 tracks/4/type = "method"
@@ -357,8 +393,8 @@ tracks/4/loop_wrap = true
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/keys = {
-"times": PoolRealArray( 6, 10.2, 11.1, 22.2 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 6, 10.2, 11.1, 17.8, 22.2, 23.6, 23.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [ false ],
 "method": "set_sprite_override"
@@ -369,8 +405,17 @@ tracks/4/keys = {
 "args": [ false ],
 "method": "set_sprite_override"
 }, {
-"args": [ 2 ],
+"args": [ true ],
+"method": "set_sprite_override"
+}, {
+"args": [ false ],
+"method": "set_sprite_override"
+}, {
+"args": [ 1 ],
 "method": "set_direction"
+}, {
+"args": [ true ],
+"method": "set_sprite_override"
 } ]
 }
 tracks/5/type = "method"
@@ -380,13 +425,19 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 2.6, 10.2 ),
-"transitions": PoolRealArray( 1, 1 ),
+"times": PoolRealArray( 2.6, 10.2, 17.8, 23.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
 "values": [ {
 "args": [ "down_look2", false ],
 "method": "play"
 }, {
 "args": [ "down_sad", false ],
+"method": "play"
+}, {
+"args": [ "right_angry", false ],
+"method": "play"
+}, {
+"args": [ "down_look", false ],
 "method": "play"
 } ]
 }
@@ -419,6 +470,23 @@ tracks/7/keys = {
 "values": [ {
 "args": [  ],
 "method": "stop_telephone"
+} ]
+}
+tracks/8/type = "method"
+tracks/8/path = NodePath("../EventNPCRavia")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 16.7, 22.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ 0 ],
+"method": "set_direction"
+}, {
+"args": [ 2 ],
+"method": "set_direction"
 } ]
 }
 

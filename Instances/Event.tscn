@@ -18,5 +18,10 @@ __meta__ = {
 }
 
 [node name="Speaker" type="AudioStreamPlayer" parent="."]
+
+[node name="TimerStart" type="Timer" parent="."]
+wait_time = 0.03
+one_shot = true
 [connection signal="body_entered" from="." to="." method="_on_Event_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="TimerStart" to="." method="_on_TimerStart_timeout"]

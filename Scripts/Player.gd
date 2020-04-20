@@ -21,6 +21,7 @@ var face: int = Direction.Down
 var walking := false
 var run_mode := false
 var in_transition := false
+var in_door_transition := false
 var in_event := false
 var in_an_area := false
 
@@ -122,8 +123,20 @@ func set_speed_override(value: float):
 	speed_override = value
 	
 	
+func is_in_transition() -> bool:
+	return in_transition
+	
+	
 func set_in_transition(value: bool):
 	in_transition = value
+	
+	
+func is_in_door_transition() -> bool:
+	return in_door_transition
+	
+	
+func set_in_door_transition(value: bool):
+	in_door_transition = value
 	
 	
 func show_interact(show: bool):

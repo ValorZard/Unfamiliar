@@ -156,6 +156,7 @@ var d_previous_pos: Vector2
 var d_previous_dir: int
 #var d_previous_npc: NodePath
 
+var mid_event: bool = false
 var d_previous_event: NodePath
 var d_previous_event_index: int
 var d_previous_event_pos: float
@@ -318,6 +319,14 @@ func get_previous_dir() -> int:
 	
 #func set_previous_npc(npc: NodePath):
 #	d_previous_npc = npc
+
+
+func is_mid_event() -> bool:
+	return mid_event
+	
+	
+func set_mid_event(value: bool):
+	mid_event = value
 
 
 func get_previous_event() -> NodePath:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -17,6 +17,9 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_left.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Kid2.png" type="Texture" id=16]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=18]
+[ext_resource path="res://Instances/System/SpriteChangeOnFlag.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_m_off.png" type="Texture" id=20]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 40 )
@@ -26,14 +29,14 @@ extents = Vector2( 8, 24 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -54,14 +57,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -79,12 +82,12 @@ animations = [ {
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -222,6 +225,23 @@ position = Vector2( 100, 70 )
 texture = ExtResource( 4 )
 centered = false
 
+[node name="SpriteChangeOnFlag" parent="Window" instance=ExtResource( 19 )]
+texture = ExtResource( 20 )
+flag = "story_day1_discourses_finished"
+value = 1
+
+[node name="Window2" type="Sprite" parent="."]
+position = Vector2( 80, 70 )
+texture = ExtResource( 4 )
+centered = false
+region_enabled = true
+region_rect = Rect2( 8, 0, 12, 16 )
+
+[node name="SpriteChangeOnFlag" parent="Window2" instance=ExtResource( 19 )]
+texture = ExtResource( 20 )
+flag = "story_day1_discourses_finished"
+value = 1
+
 [node name="Window3" type="Sprite" parent="."]
 position = Vector2( 170, 53 )
 texture = ExtResource( 5 )
@@ -233,13 +253,6 @@ texture = ExtResource( 5 )
 centered = false
 region_enabled = true
 region_rect = Rect2( 0, 0, 11, 16 )
-
-[node name="Window2" type="Sprite" parent="."]
-position = Vector2( 80, 70 )
-texture = ExtResource( 4 )
-centered = false
-region_enabled = true
-region_rect = Rect2( 8, 0, 12, 16 )
 
 [node name="Sign" type="Sprite" parent="."]
 position = Vector2( 92, 51 )
@@ -276,6 +289,10 @@ target_scene = "res://Scenes/Los Muertos/Ainsley's/Ainsleys.tscn"
 target_position = Vector2( 192, 150 )
 door_sound = ExtResource( 9 )
 
+[node name="DestroyOnFlag" parent="DoorAinsleys" instance=ExtResource( 18 )]
+flag = "story_day1_discourses_finished"
+value = 1
+
 [node name="NPCMother" parent="." instance=ExtResource( 10 )]
 position = Vector2( 175, 78 )
 can_talk_to = false
@@ -285,6 +302,10 @@ auto_set_flag = false
 [node name="Sprite" parent="NPCMother" index="0"]
 frames = SubResource( 3 )
 
+[node name="DestroyOnFlag" parent="NPCMother" instance=ExtResource( 18 )]
+flag = "story_day1_discourses_finished"
+value = 1
+
 [node name="NPCChild" parent="." instance=ExtResource( 10 )]
 position = Vector2( 188, 78 )
 can_talk_to = false
@@ -293,6 +314,10 @@ auto_set_flag = false
 
 [node name="Sprite" parent="NPCChild" index="0"]
 frames = SubResource( 4 )
+
+[node name="DestroyOnFlag" parent="NPCChild" instance=ExtResource( 18 )]
+flag = "story_day1_discourses_finished"
+value = 1
 
 [node name="EventNPCMotherAndChild" parent="." instance=ExtResource( 17 )]
 position = Vector2( 182, 78 )
@@ -314,6 +339,10 @@ disabled = true
 [node name="AnimationPlayer" parent="EventNPCMotherAndChild/Event" index="0"]
 anims/Event = SubResource( 7 )
 anims/Event2 = SubResource( 8 )
+
+[node name="DestroyOnFlag" parent="EventNPCMotherAndChild" instance=ExtResource( 18 )]
+flag = "story_day1_discourses_finished"
+value = 1
 
 [editable path="Transitions/Transition"]
 

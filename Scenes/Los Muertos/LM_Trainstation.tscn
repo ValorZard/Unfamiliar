@@ -264,6 +264,11 @@ set_flag = "npc_lm_guide"
 [node name="Sprite" parent="NPCGuide" index="0"]
 frames = SubResource( 14 )
 
+[node name="DestroyOnFlag" parent="NPCGuide" instance=ExtResource( 10 )]
+flag = "story_day1_discourses"
+condition = 5
+value = 1
+
 [node name="Event" parent="." instance=ExtResource( 8 )]
 position = Vector2( 128, 138 )
 autostart = true

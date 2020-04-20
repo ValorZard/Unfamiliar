@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Mat.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Lamp.png" type="Texture" id=13]
+[ext_resource path="res://Instances/Event.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=15]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -25,6 +27,50 @@ extents = Vector2( 8, 32 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 4, 8 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Event"
+length = 3.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1.2, 1.6, 2.2, 2.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_day1end.txt", 0 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_day1end.txt", 1 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Los Muertos/dl_lm_day1end.txt", 2 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "story_day1_discourses_finished", 1 ],
+"method": "_event_set_flag"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.5, 2.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ "down_sad" ],
+"method": "_event_player_play_animation"
+}, {
+"args": [ false ],
+"method": "_event_player_sprite_override"
+} ]
+}
 
 [node name="Scene" type="Node2D"]
 __meta__ = {
@@ -147,8 +193,26 @@ door_sound = ExtResource( 11 )
 [node name="CollisionShape2D" parent="Door2" index="0"]
 shape = SubResource( 3 )
 
+[node name="Event" parent="." instance=ExtResource( 14 )]
+position = Vector2( 200, 106 )
+autostart = true
+
+[node name="AnimationPlayer" parent="Event" index="0"]
+anims/Event = SubResource( 4 )
+
+[node name="DestroyOnFlag" parent="Event" instance=ExtResource( 15 )]
+flag = "story_day1_discourses"
+condition = 2
+value = 4
+
+[node name="DestroyOnFlag2" parent="Event" instance=ExtResource( 15 )]
+flag = "story_day1_discourses_finished"
+value = 1
+
 [editable path="Transitions/Transition"]
 
 [editable path="Transitions/Transition2"]
 
 [editable path="Door2"]
+
+[editable path="Event"]

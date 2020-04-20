@@ -24,6 +24,7 @@ func _process(delta):
 			Controller.play_sound_oneshot(door_sound)
 			
 		Player.set_state(Player.PlayerState.NoInput)
+		Player.set_in_door_transition(true)
 		Player.show_interact(false)
 		var transition := (load(DoorTransitionRef) as PackedScene).instance()
 		get_tree().get_root().add_child(transition)

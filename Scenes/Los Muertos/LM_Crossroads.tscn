@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_s_off.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_s_on.png" type="Texture" id=6]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Instances/System/SpriteChangeOnFlag.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -89,6 +90,11 @@ position = Vector2( 214, 50 )
 texture = ExtResource( 6 )
 centered = false
 region_rect = Rect2( 3, 0, 13, 16 )
+
+[node name="SpriteChangeOnFlag" parent="Window2" instance=ExtResource( 8 )]
+texture = ExtResource( 5 )
+flag = "story_day1_discourses_finished"
+value = 1
 
 [node name="Transitions" type="CanvasLayer" parent="."]
 layer = 6

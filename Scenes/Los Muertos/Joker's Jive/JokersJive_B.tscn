@@ -507,6 +507,11 @@ flag = "story_day1_discourses"
 condition = 2
 value = 1
 
+[node name="DestroyOnFlag2" parent="EventNPCShion" instance=ExtResource( 20 )]
+flag = "story_day1_discourses"
+condition = 5
+value = 3
+
 [editable path="Door"]
 
 [editable path="Transitions/Transition"]

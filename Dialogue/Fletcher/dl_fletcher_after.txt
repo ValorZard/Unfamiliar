@@ -7,10 +7,10 @@ Cosmo: Yeah.
 
 1
 Pascal: Sorry about that! I'm back.
-Pascal: Oh... the demon is still here?
 -
 
 2
+Pascal: Oh... the demon is still here?
 Ravia: Yeah.
 Ravia: Their name's Cosmo. We've been talking.
 Pascal: Oh. I should introduce myself.
@@ -21,7 +21,8 @@ Pascal: I'm Pascal. Nice to meet you, Cosmo.
 Ravia: Who was that on the phone?
 Pascal: It was your parents.
 Ravia: ...
-Pascal: They wanted to talk to you, but I heard you already talking to Cosmo.
+Pascal: They wanted to talk to you, but...
+Pascal: I heard you already talking to Cosmo.
 Pascal: So I told them you were busy.
 -
 

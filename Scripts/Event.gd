@@ -21,20 +21,15 @@ onready var anim_player := $AnimationPlayer as AnimationPlayer
 # =====================================================================
 
 func _ready():
-	#if destroy and Controller.flag(destroy_flag) == 1:
-	#	queue_free()
-	#elif autostart:
-	if autostart:
-		match start_condition:
-			0:
-				start_event()
-			1:
-				if Controller.flag(start_flag) == 0:
-					start_event()
-			2:
-				if Controller.flag(start_flag) >= 0:
-					start_event()
-	
+	if autostart and not Controller.is_mid_event():
+		Player.set_state(Player.PlayerState.NoInput)
+		(get_node("TimerStart") as Timer).start()
+		
+		
+func _exit_tree():
+	if not Player.is_in_transition() and not Player.is_in_door_transition():
+		Player.set_state(Player.PlayerState.Move)
+
 # =====================================================================
 	
 func start_event(index: int = 0, position: float = 0.0):
@@ -48,6 +43,7 @@ func start_event(index: int = 0, position: float = 0.0):
 
 		current_index = index
 		started = true
+		Controller.set_mid_event(true)
 	
 # =====================================================================
 
@@ -254,5 +250,10 @@ func _on_AnimationPlayer_animation_finished(anim_name: String):
 		#	Controller.set_flag(destroy_flag, 1)
 		
 		started = false
+		Controller.set_mid_event(false)
 		if not in_npc:
 			queue_free()
+
+
+func _on_TimerStart_timeout():
+	start_event()
