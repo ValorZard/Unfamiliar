@@ -72,14 +72,14 @@ extents = Vector2( 10, 13 )
 
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -95,14 +95,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ ExtResource( 20 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -118,14 +118,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 32 ) ],
@@ -133,9 +133,9 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "down",
+"name": "sit_look",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ) ],
@@ -143,9 +143,9 @@ animations = [ {
 "name": "sit",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ) ],
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "sit_look",
+"name": "down",
 "speed": 5.0
 } ]
 
@@ -582,20 +582,40 @@ tracks/10/keys = {
 
 [sub_resource type="SpriteFrames" id=15]
 animations = [ {
-"frames": [ ExtResource( 27 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 22 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 32 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": false,
+"name": "left_tableslam",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ) ],
+"loop": true,
+"name": "left_angry",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "left_sandwich",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 28 ) ],
+"loop": true,
+"name": "left_walk_sandwich",
+"speed": 7.0
 }, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
@@ -611,26 +631,6 @@ animations = [ {
 "loop": true,
 "name": "left_walk",
 "speed": 7.0
-}, {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
-"loop": false,
-"name": "left_tableslam",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 33 ) ],
-"loop": true,
-"name": "left_angry",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 28 ) ],
-"loop": true,
-"name": "left_walk_sandwich",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 28 ) ],
-"loop": true,
-"name": "left_sandwich",
-"speed": 5.0
 } ]
 
 [node name="Scene" type="Node2D"]

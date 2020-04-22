@@ -355,8 +355,6 @@ I just think it's too much of a hassle.
 < Uh... yeah.
 @< smile
 < 
-
-
 < We also have lightning-fast reflexes, and we're super quick with our hands.
 < I've buttoned this sweater in under a second before.
 > Wow...
@@ -709,7 +707,6 @@ I just think it's too much of a hassle.
 > Heh... maybe you're right.
 @> idle
 @< idle
-< 
 ^ END
 ------------------------
 : R_5_2
@@ -721,4 +718,3 @@ I just think it's too much of a hassle.
 ^ END
 ------------------------
 : END
-< 

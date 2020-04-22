@@ -231,7 +231,7 @@ func __set_jump_point(value: float):
 
 func _on_Event_body_entered(body: PhysicsBody2D):
 	if body != null:
-		if body.is_in_group("Player") and Player.get_state() == Player.PlayerState.Move:
+		if body.is_in_group("Player") and Player.get_state() == Player.PlayerState.Move and not Controller.is_mid_event():
 			start_event()
 	
 

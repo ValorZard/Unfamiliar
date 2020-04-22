@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Audio/Footsteps/Step1.ogg" type="AudioStream" id=2]
@@ -34,17 +34,18 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_down_sandwich.png" type="Texture" id=32]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_right_sandwich.png" type="Texture" id=33]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_down_2.png" type="Texture" id=34]
+[ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_down_selfie.png" type="Texture" id=35]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 7 ) ],
-"loop": true,
-"name": "left",
-"speed": 0.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "right",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "left",
 "speed": 0.0
 }, {
 "frames": [ ExtResource( 9 ) ],
@@ -52,19 +53,64 @@ animations = [ {
 "name": "up",
 "speed": 0.0
 }, {
+"frames": [ ExtResource( 35 ) ],
+"loop": true,
+"name": "down_selfie",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 33 ) ],
 "loop": true,
 "name": "right_sandwich",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 32 ) ],
+"frames": [ ExtResource( 29 ) ],
 "loop": true,
-"name": "down_sandwich",
+"name": "right_sad",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 34 ) ],
 "loop": true,
 "name": "down_2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 18 ) ],
+"loop": true,
+"name": "down_walk",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
+"loop": false,
+"name": "kneel",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "down_crossarms",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "down_sad",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "down",
+"speed": 0.0
+}, {
+"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 11 ) ],
+"loop": true,
+"name": "left_run",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 7 ), ExtResource( 16 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "left_walk",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 32 ) ],
+"loop": true,
+"name": "down_sandwich",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 28 ) ],
@@ -82,29 +128,9 @@ animations = [ {
 "name": "up_walk",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 18 ) ],
-"loop": true,
-"name": "down_walk",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "down",
-"speed": 0.0
-}, {
 "frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "right_angry",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 30 ) ],
-"loop": true,
-"name": "down_crossarms",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ) ],
-"loop": true,
-"name": "down_sad",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 23 ) ],
@@ -112,29 +138,9 @@ animations = [ {
 "name": "kneel2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 11 ) ],
-"loop": true,
-"name": "left_run",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 24 ), ExtResource( 8 ), ExtResource( 25 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "right_walk",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 29 ) ],
-"loop": true,
-"name": "right_sad",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ],
-"loop": false,
-"name": "kneel",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 7 ), ExtResource( 16 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "left_walk",
 "speed": 7.0
 } ]
 
@@ -184,7 +190,7 @@ step_sounds_conc = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtRe
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
-animation = "down_2"
+animation = "down"
 playing = true
 
 [node name="Interact" type="Sprite" parent="."]

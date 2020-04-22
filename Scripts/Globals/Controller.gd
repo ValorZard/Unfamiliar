@@ -43,6 +43,7 @@ var flags: Dictionary = {
 	"scn_intro": 0,
 	"scn_rhona": 0,
 	"scn_lm_intro": 0,
+	"scn_lm_keifer": 0,
 	"scn_ainsley's_intro": 0,
 	"scn_fletcher": 0,
 	"scn_deli_yaga": 0,
