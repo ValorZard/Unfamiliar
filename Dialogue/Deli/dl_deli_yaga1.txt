@@ -118,7 +118,7 @@ Cosmo: ...
 20
 Yaga: Look...
 Yaga: I might be able to help.
-Yaga: Just tell me about your witch.
+Yaga: Just tell me what's happening.
 Yaga: This place's sandwiches are garbage, anyway.
 Yaga: I can wait on eating dinner.
 -
