@@ -94,7 +94,12 @@ var flags: Dictionary = {
 	# MISCELLANEOUS STUFF
 	# ========================================
 	"gave_conductor_tip": 0,
+	# ----------------------------------------
 	"met_shion": 0,
+	# ----------------------------------------
+	"seen_antique_shop": 0,
+	"been_to_jokers_jive": 0,
+	"yaga_knows_guy": 0,
 }
 
 var settings: Dictionary = {

@@ -278,7 +278,7 @@ tracks/0/keys = {
 "args": [ "res://Dialogue/Deli/dl_deli_yaga1.txt", 20 ],
 "method": "_event_dialogue"
 }, {
-"args": [ "Yaga Ivanov", "res://Discourses/d_yaga.txt", "Yaga", "res://Resources/Sprite Frames/SpriteFrames_Rhona.tres" ],
+"args": [ "Yaga Ivanov", "res://Discourses/d_yaga.txt", "Yaga", "res://Resources/Sprite Frames/SpriteFrames_Yaga.tres" ],
 "method": "_event_discourse"
 }, {
 "args": [ "res://Dialogue/Deli/dl_deli_yaga2.txt", 0 ],
@@ -597,24 +597,9 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
-"loop": false,
-"name": "left_tableslam",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 33 ) ],
+"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 27 ) ],
 "loop": true,
-"name": "left_angry",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 28 ) ],
-"loop": true,
-"name": "left_sandwich",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 28 ) ],
-"loop": true,
-"name": "left_walk_sandwich",
+"name": "left_walk",
 "speed": 7.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -627,10 +612,25 @@ animations = [ {
 "name": "right_walk",
 "speed": 7.0
 }, {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 27 ) ],
+"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": false,
+"name": "left_tableslam",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ), ExtResource( 28 ) ],
 "loop": true,
-"name": "left_walk",
+"name": "left_walk_sandwich",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "left_sandwich",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ) ],
+"loop": true,
+"name": "left_angry",
+"speed": 5.0
 } ]
 
 [node name="Scene" type="Node2D"]
@@ -978,9 +978,6 @@ require_direction = true
 
 [node name="Sprite" parent="NPCImpA" index="0"]
 frames = SubResource( 11 )
-
-[node name="Interact" parent="NPCImpA" index="1"]
-frame = 3
 
 [node name="NPCImpB" parent="." instance=ExtResource( 19 )]
 position = Vector2( 201, 48 )

@@ -8,7 +8,7 @@
 > Okay, familiar...
 @< glare
 < My name's Cosmo.
-@> eyeroll
+@> glare
 > Fine. Cosmo.
 @< idle
 @> idle
@@ -49,7 +49,7 @@
 @< idle
 < What?
 >> Getting dragged on a trip to meet some of her friends you don't even know?
-[ It might be nice. (0, -60) R_1_1 | I'm not looking forward to it. (0, -60) R_1_2
+[ It might be nice. (-20, -35) R_1_1 | I'm not looking forward to it. (0, 25) R_1_2
 ------------------------
 : R_1_1
 < It might be nice.
@@ -78,11 +78,17 @@
 < Well, one of them has two kids.
 < I've heard they don't like the fact that their mom is a witch.
 > Hm... you might have some problems there.
+@< idle
 > Kids $wdefinitely $0don't like me.
+@< glare
 < Well, you're also-
+@< idle
 < ...
+@> talk
 > Got something to say, fish tongue?
+@< sad2
 < Uh... never mind.
+@> idle
 > That's what I thought.
 ^ BRANCH_2
 ------------------------
@@ -111,15 +117,20 @@
 ========================
 : BRANCH_2
 | 0.5
+@< idle
+@> idle
 << Hey, Yaga...
-[ Have you ever had a familiar? (0, -60) R_2_1 | Do you like being a witch? (0, -60) R_2_2 | Why are you eating at this restaurant? (0, -60) R_2_3
+[ Have you ever had a familiar? (0, -60) R_2_1 | Do you like being a witch? (0, -10) R_2_2 | Why are you eating here? (0, 40) R_2_3
 ------------------------
 : R_2_1
 < Have you ever had a familiar?
 > Nope. Never have, never will.
 > I don't have the time or energy for that. It's way more trouble than it's worth.
+@< glare
 > I know how awful a parent I'd make, so I'd be awful at raising a familiar, too.
+> And the name thing? That's too much for me.
 < ...
+@< 
 @> sad
 > Besides, who am I to bring another one of you into this awful world?
 @< angry
@@ -147,17 +158,21 @@
 ------------------------
 : R_2_2
 < Do you like being a witch?
+@> sad
 > Ugh...
 @< sad
 < Sorry. Should I not have-
 @< idle
+@> talk
 > I hate it! It was the worst choice I ever made!
 > What genius thought it should be a permanent decision?
+@> idle
 > I was a fifteen-year-old girl who was fascinated with demons and the underworld.
 > It was a fad.
 @> sad
 > I chained myself to the underworld because of a $sfad.
 > And once I realized I'd thrown my life away, I couldn't go back.
+@> sad
 > ...
 > I don't understand how people $slike $0it.
 > People say it helped them sort themselves out or find life's true purpose, or whatever.
@@ -182,18 +197,22 @@
 ^ BRANCH_3
 ------------------------
 : R_2_3
-< Why are you eating at this restaurant?
-< You keep talking about how terrible it is.
+< Why are you eating here?
+< You keep talking about how terrible this restaurant is.
 > You aren't from Los Muertos, are you?
 < Nope.
 > Well, let me tell you about this town's restaurants.
 > They're all too expensive. Five-star. $wLudicrously $0overpriced.
 > You can't blame them. Los Muertos has always been a tourist attraction.
-> "The city of the dead!"#"Home of witches and demons and twisted monsters!"#"The thread that ties the mortal realm to the underworld!"
+@> eyeroll2
+> "The city of the dead!"#"Home of witches and demons and twisted monsters!"#"The thread that ties the mortal realm to the underworld!" FIX THIS
+@> idle
 > In other words, if you want to go out to eat in this town, you have two choices:
 > Empty your wallet for some divine-grade five-star food,
 > or go to $wDell's Delicatessen.
+@> talk
 > This place sucks. They have the worst sandwiches I've ever eaten.
+@> idle
 > But I don't have to mortgage my house to eat here, so I'm gonna eat here.
 > When I'm too lazy to cook at home, at least.
 ^ BRANCH_3
@@ -205,13 +224,220 @@
 > So, how long have you been here, hamster hair?
 < I got here at quarter to seven.
 ? story_day1_discourses 0 TIME_1
-? story_day1_discourses 1 TIME_2
-? story_day1_discourses 2 TIME_3
-? story_day1_discourses 3 TIME_3
+? story_day1_discourses 1 TIME_END
+? story_day1_discourses 2 TIME_2
+? story_day1_discourses 3 TIME_2
 : TIME_1
-
+> Oh. Barely got off the train, it sounds like.
+< Yeah.
+^ TIME_END
 : TIME_2
-: TIME_3
 > Oh. Sounds like you've been around a bit.
 < Yeah. I've talked to a few people around town.
+^ TIME_END
 : TIME_END
+>> Was there anything you wanted to see or do while you're here?
+[ Just look around. (0, -60) R_3_1 | Do some shopping. (0, -10) R_3_2 | Maybe just try to relax a bit. (0, 40) R_3_3
+------------------------
+: R_3_1
+< Just look around.
+< This seems like a really pretty city.
+@> talk
+> Uh...
+@> think
+> I guess it's not the $sworst $0looking city.
+> It's a nice city to take a walk around and clear your head.
+@> idle
+< Do you do that a lot?
+> Yeah. Every day, if I'm feeling up to it.
+@> think
+> ...
+> I guess I don't give this town enough credit.
+> It's probably the fact that I've lived here for over 50 years.
+> ...And that I moved here when my life was in shambles.
+< What are the people in this city like?
+@> idle
+> Eh... pretty much what you'd expect.
+> Lots of witches and demons. The usual iconoclasts.
+> And lots of enthusiastic fools running their shops.
+> In other words... it's a town of weirdos.
+< ...Sounds about right.
+> Most of them are good people, but some of them definitely aren't.
+> You might find some of those not-so-good people if you go down into the Conduit.
+< The what?
+> It's the dumb fancy name for the tunnel network under the city. The river cuts into it.
+> It's pitch dark down there. You can probably guess what sorts of people that attracts.
+> I wouldn't recommend going down there.
+^ BRANCH_4
+------------------------
+: R_3_2
+< Do some shopping.
+> Really?
+> That's not something I'd expect a familiar to be interested in.
+@< glare
+< Why not?
+> ...
+> I don't know.
+@< idle
+> What do familiars even shop for, anyway?
+@< explain
+< Lots of things. In fact, I collect stuff.
+? seen_antique_shop 1 SHOP_1
+< Is there some kind of antique shop in town?
+@< idle
+> Yep. It's up on the north side.
+> I actually know the guy who runs it.
+* yaga_knows_guy 1
+^ SHOP_END
+: SHOP_1
+< I saw there was an antique shop here.
+@< idle
+: SHOP_END
+> Is that the kind of thing you collect?
+< Yeah. Little gadgets and trinkets and stuff.
+> That's neat.
+> Y'know, there's also a computer store here.
+@< smile
+< Really?
+> Yeah. It's not very fancy, but it's still a thing.
+< I'll have to check that place out.
+> Heh... yeah. You seem like someone who'd be interested in that.
+^ BRANCH_4
+------------------------
+: R_3_3
+< Maybe just try to relax a bit.
+< Times have been busy lately.
+@> think
+> Must be nice.
+> Sitting around with nothing to do drives a witch batty.
+> This witch, at least.
+@> idle
+| 0.25
+@< sad
+< Of course, $wrelaxing $0when you don't know where your witch is isn't exactly the easiest thing.
+> I think you're worrying too much, honeybucket.
+> Don't underestimate your witch.
+@< angry
+< I'm not!
+< I'm just on edge about it.
+< I don't want anything to happen to her.
+> Look, hamster hair: I don't know your witch, but I know a lot of witches.
+@< idle
+> And there are a lot of things I'd rather do than mess with them.
+> Becoming a witch takes commitment. And it turns you into someone who can deal with those kinds of people.
+< ...
+< Yeah. You're right.
+> So don't get stressed over it.
+> Take some time to relax. You're a familiar. You need it.
+< ...Yeah.
+^ BRANCH_4
+========================
+: BRANCH_4
+| 1
+< So, Yaga...
+< Do you have any idea where my witch might be?
+@> think
+> Hm...
+> Hard to say.
+@> idle
+> I'm not really up to speed on the $wpopular scene $0of Los Muertos.
+@> think
+> Although... I do know a few popular spots for witches.
+< Oh, really?
+> Mhm.
+> Obviously, there's the Jinx Bar and Grill.
+> But I think the Witchcraft Museum is also pretty popular.
+> I see lots of witches at the Joker's Jive, too.
+? been_to_jokers_jive 0 JOKERS_JIVE_END
+@< explain
+< Oh. I've already been into the Joker's Jive.
+> Really?
+@< idle
+< Yeah. She wasn't there.
+> Hm...
+<< Could you tell me more about...
+[ The Jinx Bar and Grill? (0, -40) R_4_1 | The Witchcraft Museum? (0, 20) R_4_2
+: JOKERS_JIVE_END
+< Hm...
+@> idle
+<< Could you tell me more about...
+[ The Jinx Bar and Grill? (0, -60) R_4_1 | The Witchcraft Museum? (0, -10) R_4_2 | The Joker's Jive? (0, 40) R_4_3
+------------------------
+: R_4_1
+< ...the Jinx Bar and Grill?
+> It's the most popular eatery in town. Everyone goes there for dinner.
+@> think
+> Everyone who can afford it, that is.
+@> idle
+> They have live shows and all kinds of events there. And I've heard the food is to die for.
+< So, a lot of witches go there?
+> Yeah. It's got that type of atmosphere to it.
+> It's actually run by two witches. I'm friends with one of them.
+? yaga_knows_guy 0 YAGA_KNOWS_PEOPLE_END
+< Wow... you sure know a lot of people in this town.
+> It comes with age.
+: YAGA_KNOWS_PEOPLE_END
+> So, yeah. Maybe your witch went to get dinner there.
+@< sad
+< What, without even waiting for me?
+> Maybe she wanted some time alone.
+< ...
+< Maybe.
+< She was in a really bad mood when we got to the train station.
+> I can't imagine getting your train overbooked helped with that.
+< Nope.
+@< idle
+< If she did go to that restaurant, she probably isn't even still there. It's pretty late.
+@> think
+> Eh... you might be right.
+> They close pretty early on weekdays.
+@> idle
+^ BRANCH_5
+------------------------
+: R_4_2
+< ...the Witchcraft Museum?
+> The name's pretty self-explanatory.
+> It's a museum that contains a lot of Los Muertos's history.
+> And a lot of witchcraft history, obviously.
+@< smile
+< Sounds neat!
+> Yeah. I've been there a few times.
+> They're getting a lot of customers right now, since it's peak tourism season.
+@< idle
+< It is?
+> Mhm. It was Halloween just a few weeks ago.
+@> glare
+> People are really into visiting Los Muertos during that $wspooky $0season... I guess.
+< Makes sense.
+@< think
+< Sort of.
+@< idle
+< What kind of stuff is there in the museum?
+> Mostly stuff you'd expect. Historical accounts of famous witches, artifacts and spellbooks, and other stuff like that.
+> It's pretty small, and there isn't much reason to go back after the first time you've seen it.
+> But it's still worth a look.
+< Hm... My witch is pretty into stuff like that. Maybe that's where she went.
+< I'll have to go take a look.
+^ BRANCH_5
+------------------------
+: R_4_3
+< ...the Joker's Jive?
+> It's a little café on the north side of town.
+< Definitely has an interesting name.
+> Yep. I go there from time to time. It's a nice place to unwind.
+> I really like their coffee.
+@< heh
+< I'm definitely not a coffee person.
+> More of a tea person?
+@< smile
+< Yeah.
+@< idle
+< So, you think my witch might be there?
+> Worth a shot looking.
+> If she's waiting for you, it's not a bad place.
+< All right. I guess I'll take a look there.
+^ BRANCH_5
+========================
+: BRANCH_5
+| 1
+< 

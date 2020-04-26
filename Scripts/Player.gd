@@ -79,7 +79,7 @@ func _physics_process(delta):
 		#Controller.show_emote(Controller.Emote.Question, self)
 		#Controller.start_discourse("Ariad", "res://Discourses/d_ariad.txt", "Ariad", load("res://Resources/Sprite Frames/SpriteFrames_Ariad.tres") as SpriteFrames)
 		#Controller.start_discourse("Keifer", "res://Discourses/d_keifer.txt", "Keifer", load("res://Resources/Sprite Frames/SpriteFrames_Keifer.tres") as SpriteFrames)
-		Controller.start_discourse("Rhona", "res://Discourses/d_rhona.txt", "Rhona", "res://Resources/Sprite Frames/SpriteFrames_Rhona.tres")
+		Controller.start_discourse("Yaga", "res://Discourses/d_yaga.txt", "Yaga", "res://Resources/Sprite Frames/SpriteFrames_Yaga.tres")
 
 # =====================================================================
 
