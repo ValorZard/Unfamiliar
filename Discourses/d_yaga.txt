@@ -384,6 +384,7 @@
 < ...
 < Maybe.
 < She was in a really bad mood when we got to the train station.
+* know_about_jinx 1
 > I can't imagine getting your train overbooked helped with that.
 < Nope.
 @< idle
@@ -440,4 +441,74 @@
 ========================
 : BRANCH_5
 | 1
-< 
+@< sad
+< All right... I guess I have some places to look now.
+> Do you need to find your witch by tonight?
+< ...I guess not. We aren't doing anything until tomorrow.
+< But I want to find her tonight.
+< I need to apologize for all of this.
+@> talk
+> What?
+> What's there to apologize for, hamster hair?
+@> idle
+@< sad
+< I just...
+< ...
+< I don't know.
+< I just hate it when she's mad at me.
+? know_about_jinx 0 MAD_END
+> Look, honeybucket... I think you're being too paranoid about it.
+^ MAD_END
+@> talk
+> What, you think she's mad at you?
+@> idle
+< She was in a really bad mood at the train station. Even before we got separated.
+> That could be for any reason, honeybucket.
+> I think you're being too paranoid about it.
+: MAD_END
+@< angry
+< ...
+> Does she get mad at you a lot?
+@< sad
+< No.
+< She's usually really patient with me.
+< ...Even though I'm pretty terrible at doing familiar things.
+@< sad2
+< But I feel like she's going to run out of patience at some point.
+@> think
+> ...
+| 0.5
+> Run out of patience.
+@< idle
+@> idle
+> Let me tell you something about your witch, honeybucket.
+> She does not $sdeserve $0to $wrun out of patience.
+@> talk
+> She spent months reading a 19th-century book just to figure out how to create you.
+> If she's patient enough to do that and make you her lifelong assistant, she'd better be patient enough to be a good person!
+> If I can throw my entire life away to become a witch, just to end up in this stupid deli eating a dumpster fire of a sandwich,
+> and $sstill $0have the patience to talk to some demon kid I've never met before,
+> then your witch $sdamn $0well has the patience to treat you like a human being!
+@> sad
+> ...
+> Sorry. I get bitter about the whole familiar thing.
+> Basically, what I'm saying is...
+@> idle
+> ...If your witch is fine with getting impatient with you after she dragged you into this world against your will, screw her.
+@< sad
+< She's not that kind of person.
+@> idle2
+> Then what're you so worried about?
+< I don't know.
+> I don't think you $whave $0anything to worry about.
+@< idle
+> Just try to keep your head up, honeybucket.
+@> smile
+> I bet you're a great familiar. And your witch sounds like she cares as much as you do.
+< ...
+@< smile
+< Thank you, Yaga.
+@< smile2
+< And thanks for taking time out of your dinner to talk.
+@< smile
+> It was a pleasure waiting a little longer before having to eat this place's food.

@@ -100,6 +100,7 @@ var flags: Dictionary = {
 	"seen_antique_shop": 0,
 	"been_to_jokers_jive": 0,
 	"yaga_knows_guy": 0,
+	"know_about_jinx": 0,
 }
 
 var settings: Dictionary = {
