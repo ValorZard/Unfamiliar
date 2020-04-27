@@ -1,19 +1,15 @@
 extends Node2D
 
-signal story_progress_day1_discourses_finished
-signal story_progress_2
-signal story_progress_3
-signal story_progress_4
-signal story_progress_5
-
 export(bool) var is_preview := false
+export(AudioStream) var scene_music: AudioStream = null
 
-func _ready():
-	# Story progress
-	if Controller.flag("story_day1_discourses_finished") == 1:
-		emit_signal("story_progress_day1_discourses_finished")
+func _ready():	
+	if Controller.get_current_music() != scene_music:
+		if scene_music != null:
+			Controller.play_music(scene_music)
+		else:
+			Controller.fade_music(1)
 	
-	# Destroy self if preview
 	$CanvasLayer/Money.set_text(str(Controller.get_money()))
 	if is_preview:
 		queue_free()

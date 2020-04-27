@@ -6,7 +6,7 @@
 > Well... the sign says "fletcher," but... that's just a name that's stuck around.
 @< idle
 > My uncle makes and sells a lot more than arrows now.
-> Of course, he's still making me start with fletching, because that's where it all began.
+> Of course, he's still making me start with fletching, because that's where it $sall began, $0or whatever.
 < Hm...
 | 1
 ========================
@@ -33,6 +33,7 @@
 > Living up to his expectations isn't gonna be any easier than with my parents.
 > But he's nice enough. A lot more patient than my parents, that's for sure.
 > Still, though... this is gonna be a $wlong $0few months.
+^ BRANCH_2
 ------------------------
 : R_1_2
 < What do you think of Los Muertos?
@@ -42,4 +43,118 @@
 > There's something really neat about seeing them walking around every day.
 > I just... kinda miss the big city.
 < Where are you from?
-> St. George. It's up north a ways.
+> Up north a ways.
+> It's a pretty crowded city. But, honestly... I kind of like that.
+> There's always people to talk to. And there's always something going on.
+> Los Muertos is...
+> Well, I guess it isn't a very well-kept secret anymore, since so many people visit here nowadays.
+> But they're just $wvisiting. $0They're not interested in getting to know anyone here.
+> I don't know. It just doesn't feel like home.
+@< sad
+< Yeah. I know what you mean.
+@< idle
+< Do you miss your parents, too?
+> ...
+> I... don't know.
+> We weren't on the best terms. They're probably glad that I'm out of the house for a while.
+> But... I'd feel bad if I said I didn't miss them at all.
+> I should really call sometime and see how they're doing.
+^ BRANCH_2
+========================
+: BRANCH_2
+| 0.5
+> What about you, Cosmo?
+< Huh?
+> What's your relationship with your witch like?
+> I haven't really talked to any familiars, so I don't know how that all works.
+> I know about the name thing, but not much else.
+< Well...
+@< smile
+< My witch is really nice.
+> Really?
+@< explain
+< Yeah. A lot of the time, it doesn't really feel like I'm her $wassistant, $0or whatever you'd say a familiar is.
+< I just... help her. That's really all it is.
+@< idle
+> Sounds pretty simple.
+@< heh
+< It's a lot more complicated than that. But that's the gist of it.
+@< idle
+< It's not a one-way agreement, either.
+@< explain
+< Part of the contract is that the witch does everything in their power to protect their familiar.
+@< idle
+< And, yeah. My witch has always done that.
+@< smile2
+< But she's also just... done a lot of really nice things for me.
+> Really? Like what?
+@< think
+<< Well, for example...
+[ She helped me get these glasses. (0, -60) R_2_1 | She gave me an education. (0, -10) R_2_2 | She's always been supportive of my gender. (0, 40) R_2_3
+------------------------
+: R_2_1
+@< idle
+< She helped me get these glasses.
+> Oh, yeah. I was thinking about that.
+> A familiar having glasses seems... kind of odd.
+< Yeah.
+@< explain
+< It was a long time ago, but I was just... having problems with my vision.
+< I don't remember when it started, but it made doing work really difficult.
+@< idle
+< Or... doing $wanything $0really difficult.
+@< sad2
+< Before I told my witch about it, I was afraid she'd something like...
+< $w"That's just something that happens to familiars sometimes," $0or $w"You're a familiar; there's no doctor who could help with that."
+@< idle
+< But... she brought me straight to her eye doctor that week.
+< And after $wa lot $0of bargaining, she convinced her eye doctor to give me a quick eye exam.
+@< smile
+< And she ended up prescribing me glasses.
+> Wow.
+@< idle
+> That's really sweet, but, like... can she $wdo $0that?
+< Uh...
+< I mean... familiars aren't $wtoo $0different from humans.
+@< glare
+< ...Okay, we kind of are. Especially familiars that are less human-like than me.
+@< idle
+< But I guess her eye doctor eventually decided she could try to help me.
+@< smile
+< And she did. And I'm really thankful for it.
+> ...
+> I'm glad there are people like her out there.
+< Yeah.
+^ BRANCH_3
+------------------------
+: R_2_2
+@< idle
+< She gave me an education.
+> Oh, really?
+@< explain
+< Yeah. She homeschooled me for about eight years.
+@< idle
+< Nothing fancy. Just up to a high school level.
+@< smile
+< But I really enjoyed it. She taught me pretty well.
+> Is she required to do that?
+@< idle
+< Actually, yes. Witches are required by law to educate their familiars.
+< That's been a thing for a while, actually.
+@< explain
+< Almost all witches end up homeschooling their familiars.
+< I guess they don't like the idea of leaving their familiars alone for the whole day.
+@< idle
+< Some witches do send their familiars to public school, though.
+> Really?
+> I never saw a single familiar when I was in school.
+< I mean a $sreally $0small number of witches.
+< And there aren't even too many witches in the first place.
+> Yeah. That makes sense.
+> ...
+> Couldn't a familiar just... burn down the whole school, or something?
+@< sad2
+< $wThat's $0why so few witches do it. A lot of witches wouldn't trust their familiars that much.
+> ...
+> Does your witch not trust you?
+< I feel like she was just worried about me being alone.

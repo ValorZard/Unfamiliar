@@ -1,9 +1,0 @@
-nil 0 0 How many times are you going to forget?!
-Cosmo 1 0 I'm $ss-$0sorry!
-nil 0 0 No you aren't. You say that every time.
-nil 0 0 You screw something up, apologize, and then just keep screwing it up.
-nil 0 0 You're such an idiot sometimes. Do you know that?
-Cosmo 1 0 ...
-nil 0 0 You know all those phony books about witches and demons?
-nil 0 0 They all say that demons don't#actually have souls.
-nil 0 0 I'm starting to believe that.

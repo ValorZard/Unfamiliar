@@ -434,7 +434,7 @@
 < Yeah.
 @< idle
 < So, you think my witch might be there?
-> Worth a shot looking.
+> It's worth a shot to look.
 > If she's waiting for you, it's not a bad place.
 < All right. I guess I'll take a look there.
 ^ BRANCH_5

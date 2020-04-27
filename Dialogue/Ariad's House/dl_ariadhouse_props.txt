@@ -15,6 +15,6 @@ Cosmo: The fireplace is nice and warm.
 
 3
 Cosmo: It's a picture frame.
-Cosmo:Looks like a photo of Ariad and a little girl hugging.
+Cosmo: Looks like a photo of Ariad and a little girl hugging.
 Cosmo: Aw...
 -

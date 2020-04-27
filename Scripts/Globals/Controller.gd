@@ -33,8 +33,6 @@ var flags: Dictionary = {
 	# ========================================
 	# STORY PROGRESS
 	# ========================================
-	"story_day1_d_ariad_1": 0,
-	"story_day1_d_ariad_2": 0,
 	"story_day1_discourses": 0,
 	"story_day1_discourses_finished": 0,
 	# ========================================
@@ -44,6 +42,7 @@ var flags: Dictionary = {
 	"scn_rhona": 0,
 	"scn_lm_intro": 0,
 	"scn_lm_keifer": 0,
+	"scn_lm_ariad": 0,
 	"scn_ainsley's_intro": 0,
 	"scn_fletcher": 0,
 	"scn_deli_yaga": 0,
@@ -149,6 +148,8 @@ var track_playtime := false
 
 enum GameTime { Six45, Seven, Seven15, Seven30, Seven45, Eight, Twelve, Three, Five }
 var game_time: int = GameTime.Six45
+
+var current_music: AudioStream
 
 var money: int = 20
 var money_disp: float = 20
@@ -302,6 +303,14 @@ func advance_game_time():
 			game_time = GameTime.Seven45
 		GameTime.Seven45:
 			game_time = GameTime.Eight
+			
+			
+func get_current_music() -> AudioStream:
+	return current_music
+	
+	
+#func set_current_music(value: AudioStream):
+#	current_music = value
 	
 	
 func get_scene_map_marker(scene: String) -> Vector2:
@@ -653,12 +662,14 @@ func play_music(music_: AudioStream, pitch: float = 1.0, volume: float = 0.0):
 	music.set_pitch_scale(pitch)
 	music.set_volume_db(volume)
 	music.play(0.0)
+	current_music = music_
 	
 	
 func fade_music(time: float):
 	var ap := $AnimationPlayerMusic as AnimationPlayer
 	ap.set_speed_scale(1.0 / time)
 	ap.play("Fadeout")
+	current_music = null
 	
 	
 func play_ambient(amb: AudioStream, pitch: float = 1.0, volume: float = 0.0):

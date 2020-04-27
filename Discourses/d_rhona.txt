@@ -390,10 +390,9 @@
 > You normally wouldn't be apart from your witch, right?
 @< idle
 @> serious
-< Yeah. We got put on different trains, but we normally wouldn't split up.
-< She doesn't trust me to be on my own.
-@> sad
->  Oh.
+< Yeah. We had to take different trains, but we normally wouldn't split up.
+< She doesn't like the idea of me being on my own.
+> Oh.
 | 1
 @> serious
 > What's your witch's name?
@@ -404,9 +403,9 @@
 < Familiars aren't allowed to know the names of their witches.
 @> serious
 > Why not?
-< It would destroy the contract.
+< It would break the contract.
 > ...Contract?
-< When a witch creates a familiar, there's an agreement created between them.
+< When a witch creates a familiar, there's an ... $wagreement $0created between them.
 < It's the familiar's obligation to follow all of their witch's orders,
 < and it's the witch's obligation to protect their familiar.
 < That's the contract. It's the bond they share.
@@ -419,7 +418,7 @@
 < ...
 < It kills the familiar.
 @> shock
-> $sWhat?!
+> $sWh... what?!
 @< idle
 @> serious
 < If a witch dies or breaks the contract voluntarily, that doesn't happen.

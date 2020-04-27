@@ -84,30 +84,20 @@ color_ramp = SubResource( 7 )
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ ExtResource( 29 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 29 ) ],
-"loop": true,
-"name": "right_walk",
-"speed": 7.0
 }, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
@@ -123,6 +113,16 @@ animations = [ {
 "loop": true,
 "name": "sit_right",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "right_walk",
+"speed": 7.0
 } ]
 
 [sub_resource type="Animation" id=10]
@@ -212,7 +212,7 @@ tracks/0/keys = {
 "args": [ NodePath("../../EventNPCClive"), Vector2( 280, 112 ), 1.2, 3 ],
 "method": "_event_move_npc_to_position"
 }, {
-"args": [ "story_day1_d_ariad_2", 1 ],
+"args": [ "scn_lm_ariad", 2 ],
 "method": "_event_set_flag"
 }, {
 "args": [ "story_day1_discourses", 4, 18.0, true ],
@@ -345,11 +345,14 @@ tracks/6/loop_wrap = true
 tracks/6/imported = false
 tracks/6/enabled = true
 tracks/6/keys = {
-"times": PoolRealArray( 0, 16, 17, 17.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 4.2, 16, 17, 17.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
 "values": [ {
 "args": [  ],
 "method": "_event_advance_game_time"
+}, {
+"args": [ "scn_lm_ariad", 1 ],
+"method": "_event_set_flag"
 }, {
 "args": [ "story_day1_discourses" ],
 "method": "_event_increment_flag"
@@ -367,24 +370,19 @@ extents = Vector2( 9, 8 )
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ ExtResource( 20 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "left",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "right",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 23 ) ],
 "loop": true,
 "name": "up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 22 ) ],
-"loop": true,
-"name": "down_walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 22 ) ],
@@ -395,6 +393,11 @@ animations = [ {
 "frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "left_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "down_walk",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 20 ) ],
@@ -554,7 +557,7 @@ lifetime = 0.5
 process_material = SubResource( 8 )
 
 [node name="EventNPCAriad" parent="." instance=ExtResource( 12 )]
-position = Vector2( 183, 107 )
+position = Vector2( 183, 105 )
 z_index = 90
 set_flag = "npc_lm_ariad"
 sprite_override = true
@@ -572,8 +575,8 @@ disabled = true
 anims/Event = SubResource( 10 )
 
 [node name="DestroyOnFlag" parent="EventNPCAriad" instance=ExtResource( 36 )]
-flag = "story_day1_d_ariad_2"
-value = 1
+flag = "scn_lm_ariad"
+value = 2
 
 [node name="Door3" parent="." instance=ExtResource( 17 )]
 position = Vector2( 203, 50 )
@@ -593,6 +596,7 @@ position = Vector2( 209, 34 )
 z_index = 58
 
 [node name="EventNPCClive" parent="." instance=ExtResource( 12 )]
+visible = false
 position = Vector2( 286, 104 )
 start_direction = 2
 change_direction = false
@@ -605,12 +609,12 @@ frames = SubResource( 12 )
 [node name="Interact" parent="EventNPCClive" index="1"]
 frame = 3
 
-[node name="DestroyOnFlag" parent="EventNPCClive" instance=ExtResource( 36 )]
-flag = "story_day1_d_ariad_1"
+[node name="CollisionShape2D" parent="EventNPCClive" index="3"]
+disabled = true
 
-[node name="DestroyOnFlag2" parent="EventNPCClive" instance=ExtResource( 36 )]
-flag = "story_day1_d_ariad_2"
-value = 1
+[node name="DestroyOnFlag" parent="EventNPCClive" instance=ExtResource( 36 )]
+flag = "scn_lm_ariad"
+value = 2
 
 [node name="SoundLand" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 25 )

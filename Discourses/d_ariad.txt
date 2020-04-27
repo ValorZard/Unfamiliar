@@ -1,9 +1,8 @@
-* story_day1_d_ariad_1 1
 > $sI-$0I'm not very good at making conversation.
 > Sorry if I end up making things awkward.
 @< smile
 < I'm not the best at talking, either. Don't worry about it.
-| 1
+| 0.5
 ========================
 << So, Ariad...
 [ How long have you been a familiar? (-20, -60) R_1_1 | What does your witch do? (20, -10) R_1_2 | Do you live in Los Muertos? (0, 40) R_1_3
@@ -15,8 +14,12 @@
 > Yeah. My witch created me in January.
 < What vessel did he use? Has he told you?
 > Yeah. He used a plush toy that his niece made for him for his birthday.
+@< idle
+< Oh. That's interesting.
+> Yeah.
 @> smile
 > It was a cute little fluffy creature with horns.
+@< smile
 > Looks like I ended up inheriting all of that.
 @> idle
 @< idle
@@ -24,16 +27,20 @@
 @< explain
 < What did your witch's niece think of him creating you?
 @< idle
-> Well...
-> The first time she saw me, she...
+> ...
 @> smile
-> ...she gave me a huge hug.
-@< heh
-< Aw... that's really sweet.
+> She didn't mind at all.
 @< smile
-> $sY-$0yeah. I'm glad she's all right with me.
+@> happy
+> In fact, we're really good friends.
+@< heh
+< Aw. That's sweet.
+@< smile
+@> smile
+> Yeah. I'm glad there are people other than my witch I can be friends with.
 @< idle
 @> idle
+> It's not always like that.
 > My witch has had to protect me from a lot of mean people.
 @< sad
 < Yeah... I know that feeling.
@@ -57,12 +64,12 @@
 @> smile
 > $sY-$0yeah! He's really nice.
 @< smile
-> He always gives me the weekends off. And we talk about a lot of things while we're working.
+> We talk about a lot of things while we're working.
 > He also gives me lots of hugs.
 @< heh
 < Aw...
 @< smile
-< Sounds like you two make a great team.
+< Sounds like you two are good friends.
 > Yeah.
 @> idle
 > He was really mad when he told me to wait here, though.
@@ -71,6 +78,7 @@
 > I hate it when he's mad at me.
 @< sad
 < Yeah. You're not alone.
+@< idle
 ^ BRANCH_2
 ------------------------
 : R_1_3
@@ -85,8 +93,8 @@
 @> idle
 < ...I don't know where she is, though.
 @< explain
-< We had to get on separate trains, because the one she got onto was full.
-< She got here a few hours before me.
+< Our train got overbooked, so I had to get on a different one.
+< She got here an hour before me.
 @< idle
 > Oh, no...
 > Have you been looking for her?
@@ -102,4 +110,4 @@
 ^ BRANCH_2
 ========================
 : BRANCH_2
-> 
+| 0.5
