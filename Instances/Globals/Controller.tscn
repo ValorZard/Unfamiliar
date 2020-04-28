@@ -92,7 +92,6 @@ tracks/0/keys = {
 
 [node name="Controller" type="Node"]
 script = ExtResource( 1 )
-editor_mode = true
 
 [node name="MainCamera" type="Camera2D" parent="."]
 anchor_mode = 0

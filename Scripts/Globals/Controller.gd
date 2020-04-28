@@ -22,7 +22,7 @@ const EmoteRef := preload("res://Instances/System/Emote.tscn")
 
 enum Emote {Exclamation, Question, Interrobang}
 
-export(bool) var editor_mode := false
+var editor_mode := true
 
 export(float) var music_volume := 1.0
 export(float) var ambient_volume := 1.0

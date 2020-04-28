@@ -158,3 +158,38 @@
 > ...
 > Does your witch not trust you?
 < I feel like she was just worried about me being alone.
+< I'd like to think she trusts me.
+< At least, I hope she does.
+^ BRANCH_3
+------------------------
+@< idle
+< She's always been supportive of my gender.
+> Hm?
+< Oh.
+< This probably wasn't obvious, but... I'm nonbinary.
+> Oh, really?
+@< smile
+< Yeah.
+< I realized it about a year ago.
+> How long did it take you to tell your witch?
+@< idle
+< ...A while.
+< But I finally told her one night.
+@< smile2
+< And she said she would support me no matter what.
+< That was $wprobably $0the biggest relief of my life.
+@< smile
+> So, she's done a lot to help you with that?
+@< idle
+< Yeah.
+@< sad2
+< Sometimes I'm pretty shy about correcting people.
+@< idle
+< But she always makes an effort to do that if we're in public and someone gets it wrong.
+> That's really nice of her.
+@< smile
+< Yeah.
+< I'm glad she's all right with me being who I am.
+^ BRANCH_3
+========================
+: BRANCH_3

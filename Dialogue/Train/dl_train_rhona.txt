@@ -10,7 +10,8 @@ UNUSED
 Cosmo: ...Hi.
 Commuter: What's wrong? You look kinda down.
 Cosmo: ...
-Cosmo: My witch and I got separated. We had to get on different trains.
+Cosmo: My witch and I got separated.
+Cosmo: Our train got overbooked, so I had to get on a later one.
 Commuter: Your witch?
 Commuter: Does that mean you're a familiar?
 Cosmo: Yes.

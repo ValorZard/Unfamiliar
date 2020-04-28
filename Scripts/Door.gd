@@ -13,9 +13,9 @@ var in_area := false
 
 # =====================================================================
 
-func _ready():
-	SceneLoader.queue_scene(target_scene)
-	SceneLoader.connect("scene_loaded", self, "set_loaded_scene", [], CONNECT_REFERENCE_COUNTED)
+#func _ready():
+	#SceneLoader.queue_scene(target_scene)
+	#SceneLoader.connect("scene_loaded", self, "set_loaded_scene", [], CONNECT_REFERENCE_COUNTED)
 	
 
 func _process(delta):
@@ -30,10 +30,10 @@ func _process(delta):
 		get_tree().get_root().add_child(transition)
 		yield(Controller.wait(0.6), "timeout")
 		
-		if loaded_scene == null:
-			Controller.goto_scene(target_scene, target_position, target_direction, false, false)
-		else:
-			Controller.goto_scene("", target_position, target_direction, false, false, true, loaded_scene)
+		#if loaded_scene == null:
+		Controller.goto_scene(target_scene, target_position, target_direction, false, false)
+		#else:
+			#Controller.goto_scene("", target_position, target_direction, false, false, true, loaded_scene)
 			
 		var ap: AnimationPlayer = transition.get_node("AnimationPlayer") as AnimationPlayer
 		ap.play("Fadein")
@@ -41,15 +41,15 @@ func _process(delta):
 		ap.connect("animation_finished", transition, "restore_player_movement")
 		
 		
-func _exit_tree():
-	if loaded_scene != null and not loaded_scene.is_inside_tree():
-		loaded_scene.free()
+#func _exit_tree():
+	#if loaded_scene != null and not loaded_scene.is_inside_tree():
+		#loaded_scene.free()
 		
 # =====================================================================
 
-func set_loaded_scene(scene: Node2D, path: String):
-	if path == target_scene:
-		loaded_scene = scene
+#func set_loaded_scene(scene: Node2D, path: String):
+	#if path == target_scene:
+	#	loaded_scene = scene
 
 # =====================================================================
 

@@ -12,31 +12,53 @@
 > Tell me a bit about yourself.
 ========================
 >> Where are you and your witch from?
-[ Flagstaff, up north. (0, -60) R_1_1 | Zzyzx, to the west. (-90, -10) R_1_2 | Cottonwood, to the east. (70, -10) R_1_3
+[ The city, northeast of here. (0, -60) R_1_1 | A bit south of here. (-90, -10) R_1_2 | The desert, east of here. (70, -10) R_1_3
 ------------------------
 : R_1_1
 * choice_hometown 0
-< Flagstaff, up north.
-< People don't really like witches and demons up there.
-@> serious
-< I don't leave the house much, because walking through town isn't fun.
-@< sad
-< I'm glad my witch homeschooled me. Public school would have been a nightmare.
-> Wow... sounds like a pretty terrible place to live.
-@< idle
-< I mean... it's not the $wworst. $0It's nowhere near as hot there as some of the other places around here.
+< The city, northeast of here.
+@> happy
+> Oh, really?
+< Well... sort of.
+@> idle
+@< explain
+< We live on the outskirts of the city. But we're really close.
+> Oh.
+> I'm from Phoenix, so I guess we're from pretty similar places.
 @< smile
-< There are also lots of trees and mountains. It's a really pretty city.
-> Have you ever considered moving?
+< Sounds like it.
+> How do you like living near the city?
+< It's all right.
 @< idle
-< Not really. My witch has lived there her whole life. It means too much to her.
-@> sad
-> I see...
+< I go into the city with my witch from time to time.
+< It's definitely a change from our quiet little house on the outskirts.
 @> serious
+@< sad2
+< Although... the people in the city don't tend to be very nice.
+> What, are they just cranky all the time?
+< Well... a lot of them also just... don't like witches and demons.
+@> angry
+> What? Why not?
+< I don't know.
+@< idle
+< Not a whole lot of witches live up there.
+@> sad
+> ...
+@> serious
+< Other than that, though, it's a pretty nice place to live.
+@< smile
+< There are lots of trees and mountains, and it's nowhere near as hot as some of the other places around here.
+@> idle
+> That's nice.
 ^ BRANCH_2
 ------------------------
 : R_1_2
 * choice_hometown 1
+< A bit south of here.
+
+
+
+
 < Zzyzx, to the west.
 @> happy
 > Z... $wZzyzx? $0That's a strange name.
@@ -65,31 +87,40 @@
 ------------------------
 : R_1_3
 * choice_hometown 2
-< Cottonwood, to the east.
+< East of here.
 @> happy
-> Oh, that's pretty close!
-@< smile
+> Oh, neat! Me too!
 @> idle
-< Yeah.
-@< idle
-< It's a shame it's such a $sboring $0town, though.
-@> serious
-@< explain
-< I think my witch feels the same way, because we end up traveling a lot.
-< We have some business in Los Muertos, but we also thought it'd be an interesting place to visit.
+> Are you from the Phoenix area? That's where I live.
+< Not really. We live in a more rural area.
 @< glare
-< Certainly more interesting than $wCottonwood.
-@< idle
-< I mean... Cottonwood's single biggest tourist attraction is a giant ball of paperclips.
-< It's not even the biggest ball of paperclips in the country.
-@> idle
-> Heh... sounds boring.
-@< explain2
-< Meanwhile, I'm not even a step into Los Muertos and I've already been dragged into a conversation!
+@> serious
+< We live in the middle of the desert, basically.
+@< idle 
+> It must be hot over there, huh?
+< $wOh, $0yes. It was 90 degrees yesterday. In November.
+> Wow.
+> Do you like that kind of weather?
+< Not really.
 @< smile
-< I think this place is going to be a lot more interesting.
+@> idle
+< This chilly weather we have right now is perfect.
+@> explain2
+> What kind of stuff is there to do in your town?
+@> idle
+@< idle
+< Uh... not... much.
+@< glare
+< It's pretty boring, actually.
+@< idle
+< It's a really small town, and not a whole lot of people ever come to visit.
+@< smile
+< Going to a more interesting town like Los Muertos is a refreshing change.
+@< heh
+< Getting dragged into a conversation right away makes it even $wmore $0interesting.
 @> aw
 > Uh... glad I could help with that!
+@< smile
 @> idle
 ^ BRANCH_2
 ========================
@@ -480,14 +511,7 @@
 @> aw
 > That's really sweet.
 < Yeah.
-@< idle
-< And when I...
-< ...
-< When I told her that I'm nonbinary, she said she would support me all the way.
-@< smile2
-< That was the biggest relief of my life.
 @> idle
-> That's really wonderful.
 > You two really are like a family.
 @< idle
 < Yeah... I guess that's what you could call it.
