@@ -100,6 +100,7 @@ var flags: Dictionary = {
 	"been_to_jokers_jive": 0,
 	"yaga_knows_guy": 0,
 	"know_about_jinx": 0,
+	"know_ravia_career": 0,
 }
 
 var settings: Dictionary = {
@@ -149,7 +150,8 @@ var track_playtime := false
 enum GameTime { Six45, Seven, Seven15, Seven30, Seven45, Eight, Twelve, Three, Five }
 var game_time: int = GameTime.Six45
 
-var current_music: AudioStream
+var current_music: AudioStream = null
+var current_ambient: AudioStream = null
 
 var money: int = 20
 var money_disp: float = 20
@@ -239,8 +241,8 @@ func _process(delta: float):
 			save_settings()
 		emit_signal("windowsize_changed", int(settings["window_size"]))
 		
-	music.set_volume_db(System.percent_to_db(music_volume))
-	ambient.set_volume_db(System.percent_to_db(ambient_volume))
+	#music.set_volume_db(System.percent_to_db(music_volume))
+	#ambient.set_volume_db(System.percent_to_db(ambient_volume))
 		
 #	if Input.is_action_just_pressed("sound_1"):
 #		play_sound_oneshot_from_path("res://Audio/Bell.ogg", 1.0, System.percent_to_db(0.05))
@@ -309,8 +311,8 @@ func get_current_music() -> AudioStream:
 	return current_music
 	
 	
-#func set_current_music(value: AudioStream):
-#	current_music = value
+func get_current_ambient() -> AudioStream:
+	return current_ambient
 	
 	
 func get_scene_map_marker(scene: String) -> Vector2:
@@ -677,12 +679,14 @@ func play_ambient(amb: AudioStream, pitch: float = 1.0, volume: float = 0.0):
 	ambient.set_pitch_scale(pitch)
 	ambient.set_volume_db(volume)
 	ambient.play(0.0)
+	current_ambient = amb
 	
 	
 func fade_ambient(time: float):
 	var ap := $AnimationPlayerAmbient as AnimationPlayer
 	ap.set_speed_scale(1.0 / time)
 	ap.play("Fadeout")
+	current_ambient = null
 	
 	
 func dialogue(file: String, set: int, alt_box_type: bool = false, text_size: int = 8, reset_state: bool = true) -> Dialogue:

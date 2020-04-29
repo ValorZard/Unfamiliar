@@ -1,54 +1,76 @@
-> You're the first demon that's come into the store in a while.
+> Y'know... you're the first demon that's come into the store in a while.
 < Really?
 > Yeah. We don't see a lot of witches or familiars.
 @< sad2
 < What do you even $wsell $0in this shop? Arrows?
+@> think
 > Well... the sign says "fletcher," but... that's just a name that's stuck around.
 @< idle
+@> idle
 > My uncle makes and sells a lot more than arrows now.
+@> think
 > Of course, he's still making me start with fletching, because that's where it $sall began, $0or whatever.
 < Hm...
 | 1
 ========================
+@> idle
 << So, Ravia...
 [ Why are you here with your uncle? (-20, -55) R_1_1 | What do you think of Los Muertos? (20, -5) R_1_2
 ------------------------
 : R_1_1
 < Why are you here with your uncle?
+* know_ravia_career 1
+@> sad
 > ...
 > My parents sent me here.
 > They said I wasn't doing enough with my life.
-> I mean... I spent five years in college getting a bachelor's in anthropology, but that hasn't amounted to anything.
+@> explain2
+> I mean... I spent five years in college getting a bachelor's in anthropology, but...
+> That hasn't amounted to anything.
+@> idle
 > So they made me come and work under my uncle in Los Muertos until I can find a better job.
 > I think they just wanted me out of the house more than anything.
-@< sad
+@< sad2
 < So you don't get along with your parents?
+@> sad
 > Not really. There's a lot of hot water between us.
 > Getting out of the house for a while might not have been the worst thing.
 @< idle
+@> idle
 < How's your uncle?
+@> think
 > He's... all right?
 > He's kind of weird sometimes.
 > And he's $sextremely $0dedicated to his work.
+@> idle
 > Living up to his expectations isn't gonna be any easier than with my parents.
 > But he's nice enough. A lot more patient than my parents, that's for sure.
+@> sad
 > Still, though... this is gonna be a $wlong $0few months.
 ^ BRANCH_2
 ------------------------
 : R_1_2
 < What do you think of Los Muertos?
 > I'm... not a fan.
+@> think
 > I know some people like small, strange towns like this, but it's not my thing.
+@> idle
 > I don't have anything against witches or demons, though.
 > There's something really neat about seeing them walking around every day.
+@> sad
 > I just... kinda miss the big city.
 < Where are you from?
+@> idle
 > Up north a ways.
+@> explain2
 > It's a pretty crowded city. But, honestly... I kind of like that.
 > There's always people to talk to. And there's always something going on.
+@> think
 > Los Muertos is...
-> Well, I guess it isn't a very well-kept secret anymore, since so many people visit here nowadays.
+> Well, I guess it $wisn't $0a very well-kept secret anymore, since so many people visit here nowadays.
+@> idle
 > But they're just $wvisiting. $0They're not interested in getting to know anyone here.
+@> sad
 > I don't know. It just doesn't feel like home.
 @< sad
 < Yeah. I know what you mean.
@@ -57,20 +79,26 @@
 > ...
 > I... don't know.
 > We weren't on the best terms. They're probably glad that I'm out of the house for a while.
+@> idle
 > But... I'd feel bad if I said I didn't miss them at all.
+@> sad
 > I should really call sometime and see how they're doing.
 ^ BRANCH_2
 ========================
 : BRANCH_2
 | 0.5
+@> idle
 > What about you, Cosmo?
 < Huh?
 > What's your relationship with your witch like?
+@> explain2
 > I haven't really talked to any familiars, so I don't know how that all works.
 > I know about the name thing, but not much else.
+@> idle
 < Well...
 @< smile
 < My witch is really nice.
+@> idle2
 > Really?
 @< explain
 < Yeah. A lot of the time, it doesn't really feel like I'm her $wassistant, $0or whatever you'd say a familiar is.
@@ -96,7 +124,9 @@
 @< idle
 < She helped me get these glasses.
 > Oh, yeah. I was thinking about that.
+@> think
 > A familiar having glasses seems... kind of odd.
+@> idle2
 < Yeah.
 @< explain
 < It was a long time ago, but I was just... having problems with my vision.
@@ -105,15 +135,16 @@
 < Or... doing $wanything $0really difficult.
 @< sad2
 < Before I told my witch about it, I was afraid she'd something like...
-< $w"That's just something that happens to familiars sometimes," $0or $w"You're a familiar; there's no doctor who could help with that."
+< $w"That's just something that happens to familiars sometimes."
+< Or, $w"You're a familiar; there's no doctor who could help with that."
 @< idle
 < But... she brought me straight to her eye doctor that week.
 < And after $wa lot $0of bargaining, she convinced her eye doctor to give me a quick eye exam.
 @< smile
 < And she ended up prescribing me glasses.
-> Wow.
+> Wow... that's really sweet.
 @< idle
-> That's really sweet, but, like... can she $wdo $0that?
+> Can she... $wdo $0that?
 < Uh...
 < I mean... familiars aren't $wtoo $0different from humans.
 @< glare
@@ -123,6 +154,7 @@
 @< smile
 < And she did. And I'm really thankful for it.
 > ...
+@> smile
 > I'm glad there are people like her out there.
 < Yeah.
 ^ BRANCH_3
@@ -162,6 +194,7 @@
 < At least, I hope she does.
 ^ BRANCH_3
 ------------------------
+: R_2_3
 @< idle
 < She's always been supportive of my gender.
 > Hm?
@@ -193,3 +226,74 @@
 ^ BRANCH_3
 ========================
 : BRANCH_3
+| 0.5
+@< idle
+@> idle2
+? know_ravia_career 0 CAREER_END
+< So, you said you have a degree in anthropology, right?
+> Yeah.
+> I'm just really interested in learning more about people.
+@> sad
+> But... I don't feel like it's $wenough.
+< What do you mean?
+> I mean, I haven't been able to do anything with my degree. At least, not yet.
+> I've been looking around for work opportunities, but haven't been able to find any.
+^ CAREER_END_2
+: CAREER_END
+< So, Ravia...
+< You don't sound too thrilled about being here.
+@> idle
+> No. Not really.
+> I'd rather be doing something with my degree.
+< Oh, you have a degree?
+@> explain2
+> Yeah. In anthropology. I just got it last year.
+> I'm just really interested in learning more about people.
+@> sad
+> But... I also don't feel like it's enough.
+> The only reason I'm here is because I haven't been able to find a better work opportunity.
+: CAREER_END_2
+> And I feel like I should be doing something else with my life in the meantime.
+@> think
+> ...Something else besides working at a fletching shop.
+< Like what?
+@> idle
+> ...
+> Honestly, I've been thinking about becoming a witch.
+< Really?
+> Yeah.
+> It's just something that's always fascinated me.
+> I'm not sure if that's really what I would want, though.
+< Well... think long and hard about it.
+@< explain
+< Once you chain yourself to the underworld, you're chained to it for life.
+> Yeah.
+| 0.5
+> Maybe I should ask you a bit about it.
+> You are a familiar, after all.
+@< smile
+< Oh, yeah, sure! I can try to answer any questions you have about it.
+> All right.
+> Is there anything about it I should know in general?
+@< think
+<< Hm...
+[ Here's how you become a witch. (0, -60) R_3_1 |  (0, -10) R_3_2 | She's always been supportive of my gender. (0, 40) R_3_3
+------------------------
+: R_3_1
+@< explain
+< Here's how you become a witch.
+> Oh... yeah. That's a pretty important part of it.
+> I'm listening.
+< Okay, so...
+< One of the core talents witches have is summoning demons.
+@< idle
+< Real demons, I mean. Not familiars.
+< So, naturally, the way you become a witch is by summoning a demon.
+> How do you do that if you can't use magic until you're a witch?
+@< explain
+< Oh, you don't $wneed $0magic to summon a demon. You can also do it with some... clever occult trickery.
+< I won't go into the details. There are books that explain it way better than I could.
+------------------------
+: R_3_2
+------------------------
+: R_3_3

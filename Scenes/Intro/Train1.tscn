@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Scene_Train1.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=2]
@@ -37,6 +37,8 @@
 [ext_resource path="res://Sprites/Particles/Z.png" type="Texture" id=35]
 [ext_resource path="res://Audio/Music/Intro.ogg" type="AudioStream" id=36]
 [ext_resource path="res://Audio/Ambient/Train.ogg" type="AudioStream" id=37]
+[ext_resource path="res://Audio/Music/Music_Intro.ogg" type="AudioStream" id=38]
+[ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=39]
 
 [sub_resource type="Animation" id=1]
 resource_name = "New Anim"
@@ -72,30 +74,20 @@ extents = Vector2( 3, 28 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 27 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 32 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 26 ) ],
 "loop": true,
 "name": "up",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 29 ) ],
-"loop": true,
-"name": "sit",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 30 ) ],
-"loop": false,
-"name": "stand",
-"speed": 10.0
 }, {
 "frames": [ ExtResource( 30 ) ],
 "loop": true,
@@ -106,18 +98,28 @@ animations = [ {
 "loop": true,
 "name": "left_walk",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 29 ) ],
+"loop": true,
+"name": "sit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ), ExtResource( 31 ), ExtResource( 30 ) ],
+"loop": false,
+"name": "stand",
+"speed": 10.0
 } ]
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
-"frames": [ ExtResource( 27 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 25 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 26 ) ],
@@ -510,6 +512,20 @@ tracks/23/keys = {
 "update": 0,
 "values": [ 0.0, 0.0, -30.0, -80.0 ]
 }
+tracks/24/type = "method"
+tracks/24/path = NodePath("../MusicIntro")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/keys = {
+"times": PoolRealArray( 4.8 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [sub_resource type="RectangleShape2D" id=18]
 extents = Vector2( 8, 30 )
@@ -520,6 +536,9 @@ __meta__ = {
 "_edit_horizontal_guides_": [ 90.0 ],
 "_edit_vertical_guides_": [ 160.0, 56.0 ]
 }
+
+[node name="SceneInfo" parent="." instance=ExtResource( 39 )]
+scene_ambient = ExtResource( 37 )
 
 [node name="Bg" type="Sprite" parent="."]
 position = Vector2( 0, -46 )
@@ -686,9 +705,6 @@ require_direction = true
 
 [node name="Sprite" parent="NPCSleepingWoman" index="0"]
 frames = SubResource( 4 )
-
-[node name="Interact" parent="NPCSleepingWoman" index="1"]
-position = Vector2( 6, -14 )
 
 [node name="CollisionShape2D" parent="NPCSleepingWoman/InteractArea" index="0"]
 shape = SubResource( 5 )
@@ -873,6 +889,10 @@ stream = ExtResource( 21 )
 
 [node name="SoundOpening" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 36 )
+
+[node name="MusicIntro" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 38 )
+volume_db = 2.0
 
 [editable path="EventNPCSittingDude"]
 

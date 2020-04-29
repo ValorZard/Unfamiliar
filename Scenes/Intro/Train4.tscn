@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Sprites/Props/Intro_bg.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/Tilesets/TilesTrain.png" type="Texture" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://Audio/Train door.ogg" type="AudioStream" id=14]
 [ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Sprites/UI/Tutorial2.png" type="Texture" id=16]
+[ext_resource path="res://Audio/Ambient/Train.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3, 28 )
@@ -40,14 +42,14 @@ extents = Vector2( 10, 28 )
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
@@ -107,6 +109,9 @@ extents = Vector2( 8, 30 )
 extents = Vector2( 16, 8 )
 
 [node name="Scene" type="Node2D"]
+
+[node name="SceneInfo" parent="." instance=ExtResource( 18 )]
+scene_ambient = ExtResource( 17 )
 
 [node name="Background" type="Sprite" parent="."]
 position = Vector2( 80, 17 )

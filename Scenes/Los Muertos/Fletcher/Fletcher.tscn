@@ -66,29 +66,9 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 10 ) ],
+"frames": [ ExtResource( 26 ) ],
 "loop": true,
-"name": "right_angry",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "right_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 29 ) ],
-"loop": true,
-"name": "down_sad",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "left_walk",
+"name": "down_look2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -96,9 +76,29 @@ animations = [ {
 "name": "down_look",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 26 ) ],
+"frames": [ ExtResource( 29 ) ],
 "loop": true,
-"name": "down_look2",
+"name": "down_sad",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "right_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 10 ) ],
+"loop": true,
+"name": "right_angry",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "left_walk",
 "speed": 5.0
 } ]
 
@@ -119,29 +119,9 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": true,
-"name": "right_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ) ],
-"loop": true,
-"name": "up_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 19 ) ],
-"loop": true,
-"name": "left_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "down_walk",
+"name": "down_look2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -149,14 +129,34 @@ animations = [ {
 "name": "down_look",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "right_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "down_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "up_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "left_walk",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "left_look",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ) ],
-"loop": true,
-"name": "down_look2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
@@ -253,7 +253,7 @@ tracks/0/keys = {
 "args": [ "res://Dialogue/Fletcher/dl_fletcher_intro.txt", 14 ],
 "method": "_event_dialogue"
 }, {
-"args": [ "Ravia Patel", "res://Discourses/d_ravia.txt", "Ravia", "res://Resources/Sprite Frames/SpriteFrames_Rhona.tres" ],
+"args": [ "Ravia Patel", "res://Discourses/d_ravia.txt", "Ravia", "res://Resources/Sprite Frames/SpriteFrames_Ravia.tres" ],
 "method": "_event_discourse"
 }, {
 "args": [ "res://Dialogue/Fletcher/dl_fletcher_after.txt", 0 ],
@@ -650,8 +650,6 @@ shape = SubResource( 9 )
 [node name="Event" parent="." instance=ExtResource( 20 )]
 position = Vector2( 104, 90 )
 autostart = true
-start_condition = 1
-start_flag = "scn_fletcher"
 
 [node name="AnimationPlayer" parent="Event" index="0"]
 anims/Event = SubResource( 10 )

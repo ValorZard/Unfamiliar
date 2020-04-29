@@ -33,6 +33,8 @@ func _on_Button_clicked():
 	Controller.draw_overlay_map(false)
 	Player.hide()
 	Controller.fade(1, false, Color(0, 0, 0), true)
+	Controller.fade_music(1)
+	Controller.fade_ambient(1)
 	Controller.set_menu_open(false)
 	parent_menu.queue_free()
 	queue_free()
