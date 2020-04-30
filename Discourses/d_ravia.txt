@@ -219,6 +219,7 @@
 < Sometimes I'm pretty shy about correcting people.
 @< idle
 < But she always makes an effort to do that if we're in public and someone gets it wrong.
+@> smile
 > That's really nice of her.
 @< smile
 < Yeah.
@@ -277,7 +278,7 @@
 > Is there anything about it I should know in general?
 @< think
 << Hm...
-[ Here's how you become a witch. (0, -60) R_3_1 |  (0, -10) R_3_2 | She's always been supportive of my gender. (0, 40) R_3_3
+[ Here's how you become a witch. (0, -60) R_3_1 | It's not the most glamorous life. (0, -10) R_3_2 | There are laws to follow. (0, 40) R_3_3
 ------------------------
 : R_3_1
 @< explain
@@ -293,7 +294,91 @@
 @< explain
 < Oh, you don't $wneed $0magic to summon a demon. You can also do it with some... clever occult trickery.
 < I won't go into the details. There are books that explain it way better than I could.
+< But, basically, you have to summon a demon, and they'll give you the power of witchcraft.
+< By briefly possessing you.
+> What?!
+@< idle
+< Yeah.
+> ...
+@> think
+> That seems... weirdly easy?
+< Well... the hard part is $ssurviving $0it.
+@> idle2
+< Being possessed can outright kill you.
+@< glare
+< I guess that's their cruel way of $wscreening $0the people who want to become witches.
+> ...
+@< idle
+> I might have to think a bit longer about it.
+< ...Yeah.
+^ BRANCH_4
 ------------------------
 : R_3_2
+@< idle
+< It's not the most glamorous life.
+@> idle
+> I was afraid you'd say that.
+@< sad2
+< I mean... a lot of people hate witches.
+< Because... y'know. $wHell, $0and everything.
+> Yeah.
+@< idle
+< I guess people are worried a witch will summon a demon and order them to destroy a whole city, or something.
+@< glare
+< Even though that's obviously never happened.
+@< idle
+< People hate demons, too. Real demons, obviously, but also familiars.
+@> sad
+> Oh.
+@< sad2
+< Yeah. My witch and I deal with a lot of the same.
+@< explain
+< $wEldritch abominations. $0That's what they always call demons.
+@< glare
+< As if we're unstoppable calamities that can end the world with the snap of our fingers.
+@< idle
+< And... yeah, real demons? Sure. They're absolutely terrifying.
+< Even my witch hates summoning them.
+@< glare
+< But familiars? We aren't even as powerful as our witches, most of the time.
+< Besides, you could just obliterate us with light magic if you wanted.
+> ...
+@< idle
+< But, really: witches and familiars? We're just people. People with a bit of power from below in us.
+< That's never going to stop the stigma, though.
+^ BRANCH_4
 ------------------------
 : R_3_3
+@< idle
+< There are laws to follow.
+@> idle
+> I kind of figured.
+> Do they all relate to magic?
+< Yep. Pretty much.
+@< glare
+< Unfortunately, they're also pretty vague and skewed against witches.
+@< explain
+< Basically, they're all about regulating the use of magic in public.
+@< idle
+< You can use magic in public as long as...
+@< think
+< What were the terms they used...
+@< glare
+< As long as it's not considered to be a "threat to public safety or wellbeing."
+< And as long as it doesn't "disturb the peace of mind of any individual."
+< So, basically, if someone declares that your magic makes them uncomfortable, they can just sue you for using it.
+> Wow. That sucks.
+@< idle
+< Yeah. So it's best not to risk using magic in public.
+@< explain
+< And, obviously, using magic for assault is an automatic felony.
+> They $wreally $0aren't fans of witches using magic, are they?
+@< glare
+< Nope.
+@< idle
+< Y'know, it's the powers of the underworld. Of course people hate to see it.
+< But it can be really practical sometimes.
+< You're never gonna change people's minds on it, though.
+^ BRANCH_4
+========================
+: BRANCH_4
