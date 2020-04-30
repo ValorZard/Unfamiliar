@@ -667,26 +667,40 @@ func play_music(music_: AudioStream, pitch: float = 1.0, volume: float = 0.0):
 	current_music = music_
 	
 	
-func fade_music(time: float):
+func fade_music(time: float, auto_stop: bool = false):
 	var ap := $AnimationPlayerMusic as AnimationPlayer
 	ap.set_speed_scale(1.0 / time)
 	ap.play("Fadeout")
 	current_music = null
+	if auto_stop:
+		yield(ap, "animation_finished")
+		stop_music()
 	
 	
-func play_ambient(amb: AudioStream, pitch: float = 1.0, volume: float = 0.0):
+func stop_music():
+	($Music as AudioStreamPlayer).stop()
+	
+	
+func play_ambient(amb: AudioStream, pitch: float = 1.0, volume: float = 0.0, fadein: bool = false):
 	ambient.set_stream(amb)
 	ambient.set_pitch_scale(pitch)
 	ambient.set_volume_db(volume)
+	if fadein:
+		var ap := $AnimationPlayerAmbient as AnimationPlayer
+		ap.play("Fadein")
 	ambient.play(0.0)
 	current_ambient = amb
 	
 	
-func fade_ambient(time: float):
+func fade_ambient(time: float, fadein: bool = false):
 	var ap := $AnimationPlayerAmbient as AnimationPlayer
 	ap.set_speed_scale(1.0 / time)
 	ap.play("Fadeout")
 	current_ambient = null
+	
+	
+func stop_ambient():
+	($Ambient as AudioStreamPlayer).stop()
 	
 	
 func dialogue(file: String, set: int, alt_box_type: bool = false, text_size: int = 8, reset_state: bool = true) -> Dialogue:
@@ -712,8 +726,8 @@ func flashback(file: String, art: Texture, transition: bool = true, anim_player_
 
 func start_discourse(full_name: String, file: String, right_name: String, right_sprite: String, left_name: String = "Cosmo", left_sprite: String = CosmoSprite):
 	Player.set_state(Player.PlayerState.NoInput)
-	fade_music(0.5)
-	fade_ambient(0.5)
+	fade_music(1.5)
+	fade_ambient(1.5)
 	
 	d_previous_scene = get_tree().get_root().get_node("Scene").get_filename()
 	d_previous_pos = Player.get_position()

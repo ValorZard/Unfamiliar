@@ -55,10 +55,6 @@
 : R_1_2
 * choice_hometown 1
 < A bit south of here.
-
-
-
-
 < Zzyzx, to the west.
 @> happy
 > Z... $wZzyzx? $0That's a strange name.

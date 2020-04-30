@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -6,14 +6,17 @@
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_l_off.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Crate_XL.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Crate_L.png" type="Texture" id=6]
+[ext_resource path="res://Audio/Ambient/City.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Audio/Music/city_loop.ogg" type="AudioStream" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 32 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 12, 10 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8.5, 10 )
 
 [node name="Scene" type="Node2D"]
@@ -21,6 +24,10 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ],
 "_edit_vertical_guides_": [  ]
 }
+
+[node name="SceneInfo" parent="." instance=ExtResource( 8 )]
+scene_music = ExtResource( 9 )
+scene_ambient = ExtResource( 7 )
 
 [node name="Overlay" parent="." instance=ExtResource( 1 )]
 is_preview = true
@@ -91,7 +98,7 @@ region_rect = Rect2( 0, 0, 10, 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crate8"]
 position = Vector2( 12, 22 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Crate7" type="StaticBody2D" parent="."]
 position = Vector2( 200, 70 )
@@ -105,7 +112,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crate7"]
 position = Vector2( 8.5, 15 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [node name="Crate9" type="StaticBody2D" parent="."]
 position = Vector2( 200, 55 )
@@ -119,6 +126,6 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Crate9"]
 position = Vector2( 8.5, 15 )
-shape = SubResource( 6 )
+shape = SubResource( 3 )
 
 [editable path="Transitions/Transition"]

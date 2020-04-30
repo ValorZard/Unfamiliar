@@ -4,3 +4,19 @@
 
 [node name="SceneInfo" type="Node"]
 script = ExtResource( 1 )
+
+[node name="TimerMusic" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerMusic2" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerAmbient" type="Timer" parent="."]
+one_shot = true
+
+[node name="TimerAmbient2" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="TimerMusic" to="." method="timer_music_play"]
+[connection signal="timeout" from="TimerMusic2" to="." method="timer_music_stop"]
+[connection signal="timeout" from="TimerAmbient" to="." method="timer_ambient_play"]
+[connection signal="timeout" from="TimerAmbient2" to="." method="timer_ambient_stop"]

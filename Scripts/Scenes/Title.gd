@@ -1,5 +1,7 @@
 extends Node2D
 
+export(AudioStream) var title_music: AudioStream
+
 var active := false
 
 onready var but1 := $Button1 as ButtonUF
@@ -36,6 +38,7 @@ func reset_anim_player_speed():
 # =====================================================================
 
 func _on_Button1_clicked() -> void:
+	Controller.fade_music(2.5, true)
 	active = false
 	Controller.select_menu_button(buttons, but1.get_name())
 	yield(Controller.wait(0.5), "timeout")
@@ -68,16 +71,23 @@ func _on_Button3_clicked() -> void:
 	yield(Controller.wait(0.5), "timeout")
 	$AnimationPlayerSetup.play("Teardown Options 2a")
 	yield($AnimationPlayerSetup, "animation_finished")
-	yield(Controller.open_options_menu(false), "menu_closed")
+	var menu = Controller.open_options_menu(false)
+	#menu.connect("load_slot_clicked", $AnimationPlayerMusic, "play", ["Fade Music"])
+	yield(menu, "menu_closed")
 	but3.set_clicked(false)
 	but3.set_hover(false)
 	$AnimationPlayerSetup.play("Unteardown")
 
 
 func _on_Button4_clicked() -> void:
+	Controller.fade_music(2.5)
 	active = false
 	Controller.select_menu_button(buttons, but4.get_name())
 	yield(Controller.wait(0.5), "timeout")
 	$AnimationPlayerSetup.play("Teardown")
 	yield($AnimationPlayerSetup, "animation_finished")
 	get_tree().quit()
+	
+	
+func play_music():
+	Controller.play_music(title_music)

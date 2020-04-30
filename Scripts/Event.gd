@@ -160,7 +160,7 @@ func _event_play_sound(sound_path: String):
 	
 	
 func _event_play_music(music: AudioStream, pitch: float = 1.0, volume: int = 0):
-	Controller.play_music(music)
+	Controller.play_music(music, pitch, volume)
 	
 	
 func _event_play_ambient(amb: AudioStream, pitch: float = 1.0, volume: int = 0):

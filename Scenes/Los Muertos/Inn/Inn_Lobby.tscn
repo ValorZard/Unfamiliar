@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Los Muertos/Scene_Inn_Lobby.gd" type="Script" id=1]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=21]
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=22]
 [ext_resource path="res://Audio/Stairs.ogg" type="AudioStream" id=23]
+[ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=24]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -41,15 +42,15 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
-"loop": true,
-"name": "roar",
-"speed": 6.0
-}, {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
 "name": "down",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
+"loop": true,
+"name": "roar",
+"speed": 6.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -547,6 +548,8 @@ __meta__ = {
 "_edit_vertical_guides_": [  ]
 }
 npc_chip = NodePath("EventNPCChip")
+
+[node name="SceneInfo" parent="." instance=ExtResource( 24 )]
 
 [node name="Overlay" parent="." instance=ExtResource( 2 )]
 is_preview = true

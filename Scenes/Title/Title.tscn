@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Title.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Particles/Parts_Discourse2.tres" type="Material" id=2]
@@ -16,6 +16,8 @@
 [ext_resource path="res://Instances/System/Button.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=15]
 [ext_resource path="res://Sprites/UI/Transition2.png" type="Texture" id=16]
+[ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Audio/Music/intro_loop.ogg" type="AudioStream" id=18]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -2067,24 +2069,30 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1, 1.015 ) ]
 }
 
-[sub_resource type="Shader" id=31]
+[sub_resource type="Animation" id=31]
+resource_name = "Fade Music"
+
+[sub_resource type="Shader" id=32]
 code = "shader_type canvas_item;
 uniform float amount : hint_range(0,10);
 void fragment() {
     COLOR.rgb = textureLod(SCREEN_TEXTURE,SCREEN_UV,amount).rgb;
 }"
 
-[sub_resource type="ShaderMaterial" id=32]
-shader = SubResource( 31 )
+[sub_resource type="ShaderMaterial" id=33]
+shader = SubResource( 32 )
 shader_param/amount = 0.0
 
-[sub_resource type="ShaderMaterial" id=33]
+[sub_resource type="ShaderMaterial" id=34]
 shader = ExtResource( 8 )
 shader_param/cutoff = 1.0
 shader_param/mask = ExtResource( 16 )
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 1 )
+title_music = ExtResource( 18 )
+
+[node name="SceneInfo" parent="." instance=ExtResource( 17 )]
 
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 320.0
@@ -2118,35 +2126,35 @@ __meta__ = {
 }
 
 [node name="Sprite3" type="Sprite" parent="."]
-position = Vector2( 368, 168 )
+position = Vector2( 20.1, 168 )
 texture = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Sprite4" type="Sprite" parent="."]
-position = Vector2( 408, 168 )
+position = Vector2( 11.1, 168 )
 texture = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Sprite5" type="Sprite" parent="."]
-position = Vector2( 448, 168 )
+position = Vector2( 2.10001, 168 )
 texture = ExtResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( -152, 160 )
+position = Vector2( 289, 160 )
 texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( -96, 160 )
+position = Vector2( 276.4, 160 )
 texture = ExtResource( 7 )
 __meta__ = {
 "_edit_lock_": true
@@ -2408,6 +2416,9 @@ autoplay = "Cosmo Idle"
 playback_speed = 0.85
 "anims/Cosmo Idle" = SubResource( 30 )
 
+[node name="AnimationPlayerMusic" type="AnimationPlayer" parent="."]
+"anims/Fade Music" = SubResource( 31 )
+
 [node name="TimerSetup" type="Timer" parent="."]
 one_shot = true
 autostart = true
@@ -2425,7 +2436,7 @@ __meta__ = {
 }
 
 [node name="Blur" type="ColorRect" parent="."]
-material = SubResource( 32 )
+material = SubResource( 33 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
@@ -2444,7 +2455,7 @@ __meta__ = {
 
 [node name="Fade2" type="ColorRect" parent="."]
 visible = false
-material = SubResource( 33 )
+material = SubResource( 34 )
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
@@ -2469,6 +2480,11 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="TimerMusic" type="Timer" parent="."]
+wait_time = 2.1
+one_shot = true
+autostart = true
+
 [node name="TimerActive" type="Timer" parent="."]
 wait_time = 6.85
 one_shot = true
@@ -2482,6 +2498,7 @@ one_shot = true
 [connection signal="clicked" from="Button3" to="." method="_on_Button3_clicked"]
 [connection signal="clicked" from="Button4" to="." method="_on_Button4_clicked"]
 [connection signal="timeout" from="TimerSetup" to="AnimationPlayerSetup" method="play" binds= [ "Setup New" ]]
+[connection signal="timeout" from="TimerMusic" to="." method="play_music"]
 [connection signal="timeout" from="TimerActive" to="." method="set_active"]
 [connection signal="timeout" from="TimerBlink" to="Cosmo/AnimationPlayer" method="play" binds= [ "Blink" ]]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_Conduit.tres" type="TileSet" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Instances/Transition.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Instances/NPC.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Resources/Sprite Frames (OW)/SpriteFrames_OW_Dweller.tres" type="SpriteFrames" id=7]
+[ext_resource path="res://Audio/Ambient/Sewer.ogg" type="AudioStream" id=8]
+[ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=9]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -44,6 +46,9 @@ extents = Vector2( 8, 48 )
 extents = Vector2( 24, 8 )
 
 [node name="Scene" type="Node2D"]
+
+[node name="SceneInfo" parent="." instance=ExtResource( 9 )]
+scene_ambient = ExtResource( 8 )
 
 [node name="Overlay" parent="." instance=ExtResource( 1 )]
 is_preview = true

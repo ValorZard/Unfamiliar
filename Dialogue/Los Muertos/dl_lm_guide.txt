@@ -3,8 +3,6 @@ Resident: Yes?
 Cosmo: Have you seen a witch around here?
 Resident: Oh, yeah. That's real helpful, kid.
 Resident: It's Los Muertos. There's lots of witches here.
-Cosmo: She's wearing a long yellow coat.
-Resident: It's Los Muertos. In November. There's lots of people wearing coats.
 Cosmo: ...
 Resident: Look... I don't know, kid. Try the square. That's a good start.
 -

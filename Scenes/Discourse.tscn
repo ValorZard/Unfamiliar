@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Scripts/Discourse.gd" type="Script" id=1]
 [ext_resource path="res://Resources/Particles/Parts_Discourse2.tres" type="Material" id=2]
@@ -8,8 +8,9 @@
 [ext_resource path="res://Sprites/UI/BG1.png" type="Texture" id=6]
 [ext_resource path="res://Sprites/UI/BG2.png" type="Texture" id=7]
 [ext_resource path="res://Instances/TextDisplay.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Audio/Music/charlotte-nights (TEMP).ogg" type="AudioStream" id=9]
+[ext_resource path="res://Audio/Music/conv_loop.ogg" type="AudioStream" id=9]
 [ext_resource path="res://Fonts/FontStd.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -289,6 +290,8 @@ __meta__ = {
 "_edit_vertical_guides_": [ 160.768 ]
 }
 
+[node name="SceneInfo" parent="." instance=ExtResource( 11 )]
+
 [node name="ColorRect" type="ColorRect" parent="."]
 margin_right = 320.0
 margin_bottom = 180.0
@@ -362,8 +365,8 @@ anims/Movein = SubResource( 6 )
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 9 )
-volume_db = -8.0
 autoplay = true
+bus = "Music"
 
 [node name="Word" type="Node2D" parent="."]
 position = Vector2( 0, 250 )

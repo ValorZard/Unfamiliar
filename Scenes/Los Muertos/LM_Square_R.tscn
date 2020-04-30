@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -13,6 +13,9 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/MysteryMan.png" type="Texture" id=11]
 [ext_resource path="res://Instances/System/SpriteChangeOnFlag.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Sprites/Props/Los Muertos/LM_Window_l_off.png" type="Texture" id=13]
+[ext_resource path="res://Audio/Ambient/City.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Audio/Music/city_loop.ogg" type="AudioStream" id=16]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 48 )
@@ -22,14 +25,14 @@ extents = Vector2( 32, 8 )
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -44,6 +47,10 @@ animations = [ {
 } ]
 
 [node name="Scene" type="Node2D"]
+
+[node name="SceneInfo" parent="." instance=ExtResource( 15 )]
+scene_music = ExtResource( 16 )
+scene_ambient = ExtResource( 14 )
 
 [node name="Overlay" parent="." instance=ExtResource( 1 )]
 is_preview = true

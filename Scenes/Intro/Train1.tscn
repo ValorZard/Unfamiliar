@@ -37,7 +37,7 @@
 [ext_resource path="res://Sprites/Particles/Z.png" type="Texture" id=35]
 [ext_resource path="res://Audio/Music/Intro.ogg" type="AudioStream" id=36]
 [ext_resource path="res://Audio/Ambient/Train.ogg" type="AudioStream" id=37]
-[ext_resource path="res://Audio/Music/Music_Intro.ogg" type="AudioStream" id=38]
+[ext_resource path="res://Audio/Music/maintheme_transition.ogg" type="AudioStream" id=38]
 [ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=39]
 
 [sub_resource type="Animation" id=1]
@@ -539,6 +539,7 @@ __meta__ = {
 
 [node name="SceneInfo" parent="." instance=ExtResource( 39 )]
 scene_ambient = ExtResource( 37 )
+suppress_ambient = true
 
 [node name="Bg" type="Sprite" parent="."]
 position = Vector2( 0, -46 )

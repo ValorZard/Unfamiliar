@@ -1,6 +1,7 @@
 extends Node2D
 
 signal menu_closed
+signal load_slot_clicked
 
 var active := false
 var load_mode := false
@@ -78,6 +79,7 @@ func _click_slot(slot: int):
 		yield(Controller.wait(1.4), "timeout")
 		anim_player.play("Disappear")
 	else: # Load game
+		Controller.fade_music(2.5, true)
 		$AnimationPlayerText.play("Disappear")
 		yield(Controller.wait(2.5), "timeout")
 		anim_player.play("Disappear Load")

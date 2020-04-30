@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -10,17 +10,20 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/WitchA_down.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/Characters (Overworld)/Cosmo/Cosmo_ow_nouveau_down.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/WitchB_up.png" type="Texture" id=10]
+[ext_resource path="res://Audio/Ambient/City.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Audio/Music/city_loop.ogg" type="AudioStream" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -36,14 +39,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -61,12 +64,12 @@ animations = [ {
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -85,6 +88,10 @@ __meta__ = {
 "_edit_horizontal_guides_": [  ],
 "_edit_vertical_guides_": [  ]
 }
+
+[node name="SceneInfo" parent="." instance=ExtResource( 12 )]
+scene_music = ExtResource( 13 )
+scene_ambient = ExtResource( 11 )
 
 [node name="Overlay" parent="." instance=ExtResource( 1 )]
 is_preview = true
