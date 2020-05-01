@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -15,17 +15,18 @@
 [ext_resource path="res://Audio/Ambient/City.ogg" type="AudioStream" id=13]
 [ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Audio/Music/city_loop.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Audio/Music/encounter_loop.ogg" type="AudioStream" id=16]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 8, 24 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 8, 32 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 32, 8 )
 
-[sub_resource type="Animation" id=4]
+[sub_resource type="Animation" id=9]
 length = 0.1
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -215,9 +216,18 @@ tracks/5/loop_wrap = true
 tracks/5/imported = false
 tracks/5/enabled = true
 tracks/5/keys = {
-"times": PoolRealArray( 9.3, 10.3, 10.9 ),
-"transitions": PoolRealArray( 1, 1, 1 ),
+"times": PoolRealArray( 0, 1.2, 2.8, 9.3, 10.3, 10.9, 11.6, 11.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
 "values": [ {
+"args": [ 1.5, false ],
+"method": "_event_fade_music"
+}, {
+"args": [ ExtResource( 16 ) ],
+"method": "_event_play_music"
+}, {
+"args": [ ExtResource( 16 ) ],
+"method": "_event_play_music"
+}, {
 "args": [ "story_day1_discourses" ],
 "method": "_event_increment_flag"
 }, {
@@ -226,10 +236,16 @@ tracks/5/keys = {
 }, {
 "args": [ false ],
 "method": "_event_player_sprite_override"
+}, {
+"args": [ 1.5, true ],
+"method": "_event_fade_music"
+}, {
+"args": [ ExtResource( 15 ) ],
+"method": "_event_play_music"
 } ]
 }
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 1, 42 )
 
 [node name="Scene" type="Node2D"]
@@ -276,7 +292,7 @@ target_scene = "res://Scenes/Los Muertos/LM_Mainstreet_N.tscn"
 target_direction = 2
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 1 )
+shape = SubResource( 6 )
 
 [node name="Transition2" parent="Transitions" instance=ExtResource( 3 )]
 position = Vector2( 248, 114 )
@@ -284,14 +300,14 @@ target_scene = "res://Scenes/Los Muertos/LM_Eastside_N.tscn"
 target_direction = 3
 
 [node name="CollisionShape2D" parent="Transitions/Transition2" index="0"]
-shape = SubResource( 2 )
+shape = SubResource( 7 )
 
 [node name="Transition3" parent="Transitions" instance=ExtResource( 3 )]
 position = Vector2( 176, 10 )
 target_scene = "res://Scenes/Los Muertos/LM_Square_R.tscn"
 
 [node name="CollisionShape2D" parent="Transitions/Transition3" index="0"]
-shape = SubResource( 3 )
+shape = SubResource( 8 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
 __meta__ = {
@@ -309,7 +325,7 @@ frames = ExtResource( 5 )
 animation = "down_camera2"
 
 [node name="AnimationPlayer" parent="EventNPCKeifer/Event" index="0"]
-anims/Event = SubResource( 4 )
+anims/Event = SubResource( 9 )
 
 [node name="DestroyOnFlag" parent="EventNPCKeifer" instance=ExtResource( 12 )]
 flag = "scn_lm_keifer"
@@ -322,7 +338,7 @@ position = Vector2( 128, 120 )
 anims/Event = SubResource( 5 )
 
 [node name="CollisionShape2D" parent="Event" index="1"]
-shape = SubResource( 6 )
+shape = SubResource( 10 )
 
 [node name="DestroyOnFlag" parent="Event" instance=ExtResource( 12 )]
 flag = "scn_lm_keifer"

@@ -52,35 +52,15 @@ Cosmo: Ugh...
 -
 
 8
-Rhona: You're stressing out too much.
-Rhona: You should take a break. Do something to take your mind off it.
-Cosmo: ...Like what?
-Rhona: Help us fix some stuff!
-Cosmo: What?
+Rhona: You'll find her, Cosmo.
+Rhona: Try not to stress yourself out over it.
+Cosmo: ...
+Cosmo: Yeah. You're right.
 -
 
 9
-? choice_know_rhonas_grandpa 1 BRANCH_1
-Rhona: This is a repair shop. My grandpa repairs small trinkets.
-^ BRANCH_END
-: BRANCH_1
-Rhona: I told you my grandpa repairs small trinkets, right?
-: BRANCH_END
-Rhona: I always help him out a bit when I come and visit.
-Rhona: He pays me for it.
-Rhona: And six hands are always better than four!
-Cosmo: I, uh...
-Cosmo: I'd probably be pretty hopeless at that.
--
-
-
-10
-Rhona: Don't worry! We can teach you!
-Cosmo: ...
-Cosmo: Well... I do know a bit of magic.
-Rhona: Oh, really? That's even better!
-Rhona: And I'm sure if you helped out, Grandpa would give you some money, too!
-Paul: I sure will!
-Cosmo: Hm...
-Rhona: Think about it, okay? Let us know if you want to give it a try!
+Cosmo: Well... I should probably go.
+Rhona: Really? You can't stay for a while?
+Cosmo: I'll try to come back later.
+Rhona: Oh, all right.
 -

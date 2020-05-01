@@ -382,3 +382,21 @@
 ^ BRANCH_4
 ========================
 : BRANCH_4
+| 1
+@> idle2
+> Well... this was a nice talk.
+> I appreciate you telling me a bit about witches.
+@> think
+> Gives me something to think about for a while.
+@< smile
+< Glad I could help.
+@> smile
+> Familiars sure are nice.
+> I hope more of you come into our shop in the future.
+> It would definitely make these upcoming months a lot more interesting.
+@> idle
+@< idle
+> But... for now, I guess it's time to get back to fletching.
+@> smile
+@< smile
+> At least today wasn't a complete borefest, though.

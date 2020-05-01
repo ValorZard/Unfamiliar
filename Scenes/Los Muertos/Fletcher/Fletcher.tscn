@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -31,6 +31,8 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Ravia/Ravia_ow_down_sad.png" type="Texture" id=29]
 [ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=30]
 [ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Audio/Music/city_loop.ogg" type="AudioStream" id=32]
+[ext_resource path="res://Audio/Music/encounter_loop.ogg" type="AudioStream" id=33]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 20, 8 )
@@ -52,14 +54,14 @@ extents = Vector2( 30, 4 )
 
 [sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
@@ -67,19 +69,14 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "down",
+"name": "down_look",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 26 ) ],
 "loop": true,
-"name": "left_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "right_walk",
+"name": "down_look2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -92,27 +89,50 @@ animations = [ {
 "name": "down_sad",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "down_look",
+"name": "down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 26 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "down_look2",
+"name": "right_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "left_walk",
 "speed": 5.0
 } ]
 
+[sub_resource type="Animation" id=11]
+resource_name = "Event"
+length = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Fletcher/dl_fletcher_ravia.txt", 0 ],
+"method": "_event_dialogue"
+} ]
+}
+
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ ExtResource( 25 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 19 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 24 ) ],
@@ -120,29 +140,9 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
+"frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 19 ) ],
-"loop": true,
-"name": "left_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ) ],
-"loop": true,
-"name": "up_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 25 ) ],
-"loop": true,
-"name": "right_walk",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "down_walk",
+"name": "down_look",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
@@ -150,21 +150,59 @@ animations = [ {
 "name": "down_look3",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "down_look2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "left_look",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 14 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "down_look",
+"name": "down_walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ) ],
+"frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "down_look2",
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "right_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "up_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "left_walk",
 "speed": 5.0
 } ]
+
+[sub_resource type="Animation" id=12]
+resource_name = "Event"
+length = 0.1
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Fletcher/dl_fletcher_pascal.txt", 0 ],
+"method": "_event_dialogue"
+} ]
+}
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 8, 16 )
@@ -490,6 +528,26 @@ tracks/8/keys = {
 "method": "set_direction"
 } ]
 }
+tracks/9/type = "method"
+tracks/9/path = NodePath(".")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0.4, 0.6, 16 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ 1.5, true ],
+"method": "_event_fade_music"
+}, {
+"args": [ ExtResource( 33 ) ],
+"method": "_event_play_music"
+}, {
+"args": [ ExtResource( 33 ) ],
+"method": "_event_play_music"
+} ]
+}
 
 [node name="Scene" type="Node2D"]
 script = ExtResource( 28 )
@@ -501,6 +559,7 @@ npc_ravia = NodePath("EventNPCRavia")
 npc_pascal = NodePath("EventNPCPascal")
 
 [node name="SceneInfo" parent="." instance=ExtResource( 31 )]
+scene_music = ExtResource( 32 )
 
 [node name="Overlay" parent="." instance=ExtResource( 1 )]
 is_preview = true
@@ -624,21 +683,29 @@ shape = SubResource( 6 )
 
 [node name="EventNPCRavia" parent="." instance=ExtResource( 23 )]
 position = Vector2( 208, 76 )
-auto_set_flag = false
+set_flag = "npc_fletcher_ravia"
 sprite_override = true
+require_direction = true
 
 [node name="Sprite" parent="EventNPCRavia" index="0"]
 frames = SubResource( 7 )
 animation = "down_look"
 
+[node name="AnimationPlayer" parent="EventNPCRavia/Event" index="0"]
+anims/Event = SubResource( 11 )
+
 [node name="EventNPCPascal" parent="." instance=ExtResource( 23 )]
 position = Vector2( 194, 76 )
-auto_set_flag = false
+set_flag = "npc_fletcher_pascal"
 sprite_override = true
+require_direction = true
 
 [node name="Sprite" parent="EventNPCPascal" index="0"]
 frames = SubResource( 8 )
 animation = "down_look"
+
+[node name="AnimationPlayer" parent="EventNPCPascal/Event" index="0"]
+anims/Event = SubResource( 12 )
 
 [node name="Door2" parent="." instance=ExtResource( 21 )]
 position = Vector2( 80, 98 )
@@ -671,7 +738,11 @@ stream = ExtResource( 22 )
 
 [editable path="EventNPCRavia"]
 
+[editable path="EventNPCRavia/Event"]
+
 [editable path="EventNPCPascal"]
+
+[editable path="EventNPCPascal/Event"]
 
 [editable path="Door2"]
 

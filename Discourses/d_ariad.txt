@@ -111,3 +111,19 @@
 ========================
 : BRANCH_2
 | 0.5
+@> idle
+@< idle
+> $sI-$0I'm sorry, Cosmo, but...
+@> awkward
+> This dialogue is unfinished.
+< ...
+< Oh...
+@> smile
+> $sB-$0but it'll definitely be finished in time for the full release!
+@> happy
+> And I really enjoyed the brief conversation we had.
+@< heh
+< Uh... you're welcome?
+@> smile
+> Let's just pretend none of this fourth-wall-breaking nonsense happened, okay?
+< ...Sure.

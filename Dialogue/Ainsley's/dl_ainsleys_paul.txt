@@ -1,0 +1,17 @@
+0
+Paul: Need anything fixed, Cosmo?
+Cosmo: Uh... not exactly.
+Cosmo: I'll let you know if I do, though.
+-
+
+1
+Cosmo: How is running a store in Los Muertos?
+Paul: I like it. We get some really interesting customers.
+Paul: Witches really seem to like their gadgets.
+Paul: And some familiars, too.
+-
+
+2
+Paul: Good luck finding your witch!
+Cosmo: Thanks!
+-

@@ -55,30 +55,20 @@
 : R_1_2
 * choice_hometown 1
 < A bit south of here.
-< Zzyzx, to the west.
-@> happy
-> Z... $wZzyzx? $0That's a strange name.
-@< smile
-< Heh... yeah.
-@> idle
-< It's a small town in the middle of the desert.
-< The people there are pretty nice.
-@< think
-< Although... the people there are also pretty $wweird.
-@< idle
+> Oh.
 @> serious
-< I guess small desert towns tend to attract those types of people.
-< Also, as you'd expect, it's always $ssuper $0hot.
-< I think it was 90 degrees yesterday. In October.
-> Wow.
-> Do you like that kind of weather?
-< Not really.
-@< explain2
-< This chilly weather we have right now is perfect.
+> That's... pretty much in the middle of nowhere, isn't it?
+< Yep.
+@< explain
+< We live near a super small town. Our house isn't even part of it, technically.
+> Sounds like a pretty solitary lifestyle.
+@< idle
+< Yeah. I kind of like it, though.
 @> idle
+< It's always nice and quiet. My witch and I can take a walk pretty much any time we feel like it.
 @< smile
-> Oh. I always thought demons liked it to be hot.
-< Only when we're in the mood.
+< Coming to a place like Los Muertos is definitely a change.
+< I'm hoping it'll be interesting.
 ^ BRANCH_2
 ------------------------
 : R_1_3
@@ -123,7 +113,7 @@
 : BRANCH_2
 | 1
 << So, Rhona...
-[ Where are you from? (-20, -60) R_2_1 | Why are you visiting Los Muertos? (20, -10) R_2_2 | Where are your parents? (0, 40) R_2_3
+[ Where are you from? (-20, -60) R_2_1 | Why are you visiting Los Muertos? (20, -10) R_2_2
 ------------------------
 : R_2_1
 < Where are you from?

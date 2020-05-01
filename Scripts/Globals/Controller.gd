@@ -22,7 +22,7 @@ const EmoteRef := preload("res://Instances/System/Emote.tscn")
 
 enum Emote {Exclamation, Question, Interrobang}
 
-var editor_mode := true
+var editor_mode := false
 
 export(float) var music_volume := 1.0
 export(float) var ambient_volume := 1.0
@@ -69,6 +69,8 @@ var flags: Dictionary = {
 	"npc_ainsleys_paul": 0,
 	"npc_ainsleys_rhona": 0,
 	"npc_ainsleys_computer": 0,
+	"npc_fletcher_ravia": 0,
+	"npc_fletcher_pascal": 0,
 	"npc_jj_jenet": 0,
 	"npc_jj_dartguy": 0,
 	"npc_jj_witch": 0,
@@ -101,6 +103,7 @@ var flags: Dictionary = {
 	"yaga_knows_guy": 0,
 	"know_about_jinx": 0,
 	"know_ravia_career": 0,
+	"told_keifer_about_magic": 0,
 }
 
 var settings: Dictionary = {

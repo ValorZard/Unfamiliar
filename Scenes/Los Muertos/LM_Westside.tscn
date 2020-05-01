@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Audio/Ambient/City.ogg" type="AudioStream" id=11]
 [ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Audio/Music/city_loop.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=14]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -145,6 +146,11 @@ frames = SubResource( 1 )
 [node name="CollisionShape2D" parent="NPCWitchA" index="3"]
 position = Vector2( 0, 10 )
 
+[node name="DestroyOnFlag" parent="NPCWitchA" instance=ExtResource( 14 )]
+flag = "story_day1_discourses_finished"
+condition = 5
+value = 1
+
 [node name="NPCWitchB" parent="." instance=ExtResource( 4 )]
 position = Vector2( 113, 93 )
 start_direction = 0
@@ -155,6 +161,11 @@ auto_set_flag = false
 [node name="Sprite" parent="NPCWitchB" index="0"]
 frames = SubResource( 2 )
 animation = "up"
+
+[node name="DestroyOnFlag" parent="NPCWitchB" instance=ExtResource( 14 )]
+flag = "story_day1_discourses_finished"
+condition = 5
+value = 1
 
 [node name="NPCWitches" parent="." instance=ExtResource( 4 )]
 position = Vector2( 113, 89 )
@@ -169,6 +180,11 @@ frames = SubResource( 3 )
 
 [node name="CollisionShape2D" parent="NPCWitches" index="3"]
 disabled = true
+
+[node name="DestroyOnFlag" parent="NPCWitches" instance=ExtResource( 14 )]
+flag = "story_day1_discourses_finished"
+condition = 5
+value = 1
 
 [editable path="Transitions/Transition2"]
 

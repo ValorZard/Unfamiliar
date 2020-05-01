@@ -12,7 +12,7 @@ onready var timer_ambient2 := $TimerAmbient2 as Timer
 
 
 func _ready():
-	if not suppress_music and Controller.get_current_music() != scene_music:
+	if not suppress_music and not Controller.is_mid_event() and Controller.get_current_music() != scene_music:
 		if scene_music != null:
 			if Controller.get_current_music() != null:
 				Controller.fade_music(1.0)

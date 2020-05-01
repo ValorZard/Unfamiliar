@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scripts/Scenes/Los Muertos/Scene_Inn_2F_R1.gd" type="Script" id=1]
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Sprites/Particles/Wind.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Particles/Leaf1.png" type="Texture" id=11]
 [ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Audio/Music/encounter_loop_alt.ogg" type="AudioStream" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 20 )
@@ -54,6 +55,7 @@ __meta__ = {
 door = NodePath("Door")
 
 [node name="SceneInfo" parent="." instance=ExtResource( 12 )]
+scene_music = ExtResource( 13 )
 
 [node name="Overlay" parent="." instance=ExtResource( 2 )]
 is_preview = true

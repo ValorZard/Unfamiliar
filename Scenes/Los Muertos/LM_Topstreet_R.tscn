@@ -87,14 +87,14 @@ extents = Vector2( 9, 8 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "left",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "right",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -197,6 +197,7 @@ door_sound = ExtResource( 7 )
 
 [node name="CollisionShape2D" parent="Door3" index="0"]
 shape = SubResource( 5 )
+disabled = true
 
 [node name="DestroyOnFlag" parent="Door3" instance=ExtResource( 13 )]
 flag = "story_day1_discourses_finished"

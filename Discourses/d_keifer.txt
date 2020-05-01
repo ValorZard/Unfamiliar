@@ -9,7 +9,7 @@
 > So, Cosmo...
 ========================
 >> I'm all about photography, but... what are you into?
-[ I like cooking. (-20, -60) R_1_1 | I play a few instruments. (20, -10) R_1_2 | I like to draw. (20, 50) R_1_3
+[ I like cooking. (0, -60) R_1_1 | I play a few instruments. (0, -10) R_1_2 | I like to draw. (0, 50) R_1_3
 ------------------------
 : R_1_1
 < I like cooking.
@@ -131,7 +131,7 @@
 | 0.5
 @< smile
 << So, Keifer...
-[ What type of photography do you like? (-20, -60) R_2_1 | How do you like Los Muertos? (-20, -10) R_2_2 | What have you been up to? (-20, 50) R_2_3
+[ What type of photography do you like? (0, -60) R_2_1 | How do you like Los Muertos? (0, -10) R_2_2 | What have you been up to? (0, 50) R_2_3
 ------------------------
 : R_2_1
 < What type of photography do you like?
@@ -262,7 +262,7 @@ I just think it's too much of a hassle.
 > I'm really interested.
 < Hm...
 << I can tell you about...
-[ How familiars are created. (-20, -60) R_3_1 | The powers familiars have. (-20, -10) R_3_2 | (uh) (-20, 50) R_3_3
+[ How familiars are created. (0, -60) R_3_1 | The powers familiars have. (0, -10) R_3_2
 ------------------------
 : R_3_1
 < How familiars are created.
@@ -347,22 +347,55 @@ I just think it's too much of a hassle.
 < Besides, that would be $wextremely $0screwed up.
 > ...Yeah. You're right.
 @< idle
+^ BRANCH_4
 ------------------------
 : R_3_2
 < The powers familiars have.
+* told_keifer_about_magic 1
 > Oh, yeah! You're all demons, so you must have... demonic powers.
 @< heh
 < Uh... yeah.
 @< smile
-< 
+> What type of magic do you use?
+@< idle
+< Well... there are a few different types of magic, but familiars can't use all of them.
+@> serious
+@< explain
+< In fact, familiars can only use fire magic.
+< $wTrue $0demons, on the other hand... they can use fire magic, dark magic, and some other scary types of it.
+< Witches can use fire magic, but they can also use light magic.
+< That's what they can use to prevent themselves from getting possessed when they summon true demons.
+> Oh... I see.
+@< idle
+< So... in terms of magic, familiars kind of get the short end of the stick.
+@< smile
+< But we have some other perks, too.
+< For one thing, we have amazing low-light vision.
+@> idle
+> Really?
+> Well... I guess it makes sense, with those glowing yellow eyes you have.
+@< heh
+< Heh... yeah.
+@< explain2
 < We also have lightning-fast reflexes, and we're super quick with our hands.
+@< satisfied
 < I've buttoned this sweater in under a second before.
+@> serious
 > Wow...
+@< smile
+@> idle
+> That's all really neat.
+@> edgy
+> I wish I could button my jacket that fast...
+@> idle
+^ BRANCH_4
 ------------------------
 ------------------------
-> Man, bein' a witch sounds $wcomplicated.
-< Mhm.
-< Being a familiar is even $wmore $0complicated.
+: BRANCH_4
+| 0.5
+> All this witch and familiar stuff sounds super complicated.
+@< idle
+< Yeah. Being a familiar is pretty complicated.
 @> serious
 > ...
 | 1
@@ -394,14 +427,15 @@ I just think it's too much of a hassle.
 @< smile
 < I'm glad you think so.
 @< explain2
-< And being a demon $wdoes $0have its perks.
+< And being a demon definitely has its perks.
 > I bet it does!
 @< smile
 >> What's your favorite part about being a demon?
-[ Being able to use magic. (-20, -60) R_3_1 | Being able to travel with my witch. (-20, -10) R_3_2 | Always having my witch to rely on. (-20, 50) R_3_3
+[ Being able to use magic. (0, -60) R_4_1 | Being able to travel with my witch. (0, -10) R_4_2
 --------------------
-: R_3_1
+: R_4_1
 < Being able to use magic.
+? told_keifer_about_magic 1 MAGIC_END
 @> talk
 > Oh, yeah! Demons can use magic.
 @< explain2
@@ -413,6 +447,18 @@ I just think it's too much of a hassle.
 < Fire magic. The same as my witch.
 @> serious
 > Oh.
+^ MAGIC_END_2
+: MAGIC_END
+> Oh, that's your favorite part?
+< Yeah.
+@< heh
+< It's pretty fun, honestly.
+@< smile
+> You said you use fire magic, right?
+< Yeah.
+@> serious
+> ...
+: MAGIC_END_2
 @> explain
 > Isn't fire magic used for, like...
 @< idle
@@ -436,9 +482,9 @@ I just think it's too much of a hassle.
 < I hope I never have to go that far.
 < I've almost had to one or two times.
 @< idle
-^ BRANCH_4
+^ BRANCH_5
 --------------------
-: R_3_2
+: R_4_2
 < Being able to travel with my witch.
 @< explain
 < Since I'm her familiar, I have to be with her at all times.
@@ -475,9 +521,9 @@ I just think it's too much of a hassle.
 > Someday I'm gonna go on an epic road trip.
 @> idle
 > There are so many places I want to see. Especially out west.
-^ BRANCH_4
+^ BRANCH_5
 --------------------
-: R_3_3
+: R_4_3
 < Always having my witch to rely on.
 @< explain
 < That's part of the contract between a witch and their familiar.
@@ -492,14 +538,14 @@ I just think it's too much of a hassle.
 < Yeah.
 @< smile
 < TODO FINISH THIS
-^ BRANCH_4
+^ BRANCH_5
 ========================
-: BRANCH_4
+: BRANCH_5
 | 1
 << Hey, Keifer...
-[ Are you friends with any witches? (-20, -60) R_4_1 | What does "UA" mean? (-20, -10) R_4_2 | What are your college friends like? (-20, 50) R_4_3
+[ Are you friends with any witches? (0, -60) R_5_1 | What does "UA" mean? (0, -10) R_5_2 | What are your college friends like? (0, 50) R_5_3
 --------------------
-: R_4_1
+: R_5_1
 < Are you friends with any witches?
 @> serious
 > Hm... I don't really think so.
@@ -543,9 +589,9 @@ I just think it's too much of a hassle.
 > I'll be nice to any others demons or familiars I meet, too.
 @< smile
 < Thank you.
-^ BRANCH_5
+^ BRANCH_6
 --------------------
-: R_4_2
+: R_5_2
 @< explain
 < What does "UA" mean?
 @> serious
@@ -593,9 +639,9 @@ I just think it's too much of a hassle.
 @< idle
 < It's part of our contract. There's really nothing either of us can do about it.
 > ...
-^ BRANCH_5
+^ BRANCH_6
 --------------------
-: R_4_3
+: R_5_3
 < What are your college friends like?
 > They're pretty cool.
 @< idle
@@ -625,96 +671,17 @@ I just think it's too much of a hassle.
 < That's a great attitude to have.
 @> idle
 > Yep! It's how I get to meet people like you.
-^ BRANCH_5
+^ BRANCH_6
 ========================
-: BRANCH_5
+: BRANCH_6
 | 1
-@> serious
-> Cosmo...
-@> explain
-> How long have you been a familiar?
-@> serious
-@< idle
-< Seven years.
-@> shock
-> What?
-> You, uh... don't look seven years old.
-@> serious
-@< heh
-< Yeah... familiars don't age like humans do.
-@< idle
-< Demons from the underworld are immortal, of course.
-@< think
-< But since familiars are basically a mix between a demon and a human... it gets messy.
-@< explain
-< I think I was about eight in human years when my witch created me.
-< I'm the equivalent of about nineteen now.
-@> shock
-> Wait... you $wstarted off $0physically eight years old?
-@< idle
-< Yeah. That's usually what happens.
-@< explain
-< It depends on the vessel a witch uses, and even on how old the witch is.
-@> serious
-> You weren't kidding about familiars bein' complicated.
-@< idle
-< Mhm.
-< Being a demon with a human soul does all sorts of weird things.
-< For example, we stop aging $wway $0sooner than humans.
-< This is probably about how I'm going to look for the rest of my life.
-> Wow...
+> Wow... we've been talking for a while.
 < Yeah.
-< Speaking of which... familiars actually have shorter lifespans than humans.
-@< sad
-< We usually live about half as long as they do.
-> $sR-$0really?
-< Yeah. It's a weird side effect of mixing mortality with immortality.
-@< idle
-> And you're gonna be helping your witch for the rest of your life, aren't you?
-< Yeah.
-< Such is the life a familiar lives.
-> ...
-> I'm just speaking hypothetically here, but...
-@> explain
->> If you weren't a familiar, what would you want to do with your life?
-[ Go to college. (-20, -60) R_5_1 | Get a job. (20, -10) R_5_2 | Become a witch. (20, 50) R_5_3
-------------------------
-: R_5_1
-< Go to college.
-@> idle
-> Oh, really?
 @< smile
-< Yeah. I actually think I'd really enjoy it.
-> What would you want to major in?
-@< idle
-< I'm not sure.
-@< explain
-< There's just a lot more I'd like to learn, y'know?
-@< idle
-@> serious
-< My witch did a good job homeschooling me, but she can't teach me everything.
-< Also...
-< I feel like going to college would be a benefit to my social skills.
-@< explain
-< My social skills really aren't great.
-< I'm usually pretty terrible at talking to other people.
-@< idle
-< Especially humans.
-> Really? I think you're talking to me just fine.
-@< smile2
-< I think that says more about you than it does about me.
-@> heh
-> Heh... maybe you're right.
 @> idle
+> You think you've had enough of a break?
 @< idle
-^ END
-------------------------
-: R_5_2
-< Get a job.
-^ END
-------------------------
-: R_5_3
-< Become a witch.
-^ END
-------------------------
-: END
+< Yeah.
+@< smile
+< I really enjoyed the talk, though.
+> Yeah! Me too.

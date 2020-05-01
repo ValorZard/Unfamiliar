@@ -465,9 +465,9 @@
 < She was in a really bad mood at the train station. Even before we got separated.
 > That could be for any reason, honeybucket.
 > I think you're being too paranoid about it.
-: MAD_END
-@< angry
+@< glare
 < ...
+: MAD_END
 > Does she get mad at you a lot?
 @< sad
 < No.
@@ -485,8 +485,10 @@
 > She does not $sdeserve $0to $wrun out of patience.
 @> talk
 > She spent months reading a 19th-century book just to figure out how to create you.
-> If she's patient enough to do that and make you her lifelong assistant, she'd better be patient enough to be a good person!
-> If I can throw my entire life away to become a witch, just to end up in this stupid deli eating a dumpster fire of a sandwich,
+> If she's patient enough to do that and make you her lifelong assistant,
+> she'd better be patient enough to be a good person!
+> If I can throw my entire life away to become a witch,
+> just to end up in this stupid deli eating a dumpster fire of a sandwich,
 > and $sstill $0have the patience to talk to some demon kid I've never met before,
 > then your witch $sdamn $0well has the patience to treat you like a human being!
 @> sad
@@ -494,7 +496,9 @@
 > Sorry. I get bitter about the whole familiar thing.
 > Basically, what I'm saying is...
 @> idle
-> ...If your witch is fine with getting impatient with you after she dragged you into this world against your will, screw her.
+> ...If your witch is fine with getting impatient with you, screw her.
+> She had the patience to drag you into this world against your will.
+> She'd better be patient enough for anything.
 @< sad
 < She's not that kind of person.
 @> idle2

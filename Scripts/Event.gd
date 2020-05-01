@@ -163,6 +163,15 @@ func _event_play_music(music: AudioStream, pitch: float = 1.0, volume: int = 0):
 	Controller.play_music(music, pitch, volume)
 	
 	
+func _event_fade_music(time: float, wait: bool = true):
+	if wait:
+		anim_player.stop(false)
+	Controller.fade_music(time)
+	if wait:
+		yield(Controller.wait(time), "timeout")
+		anim_player.play()
+	
+	
 func _event_play_ambient(amb: AudioStream, pitch: float = 1.0, volume: int = 0):
 	Controller.play_ambient(amb, pitch, volume)
 	

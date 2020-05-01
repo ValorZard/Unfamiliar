@@ -47,9 +47,9 @@ func _ready():
 	flag_regex_2.compile(flag_regex_2_p)
 	
 	
-func _process(delta):
-	if Input.is_action_just_pressed("debug_3"):
-		list_index = len(script_list) - 1
+#func _process(delta):
+	#if Input.is_action_just_pressed("debug_3"):
+		#list_index = len(script_list) - 1
 
 # =====================================================================
 

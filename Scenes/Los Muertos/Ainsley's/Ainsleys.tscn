@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -23,6 +23,7 @@
 [ext_resource path="res://Instances/Door.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Audio/Door.ogg" type="AudioStream" id=22]
 [ext_resource path="res://Instances/EventNPC.tscn" type="PackedScene" id=23]
+[ext_resource path="res://Audio/Music/encounter_loop.ogg" type="AudioStream" id=24]
 [ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=26]
 
@@ -97,6 +98,121 @@ extents = Vector2( 8, 78 )
 extents = Vector2( 39, 4 )
 
 [sub_resource type="Animation" id=11]
+length = 3.0
+tracks/0/type = "method"
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.6, 0.7, 0.8, 1, 1.1, 1.2, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.4, 2.5, 2.6, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"values": [ {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 0 ],
+"method": "_event_dialogue"
+}, {
+"args": [ Vector2( 192, 120 ), 0.8, 0 ],
+"method": "_event_move_player_to_position"
+}, {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 1 ],
+"method": "_event_dialogue"
+}, {
+"args": [ PoolVector2Array( 176, 114, 176, 98 ), PoolRealArray( 0.5, 0.5 ), PoolIntArray( 2, 0 ) ],
+"method": "_event_move_player_sequence"
+}, {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 2 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 3 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 4 ],
+"method": "_event_dialogue"
+}, {
+"args": [ 3 ],
+"method": "_event_set_player_direction"
+}, {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 5 ],
+"method": "_event_dialogue"
+}, {
+"args": [ 0 ],
+"method": "_event_set_player_direction"
+}, {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 6 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "down_sad" ],
+"method": "_event_player_play_animation"
+}, {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 7 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 8 ],
+"method": "_event_dialogue"
+}, {
+"args": [ 3 ],
+"method": "_event_set_player_direction"
+}, {
+"args": [ "res://Dialogue/Ainsley's/dl_ainsleys_intro.txt", 9 ],
+"method": "_event_dialogue"
+}, {
+"args": [ "scn_ainsley's_intro", 1 ],
+"method": "_event_set_flag"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("../NPCRhona")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.9, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "set_can_talk_to"
+}, {
+"args": [ true ],
+"method": "set_can_talk_to"
+}, {
+"args": [ null ],
+"method": "_on_InteractArea_area_entered"
+} ]
+}
+tracks/2/type = "method"
+tracks/2/path = NodePath("../NPCPaul")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 2.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [ false ],
+"method": "set_can_talk_to"
+}, {
+"args": [ true ],
+"method": "set_can_talk_to"
+} ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("../NPCRhona:face")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 2 ]
+}
+
+[sub_resource type="Animation" id=17]
+resource_name = "EventForLater"
 length = 4.5
 tracks/0/type = "method"
 tracks/0/path = NodePath(".")
@@ -284,6 +400,7 @@ __meta__ = {
 }
 
 [node name="SceneInfo" parent="." instance=ExtResource( 26 )]
+scene_music = ExtResource( 24 )
 
 [node name="Overlay" parent="." instance=ExtResource( 1 )]
 is_preview = true
@@ -445,14 +562,17 @@ dialogue_file = "res://Dialogue/Ainsley's/dl_ainsleys_rhona.txt"
 auto_advance_set = true
 set_limit = 2
 set_flag = "npc_ainsleys_rhona"
-face = 2
 
 [node name="Sprite" parent="NPCRhona" index="0"]
 frames = SubResource( 5 )
 
 [node name="NPCPaul" parent="." instance=ExtResource( 14 )]
 position = Vector2( 176, 75 )
+dialogue_file = "res://Dialogue/Ainsley's/dl_ainsleys_paul.txt"
+auto_advance_set = true
+set_limit = 2
 set_flag = "npc_ainsleys_paul"
+require_direction = true
 
 [node name="Sprite" parent="NPCPaul" index="0"]
 frames = SubResource( 6 )
@@ -494,6 +614,7 @@ autostart = true
 
 [node name="AnimationPlayer" parent="Event" index="0"]
 anims/Event = SubResource( 11 )
+anims/EventForLater = SubResource( 17 )
 
 [node name="CollisionShape2D" parent="Event" index="1"]
 shape = SubResource( 12 )

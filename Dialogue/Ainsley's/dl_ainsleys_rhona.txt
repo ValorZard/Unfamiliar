@@ -1,8 +1,8 @@
 0
-Rhona: If you really feel like you should keep looking, we won't stop you.
-Rhona: But I think it would be good for you if you took a break.
-Cosmo: ...
-Rhona: Just let my grandpa know if you're interested in helping!
+Rhona: Please try not to stress yourself too much.
+Rhona: Your witch is important, but you're also important.
+Rhona: So, take care of yourself, okay?
+Cosmo: ...Okay.
 -
 
 1

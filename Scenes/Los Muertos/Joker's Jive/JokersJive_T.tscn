@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -21,6 +21,7 @@
 [ext_resource path="res://Sprites/Characters (Overworld)/Los Muertos/Dartguy_up.png" type="Texture" id=19]
 [ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Audio/Music/encounter_loop_alt.ogg" type="AudioStream" id=22]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 24, 8 )
@@ -86,6 +87,7 @@ animations = [ {
 [node name="Scene" type="Node2D"]
 
 [node name="SceneInfo" parent="." instance=ExtResource( 21 )]
+scene_music = ExtResource( 22 )
 
 [node name="Overlay" parent="." instance=ExtResource( 1 )]
 is_preview = true
