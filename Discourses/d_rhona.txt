@@ -65,7 +65,7 @@
 < It's always nice and quiet. My witch and I can take a walk pretty much any time we feel like it.
 @< smile
 < Coming to a place like Los Muertos is definitely a change.
-< I'm hoping it'll be interesting.
+< I'm hoping it'll be an interesting experience.
 ^ BRANCH_2
 ------------------------
 : R_1_3
@@ -79,7 +79,7 @@
 @< glare
 @> serious
 < We live in the middle of the desert, basically.
-@< idle 
+@< idle
 > It must be hot over there, huh?
 < $wOh, $0yes. It was 90 degrees yesterday. In November.
 > Wow.
@@ -97,8 +97,7 @@
 @< smile
 < Going to a town like Los Muertos is a refreshing change.
 @> idle
-@< heh
-< Getting dragged into a conversation right away makes it even $wmore $0interesting.
+< Especially when I get dragged into a conversation before even stepping into town.
 @> aw
 > Uh... glad I could help with that!
 @< smile
@@ -116,10 +115,11 @@
 > I'm from the city, east of here.
 ? choice_hometown 0 CITY_END
 @< smile
-< Oh, really? That sounds interesting.
+< Oh, really? That sounds pretty neat.
 @> serious
 > Uh...
 > It's okay.
+@< idle
 > I'm not actually a huge fan of it, though.
 ^ CITY_END_2
 : CITY_END
@@ -129,12 +129,13 @@
 @> serious
 > I'm kind of the same as you, though. I'm not a huge fan of it.
 : CITY_END_2
+@< idle
 @> explain
 > It's too crowded for me. And it's not the cleanest city, either.
 @> annoyed
 > But there's also just... nowhere interesting to go.
-? choice_hometown 2 CITY2_END
 @> serious
+? choice_hometown 2 CITY2_END
 > It's pretty boring.
 ^ CITY2_END_2
 : CITY2_END
