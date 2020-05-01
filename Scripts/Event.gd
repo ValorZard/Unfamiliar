@@ -24,6 +24,7 @@ func _ready():
 func _exit_tree():
 	if not Player.is_in_transition() and not Player.is_in_door_transition() and not Controller.is_mid_event():
 		Player.set_state(Player.PlayerState.Move)
+		Player.set_in_an_area(false)
 
 # =====================================================================
 	
@@ -133,12 +134,6 @@ func _event_dialogue(file: String, set: int, text_size: int = 8, alt_box: bool =
 	if not is_nan(jump_point):
 		anim_player.seek(jump_point)
 	anim_player.play()
-	
-	
-#func _event_dialogue_conditional(file: String, flag_: String, table: Dictionary, text_size: int = 8):
-#	anim_player.stop(false)
-#	yield(Controller.dialogue(file, table[Controller.flag(flag_)], false, text_size, false), "dialogue_ended")
-#	anim_player.play()
 	
 	
 func _event_flashback(file: String, texture: String, transition: bool = true):

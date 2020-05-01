@@ -625,7 +625,7 @@ I just think it's too much of a hassle.
 @> serious
 > Really?
 @< explain
-< Yeah. She homeschooled me for about eight years. Just enough for a basic education.
+< Yeah. She homeschooled me for a few years. Just enough for a basic education.
 < I haven't gone to college, or anything.
 > Do all witches do that with their familiars?
 @< idle

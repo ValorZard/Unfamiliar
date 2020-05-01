@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Audio/Ambient/City.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Audio/Music/city_loop.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Instances/System/DestroyOnFlag.tscn" type="PackedScene" id=15]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 particles_animation = true
@@ -34,12 +35,12 @@ extents = Vector2( 12, 5 )
 animations = [ {
 "frames": [  ],
 "loop": true,
-"name": "left",
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "right",
+"name": "left",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -166,18 +167,30 @@ centered = false
 position = Vector2( 12, 7 )
 shape = SubResource( 4 )
 
+[node name="DestroyOnFlag" parent="Table" instance=ExtResource( 15 )]
+flag = "story_day1_discourses"
+condition = 5
+value = 1
+
 [node name="NPCPace" parent="." instance=ExtResource( 10 )]
 position = Vector2( 159, 43 )
 dialogue_file = "res://Dialogue/Los Muertos/dl_lm_pace.txt"
 change_direction = false
 auto_advance_set = true
+set_limit = 1
 set_flag = "npc_lm_pace"
+require_direction = true
 
 [node name="Sprite" parent="NPCPace" index="0"]
 frames = SubResource( 5 )
 
 [node name="Interact" parent="NPCPace" index="1"]
 position = Vector2( 0, -10 )
+
+[node name="DestroyOnFlag" parent="NPCPace" instance=ExtResource( 15 )]
+flag = "story_day1_discourses"
+condition = 5
+value = 1
 
 [editable path="Transitions/Transition"]
 

@@ -11,14 +11,20 @@ Cosmo: Cosmo.
 Merchant: Pace.
 Cosmo: Are you selling stuff?
 Pace: Yep. I sell all kinds of bits and bobs.
-Pace: You interested in anything?
-Cosmo: Maybe. I'll have a look.
+Pace: Although, I'm about to close up shop for tonight.
+Cosmo: Oh.
+Pace: I'll be back here tomorrow, though.
+Cosmo: All right. I might come back then.
 -
 
 1
-Pace: Thanks. Later.
+Pace: Feel free to come back tomorrow.
 -
 
 2
+Pace: Thanks. Later.
+-
+
+3
 Pace: Oh, hi again, Cosmo. Want to buy more stuff?
 -

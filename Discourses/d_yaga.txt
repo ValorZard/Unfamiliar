@@ -399,6 +399,7 @@
 ------------------------
 : R_4_2
 < ...the Witchcraft Museum?
+@> idle
 > The name's pretty self-explanatory.
 > It's a museum that contains a lot of Los Muertos's history.
 > And a lot of witchcraft history, obviously.
@@ -415,6 +416,7 @@
 @< think
 < Sort of.
 @< idle
+@> idle
 < What kind of stuff is there in the museum?
 > Mostly stuff you'd expect.
 > Historical accounts of famous witches, artifacts and spellbooks, and other stuff like that.
