@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scripts/System/DepthProp.gd" type="Script" id=11]
 [ext_resource path="res://Audio/Music/city_loop.ogg" type="AudioStream" id=12]
 [ext_resource path="res://Audio/Ambient/Cafe.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Sprites/Props/Interiors/IN_DeliTableLong.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 72 )
@@ -31,6 +32,9 @@ extents = Vector2( 8, 56 )
 
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 10, 13 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 39, 12 )
 
 [sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 10, 21 )
@@ -146,6 +150,23 @@ region_rect = Rect2( 4, 0, 15, 26 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BoothTable3"]
 position = Vector2( 9, 13 )
 shape = SubResource( 6 )
+
+[node name="Table4" type="StaticBody2D" parent="."]
+position = Vector2( 22, 151 )
+z_index = 147
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_group_": true
+}
+height_add = -4
+
+[node name="Sprite" type="Sprite" parent="Table4"]
+texture = ExtResource( 14 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table4"]
+position = Vector2( 39, 19 )
+shape = SubResource( 9 )
 
 [node name="Booth" type="StaticBody2D" parent="."]
 position = Vector2( 95, 27 )

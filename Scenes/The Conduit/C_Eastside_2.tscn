@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_Conduit.tres" type="TileSet" id=2]
@@ -17,7 +17,10 @@ extents = Vector2( 8, 32 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 24, 72 )
 
-[sub_resource type="Shader" id=4]
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 88, 8 )
+
+[sub_resource type="Shader" id=5]
 code = "shader_type canvas_item;
 render_mode unshaded;
 
@@ -28,13 +31,13 @@ void fragment() {
 }
 "
 
-[sub_resource type="ShaderMaterial" id=5]
-shader = SubResource( 4 )
-
-[sub_resource type="RectangleShape2D" id=6]
-extents = Vector2( 24, 8 )
+[sub_resource type="ShaderMaterial" id=6]
+shader = SubResource( 5 )
 
 [sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 24, 8 )
+
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 8, 16 )
 
 [node name="Scene" type="Node2D"]
@@ -87,11 +90,15 @@ shape = SubResource( 2 )
 position = Vector2( 200, 90 )
 shape = SubResource( 3 )
 
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
+position = Vector2( 160, 170 )
+shape = SubResource( 4 )
+
 [node name="Tint" type="Node2D" parent="."]
 z_index = 3400
 
 [node name="ColorRect" type="ColorRect" parent="Tint"]
-material = SubResource( 5 )
+material = SubResource( 6 )
 margin_right = 320.0
 margin_bottom = 180.0
 __meta__ = {
@@ -106,7 +113,7 @@ position = Vector2( 152, 10 )
 target_scene = "res://Scenes/The Conduit/C_Eastside_1.tscn"
 
 [node name="CollisionShape2D" parent="Transitions/Transition" index="0"]
-shape = SubResource( 6 )
+shape = SubResource( 7 )
 
 [node name="Door" parent="." instance=ExtResource( 4 )]
 position = Vector2( 96, 114 )
@@ -116,7 +123,7 @@ target_direction = 2
 door_sound = ExtResource( 5 )
 
 [node name="CollisionShape2D" parent="Door" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 8 )
 
 [editable path="Transitions/Transition"]
 

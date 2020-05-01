@@ -87,14 +87,14 @@ extents = Vector2( 9, 8 )
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
@@ -209,6 +209,7 @@ dialogue_file = "res://Dialogue/Los Muertos/dl_lm_kid1.txt"
 auto_advance_set = true
 set_limit = 1
 set_flag = "npc_lm_kid1"
+require_direction = true
 
 [node name="Sprite" parent="NPCKid" index="0"]
 frames = SubResource( 6 )

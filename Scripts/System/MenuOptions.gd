@@ -89,35 +89,35 @@ func start(use_background: bool):
 		
 func set_volume(value: float):
 	volume_value = int(value * 10)
-	update_controller_settings()
+	update_controller_settings(false)
 	update_shading()
 	save_settings()
 		
 		
 func set_windowsize(value: int):
 	windowsize_value = value
-	update_controller_settings()
+	update_controller_settings(true)
 	update_shading()
 	save_settings()
 	
 	
 func set_fullscreen(value: int):
 	fullscreen_value = value
-	update_controller_settings()
+	update_controller_settings(false)
 	update_shading()
 	save_settings()
 	
 	
 func set_speed_ow(value: int):
 	speed_ow_value = value
-	update_controller_settings()
+	update_controller_settings(false)
 	update_shading()
 	save_settings()
 	
 	
 func set_speed_d(value: int):
 	speed_d_value = value
-	update_controller_settings()
+	update_controller_settings(false)
 	update_shading()
 	save_settings()
 		
@@ -144,8 +144,8 @@ func update_shading():
 		(buttons[i + 19] as ButtonUF).set_shaded(i == speed_d_value)
 		
 		
-func update_controller_settings():
-	Controller.update_settings(volume_value, windowsize_value, fullscreen_value, speed_ow_value, speed_d_value)
+func update_controller_settings(center_window: bool):
+	Controller.update_settings(volume_value, windowsize_value, fullscreen_value, speed_ow_value, speed_d_value, center_window)
 		
 		
 func save_settings():
@@ -162,13 +162,13 @@ func load_settings():
 	
 func fullscreen_changed(value: bool):
 	fullscreen_value = value
-	update_controller_settings()
+	update_controller_settings(false)
 	update_shading()
 	
 	
 func windowsize_changed(value: int):
 	windowsize_value = value
-	update_controller_settings()
+	update_controller_settings(true)
 	update_shading()
 
 

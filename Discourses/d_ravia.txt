@@ -360,13 +360,13 @@
 @< explain
 < Basically, they're all about regulating the use of magic in public.
 @< idle
-< You can use magic in public as long as...
+< You can use magic in public, but...
 @< think
 < What were the terms they used...
 @< glare
-< As long as it's not considered to be a "threat to public safety or wellbeing."
+< You can use magic in public as long as it's not considered to be a "threat to public safety or wellbeing."
 < And as long as it doesn't "disturb the peace of mind of any individual."
-< So, basically, if someone declares that your magic makes them uncomfortable, they can just sue you for using it.
+< So, basically, if someone says that your magic makes them uncomfortable, they can just sue you for using it.
 > Wow. That sucks.
 @< idle
 < Yeah. So it's best not to risk using magic in public.

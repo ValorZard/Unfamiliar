@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Instances/System/SceneInfo.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Audio/Music/city_loop.ogg" type="AudioStream" id=10]
 [ext_resource path="res://Audio/Ambient/Cafe.ogg" type="AudioStream" id=11]
+[ext_resource path="res://Sprites/Props/Interiors/IN_DeliTableLong.png" type="Texture" id=12]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 80, 18 )
@@ -37,6 +38,9 @@ extents = Vector2( 10, 13 )
 extents = Vector2( 10, 19 )
 
 [sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 39, 12 )
+
+[sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 5, 5 )
 
 [node name="Scene" type="Node2D"]
@@ -299,6 +303,23 @@ centered = false
 position = Vector2( 10, 26 )
 shape = SubResource( 8 )
 
+[node name="Table4" type="StaticBody2D" parent="."]
+position = Vector2( 183, 7 )
+z_index = 3
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
+height_add = -4
+
+[node name="Sprite" type="Sprite" parent="Table4"]
+texture = ExtResource( 12 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table4"]
+position = Vector2( 39, 19 )
+shape = SubResource( 9 )
+
 [node name="Chair" type="StaticBody2D" parent="."]
 position = Vector2( 219, 82 )
 z_index = 82
@@ -314,7 +335,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair"]
 position = Vector2( 4, 14 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Chair7" type="StaticBody2D" parent="."]
 position = Vector2( 186, 82 )
@@ -332,7 +353,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair7"]
 position = Vector2( 5, 14 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Chair9" type="StaticBody2D" parent="."]
 position = Vector2( 101, 82 )
@@ -350,7 +371,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair9"]
 position = Vector2( 5, 14 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Chair12" type="StaticBody2D" parent="."]
 position = Vector2( 143, 48 )
@@ -368,7 +389,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair12"]
 position = Vector2( 5, 14 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Chair3" type="StaticBody2D" parent="."]
 position = Vector2( 134, 82 )
@@ -385,7 +406,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair3"]
 position = Vector2( 4, 14 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Chair6" type="StaticBody2D" parent="."]
 position = Vector2( 176, 48 )
@@ -402,7 +423,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair6"]
 position = Vector2( 4, 14 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Chair2" type="StaticBody2D" parent="."]
 position = Vector2( 219, 68 )
@@ -419,7 +440,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair2"]
 position = Vector2( 4, 14 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Chair8" type="StaticBody2D" parent="."]
 position = Vector2( 186, 68 )
@@ -437,7 +458,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair8"]
 position = Vector2( 5, 14 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Chair10" type="StaticBody2D" parent="."]
 position = Vector2( 101, 68 )
@@ -455,7 +476,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair10"]
 position = Vector2( 5, 14 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Chair11" type="StaticBody2D" parent="."]
 position = Vector2( 143, 34 )
@@ -473,7 +494,7 @@ flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair11"]
 position = Vector2( 5, 14 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Chair4" type="StaticBody2D" parent="."]
 position = Vector2( 134, 68 )
@@ -490,7 +511,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair4"]
 position = Vector2( 4, 14 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Chair5" type="StaticBody2D" parent="."]
 position = Vector2( 176, 34 )
@@ -507,7 +528,7 @@ centered = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Chair5"]
 position = Vector2( 4, 14 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [editable path="Transitions/Transition"]
 

@@ -3,6 +3,7 @@ extends Node2D
 class_name Menu
 
 var active := false
+var in_submenu := false
 
 onready var but1 := $CanvasLayer/Button1 as ButtonUF
 onready var but2 := $CanvasLayer/Button2 as ButtonUF
@@ -16,12 +17,13 @@ onready var anim_player := $AnimationPlayer as AnimationPlayer
 # =====================================================================
 
 func _process(delta):
-	if Input.is_action_just_pressed("sys_menu") and active:
+	if Input.is_action_just_pressed("sys_menu") and active and not in_submenu:
 		anim_player.play("Disappear")
 		
 # =====================================================================
 
 func _on_Button_clicked():
+	in_submenu = true
 	Controller.select_menu_button(buttons, but1.get_name(), false)
 	yield(Controller.wait(0.5), "timeout")
 	yield(Controller.open_save_menu(false), "menu_closed")
@@ -29,9 +31,11 @@ func _on_Button_clicked():
 	but1.set_hover(false)
 	for but in buttons:
 		but.appear()
+	in_submenu = false
 
 
 func _on_Button2_clicked():
+	in_submenu = true
 	Controller.select_menu_button(buttons, but2.get_name(), false)
 	yield(Controller.wait(0.5), "timeout")
 	yield(Controller.open_options_menu(true), "menu_closed")
@@ -39,9 +43,11 @@ func _on_Button2_clicked():
 	but2.set_hover(false)
 	for but in buttons:
 		but.appear()
+	in_submenu = false
 	
 
 func _on_Button3_clicked():
+	in_submenu = true
 	Controller.select_menu_button(buttons, but3.get_name(), false)
 	yield(Controller.wait(0.5), "timeout")
 	yield(Controller.open_exit_menu(self), "menu_closed")
@@ -49,9 +55,11 @@ func _on_Button3_clicked():
 	but3.set_hover(false)
 	for but in buttons:
 		but.appear()
+	in_submenu = false
 		
 		
 func _on_Button4_clicked():
+	in_submenu = true
 	Controller.select_menu_button(buttons, but4.get_name(), true)
 	anim_player.play("Disappear 2")
 	

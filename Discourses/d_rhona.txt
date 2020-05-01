@@ -12,7 +12,7 @@
 > Tell me a bit about yourself.
 ========================
 >> Where are you and your witch from?
-[ The city, northeast of here. (0, -60) R_1_1 | A bit south of here. (-90, -10) R_1_2 | The desert, east of here. (70, -10) R_1_3
+[ The city, northeast of here. (0, -60) R_1_1 | A bit south of here. (-90, -10) R_1_2 | East of here. (70, -10) R_1_3
 ------------------------
 : R_1_1
 * choice_hometown 0
@@ -24,9 +24,6 @@
 @< explain
 < We live on the outskirts of the city. But we're really close.
 > Oh.
-> I'm from Phoenix, so I guess we're from pretty similar places.
-@< smile
-< Sounds like it.
 > How do you like living near the city?
 < It's all right.
 @< idle
@@ -77,7 +74,7 @@
 @> happy
 > Oh, neat! Me too!
 @> idle
-> Are you from the Phoenix area? That's where I live.
+> Do you live in the city?
 < Not really. We live in a more rural area.
 @< glare
 @> serious
@@ -88,12 +85,9 @@
 > Wow.
 > Do you like that kind of weather?
 < Not really.
-@< smile
-@> idle
-< This chilly weather we have right now is perfect.
-@> explain2
+@> explain
 > What kind of stuff is there to do in your town?
-@> idle
+@> serious
 @< idle
 < Uh... not... much.
 @< glare
@@ -101,7 +95,8 @@
 @< idle
 < It's a really small town, and not a whole lot of people ever come to visit.
 @< smile
-< Going to a more interesting town like Los Muertos is a refreshing change.
+< Going to a town like Los Muertos is a refreshing change.
+@> idle
 @< heh
 < Getting dragged into a conversation right away makes it even $wmore $0interesting.
 @> aw
@@ -118,19 +113,40 @@
 : R_2_1
 < Where are you from?
 @> idle
-> I'm from Phoenix.
+> I'm from the city, east of here.
+? choice_hometown 0 CITY_END
 @< smile
-< Wow, really? That's a big city.
-> Yep! I'm not sure how much I like it, though.
+< Oh, really? That sounds interesting.
 @> serious
-@< idle
-> People aren't too nice in that city. Everyone's always irritated about something.
-@> think
-> I mean, it's pretty beautiful, but... it also just $wfeels $0crummy. I'm not sure why.
-@> idle
-> I think Los Muertos is a lot more fun.
+> Uh...
+> It's okay.
+> I'm not actually a huge fan of it, though.
+^ CITY_END_2
+: CITY_END
 @< smile
-< I can see why!
+< Oh, really? I guess we both live in the big city.
+> Sounds like it!
+@> serious
+> I'm kind of the same as you, though. I'm not a huge fan of it.
+: CITY_END_2
+@> explain
+> It's too crowded for me. And it's not the cleanest city, either.
+@> annoyed
+> But there's also just... nowhere interesting to go.
+? choice_hometown 2 CITY2_END
+@> serious
+> It's pretty boring.
+^ CITY2_END_2
+: CITY2_END
+@< glare
+< Sounds pretty similar to our town.
+@< idle
+< ...Sort of.
+> Yeah... a little bit.
+: CITY2_END_2
+@> idle
+@< smile
+> That's why I always like visiting Los Muertos. There's a lot more stuff to do here.
 ^ BRANCH_3
 ------------------------
 : R_2_2

@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=2]
+[gd_scene load_steps=61 format=2]
 
 [ext_resource path="res://Instances/Globals/Overlay.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Resources/Tilesets/Tileset_City.tres" type="TileSet" id=2]
@@ -43,6 +43,7 @@
 [ext_resource path="res://Audio/Music/city_loop.ogg" type="AudioStream" id=41]
 [ext_resource path="res://Audio/Music/encounter_loop.ogg" type="AudioStream" id=42]
 [ext_resource path="res://Audio/Ambient/Cafe.ogg" type="AudioStream" id=43]
+[ext_resource path="res://Sprites/Props/Interiors/IN_DeliTableLong.png" type="Texture" id=44]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8, 72 )
@@ -74,16 +75,19 @@ extents = Vector2( 10, 16 )
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 10, 13 )
 
+[sub_resource type="RectangleShape2D" id=16]
+extents = Vector2( 39, 12 )
+
 [sub_resource type="SpriteFrames" id=11]
 animations = [ {
-"frames": [ ExtResource( 20 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -99,14 +103,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=12]
 animations = [ {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 20 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
@@ -122,14 +126,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 32 ) ],
@@ -601,14 +605,14 @@ tracks/10/keys = {
 
 [sub_resource type="SpriteFrames" id=15]
 animations = [ {
-"frames": [ ExtResource( 22 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 27 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 32 ) ],
@@ -616,14 +620,14 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 23 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "right_walk",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "left_walk",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "right_walk",
 "speed": 7.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -631,25 +635,25 @@ animations = [ {
 "name": "down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
-"loop": false,
-"name": "left_tableslam",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 28 ) ],
 "loop": true,
 "name": "left_sandwich",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 33 ) ],
-"loop": true,
-"name": "left_angry",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 29 ), ExtResource( 28 ) ],
 "loop": true,
 "name": "left_walk_sandwich",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 33 ) ],
+"loop": true,
+"name": "left_angry",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 34 ), ExtResource( 35 ) ],
+"loop": false,
+"name": "left_tableslam",
+"speed": 5.0
 } ]
 
 [node name="Scene" type="Node2D"]
@@ -971,6 +975,23 @@ centered = false
 position = Vector2( 7, -6 )
 texture = ExtResource( 9 )
 centered = false
+
+[node name="Table4" type="StaticBody2D" parent="."]
+position = Vector2( 183, 151 )
+z_index = 147
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_group_": true
+}
+height_add = -4
+
+[node name="Sprite" type="Sprite" parent="Table4"]
+texture = ExtResource( 44 )
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table4"]
+position = Vector2( 39, 19 )
+shape = SubResource( 16 )
 
 [node name="BoothTable3" type="StaticBody2D" parent="."]
 position = Vector2( 236, 42 )

@@ -103,6 +103,21 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "right_walk",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "down2",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
 "name": "sit_right",
@@ -112,21 +127,6 @@ animations = [ {
 "loop": false,
 "name": "stand",
 "speed": 10.0
-}, {
-"frames": [ ExtResource( 16 ) ],
-"loop": true,
-"name": "down2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 30 ), ExtResource( 29 ), ExtResource( 31 ), ExtResource( 29 ) ],
-"loop": true,
-"name": "right_walk",
-"speed": 7.0
 } ]
 
 [sub_resource type="Animation" id=10]
@@ -418,16 +418,6 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 22 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 20 ) ],
-"loop": true,
-"name": "right_walk",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "left_walk",
@@ -436,6 +426,16 @@ animations = [ {
 "frames": [ ExtResource( 22 ) ],
 "loop": true,
 "name": "down_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "right_walk",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "down",
 "speed": 5.0
 } ]
 

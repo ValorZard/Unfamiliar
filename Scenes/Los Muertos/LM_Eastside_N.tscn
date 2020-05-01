@@ -104,6 +104,7 @@ dialogue_file = "res://Dialogue/Los Muertos/dl_lm_kid2.txt"
 auto_advance_set = true
 set_limit = 1
 set_flag = "npc_lm_kid2"
+require_direction = true
 
 [node name="Sprite" parent="NPCChild" index="0"]
 frames = SubResource( 3 )

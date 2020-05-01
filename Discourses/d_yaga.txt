@@ -199,13 +199,14 @@
 : R_2_3
 < Why are you eating here?
 < You keep talking about how terrible this restaurant is.
-> You aren't from Los Muertos, are you?
-< Nope.
+@> glare
+> Oh, right. You're not from Los Muertos.
+@> idle
 > Well, let me tell you about this town's restaurants.
 > They're all too expensive. Five-star. $wLudicrously $0overpriced.
 > You can't blame them. Los Muertos has always been a tourist attraction.
 @> eyeroll2
-> "The city of the dead!"#"Home of witches and demons and twisted monsters!"#"The thread that ties the mortal realm to the underworld!" FIX THIS
+> They make a big deal out of it being the $wcity of the dead, $0 and $whome of witches and demons.
 @> idle
 > In other words, if you want to go out to eat in this town, you have two choices:
 > Empty your wallet for some divine-grade five-star food,
@@ -334,15 +335,16 @@
 ========================
 : BRANCH_4
 | 1
+@< idle
 < So, Yaga...
 < Do you have any idea where my witch might be?
 @> think
 > Hm...
 > Hard to say.
 @> idle
-> I'm not really up to speed on the $wpopular scene $0of Los Muertos.
+> I'm not really too up to speed on the $wpopular scene $0of Los Muertos.
 @> think
-> Although... I do know a few popular spots for witches.
+> Although... I do know a few spots that witches tend to go to.
 < Oh, really?
 > Mhm.
 > Obviously, there's the Jinx Bar and Grill.
@@ -406,7 +408,7 @@
 > They're getting a lot of customers right now, since it's peak tourism season.
 @< idle
 < It is?
-> Mhm. It was Halloween just a few weeks ago.
+> Mhm. It was Halloween just a week ago.
 @> glare
 > People are really into visiting Los Muertos during that $wspooky $0season... I guess.
 < Makes sense.
@@ -414,7 +416,8 @@
 < Sort of.
 @< idle
 < What kind of stuff is there in the museum?
-> Mostly stuff you'd expect. Historical accounts of famous witches, artifacts and spellbooks, and other stuff like that.
+> Mostly stuff you'd expect.
+> Historical accounts of famous witches, artifacts and spellbooks, and other stuff like that.
 > It's pretty small, and there isn't much reason to go back after the first time you've seen it.
 > But it's still worth a look.
 < Hm... My witch is pretty into stuff like that. Maybe that's where she went.
@@ -500,7 +503,9 @@
 > She had the patience to drag you into this world against your will.
 > She'd better be patient enough for anything.
 @< sad
-< She's not that kind of person.
+< ...
+< She's a good person.
+< I don't actually think she'd run out of patience with me.
 @> idle2
 > Then what're you so worried about?
 < I don't know.

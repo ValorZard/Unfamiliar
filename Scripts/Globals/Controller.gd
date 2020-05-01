@@ -104,6 +104,10 @@ var flags: Dictionary = {
 	"know_about_jinx": 0,
 	"know_ravia_career": 0,
 	"told_keifer_about_magic": 0,
+	# ========================================
+	# SYSTEM STUFF
+	# ========================================
+	"game_time": 0,
 }
 
 var settings: Dictionary = {
@@ -167,7 +171,6 @@ var menu_open := false
 var d_previous_scene: String
 var d_previous_pos: Vector2
 var d_previous_dir: int
-#var d_previous_npc: NodePath
 
 var mid_event: bool = false
 var d_previous_event: NodePath
@@ -200,7 +203,7 @@ func _ready():
 		f.open(fname, File.READ)
 		var data: Dictionary = parse_json(f.get_line())
 		
-		update_settings(int(data["volume"]), int(data["window_size"]), int(data["fullscreen"]), int(data["text_speed_overworld"]), int(data["text_speed_discourse"]))
+		update_settings(int(data["volume"]), int(data["window_size"]), int(data["fullscreen"]), int(data["text_speed_overworld"]), int(data["text_speed_discourse"]), true)
 		
 		if f.is_open():
 			f.close()
@@ -243,20 +246,6 @@ func _process(delta: float):
 		if not editor_mode:
 			save_settings()
 		emit_signal("windowsize_changed", int(settings["window_size"]))
-		
-	#music.set_volume_db(System.percent_to_db(music_volume))
-	#ambient.set_volume_db(System.percent_to_db(ambient_volume))
-		
-#	if Input.is_action_just_pressed("sound_1"):
-#		play_sound_oneshot_from_path("res://Audio/Bell.ogg", 1.0, System.percent_to_db(0.05))
-#	if Input.is_action_just_pressed("sound_2"):
-#		play_sound_oneshot_from_path("res://Audio/Bell.ogg", 1.0, System.percent_to_db(0.8))
-#	if Input.is_action_just_pressed("sound_3"):
-#		play_sound_oneshot_from_path("res://Audio/Bell.ogg", 1.0, System.percent_to_db(0.6))
-#	if Input.is_action_just_pressed("sound_4"):
-#		play_sound_oneshot_from_path("res://Audio/Bell.ogg", 1.0, System.percent_to_db(0.4))
-#	if Input.is_action_just_pressed("sound_5"):
-#		play_sound_oneshot_from_path("res://Audio/Bell.ogg", 1.0, System.percent_to_db(0.2))
 
 # =====================================================================
 
@@ -281,7 +270,7 @@ func set_playtime(value: float):
 	
 	
 func get_playtime_str(playtime_value: float) -> String:
-	return str(floor(playtime_value / 3600)).pad_zeros(2) + ":" + str(floor(playtime_value / 60)).pad_zeros(2) + ":" + str(int(floor(playtime_value)) % 60).pad_zeros(2)
+	return str(floor(playtime_value / 3600)).pad_zeros(2) + ":" + str(int(floor(playtime_value / 60)) % 60).pad_zeros(2) + ":" + str(int(floor(playtime_value)) % 60).pad_zeros(2)
 
 	
 func set_tracking_playtime(value: bool):
@@ -294,20 +283,25 @@ func get_game_time() -> int:
 	
 func set_game_time(value: int):
 	game_time = value
+	flags["game_time"] = value
 	
 	
 func advance_game_time():
+	var value: int
 	match game_time:
 		GameTime.Six45:
-			game_time = GameTime.Seven
+			value = GameTime.Seven
 		GameTime.Seven:
-			game_time = GameTime.Seven15
+			value = GameTime.Seven15
 		GameTime.Seven15:
-			game_time = GameTime.Seven30
+			value = GameTime.Seven30
 		GameTime.Seven30:
-			game_time = GameTime.Seven45
+			value = GameTime.Seven45
 		GameTime.Seven45:
-			game_time = GameTime.Eight
+			value = GameTime.Eight
+			
+	game_time = value
+	flags["game_time"] = value
 			
 			
 func get_current_music() -> AudioStream:
@@ -332,14 +326,6 @@ func get_previous_pos() -> Vector2:
 	
 func get_previous_dir() -> int:
 	return d_previous_dir
-	
-	
-#func get_previous_npc() -> NodePath:
-#	return d_previous_npc
-	
-	
-#func set_previous_npc(npc: NodePath):
-#	d_previous_npc = npc
 
 
 func is_mid_event() -> bool:
@@ -378,7 +364,7 @@ func set_menu_open(value: bool):
 	menu_open = value
 	
 	
-func update_settings(volume: int, window_size: int, fullscreen: int, text_speed_overworld: int, text_speed_discourse: int):
+func update_settings(volume: int, window_size: int, fullscreen: int, text_speed_overworld: int, text_speed_discourse: int, center_window: bool):
 	# Volume
 	AudioServer.set_bus_volume_db(0, -80 + 80 * (volume / 10.0))
 	settings["volume"] = volume
@@ -397,7 +383,8 @@ func update_settings(volume: int, window_size: int, fullscreen: int, text_speed_
 			OS.set_window_size(Windowsize3)
 		3:
 			OS.set_window_size(Windowsize4)
-	OS.center_window()
+	if center_window:
+		OS.center_window()
 	settings["window_size"] = window_size
 	
 	# Text speed
@@ -615,6 +602,7 @@ func load_game(slot: int):
 	var dir: int = load_info["player_dir"]
 	money = load_info["money"]
 	flags = parse_json(load_info["flags"])
+	game_time = flags["game_time"]
 	playtime = load_info["playtime"]
 	
 	if f.is_open():

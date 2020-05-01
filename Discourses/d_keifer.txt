@@ -313,7 +313,8 @@ I just think it's too much of a hassle.
 @< glare
 < I'm not sure why it works that way. I guess it helps bind your soul to it, or something.
 @< idle
-< So, basically, to create a familiar, you have to give up both a part of your soul and a memento that's important to you.
+< So, basically, to create a familiar, you have to give up two things.
+< A part of your soul, and a memento that's important to you.
 @< sad
 < It's a lot.
 > ...Yeah. Wow.
@@ -631,18 +632,21 @@ I just think it's too much of a hassle.
 < No. Some of them enroll their familiars in public school.
 @< idle
 > Do you have any $winterest $0in going to college?
-< I mean... it's not like I can.
+< I'm... not sure.
+< I probably wouldn't even be able to.
 @< explain
 < I'm a familiar. I have to always be there to assist my witch when she needs it.
 > She can't give you time off to do stuff like that?
+< I mean... maybe she would.
+< Most witches probably wouldn't, though.
 < Most witches give their familiars weekends off, but no more than that.
 @< idle
-< It's part of our contract. There's really nothing either of us can do about it.
 > ...
 ^ BRANCH_6
 --------------------
 : R_5_3
 < What are your college friends like?
+@> idle
 > They're pretty cool.
 @< idle
 < Whose idea was it to visit Los Muertos?

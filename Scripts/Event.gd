@@ -22,7 +22,7 @@ func _ready():
 		
 		
 func _exit_tree():
-	if not Player.is_in_transition() and not Player.is_in_door_transition():
+	if not Player.is_in_transition() and not Player.is_in_door_transition() and not Controller.is_mid_event():
 		Player.set_state(Player.PlayerState.Move)
 
 # =====================================================================

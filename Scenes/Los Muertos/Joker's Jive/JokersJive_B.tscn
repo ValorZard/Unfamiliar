@@ -50,14 +50,14 @@ extents = Vector2( 7, 15 )
 
 [sub_resource type="SpriteFrames" id=9]
 animations = [ {
-"frames": [ ExtResource( 18 ) ],
-"loop": true,
-"name": "right",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 17 ) ],
 "loop": true,
 "name": "left",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "right",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 18 ) ],
@@ -517,7 +517,7 @@ value = 1
 [node name="DestroyOnFlag2" parent="EventNPCShion" instance=ExtResource( 20 )]
 flag = "story_day1_discourses"
 condition = 5
-value = 3
+value = 4
 
 [editable path="Door"]
 

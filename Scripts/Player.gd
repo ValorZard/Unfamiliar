@@ -54,7 +54,7 @@ func _physics_process(delta):
 				_play_footstep_sound()
 			
 			walking = vel != Vector2.ZERO
-			run_mode = Input.is_action_pressed("move_run")
+			#run_mode = Input.is_action_pressed("move_run")
 			
 			direction_management()
 			
