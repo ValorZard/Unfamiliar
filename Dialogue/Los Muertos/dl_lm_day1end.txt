@@ -4,17 +4,17 @@ Cosmo: Wow... it's this late already?
 -
 
 1
-Cosmo: ...
+Cosmo: Ugh...
 -
 
 2
+Cosmo: ...
 ? npc_inn_chip 0 BRANCH_2
-: BRANCH_1
-Cosmo: I should head back to the inn.
+Cosmo: I should head back to the hotel.
 Cosmo: Maybe she'll be there by now.
 ^ BRANCH_END
 : BRANCH_2
-Cosmo: I should find the inn.
+Cosmo: I should find the hotel.
 Cosmo: Maybe that's where she is.
 : BRANCH_END
 -

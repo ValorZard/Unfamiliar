@@ -3,7 +3,7 @@ RAWR
 -
 
 1
-Chip: Welcome to the Styx Inn.
+Chip: Welcome to the Styx Hotel.
 Cosmo: Hi. Has a witch checked into this hotel tonight?
 Chip: Nope. It's been a pretty slow day.
 Chip: Are you a familiar? Is she your witch?
@@ -30,8 +30,8 @@ Chip: You just really like hearing me roar, don't you?
 -
 
 5
+Chip: Hello there.
 ? npc_inn_chip 0 BRANCH_START
-Chip: Hello again.
 Chip: Had any luck finding your witch?
 Cosmo: No.
 Chip: Hm... that's not good.
@@ -43,7 +43,7 @@ Cosmo: Hopefully.
 Chip: Well...
 ^ BRANCH_END
 : BRANCH_START
-Chip: Welcome to the Styx Inn.
+Chip: Welcome to the Styx Hotel.
 Cosmo: Hi. Has a witch checked into this hotel tonight?
 Chip: Nope. It's been a pretty slow day.
 Cosmo: ...
