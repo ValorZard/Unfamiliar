@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+class_name NPC
+
 signal dialogue_started
 signal dialogue_finished
 
@@ -88,6 +90,13 @@ func set_can_talk_to(value: bool):
 	
 func set_sprite_override(value: bool):
 	sprite_override = value
+	
+	
+func set_set_limit(value: int):
+	set_limit = value
+	
+func set_dialogue_set(value: int):
+	dialogue_set = value
 		
 # =====================================================================
 

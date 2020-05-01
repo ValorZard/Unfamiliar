@@ -141,9 +141,9 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
+"frames": [ ExtResource( 17 ) ],
 "loop": true,
-"name": "down",
+"name": "sit",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
@@ -151,9 +151,9 @@ animations = [ {
 "name": "sit_look",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ) ],
+"frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "sit",
+"name": "down",
 "speed": 5.0
 } ]
 
@@ -620,21 +620,6 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 27 ) ],
-"loop": true,
-"name": "left_walk",
-"speed": 7.0
-}, {
-"frames": [ ExtResource( 23 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 22 ) ],
-"loop": true,
-"name": "right_walk",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 28 ) ],
 "loop": true,
 "name": "left_sandwich",
@@ -654,6 +639,21 @@ animations = [ {
 "loop": true,
 "name": "left_walk_sandwich",
 "speed": 7.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 23 ), ExtResource( 22 ), ExtResource( 24 ), ExtResource( 22 ) ],
+"loop": true,
+"name": "right_walk",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 27 ) ],
+"loop": true,
+"name": "left_walk",
+"speed": 7.0
 } ]
 
 [node name="Scene" type="Node2D"]
@@ -664,6 +664,7 @@ __meta__ = {
 }
 npc_yaga1 = NodePath("EventNPCYaga")
 npc_yaga2 = NodePath("EventNPCYaga2")
+npc_imp = NodePath("NPCImpA")
 plate = NodePath("BoothTable/Plate")
 
 [node name="SceneInfo" parent="." instance=ExtResource( 40 )]
