@@ -47,9 +47,9 @@ func _ready():
 	flag_regex_2.compile(flag_regex_2_p)
 	
 	
-#func _process(delta):
-	#if Input.is_action_just_pressed("debug_3"):
-		#list_index = len(script_list) - 1
+func _process(delta):
+	if Input.is_action_just_pressed("debug_3"):
+		list_index = len(script_list) - 1
 
 # =====================================================================
 
@@ -250,7 +250,8 @@ func parse_discourse_command(command: String):
 				text_controller.fade_screen(true)
 				var i: int = 0
 				for but in buttons:
-					create_button(buttons_regex.search(but).get_string(1), Vector2(160 + int(buttons_regex.search(but).get_string(2)), 90 + int(buttons_regex.search(but).get_string(3))), i, label_table[buttons_regex.search(but).get_string(4)])
+					var mat := buttons_regex.search(but)
+					create_button(mat.get_string(1), Vector2(160 + int(mat.get_string(2)), 90 + int(mat.get_string(3))), i, label_table[mat.get_string(4)])
 					i += 1
 				
 				# Link buttons together in Control focus
@@ -274,8 +275,9 @@ func parse_discourse_command(command: String):
 				emit_signal("ignore_line")
 				
 			"?": # Jump to label if flag is set - FORMAT: ? `Flag` `Value` `TARGET_LABEL`
-				if Controller.flag(flag_regex_2.search(text).get_string(1)) == int(flag_regex_2.search(text).get_string(2)):
-					list_index = label_table[flag_regex_2.search(text).get_string(3)]
+				var mat := flag_regex_2.search(text)
+				if Controller.flag(mat.get_string(1)) == int(mat.get_string(2)):
+					list_index = label_table[mat.get_string(3)]
 				co_target = self
 				co_signal = "ignore_line"
 				yield(Controller.wait(0.02), "timeout")

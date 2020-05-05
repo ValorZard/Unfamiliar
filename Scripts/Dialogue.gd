@@ -78,8 +78,8 @@ func _process(delta):
 			buffer = true
 			$TimerBuffer.start()
 			
-	#if Input.is_action_just_pressed("debug_3"):
-		#page = len(text) - 1
+	if Input.is_action_just_pressed("debug_3"):
+		page = len(text) - 1
 
 # =====================================================================
 
