@@ -2,12 +2,12 @@
 Commuter: What's wrong? Are you lost?
 Cosmo: I'm a familiar. I don't know where my witch is.
 Cosmo: She got here hours ago.
-Commuter: Oh. Well, you should really find her.
-Commuter: She's probably really upset at you.
+Commuter: Oh. Well, you should probably find her.
+Commuter: I bet she's really upset at you.
 Cosmo: Yeah. Thanks.
 -
 
 1
-Commuter: I don't know anything about witches.
 Commuter: Don't ask me where your witch is, because I don't know.
+Commuter: I don't know anything about witches.
 -

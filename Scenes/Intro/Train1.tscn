@@ -89,16 +89,6 @@ animations = [ {
 "name": "up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 30 ) ],
-"loop": true,
-"name": "down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 33 ), ExtResource( 32 ), ExtResource( 34 ), ExtResource( 32 ) ],
-"loop": true,
-"name": "left_walk",
-"speed": 7.0
-}, {
 "frames": [ ExtResource( 29 ) ],
 "loop": true,
 "name": "sit",
@@ -108,6 +98,16 @@ animations = [ {
 "loop": false,
 "name": "stand",
 "speed": 10.0
+}, {
+"frames": [ ExtResource( 33 ), ExtResource( 32 ), ExtResource( 34 ), ExtResource( 32 ) ],
+"loop": true,
+"name": "left_walk",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=4]
@@ -701,6 +701,8 @@ value = 1
 position = Vector2( 137, 83 )
 dialogue_file = "res://Dialogue/Train/dl_train_misc.txt"
 change_direction = false
+set_start = 2
+set_limit = 2
 auto_set_flag = false
 require_direction = true
 

@@ -1,3 +1,42 @@
+@> happy
+> $wNow $0we're talking!
+> I'll show you how I strike up a conversation back home!
+@< sad2
+< ...I never agreed to this.
+< I'm really not great at talking.
+@> idle
+> Aw, come on. Don't be shy!
+> I just want to learn a bit about you.
+< You're all right with talking to a demon?
+@> happy
+@< idle
+> Are you kidding? You'd better $wbelieve $0I'm all right with it!
+@> idle
+> I've never gotten to talk to a demon before. And demons are pretty cool!
+@< sad2
+< ...
+< Can you at least tell me your name?
+@> aw
+> Oh. Right. Sorry.
+@< idle
+@> idle
+> My name's Rhona.
+< I'm Cosmo.
+@> explain2
+> Nice to meet you, Cosmo!
+@> idle
+> So... what can you tell me about yourself?
+< I... uh...
+@> explain2
+>> Where are you and your witch from?
+
+
+
+
+
+
+
+
 > All right! I'll show you how we strike up a conversation back home!
 @< glare
 < Why are we doing this, again?

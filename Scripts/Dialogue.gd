@@ -57,8 +57,8 @@ onready var label := $Text as RichTextLabel
 
 # =====================================================================
 
-func _ready():
-	$TimerRollText.start()
+#func _ready():
+	#$TimerRollText.start()
 
 
 func _process(delta):
@@ -283,12 +283,9 @@ func start_roll():
 
 
 func end():
-	if reset_state:
-		Player.set_state(Player.PlayerState.Move)
 	ended = true
-	emit_signal("dialogue_ended_jump", event_jump_point)
-	emit_signal("dialogue_ended")
-	queue_free()
+	$Text.hide()
+	($AnimationPlayer as AnimationPlayer).play("Disappear")
 
 # =====================================================================
 
@@ -305,3 +302,14 @@ func _on_TimerRollText_timeout():
 
 func _on_TimerBuffer_timeout():
 	buffer = false
+
+
+func _on_AnimationPlayer_animation_finished(anim_name: String):
+	if anim_name == "Appear":
+		($TimerRollText as Timer).start()
+	elif anim_name == "Disappear":
+		if reset_state:
+			Player.set_state(Player.PlayerState.Move)
+		emit_signal("dialogue_ended_jump", event_jump_point)
+		emit_signal("dialogue_ended")
+		queue_free()

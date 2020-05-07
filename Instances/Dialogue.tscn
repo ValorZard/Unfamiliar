@@ -1,10 +1,113 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Dialogue.gd" type="Script" id=1]
 [ext_resource path="res://Audio/Dialogue type.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Sprites/UI/Box.png" type="Texture" id=3]
 [ext_resource path="res://Sprites/UI/Box2.png" type="Texture" id=4]
 [ext_resource path="res://Fonts/FontDlg.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Sprites/UI/BoxNinePatch.png" type="Texture" id=6]
+
+[sub_resource type="Animation" id=1]
+resource_name = "Appear"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Box:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 66.6, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Box:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 18.0, 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Box:margin_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 81.4, 148.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Box:margin_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 22.0, 40.0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "Disappear"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Box:margin_left")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 66.6 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Box:margin_top")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 18.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Box:margin_right")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 148.0, 81.4 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Box:margin_bottom")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 40.0, 22.0 ]
+}
 
 [node name="Dialogue" type="Node2D"]
 position = Vector2( 86, 116 )
@@ -15,9 +118,24 @@ __meta__ = {
 }
 sound_type = ExtResource( 2 )
 
-[node name="Box" type="Sprite" parent="."]
+[node name="BoxOld" type="Sprite" parent="."]
+visible = false
 position = Vector2( 74, 20 )
 texture = ExtResource( 3 )
+
+[node name="Box" type="NinePatchRect" parent="."]
+margin_left = 66.6
+margin_top = 18.0
+margin_right = 81.4
+margin_bottom = 22.0
+texture = ExtResource( 6 )
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Box2" type="Sprite" parent="."]
 visible = false
@@ -40,6 +158,9 @@ meta_underlined = false
 text = "Rhona: Hello there, Cosmo! How are you doing this afternoon?"
 scroll_active = false
 override_selected_font_color = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="TimerRollText" type="Timer" parent="."]
 wait_time = 0.03
@@ -47,5 +168,12 @@ wait_time = 0.03
 [node name="TimerBuffer" type="Timer" parent="."]
 wait_time = 0.05
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "Appear"
+playback_speed = 10.0
+anims/Appear = SubResource( 1 )
+anims/Disappear = SubResource( 2 )
 [connection signal="timeout" from="TimerRollText" to="." method="_on_TimerRollText_timeout"]
 [connection signal="timeout" from="TimerBuffer" to="." method="_on_TimerBuffer_timeout"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
