@@ -351,6 +351,9 @@ z_index = 1500
 margin_right = 320.0
 margin_bottom = 180.0
 mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Fadein"
@@ -474,6 +477,9 @@ margin_bottom = 54.0001
 custom_fonts/font = ExtResource( 10 )
 text = "Rhona Ainsley"
 align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="AnimationPlayerWords" type="AnimationPlayer" parent="."]
 autoplay = "Words"

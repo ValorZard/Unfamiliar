@@ -15,7 +15,7 @@
 ========================
 @> idle
 << So, Ravia...
-[ Why are you here with your uncle? (-20, -55) R_1_1 | What do you think of Los Muertos? (20, -5) R_1_2
+] Why are you here with your uncle? (-20, -55) R_1_1 | What do you think of Los Muertos? (20, -5) R_1_2
 ------------------------
 : R_1_1
 < Why are you here with your uncle?
@@ -118,7 +118,7 @@
 > Really? Like what?
 @< think
 << Well, for example...
-[ She helped me get these glasses. (0, -60) R_2_1 | She gave me an education. (0, -10) R_2_2 | She's always been supportive of my gender. (0, 40) R_2_3
+] She helped me get these glasses. (0, -60) R_2_1 | She gave me an education. (0, -10) R_2_2 | She's always been supportive of my gender. (0, 40) R_2_3
 ------------------------
 : R_2_1
 @< idle
@@ -278,7 +278,7 @@
 > Is there anything about it I should know in general?
 @< think
 << Hm...
-[ Here's how you become a witch. (0, -60) R_3_1 | It's not the most glamorous life. (0, -10) R_3_2 | There are laws to follow. (0, 40) R_3_3
+] Here's how you become a witch. (0, -60) R_3_1 | It's not the most glamorous life. (0, -10) R_3_2 | There are laws to follow. (0, 40) R_3_3
 ------------------------
 : R_3_1
 @< explain

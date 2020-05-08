@@ -226,7 +226,11 @@ func set_header_text(text_: String):
 	
 func fade_screen(out: bool):
 	$AnimationPlayer.play("Fadeout" if out else "Fadein")
-	#$AnimationPlayerHeader.play("Fadein" if out else "Fadeout")
+	$AnimationPlayerHeader.play("Fadein" if out else "Fadeout")
+	
+
+func show_end_text(show: bool):
+	$AnimationPlayerEndText.play("Fadein" if show else "Fadeout")
 
 # =====================================================================
 

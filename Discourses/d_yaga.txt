@@ -49,7 +49,7 @@
 @< idle
 < What?
 >> Getting dragged on a trip to meet some of her friends you don't even know?
-[ It might be nice. (-20, -35) R_1_1 | I'm not looking forward to it. (0, 25) R_1_2
+] It might be nice. (-20, -35) R_1_1 | I'm not looking forward to it. (0, 25) R_1_2
 ------------------------
 : R_1_1
 < It might be nice.
@@ -120,7 +120,7 @@
 @< idle
 @> idle
 << Hey, Yaga...
-[ Have you ever had a familiar? (0, -60) R_2_1 | Do you like being a witch? (0, -10) R_2_2 | Why are you eating here? (0, 40) R_2_3
+] Have you ever had a familiar? (0, -60) R_2_1 | Do you like being a witch? (0, -10) R_2_2 | Why are you eating here? (0, 40) R_2_3
 ------------------------
 : R_2_1
 < Have you ever had a familiar?
@@ -238,7 +238,7 @@
 ^ TIME_END
 : TIME_END
 >> Was there anything you wanted to see or do while you're here?
-[ Just look around. (0, -60) R_3_1 | Do some shopping. (0, -10) R_3_2 | Maybe just try to relax a bit. (0, 40) R_3_3
+] Just look around. (0, -60) R_3_1 | Do some shopping. (0, -10) R_3_2 | Maybe just try to relax a bit. (0, 40) R_3_3
 ------------------------
 : R_3_1
 < Just look around.
@@ -358,12 +358,12 @@
 < Yeah. She wasn't there.
 > Hm...
 << Could you tell me more about...
-[ The Jinx Bar and Grill? (0, -40) R_4_1 | The Witchcraft Museum? (0, 20) R_4_2
+] The Jinx Bar and Grill? (0, -40) R_4_1 | The Witchcraft Museum? (0, 20) R_4_2
 : JOKERS_JIVE_END
 < Hm...
 @> idle
 << Could you tell me more about...
-[ The Jinx Bar and Grill? (0, -60) R_4_1 | The Witchcraft Museum? (0, -10) R_4_2 | The Joker's Jive? (0, 40) R_4_3
+] The Jinx Bar and Grill? (0, -60) R_4_1 | The Witchcraft Museum? (0, -10) R_4_2 | The Joker's Jive? (0, 40) R_4_3
 ------------------------
 : R_4_1
 < ...the Jinx Bar and Grill?

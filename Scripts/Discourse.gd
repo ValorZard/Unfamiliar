@@ -6,11 +6,13 @@ signal choice_clicked
 signal ignore_line
 
 const line_regex_p := "^(\\S+)\\s+(.+)$" # ^(\S+)\s+(.+)$
+const choice_regex_p := "^\\s*{(.+)}\\s*(.+)$" # ^\s*{(.+)}\s*(.+)$
 const buttons_regex_p := "^\\s*([^\\r\\n\\t\\f\\v]+)\\s\\(([\\d-]+),\\s*([\\d-]+)\\)\\s*(\\w+)\\s*$" # ^\s*([^\r\n\t\f\v]+)\s\(([\d-]+),\s*([\d-]+)\)\s*(\w+)\s*$
 const flag_regex_p := "^(.+)\\s+(\\d+)$" # ^(.+)\s+(\d+)$
 const flag_regex_2_p := "^(.+)\\s+(\\d+)\\s+(\\w+)$" # ^(.+)\s+(\d+)\s+(\w+)$
 
 var line_regex := RegEx.new()
+var choice_regex := RegEx.new()
 var buttons_regex := RegEx.new()
 var flag_regex := RegEx.new()
 var flag_regex_2 := RegEx.new()
@@ -42,6 +44,7 @@ onready var anim_player_right := $AnimationPlayerRightChar as AnimationPlayer
 
 func _ready():
 	line_regex.compile(line_regex_p)
+	choice_regex.compile(choice_regex_p)
 	buttons_regex.compile(buttons_regex_p)
 	flag_regex.compile(flag_regex_p)
 	flag_regex_2.compile(flag_regex_2_p)
@@ -145,10 +148,11 @@ func click_choice(index: int):
 
 # =====================================================================
 
-func create_button(text: String, pos: Vector2, index: int, target_line: int) -> ButtonUF:
+func create_button(text: String, pos: Vector2, index: int, target_line: int, end_choice: bool) -> ButtonUF:
 	var but := ChoiceButton.instance() as ButtonUF
 	but.set_text_controller($TextDisplay)
 	but.set_controller(self)
+	but.set_end_choice_button(end_choice)
 	but.set_index(index)
 	but.set_target_line(target_line)
 	but.set_position(pos)
@@ -210,7 +214,7 @@ func parse_discourse_command(command: String):
 				speaker_right = false
 				co_target = text_controller
 				co_signal = "text_ended"
-				text_controller.set_header_text(text)
+				#text_controller.set_header_text(text)
 				text_controller.display_text(text)
 				
 			">>": # Dialogue right hold - FORMAT: >> `Text`
@@ -221,7 +225,7 @@ func parse_discourse_command(command: String):
 				speaker_right = true
 				co_target = text_controller
 				co_signal = "text_ended"
-				text_controller.set_header_text(text)
+				#text_controller.set_header_text(text)
 				text_controller.display_text(text)
 				
 			"|": # Pause - FORMAT: | `Time in sec`
@@ -243,16 +247,32 @@ func parse_discourse_command(command: String):
 				yield(Controller.wait(0.02), "timeout")
 				emit_signal("ignore_line")
 				
-			"[": # Choice - FORMAT: [ `Choice text` (`x coord of choice`, `y coord of choice`) `LABEL_AT_START_OF_BRANCH` | for each choice
+			"]": # Choice - FORMAT: ] {Question text} then `Choice text` (`x coord of choice`, `y coord of choice`) `LABEL_AT_START_OF_BRANCH` | for each choice
 				co_target = self
 				co_signal = "choice_clicked"
-				var buttons: Array = text.split("|")
+				var mat_choice := choice_regex.search(text)
+				text_controller.set_header_text(mat_choice.get_string(1))
+				var buttons: Array = mat_choice.get_string(2).split("|")
 				text_controller.fade_screen(true)
 				var i: int = 0
 				for but in buttons:
 					var mat := buttons_regex.search(but)
-					create_button(mat.get_string(1), Vector2(160 + int(mat.get_string(2)), 90 + int(mat.get_string(3))), i, label_table[mat.get_string(4)])
+					create_button(mat.get_string(1), Vector2(160 + int(mat.get_string(2)), 90 + int(mat.get_string(3))), i, label_table[mat.get_string(4)], false)
 					i += 1
+				
+				# Link buttons together in Control focus
+				yield(Controller.wait(0.03), "timeout")
+				for n in range(len(buttons_list)):
+					(buttons_list[n] as ButtonUF).set_neighbor_previous(buttons_list[wrapi(n - 1, 0, len(buttons_list))] as ButtonUF)
+					(buttons_list[n] as ButtonUF).set_neighbor_next(buttons_list[wrapi(n + 1, 0, len(buttons_list))] as ButtonUF)
+					
+			"%": # Choice to end dialogue - FORMAT: % `END_LABEL`
+				co_target = self
+				co_signal = "choice_clicked"
+				text_controller.hide_box()
+				text_controller.show_end_text(true)
+				create_button("Yes", Vector2(160 - 50, 90 + 25), 0, list_index + 1, true)
+				create_button("No", Vector2(160 + 30, 90 + 25), 1, label_table[text], true)
 				
 				# Link buttons together in Control focus
 				yield(Controller.wait(0.03), "timeout")

@@ -41,6 +41,8 @@ var controller = null
 
 var text_controller = null
 
+var end_choice_button := false
+
 onready var label := $Label as Label
 onready var spr := $Sprite as Sprite
 onready var anim_player := $AnimationPlayer as AnimationPlayer
@@ -83,10 +85,10 @@ func _ready():
 	#	set_self_modulate(Color(1, 1, 1, 0))
 
 	for point in polygon:
-		var xx = rand_range(-Variance, Variance) if choice_button else 0.0
-		var yy = rand_range(-Variance, Variance) if choice_button else 0.0
+		var xx = rand_range(-Variance / 2.0, Variance / 2.0) if end_choice_button else rand_range(-Variance, Variance) if choice_button else 0.0
+		var yy = rand_range(-Variance / 2.0, Variance / 2.0) if end_choice_button else rand_range(-Variance, Variance) if choice_button else 0.0
 		var add := Vector2(xx - 55, yy - 15)
-		poly.push_back(point + add)
+		poly.push_back(point + add + (Vector2(-26 if point.x > 0 else 26, -4 if point.y > 0 else 4) if end_choice_button else Vector2.ZERO))
 	polygon = poly
 	poly_initial = poly
 	vertex_colors = ColorsTransparent
@@ -131,6 +133,10 @@ func set_text_controller(value):
 
 func set_controller(contr):
 	self.controller = contr
+	
+	
+func set_end_choice_button(value: bool):
+	end_choice_button = value
 	
 	
 func set_shaded(value: bool):
@@ -266,7 +272,10 @@ func _on_Button_pressed() -> void:
 
 	if choice_button:
 		controller.click_choice(index)
-		text_controller.fade_screen(false)
+		if end_choice_button:
+			text_controller.show_end_text(false)
+		else:
+			text_controller.fade_screen(false)
 
 	click = selection_animation
 	emit_signal("clicked")

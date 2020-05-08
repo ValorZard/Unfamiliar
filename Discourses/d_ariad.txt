@@ -5,7 +5,7 @@
 | 0.5
 ========================
 << So, Ariad...
-[ How long have you been a familiar? (-20, -60) R_1_1 | What does your witch do? (20, -10) R_1_2 | Do you live in Los Muertos? (0, 40) R_1_3
+] How long have you been a familiar? (-20, -60) R_1_1 | What does your witch do? (20, -10) R_1_2 | Do you live in Los Muertos? (0, 40) R_1_3
 ------------------------
 : R_1_1
 < How long have you been a familiar?

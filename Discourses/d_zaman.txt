@@ -98,7 +98,7 @@
 < Of $scourse $0it isn't!
 >> Then why did you spend all night looking for her?
 ========================
-[ I'm worried about her! (0, -60) R_1_1 | I have to apologize to her! (0, -60) R_1_2
+] I'm worried about her! (0, -60) R_1_1 | I have to apologize to her! (0, -60) R_1_2
 ------------------------
 : R_1_1
 < I'm worried about her!
@@ -196,7 +196,7 @@
 | 1.5
 @< idle
 >> So, why did you two come to Los Muertos, anyway?
-[ We're meeting a client. (0, -60) R_2_1 | She's meeting some friends. (0, -60) R_2_2 | She's shopping for occult materials. (0, -60) R_2_3
+] We're meeting a client. (0, -60) R_2_1 | She's meeting some friends. (0, -60) R_2_2 | She's shopping for occult materials. (0, -60) R_2_3
 ------------------------
 : R_2_1
 < We're meeting a client.

@@ -28,7 +28,42 @@
 > So... what can you tell me about yourself?
 < I... uh...
 @> explain2
->> Where are you and your witch from?
+>> Okay, how about this: What can you tell me about where you live?
+] {What can you tell me about where you live?} We live near a big meadow. (0, -30) R_1_1 | We live way up in the hills. (-90, 20) R_1_2 | The desert. (70, 20) R_1_3
+------------------------
+: R_1_2
+@> idle
+< Um...
+< We live way up in the hills, a bit north of here.
+> Oh, really?
+< Yeah. It's... kind of out of the way.
+@< explain
+< There's a small town at the foot of the hills. It's about a ten minute drive away.
+< We go there whenever we need to go shopping.
+< But... other than that, we're pretty isolated.
+@< idle
+@> serious
+> Do you like living like that?
+< ...Yeah.
+< It's always nice and quiet. I kind of like it.
+@< sad2
+< I don't really have too many friends, though.
+< I mostly just know my witch's friends from in town.
+@> sad
+> Oh...
+@> serious
+> ...
+> Well...
+@> idle
+> $wI'll $0be your friend!
+@< idle
+< ...What?
+< We've barely even met each other.
+> Who cares?
+> You really look like you could use a friend.
+> And if no one else will do it, then I will!
+< ...
+^ BRANCH_2
 
 
 
@@ -37,6 +72,69 @@
 
 
 
+@> serious
+> Wait... really?
+@> idle
+> I didn't realize there were places like that around
+
+@< explain
+
+
+
+
+< Our house is next to a big meadow up in the hills.
+> Oh! That sounds like a beautiful place to live.
+@< idle
+< Yeah. The meadow's full of these really nice pink flowers.
+@< sad
+< My witch and I 
+------------------------
+: R_1_2
+< Um...
+< We're from the big city, a bit northeast of here.
+@> happy
+> Oh, really?
+< Well... sort of.
+@> idle
+@< explain
+< We live on the outskirts of the city, but we have to go into town all the time.
+> Oh.
+> How do you like living near the city?
+< It's... all right.
+@< idle
+< I go into the city with my witch from time to time.
+< It's definitely a change from our quiet little house on the outskirts.
+@> serious
+@< sad2
+< Although... the people in the city don't tend to be very nice.
+> What, are they just cranky all the time?
+< Well... a lot of them also just... don't like witches and demons.
+> What? Why not?
+< I don't know.
+@< idle
+< Not a whole lot of witches live up there.
+@> sad
+> ...
+@> serious
+< Other than that, though, it's a pretty nice place to live.
+< There are lots of trees and mountains, and it's nowhere near as hot as some of the other places around here.
+@> idle
+> That's nice.
+^ BRANCH_2
+------------------------
+: R_2_1
+* choice_hometown 0
+< Um...
+< We're from the city, northeast of here.
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////
 > All right! I'll show you how we strike up a conversation back home!
 @< glare
 < Why are we doing this, again?
@@ -51,9 +149,9 @@
 > Tell me a bit about yourself.
 ========================
 >> Where are you and your witch from?
-[ The city, northeast of here. (0, -60) R_1_1 | A bit south of here. (-90, -10) R_1_2 | East of here. (70, -10) R_1_3
+] The city, northeast of here. (0, -60) R_1_1 | A bit south of here. (-90, -10) R_1_2 | East of here. (70, -10) R_1_3
 ------------------------
-: R_1_1
+: R_1_1222222
 * choice_hometown 0
 < The city, northeast of here.
 @> happy
@@ -88,7 +186,7 @@
 > That's nice.
 ^ BRANCH_2
 ------------------------
-: R_1_2
+: R_1_2222222222
 * choice_hometown 1
 < A bit south of here.
 > Oh.
@@ -107,7 +205,7 @@
 < I'm hoping it'll be an interesting experience.
 ^ BRANCH_2
 ------------------------
-: R_1_3
+: R_1_32222222
 * choice_hometown 2
 < East of here.
 @> happy
@@ -146,7 +244,7 @@
 : BRANCH_2
 | 1
 << So, Rhona...
-[ Where are you from? (-20, -60) R_2_1 | Why are you visiting Los Muertos? (20, -10) R_2_2
+] Where are you from? (-20, -60) R_2_1 | Why are you visiting Los Muertos? (20, -10) R_2_2
 ------------------------
 : R_2_1
 < Where are you from?
@@ -261,7 +359,7 @@
 > Oh. All right.
 @< idle
 >> So, what does your witch $wdo, $0exactly?
-[ She's a freelance demon summoner. (-20, -60) R_3_1 | She makes and sells potions. (20, -10) R_3_2 | She writes books of spells. (0, 40) R_3_3
+] She's a freelance demon summoner. (-20, -60) R_3_1 | She makes and sells potions. (20, -10) R_3_2 | She writes books of spells. (0, 40) R_3_3
 ------------------------
 : R_3_1
 * choice_witch_profession 0
@@ -403,7 +501,7 @@
 @< smile
 @> idle
 << What about you, Rhona?
-[ What do you like to do? (-20, -55) R_4_1 | What do you want to do for a living? (20, -5) R_4_2
+] What do you like to do? (-20, -55) R_4_1 | What do you want to do for a living? (20, -5) R_4_2
 ------------------------
 : R_4_1
 < What do you like to do?
@@ -527,7 +625,7 @@
 > So, Cosmo...
 > I know you don't know her name, but...
 >> Do you... think you and your witch are really close?
-[ I think so. (-20, -35) R_5_1 | I don't know. (0, 25) R_5_2
+] I think so. (-20, -35) R_5_1 | I don't know. (0, 25) R_5_2
 ------------------------
 : R_5_1
 < I think so.

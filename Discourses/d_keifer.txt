@@ -9,7 +9,7 @@
 > So, Cosmo...
 ========================
 >> I'm all about photography, but... what are you into?
-[ I like cooking. (0, -60) R_1_1 | I play a few instruments. (0, -10) R_1_2 | I like to draw. (0, 50) R_1_3
+] I like cooking. (0, -60) R_1_1 | I play a few instruments. (0, -10) R_1_2 | I like to draw. (0, 50) R_1_3
 ------------------------
 : R_1_1
 < I like cooking.
@@ -131,7 +131,7 @@
 | 0.5
 @< smile
 << So, Keifer...
-[ What type of photography do you like? (0, -60) R_2_1 | How do you like Los Muertos? (0, -10) R_2_2 | What have you been up to? (0, 50) R_2_3
+] What type of photography do you like? (0, -60) R_2_1 | How do you like Los Muertos? (0, -10) R_2_2 | What have you been up to? (0, 50) R_2_3
 ------------------------
 : R_2_1
 < What type of photography do you like?
@@ -262,7 +262,7 @@ I just think it's too much of a hassle.
 > I'm really interested.
 < Hm...
 << I can tell you about...
-[ How familiars are created. (0, -60) R_3_1 | The powers familiars have. (0, -10) R_3_2
+] How familiars are created. (0, -60) R_3_1 | The powers familiars have. (0, -10) R_3_2
 ------------------------
 : R_3_1
 < How familiars are created.
@@ -432,7 +432,7 @@ I just think it's too much of a hassle.
 > I bet it does!
 @< smile
 >> What's your favorite part about being a demon?
-[ Being able to use magic. (0, -60) R_4_1 | Being able to travel with my witch. (0, -10) R_4_2
+] Being able to use magic. (0, -60) R_4_1 | Being able to travel with my witch. (0, -10) R_4_2
 --------------------
 : R_4_1
 < Being able to use magic.
@@ -544,7 +544,7 @@ I just think it's too much of a hassle.
 : BRANCH_5
 | 1
 << Hey, Keifer...
-[ Are you friends with any witches? (0, -60) R_5_1 | What does "UA" mean? (0, -10) R_5_2 | What are your college friends like? (0, 50) R_5_3
+] Are you friends with any witches? (0, -60) R_5_1 | What does "UA" mean? (0, -10) R_5_2 | What are your college friends like? (0, 50) R_5_3
 --------------------
 : R_5_1
 < Are you friends with any witches?
