@@ -31,11 +31,45 @@
 >> Okay, how about this: What can you tell me about where you live?
 ] {What can you tell me about where you live?} We live near a big meadow. (0, -30) R_1_1 | We live way up in the hills. (-90, 20) R_1_2 | The desert. (70, 20) R_1_3
 ------------------------
+: R_1_1
+@> idle
+< Um...
+< We live near a big meadow.
+@> serious
+> Wait... really?
+@> idle
+> I didn't realize there were places like that around here.
+< Yeah. It's up in the hills, away from the desert.
+@> happy
+> A meadow up in the hills?
+@> idle
+> That sounds like a beautiful place to live.
+< Mhm. The meadow's full of these really pretty pink flowers.
+@< sad
+< Sometimes my witch and I go out and pick them.
+@< sad2
+< We go on a lot of walks.
+@> serious
+< It's not like there's much else to do up there.
+@< idle
+> Hm...
+@> idle
+> Are you excited to be going to a more lively place like Los Muertos?
+< ...
+@< smile
+< Yeah.
+@< idle
+< I'd like to try meeting some new people.
+> Well... you're doing a pretty good job so far!
+< You think so?
+> Yeah! I'm glad I'm getting to talk to you.
+^ BRANCH_2
+------------------------
 : R_1_2
 @> idle
 < Um...
 < We live way up in the hills, a bit north of here.
-> Oh, really?
+> Oh, that's neat!
 < Yeah. It's... kind of out of the way.
 @< explain
 < There's a small town at the foot of the hills. It's about a ten minute drive away.
@@ -55,7 +89,7 @@
 > ...
 > Well...
 @> idle
-> $wI'll $0be your friend!
+> I'll be your friend!
 @< idle
 < ...What?
 < We've barely even met each other.
@@ -64,278 +98,158 @@
 > And if no one else will do it, then I will!
 < ...
 ^ BRANCH_2
-
-
-
-
-
-
-
-
-@> serious
-> Wait... really?
-@> idle
-> I didn't realize there were places like that around
-
-@< explain
-
-
-
-
-< Our house is next to a big meadow up in the hills.
-> Oh! That sounds like a beautiful place to live.
-@< idle
-< Yeah. The meadow's full of these really nice pink flowers.
-@< sad
-< My witch and I 
 ------------------------
-: R_1_2
-< Um...
-< We're from the big city, a bit northeast of here.
-@> happy
-> Oh, really?
-< Well... sort of.
-@> idle
-@< explain
-< We live on the outskirts of the city, but we have to go into town all the time.
-> Oh.
-> How do you like living near the city?
-< It's... all right.
-@< idle
-< I go into the city with my witch from time to time.
-< It's definitely a change from our quiet little house on the outskirts.
-@> serious
-@< sad2
-< Although... the people in the city don't tend to be very nice.
-> What, are they just cranky all the time?
-< Well... a lot of them also just... don't like witches and demons.
-> What? Why not?
-< I don't know.
-@< idle
-< Not a whole lot of witches live up there.
-@> sad
-> ...
-@> serious
-< Other than that, though, it's a pretty nice place to live.
-< There are lots of trees and mountains, and it's nowhere near as hot as some of the other places around here.
-@> idle
-> That's nice.
-^ BRANCH_2
-------------------------
-: R_2_1
-* choice_hometown 0
-< Um...
-< We're from the city, northeast of here.
-//////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////
-> All right! I'll show you how we strike up a conversation back home!
-@< glare
-< Why are we doing this, again?
-@> happy
-> Because you're a $wdemon! $0I mean, how cool is that?
-@< idle
-@> idle
-> I've never had a conversation with a demon before. I want to learn more about you!
-# @< whatnow
-< ...
-@< idle
-> Tell me a bit about yourself.
-========================
->> Where are you and your witch from?
-] The city, northeast of here. (0, -60) R_1_1 | A bit south of here. (-90, -10) R_1_2 | East of here. (70, -10) R_1_3
-------------------------
-: R_1_1222222
-* choice_hometown 0
-< The city, northeast of here.
-@> happy
-> Oh, really?
-< Well... sort of.
-@> idle
-@< explain
-< We live on the outskirts of the city. But we're really close.
-> Oh.
-> How do you like living near the city?
-< It's all right.
-@< idle
-< I go into the city with my witch from time to time.
-< It's definitely a change from our quiet little house on the outskirts.
-@> serious
-@< sad2
-< Although... the people in the city don't tend to be very nice.
-> What, are they just cranky all the time?
-< Well... a lot of them also just... don't like witches and demons.
-@> angry
-> What? Why not?
-< I don't know.
-@< idle
-< Not a whole lot of witches live up there.
-@> sad
-> ...
-@> serious
-< Other than that, though, it's a pretty nice place to live.
-@< smile
-< There are lots of trees and mountains, and it's nowhere near as hot as some of the other places around here.
-@> idle
-> That's nice.
-^ BRANCH_2
-------------------------
-: R_1_2222222222
-* choice_hometown 1
-< A bit south of here.
-> Oh.
-@> serious
-> That's... pretty much in the middle of nowhere, isn't it?
-< Yep.
-@< explain
-< We live near a super small town. Our house isn't even part of it, technically.
-> Sounds like a pretty solitary lifestyle.
-@< idle
-< Yeah. I kind of like it, though.
-@> idle
-< It's always nice and quiet. My witch and I can take a walk pretty much any time we feel like it.
-@< smile
-< Coming to a place like Los Muertos is definitely a change.
-< I'm hoping it'll be an interesting experience.
-^ BRANCH_2
-------------------------
-: R_1_32222222
-* choice_hometown 2
-< East of here.
-@> happy
-> Oh, neat! Me too!
-@> idle
-> Do you live in the city?
-< Not really. We live in a more rural area.
-@< glare
-@> serious
-< We live in the middle of the desert, basically.
-@< idle
-> It must be hot over there, huh?
-< $wOh, $0yes. It was 90 degrees yesterday. In November.
-> Wow.
-> Do you like that kind of weather?
-< Not really.
-@> explain
-> What kind of stuff is there to do in your town?
-@> serious
-@< idle
-< Uh... not... much.
-@< glare
-< It's pretty boring, actually.
-@< idle
-< It's a really small town, and not a whole lot of people ever come to visit.
-@< smile
-< Going to a town like Los Muertos is a refreshing change.
-@> idle
-< Especially when I get dragged into a conversation before even stepping into town.
-@> aw
-> Uh... glad I could help with that!
-@< smile
-@> idle
+: R_1_3
 ^ BRANCH_2
 ========================
 : BRANCH_2
-| 1
-<< So, Rhona...
-] Where are you from? (-20, -60) R_2_1 | Why are you visiting Los Muertos? (20, -10) R_2_2
+| 0.5
+> So, Cosmo... is there anything $wyou'd $0like to ask me?
+< I-
+<< Hm...
+] {Anything you'd like to ask?} Where are you from? (0, -30) R_2_1 | Why are you visiting Los Muertos? (-90, 20) R_2_2 | How has your day been? (70, 20) R_2_3
 ------------------------
 : R_2_1
 < Where are you from?
 @> idle
-> I'm from the city, east of here.
-? choice_hometown 0 CITY_END
-@< smile
-< Oh, really? That sounds pretty neat.
-@> serious
-> Uh...
-> It's okay.
+> I'm from the big city, east of here.
+@, smile
+< Oh, really?
+> Yep! Been living there my whole life.
+< That sounds a lot more lively than where we live.
+> Yeah.
 @< idle
-> I'm not actually a huge fan of it, though.
-^ CITY_END_2
-: CITY_END
-@< smile
-< Oh, really? I guess we both live in the big city.
-> Sounds like it!
 @> serious
-> I'm kind of the same as you, though. I'm not a huge fan of it.
-: CITY_END_2
-@< idle
+> I'm actually not a huge fan of it, though.
 @> explain
 > It's too crowded for me. And it's not the cleanest city, either.
 @> annoyed
 > But there's also just... nowhere interesting to go.
-@> serious
-? choice_hometown 2 CITY2_END
-> It's pretty boring.
-^ CITY2_END_2
-: CITY2_END
-@< glare
-< Sounds pretty similar to our town.
-@< idle
-< ...Sort of.
-> Yeah... a little bit.
-: CITY2_END_2
-@> idle
-@< smile
 > That's why I always like visiting Los Muertos. There's a lot more stuff to do here.
 ^ BRANCH_3
 ------------------------
 : R_2_2
+* choice_know_rhonas_grandpa 1
 < Why are you visiting Los Muertos?
 @> idle
 > I come here every few months to visit my grandpa.
-@> explain2
-> He works here at Ainsley's Knack and Craft. He repairs small trinkets.
-* choice_know_rhonas_grandpa 1
-@< smile
+> He works at a shop here called Ainsley's Knack and Craft.
+> It's a repair shop, basically. He repairs tools, gadgets, trinkets, and other stuff.
 @> idle
-< Sounds interesting!
+@< smile
+< Oh. That's neat.
+> Yeah. I usually end up helping him a bit while I'm here.
+< Oh, really?
+> Yeah.
 @> explain2
-> Yeah! You should stop by and take a look while you're here. The shop looks pretty incredible.
-> My grandpa is a wizard.
-@< smile
-< Really?
-> A wizard at interior decorating.
-@< laugh
-@> laugh
-< Ha!
-@< smile
+> You should stop by the shop while you're here!
+@< idle
 @> idle
+> My grandpa always likes to see new faces.
+< ...
+< Maybe after I find my witch.
 ^ BRANCH_3
 ------------------------
 : R_2_3
-@< idle
-< Where are your parents?
+@< smile
+< How has your day been?
+> Not bad.
 @> serious
-> They're not here. I usually come to Los Muertos by myself.
-@> sad
-> My dad died a few years ago.
+> It's been pretty boring, though.
+@< idle
+@> annoyed
+> I was on this train for over two hours.
+> It's not too much fun when you have nothing but a book to keep you busy.
+@> serious
+> How long were you on the train?
+< About an hour.
 @< sad
-< Oh...
-> And my mom...
+< But I had to wait at the station for an hour, too. Our train got overbooked.
+> Oh... is that why you and your witch got separated?
 @< idle
+< Yeah. She got here an hour before me.
+> Wow. That sucks.
+@> annoyed
+> I've heard this railroad company isn't exactly the best at booking. That's probably why it happened.
 @> serious
-> She really doesn't like to see my grandpa.
-> They disagree on a lot of things.
-@< sad
-< That must be hard.
-> Yeah.
-> She also just doesn't like Los Muertos.
-@< idle
-@> explain
-> She says it's too... $wesoteric $0for her.
-@> serious
-< I guess that's understandable.
+> But... y'know. What can you do.
+@> idle
+> At least you're here now.
+< Yeah.
 ^ BRANCH_3
 ========================
-: BRANCH_3
+| 1
+> $wSo... $0Anything else I should know about you, Cosmo?
+@< sad2
+< Um...
+< I can't think of anything.
+@> happy
+> Aw, come on! You're a $wdemon! $0There must be something interesting you can tell me about that!
+@> idle
+< ...
+@< think
+< Hm...
+> Okay, what about your witch?
+< Huh?
+> You said you're a familiar, right? And so you have a witch?
+< Yeah.
+>> What can you tell me about your witch?
+] {What can you tell me about your witch?} She makes and sells potions. (0, -30) R_3_1 | She writes about alchemy. (-90, 20) R_3_2 | She  (70, 20) R_3_3
+
+
+
+
+
+
+
+
+
+
+
+@> serious
+> You said you're a familiar, right?
+@< idle
+> What does being a familiar even mean?
+
+
+
+
+
+
+
+
+
+
+
+> I don't know a whole lot about witches or familiars.
+< Oh. Well...
+< I'm basically just my witch's assistant. I help her with... work-related stuff.
+@> idle
+> Oh. Okay. That makes sense.
+>> What's something your witch does that she needs you to help with?
+] {What's something your witch does?} She grows potion ingredients. (0, -30) R_3_1 | She makes and sells potions. (-90, 20) R_3_2 | She writes about alchemy. (70, 20) R_3_3
+------------------------
+: R_3_1
+< She grows potion ingredients.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 | 1
 @> idle
 > Hey, Cosmo.
