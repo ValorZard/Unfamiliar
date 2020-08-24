@@ -786,10 +786,9 @@ func get_month_str(month: int, short: bool = true) -> String:
 # =====================================================================
 
 func goto_scene_post(pos: Vector2, direction: int):
-	yield(get_tree(), "idle_frame")
-	var p := Player
-	p.set_position(pos)
-	p.set_direction(direction)
+	yield(get_tree(), "idle_frame")\
+	Player.set_position(pos)
+	Player.set_direction(direction)
 	
 # =====================================================================
 
